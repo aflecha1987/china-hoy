@@ -10,10 +10,11 @@ import json
 import re
 from datetime import datetime, timedelta
 from pathlib import Path
-import google.generativeai as genai
+from google import genai
+from google.genai import types
 
 # ── Configuración ────────────────────────────────────────────────────────────
-genai.configure(api_key=os.environ.get("GEMINI_API_KEY"))
+_client = genai.Client(api_key=os.environ.get("GEMINI_API_KEY"))
 MODELO = "gemini-2.0-flash"
 
 CARPETA_DOCS       = Path("docs")
@@ -27,10 +28,7 @@ FECHA_LEGIBLE = datetime.now().strftime("%-d de %B de %Y").replace(
     ).replace("July","julio").replace("August","agosto").replace("September","septiembre"
     ).replace("October","octubre").replace("November","noviembre").replace("December","diciembre")
 
-# ── Herramienta de búsqueda web de Google ────────────────────────────────────
-HERRAMIENTA_BUSQUEDA = genai.protos.Tool(
-    google_search=genai.protos.GoogleSearch()
-)
+HERRAMIENTA_BUSQUEDA = types.Tool(google_search=types.GoogleSearch())
 
 
 # ═════════════════════════════════════════════════════════════════════════════
@@ -98,17 +96,16 @@ Para cada noticia escribe un comentario de 2-3 párrafos EN ESPAÑOL que:
 3. Analice las implicaciones o tendencias que ilustra"""
 
     print("   Consultando a Gemini con búsqueda web de Google…")
-    modelo_gemini = genai.GenerativeModel(
-        model_name=MODELO,
-        system_instruction=prompt_sistema,
-        tools=[HERRAMIENTA_BUSQUEDA],
-    )
-    respuesta = modelo_gemini.generate_content(
-        prompt_usuario,
-        generation_config=genai.GenerationConfig(temperature=1),
+    respuesta = _client.models.generate_content(
+        model=MODELO,
+        contents=prompt_usuario,
+        config=types.GenerateContentConfig(
+            system_instruction=prompt_sistema,
+            tools=[HERRAMIENTA_BUSQUEDA],
+            temperature=1,
+        ),
     )
 
-    # Extraer el texto de la respuesta (Gemini devuelve partes de contenido)
     texto_respuesta = ""
     for parte in respuesta.candidates[0].content.parts:
         if hasattr(parte, "text") and parte.text:
