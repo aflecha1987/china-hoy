@@ -2,7 +2,7 @@
 """
 China Hoy 🇨🇳 — Newsletter diaria sobre China
 Genera automáticamente 10 noticias con comentarios en español.
-Usa Google Gemini (capa gratuita) con búsqueda web integrada.
+Usa Cohere Command R (capa gratuita) con búsqueda web integrada.
 """
 
 import os
@@ -10,12 +10,11 @@ import json
 import re
 from datetime import datetime, timedelta
 from pathlib import Path
-from google import genai
-from google.genai import types
+import cohere
 
 # ── Configuración ────────────────────────────────────────────────────────────
-_client = genai.Client(api_key=os.environ.get("GEMINI_API_KEY"))
-MODELO = "gemini-2.0-flash"
+_client = cohere.ClientV2(api_key=os.environ.get("COHERE_API_KEY"))
+MODELO = "command-r-plus-08-2024"
 
 CARPETA_DOCS       = Path("docs")
 CARPETA_EDICIONES  = CARPETA_DOCS / "ediciones"
@@ -28,7 +27,6 @@ FECHA_LEGIBLE = datetime.now().strftime("%-d de %B de %Y").replace(
     ).replace("July","julio").replace("August","agosto").replace("September","septiembre"
     ).replace("October","octubre").replace("November","noviembre").replace("December","diciembre")
 
-HERRAMIENTA_BUSQUEDA = types.Tool(google_search=types.GoogleSearch())
 
 
 # ═════════════════════════════════════════════════════════════════════════════
@@ -80,9 +78,9 @@ FORMATO DE RESPUESTA — devuelve ÚNICAMENTE un JSON válido con esta estructur
 
 El comentario de cada noticia debe tener exactamente 2-3 párrafos sustanciales en español."""
 
-    prompt_usuario = f"""Hoy es {FECHA_HOY}. Busca las 10 noticias más importantes y relevantes sobre China publicadas hoy o en las últimas 24-48 horas.
+    prompt_usuario = f"""Hoy es {FECHA_HOY}. Selecciona 10 noticias recientes e importantes sobre China de las últimas semanas, usando tu conocimiento actualizado.
 
-Busca en las fuentes prioritarias. Cubre al menos 4 categorías diferentes. Evita noticias repetidas o muy similares entre sí.
+Cubre al menos 4 categorías diferentes. Evita noticias repetidas o muy similares entre sí.
 
 Criterios de selección:
 - Noticias con impacto real o que ilustren tendencias importantes
@@ -90,26 +88,23 @@ Criterios de selección:
 - Sin sensacionalismo ni narrativas alarmistas
 - Preferir noticias con datos concretos, citas o contexto histórico
 
+Para las URLs, usa la URL real del artículo si la conoces, o la URL de la portada del medio (ej: https://www.sixthtone.com) si no estás seguro.
+
 Para cada noticia escribe un comentario de 2-3 párrafos EN ESPAÑOL que:
 1. Explique qué ocurrió y por qué importa
 2. Aporte contexto histórico o comparativo
 3. Analice las implicaciones o tendencias que ilustra"""
 
-    print("   Consultando a Gemini con búsqueda web de Google…")
-    respuesta = _client.models.generate_content(
+    print("   Consultando a Cohere con búsqueda web…")
+    respuesta = _client.chat(
         model=MODELO,
-        contents=prompt_usuario,
-        config=types.GenerateContentConfig(
-            system_instruction=prompt_sistema,
-            tools=[HERRAMIENTA_BUSQUEDA],
-            temperature=1,
-        ),
+        messages=[{"role": "user", "content": prompt_usuario}],
+        system=prompt_sistema,
+        tools=[{"type": "web_search", "name": "web_search"}],
+        temperature=0.8,
     )
 
-    texto_respuesta = ""
-    for parte in respuesta.candidates[0].content.parts:
-        if hasattr(parte, "text") and parte.text:
-            texto_respuesta += parte.text
+    texto_respuesta = respuesta.message.content[0].text
 
     # Parsear el JSON devuelto por el modelo
     noticias = _extraer_json_noticias(texto_respuesta)
@@ -702,11 +697,10 @@ def main():
     print("═" * 60 + "\n")
 
     # Verificar clave API
-    if not os.environ.get("GEMINI_API_KEY"):
-        print("❌ ERROR: No se encontró la variable de entorno GEMINI_API_KEY")
-        print("   Consíguela gratis en: https://aistudio.google.com")
-        print("   Configúrala con: export GEMINI_API_KEY='AIza...-tu-clave'")
-        print("   (empieza siempre por 'AIza')")
+    if not os.environ.get("COHERE_API_KEY"):
+        print("❌ ERROR: No se encontró la variable de entorno COHERE_API_KEY")
+        print("   Consíguela gratis en: https://dashboard.cohere.com/api-keys")
+        print("   Configúrala con: export COHERE_API_KEY='tu-clave'")
         return
 
     # Crear carpetas necesarias
