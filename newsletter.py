@@ -98,8 +98,10 @@ Para cada noticia escribe un comentario de 2-3 párrafos EN ESPAÑOL que:
     print("   Consultando a Cohere con búsqueda web…")
     respuesta = _client.chat(
         model=MODELO,
-        messages=[{"role": "user", "content": prompt_usuario}],
-        system=prompt_sistema,
+        messages=[
+            {"role": "system", "content": prompt_sistema},
+            {"role": "user", "content": prompt_usuario},
+        ],
         tools=[{"type": "web_search", "name": "web_search"}],
         temperature=0.8,
     )
