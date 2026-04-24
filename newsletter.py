@@ -499,6 +499,9 @@ def generar_markdown(noticias: list[dict]) -> str:
         for n in noticias
     )
 
+    resumen_md = "\n".join(f"{i}. {n.get('titulo','')}" for i, n in enumerate(noticias, 1))
+    cuerpo_md = "---\n\n".join(secciones)
+
     return f"""# 中国今日 · China Hoy 🇨🇳
 
 **Edición del {FECHA_LEGIBLE}**
@@ -509,11 +512,11 @@ def generar_markdown(noticias: list[dict]) -> str:
 
 ## Resumen ejecutivo
 
-{chr(10).join(f'{i}. {n.get("titulo","")}' for i,n in enumerate(noticias,1))}
+{resumen_md}
 
 ---
 
-{"---\n\n".join(secciones)}
+{cuerpo_md}
 
 ---
 
