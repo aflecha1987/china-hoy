@@ -1,0 +1,78 @@
+# ──────────────────────────────────────────────────────────────────────────────
+# China Hoy 🇨🇳 — GitHub Action para newsletter diaria
+# Se ejecuta cada día a las 8:00 UTC y también puede lanzarse manualmente.
+# ──────────────────────────────────────────────────────────────────────────────
+
+name: Newsletter Diaria — China Hoy
+
+on:
+  # Ejecución automática cada día a las 8:00 UTC
+  schedule:
+    - cron: "0 8 * * *"
+
+  # Permite lanzar el workflow manualmente desde la interfaz de GitHub
+  workflow_dispatch:
+
+jobs:
+  generar_newsletter:
+    name: Generar y publicar edición del día
+    runs-on: ubuntu-latest
+
+    steps:
+      # ── Paso 1: Obtener el código del repositorio ──────────────────────────
+      - name: Obtener código del repositorio
+        uses: actions/checkout@v4
+
+      # ── Paso 2: Configurar Python 3.11 ────────────────────────────────────
+      - name: Configurar Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: "pip"
+
+      # ── Paso 3: Instalar dependencias desde requirements.txt ───────────────
+      - name: Instalar dependencias
+        run: pip install -r requirements.txt
+
+      # ── Paso 4: Ejecutar el script principal de la newsletter ──────────────
+      # La variable GEMINI_API_KEY se lee desde los Secrets del repositorio.
+      # Configúrala en: Settings → Secrets and variables → Actions → New secret
+      - name: Generar newsletter del día
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: python newsletter.py
+
+      # ── Paso 5: Verificar si se generaron archivos nuevos ──────────────────
+      # Si no hay cambios (p.ej. todas las noticias ya existían), el workflow
+      # termina aquí sin hacer commit, evitando commits vacíos.
+      - name: Verificar si hay archivos nuevos para publicar
+        id: verificar_cambios
+        run: |
+          git diff --quiet && git diff --staged --quiet || echo "hay_cambios=true" >> $GITHUB_OUTPUT
+
+      # ── Paso 6: Configurar identidad de git para el commit ─────────────────
+      - name: Configurar identidad de git
+        if: steps.verificar_cambios.outputs.hay_cambios == 'true'
+        run: |
+          git config user.name "China Hoy Bot"
+          git config user.email "bot@chinahoy.com"
+
+      # ── Paso 7: Añadir los archivos generados al staging de git ───────────
+      - name: Preparar archivos para commit
+        if: steps.verificar_cambios.outputs.hay_cambios == 'true'
+        run: |
+          git add docs/
+          git add fuentes_consultadas.json
+
+      # ── Paso 8: Hacer commit con la fecha de hoy ──────────────────────────
+      - name: Hacer commit de la edición del día
+        if: steps.verificar_cambios.outputs.hay_cambios == 'true'
+        run: |
+          FECHA=$(date +'%Y-%m-%d')
+          git commit -m "📰 Edición del ${FECHA} — China Hoy"
+
+      # ── Paso 9: Publicar en el repositorio de GitHub ──────────────────────
+      # Esto actualiza GitHub Pages automáticamente (la carpeta /docs en main).
+      - name: Publicar en GitHub
+        if: steps.verificar_cambios.outputs.hay_cambios == 'true'
+        run: git push
