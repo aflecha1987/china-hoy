@@ -95,14 +95,13 @@ Para cada noticia escribe un comentario de 2-3 párrafos EN ESPAÑOL que:
 2. Aporte contexto histórico o comparativo
 3. Analice las implicaciones o tendencias que ilustra"""
 
-    print("   Consultando a Cohere con búsqueda web…")
+    print("   Consultando a Cohere…")
     respuesta = _client.chat(
         model=MODELO,
         messages=[
             {"role": "system", "content": prompt_sistema},
             {"role": "user", "content": prompt_usuario},
         ],
-        tools=[{"type": "web_search", "name": "web_search"}],
         temperature=0.8,
     )
 
