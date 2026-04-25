@@ -2,7 +2,7 @@
 """
 China Hoy 🇨🇳 — Newsletter diaria sobre China
 Genera automáticamente 10 noticias con comentarios en español.
-Usa Cohere Command R (capa gratuita) con búsqueda web integrada.
+Usa Claude Haiku (Anthropic) para minimizar costes.
 """
 
 import os
@@ -10,11 +10,11 @@ import json
 import re
 from datetime import datetime, timedelta
 from pathlib import Path
-import cohere
+import anthropic
 
 # ── Configuración ────────────────────────────────────────────────────────────
-_client = cohere.ClientV2(api_key=os.environ.get("COHERE_API_KEY"))
-MODELO = "command-r-plus-08-2024"
+_client = anthropic.Anthropic(api_key=os.environ.get("ANTHROPIC_API_KEY"))
+MODELO = "claude-haiku-4-5"
 
 CARPETA_DOCS       = Path("docs")
 CARPETA_EDICIONES  = CARPETA_DOCS / "ediciones"
@@ -95,17 +95,15 @@ Para cada noticia escribe un comentario de 2-3 párrafos EN ESPAÑOL que:
 2. Aporte contexto histórico o comparativo
 3. Analice las implicaciones o tendencias que ilustra"""
 
-    print("   Consultando a Cohere…")
-    respuesta = _client.chat(
+    print("   Consultando a Claude Haiku…")
+    respuesta = _client.messages.create(
         model=MODELO,
-        messages=[
-            {"role": "system", "content": prompt_sistema},
-            {"role": "user", "content": prompt_usuario},
-        ],
-        temperature=0.8,
+        max_tokens=4096,
+        system=prompt_sistema,
+        messages=[{"role": "user", "content": prompt_usuario}],
     )
 
-    texto_respuesta = respuesta.message.content[0].text
+    texto_respuesta = respuesta.content[0].text
 
     # Parsear el JSON devuelto por el modelo
     noticias = _extraer_json_noticias(texto_respuesta)
@@ -698,10 +696,10 @@ def main():
     print("═" * 60 + "\n")
 
     # Verificar clave API
-    if not os.environ.get("COHERE_API_KEY"):
-        print("❌ ERROR: No se encontró la variable de entorno COHERE_API_KEY")
-        print("   Consíguela gratis en: https://dashboard.cohere.com/api-keys")
-        print("   Configúrala con: export COHERE_API_KEY='tu-clave'")
+    if not os.environ.get("ANTHROPIC_API_KEY"):
+        print("❌ ERROR: No se encontró la variable de entorno ANTHROPIC_API_KEY")
+        print("   Consíguela en: https://console.anthropic.com/settings/keys")
+        print("   Configúrala con: export ANTHROPIC_API_KEY='sk-ant-...'")
         return
 
     # Crear carpetas necesarias

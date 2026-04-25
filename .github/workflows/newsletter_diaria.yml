@@ -35,11 +35,11 @@ jobs:
         run: pip install -r requirements.txt
 
       # ── Paso 4: Ejecutar el script principal de la newsletter ──────────────
-      # La variable COHERE_API_KEY se lee desde los Secrets del repositorio.
+      # La variable ANTHROPIC_API_KEY se lee desde los Secrets del repositorio.
       # Configúrala en: Settings → Secrets and variables → Actions → New secret
       - name: Generar newsletter del día
         env:
-          COHERE_API_KEY: ${{ secrets.COHERE_API_KEY }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
         run: python newsletter.py
 
       # ── Paso 5: Verificar si se generaron archivos nuevos ──────────────────
