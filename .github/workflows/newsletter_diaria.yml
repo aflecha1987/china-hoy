@@ -17,6 +17,8 @@ jobs:
   generar_newsletter:
     name: Generar y publicar edición del día
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
 
     steps:
       # ── Paso 1: Obtener el código del repositorio ──────────────────────────
