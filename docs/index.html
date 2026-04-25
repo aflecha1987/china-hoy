@@ -1,1 +1,105 @@
-<!DOCTYPE html><html><body><h1>China Hoy 🇨🇳</h1><p>Primera edición próximamente.</p></body></html>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>China Hoy 🇨🇳 — Newsletter diaria sobre China en español</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Georgia', 'Times New Roman', serif;
+      background: #fafaf8;
+      color: #1a1a1a;
+      line-height: 1.7;
+    }
+    .cabecera {
+      background: linear-gradient(135deg, #c0392b 0%, #922b21 100%);
+      color: white;
+      padding: 3.5rem 1.5rem;
+      text-align: center;
+    }
+    .logo { font-size: 3rem; font-weight: bold; letter-spacing: -0.5px; }
+    .logo-sub { font-size: 1rem; opacity: 0.8; margin-top: 0.4rem; letter-spacing: 2px; text-transform: uppercase; }
+    .descripcion {
+      max-width: 550px;
+      margin: 1.2rem auto 0;
+      font-size: 1.05rem;
+      opacity: 0.9;
+      line-height: 1.6;
+    }
+    .contador {
+      margin-top: 1rem;
+      font-size: 0.9rem;
+      opacity: 0.75;
+      font-family: sans-serif;
+    }
+    .contenido { max-width: 680px; margin: 3rem auto; padding: 0 1.5rem 4rem; }
+    .seccion-titulo {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: #888;
+      margin-bottom: 1.2rem;
+      font-family: sans-serif;
+    }
+    .lista-ediciones { list-style: none; }
+    .edicion-item { border-bottom: 1px solid #ece9e0; }
+    .edicion-item:first-child { border-top: 1px solid #ece9e0; }
+    .edicion-enlace {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 0.2rem;
+      color: #1a1a1a;
+      transition: color 0.15s;
+    }
+    .edicion-enlace:hover { color: #c0392b; text-decoration: none; }
+    .edicion-fecha { font-size: 1.05rem; }
+    .edicion-flecha { color: #c0392b; font-size: 1.2rem; }
+    .vacio {
+      text-align: center;
+      color: #aaa;
+      padding: 3rem 0;
+      font-style: italic;
+    }
+    .pie {
+      text-align: center;
+      padding: 2rem;
+      color: #aaa;
+      font-size: 0.82rem;
+      border-top: 1px solid #ece9e0;
+      font-family: sans-serif;
+    }
+    @media (max-width: 500px) { .logo { font-size: 2.2rem; } }
+  </style>
+</head>
+<body>
+
+<header class="cabecera">
+  <div class="logo">中国今日 · China Hoy 🇨🇳</div>
+  <div class="logo-sub">Newsletter diaria en español</div>
+  <p class="descripcion">
+    Cada día, 10 noticias seleccionadas sobre China: tecnología, cultura,
+    sociedad, empresas, ciencia y geopolítica. Sin sensacionalismo, con contexto.
+  </p>
+  <div class="contador">1 edición publicada</div>
+</header>
+
+<main class="contenido">
+  <p class="seccion-titulo">📅 Todas las ediciones — más reciente primero</p>
+  <ul class='lista-ediciones'>
+        <li class="edicion-item">
+          <a href="ediciones/2026-04-25.html" class="edicion-enlace">
+            <span class="edicion-fecha">25 de abril de 2026</span>
+            <span class="edicion-flecha">→</span>
+          </a>
+        </li></ul>
+</main>
+
+<footer class="pie">
+  China Hoy · Actualizado el 2026-04-25 · Generado con IA ·
+  <a href="https://github.com" style="color:#aaa">Ver en GitHub</a>
+</footer>
+
+</body>
+</html>
