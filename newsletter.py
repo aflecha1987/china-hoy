@@ -63,20 +63,8 @@ TONO EDITORIAL:
 - En temas sensibles: presentar múltiples perspectivas sin dramatizar
 - TODO el contenido en español
 
-FORMATO DE RESPUESTA — devuelve ÚNICAMENTE un JSON válido con esta estructura exacta:
-{
-  "noticias": [
-    {
-      "titulo": "Título en español",
-      "url": "https://...",
-      "fuente": "Nombre del medio",
-      "categoria": "tecnología|cultura|sociedad|empresas|ciencia|geopolítica",
-      "comentario": "Dos o tres párrafos en español con análisis y contexto..."
-    }
-  ]
-}
-
-El comentario de cada noticia debe tener exactamente 2-3 párrafos sustanciales en español."""
+Usarás la herramienta 'guardar_noticias' para entregar las 10 noticias seleccionadas.
+El comentario de cada noticia debe tener 2-3 párrafos sustanciales en español."""
 
     prompt_usuario = f"""Hoy es {FECHA_HOY}. Selecciona 10 noticias recientes e importantes sobre China de las últimas semanas, usando tu conocimiento actualizado.
 
@@ -95,20 +83,52 @@ Para cada noticia escribe un comentario de 2-3 párrafos EN ESPAÑOL que:
 2. Aporte contexto histórico o comparativo
 3. Analice las implicaciones o tendencias que ilustra"""
 
+    herramienta = {
+        "name": "guardar_noticias",
+        "description": "Guarda las 10 noticias seleccionadas con sus comentarios.",
+        "input_schema": {
+            "type": "object",
+            "properties": {
+                "noticias": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "titulo":    {"type": "string"},
+                            "url":       {"type": "string"},
+                            "fuente":    {"type": "string"},
+                            "categoria": {"type": "string", "enum": ["tecnología","cultura","sociedad","empresas","ciencia","geopolítica"]},
+                            "comentario":{"type": "string"},
+                        },
+                        "required": ["titulo","url","fuente","categoria","comentario"]
+                    },
+                    "minItems": 5,
+                    "maxItems": 10,
+                }
+            },
+            "required": ["noticias"]
+        }
+    }
+
     print("   Consultando a Claude Haiku…")
     respuesta = _client.messages.create(
         model=MODELO,
-        max_tokens=4096,
+        max_tokens=8192,
         system=prompt_sistema,
+        tools=[herramienta],
+        tool_choice={"type": "tool", "name": "guardar_noticias"},
         messages=[{"role": "user", "content": prompt_usuario}],
     )
 
-    texto_respuesta = respuesta.content[0].text
+    # Extraer noticias del tool_use (JSON garantizado válido)
+    for bloque in respuesta.content:
+        if bloque.type == "tool_use" and bloque.name == "guardar_noticias":
+            noticias = bloque.input.get("noticias", [])
+            print(f"   ✅ {len(noticias)} noticias encontradas")
+            return noticias
 
-    # Parsear el JSON devuelto por el modelo
-    noticias = _extraer_json_noticias(texto_respuesta)
-    print(f"   ✅ {len(noticias)} noticias encontradas")
-    return noticias
+    print("   ⚠️  No se recibió respuesta estructurada")
+    return []
 
 
 def _extraer_json_noticias(texto: str) -> list[dict]:
