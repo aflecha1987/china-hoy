@@ -64,7 +64,7 @@ TONO EDITORIAL:
 - TODO el contenido en español
 
 Usarás la herramienta 'guardar_noticias' para entregar las 10 noticias seleccionadas.
-El comentario de cada noticia debe tener 2-3 párrafos sustanciales en español."""
+El comentario de cada noticia debe ser UN solo párrafo de 4-5 frases en español."""
 
     prompt_usuario = f"""Hoy es {FECHA_HOY}. Selecciona 10 noticias recientes e importantes sobre China de las últimas semanas, usando tu conocimiento actualizado.
 
@@ -78,10 +78,7 @@ Criterios de selección:
 
 Para las URLs, usa la URL real del artículo si la conoces, o la URL de la portada del medio (ej: https://www.sixthtone.com) si no estás seguro.
 
-Para cada noticia escribe un comentario de 2-3 párrafos EN ESPAÑOL que:
-1. Explique qué ocurrió y por qué importa
-2. Aporte contexto histórico o comparativo
-3. Analice las implicaciones o tendencias que ilustra"""
+Para cada noticia escribe UN párrafo de 4-5 frases EN ESPAÑOL que explique qué ocurrió, por qué importa y qué tendencia ilustra."""
 
     herramienta = {
         "name": "guardar_noticias",
@@ -113,7 +110,7 @@ Para cada noticia escribe un comentario de 2-3 párrafos EN ESPAÑOL que:
     print("   Consultando a Claude Haiku…")
     respuesta = _client.messages.create(
         model=MODELO,
-        max_tokens=8192,
+        max_tokens=4096,
         system=prompt_sistema,
         tools=[herramienta],
         tool_choice={"type": "tool", "name": "guardar_noticias"},
