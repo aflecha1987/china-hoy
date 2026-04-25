@@ -53,8 +53,15 @@ Fuentes PRIORITARIAS (úsalas en este orden):
 6. Pandaily (pandaily.com)
 7. China Daily (chinadaily.com.cn)
 8. CGTN (cgtn.com)
-9. Xinhua (xinhuanet.com)
+9. Xinhua News Agency (xinhuanet.com)
 10. Nikkei Asia (asia.nikkei.com)
+11. Global Times (globaltimes.cn)
+12. Reuters China (reuters.com)
+13. People's Daily Online (english.peopledaily.com.cn)
+14. China Today (chinatoday.com.cn)
+15. CCTV News (english.cctv.com)
+16. ChinaNews (chinanews.com.cn)
+17. Yicai Global (yicaiglobal.com)
 
 TONO EDITORIAL:
 - Positivo pero honesto: destacar progreso, innovación, cambio social y matices
