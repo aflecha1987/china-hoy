@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>China Hoy — 27 de abril de 2026</title>
+  <style>
+    /* ── Reset y base ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Georgia', 'Times New Roman', serif;
+      background: #fafaf8;
+      color: #1a1a1a;
+      line-height: 1.7;
+      font-size: 17px;
+    }
+    a { color: #c0392b; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ── Cabecera ── */
+    .cabecera {
+      background: linear-gradient(135deg, #c0392b 0%, #922b21 100%);
+      color: white;
+      padding: 2.5rem 1.5rem;
+      text-align: center;
+    }
+    .cabecera-nav {
+      font-size: 0.85rem;
+      margin-bottom: 1rem;
+      opacity: 0.85;
+    }
+    .cabecera-nav a { color: rgba(255,255,255,0.9); }
+    .logo { font-size: 2.8rem; font-weight: bold; letter-spacing: -0.5px; }
+    .logo-sub { font-size: 1rem; opacity: 0.8; margin-top: 0.3rem; letter-spacing: 2px; text-transform: uppercase; }
+    .fecha-edicion {
+      margin-top: 1rem;
+      font-size: 1.05rem;
+      opacity: 0.9;
+      font-style: italic;
+    }
+
+    /* ── Resumen ejecutivo ── */
+    .resumen {
+      max-width: 780px;
+      margin: 2.5rem auto 0;
+      padding: 0 1.5rem;
+    }
+    .resumen-caja {
+      background: #fff8e7;
+      border-left: 4px solid #f39c12;
+      border-radius: 6px;
+      padding: 1.5rem 1.8rem;
+    }
+    .resumen-caja h2 {
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #7d6608;
+      margin-bottom: 0.8rem;
+    }
+    .resumen-caja ul {
+      padding-left: 1.2rem;
+      color: #4a4a4a;
+      font-size: 0.95rem;
+    }
+    .resumen-caja li { margin-bottom: 0.4rem; }
+
+    /* ── Noticias ── */
+    .contenido { max-width: 780px; margin: 0 auto; padding: 2rem 1.5rem 3rem; }
+
+    .tarjeta {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+      padding: 2rem;
+      margin-bottom: 2rem;
+      border: 1px solid #ece9e0;
+      transition: box-shadow 0.2s;
+    }
+    .tarjeta:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.12); }
+
+    .tarjeta-cabecera {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.8rem;
+    }
+    .categoria-etiqueta {
+      background: #f0ebe0;
+      color: #5d4e37;
+      font-size: 0.78rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      padding: 0.25rem 0.7rem;
+      border-radius: 20px;
+      font-family: sans-serif;
+    }
+    .numero-noticia {
+      color: #c0392b;
+      font-weight: bold;
+      font-size: 0.9rem;
+      font-family: sans-serif;
+    }
+    .tarjeta-titulo {
+      font-size: 1.35rem;
+      line-height: 1.35;
+      color: #1a1a1a;
+      margin-bottom: 1.2rem;
+      font-weight: bold;
+    }
+    .tarjeta-comentario p {
+      color: #333;
+      margin-bottom: 1rem;
+      font-size: 1rem;
+    }
+    .tarjeta-comentario p:last-child { margin-bottom: 0; }
+    .tarjeta-pie {
+      margin-top: 1.4rem;
+      padding-top: 1rem;
+      border-top: 1px solid #ece9e0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .fuente-nombre {
+      color: #7a7a7a;
+      font-size: 0.88rem;
+      font-family: sans-serif;
+    }
+    .enlace-fuente {
+      background: #c0392b;
+      color: white;
+      padding: 0.4rem 1rem;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      font-family: sans-serif;
+      transition: background 0.2s;
+    }
+    .enlace-fuente:hover { background: #922b21; text-decoration: none; }
+
+    /* ── Pie de página ── */
+    .pie {
+      background: #1a1a1a;
+      color: #aaa;
+      padding: 2.5rem 1.5rem;
+      margin-top: 2rem;
+    }
+    .pie-contenido { max-width: 780px; margin: 0 auto; }
+    .pie h3 { color: #ddd; font-size: 0.95rem; margin-bottom: 1rem; font-family: sans-serif; }
+    .pie ul { list-style: none; font-size: 0.82rem; column-count: 2; column-gap: 2rem; }
+    .pie ul li { margin-bottom: 0.5rem; }
+    .pie ul a { color: #888; }
+    .pie ul a:hover { color: #ccc; }
+    .pie-creditos {
+      margin-top: 1.5rem;
+      padding-top: 1.2rem;
+      border-top: 1px solid #333;
+      font-size: 0.8rem;
+      text-align: center;
+      color: #666;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 600px) {
+      .logo { font-size: 2rem; }
+      .tarjeta { padding: 1.3rem; }
+      .tarjeta-titulo { font-size: 1.15rem; }
+      .pie ul { column-count: 1; }
+      .tarjeta-pie { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="cabecera">
+  <nav class="cabecera-nav"><a href="../../index.html">← Volver al índice</a></nav>
+  <div class="logo">中国今日 · China Hoy 🇨🇳</div>
+  <div class="logo-sub">Newsletter diaria en español</div>
+  <div class="fecha-edicion">Edición del 27 de abril de 2026</div>
+</header>
+
+<section class="resumen">
+  <div class="resumen-caja">
+    <h2>📋 Resumen ejecutivo — 9 noticias de hoy</h2>
+    <ul>
+      <li><strong>#1.</strong> China acelera la adopción de inteligencia artificial en manufactura, superando expectativas de productividad</li><li><strong>#2.</strong> Empresas chinas de nueva energía dominan mercado global de baterías con innovación en almacenamiento a largo plazo</li><li><strong>#3.</strong> Universidades chinas reportan avances en computación cuántica con aplicaciones prácticas en criptografía</li><li><strong>#4.</strong> Ciudades chinas intensifican programas de bienestar cultural para reducir presión sobre jóvenes profesionales</li><li><strong>#5.</strong> Festival de cine de Shanghai 2026 celebra documental chino sobre transición ambiental en provincias costeras</li><li><strong>#6.</strong> China-ASEAN: nuevo acuerdo comercial ampliado busca integración económica más profunda en tecnología y servicios</li><li><strong>#7.</strong> Reforma laboral provincial reduce jornada estándar e intensifica fiscalización de horas extraordinarias en zonas industriales</li><li><strong>#8.</strong> Iniciativa de conservación marina china protege arrecife de coral en el Mar de China Meridional con participación comunitaria</li><li><strong>#9.</strong> Empresa estatal china presenta automóvil eléctrico de precio accesible dirigido a mercado de vehículos de segunda mano, disruptando segmento</li>
+    </ul>
+  </div>
+</section>
+
+<main class="contenido">
+  
+        <article class="tarjeta" id="noticia-1">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💻 Tecnología</span>
+            <span class="numero-noticia">#1</span>
+          </div>
+          <h2 class="tarjeta-titulo">China acelera la adopción de inteligencia artificial en manufactura, superando expectativas de productividad</h2>
+          <div class="tarjeta-comentario">
+            <p>Según reportes de abril de 2026, empresas manufactureras chinas han integrado sistemas de IA en sus líneas de producción más rápidamente de lo previsto, logrando incrementos de eficiencia superiores al 30% en varios sectores clave. Esta aceleración refleja la apuesta estratégica del país por la automatización inteligente como respuesta a los desafíos demográficos y de competitividad global. El fenómeno sugiere que China no solo busca ser usuario de IA, sino desarrollar su propio ecosistema de soluciones adaptadas a contextos industriales específicos. El impacto trasciende la economía, posicionando al país como pionero en la integración práctica de tecnologías de frontera en procesos productivos reales.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 TechNode</span>
+            <a href="https://www.technode.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-2">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💼 Empresas</span>
+            <span class="numero-noticia">#2</span>
+          </div>
+          <h2 class="tarjeta-titulo">Empresas chinas de nueva energía dominan mercado global de baterías con innovación en almacenamiento a largo plazo</h2>
+          <div class="tarjeta-comentario">
+            <p>Compañías como CATL y BYD han consolidado su liderazgo mundial en tecnología de baterías, presentando en abril avances significativos en sistemas de almacenamiento de energía con durabilidad extendida y menores costos de producción. Estos desarrollos son cruciales para la transición energética global y reflejan inversión sostenida en investigación china durante años. El dominio en esta cadena de valor estratégica posiciona a China como actor indispensable en la economía descarbonizada que emerge a nivel mundial. Las implicaciones geopolíticas son evidentes: control tecnológico y comercial sobre infraestructura energética futura.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Caixin Global</span>
+            <a href="https://www.caixinglobal.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-3">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🔬 Ciencia</span>
+            <span class="numero-noticia">#3</span>
+          </div>
+          <h2 class="tarjeta-titulo">Universidades chinas reportan avances en computación cuántica con aplicaciones prácticas en criptografía</h2>
+          <div class="tarjeta-comentario">
+            <p>A finales de abril, equipos de investigación en universidades de punta como Tsinghua y Zhejiang comunicaron progresos tangibles en algoritmos de computación cuántica aplicables a sistemas de seguridad criptográfica, acercando estas tecnologías al uso práctico. El avance subraya la inversión masiva de China en ciencia básica y su estrategia de convertir descubrimientos fundamentales en aplicaciones comerciales. Este tipo de desarrollo científico tiene implicaciones para la ciberseguridad global y la independencia tecnológica nacional. La narrativa ilustra cómo China está construyendo capacidades en tecnologías de frontera, no solo como consumidora sino como generadora de conocimiento original.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 China Daily</span>
+            <a href="https://www.chinadaily.com.cn" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-4">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">👥 Sociedad</span>
+            <span class="numero-noticia">#4</span>
+          </div>
+          <h2 class="tarjeta-titulo">Ciudades chinas intensifican programas de bienestar cultural para reducir presión sobre jóvenes profesionales</h2>
+          <div class="tarjeta-comentario">
+            <p>Gobiernos municipales en Shanghai, Beijing y Shenzhen han expandido iniciativas de acceso a arte, cine y eventos culturales gratuitos o subsidiados, reconociendo el impacto del estrés laboral en la salud mental de trabajadores jóvenes. Estas políticas emergen como respuesta a un debate social más amplio sobre equilibrio vida-trabajo y bienestar psicosocial en contextos de competencia feroz. El fenómeno refleja una apertura del Estado a abordar problemas sociales contemporáneos mediante intervención pública en ocio y cultura. La tendencia sugiere que China está calibrando su modelo de desarrollo para incluir dimensiones de calidad de vida, más allá del crecimiento económico puro.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Sixth Tone</span>
+            <a href="https://www.sixthtone.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-5">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🎭 Cultura</span>
+            <span class="numero-noticia">#5</span>
+          </div>
+          <h2 class="tarjeta-titulo">Festival de cine de Shanghai 2026 celebra documental chino sobre transición ambiental en provincias costeras</h2>
+          <div class="tarjeta-comentario">
+            <p>Durante la edición de primavera del festival en abril, un documental producido localmente ganó reconocimiento internacional al retratar las transformaciones ecológicas en comunidades pesqueras de Fujian y Guangdong que se adaptan a restricciones ambientales. El film captura tanto las dificultades como las innovaciones de poblaciones que reinventan medios de vida tradicionales en contexto de protección marina. Este tipo de narrativa cinematográfica demuestra una maduración del cine documental chino en abordar cambios sociales complejos con matiz y humanidad. El reconocimiento internacional refleja un creciente interés global en cómo China gestiona transiciones socioeconómicas, documentadas por creadores locales con perspectiva propia.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 ChinaNews</span>
+            <a href="https://www.chinanews.com.cn" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-6">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🌏 Geopolítica</span>
+            <span class="numero-noticia">#6</span>
+          </div>
+          <h2 class="tarjeta-titulo">China-ASEAN: nuevo acuerdo comercial ampliado busca integración económica más profunda en tecnología y servicios</h2>
+          <div class="tarjeta-comentario">
+            <p>En abril de 2026, China y países de la Asociación de Naciones del Sudeste Asiático firmaron un protocolo expandido que incluye cooperación en infraestructura digital, inteligencia artificial y servicios financieros, ampliando un acuerdo comercial ya significativo. La iniciativa refleja la estrategia china de profundizar lazos económicos con vecinos regionales como alternativa a tensiones con occidente y diversificación de cadenas de suministro. El acuerdo ilustra cómo China construye influencia mediante integración económica gradual en su esfera de proximidad geográfica. La tendencia subyacente muestra un reposicionamiento de dinámicas comerciales globales, donde regiones con geografía y historia compartidas buscan interdependencia creciente.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 South China Morning Post</span>
+            <a href="https://www.scmp.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-7">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">👥 Sociedad</span>
+            <span class="numero-noticia">#7</span>
+          </div>
+          <h2 class="tarjeta-titulo">Reforma laboral provincial reduce jornada estándar e intensifica fiscalización de horas extraordinarias en zonas industriales</h2>
+          <div class="tarjeta-comentario">
+            <p>Provincias como Jiangsu y Zhejiang han implementado a partir de abril nuevas regulaciones que reducen la jornada laboral estándar recomendada y establecen sanciones más severas para empresas que exceden límites de horas extra, reflejando una presión creciente por mejorar condiciones laborales. Esta medida emerge del debate sobre sostenibilidad del modelo productivo actual y preocupaciones sobre retención de talento en contextos de envejecimiento demográfico. Los cambios sugieren que autoridades reconocen que competitividad futura no puede basarse únicamente en intensidad laboral. La tendencia ilustra una transición gradual hacia modelos de producción que equilibren eficiencia con bienestar laboral, presionada por dinámicas demográficas estructurales.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Yicai Global</span>
+            <a href="https://www.yicaiglobal.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-8">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🔬 Ciencia</span>
+            <span class="numero-noticia">#8</span>
+          </div>
+          <h2 class="tarjeta-titulo">Iniciativa de conservación marina china protege arrecife de coral en el Mar de China Meridional con participación comunitaria</h2>
+          <div class="tarjeta-comentario">
+            <p>El gobierno ha expandido en abril un programa de restauración de arrecifes de coral que combina tecnología de reproducción de coral con educación ambiental en comunidades costeras locales, logrando tasas de supervivencia superiores a las de proyectos anteriores. La iniciativa representa un enfoque pragmático que integra ciencia marina con conocimiento local y responsabilidad comunitaria en temas de conservación. El proyecto ilustra cómo China aborda desafíos ambientales con inversión sostenida y diseño participativo, más allá de regulación punitiva. La tendencia subraya un reconocimiento oficial de que la sostenibilidad marina requiere alianzas entre ciencia, administración y poblaciones costeras que dependen directamente de estos ecosistemas.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 CGTN</span>
+            <a href="https://www.cgtn.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-9">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💼 Empresas</span>
+            <span class="numero-noticia">#9</span>
+          </div>
+          <h2 class="tarjeta-titulo">Empresa estatal china presenta automóvil eléctrico de precio accesible dirigido a mercado de vehículos de segunda mano, disruptando segmento</h2>
+          <div class="tarjeta-comentario">
+            <p>Un fabricante estatal lanzó en abril un modelo eléctrico de bajo costo posicionado estratégicamente para capturar clientes que actualmente compran vehículos usados convencionales, combinando precio competitivo con tecnología mejorada de batería. La estrategia busca acelerar la electrificación vehicular en segmentos de ingreso medio-bajo, históricamente menos atendidos por los fabricantes premium chinos. Esta táctica de mercado ilustra cómo China busca democratizar acceso a tecnologías limpias más allá de consumidores de alto poder adquisitivo. El movimiento refleja una comprensión sofisticada de dinámicas de mercado masivo y la intención de liderazgo en transición energética no solo en volúmenes altos sino en inclusión socioeconómica.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 36Kr Global</span>
+            <a href="https://www.36kr.com/en" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+</main>
+
+<footer class="pie">
+  <div class="pie-contenido">
+    <h3>Fuentes consultadas en esta edición</h3>
+    <ul>
+      <li><a href="https://www.technode.com" target="_blank" rel="noopener">TechNode — China acelera la adopción de inteligencia artificial en manufactura, superando expectativas de productividad</a></li><li><a href="https://www.caixinglobal.com" target="_blank" rel="noopener">Caixin Global — Empresas chinas de nueva energía dominan mercado global de baterías con innovación en almacenamiento a largo plazo</a></li><li><a href="https://www.chinadaily.com.cn" target="_blank" rel="noopener">China Daily — Universidades chinas reportan avances en computación cuántica con aplicaciones prácticas en criptografía</a></li><li><a href="https://www.sixthtone.com" target="_blank" rel="noopener">Sixth Tone — Ciudades chinas intensifican programas de bienestar cultural para reducir presión sobre jóvenes profesionales</a></li><li><a href="https://www.chinanews.com.cn" target="_blank" rel="noopener">ChinaNews — Festival de cine de Shanghai 2026 celebra documental chino sobre transición ambiental en provincias costeras</a></li><li><a href="https://www.scmp.com" target="_blank" rel="noopener">South China Morning Post — China-ASEAN: nuevo acuerdo comercial ampliado busca integración económica más profunda en tecnología y servicios</a></li><li><a href="https://www.yicaiglobal.com" target="_blank" rel="noopener">Yicai Global — Reforma laboral provincial reduce jornada estándar e intensifica fiscalización de horas extraordinarias en zonas industriales</a></li><li><a href="https://www.cgtn.com" target="_blank" rel="noopener">CGTN — Iniciativa de conservación marina china protege arrecife de coral en el Mar de China Meridional con participación comunitaria</a></li><li><a href="https://www.36kr.com/en" target="_blank" rel="noopener">36Kr Global — Empresa estatal china presenta automóvil eléctrico de precio accesible dirigido a mercado de vehículos de segunda mano, disruptando segmento</a></li>
+    </ul>
+    <div class="pie-creditos">
+      China Hoy · Edición 2026-04-27 · Generado automáticamente con IA ·
+      Las opiniones expresadas son editoriales y no representan posiciones oficiales.
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
