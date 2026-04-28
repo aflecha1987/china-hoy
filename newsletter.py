@@ -188,11 +188,7 @@ def filtrar_duplicados(noticias_candidatas: list[dict]) -> list[dict]:
 
     filtradas = []
     for n in noticias_candidatas:
-        url_limpia = n.get("url", "").strip()
         titulo_limpio = n.get("titulo", "").strip().lower()
-        if url_limpia in urls_recientes:
-            print(f"   ⏭  Duplicado (URL): {n.get('titulo','')[:60]}")
-            continue
         if titulo_limpio in titulares_recientes:
             print(f"   ⏭  Duplicado (titular): {n.get('titulo','')[:60]}")
             continue
