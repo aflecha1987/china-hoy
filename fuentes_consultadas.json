@@ -1,1 +1,28 @@
-{}
+{
+  "2026-04-28": {
+    "fuentes": [
+      "https://www.technode.com",
+      "https://www.caixinglobal.com",
+      "https://www.sixthtone.com",
+      "https://www.chinadaily.com.cn",
+      "https://www.caixinglobal.com",
+      "https://www.sixthtone.com",
+      "https://www.scmp.com",
+      "https://www.pandaily.com",
+      "https://www.chinatoday.com.cn",
+      "https://www.yicaiglobal.com"
+    ],
+    "titulares": [
+      "China acelera adopción de inteligencia artificial en manufactura",
+      "Nueva normativa sobre protección de datos personales en plataformas digitales",
+      "Museos chinos exhiben nuevas colecciones de arte contemporáneo asiático",
+      "Investigación de satélites chinos detecta variabilidad en ciclos hidráulicos globales",
+      "Empresa china de energías renovables anuncia expansión en mercados africanos",
+      "Reforma educativa enfatiza creatividad y pensamiento crítico en escuelas",
+      "China y Vietnam acuerdan cooperación en investigación marina compartida",
+      "Startups de biotecnología china atraen inversión récord en 2026",
+      "Publicaciones literarias chinas ganan reconocimiento internacional con nuevos autores",
+      "Iniciativa de economía circular en ciudades chinas reduce residuos manufactureros"
+    ]
+  }
+}
