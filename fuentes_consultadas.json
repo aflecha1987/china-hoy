@@ -76,5 +76,31 @@
       "China fortalece asociaciones académicas en el Sudeste Asiático mediante nuevo fondo de investigación",
       "Iniciativa de ciudades inteligentes expande acceso digital a poblaciones rurales de edad avanzada"
     ]
+  },
+  "2026-05-01": {
+    "fuentes": [
+      "https://www.caixinglobal.com",
+      "https://www.caixinglobal.com",
+      "https://www.sixthtone.com",
+      "https://www.sciencedaily.com",
+      "https://www.chinadaily.com.cn",
+      "https://www.technode.com",
+      "https://www.globaltimes.cn",
+      "https://www.pandaily.com",
+      "https://www.sixthtone.com",
+      "https://www.xinhuanet.com"
+    ],
+    "titulares": [
+      "China acelera su transición energética con nuevo récord en capacidad solar instalada",
+      "Alibaba anuncia reestructuración empresarial enfocada en inteligencia artificial y servicios en la nube",
+      "Festival de Cine de Shanghái 2025 celebra cinema independiente chino y narrativas de directores emergentes",
+      "Investigadores chinos logran avance en fusión nuclear controlada con temperaturas récord",
+      "Nuevas regulaciones sobre protección de datos personales entran en vigencia, ampliando derechos de ciudadanos",
+      "Empresas tecnológicas chinas invierten en cadenas de suministro de semiconductores del Sudeste Asiático",
+      "Beijing amplía programa de subsidios agrícolas para modernizar agricultura rural y reducir éxodo urbano",
+      "Nuevos modelos de lenguaje de empresas chinas compiten internacionalmente con productos occidentales",
+      "Minorías étnicas de Xinjiang reportan oportunidades económicas crecientes en turismo cultural y artesanía",
+      "China diagnostica primeros casos de variante nueva de virus respiratorio, acelera investigación epidemiológica"
+    ]
   }
 }

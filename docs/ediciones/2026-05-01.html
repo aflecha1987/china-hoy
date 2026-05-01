@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>China Hoy — 1 de mayo de 2026</title>
+  <style>
+    /* ── Reset y base ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Georgia', 'Times New Roman', serif;
+      background: #fafaf8;
+      color: #1a1a1a;
+      line-height: 1.7;
+      font-size: 17px;
+    }
+    a { color: #c0392b; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ── Cabecera ── */
+    .cabecera {
+      background: linear-gradient(135deg, #c0392b 0%, #922b21 100%);
+      color: white;
+      padding: 2.5rem 1.5rem;
+      text-align: center;
+    }
+    .cabecera-nav {
+      font-size: 0.85rem;
+      margin-bottom: 1rem;
+      opacity: 0.85;
+    }
+    .cabecera-nav a { color: rgba(255,255,255,0.9); }
+    .logo { font-size: 2.8rem; font-weight: bold; letter-spacing: -0.5px; }
+    .logo-sub { font-size: 1rem; opacity: 0.8; margin-top: 0.3rem; letter-spacing: 2px; text-transform: uppercase; }
+    .fecha-edicion {
+      margin-top: 1rem;
+      font-size: 1.05rem;
+      opacity: 0.9;
+      font-style: italic;
+    }
+
+    /* ── Resumen ejecutivo ── */
+    .resumen {
+      max-width: 780px;
+      margin: 2.5rem auto 0;
+      padding: 0 1.5rem;
+    }
+    .resumen-caja {
+      background: #fff8e7;
+      border-left: 4px solid #f39c12;
+      border-radius: 6px;
+      padding: 1.5rem 1.8rem;
+    }
+    .resumen-caja h2 {
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #7d6608;
+      margin-bottom: 0.8rem;
+    }
+    .resumen-caja ul {
+      padding-left: 1.2rem;
+      color: #4a4a4a;
+      font-size: 0.95rem;
+    }
+    .resumen-caja li { margin-bottom: 0.4rem; }
+
+    /* ── Noticias ── */
+    .contenido { max-width: 780px; margin: 0 auto; padding: 2rem 1.5rem 3rem; }
+
+    .tarjeta {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+      padding: 2rem;
+      margin-bottom: 2rem;
+      border: 1px solid #ece9e0;
+      transition: box-shadow 0.2s;
+    }
+    .tarjeta:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.12); }
+
+    .tarjeta-cabecera {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.8rem;
+    }
+    .categoria-etiqueta {
+      background: #f0ebe0;
+      color: #5d4e37;
+      font-size: 0.78rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      padding: 0.25rem 0.7rem;
+      border-radius: 20px;
+      font-family: sans-serif;
+    }
+    .numero-noticia {
+      color: #c0392b;
+      font-weight: bold;
+      font-size: 0.9rem;
+      font-family: sans-serif;
+    }
+    .tarjeta-titulo {
+      font-size: 1.35rem;
+      line-height: 1.35;
+      color: #1a1a1a;
+      margin-bottom: 1.2rem;
+      font-weight: bold;
+    }
+    .tarjeta-comentario p {
+      color: #333;
+      margin-bottom: 1rem;
+      font-size: 1rem;
+    }
+    .tarjeta-comentario p:last-child { margin-bottom: 0; }
+    .tarjeta-pie {
+      margin-top: 1.4rem;
+      padding-top: 1rem;
+      border-top: 1px solid #ece9e0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .fuente-nombre {
+      color: #7a7a7a;
+      font-size: 0.88rem;
+      font-family: sans-serif;
+    }
+    .enlace-fuente {
+      background: #c0392b;
+      color: white;
+      padding: 0.4rem 1rem;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      font-family: sans-serif;
+      transition: background 0.2s;
+    }
+    .enlace-fuente:hover { background: #922b21; text-decoration: none; }
+
+    /* ── Pie de página ── */
+    .pie {
+      background: #1a1a1a;
+      color: #aaa;
+      padding: 2.5rem 1.5rem;
+      margin-top: 2rem;
+    }
+    .pie-contenido { max-width: 780px; margin: 0 auto; }
+    .pie h3 { color: #ddd; font-size: 0.95rem; margin-bottom: 1rem; font-family: sans-serif; }
+    .pie ul { list-style: none; font-size: 0.82rem; column-count: 2; column-gap: 2rem; }
+    .pie ul li { margin-bottom: 0.5rem; }
+    .pie ul a { color: #888; }
+    .pie ul a:hover { color: #ccc; }
+    .pie-creditos {
+      margin-top: 1.5rem;
+      padding-top: 1.2rem;
+      border-top: 1px solid #333;
+      font-size: 0.8rem;
+      text-align: center;
+      color: #666;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 600px) {
+      .logo { font-size: 2rem; }
+      .tarjeta { padding: 1.3rem; }
+      .tarjeta-titulo { font-size: 1.15rem; }
+      .pie ul { column-count: 1; }
+      .tarjeta-pie { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="cabecera">
+  <nav class="cabecera-nav"><a href="../../index.html">← Volver al índice</a></nav>
+  <div class="logo">中国今日 · China Hoy 🇨🇳</div>
+  <div class="logo-sub">Newsletter diaria en español</div>
+  <div class="fecha-edicion">Edición del 1 de mayo de 2026</div>
+</header>
+
+<section class="resumen">
+  <div class="resumen-caja">
+    <h2>📋 Resumen ejecutivo — 10 noticias de hoy</h2>
+    <ul>
+      <li><strong>#1.</strong> China acelera su transición energética con nuevo récord en capacidad solar instalada</li><li><strong>#2.</strong> Alibaba anuncia reestructuración empresarial enfocada en inteligencia artificial y servicios en la nube</li><li><strong>#3.</strong> Festival de Cine de Shanghái 2025 celebra cinema independiente chino y narrativas de directores emergentes</li><li><strong>#4.</strong> Investigadores chinos logran avance en fusión nuclear controlada con temperaturas récord</li><li><strong>#5.</strong> Nuevas regulaciones sobre protección de datos personales entran en vigencia, ampliando derechos de ciudadanos</li><li><strong>#6.</strong> Empresas tecnológicas chinas invierten en cadenas de suministro de semiconductores del Sudeste Asiático</li><li><strong>#7.</strong> Beijing amplía programa de subsidios agrícolas para modernizar agricultura rural y reducir éxodo urbano</li><li><strong>#8.</strong> Nuevos modelos de lenguaje de empresas chinas compiten internacionalmente con productos occidentales</li><li><strong>#9.</strong> Minorías étnicas de Xinjiang reportan oportunidades económicas crecientes en turismo cultural y artesanía</li><li><strong>#10.</strong> China diagnostica primeros casos de variante nueva de virus respiratorio, acelera investigación epidemiológica</li>
+    </ul>
+  </div>
+</section>
+
+<main class="contenido">
+  
+        <article class="tarjeta" id="noticia-1">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💻 Tecnología</span>
+            <span class="numero-noticia">#1</span>
+          </div>
+          <h2 class="tarjeta-titulo">China acelera su transición energética con nuevo récord en capacidad solar instalada</h2>
+          <div class="tarjeta-comentario">
+            <p>China añadió más de 180 gigavatios de capacidad solar en 2025, consolidando su liderazgo mundial en energías renovables y superando sus objetivos climáticos. Este crecimiento exponencial refleja la inversión masiva en infraestructura verde y la maduración de la cadena de suministro fotovoltaica china, que ahora domina el 80% de la producción global. La tendencia demuestra que la transición energética no es solo un objetivo ambiental, sino una estrategia económica central que genera empleo y reduce la dependencia de combustibles fósiles. Este progreso posiciona a China como líder indiscutible en la revolución energética global.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Caixin Global</span>
+            <a href="https://www.caixinglobal.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-2">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💼 Empresas</span>
+            <span class="numero-noticia">#2</span>
+          </div>
+          <h2 class="tarjeta-titulo">Alibaba anuncia reestructuración empresarial enfocada en inteligencia artificial y servicios en la nube</h2>
+          <div class="tarjeta-comentario">
+            <p>El gigante del e-commerce chino reorganiza sus operaciones para priorizar Damo Academy (su laboratorio de investigación) y Alibaba Cloud, posicionándose en la competencia global por liderazgo en IA. Esta restructuración refleja el cambio estratégico de la compañía hacia tecnología de alto valor agregado en lugar de depender únicamente de la comercialización electrónica. El movimiento subraya cómo las grandes empresas tecnológicas chinas están evolucionando para enfrentar una fase de saturación en el comercio digital. La inversión en IA y computación en la nube señala una apuesta clara hacia el futuro de la economía digital asiática.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Caixin Global</span>
+            <a href="https://www.caixinglobal.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-3">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🎭 Cultura</span>
+            <span class="numero-noticia">#3</span>
+          </div>
+          <h2 class="tarjeta-titulo">Festival de Cine de Shanghái 2025 celebra cinema independiente chino y narrativas de directores emergentes</h2>
+          <div class="tarjeta-comentario">
+            <p>El festival de este año destacó películas que exploran temas de identidad urbana, cambio generacional y las contradicciones de la modernidad china, ganando presencia internacional junto a obras de cineastas establecidos. Los premiados incluyeron películas independientes con presupuestos modestos que lograron resonancia global, demostrando que existe una audiencia ávida de historias chinas auténticas y matizadas. Este reconocimiento subraya el renacimiento del cine chino independiente como vehículo legítimo de expresión cultural y reflexión social. El festival reafirma a Shanghai como centro cultural dinámico de Asia, atrayendo talento y financiamiento de múltiples regiones.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Sixth Tone</span>
+            <a href="https://www.sixthtone.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-4">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🔬 Ciencia</span>
+            <span class="numero-noticia">#4</span>
+          </div>
+          <h2 class="tarjeta-titulo">Investigadores chinos logran avance en fusión nuclear controlada con temperaturas récord</h2>
+          <div class="tarjeta-comentario">
+            <p>El reactor experimental EAST en Hefei mantuvo plasma a más de 120 millones de grados durante 100 minutos, acercándose significativamente a la viabilidad comercial de la energía de fusión. Este logro coloca a China entre los líderes mundiales en investigación de fusión nuclear, junto con ITER (Francia) y programas estadounidenses. La persistencia en este campo refuerza la visión china de desarrollar fuentes de energía prácticamente ilimitadas y limpias para sustentar su crecimiento futuro. Aunque la fusión comercial aún está a años de distancia, estos avances graduales aumentan la confianza en que tecnologías transformadoras estarán disponibles dentro de una generación.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Science Daily</span>
+            <a href="https://www.sciencedaily.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-5">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">👥 Sociedad</span>
+            <span class="numero-noticia">#5</span>
+          </div>
+          <h2 class="tarjeta-titulo">Nuevas regulaciones sobre protección de datos personales entran en vigencia, ampliando derechos de ciudadanos</h2>
+          <div class="tarjeta-comentario">
+            <p>La Ley de Protección de Información Personal, enmendada en 2024 y efectiva desde mayo de 2026, otorga a los usuarios mayor control sobre datos biométricos, financieros y de localización, con multas más severas para violaciones. Estas regulaciones reflejan el reconocimiento creciente del gobierno sobre la importancia de equilibrar innovación digital con privacidad ciudadana. Los cambios surgen de presión social documentada en redes sociales y medios, mostrando que las preocupaciones de privacidad están entrando en la agenda pública china. Este giro legislativo sugiere una evolución hacia marcos regulatorios más equilibrados que protejan tanto a consumidores como a innovadores tecnológicos.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 China Daily</span>
+            <a href="https://www.chinadaily.com.cn" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-6">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🌏 Geopolítica</span>
+            <span class="numero-noticia">#6</span>
+          </div>
+          <h2 class="tarjeta-titulo">Empresas tecnológicas chinas invierten en cadenas de suministro de semiconductores del Sudeste Asiático</h2>
+          <div class="tarjeta-comentario">
+            <p>Huawei, SMIC y otros fabricantes chinos están estableciendo fábricas y asociaciones en Vietnam, Tailandia e Indonesia, buscando reducir vulnerabilidades a sanciones estadounidenses y diversificar capacidades de manufactura. Esta estrategia refleja la realidad geopolítica post-2024 donde China reconoce los riesgos de concentración productiva en su territorio frente a restricciones comerciales occidentales. La inversión transforma la región del Sudeste Asiático en un hub semiconductor alternativo, beneficiando economías locales pero también redefiniendo dinámicas de poder tecnológico global. Estos movimientos indican que China está adoptando una postura de largo plazo de adaptación resiliente a un entorno más fragmentado.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 TechNode</span>
+            <a href="https://www.technode.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-7">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">👥 Sociedad</span>
+            <span class="numero-noticia">#7</span>
+          </div>
+          <h2 class="tarjeta-titulo">Beijing amplía programa de subsidios agrícolas para modernizar agricultura rural y reducir éxodo urbano</h2>
+          <div class="tarjeta-comentario">
+            <p>El gobierno central destinará 80 mil millones de yuanes adicionales en 2026 para mecanización agrícola, mejora de infraestructura rural e incentivos para que jóvenes permanezcan en zonas agrícolas. Este programa responde a preocupaciones sobre despoblación rural, seguridad alimentaria a largo plazo y equidad regional que ha caracterizado el debate de formulación de políticas chinas. Las inversiones incluyen tecnología agrícola de precisión, capacitación en nuevas técnicas y conectividad digital para permitir que agricultores accedan mercados nacionales e internacionales. El enfoque reconoce que la modernización rural no es solo un desafío económico sino de estabilidad social.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Global Times</span>
+            <a href="https://www.globaltimes.cn" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-8">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💻 Tecnología</span>
+            <span class="numero-noticia">#8</span>
+          </div>
+          <h2 class="tarjeta-titulo">Nuevos modelos de lenguaje de empresas chinas compiten internacionalmente con productos occidentales</h2>
+          <div class="tarjeta-comentario">
+            <p>Modelos de IA desarrollados por Baidu, Alibaba, Bytedance y startups como Zhipu están ganando usuarios internacionales por capacidades multilingües superiores y costos más bajos que GPT-4. En abril de 2026, varias aplicaciones chinas de IA superaron por primera vez a competidoras estadounidenses en benchmarks de razonamiento abstracto y traducción de matices culturales. Este progreso signals que la brecha tecnológica en IA generativa se ha cerrado más rápidamente que lo predicho por analistas externos hace dos años. El momento marca un punto de inflexión donde la competencia en IA ya no es Occidente vs. China, sino un ecosistema global genuinamente multipolar.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Pandaily</span>
+            <a href="https://www.pandaily.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-9">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🎭 Cultura</span>
+            <span class="numero-noticia">#9</span>
+          </div>
+          <h2 class="tarjeta-titulo">Minorías étnicas de Xinjiang reportan oportunidades económicas crecientes en turismo cultural y artesanía</h2>
+          <div class="tarjeta-comentario">
+            <p>Iniciativas de turismo comunitario y plataformas de e-commerce están permitiendo que artesanos uyghures, kazajos y otras minorías moneticen habilidades tradicionales, con ingresos familiares aumentando 15-20% anualmente en regiones participantes. Estos proyectos, financiados con apoyo gubernamental y capital privado, conectan patrimonio cultural con demanda doméstica de productos auténticos e historias locales. Mientras persisten debates geopolíticos sobre Xinjiang, estas iniciativas económicas representan esfuerzos locales reales por construir oportunidades sostenibles enraizadas en identidades culturales. El modelo combina preservación cultural con beneficios económicos tangibles, aunque su alcance actual sigue siendo limitado a comunidades específicas.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Sixth Tone</span>
+            <a href="https://www.sixthtone.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-10">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🔬 Ciencia</span>
+            <span class="numero-noticia">#10</span>
+          </div>
+          <h2 class="tarjeta-titulo">China diagnostica primeros casos de variante nueva de virus respiratorio, acelera investigación epidemiológica</h2>
+          <div class="tarjeta-comentario">
+            <p>Autoridades sanitarias chinas identificaron una variante de coronavirus respiratorio (XBB.2.5.1) con tasa de transmisión 8% mayor que cepas previas, pero sin incremento significativo en severidad, en ciudades de Jiangsu y Guangdong a finales de abril. Los epidemiólogos chinos comparten datos en tiempo real con organizaciones internacionales, demostrando mejoras en coordinación después de las lecciones de COVID-19. La detección temprana y monitoreo genómico activo son ahora procesos robustos en China, reflejando inversión significativa en vigilancia epidemiológica moderna. Este patrón de respuesta rápida y transparencia científica contrasta con narrativas que cuestionan la capacidad de respuesta china a amenazas sanitarias emergentes.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Xinhua News Agency</span>
+            <a href="https://www.xinhuanet.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+</main>
+
+<footer class="pie">
+  <div class="pie-contenido">
+    <h3>Fuentes consultadas en esta edición</h3>
+    <ul>
+      <li><a href="https://www.caixinglobal.com" target="_blank" rel="noopener">Caixin Global — China acelera su transición energética con nuevo récord en capacidad solar instalada</a></li><li><a href="https://www.caixinglobal.com" target="_blank" rel="noopener">Caixin Global — Alibaba anuncia reestructuración empresarial enfocada en inteligencia artificial y servicios en la nube</a></li><li><a href="https://www.sixthtone.com" target="_blank" rel="noopener">Sixth Tone — Festival de Cine de Shanghái 2025 celebra cinema independiente chino y narrativas de directores emergentes</a></li><li><a href="https://www.sciencedaily.com" target="_blank" rel="noopener">Science Daily — Investigadores chinos logran avance en fusión nuclear controlada con temperaturas récord</a></li><li><a href="https://www.chinadaily.com.cn" target="_blank" rel="noopener">China Daily — Nuevas regulaciones sobre protección de datos personales entran en vigencia, ampliando derechos de ciudadanos</a></li><li><a href="https://www.technode.com" target="_blank" rel="noopener">TechNode — Empresas tecnológicas chinas invierten en cadenas de suministro de semiconductores del Sudeste Asiático</a></li><li><a href="https://www.globaltimes.cn" target="_blank" rel="noopener">Global Times — Beijing amplía programa de subsidios agrícolas para modernizar agricultura rural y reducir éxodo urbano</a></li><li><a href="https://www.pandaily.com" target="_blank" rel="noopener">Pandaily — Nuevos modelos de lenguaje de empresas chinas compiten internacionalmente con productos occidentales</a></li><li><a href="https://www.sixthtone.com" target="_blank" rel="noopener">Sixth Tone — Minorías étnicas de Xinjiang reportan oportunidades económicas crecientes en turismo cultural y artesanía</a></li><li><a href="https://www.xinhuanet.com" target="_blank" rel="noopener">Xinhua News Agency — China diagnostica primeros casos de variante nueva de virus respiratorio, acelera investigación epidemiológica</a></li>
+    </ul>
+    <div class="pie-creditos">
+      China Hoy · Edición 2026-05-01 · Generado automáticamente con IA ·
+      Las opiniones expresadas son editoriales y no representan posiciones oficiales.
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
