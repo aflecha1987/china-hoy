@@ -128,5 +128,31 @@
       "Iniciativa de ciudades inteligentes en Shenzhen y Chongqing integra gobernanza digital y servicios públicos",
       "Literatura contemporánea china gana presencia en mercado editorial global"
     ]
+  },
+  "2026-05-03": {
+    "fuentes": [
+      "https://www.chinadaily.com.cn",
+      "https://www.technode.com",
+      "https://www.scmp.com",
+      "https://www.sixthtone.com",
+      "https://www.pandaily.com",
+      "https://www.caixinglobal.com",
+      "https://www.yicaiglobal.com",
+      "https://www.36kr.com/en",
+      "https://www.globaltimes.cn",
+      "https://www.reuters.com"
+    ],
+    "titulares": [
+      "China impulsa expansión de energías renovables con nuevo récord de capacidad instalada",
+      "Alibaba lanza plataforma de IA para pymes chinas, intensificando competencia tecnológica",
+      "Conflicto comercial con aranceles en aumento: China negocia con socios asiáticos acuerdos alternativos",
+      "Festival de cine de Shanghai 2026 celebra nueva ola de directores chinos independientes",
+      "China lidera avance en baterías de estado sólido con nuevo prototipo con 1000 km de autonomía",
+      "Migración rural-urbana desacelera en China: cambios demográficos replantean modelo de desarrollo",
+      "Instituto de Investigación Genomómica chino publica hallazgos sobre resistencia a enfermedades en cultivos tradicionales",
+      "Startup china de logística con IA logra valuación de unicornio tras rodada de financiamiento",
+      "Beijing promueve programa de revitalización de barrios históricos, equilibrando preservación y modernización",
+      "Fondos estatales de inversión chinos se expanden en empresas verdes europeas tras alianzas estratégicas"
+    ]
   }
 }
