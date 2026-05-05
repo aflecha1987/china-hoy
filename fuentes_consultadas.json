@@ -180,5 +180,31 @@
       "Empresa automotriz BYD expande producción de vehículos eléctricos de largo alcance en mercados europeos",
       "Patrimonio cultural: conservación digital de textos clásicos chinos mediante inteligencia artificial"
     ]
+  },
+  "2026-05-05": {
+    "fuentes": [
+      "https://www.caixinglobal.com",
+      "https://www.sixthtone.com",
+      "https://www.technode.com",
+      "https://www.scmp.com",
+      "https://www.pandaily.com",
+      "https://www.36kr.com/en",
+      "https://www.chinadaily.com.cn",
+      "https://www.yicaiglobal.com",
+      "https://www.cgtn.com",
+      "https://www.xinhuanet.com"
+    ],
+    "titulares": [
+      "China acelera transformación digital de sector agrícola con inversión en IA y sensores",
+      "Festival de cine de Shanghái 2026: retrospectiva de nuevas voces del cine asiático",
+      "Empresas chinas lideran nuevas rondas de inversión en tecnología de fusión nuclear",
+      "Migración interna en China: nuevas políticas de residencia amplían derechos en ciudades de segundo nivel",
+      "Alibaba expande servicios de computación en la nube con nueva infraestructura en Sudeste Asiático",
+      "Nueva generación de semiconductores domésticos chinos alcanza nodos de 3 nanómetros",
+      "Investigación conjunta revela progreso significativo en tratamientos de cáncer basados en inmunología",
+      "Relaciones comerciales China-ASEAN alcanzan nuevo récord, impulsadas por cadenas de suministro diversificadas",
+      "Urbanización verde: ciudades chinas implementan estándares de construcción sostenible a escala masiva",
+      "Cooperación científica China-Europa en cambio climático genera modelos predictivos innovadores"
+    ]
   }
 }
