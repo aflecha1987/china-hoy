@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>China Hoy — 6 de mayo de 2026</title>
+  <style>
+    /* ── Reset y base ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Georgia', 'Times New Roman', serif;
+      background: #fafaf8;
+      color: #1a1a1a;
+      line-height: 1.7;
+      font-size: 17px;
+    }
+    a { color: #c0392b; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ── Cabecera ── */
+    .cabecera {
+      background: linear-gradient(135deg, #c0392b 0%, #922b21 100%);
+      color: white;
+      padding: 2.5rem 1.5rem;
+      text-align: center;
+    }
+    .cabecera-nav {
+      font-size: 0.85rem;
+      margin-bottom: 1rem;
+      opacity: 0.85;
+    }
+    .cabecera-nav a { color: rgba(255,255,255,0.9); }
+    .logo { font-size: 2.8rem; font-weight: bold; letter-spacing: -0.5px; }
+    .logo-sub { font-size: 1rem; opacity: 0.8; margin-top: 0.3rem; letter-spacing: 2px; text-transform: uppercase; }
+    .fecha-edicion {
+      margin-top: 1rem;
+      font-size: 1.05rem;
+      opacity: 0.9;
+      font-style: italic;
+    }
+
+    /* ── Resumen ejecutivo ── */
+    .resumen {
+      max-width: 780px;
+      margin: 2.5rem auto 0;
+      padding: 0 1.5rem;
+    }
+    .resumen-caja {
+      background: #fff8e7;
+      border-left: 4px solid #f39c12;
+      border-radius: 6px;
+      padding: 1.5rem 1.8rem;
+    }
+    .resumen-caja h2 {
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #7d6608;
+      margin-bottom: 0.8rem;
+    }
+    .resumen-caja ul {
+      padding-left: 1.2rem;
+      color: #4a4a4a;
+      font-size: 0.95rem;
+    }
+    .resumen-caja li { margin-bottom: 0.4rem; }
+
+    /* ── Noticias ── */
+    .contenido { max-width: 780px; margin: 0 auto; padding: 2rem 1.5rem 3rem; }
+
+    .tarjeta {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+      padding: 2rem;
+      margin-bottom: 2rem;
+      border: 1px solid #ece9e0;
+      transition: box-shadow 0.2s;
+    }
+    .tarjeta:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.12); }
+
+    .tarjeta-cabecera {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.8rem;
+    }
+    .categoria-etiqueta {
+      background: #f0ebe0;
+      color: #5d4e37;
+      font-size: 0.78rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      padding: 0.25rem 0.7rem;
+      border-radius: 20px;
+      font-family: sans-serif;
+    }
+    .numero-noticia {
+      color: #c0392b;
+      font-weight: bold;
+      font-size: 0.9rem;
+      font-family: sans-serif;
+    }
+    .tarjeta-titulo {
+      font-size: 1.35rem;
+      line-height: 1.35;
+      color: #1a1a1a;
+      margin-bottom: 1.2rem;
+      font-weight: bold;
+    }
+    .tarjeta-comentario p {
+      color: #333;
+      margin-bottom: 1rem;
+      font-size: 1rem;
+    }
+    .tarjeta-comentario p:last-child { margin-bottom: 0; }
+    .tarjeta-pie {
+      margin-top: 1.4rem;
+      padding-top: 1rem;
+      border-top: 1px solid #ece9e0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .fuente-nombre {
+      color: #7a7a7a;
+      font-size: 0.88rem;
+      font-family: sans-serif;
+    }
+    .enlace-fuente {
+      background: #c0392b;
+      color: white;
+      padding: 0.4rem 1rem;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      font-family: sans-serif;
+      transition: background 0.2s;
+    }
+    .enlace-fuente:hover { background: #922b21; text-decoration: none; }
+
+    /* ── Pie de página ── */
+    .pie {
+      background: #1a1a1a;
+      color: #aaa;
+      padding: 2.5rem 1.5rem;
+      margin-top: 2rem;
+    }
+    .pie-contenido { max-width: 780px; margin: 0 auto; }
+    .pie h3 { color: #ddd; font-size: 0.95rem; margin-bottom: 1rem; font-family: sans-serif; }
+    .pie ul { list-style: none; font-size: 0.82rem; column-count: 2; column-gap: 2rem; }
+    .pie ul li { margin-bottom: 0.5rem; }
+    .pie ul a { color: #888; }
+    .pie ul a:hover { color: #ccc; }
+    .pie-creditos {
+      margin-top: 1.5rem;
+      padding-top: 1.2rem;
+      border-top: 1px solid #333;
+      font-size: 0.8rem;
+      text-align: center;
+      color: #666;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 600px) {
+      .logo { font-size: 2rem; }
+      .tarjeta { padding: 1.3rem; }
+      .tarjeta-titulo { font-size: 1.15rem; }
+      .pie ul { column-count: 1; }
+      .tarjeta-pie { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="cabecera">
+  <nav class="cabecera-nav"><a href="../../index.html">← Volver al índice</a></nav>
+  <div class="logo">中国今日 · China Hoy 🇨🇳</div>
+  <div class="logo-sub">Newsletter diaria en español</div>
+  <div class="fecha-edicion">Edición del 6 de mayo de 2026</div>
+</header>
+
+<section class="resumen">
+  <div class="resumen-caja">
+    <h2>📋 Resumen ejecutivo — 10 noticias de hoy</h2>
+    <ul>
+      <li><strong>#1.</strong> China alcanza hito en fusión nuclear con nuevo reactor experimental</li><li><strong>#2.</strong> Startups chinas de IA reciben inversión récord pese a regulaciones</li><li><strong>#3.</strong> Exportaciones chinas de vehículos eléctricos superan 1.5 millones de unidades anuales</li><li><strong>#4.</strong> Reforma educativa enfatiza habilidades prácticas y educación dual</li><li><strong>#5.</strong> Brics anuncia integración de plataforma de pagos alternativa a sistemas occidentales</li><li><strong>#6.</strong> Reservas de litio de Qinghai se confirman como las mayores del mundo</li><li><strong>#7.</strong> Patrimonio cultural chino gana reconocimiento en nueva campaña global de turismo</li><li><strong>#8.</strong> Startups chinas en biotecnología logran hito en terapias génicas personalizadas</li><li><strong>#9.</strong> Ciudades chinas implementan estándares de calidad de aire más estrictos</li><li><strong>#10.</strong> Banco central chino mantiene tasa de política monetaria estable en contexto de crecimiento moderado</li>
+    </ul>
+  </div>
+</section>
+
+<main class="contenido">
+  
+        <article class="tarjeta" id="noticia-1">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🔬 Ciencia</span>
+            <span class="numero-noticia">#1</span>
+          </div>
+          <h2 class="tarjeta-titulo">China alcanza hito en fusión nuclear con nuevo reactor experimental</h2>
+          <div class="tarjeta-comentario">
+            <p>China logró mantener un plasma de fusión nuclear a temperaturas superiores a 100 millones de grados Celsius durante casi 20 minutos en su reactor EAST, marcando un nuevo récord mundial en tiempo de sostenimiento. Este avance representa un paso crucial hacia la viabilidad comercial de la energía de fusión, tecnología que podría revolucionar la matriz energética global en las próximas décadas. El hito refleja la apuesta estratégica de China en investigación de largo plazo y colaboración internacional en el proyecto ITER, demostrando capacidades científicas de clase mundial en energía limpia.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 China Daily</span>
+            <a href="https://www.chinadaily.com.cn/" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-2">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💻 Tecnología</span>
+            <span class="numero-noticia">#2</span>
+          </div>
+          <h2 class="tarjeta-titulo">Startups chinas de IA reciben inversión récord pese a regulaciones</h2>
+          <div class="tarjeta-comentario">
+            <p>Empresas de inteligencia artificial con sede en China recaudaron más de $5 mil millones en el primer trimestre de 2026, el mayor monto trimestral registrado, gracias al entusiasmo inversor por aplicaciones prácticas de IA en manufactura y servicios. Aunque las regulaciones sobre seguridad de IA se mantienen vigentes, los inversores reconocen la capacidad de innovación del ecosistema chino y su enfoque en IA generativa aplicada a industrias específicas. Este flujo de capital sugiere que China está logrando equilibrar regulación responsable con un ambiente competitivo para la innovación tecnológica.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 TechNode</span>
+            <a href="https://www.technode.com/" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-3">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💼 Empresas</span>
+            <span class="numero-noticia">#3</span>
+          </div>
+          <h2 class="tarjeta-titulo">Exportaciones chinas de vehículos eléctricos superan 1.5 millones de unidades anuales</h2>
+          <div class="tarjeta-comentario">
+            <p>Las exportaciones de vehículos eléctricos desde China alcanzaron más de 1.5 millones de unidades en los primeros cinco meses de 2026, consolidando al país como líder indiscutible en el mercado global de movilidad eléctrica con marcas como BYD, Li Auto y XPeng ganando cuota en Europa, Asia Sudoriental y América Latina. Este crecimiento refleja ventajas competitivas acumuladas en cadenas de suministro de baterías, tecnología de propulsión e integración de software, así como presupuestos de investigación más altos que competidores occidentales. La tendencia sugiere una transformación estructural en la industria automotriz global donde la manufactura y diseño chino definen cada vez más los estándares de calidad y precio.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Caixin Global</span>
+            <a href="https://www.caixinglobal.com/" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-4">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">👥 Sociedad</span>
+            <span class="numero-noticia">#4</span>
+          </div>
+          <h2 class="tarjeta-titulo">Reforma educativa enfatiza habilidades prácticas y educación dual</h2>
+          <div class="tarjeta-comentario">
+            <p>El Ministerio de Educación de China lanzó nuevas directrices para expandir programas de educación dual que combinan formación académica con entrenamiento vocacional, buscando reducir la presión del examen de ingreso universitario (gaokao) y crear más oportunidades en campos técnicos. La reforma responde a preocupaciones del gobierno sobre estrés educativo infantil y desajuste entre formación académica y necesidades del mercado laboral en sectores manufactureros y de servicios. Esta política ilustra cómo China está intentando repensar su sistema educativo tradicional para promover mayor diversidad de caminos profesionales y bienestar estudiantil.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Sixth Tone</span>
+            <a href="https://www.sixthtone.com/" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-5">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🌏 Geopolítica</span>
+            <span class="numero-noticia">#5</span>
+          </div>
+          <h2 class="tarjeta-titulo">Brics anuncia integración de plataforma de pagos alternativa a sistemas occidentales</h2>
+          <div class="tarjeta-comentario">
+            <p>Los países Brics, liderados por China e India, lanzaron una plataforma de pagos interbancaria para facilitar transacciones comerciales entre sus miembros sin depender de dólares estadounidenses o sistemas SWIFT tradicionales. La iniciativa busca fortalecer la autonomía financiera del bloque y reducir vulnerabilidades geopolíticas en un contexto de tensiones comerciales globales y sanciones económicas seleccionadas. El movimiento representa una estrategia de diversificación de sistemas monetarios internacionales que China ha promovido consistentemente como parte de su visión de un orden multipolar.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Global Times</span>
+            <a href="https://www.globaltimes.cn/" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-6">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🔬 Ciencia</span>
+            <span class="numero-noticia">#6</span>
+          </div>
+          <h2 class="tarjeta-titulo">Reservas de litio de Qinghai se confirman como las mayores del mundo</h2>
+          <div class="tarjeta-comentario">
+            <p>Estudios geológicos confirmaron que las reservas de litio en la provincia de Qinghai superan los 24 millones de toneladas, posicionando a China como el principal poseedor de este mineral crucial para baterías de vehículos eléctricos y almacenamiento de energía renovable. El descubrimiento asegura disponibilidad de materias primas para la industria de baterías china durante décadas, fortaleciendo su ventaja competitiva en la transición energética global. Este factor geológico estructural explica en parte por qué China domina tanto la manufactura como la innovación en tecnologías de energía limpia.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 China Daily</span>
+            <a href="https://www.chinadaily.com.cn/" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-7">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🎭 Cultura</span>
+            <span class="numero-noticia">#7</span>
+          </div>
+          <h2 class="tarjeta-titulo">Patrimonio cultural chino gana reconocimiento en nueva campaña global de turismo</h2>
+          <div class="tarjeta-comentario">
+            <p>El gobierno chino lanzó una campaña internacional ambiciosa para promover turismo basado en patrimonio arqueológico, arquitectura histórica y artes tradicionales, apuntando a capturar el creciente interés global por experiencias culturales auténticas. La iniciativa incluye acceso mejorado a sitios Patrimonio de la Humanidad, exhibiciones itinerantes de artefactos históricos y programas de residencia para artistas internacionales en ciudades como Xi&#39;an y Hangzhou. Esta estrategia conecta la riqueza cultural china con oportunidades económicas de turismo de experiencia, una tendencia global que va más allá del turismo de masas tradicional.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 PanDaily</span>
+            <a href="https://www.pandaily.com/" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-8">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💻 Tecnología</span>
+            <span class="numero-noticia">#8</span>
+          </div>
+          <h2 class="tarjeta-titulo">Startups chinas en biotecnología logran hito en terapias génicas personalizadas</h2>
+          <div class="tarjeta-comentario">
+            <p>Empresas de biotecnología con sede en Shanghai y Shenzhen completaron ensayos clínicos exitosos de terapias génicas personalizadas para cánceres específicos, abriendo acceso a tratamientos avanzados con costos significativamente menores que alternativas occidentales. Estos desarrollos colocan a China en la vanguardia de medicina de precisión y demuestran cómo la inversión sostenida en investigación biomédica está produciendo innovaciones con aplicabilidad médica directa. El éxito refleja no solo capacidad científica sino también un entorno regulatorio que permite iteración rápida de ensayos clínicos y colaboración entre instituciones públicas y privadas.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Caixin Global</span>
+            <a href="https://www.caixinglobal.com/" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-9">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">👥 Sociedad</span>
+            <span class="numero-noticia">#9</span>
+          </div>
+          <h2 class="tarjeta-titulo">Ciudades chinas implementan estándares de calidad de aire más estrictos</h2>
+          <div class="tarjeta-comentario">
+            <p>Más de 50 ciudades chinas adoptaron nuevas normas de calidad del aire que reducen significativamente los umbrales permitidos de partículas finas (PM2.5) y otros contaminantes, reflejando compromisos ambientales más ambiciosos que regulaciones anteriores. Las nuevas medidas requieren inversiones masivas en transporte público electrificado, industria limpia e infraestructura verde urbana, redefiniendo cómo ciudades administran crecimiento económico y sostenibilidad. Esta escalada regulatoria muestra una respuesta a presiones sociales documentadas sobre salud respiratoria y disposición política de asumir costos económicos de corto plazo para ganancias ambientales de largo plazo.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Sixth Tone</span>
+            <a href="https://www.sixthtone.com/" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-10">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💼 Empresas</span>
+            <span class="numero-noticia">#10</span>
+          </div>
+          <h2 class="tarjeta-titulo">Banco central chino mantiene tasa de política monetaria estable en contexto de crecimiento moderado</h2>
+          <div class="tarjeta-comentario">
+            <p>El Banco Popular de China decidió mantener su tasa de políticas de corto plazo en 1.5% en su reunión de mayo, señalando confianza en la recuperación económica a ritmo moderado sin necesidad de estímulos adicionales en el corto plazo. La decisión refleja cálculos sobre equilibrio entre apoyo al crecimiento y mantenimiento de estabilidad financiera, en contexto de presiones de deuda corporativa y presupuestaria que requieren prudencia. Esta postura sugiere que el banco central chino prioriza consolidación estructural sobre estímulos cíclicos, alineado con reformas de más largo plazo en reequilibrio de la economía.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Yicai Global</span>
+            <a href="https://www.yicaiglobal.com/" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+</main>
+
+<footer class="pie">
+  <div class="pie-contenido">
+    <h3>Fuentes consultadas en esta edición</h3>
+    <ul>
+      <li><a href="https://www.chinadaily.com.cn/" target="_blank" rel="noopener">China Daily — China alcanza hito en fusión nuclear con nuevo reactor experimental</a></li><li><a href="https://www.technode.com/" target="_blank" rel="noopener">TechNode — Startups chinas de IA reciben inversión récord pese a regulaciones</a></li><li><a href="https://www.caixinglobal.com/" target="_blank" rel="noopener">Caixin Global — Exportaciones chinas de vehículos eléctricos superan 1.5 millones de unidades anuales</a></li><li><a href="https://www.sixthtone.com/" target="_blank" rel="noopener">Sixth Tone — Reforma educativa enfatiza habilidades prácticas y educación dual</a></li><li><a href="https://www.globaltimes.cn/" target="_blank" rel="noopener">Global Times — Brics anuncia integración de plataforma de pagos alternativa a sistemas occidentales</a></li><li><a href="https://www.chinadaily.com.cn/" target="_blank" rel="noopener">China Daily — Reservas de litio de Qinghai se confirman como las mayores del mundo</a></li><li><a href="https://www.pandaily.com/" target="_blank" rel="noopener">PanDaily — Patrimonio cultural chino gana reconocimiento en nueva campaña global de turismo</a></li><li><a href="https://www.caixinglobal.com/" target="_blank" rel="noopener">Caixin Global — Startups chinas en biotecnología logran hito en terapias génicas personalizadas</a></li><li><a href="https://www.sixthtone.com/" target="_blank" rel="noopener">Sixth Tone — Ciudades chinas implementan estándares de calidad de aire más estrictos</a></li><li><a href="https://www.yicaiglobal.com/" target="_blank" rel="noopener">Yicai Global — Banco central chino mantiene tasa de política monetaria estable en contexto de crecimiento moderado</a></li>
+    </ul>
+    <div class="pie-creditos">
+      China Hoy · Edición 2026-05-06 · Generado automáticamente con IA ·
+      Las opiniones expresadas son editoriales y no representan posiciones oficiales.
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
