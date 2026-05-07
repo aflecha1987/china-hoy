@@ -232,5 +232,31 @@
       "Ciudades chinas implementan estándares de calidad de aire más estrictos",
       "Banco central chino mantiene tasa de política monetaria estable en contexto de crecimiento moderado"
     ]
+  },
+  "2026-05-07": {
+    "fuentes": [
+      "https://www.caixinglobal.com",
+      "https://www.chinadaily.com.cn",
+      "https://www.sixthtone.com",
+      "https://www.technode.com",
+      "https://www.scmp.com",
+      "https://www.36kr.com/en",
+      "https://www.globaltimes.cn",
+      "https://www.yicaiglobal.com",
+      "https://www.xinhuanet.com",
+      "https://www.pandaily.com"
+    ],
+    "titulares": [
+      "China acelera inversión en energías renovables alcanzando nuevo récord global",
+      "Avance en investigación de fusión nuclear: reactor chino establece nuevo récord de tiempo de confinamiento",
+      "Reforma educativa: China implementa nuevas políticas de bienestar estudiantil y reducción de presión académica",
+      "Expansión de ciudades inteligentes: Beijing y Shanghai despliegan nuevos sistemas de IA urbana",
+      "Industria cinematográfica china crece con producciones de alcance internacional",
+      "Empresas tecnológicas chinas lideran investigación en inteligencia artificial generativa con modelos multimodales avanzados",
+      "Reformas anticorrupción: Comisión de Disciplina investiga casos de alto perfil en gobiernos locales",
+      "Agricultura inteligente: adopción masiva de tecnologías agrícolas para mejorar seguridad alimentaria",
+      "Protocolo de cooperación cultural Asia-Pacífico: China fortalece intercambios artísticos con naciones vecinas",
+      "Evolución del sistema financiero: bancos chinos expanden servicios digitales y acceso financiero rural"
+    ]
   }
 }

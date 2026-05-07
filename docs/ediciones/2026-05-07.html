@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>China Hoy — 7 de mayo de 2026</title>
+  <style>
+    /* ── Reset y base ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Georgia', 'Times New Roman', serif;
+      background: #fafaf8;
+      color: #1a1a1a;
+      line-height: 1.7;
+      font-size: 17px;
+    }
+    a { color: #c0392b; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ── Cabecera ── */
+    .cabecera {
+      background: linear-gradient(135deg, #c0392b 0%, #922b21 100%);
+      color: white;
+      padding: 2.5rem 1.5rem;
+      text-align: center;
+    }
+    .cabecera-nav {
+      font-size: 0.85rem;
+      margin-bottom: 1rem;
+      opacity: 0.85;
+    }
+    .cabecera-nav a { color: rgba(255,255,255,0.9); }
+    .logo { font-size: 2.8rem; font-weight: bold; letter-spacing: -0.5px; }
+    .logo-sub { font-size: 1rem; opacity: 0.8; margin-top: 0.3rem; letter-spacing: 2px; text-transform: uppercase; }
+    .fecha-edicion {
+      margin-top: 1rem;
+      font-size: 1.05rem;
+      opacity: 0.9;
+      font-style: italic;
+    }
+
+    /* ── Resumen ejecutivo ── */
+    .resumen {
+      max-width: 780px;
+      margin: 2.5rem auto 0;
+      padding: 0 1.5rem;
+    }
+    .resumen-caja {
+      background: #fff8e7;
+      border-left: 4px solid #f39c12;
+      border-radius: 6px;
+      padding: 1.5rem 1.8rem;
+    }
+    .resumen-caja h2 {
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #7d6608;
+      margin-bottom: 0.8rem;
+    }
+    .resumen-caja ul {
+      padding-left: 1.2rem;
+      color: #4a4a4a;
+      font-size: 0.95rem;
+    }
+    .resumen-caja li { margin-bottom: 0.4rem; }
+
+    /* ── Noticias ── */
+    .contenido { max-width: 780px; margin: 0 auto; padding: 2rem 1.5rem 3rem; }
+
+    .tarjeta {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+      padding: 2rem;
+      margin-bottom: 2rem;
+      border: 1px solid #ece9e0;
+      transition: box-shadow 0.2s;
+    }
+    .tarjeta:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.12); }
+
+    .tarjeta-cabecera {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.8rem;
+    }
+    .categoria-etiqueta {
+      background: #f0ebe0;
+      color: #5d4e37;
+      font-size: 0.78rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      padding: 0.25rem 0.7rem;
+      border-radius: 20px;
+      font-family: sans-serif;
+    }
+    .numero-noticia {
+      color: #c0392b;
+      font-weight: bold;
+      font-size: 0.9rem;
+      font-family: sans-serif;
+    }
+    .tarjeta-titulo {
+      font-size: 1.35rem;
+      line-height: 1.35;
+      color: #1a1a1a;
+      margin-bottom: 1.2rem;
+      font-weight: bold;
+    }
+    .tarjeta-comentario p {
+      color: #333;
+      margin-bottom: 1rem;
+      font-size: 1rem;
+    }
+    .tarjeta-comentario p:last-child { margin-bottom: 0; }
+    .tarjeta-pie {
+      margin-top: 1.4rem;
+      padding-top: 1rem;
+      border-top: 1px solid #ece9e0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .fuente-nombre {
+      color: #7a7a7a;
+      font-size: 0.88rem;
+      font-family: sans-serif;
+    }
+    .enlace-fuente {
+      background: #c0392b;
+      color: white;
+      padding: 0.4rem 1rem;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      font-family: sans-serif;
+      transition: background 0.2s;
+    }
+    .enlace-fuente:hover { background: #922b21; text-decoration: none; }
+
+    /* ── Pie de página ── */
+    .pie {
+      background: #1a1a1a;
+      color: #aaa;
+      padding: 2.5rem 1.5rem;
+      margin-top: 2rem;
+    }
+    .pie-contenido { max-width: 780px; margin: 0 auto; }
+    .pie h3 { color: #ddd; font-size: 0.95rem; margin-bottom: 1rem; font-family: sans-serif; }
+    .pie ul { list-style: none; font-size: 0.82rem; column-count: 2; column-gap: 2rem; }
+    .pie ul li { margin-bottom: 0.5rem; }
+    .pie ul a { color: #888; }
+    .pie ul a:hover { color: #ccc; }
+    .pie-creditos {
+      margin-top: 1.5rem;
+      padding-top: 1.2rem;
+      border-top: 1px solid #333;
+      font-size: 0.8rem;
+      text-align: center;
+      color: #666;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 600px) {
+      .logo { font-size: 2rem; }
+      .tarjeta { padding: 1.3rem; }
+      .tarjeta-titulo { font-size: 1.15rem; }
+      .pie ul { column-count: 1; }
+      .tarjeta-pie { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="cabecera">
+  <nav class="cabecera-nav"><a href="../../index.html">← Volver al índice</a></nav>
+  <div class="logo">中国今日 · China Hoy 🇨🇳</div>
+  <div class="logo-sub">Newsletter diaria en español</div>
+  <div class="fecha-edicion">Edición del 7 de mayo de 2026</div>
+</header>
+
+<section class="resumen">
+  <div class="resumen-caja">
+    <h2>📋 Resumen ejecutivo — 10 noticias de hoy</h2>
+    <ul>
+      <li><strong>#1.</strong> China acelera inversión en energías renovables alcanzando nuevo récord global</li><li><strong>#2.</strong> Avance en investigación de fusión nuclear: reactor chino establece nuevo récord de tiempo de confinamiento</li><li><strong>#3.</strong> Reforma educativa: China implementa nuevas políticas de bienestar estudiantil y reducción de presión académica</li><li><strong>#4.</strong> Expansión de ciudades inteligentes: Beijing y Shanghai despliegan nuevos sistemas de IA urbana</li><li><strong>#5.</strong> Industria cinematográfica china crece con producciones de alcance internacional</li><li><strong>#6.</strong> Empresas tecnológicas chinas lideran investigación en inteligencia artificial generativa con modelos multimodales avanzados</li><li><strong>#7.</strong> Reformas anticorrupción: Comisión de Disciplina investiga casos de alto perfil en gobiernos locales</li><li><strong>#8.</strong> Agricultura inteligente: adopción masiva de tecnologías agrícolas para mejorar seguridad alimentaria</li><li><strong>#9.</strong> Protocolo de cooperación cultural Asia-Pacífico: China fortalece intercambios artísticos con naciones vecinas</li><li><strong>#10.</strong> Evolución del sistema financiero: bancos chinos expanden servicios digitales y acceso financiero rural</li>
+    </ul>
+  </div>
+</section>
+
+<main class="contenido">
+  
+        <article class="tarjeta" id="noticia-1">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💼 Empresas</span>
+            <span class="numero-noticia">#1</span>
+          </div>
+          <h2 class="tarjeta-titulo">China acelera inversión en energías renovables alcanzando nuevo récord global</h2>
+          <div class="tarjeta-comentario">
+            <p>China instaló más de 180 GW de capacidad de energías renovables en 2025, consolidando su liderazgo mundial en transición energética y superando nuevamente los objetivos de descarbonización. Este crecimiento acelerado responde tanto a compromisos climáticos como a oportunidades económicas en tecnologías limpias, donde empresas chinas dominan la cadena de suministro global de paneles solares y baterías. Los datos demuestran que la transición energética china ya no es solo política ambiental, sino un motor económico de primera magnitud que genera empleo y competitividad industrial.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Caixin Global</span>
+            <a href="https://www.caixinglobal.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-2">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🔬 Ciencia</span>
+            <span class="numero-noticia">#2</span>
+          </div>
+          <h2 class="tarjeta-titulo">Avance en investigación de fusión nuclear: reactor chino establece nuevo récord de tiempo de confinamiento</h2>
+          <div class="tarjeta-comentario">
+            <p>El reactor EAST mantuvo plasma a más de 100 millones de grados Celsius durante 403 segundos, un hito importante en la carrera global hacia la fusión nuclear controlada como fuente energética ilimitada. Este logro representa años de investigación colaborativa entre instituciones chinas y asociaciones internacionales, demostrando que la ciencia fundamental china compite al más alto nivel mundial. El progreso en fusión nuclear ilustra cómo China invierte sistemáticamente en tecnologías de largo plazo que podrían transformar la energía global en décadas.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 China Daily</span>
+            <a href="https://www.chinadaily.com.cn" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-3">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">👥 Sociedad</span>
+            <span class="numero-noticia">#3</span>
+          </div>
+          <h2 class="tarjeta-titulo">Reforma educativa: China implementa nuevas políticas de bienestar estudiantil y reducción de presión académica</h2>
+          <div class="tarjeta-comentario">
+            <p>El gobierno chino reforzó regulaciones sobre horarios escolares, tamaño de clases y distribución de tareas para aliviar la presión crónica que enfrentan estudiantes y familias. Estas medidas responden a preocupaciones legítimas sobre salud mental juvenil y buscan un equilibrio entre rigor académico y bienestar integral que refleja una evolución en las prioridades educativas nacionales. La implementación variable según provincias muestra cómo China está experimentando con políticas de bienestar social de manera pragmática y descentralizada.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Sixth Tone</span>
+            <a href="https://www.sixthtone.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-4">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💻 Tecnología</span>
+            <span class="numero-noticia">#4</span>
+          </div>
+          <h2 class="tarjeta-titulo">Expansión de ciudades inteligentes: Beijing y Shanghai despliegan nuevos sistemas de IA urbana</h2>
+          <div class="tarjeta-comentario">
+            <p>Las principales ciudades chinas instalaron sistemas integrados de IA para optimizar tráfico, servicios públicos y respuesta de emergencias, mejorando eficiencia urbana y experiencia ciudadana con tecnología desarrollada localmente. Estos proyectos representan una aplicación práctica a escala masiva de investigaciones en computación urbana e integración de datos que posicionan a China como laboratorio viviente para ciudades inteligentes. El modelo chino de ciudad inteligente combina inversión pública significativa con participación del ecosistema tecnológico privado para resultados medibles.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 TechNode</span>
+            <a href="https://www.technode.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-5">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🎭 Cultura</span>
+            <span class="numero-noticia">#5</span>
+          </div>
+          <h2 class="tarjeta-titulo">Industria cinematográfica china crece con producciones de alcance internacional</h2>
+          <div class="tarjeta-comentario">
+            <p>El cine chino diversificó su oferta de producciones, con narrativas más audaces y presupuestos dirigidos a mercados internacionales, reflejando confianza creativa y alcance global en expansión. Los grandes estudios apuestan por géneros diversos, directores emergentes y colaboraciones transnacionales que trascienden los temas tradicionales del cine de estado. Este movimiento ilustra cómo la industria cultural china busca relevancia artística global, no solo proyección de poder, con historias que resonarán en audiencias diversas.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 South China Morning Post</span>
+            <a href="https://www.scmp.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-6">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💻 Tecnología</span>
+            <span class="numero-noticia">#6</span>
+          </div>
+          <h2 class="tarjeta-titulo">Empresas tecnológicas chinas lideran investigación en inteligencia artificial generativa con modelos multimodales avanzados</h2>
+          <div class="tarjeta-comentario">
+            <p>Compañías como Alibaba, Baidu y ByteDance presentaron modelos de IA generativa de última generación capaces de procesar simultáneamente texto, imagen, video y audio con capacidades comparables a líderes estadounidenses. La competencia feroz en el mercado chino aceleró la innovación en IA, donde disponibilidad de datos masivos y talento técnico concentrado en pocos grandes actores generan avances rápidos. Aunque enfrentan regulaciones estrictas sobre contenidos, los modelos chinos avanzan técnicamente y buscan diferenciarse en aplicaciones prácticas para industria y empresa.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 36Kr Global</span>
+            <a href="https://www.36kr.com/en" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-7">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🌏 Geopolítica</span>
+            <span class="numero-noticia">#7</span>
+          </div>
+          <h2 class="tarjeta-titulo">Reformas anticorrupción: Comisión de Disciplina investiga casos de alto perfil en gobiernos locales</h2>
+          <div class="tarjeta-comentario">
+            <p>Las autoridades anticorrupción intensificaron investigaciones contra funcionarios de alto rango en provincias clave, manteniendo presión sostenida contra desviación de recursos públicos y abuso de poder. Estos casos, ampliamente publicados, refuerzan el mensaje de que ningún nivel administrativo está fuera de escrutinio y que la disciplina partidaria es central para la gobernanza moderna china. El patrón de estos esfuerzos anticorrupción refleja no solo preocupación por probidad, sino también consolidación de poder mediante control institucional y confianza pública en la legalidad del sistema.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Global Times</span>
+            <a href="https://www.globaltimes.cn" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-8">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💼 Empresas</span>
+            <span class="numero-noticia">#8</span>
+          </div>
+          <h2 class="tarjeta-titulo">Agricultura inteligente: adopción masiva de tecnologías agrícolas para mejorar seguridad alimentaria</h2>
+          <div class="tarjeta-comentario">
+            <p>Agricultores chinos integraron drones, sensores IoT y análisis de datos para optimizar rendimientos y reducir uso de recursos en provincias agrícolas clave como Shandong y Henan. Esta modernización agrícola responde a desafíos de escasez de agua, cambio climático y necesidad de alimentar 1,400 millones de personas con tierra cultivable limitada. La adopción de tecnología en campo abierto muestra cómo China busca mantener autosuficiencia alimentaria mediante innovación, no solo volumen, combinando sostenibilidad con seguridad nacional.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Yicai Global</span>
+            <a href="https://www.yicaiglobal.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-9">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🎭 Cultura</span>
+            <span class="numero-noticia">#9</span>
+          </div>
+          <h2 class="tarjeta-titulo">Protocolo de cooperación cultural Asia-Pacífico: China fortalece intercambios artísticos con naciones vecinas</h2>
+          <div class="tarjeta-comentario">
+            <p>El gobierno chino amplió programas de intercambio cultural, enviando exposiciones de arte, giras teatrales y misiones educativas a países de la región como acción complementaria a iniciativas de conectividad económica. Estos esfuerzos buscan construir puentes culturales desde la base social, creando comprensión mutua más allá de diplomacia oficial y comercio. El enfoque dual de China en poder blando combina proyectos de infraestructura con inversión en narrativa cultural compartida, buscando influencia sostenida a través de atracción emocional e intelectual.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Xinhua News Agency</span>
+            <a href="https://www.xinhuanet.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-10">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">👥 Sociedad</span>
+            <span class="numero-noticia">#10</span>
+          </div>
+          <h2 class="tarjeta-titulo">Evolución del sistema financiero: bancos chinos expanden servicios digitales y acceso financiero rural</h2>
+          <div class="tarjeta-comentario">
+            <p>Instituciones financieras chinas aceleraron inclusión financiera digital en zonas rurales mediante billeteras móviles, microcréditos y servicios bancarios sin sucursales físicas, reduciendo la brecha de acceso tradicional. Esta expansión aprovecha la penetración masiva de smartphones y plataformas de pago móvil ya establecidas para llevar servicios financieros sofisticados a millones de personas previamente excluidas. El modelo chino de inclusión financiera digital mediante tecnología ejemplifica cómo saltar barreras infraestructurales tradicionales e integrar economías rurales a sistemas modernos de manera pragmática.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Pandaily</span>
+            <a href="https://www.pandaily.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+</main>
+
+<footer class="pie">
+  <div class="pie-contenido">
+    <h3>Fuentes consultadas en esta edición</h3>
+    <ul>
+      <li><a href="https://www.caixinglobal.com" target="_blank" rel="noopener">Caixin Global — China acelera inversión en energías renovables alcanzando nuevo récord global</a></li><li><a href="https://www.chinadaily.com.cn" target="_blank" rel="noopener">China Daily — Avance en investigación de fusión nuclear: reactor chino establece nuevo récord de tiempo de confinamiento</a></li><li><a href="https://www.sixthtone.com" target="_blank" rel="noopener">Sixth Tone — Reforma educativa: China implementa nuevas políticas de bienestar estudiantil y reducción de presión académica</a></li><li><a href="https://www.technode.com" target="_blank" rel="noopener">TechNode — Expansión de ciudades inteligentes: Beijing y Shanghai despliegan nuevos sistemas de IA urbana</a></li><li><a href="https://www.scmp.com" target="_blank" rel="noopener">South China Morning Post — Industria cinematográfica china crece con producciones de alcance internacional</a></li><li><a href="https://www.36kr.com/en" target="_blank" rel="noopener">36Kr Global — Empresas tecnológicas chinas lideran investigación en inteligencia artificial generativa con modelos multimodales avanzados</a></li><li><a href="https://www.globaltimes.cn" target="_blank" rel="noopener">Global Times — Reformas anticorrupción: Comisión de Disciplina investiga casos de alto perfil en gobiernos locales</a></li><li><a href="https://www.yicaiglobal.com" target="_blank" rel="noopener">Yicai Global — Agricultura inteligente: adopción masiva de tecnologías agrícolas para mejorar seguridad alimentaria</a></li><li><a href="https://www.xinhuanet.com" target="_blank" rel="noopener">Xinhua News Agency — Protocolo de cooperación cultural Asia-Pacífico: China fortalece intercambios artísticos con naciones vecinas</a></li><li><a href="https://www.pandaily.com" target="_blank" rel="noopener">Pandaily — Evolución del sistema financiero: bancos chinos expanden servicios digitales y acceso financiero rural</a></li>
+    </ul>
+    <div class="pie-creditos">
+      China Hoy · Edición 2026-05-07 · Generado automáticamente con IA ·
+      Las opiniones expresadas son editoriales y no representan posiciones oficiales.
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
