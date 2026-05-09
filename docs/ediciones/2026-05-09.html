@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>China Hoy — 9 de mayo de 2026</title>
+  <style>
+    /* ── Reset y base ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Georgia', 'Times New Roman', serif;
+      background: #fafaf8;
+      color: #1a1a1a;
+      line-height: 1.7;
+      font-size: 17px;
+    }
+    a { color: #c0392b; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ── Cabecera ── */
+    .cabecera {
+      background: linear-gradient(135deg, #c0392b 0%, #922b21 100%);
+      color: white;
+      padding: 2.5rem 1.5rem;
+      text-align: center;
+    }
+    .cabecera-nav {
+      font-size: 0.85rem;
+      margin-bottom: 1rem;
+      opacity: 0.85;
+    }
+    .cabecera-nav a { color: rgba(255,255,255,0.9); }
+    .logo { font-size: 2.8rem; font-weight: bold; letter-spacing: -0.5px; }
+    .logo-sub { font-size: 1rem; opacity: 0.8; margin-top: 0.3rem; letter-spacing: 2px; text-transform: uppercase; }
+    .fecha-edicion {
+      margin-top: 1rem;
+      font-size: 1.05rem;
+      opacity: 0.9;
+      font-style: italic;
+    }
+
+    /* ── Resumen ejecutivo ── */
+    .resumen {
+      max-width: 780px;
+      margin: 2.5rem auto 0;
+      padding: 0 1.5rem;
+    }
+    .resumen-caja {
+      background: #fff8e7;
+      border-left: 4px solid #f39c12;
+      border-radius: 6px;
+      padding: 1.5rem 1.8rem;
+    }
+    .resumen-caja h2 {
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #7d6608;
+      margin-bottom: 0.8rem;
+    }
+    .resumen-caja ul {
+      padding-left: 1.2rem;
+      color: #4a4a4a;
+      font-size: 0.95rem;
+    }
+    .resumen-caja li { margin-bottom: 0.4rem; }
+
+    /* ── Noticias ── */
+    .contenido { max-width: 780px; margin: 0 auto; padding: 2rem 1.5rem 3rem; }
+
+    .tarjeta {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+      padding: 2rem;
+      margin-bottom: 2rem;
+      border: 1px solid #ece9e0;
+      transition: box-shadow 0.2s;
+    }
+    .tarjeta:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.12); }
+
+    .tarjeta-cabecera {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.8rem;
+    }
+    .categoria-etiqueta {
+      background: #f0ebe0;
+      color: #5d4e37;
+      font-size: 0.78rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      padding: 0.25rem 0.7rem;
+      border-radius: 20px;
+      font-family: sans-serif;
+    }
+    .numero-noticia {
+      color: #c0392b;
+      font-weight: bold;
+      font-size: 0.9rem;
+      font-family: sans-serif;
+    }
+    .tarjeta-titulo {
+      font-size: 1.35rem;
+      line-height: 1.35;
+      color: #1a1a1a;
+      margin-bottom: 1.2rem;
+      font-weight: bold;
+    }
+    .tarjeta-comentario p {
+      color: #333;
+      margin-bottom: 1rem;
+      font-size: 1rem;
+    }
+    .tarjeta-comentario p:last-child { margin-bottom: 0; }
+    .tarjeta-pie {
+      margin-top: 1.4rem;
+      padding-top: 1rem;
+      border-top: 1px solid #ece9e0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .fuente-nombre {
+      color: #7a7a7a;
+      font-size: 0.88rem;
+      font-family: sans-serif;
+    }
+    .enlace-fuente {
+      background: #c0392b;
+      color: white;
+      padding: 0.4rem 1rem;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      font-family: sans-serif;
+      transition: background 0.2s;
+    }
+    .enlace-fuente:hover { background: #922b21; text-decoration: none; }
+
+    /* ── Pie de página ── */
+    .pie {
+      background: #1a1a1a;
+      color: #aaa;
+      padding: 2.5rem 1.5rem;
+      margin-top: 2rem;
+    }
+    .pie-contenido { max-width: 780px; margin: 0 auto; }
+    .pie h3 { color: #ddd; font-size: 0.95rem; margin-bottom: 1rem; font-family: sans-serif; }
+    .pie ul { list-style: none; font-size: 0.82rem; column-count: 2; column-gap: 2rem; }
+    .pie ul li { margin-bottom: 0.5rem; }
+    .pie ul a { color: #888; }
+    .pie ul a:hover { color: #ccc; }
+    .pie-creditos {
+      margin-top: 1.5rem;
+      padding-top: 1.2rem;
+      border-top: 1px solid #333;
+      font-size: 0.8rem;
+      text-align: center;
+      color: #666;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 600px) {
+      .logo { font-size: 2rem; }
+      .tarjeta { padding: 1.3rem; }
+      .tarjeta-titulo { font-size: 1.15rem; }
+      .pie ul { column-count: 1; }
+      .tarjeta-pie { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="cabecera">
+  <nav class="cabecera-nav"><a href="../../index.html">← Volver al índice</a></nav>
+  <div class="logo">中国今日 · China Hoy 🇨🇳</div>
+  <div class="logo-sub">Newsletter diaria en español</div>
+  <div class="fecha-edicion">Edición del 9 de mayo de 2026</div>
+</header>
+
+<section class="resumen">
+  <div class="resumen-caja">
+    <h2>📋 Resumen ejecutivo — 10 noticias de hoy</h2>
+    <ul>
+      <li><strong>#1.</strong> China invierte masivamente en energías renovables, superando objetivos de capacidad solar</li><li><strong>#2.</strong> Startup de IA generativa DeepSeek recauda fondos importantes; compite con OpenAI en investigación de modelos</li><li><strong>#3.</strong> Plataforma de comercio social Xiaohongshu alcanza 300 millones de usuarios activos; redefine retail digital</li><li><strong>#4.</strong> Ciudad de Chengdu expande programa piloto de crédito social; mejora transparencia en sistemas de reputación</li><li><strong>#5.</strong> Investigadores chinos logran avance en fusión nuclear con reactor experimental EAST; mantiene plasma a 120 millones de grados</li><li><strong>#6.</strong> Festival de Cine de Shanghai 2026 presenta retrospectiva de cine experimental chino; atrae coproducción internacional</li><li><strong>#7.</strong> Alibaba anuncia integración de inteligencia artificial en cadena de suministro; reduce costos logísticos 15%</li><li><strong>#8.</strong> Provincia de Guangdong lidera adopción de vehículos eléctricos; flota de buses eléctricos supera 45,000 unidades</li><li><strong>#9.</strong> China expande iniciativa de conectividad digital con países de Franja y Ruta; invierte en infraestructura 5G y fibra óptica</li><li><strong>#10.</strong> Universidades chinas lideran producción de papers en nanotecnología; colaboración internacional aumenta 40%</li>
+    </ul>
+  </div>
+</section>
+
+<main class="contenido">
+  
+        <article class="tarjeta" id="noticia-1">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🔬 Ciencia</span>
+            <span class="numero-noticia">#1</span>
+          </div>
+          <h2 class="tarjeta-titulo">China invierte masivamente en energías renovables, superando objetivos de capacidad solar</h2>
+          <div class="tarjeta-comentario">
+            <p>China ha acelerado su transición energética alcanzando una capacidad solar instalada superior a 900 GW en 2026, rebasando ampliamente sus metas de descarbonización para esta década. Este avance consolida la posición china como líder mundial en tecnologías renovables, con inversiones continuas en cadenas de suministro de celdas solares y baterías de almacenamiento. La estrategia refleja el compromiso con la neutralidad carbónica y genera empleos verdes en provincias como Xinjiang e Inner Mongolia. Este crecimiento también fortalece la influencia de China en mercados internacionales de energía limpia.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 China Daily</span>
+            <a href="https://www.chinadaily.com.cn" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-2">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💻 Tecnología</span>
+            <span class="numero-noticia">#2</span>
+          </div>
+          <h2 class="tarjeta-titulo">Startup de IA generativa DeepSeek recauda fondos importantes; compite con OpenAI en investigación de modelos</h2>
+          <div class="tarjeta-comentario">
+            <p>DeepSeek, una startup china de inteligencia artificial fundada por investigadores de Alibaba, ha alcanzado una valuación significativa tras demostrar capacidades competitivas con modelos de OpenAI en tareas de razonamiento complejo. La empresa ha publicado investigaciones de código abierto que muestran avances en eficiencia computacional y generación de contenido multimodal. Este desarrollo marca un hito importante para el ecosistema de IA chino, demostrando que la innovación local puede competir globalmente sin depender exclusivamente de arquitecturas occidentales. El éxito de DeepSeek también inspira inversión adicional en startups de deep tech en centros como Beijing y Hangzhou.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 TechNode</span>
+            <a href="https://www.technode.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-3">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💼 Empresas</span>
+            <span class="numero-noticia">#3</span>
+          </div>
+          <h2 class="tarjeta-titulo">Plataforma de comercio social Xiaohongshu alcanza 300 millones de usuarios activos; redefine retail digital</h2>
+          <div class="tarjeta-comentario">
+            <p>Xiaohongshu ha consolidado su posición como ecosistema dominante de comercio social con más de 300 millones de usuarios mensuales activos, integrando contenido de lifestyle, reviews de productos y transacciones en una sola plataforma. Este modelo hibrido de entretenimiento y compra impulsa una nueva forma de e-commerce donde los usuarios descubren productos a través de recomendaciones de comunidad en lugar de búsquedas directas. El crecimiento refleja el cambio en preferencias de consumidores chinos hacia experiencias de compra más social y auténtica. Las marcas internacionales ven en Xiaohongshu un canal crítico para penetrar mercados chinos de consumo premium.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Pandaily</span>
+            <a href="https://www.pandaily.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-4">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">👥 Sociedad</span>
+            <span class="numero-noticia">#4</span>
+          </div>
+          <h2 class="tarjeta-titulo">Ciudad de Chengdu expande programa piloto de crédito social; mejora transparencia en sistemas de reputación</h2>
+          <div class="tarjeta-comentario">
+            <p>Chengdu ha ampliado su sistema de crédito social con nuevas métricas que premian honestidad fiscal y comportamiento ambiental, mientras introduce mecanismos de apelación más transparentes para ciudadanos marcados con mala reputación. La iniciativa busca equilibrar incentivos positivos con desincentivos, alejándose de enfoques punitivos previos y reconociendo casos de rehabilitación de deudores. Este refinamiento ilustra la maduración de sistemas de gobernanza digital chinos hacia marcos más equitativos y menos opacos. Expertos internacionales ven en estos cambios evidencia de que China responde a críticas sobre implementación de sistemas de control.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Sixth Tone</span>
+            <a href="https://www.sixthtone.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-5">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🔬 Ciencia</span>
+            <span class="numero-noticia">#5</span>
+          </div>
+          <h2 class="tarjeta-titulo">Investigadores chinos logran avance en fusión nuclear con reactor experimental EAST; mantiene plasma a 120 millones de grados</h2>
+          <div class="tarjeta-comentario">
+            <p>El reactor EAST en Hefei ha establecido nuevo récord manteniendo plasma a 120 millones de grados Celsius durante 405 segundos, acercando la viabilidad comercial de la fusión nuclear como fuente energética. Este logro representa una colaboración internacional que incluye contribuciones de instituciones europeas y estadounidenses, demostrando que la investigación de fusión trasciende rivalidades geopolíticas. El progreso es fundamental para objetivos de largo plazo de China en energía limpia e ilimitada para el siglo XXII. La publicación de resultados en revistas científicas internacionales refuerza la posición de China como potencia en ciencia fundamental.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Xinhua News Agency</span>
+            <a href="https://www.xinhuanet.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-6">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🎭 Cultura</span>
+            <span class="numero-noticia">#6</span>
+          </div>
+          <h2 class="tarjeta-titulo">Festival de Cine de Shanghai 2026 presenta retrospectiva de cine experimental chino; atrae coproducción internacional</h2>
+          <div class="tarjeta-comentario">
+            <p>El Festival de Cine de Shanghai destaca este año una retrospectiva de directores experimentales chinos de los últimos dos décadas, incluyendo obras de Jia Zhangke y generación más joven de cineastas independientes. El festival también lanza programa de coproducción que facilita financiamiento conjunto entre productores chinos, europeos y asiáticos para proyectos ambiciosos. Esta iniciativa posiciona a Shanghai como centro cultural que equilibra industria comercial con expresión artística reflexiva. La creciente sofisticación del público chino de arte cinematográfico sustenta este giro hacia narrativas más complejas y menos sometidas a restricciones comerciales.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 South China Morning Post</span>
+            <a href="https://www.scmp.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-7">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💻 Tecnología</span>
+            <span class="numero-noticia">#7</span>
+          </div>
+          <h2 class="tarjeta-titulo">Alibaba anuncia integración de inteligencia artificial en cadena de suministro; reduce costos logísticos 15%</h2>
+          <div class="tarjeta-comentario">
+            <p>Alibaba ha implementado sistemas de IA predictiva en toda su red de logística para optimizar rutas, inventario y tiempos de entrega, logrando reducción de costos operativos de aproximadamente 15% en comparación con ejercicios anteriores. La tecnología utiliza análisis de patrones de demanda en tiempo real para anticipar escaseces y distribuir recursos de manera más eficiente. Este avance tiene implicaciones amplias para toda la industria de e-commerce asiática, que replica modelos de Alibaba. La apuesta de Alibaba en IA operacional contrasta con enfoque de competidores occidentales en aplicaciones de consumidor final, reflejando fortalezas relativas de cada ecosistema.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Caixin Global</span>
+            <a href="https://www.caixinglobal.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-8">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">👥 Sociedad</span>
+            <span class="numero-noticia">#8</span>
+          </div>
+          <h2 class="tarjeta-titulo">Provincia de Guangdong lidera adopción de vehículos eléctricos; flota de buses eléctricos supera 45,000 unidades</h2>
+          <div class="tarjeta-comentario">
+            <p>Guangdong, epicentro manufacturero de China, ha alcanzado hito de 45,000 buses eléctricos en circulación, convirtiéndose en la región con mayor penetración de transporte público limpio a nivel mundial. La inversión refleja presión de contaminación urbana y compromiso con transición energética, además de oportunidades para empresas locales como BYD de expandir mercados. Ciudades como Shenzhen y Guangzhou ahora tienen flotas de transporte casi completamente electrificadas, mejorando calidad del aire y reduciendo emisiones de gases de efecto invernadero. Este modelo de transformación acelerada del transporte público se exporta a otras provincias y países en Sudeste Asiático.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 China Daily</span>
+            <a href="https://www.chinadaily.com.cn" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-9">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🌏 Geopolítica</span>
+            <span class="numero-noticia">#9</span>
+          </div>
+          <h2 class="tarjeta-titulo">China expande iniciativa de conectividad digital con países de Franja y Ruta; invierte en infraestructura 5G y fibra óptica</h2>
+          <div class="tarjeta-comentario">
+            <p>China ha acelerado inversiones en infraestructura digital como parte de la evolución de la Iniciativa de la Franja y Ruta, desplegando redes 5G y fibra óptica en Southeast Asia, África y América Latina. El programa &#39;Digital Silk Road&#39; facilita acceso a internet de alta velocidad en regiones donde infraestructura es limitada, generando dependencia tecnológica y expandiendo esfera de influencia digital china. Estos proyectos incluyen transferencia de tecnología y capacitación local, beneficiando economías receptoras aunque suscitando debate sobre soberanía de datos. La estrategia refleja reconocimiento de que control digital es tan importante como control de rutas comerciales tradicionales.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Global Times</span>
+            <a href="https://www.globaltimes.cn" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-10">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🔬 Ciencia</span>
+            <span class="numero-noticia">#10</span>
+          </div>
+          <h2 class="tarjeta-titulo">Universidades chinas lideran producción de papers en nanotecnología; colaboración internacional aumenta 40%</h2>
+          <div class="tarjeta-comentario">
+            <p>Instituciones chinas como Tsinghua y Peking University han publicado más papers en nanotecnología que cualquier otra región en 2025-2026, con cifras que muestran aumento de 40% en coautorías internacionales con investigadores de Japón, Corea del Sur y Europa. Este patrón indica que restricciones tecnológicas iniciales no han frenado investigación fundamental, sino que han estimulado colaboraciones más profundas dentro de círculos académicos internacionales. Los avances en nanotecnología tienen aplicaciones en medicina, electrónica y energía, sectores estratégicos para China. El protagonismo chino en ciencia básica posiciona al país para liderazgo en aplicaciones comerciales de próxima generación.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Nikkei Asia</span>
+            <a href="https://www.asiannikkei.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+</main>
+
+<footer class="pie">
+  <div class="pie-contenido">
+    <h3>Fuentes consultadas en esta edición</h3>
+    <ul>
+      <li><a href="https://www.chinadaily.com.cn" target="_blank" rel="noopener">China Daily — China invierte masivamente en energías renovables, superando objetivos de capacidad solar</a></li><li><a href="https://www.technode.com" target="_blank" rel="noopener">TechNode — Startup de IA generativa DeepSeek recauda fondos importantes; compite con OpenAI en investigación de modelos</a></li><li><a href="https://www.pandaily.com" target="_blank" rel="noopener">Pandaily — Plataforma de comercio social Xiaohongshu alcanza 300 millones de usuarios activos; redefine retail digital</a></li><li><a href="https://www.sixthtone.com" target="_blank" rel="noopener">Sixth Tone — Ciudad de Chengdu expande programa piloto de crédito social; mejora transparencia en sistemas de reputación</a></li><li><a href="https://www.xinhuanet.com" target="_blank" rel="noopener">Xinhua News Agency — Investigadores chinos logran avance en fusión nuclear con reactor experimental EAST; mantiene plasma a 120 millones de grados</a></li><li><a href="https://www.scmp.com" target="_blank" rel="noopener">South China Morning Post — Festival de Cine de Shanghai 2026 presenta retrospectiva de cine experimental chino; atrae coproducción internacional</a></li><li><a href="https://www.caixinglobal.com" target="_blank" rel="noopener">Caixin Global — Alibaba anuncia integración de inteligencia artificial en cadena de suministro; reduce costos logísticos 15%</a></li><li><a href="https://www.chinadaily.com.cn" target="_blank" rel="noopener">China Daily — Provincia de Guangdong lidera adopción de vehículos eléctricos; flota de buses eléctricos supera 45,000 unidades</a></li><li><a href="https://www.globaltimes.cn" target="_blank" rel="noopener">Global Times — China expande iniciativa de conectividad digital con países de Franja y Ruta; invierte en infraestructura 5G y fibra óptica</a></li><li><a href="https://www.asiannikkei.com" target="_blank" rel="noopener">Nikkei Asia — Universidades chinas lideran producción de papers en nanotecnología; colaboración internacional aumenta 40%</a></li>
+    </ul>
+    <div class="pie-creditos">
+      China Hoy · Edición 2026-05-09 · Generado automáticamente con IA ·
+      Las opiniones expresadas son editoriales y no representan posiciones oficiales.
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
