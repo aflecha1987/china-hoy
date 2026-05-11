@@ -336,5 +336,31 @@
       "Programa de revitalización rural alcanza nuevos pueblos, enfocándose en preservación cultural y emprendimiento local",
       "China lidera producción global de vehículos eléctricos, superando a rivales europeos y estadounidenses en unidades vendidas"
     ]
+  },
+  "2026-05-11": {
+    "fuentes": [
+      "https://www.caixinglobal.com",
+      "https://www.technode.com",
+      "https://www.sixthtone.com",
+      "https://www.scmp.com",
+      "https://www.yicaiglobal.com",
+      "https://www.globaltimes.cn",
+      "https://www.pandaily.com",
+      "https://www.36kr.com/en",
+      "https://www.chinadaily.com.cn",
+      "https://www.reuters.com"
+    ],
+    "titulares": [
+      "China alcanza hito en energías renovables con capacidad instalada que supera el carbón",
+      "Startups de IA generativa chinas buscan diferenciarse mediante aplicaciones verticales especializadas",
+      "Reforma del sistema de pensiones en China avanza con pruebas piloto en nuevas provincias",
+      "Reguladores chinos endurecen supervisión sobre plataformas de entretenimiento en línea y contenido para menores",
+      "Manufacturas chinas invierten masivamente en automatización para mantener competitividad ante presión salarial",
+      "Beijing anuncia nueva iniciativa de conectividad con América Latina ampliando presencia geopolítica más allá de Asia",
+      "Investigadores chinos desarrollan batería de estado sólido con densidad energética revolucionaria, cerca de comercialización",
+      "Industria de cultura digital china experimenta consolidación, grandes plataformas absorbiendo estudios independientes",
+      "Ciudades chinas experimentan con sistemas de tránsito integrado usando datos en tiempo real y predicción IA",
+      "Empresas farmacéuticas chinas aceleran lanzamiento de medicamentos innovadores, reduciendo brecha con Occidente en investigación clínica"
+    ]
   }
 }
