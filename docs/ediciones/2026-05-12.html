@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>China Hoy — 12 de mayo de 2026</title>
+  <style>
+    /* ── Reset y base ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Georgia', 'Times New Roman', serif;
+      background: #fafaf8;
+      color: #1a1a1a;
+      line-height: 1.7;
+      font-size: 17px;
+    }
+    a { color: #c0392b; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ── Cabecera ── */
+    .cabecera {
+      background: linear-gradient(135deg, #c0392b 0%, #922b21 100%);
+      color: white;
+      padding: 2.5rem 1.5rem;
+      text-align: center;
+    }
+    .cabecera-nav {
+      font-size: 0.85rem;
+      margin-bottom: 1rem;
+      opacity: 0.85;
+    }
+    .cabecera-nav a { color: rgba(255,255,255,0.9); }
+    .logo { font-size: 2.8rem; font-weight: bold; letter-spacing: -0.5px; }
+    .logo-sub { font-size: 1rem; opacity: 0.8; margin-top: 0.3rem; letter-spacing: 2px; text-transform: uppercase; }
+    .fecha-edicion {
+      margin-top: 1rem;
+      font-size: 1.05rem;
+      opacity: 0.9;
+      font-style: italic;
+    }
+
+    /* ── Resumen ejecutivo ── */
+    .resumen {
+      max-width: 780px;
+      margin: 2.5rem auto 0;
+      padding: 0 1.5rem;
+    }
+    .resumen-caja {
+      background: #fff8e7;
+      border-left: 4px solid #f39c12;
+      border-radius: 6px;
+      padding: 1.5rem 1.8rem;
+    }
+    .resumen-caja h2 {
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #7d6608;
+      margin-bottom: 0.8rem;
+    }
+    .resumen-caja ul {
+      padding-left: 1.2rem;
+      color: #4a4a4a;
+      font-size: 0.95rem;
+    }
+    .resumen-caja li { margin-bottom: 0.4rem; }
+
+    /* ── Noticias ── */
+    .contenido { max-width: 780px; margin: 0 auto; padding: 2rem 1.5rem 3rem; }
+
+    .tarjeta {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+      padding: 2rem;
+      margin-bottom: 2rem;
+      border: 1px solid #ece9e0;
+      transition: box-shadow 0.2s;
+    }
+    .tarjeta:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.12); }
+
+    .tarjeta-cabecera {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.8rem;
+    }
+    .categoria-etiqueta {
+      background: #f0ebe0;
+      color: #5d4e37;
+      font-size: 0.78rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      padding: 0.25rem 0.7rem;
+      border-radius: 20px;
+      font-family: sans-serif;
+    }
+    .numero-noticia {
+      color: #c0392b;
+      font-weight: bold;
+      font-size: 0.9rem;
+      font-family: sans-serif;
+    }
+    .tarjeta-titulo {
+      font-size: 1.35rem;
+      line-height: 1.35;
+      color: #1a1a1a;
+      margin-bottom: 1.2rem;
+      font-weight: bold;
+    }
+    .tarjeta-comentario p {
+      color: #333;
+      margin-bottom: 1rem;
+      font-size: 1rem;
+    }
+    .tarjeta-comentario p:last-child { margin-bottom: 0; }
+    .tarjeta-pie {
+      margin-top: 1.4rem;
+      padding-top: 1rem;
+      border-top: 1px solid #ece9e0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .fuente-nombre {
+      color: #7a7a7a;
+      font-size: 0.88rem;
+      font-family: sans-serif;
+    }
+    .enlace-fuente {
+      background: #c0392b;
+      color: white;
+      padding: 0.4rem 1rem;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      font-family: sans-serif;
+      transition: background 0.2s;
+    }
+    .enlace-fuente:hover { background: #922b21; text-decoration: none; }
+
+    /* ── Pie de página ── */
+    .pie {
+      background: #1a1a1a;
+      color: #aaa;
+      padding: 2.5rem 1.5rem;
+      margin-top: 2rem;
+    }
+    .pie-contenido { max-width: 780px; margin: 0 auto; }
+    .pie h3 { color: #ddd; font-size: 0.95rem; margin-bottom: 1rem; font-family: sans-serif; }
+    .pie ul { list-style: none; font-size: 0.82rem; column-count: 2; column-gap: 2rem; }
+    .pie ul li { margin-bottom: 0.5rem; }
+    .pie ul a { color: #888; }
+    .pie ul a:hover { color: #ccc; }
+    .pie-creditos {
+      margin-top: 1.5rem;
+      padding-top: 1.2rem;
+      border-top: 1px solid #333;
+      font-size: 0.8rem;
+      text-align: center;
+      color: #666;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 600px) {
+      .logo { font-size: 2rem; }
+      .tarjeta { padding: 1.3rem; }
+      .tarjeta-titulo { font-size: 1.15rem; }
+      .pie ul { column-count: 1; }
+      .tarjeta-pie { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="cabecera">
+  <nav class="cabecera-nav"><a href="../../index.html">← Volver al índice</a></nav>
+  <div class="logo">中国今日 · China Hoy 🇨🇳</div>
+  <div class="logo-sub">Newsletter diaria en español</div>
+  <div class="fecha-edicion">Edición del 12 de mayo de 2026</div>
+</header>
+
+<section class="resumen">
+  <div class="resumen-caja">
+    <h2>📋 Resumen ejecutivo — 10 noticias de hoy</h2>
+    <ul>
+      <li><strong>#1.</strong> China impulsa nuevo plan de desarrollo rural con inversión masiva en infraestructura</li><li><strong>#2.</strong> Avance significativo en investigación de fusión nuclear: reactor experimental EAST establece nuevo récord</li><li><strong>#3.</strong> Startups de inteligencia artificial en China reportan consolidación tras nueva regulación de modelos de IA</li><li><strong>#4.</strong> Marcas de lujo occidentales ajustan estrategias de precios en China tras cambios en patrones de consumo</li><li><strong>#5.</strong> Nueva política educativa enfatiza habilidades prácticas y reducción de carga académica en escuelas primarias</li><li><strong>#6.</strong> Empresas chinas de vehículos eléctricos expanden operaciones en Europa mediante fabricación local</li><li><strong>#7.</strong> Festival de cine de Shanghai celebra producciones chinas de temática social y experimental</li><li><strong>#8.</strong> China y países de ASEAN fortalecen cooperación en tecnología verde y transición energética</li><li><strong>#9.</strong> Investigación revela impacto de inteligencia artificial en empleo manufacturero: necesidad de reconversión laboral</li><li><strong>#10.</strong> Nuevas regulaciones sobre privacidad de datos personales entran en vigencia: impacto en plataformas de redes sociales</li>
+    </ul>
+  </div>
+</section>
+
+<main class="contenido">
+  
+        <article class="tarjeta" id="noticia-1">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">👥 Sociedad</span>
+            <span class="numero-noticia">#1</span>
+          </div>
+          <h2 class="tarjeta-titulo">China impulsa nuevo plan de desarrollo rural con inversión masiva en infraestructura</h2>
+          <div class="tarjeta-comentario">
+            <p>El gobierno chino ha anunciado un ambicioso plan de inversión en infraestructura rural enfocado en mejorar conectividad digital, transporte y servicios públicos en áreas menos desarrolladas. Esta iniciativa busca reducir la brecha urbano-rural, que sigue siendo un desafío importante para la equidad social del país. La medida refleja el compromiso de Beijing con la revitalización territorial y el equilibrio regional, aspectos clave en la agenda de desarrollo sostenible a mediano plazo. El plan incluye expansión de banda ancha de alta velocidad, mejora de carreteras y modernización de hospitales rurales.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 China Daily</span>
+            <a href="https://www.chinadaily.com.cn" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-2">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🔬 Ciencia</span>
+            <span class="numero-noticia">#2</span>
+          </div>
+          <h2 class="tarjeta-titulo">Avance significativo en investigación de fusión nuclear: reactor experimental EAST establece nuevo récord</h2>
+          <div class="tarjeta-comentario">
+            <p>El reactor experimental EAST de China ha logrado mantener plasma a temperaturas superiores a 100 millones de grados Celsius durante un período más prolongado que intentos previos, marcando un hito importante en la investigación de fusión nuclear. Este avance contribuye significativamente a los esfuerzos globales por desarrollar fuentes de energía limpias y renovables a escala comercial. El logro subraya la capacidad china en investigación fundamental y su rol creciente en proyectos de ciencia de frontera como ITER. Estos resultados son cruciales para viabilizar la fusión como solución energética del futuro.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Xinhua News Agency</span>
+            <a href="https://www.xinhuanet.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-3">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💻 Tecnología</span>
+            <span class="numero-noticia">#3</span>
+          </div>
+          <h2 class="tarjeta-titulo">Startups de inteligencia artificial en China reportan consolidación tras nueva regulación de modelos de IA</h2>
+          <div class="tarjeta-comentario">
+            <p>Tras la implementación de marcos regulatorios más claros para algoritmos y modelos de lenguaje grande, el ecosistema de startups de IA en China experimenta una consolidación estratégica, con fusiones entre compañías medianas y realineamiento de inversiones hacia empresas con conformidad regulatoria sólida. Este proceso, aunque causa competencia, también reduce el riesgo de mercado y fortalece a actores con estructuras de gobernanza robustas. La tendencia refleja la maduración del sector y la importancia creciente del cumplimiento normativo en la innovación tecnológica china. Gigantes como Baidu y Alibaba han capitalizado este cambio expandiendo sus divisiones de IA.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 TechNode</span>
+            <a href="https://www.technode.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-4">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💼 Empresas</span>
+            <span class="numero-noticia">#4</span>
+          </div>
+          <h2 class="tarjeta-titulo">Marcas de lujo occidentales ajustan estrategias de precios en China tras cambios en patrones de consumo</h2>
+          <div class="tarjeta-comentario">
+            <p>Las casas de moda internacionales están reajustando sus estrategias de precios y diferenciación en el mercado chino, donde ha disminuido la demanda de artículos de lujo premium en favor de marcas locales de calidad y productos de valor. Este cambio refleja una maduración del consumidor chino que ahora compara más críticamente precios y opciones, combinado con el fortalecimiento de marcas nacionales como Li-Ning y Perfect Diary. El fenómeno ilustra cómo el mercado chino, lejos de ser uniforme, responde a factores como la confianza de consumidor variable y la preferencia emergente por marcas con valores culturales locales. Los lujos tradicionales enfrentan presión para justificar sus márgenes premium.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 South China Morning Post</span>
+            <a href="https://www.scmp.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-5">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">👥 Sociedad</span>
+            <span class="numero-noticia">#5</span>
+          </div>
+          <h2 class="tarjeta-titulo">Nueva política educativa enfatiza habilidades prácticas y reducción de carga académica en escuelas primarias</h2>
+          <div class="tarjeta-comentario">
+            <p>China ha intensificado su implementación de reformas educativas que priorizan el desarrollo de habilidades prácticas, pensamiento crítico y bienestar mental de estudiantes, limitando simultáneamente tareas escolares en primaria y promoviendo actividades extracurriculares equilibradas. Estas medidas responden a décadas de preocupación parental y académica sobre la presión excesiva en estudiantes chinos y el enfoque tradicional en exámenes memorísticos. La reforma indica un cambio de filosofía educativa donde el desarrollo integral del estudiante compite en importancia con el rendimiento académico, alineándose con tendencias globales de pedagogía progresista. Varias provincias ya reportan reducción en casos de estrés y ansiedad infantil vinculados a la presión académica.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Sixth Tone</span>
+            <a href="https://www.sixththone.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-6">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💼 Empresas</span>
+            <span class="numero-noticia">#6</span>
+          </div>
+          <h2 class="tarjeta-titulo">Empresas chinas de vehículos eléctricos expanden operaciones en Europa mediante fabricación local</h2>
+          <div class="tarjeta-comentario">
+            <p>BYD, NIO y otros fabricantes de vehículos eléctricos chinos están acelerando la construcción de plantas de manufactura en Europa para eludir aranceles potenciales y responder a demanda creciente en mercados como Alemania, Francia y Benelux. Esta estrategia de localización produce empleo europeo mientras consolida posición competitiva china en sectores tecnológicos de alto valor agregado. El movimiento refleja la confianza de estas empresas en su capacidad competitiva a nivel global y su disponibilidad de capital para inversiones de largo plazo en infraestructura productiva. El fenómeno marca un punto de inflexión donde China no solo exporta productos sino también instala capacidad productiva en mercados desarrollados.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Caixin Global</span>
+            <a href="https://www.caixinglobal.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-7">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🎭 Cultura</span>
+            <span class="numero-noticia">#7</span>
+          </div>
+          <h2 class="tarjeta-titulo">Festival de cine de Shanghai celebra producciones chinas de temática social y experimental</h2>
+          <div class="tarjeta-comentario">
+            <p>La edición reciente del Festival de Cine de Shanghai ha destacado un crecimiento notable en películas chinas de presupuesto medio que exploran temas de movilidad social, identidad urbana y transformación cultural con narrativas innovadoras y estéticas renovadas. Directores emergentes han ganado reconocimiento internacional al presentar perspectivas auténticas sobre la contemporaneidad china sin caer en estereotipos o propaganda explícita. Este fenómeno indica una maduración del cine chino que busca dialogar con audiencias globales desde singularidad cultural genuina, no desde imitación de modelos occidentales. Los filmes seleccionados demuestran que existe mercado internacional para historias chinas contadas con complejidad y sensibilidad artística.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 China Today</span>
+            <a href="https://www.chinatoday.com.cn" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-8">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🌏 Geopolítica</span>
+            <span class="numero-noticia">#8</span>
+          </div>
+          <h2 class="tarjeta-titulo">China y países de ASEAN fortalecen cooperación en tecnología verde y transición energética</h2>
+          <div class="tarjeta-comentario">
+            <p>China ha establecido nuevos mecanismos de cooperación bilateral y regional con naciones de ASEAN para transferencia de tecnología en energías renovables, eficiencia energética y gestión ambiental, reconociendo interdependencias crecientes en la región. Los acuerdos incluyen financiamiento blando, capacitación técnica y inversiones en proyectos de energía solar y eólica transfronterizos. Esta iniciativa posiciona a China como socio estratégico en la transición energética asiática mientras diversifica sus alianzas fuera del eje Occidente. El enfoque pragmático en tecnología verde refleja cómo Beijing busca construir influencia mediante cooperación tangible en desafíos compartidos.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 CGTN</span>
+            <a href="https://www.cgtn.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-9">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💻 Tecnología</span>
+            <span class="numero-noticia">#9</span>
+          </div>
+          <h2 class="tarjeta-titulo">Investigación revela impacto de inteligencia artificial en empleo manufacturero: necesidad de reconversión laboral</h2>
+          <div class="tarjeta-comentario">
+            <p>Un análisis de instituciones de investigación chinas ha cuantificado que la automatización y robotización en manufactura desplazará aproximadamente 10-15% de empleos en el sector en los próximos cinco años, pero simultáneamente creará nuevas categorías de trabajo en mantenimiento, programación y supervisión de sistemas. El estudio subraya la importancia crítica de programas de recapacitación laboral y educación técnica continua para trabajadores transicionados. El hallazgo es representativo de dilemas que enfrentan economías manufactureras globales, incluyendo China, ante velocidad acelerada de adopción tecnológica. Gobiernos locales han comenzado a diseñar subsidios y programas de reconversión para trabajadores afectados.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Yicai Global</span>
+            <a href="https://www.yicaiglobal.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-10">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💻 Tecnología</span>
+            <span class="numero-noticia">#10</span>
+          </div>
+          <h2 class="tarjeta-titulo">Nuevas regulaciones sobre privacidad de datos personales entran en vigencia: impacto en plataformas de redes sociales</h2>
+          <div class="tarjeta-comentario">
+            <p>Regulaciones actualizadas sobre protección de datos personales han entrado en vigor, imponiendo estándares más rigurosos sobre consentimiento explícito de usuarios, transparencia algorítmica y derechos de eliminación de datos, afectando particularmente a plataformas de redes sociales y servicios de comercio electrónico. Las disposiciones buscan equilibrar innovación digital con protección de privacidad, respondiendo a preocupaciones de consumidores chinos y presiones internacionales por gobernanza de datos responsable. El marco regulatorio posiciona a China entre los mercados con protecciones de privacidad más rigurosas globalmente, contrastando con narrativas anteriores. Las plataformas están invirtiendo en infraestructura de cumplimiento y transparencia algorítmica mejorada.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Pandaily</span>
+            <a href="https://www.pandaily.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+</main>
+
+<footer class="pie">
+  <div class="pie-contenido">
+    <h3>Fuentes consultadas en esta edición</h3>
+    <ul>
+      <li><a href="https://www.chinadaily.com.cn" target="_blank" rel="noopener">China Daily — China impulsa nuevo plan de desarrollo rural con inversión masiva en infraestructura</a></li><li><a href="https://www.xinhuanet.com" target="_blank" rel="noopener">Xinhua News Agency — Avance significativo en investigación de fusión nuclear: reactor experimental EAST establece nuevo récord</a></li><li><a href="https://www.technode.com" target="_blank" rel="noopener">TechNode — Startups de inteligencia artificial en China reportan consolidación tras nueva regulación de modelos de IA</a></li><li><a href="https://www.scmp.com" target="_blank" rel="noopener">South China Morning Post — Marcas de lujo occidentales ajustan estrategias de precios en China tras cambios en patrones de consumo</a></li><li><a href="https://www.sixththone.com" target="_blank" rel="noopener">Sixth Tone — Nueva política educativa enfatiza habilidades prácticas y reducción de carga académica en escuelas primarias</a></li><li><a href="https://www.caixinglobal.com" target="_blank" rel="noopener">Caixin Global — Empresas chinas de vehículos eléctricos expanden operaciones en Europa mediante fabricación local</a></li><li><a href="https://www.chinatoday.com.cn" target="_blank" rel="noopener">China Today — Festival de cine de Shanghai celebra producciones chinas de temática social y experimental</a></li><li><a href="https://www.cgtn.com" target="_blank" rel="noopener">CGTN — China y países de ASEAN fortalecen cooperación en tecnología verde y transición energética</a></li><li><a href="https://www.yicaiglobal.com" target="_blank" rel="noopener">Yicai Global — Investigación revela impacto de inteligencia artificial en empleo manufacturero: necesidad de reconversión laboral</a></li><li><a href="https://www.pandaily.com" target="_blank" rel="noopener">Pandaily — Nuevas regulaciones sobre privacidad de datos personales entran en vigencia: impacto en plataformas de redes sociales</a></li>
+    </ul>
+    <div class="pie-creditos">
+      China Hoy · Edición 2026-05-12 · Generado automáticamente con IA ·
+      Las opiniones expresadas son editoriales y no representan posiciones oficiales.
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

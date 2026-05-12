@@ -362,5 +362,31 @@
       "Ciudades chinas experimentan con sistemas de tránsito integrado usando datos en tiempo real y predicción IA",
       "Empresas farmacéuticas chinas aceleran lanzamiento de medicamentos innovadores, reduciendo brecha con Occidente en investigación clínica"
     ]
+  },
+  "2026-05-12": {
+    "fuentes": [
+      "https://www.chinadaily.com.cn",
+      "https://www.xinhuanet.com",
+      "https://www.technode.com",
+      "https://www.scmp.com",
+      "https://www.sixththone.com",
+      "https://www.caixinglobal.com",
+      "https://www.chinatoday.com.cn",
+      "https://www.cgtn.com",
+      "https://www.yicaiglobal.com",
+      "https://www.pandaily.com"
+    ],
+    "titulares": [
+      "China impulsa nuevo plan de desarrollo rural con inversión masiva en infraestructura",
+      "Avance significativo en investigación de fusión nuclear: reactor experimental EAST establece nuevo récord",
+      "Startups de inteligencia artificial en China reportan consolidación tras nueva regulación de modelos de IA",
+      "Marcas de lujo occidentales ajustan estrategias de precios en China tras cambios en patrones de consumo",
+      "Nueva política educativa enfatiza habilidades prácticas y reducción de carga académica en escuelas primarias",
+      "Empresas chinas de vehículos eléctricos expanden operaciones en Europa mediante fabricación local",
+      "Festival de cine de Shanghai celebra producciones chinas de temática social y experimental",
+      "China y países de ASEAN fortalecen cooperación en tecnología verde y transición energética",
+      "Investigación revela impacto de inteligencia artificial en empleo manufacturero: necesidad de reconversión laboral",
+      "Nuevas regulaciones sobre privacidad de datos personales entran en vigencia: impacto en plataformas de redes sociales"
+    ]
   }
 }
