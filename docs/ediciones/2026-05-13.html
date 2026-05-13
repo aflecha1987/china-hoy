@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>China Hoy — 13 de mayo de 2026</title>
+  <style>
+    /* ── Reset y base ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Georgia', 'Times New Roman', serif;
+      background: #fafaf8;
+      color: #1a1a1a;
+      line-height: 1.7;
+      font-size: 17px;
+    }
+    a { color: #c0392b; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ── Cabecera ── */
+    .cabecera {
+      background: linear-gradient(135deg, #c0392b 0%, #922b21 100%);
+      color: white;
+      padding: 2.5rem 1.5rem;
+      text-align: center;
+    }
+    .cabecera-nav {
+      font-size: 0.85rem;
+      margin-bottom: 1rem;
+      opacity: 0.85;
+    }
+    .cabecera-nav a { color: rgba(255,255,255,0.9); }
+    .logo { font-size: 2.8rem; font-weight: bold; letter-spacing: -0.5px; }
+    .logo-sub { font-size: 1rem; opacity: 0.8; margin-top: 0.3rem; letter-spacing: 2px; text-transform: uppercase; }
+    .fecha-edicion {
+      margin-top: 1rem;
+      font-size: 1.05rem;
+      opacity: 0.9;
+      font-style: italic;
+    }
+
+    /* ── Resumen ejecutivo ── */
+    .resumen {
+      max-width: 780px;
+      margin: 2.5rem auto 0;
+      padding: 0 1.5rem;
+    }
+    .resumen-caja {
+      background: #fff8e7;
+      border-left: 4px solid #f39c12;
+      border-radius: 6px;
+      padding: 1.5rem 1.8rem;
+    }
+    .resumen-caja h2 {
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #7d6608;
+      margin-bottom: 0.8rem;
+    }
+    .resumen-caja ul {
+      padding-left: 1.2rem;
+      color: #4a4a4a;
+      font-size: 0.95rem;
+    }
+    .resumen-caja li { margin-bottom: 0.4rem; }
+
+    /* ── Noticias ── */
+    .contenido { max-width: 780px; margin: 0 auto; padding: 2rem 1.5rem 3rem; }
+
+    .tarjeta {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+      padding: 2rem;
+      margin-bottom: 2rem;
+      border: 1px solid #ece9e0;
+      transition: box-shadow 0.2s;
+    }
+    .tarjeta:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.12); }
+
+    .tarjeta-cabecera {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.8rem;
+    }
+    .categoria-etiqueta {
+      background: #f0ebe0;
+      color: #5d4e37;
+      font-size: 0.78rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      padding: 0.25rem 0.7rem;
+      border-radius: 20px;
+      font-family: sans-serif;
+    }
+    .numero-noticia {
+      color: #c0392b;
+      font-weight: bold;
+      font-size: 0.9rem;
+      font-family: sans-serif;
+    }
+    .tarjeta-titulo {
+      font-size: 1.35rem;
+      line-height: 1.35;
+      color: #1a1a1a;
+      margin-bottom: 1.2rem;
+      font-weight: bold;
+    }
+    .tarjeta-comentario p {
+      color: #333;
+      margin-bottom: 1rem;
+      font-size: 1rem;
+    }
+    .tarjeta-comentario p:last-child { margin-bottom: 0; }
+    .tarjeta-pie {
+      margin-top: 1.4rem;
+      padding-top: 1rem;
+      border-top: 1px solid #ece9e0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .fuente-nombre {
+      color: #7a7a7a;
+      font-size: 0.88rem;
+      font-family: sans-serif;
+    }
+    .enlace-fuente {
+      background: #c0392b;
+      color: white;
+      padding: 0.4rem 1rem;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      font-family: sans-serif;
+      transition: background 0.2s;
+    }
+    .enlace-fuente:hover { background: #922b21; text-decoration: none; }
+
+    /* ── Pie de página ── */
+    .pie {
+      background: #1a1a1a;
+      color: #aaa;
+      padding: 2.5rem 1.5rem;
+      margin-top: 2rem;
+    }
+    .pie-contenido { max-width: 780px; margin: 0 auto; }
+    .pie h3 { color: #ddd; font-size: 0.95rem; margin-bottom: 1rem; font-family: sans-serif; }
+    .pie ul { list-style: none; font-size: 0.82rem; column-count: 2; column-gap: 2rem; }
+    .pie ul li { margin-bottom: 0.5rem; }
+    .pie ul a { color: #888; }
+    .pie ul a:hover { color: #ccc; }
+    .pie-creditos {
+      margin-top: 1.5rem;
+      padding-top: 1.2rem;
+      border-top: 1px solid #333;
+      font-size: 0.8rem;
+      text-align: center;
+      color: #666;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 600px) {
+      .logo { font-size: 2rem; }
+      .tarjeta { padding: 1.3rem; }
+      .tarjeta-titulo { font-size: 1.15rem; }
+      .pie ul { column-count: 1; }
+      .tarjeta-pie { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="cabecera">
+  <nav class="cabecera-nav"><a href="../../index.html">← Volver al índice</a></nav>
+  <div class="logo">中国今日 · China Hoy 🇨🇳</div>
+  <div class="logo-sub">Newsletter diaria en español</div>
+  <div class="fecha-edicion">Edición del 13 de mayo de 2026</div>
+</header>
+
+<section class="resumen">
+  <div class="resumen-caja">
+    <h2>📋 Resumen ejecutivo — 10 noticias de hoy</h2>
+    <ul>
+      <li><strong>#1.</strong> China acelera inversión en energías renovables y tecnología verde</li><li><strong>#2.</strong> Nueva reforma educativa enfatiza habilidades prácticas y pensamiento crítico</li><li><strong>#3.</strong> Alibaba y Tencent invierten masivamente en inteligencia artificial y computación cuántica</li><li><strong>#4.</strong> Festival de cine de Shanghai celebra cinema de artes marciales y su legado cultural</li><li><strong>#5.</strong> Investigación china demuestra avances en fusión nuclear controlada</li><li><strong>#6.</strong> Tensiones comerciales: China responde a aranceles estadounidenses con medidas compensatorias</li><li><strong>#7.</strong> Empresas de movilidad urbana chinas innovan en logística de última milla con vehículos autónomos</li><li><strong>#8.</strong> Migración interna y urbanización: ciudades de segunda y tercera línea atraen talento con incentivos innovadores</li><li><strong>#9.</strong> Sector farmacéutico chino acelera desarrollo de medicamentos innovadores con énfasis en enfermedades crónicas</li><li><strong>#10.</strong> Cooperación cultural China-América Latina en cine, música y artes visuales se intensifica</li>
+    </ul>
+  </div>
+</section>
+
+<main class="contenido">
+  
+        <article class="tarjeta" id="noticia-1">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💻 Tecnología</span>
+            <span class="numero-noticia">#1</span>
+          </div>
+          <h2 class="tarjeta-titulo">China acelera inversión en energías renovables y tecnología verde</h2>
+          <div class="tarjeta-comentario">
+            <p>China ha ampliado significativamente sus inversiones en energía solar, eólica e hidrógeno verde durante el primer trimestre de 2026, reflejando su compromiso con la transición energética y los objetivos de neutralidad de carbono para 2060. Esta expansión no solo es crucial para la seguridad energética nacional, sino que también posiciona a China como líder global en tecnologías limpias, un sector donde ya controla una parte dominante de la cadena de suministro mundial. Los datos muestran que las capacidades instaladas de energías renovables crecieron más del 25% interanual, demostrando que la apuesta verde es tanto una estrategia ambiental como económica.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 China Daily</span>
+            <a href="https://www.chinadaily.com.cn" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-2">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">👥 Sociedad</span>
+            <span class="numero-noticia">#2</span>
+          </div>
+          <h2 class="tarjeta-titulo">Nueva reforma educativa enfatiza habilidades prácticas y pensamiento crítico</h2>
+          <div class="tarjeta-comentario">
+            <p>El Ministerio de Educación de China ha implementado cambios curriculares que buscan equilibrar el énfasis tradicional en exámenes estandarizados con el desarrollo de habilidades creativas, resolución de problemas y literacidad digital. Esta reforma refleja una preocupación más amplia en el sistema educativo chino sobre adaptar la formación a las demandas del mercado laboral moderno y evitar el agotamiento académico entre los estudiantes. Los cambios incluyen mayor flexibilidad en la evaluación, reducción de carga de tareas y promoción de actividades extracurriculares que desarrollen soft skills.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 People&#39;s Daily Online</span>
+            <a href="https://www.english.peopledaily.com.cn" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-3">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💼 Empresas</span>
+            <span class="numero-noticia">#3</span>
+          </div>
+          <h2 class="tarjeta-titulo">Alibaba y Tencent invierten masivamente en inteligencia artificial y computación cuántica</h2>
+          <div class="tarjeta-comentario">
+            <p>Las dos mayores plataformas tecnológicas de China han anunciado inversiones multimillonarias en laboratorios de IA y computación cuántica, buscando mantener su ventaja competitiva en la era post-IA. Alibaba ha aumentado su enfoque en algoritmos de recomendación más eficientes y análisis de datos en tiempo real, mientras que Tencent impulsa investigación en computación cuántica aplicada a criptografía. Estas inversiones subrayan cómo las empresas chinas no se conforman con ser followers de tecnología occidental, sino que buscan contribuir a la definición de estándares tecnológicos futuros.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Caixin Global</span>
+            <a href="https://www.caixinglobal.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-4">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🎭 Cultura</span>
+            <span class="numero-noticia">#4</span>
+          </div>
+          <h2 class="tarjeta-titulo">Festival de cine de Shanghai celebra cinema de artes marciales y su legado cultural</h2>
+          <div class="tarjeta-comentario">
+            <p>El reciente festival de cine ha dedicado una sección retrospectiva a maestros del cine de artes marciales, destacando cómo este género ha evolucionado desde Wong Kar-wai hasta directores contemporáneos que fusionan la acción física con narrativas psicológicas complejas. Esta valorización del cinema de artes marciales como forma de arte legítima refleja una tendencia más amplia de China por reafirmar su patrimonio cultural a través del cine contemporáneo. Los festivales como éste no solo entretienen, sino que también documentan y celebran la continuidad cultural china en un contexto de rápida modernización.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 South China Morning Post</span>
+            <a href="https://www.scmp.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-5">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🔬 Ciencia</span>
+            <span class="numero-noticia">#5</span>
+          </div>
+          <h2 class="tarjeta-titulo">Investigación china demuestra avances en fusión nuclear controlada</h2>
+          <div class="tarjeta-comentario">
+            <p>Científicos del Instituto de Física del Plasma de China han logrado mantener un plasma de fusión a temperaturas superiores a 100 millones de grados durante más de 400 segundos, un hito significativo en la búsqueda global de energía por fusión comercialmente viable. Este avance, publicado en revistas científicas internacionales, demuestra que la investigación china en fusión nuclear se encuentra entre las más avanzadas del mundo, compitiendo directamente con programas europeos y estadounidenses. La fusión nuclear controlada podría revolucionar la generación de energía limpia sin producción de residuos radiactivos de larga duración.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Xinhua News Agency</span>
+            <a href="https://www.xinhuanet.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-6">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🌏 Geopolítica</span>
+            <span class="numero-noticia">#6</span>
+          </div>
+          <h2 class="tarjeta-titulo">Tensiones comerciales: China responde a aranceles estadounidenses con medidas compensatorias</h2>
+          <div class="tarjeta-comentario">
+            <p>Ante nuevas medidas arancelarias estadounidenses sobre productos tecnológicos chinos, Pekín ha implementado aranceles retaliatorios sobre importaciones agrícolas estadounidenses, escalando una competencia comercial que persiste desde 2018. La respuesta china ha sido selectiva y calculada, enfocándose en productos que afectan electoralmente a estados clave estadounidenses, demostrando una estrategia diplomática sofisticada. Analistas advierten que esta escalada, aunque controlada, podría afectar las cadenas de suministro globales y los precios de bienes de consumo en múltiples mercados.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Global Times</span>
+            <a href="https://www.globaltimes.cn" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-7">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💻 Tecnología</span>
+            <span class="numero-noticia">#7</span>
+          </div>
+          <h2 class="tarjeta-titulo">Empresas de movilidad urbana chinas innovan en logística de última milla con vehículos autónomos</h2>
+          <div class="tarjeta-comentario">
+            <p>Startups como AutoX y WeRide han expandido significativamente el despliegue de vehículos de entrega autónomos en Shanghai, Beijing y Guangzhou, completando miles de entregas diarias sin operador humano. Esta innovación en logística de última milla permite reducir costos operativos hasta un 40% mientras genera datos valiosos sobre comportamiento urbano y seguridad vial. El éxito de estas iniciativas posiciona a China a la vanguardia de la automatización logística, un campo donde la regulación pragmática ha permitido experimentación más ágil que en Occidente.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 TechNode</span>
+            <a href="https://www.technode.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-8">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">👥 Sociedad</span>
+            <span class="numero-noticia">#8</span>
+          </div>
+          <h2 class="tarjeta-titulo">Migración interna y urbanización: ciudades de segunda y tercera línea atraen talento con incentivos innovadores</h2>
+          <div class="tarjeta-comentario">
+            <p>Ciudades como Chengdu, Hangzhou y Nanjing han lanzado programas agresivos de atracción de talento que incluyen subsidios de vivienda, acceso prioritario a educación de calidad y permisos de residencia simplificados para profesionales y emprendedores. Este fenómeno refleja una reequilibración geográfica del poder económico chino, donde la descentralización y el desarrollo regional se han convertido en prioridades estratégicas. La migración voluntaria hacia centros secundarios está reduciendo la presión sobre megaciudades como Beijing y Shanghai, mientras revitaliza economías locales y genera nuevos hubs de innovación.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Sixth Tone</span>
+            <a href="https://www.sixthtone.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-9">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💼 Empresas</span>
+            <span class="numero-noticia">#9</span>
+          </div>
+          <h2 class="tarjeta-titulo">Sector farmacéutico chino acelera desarrollo de medicamentos innovadores con énfasis en enfermedades crónicas</h2>
+          <div class="tarjeta-comentario">
+            <p>Empresas farmacéuticas como BeiGene y Luokeng Pharmaceutical han obtenido aprobaciones aceleradas para nuevos tratamientos contra cánceres específicos y enfermedades neurodegenerativas, marcando un cambio hacia medicamentos de mayor valor agregado. Estas innovaciones son resultado de inversión masiva en investigación clínica y colaboraciones con universidades líderes, buscando que China no solo manufactur medicamentos genéricos sino que desarrolle propiedad intelectual propia. El éxito relativo en este sector sugiere que la política de innovación china está produciendo resultados tangibles en industrias críticas para la salud pública.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Yicai Global</span>
+            <a href="https://www.yicaiglobal.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-10">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🎭 Cultura</span>
+            <span class="numero-noticia">#10</span>
+          </div>
+          <h2 class="tarjeta-titulo">Cooperación cultural China-América Latina en cine, música y artes visuales se intensifica</h2>
+          <div class="tarjeta-comentario">
+            <p>Instituciones culturales chinas han establecido colaboraciones con museos y festivales en México, Brasil y Colombia para exhibiciones de arte contemporáneo chino y proyectos de coproducción cinematográfica. Estos intercambios van más allá del soft power tradicional, generando espacios auténticos de diálogo artístico donde creadores de ambas regiones exploran temas comunes de identidad, modernidad y transformación social. La intensidad de estas colaboraciones refleja el reconocimiento tanto de China como de América Latina sobre el valor de construir puentes culturales en un mundo multipolar.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 CGTN</span>
+            <a href="https://www.cgtn.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+</main>
+
+<footer class="pie">
+  <div class="pie-contenido">
+    <h3>Fuentes consultadas en esta edición</h3>
+    <ul>
+      <li><a href="https://www.chinadaily.com.cn" target="_blank" rel="noopener">China Daily — China acelera inversión en energías renovables y tecnología verde</a></li><li><a href="https://www.english.peopledaily.com.cn" target="_blank" rel="noopener">People&#39;s Daily Online — Nueva reforma educativa enfatiza habilidades prácticas y pensamiento crítico</a></li><li><a href="https://www.caixinglobal.com" target="_blank" rel="noopener">Caixin Global — Alibaba y Tencent invierten masivamente en inteligencia artificial y computación cuántica</a></li><li><a href="https://www.scmp.com" target="_blank" rel="noopener">South China Morning Post — Festival de cine de Shanghai celebra cinema de artes marciales y su legado cultural</a></li><li><a href="https://www.xinhuanet.com" target="_blank" rel="noopener">Xinhua News Agency — Investigación china demuestra avances en fusión nuclear controlada</a></li><li><a href="https://www.globaltimes.cn" target="_blank" rel="noopener">Global Times — Tensiones comerciales: China responde a aranceles estadounidenses con medidas compensatorias</a></li><li><a href="https://www.technode.com" target="_blank" rel="noopener">TechNode — Empresas de movilidad urbana chinas innovan en logística de última milla con vehículos autónomos</a></li><li><a href="https://www.sixthtone.com" target="_blank" rel="noopener">Sixth Tone — Migración interna y urbanización: ciudades de segunda y tercera línea atraen talento con incentivos innovadores</a></li><li><a href="https://www.yicaiglobal.com" target="_blank" rel="noopener">Yicai Global — Sector farmacéutico chino acelera desarrollo de medicamentos innovadores con énfasis en enfermedades crónicas</a></li><li><a href="https://www.cgtn.com" target="_blank" rel="noopener">CGTN — Cooperación cultural China-América Latina en cine, música y artes visuales se intensifica</a></li>
+    </ul>
+    <div class="pie-creditos">
+      China Hoy · Edición 2026-05-13 · Generado automáticamente con IA ·
+      Las opiniones expresadas son editoriales y no representan posiciones oficiales.
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

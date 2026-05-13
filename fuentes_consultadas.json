@@ -388,5 +388,31 @@
       "Investigación revela impacto de inteligencia artificial en empleo manufacturero: necesidad de reconversión laboral",
       "Nuevas regulaciones sobre privacidad de datos personales entran en vigencia: impacto en plataformas de redes sociales"
     ]
+  },
+  "2026-05-13": {
+    "fuentes": [
+      "https://www.chinadaily.com.cn",
+      "https://www.english.peopledaily.com.cn",
+      "https://www.caixinglobal.com",
+      "https://www.scmp.com",
+      "https://www.xinhuanet.com",
+      "https://www.globaltimes.cn",
+      "https://www.technode.com",
+      "https://www.sixthtone.com",
+      "https://www.yicaiglobal.com",
+      "https://www.cgtn.com"
+    ],
+    "titulares": [
+      "China acelera inversión en energías renovables y tecnología verde",
+      "Nueva reforma educativa enfatiza habilidades prácticas y pensamiento crítico",
+      "Alibaba y Tencent invierten masivamente en inteligencia artificial y computación cuántica",
+      "Festival de cine de Shanghai celebra cinema de artes marciales y su legado cultural",
+      "Investigación china demuestra avances en fusión nuclear controlada",
+      "Tensiones comerciales: China responde a aranceles estadounidenses con medidas compensatorias",
+      "Empresas de movilidad urbana chinas innovan en logística de última milla con vehículos autónomos",
+      "Migración interna y urbanización: ciudades de segunda y tercera línea atraen talento con incentivos innovadores",
+      "Sector farmacéutico chino acelera desarrollo de medicamentos innovadores con énfasis en enfermedades crónicas",
+      "Cooperación cultural China-América Latina en cine, música y artes visuales se intensifica"
+    ]
   }
 }
