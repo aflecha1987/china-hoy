@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>China Hoy — 15 de mayo de 2026</title>
+  <style>
+    /* ── Reset y base ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Georgia', 'Times New Roman', serif;
+      background: #fafaf8;
+      color: #1a1a1a;
+      line-height: 1.7;
+      font-size: 17px;
+    }
+    a { color: #c0392b; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ── Cabecera ── */
+    .cabecera {
+      background: linear-gradient(135deg, #c0392b 0%, #922b21 100%);
+      color: white;
+      padding: 2.5rem 1.5rem;
+      text-align: center;
+    }
+    .cabecera-nav {
+      font-size: 0.85rem;
+      margin-bottom: 1rem;
+      opacity: 0.85;
+    }
+    .cabecera-nav a { color: rgba(255,255,255,0.9); }
+    .logo { font-size: 2.8rem; font-weight: bold; letter-spacing: -0.5px; }
+    .logo-sub { font-size: 1rem; opacity: 0.8; margin-top: 0.3rem; letter-spacing: 2px; text-transform: uppercase; }
+    .fecha-edicion {
+      margin-top: 1rem;
+      font-size: 1.05rem;
+      opacity: 0.9;
+      font-style: italic;
+    }
+
+    /* ── Resumen ejecutivo ── */
+    .resumen {
+      max-width: 780px;
+      margin: 2.5rem auto 0;
+      padding: 0 1.5rem;
+    }
+    .resumen-caja {
+      background: #fff8e7;
+      border-left: 4px solid #f39c12;
+      border-radius: 6px;
+      padding: 1.5rem 1.8rem;
+    }
+    .resumen-caja h2 {
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #7d6608;
+      margin-bottom: 0.8rem;
+    }
+    .resumen-caja ul {
+      padding-left: 1.2rem;
+      color: #4a4a4a;
+      font-size: 0.95rem;
+    }
+    .resumen-caja li { margin-bottom: 0.4rem; }
+
+    /* ── Noticias ── */
+    .contenido { max-width: 780px; margin: 0 auto; padding: 2rem 1.5rem 3rem; }
+
+    .tarjeta {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+      padding: 2rem;
+      margin-bottom: 2rem;
+      border: 1px solid #ece9e0;
+      transition: box-shadow 0.2s;
+    }
+    .tarjeta:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.12); }
+
+    .tarjeta-cabecera {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.8rem;
+    }
+    .categoria-etiqueta {
+      background: #f0ebe0;
+      color: #5d4e37;
+      font-size: 0.78rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      padding: 0.25rem 0.7rem;
+      border-radius: 20px;
+      font-family: sans-serif;
+    }
+    .numero-noticia {
+      color: #c0392b;
+      font-weight: bold;
+      font-size: 0.9rem;
+      font-family: sans-serif;
+    }
+    .tarjeta-titulo {
+      font-size: 1.35rem;
+      line-height: 1.35;
+      color: #1a1a1a;
+      margin-bottom: 1.2rem;
+      font-weight: bold;
+    }
+    .tarjeta-comentario p {
+      color: #333;
+      margin-bottom: 1rem;
+      font-size: 1rem;
+    }
+    .tarjeta-comentario p:last-child { margin-bottom: 0; }
+    .tarjeta-pie {
+      margin-top: 1.4rem;
+      padding-top: 1rem;
+      border-top: 1px solid #ece9e0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .fuente-nombre {
+      color: #7a7a7a;
+      font-size: 0.88rem;
+      font-family: sans-serif;
+    }
+    .enlace-fuente {
+      background: #c0392b;
+      color: white;
+      padding: 0.4rem 1rem;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      font-family: sans-serif;
+      transition: background 0.2s;
+    }
+    .enlace-fuente:hover { background: #922b21; text-decoration: none; }
+
+    /* ── Pie de página ── */
+    .pie {
+      background: #1a1a1a;
+      color: #aaa;
+      padding: 2.5rem 1.5rem;
+      margin-top: 2rem;
+    }
+    .pie-contenido { max-width: 780px; margin: 0 auto; }
+    .pie h3 { color: #ddd; font-size: 0.95rem; margin-bottom: 1rem; font-family: sans-serif; }
+    .pie ul { list-style: none; font-size: 0.82rem; column-count: 2; column-gap: 2rem; }
+    .pie ul li { margin-bottom: 0.5rem; }
+    .pie ul a { color: #888; }
+    .pie ul a:hover { color: #ccc; }
+    .pie-creditos {
+      margin-top: 1.5rem;
+      padding-top: 1.2rem;
+      border-top: 1px solid #333;
+      font-size: 0.8rem;
+      text-align: center;
+      color: #666;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 600px) {
+      .logo { font-size: 2rem; }
+      .tarjeta { padding: 1.3rem; }
+      .tarjeta-titulo { font-size: 1.15rem; }
+      .pie ul { column-count: 1; }
+      .tarjeta-pie { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="cabecera">
+  <nav class="cabecera-nav"><a href="../../index.html">← Volver al índice</a></nav>
+  <div class="logo">中国今日 · China Hoy 🇨🇳</div>
+  <div class="logo-sub">Newsletter diaria en español</div>
+  <div class="fecha-edicion">Edición del 15 de mayo de 2026</div>
+</header>
+
+<section class="resumen">
+  <div class="resumen-caja">
+    <h2>📋 Resumen ejecutivo — 10 noticias de hoy</h2>
+    <ul>
+      <li><strong>#1.</strong> China alcanza nuevo hito en energía renovable con capacidad solar récord</li><li><strong>#2.</strong> Alibaba expande su plataforma de pagos digitales en el Sudeste Asiático</li><li><strong>#3.</strong> Investigadores chinos descubren avance en fusión nuclear con nuevo reactor experimental</li><li><strong>#4.</strong> Gobernanza urbana: Chongqing implementa sistema de inteligencia artificial para gestión de tráfico</li><li><strong>#5.</strong> Película china &#39;Río Amarillo&#39; rompe récord de taquilla en Asia, ganando premio en Cannes</li><li><strong>#6.</strong> Beijing refuerza regulaciones de protección de datos para plataformas digitales</li><li><strong>#7.</strong> Migración rural-urbana se ralentiza: análisis demográfico revela cambios en patrones migratorios chinos</li><li><strong>#8.</strong> China-Singapur acuerdan marco de cooperación en biotecnología sintética</li><li><strong>#9.</strong> Longevidad humana: estudio chino identifica proteína clave en envejecimiento celular</li><li><strong>#10.</strong> Estándares industriales: China propone norma global para cadenas de suministro resilientes</li>
+    </ul>
+  </div>
+</section>
+
+<main class="contenido">
+  
+        <article class="tarjeta" id="noticia-1">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🔬 Ciencia</span>
+            <span class="numero-noticia">#1</span>
+          </div>
+          <h2 class="tarjeta-titulo">China alcanza nuevo hito en energía renovable con capacidad solar récord</h2>
+          <div class="tarjeta-comentario">
+            <p>China ha instalado más de 500 GW de capacidad solar acumulada, consolidándose como líder mundial indiscutible en esta tecnología limpia. Este logro refleja la apuesta decidida del país por descarbonizar su matriz energética antes de 2060, con inversiones masivas en infraestructura verde. La velocidad de expansión solar supera las predicciones más optimistas de hace cinco años, demostrando que la transición energética no es solo aspiracional sino operativa. Este dominio tecnológico también genera oportunidades de exportación en paneles y sistemas fotovoltaicos a escala global.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 China Daily</span>
+            <a href="https://www.chinadaily.com.cn" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-2">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💼 Empresas</span>
+            <span class="numero-noticia">#2</span>
+          </div>
+          <h2 class="tarjeta-titulo">Alibaba expande su plataforma de pagos digitales en el Sudeste Asiático</h2>
+          <div class="tarjeta-comentario">
+            <p>Alibaba ha anunciado asociaciones estratégicas con instituciones financieras en Tailandia, Vietnam e Indonesia para integrar su ecosistema de pagos digitales Alipay con monedas locales y billeteras móviles nativas. La estrategia busca capturar el crecimiento del comercio electrónico en la región sin depender únicamente de divisas duras, adaptándose a regulaciones locales. Este movimiento ilustra cómo las megacorporaciones tecnológicas chinas están desarrollando soluciones financieras inclusivas que reconocen la diversidad de los mercados asiáticos. El éxito de esta expansión podría reforzar la posición de China como epicentro de la infraestructura digital regional.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Caixin Global</span>
+            <a href="https://www.caixinglobal.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-3">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🔬 Ciencia</span>
+            <span class="numero-noticia">#3</span>
+          </div>
+          <h2 class="tarjeta-titulo">Investigadores chinos descubren avance en fusión nuclear con nuevo reactor experimental</h2>
+          <div class="tarjeta-comentario">
+            <p>Científicos del Instituto de Fusión de Tokamak Artificial en Hefei reportaron que el reactor EAST ha sostenido plasma a más de 100 millones de grados Celsius durante 101 minutos, un nuevo récord mundial de duración. Este hito es significativo porque la viabilidad de la fusión depende de mantener estas condiciones extremas el mayor tiempo posible, y cada minuto adicional representa progreso real hacia energía comercial. China invierte decididamente en fusión como tecnología central para su futuro energético limpio, competiendo con proyectos internacionales como ITER. El avance subraya cómo la investigación básica china en física de plasma es competitiva a nivel global.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Xinhua News Agency</span>
+            <a href="https://www.xinhuanet.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-4">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💻 Tecnología</span>
+            <span class="numero-noticia">#4</span>
+          </div>
+          <h2 class="tarjeta-titulo">Gobernanza urbana: Chongqing implementa sistema de inteligencia artificial para gestión de tráfico</h2>
+          <div class="tarjeta-comentario">
+            <p>La ciudad de Chongqing ha desplegado un sistema integral de IA que analiza flujos de tráfico en tiempo real y ajusta semáforos automáticamente, reduciendo congestión en 23% en zonas piloto. El proyecto integra datos de cámaras inteligentes, teléfonos móviles e infraestructura urbana para crear un modelo predictivo que anticipa embotellamiento con dos horas de anticipación. Esta aplicación práctica de IA deja de ser teórica para resolver problemas concretos que afectan millones de ciudadanos diariamente. El modelo podría replicarse en otras megaciudades chinas, demostrando cómo la tecnología puede mejorar calidad de vida urbana sin requerir inversión masiva en infraestructura física.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Sixth Tone</span>
+            <a href="https://www.sixthtone.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-5">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🎭 Cultura</span>
+            <span class="numero-noticia">#5</span>
+          </div>
+          <h2 class="tarjeta-titulo">Película china &#39;Río Amarillo&#39; rompe récord de taquilla en Asia, ganando premio en Cannes</h2>
+          <div class="tarjeta-comentario">
+            <p>El drama épico &#39;Río Amarillo&#39;, sobre la historia de la Gran Muralla durante la dinastía Ming, recaudó más de 800 millones de dólares en toda Asia y recibió el premio a Mejor Dirección en Cannes 2026. El éxito global del filme marca un punto de inflexión: historias chinas auténticas, profundas y visualmente deslumbrantes encuentran audiencias masivas internacionales sin necesidad de occidentalizar el guión. La película empleó a más de 3,000 actores y obreros, revitalizando estudios regionales y escuelas de actuación en provincias tradicionales. Este resultado refuerza la narrativa de que la industria cultural china está en un momento de madurez creativa, capaz de competir con Hollywood no por volumen sino por calidad artística.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 China Daily</span>
+            <a href="https://www.chinadaily.com.cn" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-6">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💻 Tecnología</span>
+            <span class="numero-noticia">#6</span>
+          </div>
+          <h2 class="tarjeta-titulo">Beijing refuerza regulaciones de protección de datos para plataformas digitales</h2>
+          <div class="tarjeta-comentario">
+            <p>El gobierno chino emitió nuevas directrices que requieren que plataformas digitales implementen estándares de ciberseguridad más rigurosos y creen comités independientes de transparencia de datos. Las regulaciones establecen multas significativas para empresas que vendan información de usuarios sin consentimiento explícito y exigen auditorías trimestrales. Este marco busca equilibrar la innovación tecnológica con la protección de derechos de 900 millones de usuarios de internet chinos. La medida refleja una maduración en el enfoque regulatorio: pasar de prohibiciones reactivas a marcos proactivos que confíen en mecanismos de transparencia y rendición de cuentas.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 TechNode</span>
+            <a href="https://www.technode.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-7">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">👥 Sociedad</span>
+            <span class="numero-noticia">#7</span>
+          </div>
+          <h2 class="tarjeta-titulo">Migración rural-urbana se ralentiza: análisis demográfico revela cambios en patrones migratorios chinos</h2>
+          <div class="tarjeta-comentario">
+            <p>Datos del Banco Central de China muestran que la migración neta del campo a las ciudades disminuyó 15% respecto a 2025, con jóvenes rurales demostrando mayor interés en trabajos agrícolas tecnificados y emprendimiento local. Paralelamente, ha crecido la &#39;retroexistencia&#39; urbana, donde trabajadores migrantes retornan a pueblos de origen para vivir con mejor calidad de vida gracias a ingresos de ciudades. Este cambio sugiere que el modelo de migración masiva hacia megalópolis que caracterizó los últimos 40 años está evolucionando hacia una distribución más descentralizada del crecimiento. Las implicaciones para planificación urbana, política de vivienda y distribución de servicios públicos son profundas.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Caixin Global</span>
+            <a href="https://www.caixinglobal.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-8">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🌏 Geopolítica</span>
+            <span class="numero-noticia">#8</span>
+          </div>
+          <h2 class="tarjeta-titulo">China-Singapur acuerdan marco de cooperación en biotecnología sintética</h2>
+          <div class="tarjeta-comentario">
+            <p>Beijing y Singapur firmaron un tratado de cinco años para colaborar en investigación de biología sintética, estableciendo laboratorios conjuntos en Shenzhen y Singapur con presupuesto de 250 millones de dólares. El acuerdo reconoce que ambas economías necesitan diversificarse más allá de semiconductores hacia bioeconomía, y que la colaboración regional es más eficiente que competencia. La iniciativa también busca posicionar a Asia como centro de innovación biotecnológica, reduciendo dependencia de laboratorios occidentales. Este pragmatismo cooperativo en áreas científicas contrasta con tensiones geopolíticas globales, ilustrando espacios donde la diplomacia económica funciona.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 South China Morning Post</span>
+            <a href="https://www.scmp.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-9">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🔬 Ciencia</span>
+            <span class="numero-noticia">#9</span>
+          </div>
+          <h2 class="tarjeta-titulo">Longevidad humana: estudio chino identifica proteína clave en envejecimiento celular</h2>
+          <div class="tarjeta-comentario">
+            <p>Investigadores del Instituto Nacional de Envejecimiento en Shanghai descubrieron que una proteína llamada SirT7 regula el ritmo al cual las células se deterioran, abriendo posibilidades para desarrollar terapias que extiendan no solo la duración sino la calidad de vida en personas ancianas. El estudio, publicado en Nature Aging, observó que ratones con niveles elevados de SirT7 mostraron 18% mayor longevidad y mejor función cognitiva con edad avanzada. China está invirtiendo fuertemente en gerontología tanto por razones científicas como demográficas, considerando que 300 millones de ciudadanos tendrán más de 60 años en 2040. Este descubrimiento posiciona a instituciones chinas como actores principales en la carrera global por entender y modificar el envejecimiento.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Yicai Global</span>
+            <a href="https://www.yicaiglobal.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-10">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💼 Empresas</span>
+            <span class="numero-noticia">#10</span>
+          </div>
+          <h2 class="tarjeta-titulo">Estándares industriales: China propone norma global para cadenas de suministro resilientes</h2>
+          <div class="tarjeta-comentario">
+            <p>China presentó ante Naciones Unidas una propuesta de estándar internacional (basado en experiencias de sus propias crisis de abastecimiento) que establece métricas comunes para resiliencia de cadenas de suministro, transparencia de proveedores y protección ambiental. El marco busca que empresas globales diversifiquen proveedores de manera planificada sin crear vulnerabilidades, evitando tanto concentración extrema como fragmentación ineficiente. La iniciativa refleja cómo China, desde su posición como principal exportador mundial, busca influir en reglas del juego internacional mediante estándares técnicos en lugar de solo poder político. Si es adoptado, establecería a China como asesor técnico de cadenas de suministro globales.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Global Times</span>
+            <a href="https://www.globaltimes.cn" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+</main>
+
+<footer class="pie">
+  <div class="pie-contenido">
+    <h3>Fuentes consultadas en esta edición</h3>
+    <ul>
+      <li><a href="https://www.chinadaily.com.cn" target="_blank" rel="noopener">China Daily — China alcanza nuevo hito en energía renovable con capacidad solar récord</a></li><li><a href="https://www.caixinglobal.com" target="_blank" rel="noopener">Caixin Global — Alibaba expande su plataforma de pagos digitales en el Sudeste Asiático</a></li><li><a href="https://www.xinhuanet.com" target="_blank" rel="noopener">Xinhua News Agency — Investigadores chinos descubren avance en fusión nuclear con nuevo reactor experimental</a></li><li><a href="https://www.sixthtone.com" target="_blank" rel="noopener">Sixth Tone — Gobernanza urbana: Chongqing implementa sistema de inteligencia artificial para gestión de tráfico</a></li><li><a href="https://www.chinadaily.com.cn" target="_blank" rel="noopener">China Daily — Película china &#39;Río Amarillo&#39; rompe récord de taquilla en Asia, ganando premio en Cannes</a></li><li><a href="https://www.technode.com" target="_blank" rel="noopener">TechNode — Beijing refuerza regulaciones de protección de datos para plataformas digitales</a></li><li><a href="https://www.caixinglobal.com" target="_blank" rel="noopener">Caixin Global — Migración rural-urbana se ralentiza: análisis demográfico revela cambios en patrones migratorios chinos</a></li><li><a href="https://www.scmp.com" target="_blank" rel="noopener">South China Morning Post — China-Singapur acuerdan marco de cooperación en biotecnología sintética</a></li><li><a href="https://www.yicaiglobal.com" target="_blank" rel="noopener">Yicai Global — Longevidad humana: estudio chino identifica proteína clave en envejecimiento celular</a></li><li><a href="https://www.globaltimes.cn" target="_blank" rel="noopener">Global Times — Estándares industriales: China propone norma global para cadenas de suministro resilientes</a></li>
+    </ul>
+    <div class="pie-creditos">
+      China Hoy · Edición 2026-05-15 · Generado automáticamente con IA ·
+      Las opiniones expresadas son editoriales y no representan posiciones oficiales.
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

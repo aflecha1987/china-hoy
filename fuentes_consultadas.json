@@ -440,5 +440,31 @@
       "Ciudades chinas del centro expanden infraestructura de datos para atraer industria de computación en la nube",
       "Generación post-90s redefine concepto de éxito profesional: encuesta muestra preferencia creciente por autonomía sobre ingresos máximos"
     ]
+  },
+  "2026-05-15": {
+    "fuentes": [
+      "https://www.chinadaily.com.cn",
+      "https://www.caixinglobal.com",
+      "https://www.xinhuanet.com",
+      "https://www.sixthtone.com",
+      "https://www.chinadaily.com.cn",
+      "https://www.technode.com",
+      "https://www.caixinglobal.com",
+      "https://www.scmp.com",
+      "https://www.yicaiglobal.com",
+      "https://www.globaltimes.cn"
+    ],
+    "titulares": [
+      "China alcanza nuevo hito en energía renovable con capacidad solar récord",
+      "Alibaba expande su plataforma de pagos digitales en el Sudeste Asiático",
+      "Investigadores chinos descubren avance en fusión nuclear con nuevo reactor experimental",
+      "Gobernanza urbana: Chongqing implementa sistema de inteligencia artificial para gestión de tráfico",
+      "Película china 'Río Amarillo' rompe récord de taquilla en Asia, ganando premio en Cannes",
+      "Beijing refuerza regulaciones de protección de datos para plataformas digitales",
+      "Migración rural-urbana se ralentiza: análisis demográfico revela cambios en patrones migratorios chinos",
+      "China-Singapur acuerdan marco de cooperación en biotecnología sintética",
+      "Longevidad humana: estudio chino identifica proteína clave en envejecimiento celular",
+      "Estándares industriales: China propone norma global para cadenas de suministro resilientes"
+    ]
   }
 }
