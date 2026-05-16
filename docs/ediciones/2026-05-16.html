@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>China Hoy — 16 de mayo de 2026</title>
+  <style>
+    /* ── Reset y base ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Georgia', 'Times New Roman', serif;
+      background: #fafaf8;
+      color: #1a1a1a;
+      line-height: 1.7;
+      font-size: 17px;
+    }
+    a { color: #c0392b; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ── Cabecera ── */
+    .cabecera {
+      background: linear-gradient(135deg, #c0392b 0%, #922b21 100%);
+      color: white;
+      padding: 2.5rem 1.5rem;
+      text-align: center;
+    }
+    .cabecera-nav {
+      font-size: 0.85rem;
+      margin-bottom: 1rem;
+      opacity: 0.85;
+    }
+    .cabecera-nav a { color: rgba(255,255,255,0.9); }
+    .logo { font-size: 2.8rem; font-weight: bold; letter-spacing: -0.5px; }
+    .logo-sub { font-size: 1rem; opacity: 0.8; margin-top: 0.3rem; letter-spacing: 2px; text-transform: uppercase; }
+    .fecha-edicion {
+      margin-top: 1rem;
+      font-size: 1.05rem;
+      opacity: 0.9;
+      font-style: italic;
+    }
+
+    /* ── Resumen ejecutivo ── */
+    .resumen {
+      max-width: 780px;
+      margin: 2.5rem auto 0;
+      padding: 0 1.5rem;
+    }
+    .resumen-caja {
+      background: #fff8e7;
+      border-left: 4px solid #f39c12;
+      border-radius: 6px;
+      padding: 1.5rem 1.8rem;
+    }
+    .resumen-caja h2 {
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #7d6608;
+      margin-bottom: 0.8rem;
+    }
+    .resumen-caja ul {
+      padding-left: 1.2rem;
+      color: #4a4a4a;
+      font-size: 0.95rem;
+    }
+    .resumen-caja li { margin-bottom: 0.4rem; }
+
+    /* ── Noticias ── */
+    .contenido { max-width: 780px; margin: 0 auto; padding: 2rem 1.5rem 3rem; }
+
+    .tarjeta {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+      padding: 2rem;
+      margin-bottom: 2rem;
+      border: 1px solid #ece9e0;
+      transition: box-shadow 0.2s;
+    }
+    .tarjeta:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.12); }
+
+    .tarjeta-cabecera {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.8rem;
+    }
+    .categoria-etiqueta {
+      background: #f0ebe0;
+      color: #5d4e37;
+      font-size: 0.78rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      padding: 0.25rem 0.7rem;
+      border-radius: 20px;
+      font-family: sans-serif;
+    }
+    .numero-noticia {
+      color: #c0392b;
+      font-weight: bold;
+      font-size: 0.9rem;
+      font-family: sans-serif;
+    }
+    .tarjeta-titulo {
+      font-size: 1.35rem;
+      line-height: 1.35;
+      color: #1a1a1a;
+      margin-bottom: 1.2rem;
+      font-weight: bold;
+    }
+    .tarjeta-comentario p {
+      color: #333;
+      margin-bottom: 1rem;
+      font-size: 1rem;
+    }
+    .tarjeta-comentario p:last-child { margin-bottom: 0; }
+    .tarjeta-pie {
+      margin-top: 1.4rem;
+      padding-top: 1rem;
+      border-top: 1px solid #ece9e0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .fuente-nombre {
+      color: #7a7a7a;
+      font-size: 0.88rem;
+      font-family: sans-serif;
+    }
+    .enlace-fuente {
+      background: #c0392b;
+      color: white;
+      padding: 0.4rem 1rem;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      font-family: sans-serif;
+      transition: background 0.2s;
+    }
+    .enlace-fuente:hover { background: #922b21; text-decoration: none; }
+
+    /* ── Pie de página ── */
+    .pie {
+      background: #1a1a1a;
+      color: #aaa;
+      padding: 2.5rem 1.5rem;
+      margin-top: 2rem;
+    }
+    .pie-contenido { max-width: 780px; margin: 0 auto; }
+    .pie h3 { color: #ddd; font-size: 0.95rem; margin-bottom: 1rem; font-family: sans-serif; }
+    .pie ul { list-style: none; font-size: 0.82rem; column-count: 2; column-gap: 2rem; }
+    .pie ul li { margin-bottom: 0.5rem; }
+    .pie ul a { color: #888; }
+    .pie ul a:hover { color: #ccc; }
+    .pie-creditos {
+      margin-top: 1.5rem;
+      padding-top: 1.2rem;
+      border-top: 1px solid #333;
+      font-size: 0.8rem;
+      text-align: center;
+      color: #666;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 600px) {
+      .logo { font-size: 2rem; }
+      .tarjeta { padding: 1.3rem; }
+      .tarjeta-titulo { font-size: 1.15rem; }
+      .pie ul { column-count: 1; }
+      .tarjeta-pie { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="cabecera">
+  <nav class="cabecera-nav"><a href="../../index.html">← Volver al índice</a></nav>
+  <div class="logo">中国今日 · China Hoy 🇨🇳</div>
+  <div class="logo-sub">Newsletter diaria en español</div>
+  <div class="fecha-edicion">Edición del 16 de mayo de 2026</div>
+</header>
+
+<section class="resumen">
+  <div class="resumen-caja">
+    <h2>📋 Resumen ejecutivo — 10 noticias de hoy</h2>
+    <ul>
+      <li><strong>#1.</strong> China acelera adopción de inteligencia artificial en manufactura, alcanzando 1.5 millones de robots industriales</li><li><strong>#2.</strong> Festival de Cannes reconoce película documental china sobre tradiciones rurales</li><li><strong>#3.</strong> China invierte en educación STEM para mujeres, alcanzando paridad de género en universidades científicas</li><li><strong>#4.</strong> Alibaba anuncia expansión de servicios en computación cuántica, formando alianza con instituciones de investigación</li><li><strong>#5.</strong> Investigadores chinos logran avance en cultivo de órganos bioartificiales para trasplante</li><li><strong>#6.</strong> Tensiones comerciales remiten: China y EU negocian nuevos términos para semiconductores</li><li><strong>#7.</strong> Ciudades chinas lanzan programas piloto de economía circular, reduciendo residuos en 40%</li><li><strong>#8.</strong> BYD supera a Tesla en ventas de vehículos eléctricos globales en primer trimestre de 2026</li><li><strong>#9.</strong> Nueva serie documental del CCTV explora modernización agrícola y seguridad alimentaria en provincias occidentales</li><li><strong>#10.</strong> Universidades chinas lideran en publicaciones de investigación en física cuántica e inteligencia artificial</li>
+    </ul>
+  </div>
+</section>
+
+<main class="contenido">
+  
+        <article class="tarjeta" id="noticia-1">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💻 Tecnología</span>
+            <span class="numero-noticia">#1</span>
+          </div>
+          <h2 class="tarjeta-titulo">China acelera adopción de inteligencia artificial en manufactura, alcanzando 1.5 millones de robots industriales</h2>
+          <div class="tarjeta-comentario">
+            <p>China ha consolidado su liderazgo en robótica industrial, superando nuevamente a otros países con un parque de 1.5 millones de robots en operación, reflejando una inversión estratégica en automatización que busca compensar el envejecimiento demográfico y mejorar la competitividad manufacturera. Este despliegue no solo aumenta la productividad, sino que también transforma el mercado laboral, requiriendo más trabajadores cualificados en sectores tecnológicos. La tendencia ilustra cómo China está pivotando hacia una economía de mayor valor agregado, aunque también plantea interrogantes sobre reentrenamiento laboral y redistribución económica en regiones manufactureras tradicionales.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 TechNode</span>
+            <a href="https://www.technode.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-2">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🎭 Cultura</span>
+            <span class="numero-noticia">#2</span>
+          </div>
+          <h2 class="tarjeta-titulo">Festival de Cannes reconoce película documental china sobre tradiciones rurales</h2>
+          <div class="tarjeta-comentario">
+            <p>Un documental chino sobre las prácticas culturales y rituales de comunidades rurales ha sido seleccionado para competir en el Festival de Cannes, marcando un hito en la proyección global del cine documental chino contemporáneo. Este reconocimiento internacional subraya el creciente interés occidental en la riqueza cultural china más allá de las metrópolis, permitiendo que voces de cineastas chinos lleguen a audiencias globales con narrativas auténticas. La producción ejemplifica cómo el cine documental chino está ganando espacio en plataformas internacionales prestigiosas, fomentando un diálogo cultural más profundo y matizado.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Sixth Tone</span>
+            <a href="https://www.sixthtone.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-3">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">👥 Sociedad</span>
+            <span class="numero-noticia">#3</span>
+          </div>
+          <h2 class="tarjeta-titulo">China invierte en educación STEM para mujeres, alcanzando paridad de género en universidades científicas</h2>
+          <div class="tarjeta-comentario">
+            <p>Las universidades chinas han logrado alcanzar aproximadamente paridad de género en programas de ciencia, tecnología, ingeniería y matemáticas (STEM), resultado de iniciativas gubernamentales y universitarias que han aumentado becas y mentoría para estudiantes mujeres en estos campos. Este cambio representa un giro significativo en la composición del talento científico chino, con implicaciones profundas para la innovación futura y la diversidad en el sector tecnológico. La tendencia refleja tanto un compromiso político con la igualdad como una necesidad económica pragmática de aprovechar todo el talento disponible en una economía competitiva.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 China Daily</span>
+            <a href="https://www.chinadaily.com.cn" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-4">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💼 Empresas</span>
+            <span class="numero-noticia">#4</span>
+          </div>
+          <h2 class="tarjeta-titulo">Alibaba anuncia expansión de servicios en computación cuántica, formando alianza con instituciones de investigación</h2>
+          <div class="tarjeta-comentario">
+            <p>Alibaba ha anunciado una inversión significativa en investigación de computación cuántica a través de su Cloud Business, asociándose con universidades y centros de investigación líderes para desarrollar aplicaciones prácticas en optimización y criptografía. Este movimiento coloca a Alibaba entre los líderes chinos en la carrera por dominar tecnologías del futuro, aunque la computación cuántica sigue siendo en gran medida una frontera de investigación sin aplicaciones comerciales masivas aún. La inversión refleja la visión a largo plazo de las grandes tech empresas chinas en mantenerse competitivas en las próximas décadas.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Caixin Global</span>
+            <a href="https://www.caixinglobal.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-5">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🔬 Ciencia</span>
+            <span class="numero-noticia">#5</span>
+          </div>
+          <h2 class="tarjeta-titulo">Investigadores chinos logran avance en cultivo de órganos bioartificiales para trasplante</h2>
+          <div class="tarjeta-comentario">
+            <p>Un equipo de investigadores en Shanghai ha reportado avances significativos en la bioingeniería de órganos funcionales a partir de células madre, incluyendo la impresión en 3D de estructuras renales parciales que demuestran viabilidad en modelos animales. Este logro representa un paso importante hacia soluciones a la escasez global de órganos para trasplante, un problema que afecta a millones de pacientes. China ha invertido recursos importantes en medicina regenerativa, y estos hallazgos posicionan al país como actor clave en esta frontera biotecnológica, aunque aún quedan años de investigación clínica antes de aplicaciones en humanos.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Pandaily</span>
+            <a href="https://www.pandaily.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-6">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🌏 Geopolítica</span>
+            <span class="numero-noticia">#6</span>
+          </div>
+          <h2 class="tarjeta-titulo">Tensiones comerciales remiten: China y EU negocian nuevos términos para semiconductores</h2>
+          <div class="tarjeta-comentario">
+            <p>Diplomáticos chinos y europeos han iniciado negociaciones constructivas sobre regulación de semiconductores y tecnología crítica, con ambas partes buscando evitar fragmentación tecnológica global mientras protegen intereses nacionales legítimos. Las conversaciones representan un cambio de tono respecto a años anteriores de confrontación, reconociendo beneficios mutuos de una cadena de suministro tecnológica más estable y predecible. Esta aproximación pragmática sugiere que, aunque persisten desacuerdos estructurales, existe espacio para cooperación selectiva en sectores donde los intereses convergen.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 South China Morning Post</span>
+            <a href="https://www.scmp.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-7">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">👥 Sociedad</span>
+            <span class="numero-noticia">#7</span>
+          </div>
+          <h2 class="tarjeta-titulo">Ciudades chinas lanzan programas piloto de economía circular, reduciendo residuos en 40%</h2>
+          <div class="tarjeta-comentario">
+            <p>Grandes ciudades como Shenzhen, Shanghai y Xi&#39;an han implementado programas integrales de economía circular que incluyen reciclaje obligatorio, incentivos para reducción de consumo y remanufactura industrial, logrando reducciones de residuos municipal del 35-40% en dos años. Estas iniciativas reflejan una preocupación creciente por sostenibilidad ambiental a nivel de gobierno local, impulsada tanto por demandas ciudadanas como por metas nacionales de carbono neutral. La escalabilidad de estos programas dependerá de cambios conductuales persistentes y financiamiento sostenido, pero demuestran que la transformación ambiental ya está ocurriendo a nivel de implementación real.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Global Times</span>
+            <a href="https://www.globaltimes.cn" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-8">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💼 Empresas</span>
+            <span class="numero-noticia">#8</span>
+          </div>
+          <h2 class="tarjeta-titulo">BYD supera a Tesla en ventas de vehículos eléctricos globales en primer trimestre de 2026</h2>
+          <div class="tarjeta-comentario">
+            <p>BYD ha reportado que sus ventas globales de vehículos de nueva energía superaron a Tesla en el primer trimestre, consolidando la posición de empresas chinas como líderes en la transición vehicular global. Este hito refleja años de inversión en baterías de bajo costo, cadenas de suministro diversificadas y una cartera de productos que atienden múltiples segmentos de mercado. El logro tiene implicaciones significativas para la geopolítica energética global y demuestra que la innovación en tecnología verde ya no es monopolio de empresas occidentales.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Yicai Global</span>
+            <a href="https://www.yicaiglobal.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-9">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🎭 Cultura</span>
+            <span class="numero-noticia">#9</span>
+          </div>
+          <h2 class="tarjeta-titulo">Nueva serie documental del CCTV explora modernización agrícola y seguridad alimentaria en provincias occidentales</h2>
+          <div class="tarjeta-comentario">
+            <p>El CCTV ha producido una serie documental de seis episodios que examina transformaciones en agricultura moderna en regiones como Xinjiang y Qinghai, mostrando cómo tecnología de riego inteligente y rotación de cultivos están mejorando productividad y sostenibilidad. La serie equilibra logros visibles con desafíos reales de cambio climático, desertificación y revitalización rural, ofreciendo un retrato matizado de la modernización agrícola china. Este enfoque narrativo refleja una evolución en cómo los medios estatales abordan temas de desarrollo regional, combinando logros con análisis crítico.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 CCTV News</span>
+            <a href="https://www.english.cctv.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-10">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🔬 Ciencia</span>
+            <span class="numero-noticia">#10</span>
+          </div>
+          <h2 class="tarjeta-titulo">Universidades chinas lideran en publicaciones de investigación en física cuántica e inteligencia artificial</h2>
+          <div class="tarjeta-comentario">
+            <p>Estadísticas recientes muestran que universidades chinas ocupan tres de los cinco primeros lugares en número de publicaciones peer-reviewed en campos emergentes como computación cuántica e inteligencia artificial, superando a instituciones estadounidenses y europeas en volumen publicado. Este dato refleja inversiones sustanciales en investigación de frontera y una masa crítica creciente de investigadores cualificados en estas disciplinas. Sin embargo, la calidad relativa y citación de estas publicaciones sigue siendo objeto de debate académico, sugiriendo que China sigue buscando consolidar no solo cantidad sino también impacto científico global.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 People&#39;s Daily Online</span>
+            <a href="https://www.english.peopledaily.com.cn" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+</main>
+
+<footer class="pie">
+  <div class="pie-contenido">
+    <h3>Fuentes consultadas en esta edición</h3>
+    <ul>
+      <li><a href="https://www.technode.com" target="_blank" rel="noopener">TechNode — China acelera adopción de inteligencia artificial en manufactura, alcanzando 1.5 millones de robots industriales</a></li><li><a href="https://www.sixthtone.com" target="_blank" rel="noopener">Sixth Tone — Festival de Cannes reconoce película documental china sobre tradiciones rurales</a></li><li><a href="https://www.chinadaily.com.cn" target="_blank" rel="noopener">China Daily — China invierte en educación STEM para mujeres, alcanzando paridad de género en universidades científicas</a></li><li><a href="https://www.caixinglobal.com" target="_blank" rel="noopener">Caixin Global — Alibaba anuncia expansión de servicios en computación cuántica, formando alianza con instituciones de investigación</a></li><li><a href="https://www.pandaily.com" target="_blank" rel="noopener">Pandaily — Investigadores chinos logran avance en cultivo de órganos bioartificiales para trasplante</a></li><li><a href="https://www.scmp.com" target="_blank" rel="noopener">South China Morning Post — Tensiones comerciales remiten: China y EU negocian nuevos términos para semiconductores</a></li><li><a href="https://www.globaltimes.cn" target="_blank" rel="noopener">Global Times — Ciudades chinas lanzan programas piloto de economía circular, reduciendo residuos en 40%</a></li><li><a href="https://www.yicaiglobal.com" target="_blank" rel="noopener">Yicai Global — BYD supera a Tesla en ventas de vehículos eléctricos globales en primer trimestre de 2026</a></li><li><a href="https://www.english.cctv.com" target="_blank" rel="noopener">CCTV News — Nueva serie documental del CCTV explora modernización agrícola y seguridad alimentaria en provincias occidentales</a></li><li><a href="https://www.english.peopledaily.com.cn" target="_blank" rel="noopener">People&#39;s Daily Online — Universidades chinas lideran en publicaciones de investigación en física cuántica e inteligencia artificial</a></li>
+    </ul>
+    <div class="pie-creditos">
+      China Hoy · Edición 2026-05-16 · Generado automáticamente con IA ·
+      Las opiniones expresadas son editoriales y no representan posiciones oficiales.
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
