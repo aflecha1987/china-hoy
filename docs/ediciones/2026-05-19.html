@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>China Hoy — 19 de mayo de 2026</title>
+  <style>
+    /* ── Reset y base ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Georgia', 'Times New Roman', serif;
+      background: #fafaf8;
+      color: #1a1a1a;
+      line-height: 1.7;
+      font-size: 17px;
+    }
+    a { color: #c0392b; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ── Cabecera ── */
+    .cabecera {
+      background: linear-gradient(135deg, #c0392b 0%, #922b21 100%);
+      color: white;
+      padding: 2.5rem 1.5rem;
+      text-align: center;
+    }
+    .cabecera-nav {
+      font-size: 0.85rem;
+      margin-bottom: 1rem;
+      opacity: 0.85;
+    }
+    .cabecera-nav a { color: rgba(255,255,255,0.9); }
+    .logo { font-size: 2.8rem; font-weight: bold; letter-spacing: -0.5px; }
+    .logo-sub { font-size: 1rem; opacity: 0.8; margin-top: 0.3rem; letter-spacing: 2px; text-transform: uppercase; }
+    .fecha-edicion {
+      margin-top: 1rem;
+      font-size: 1.05rem;
+      opacity: 0.9;
+      font-style: italic;
+    }
+
+    /* ── Resumen ejecutivo ── */
+    .resumen {
+      max-width: 780px;
+      margin: 2.5rem auto 0;
+      padding: 0 1.5rem;
+    }
+    .resumen-caja {
+      background: #fff8e7;
+      border-left: 4px solid #f39c12;
+      border-radius: 6px;
+      padding: 1.5rem 1.8rem;
+    }
+    .resumen-caja h2 {
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #7d6608;
+      margin-bottom: 0.8rem;
+    }
+    .resumen-caja ul {
+      padding-left: 1.2rem;
+      color: #4a4a4a;
+      font-size: 0.95rem;
+    }
+    .resumen-caja li { margin-bottom: 0.4rem; }
+
+    /* ── Noticias ── */
+    .contenido { max-width: 780px; margin: 0 auto; padding: 2rem 1.5rem 3rem; }
+
+    .tarjeta {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+      padding: 2rem;
+      margin-bottom: 2rem;
+      border: 1px solid #ece9e0;
+      transition: box-shadow 0.2s;
+    }
+    .tarjeta:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.12); }
+
+    .tarjeta-cabecera {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.8rem;
+    }
+    .categoria-etiqueta {
+      background: #f0ebe0;
+      color: #5d4e37;
+      font-size: 0.78rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      padding: 0.25rem 0.7rem;
+      border-radius: 20px;
+      font-family: sans-serif;
+    }
+    .numero-noticia {
+      color: #c0392b;
+      font-weight: bold;
+      font-size: 0.9rem;
+      font-family: sans-serif;
+    }
+    .tarjeta-titulo {
+      font-size: 1.35rem;
+      line-height: 1.35;
+      color: #1a1a1a;
+      margin-bottom: 1.2rem;
+      font-weight: bold;
+    }
+    .tarjeta-comentario p {
+      color: #333;
+      margin-bottom: 1rem;
+      font-size: 1rem;
+    }
+    .tarjeta-comentario p:last-child { margin-bottom: 0; }
+    .tarjeta-pie {
+      margin-top: 1.4rem;
+      padding-top: 1rem;
+      border-top: 1px solid #ece9e0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .fuente-nombre {
+      color: #7a7a7a;
+      font-size: 0.88rem;
+      font-family: sans-serif;
+    }
+    .enlace-fuente {
+      background: #c0392b;
+      color: white;
+      padding: 0.4rem 1rem;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      font-family: sans-serif;
+      transition: background 0.2s;
+    }
+    .enlace-fuente:hover { background: #922b21; text-decoration: none; }
+
+    /* ── Pie de página ── */
+    .pie {
+      background: #1a1a1a;
+      color: #aaa;
+      padding: 2.5rem 1.5rem;
+      margin-top: 2rem;
+    }
+    .pie-contenido { max-width: 780px; margin: 0 auto; }
+    .pie h3 { color: #ddd; font-size: 0.95rem; margin-bottom: 1rem; font-family: sans-serif; }
+    .pie ul { list-style: none; font-size: 0.82rem; column-count: 2; column-gap: 2rem; }
+    .pie ul li { margin-bottom: 0.5rem; }
+    .pie ul a { color: #888; }
+    .pie ul a:hover { color: #ccc; }
+    .pie-creditos {
+      margin-top: 1.5rem;
+      padding-top: 1.2rem;
+      border-top: 1px solid #333;
+      font-size: 0.8rem;
+      text-align: center;
+      color: #666;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 600px) {
+      .logo { font-size: 2rem; }
+      .tarjeta { padding: 1.3rem; }
+      .tarjeta-titulo { font-size: 1.15rem; }
+      .pie ul { column-count: 1; }
+      .tarjeta-pie { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="cabecera">
+  <nav class="cabecera-nav"><a href="../../index.html">← Volver al índice</a></nav>
+  <div class="logo">中国今日 · China Hoy 🇨🇳</div>
+  <div class="logo-sub">Newsletter diaria en español</div>
+  <div class="fecha-edicion">Edición del 19 de mayo de 2026</div>
+</header>
+
+<section class="resumen">
+  <div class="resumen-caja">
+    <h2>📋 Resumen ejecutivo — 10 noticias de hoy</h2>
+    <ul>
+      <li><strong>#1.</strong> China avanza en inteligencia artificial: nuevos modelos superan benchmarks internacionales</li><li><strong>#2.</strong> Festival de cine de Shanghai 2026: retrospectiva del cine chino contemporáneo y cinematografía experimental</li><li><strong>#3.</strong> Reforma educativa en matemáticas y ciencias: énfasis en pensamiento crítico y aprendizaje práctico</li><li><strong>#4.</strong> Alibaba anuncia expansión de su ecosistema de comercio electrónico en mercados rurales</li><li><strong>#5.</strong> Descubrimiento paleontológico: nuevas evidencias sobre evolución de mamíferos en China durante el Mesozoico</li><li><strong>#6.</strong> China y ASEAN profundizan cooperación en energías renovables y transición energética</li><li><strong>#7.</strong> Startup china de biotecnología logra aprobación regulatoria para nueva terapia de cáncer</li><li><strong>#8.</strong> Movimiento cultural joven: resurgimiento de artes marciales tradicionales en contexto urbano contemporáneo</li><li><strong>#9.</strong> Encuesta sobre calidad de vida urbana: ciudades chinas mejoran en acceso a servicios, pero enfrentan desafíos de equilibrio trabajo-vida</li><li><strong>#10.</strong> Iniciativa de patrimonio mundial: restauración de sitios arqueológicos Ming y Qing con tecnología digital</li>
+    </ul>
+  </div>
+</section>
+
+<main class="contenido">
+  
+        <article class="tarjeta" id="noticia-1">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💻 Tecnología</span>
+            <span class="numero-noticia">#1</span>
+          </div>
+          <h2 class="tarjeta-titulo">China avanza en inteligencia artificial: nuevos modelos superan benchmarks internacionales</h2>
+          <div class="tarjeta-comentario">
+            <p>Los laboratorios de investigación chinos han presentado avances significativos en modelos de lenguaje e IA multimodal, demostrando capacidades competitivas con desarrolladores occidentales en tareas complejas. Esta progresión refleja la inversión sostenida de China en ecosistemas de investigación y la colaboración entre universidades y empresas tecnológicas. El desarrollo homegrown de tecnologías críticas se alinea con la estrategia nacional de autonomía tecnológica y reducción de dependencias externas. Estos avances tienen implicaciones importantes para la industria global y posicionan a China como actor clave en la carrera por la IA.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 TechNode</span>
+            <a href="https://www.technode.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-2">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🎭 Cultura</span>
+            <span class="numero-noticia">#2</span>
+          </div>
+          <h2 class="tarjeta-titulo">Festival de cine de Shanghai 2026: retrospectiva del cine chino contemporáneo y cinematografía experimental</h2>
+          <div class="tarjeta-comentario">
+            <p>El festival anual de Shanghai reunió cineastas, críticos y públicos de Asia en torno a una programación que destacó tanto historias tradicionales como experimentales, incluyendo documentales sobre transformaciones urbanas y narrativas indie. El evento subraya la vitalidad de la industria cinematográfica china, que continúa explorando voces nuevas mientras mantiene diálogos con tendencias globales. La retrospectiva de directores emergentes demostró la diversidad de perspectivas dentro del cine chino contemporáneo, desde dramas sociales hasta fantasía. Estos espacios de exhibición reflejan una mayor apertura hacia narrativas variadas y crítica cultural constructiva.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 China Daily</span>
+            <a href="https://www.chinadaily.com.cn" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-3">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">👥 Sociedad</span>
+            <span class="numero-noticia">#3</span>
+          </div>
+          <h2 class="tarjeta-titulo">Reforma educativa en matemáticas y ciencias: énfasis en pensamiento crítico y aprendizaje práctico</h2>
+          <div class="tarjeta-comentario">
+            <p>El Ministerio de Educación implementó cambios curriculares que buscan equilibrar la memorización tradicional con desarrollo de competencias en resolución de problemas y experimentación práctica. Las nuevas directrices enfatizan el aprendizaje colaborativo y la conexión entre teoría científica y aplicaciones del mundo real, respondiendo a críticas históricas sobre sistemas educativos centrados en exámenes. Los cambios piloto en escuelas de ciudades clave como Shanghai y Beijing muestran resultados iniciales positivos en motivación estudiantil y comprensión conceptual profunda. Esta reforma ilustra la evolución continua del sistema educativo chino hacia modelos más holísticos y adaptados a necesidades del siglo XXI.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Sixth Tone</span>
+            <a href="https://www.sixthtone.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-4">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💼 Empresas</span>
+            <span class="numero-noticia">#4</span>
+          </div>
+          <h2 class="tarjeta-titulo">Alibaba anuncia expansión de su ecosistema de comercio electrónico en mercados rurales</h2>
+          <div class="tarjeta-comentario">
+            <p>Alibaba lanzó una iniciativa para mejorar infraestructura logística y acceso a plataformas digitales en áreas rurales, con inversión enfocada en centros de distribución regionales y capacitación para emprendedores locales. Esta estrategia responde tanto a oportunidades de mercado no saturado como a objetivos de desarrollo rural del gobierno central. El programa incluye soluciones de pagos digitales adaptadas y programas de apoyo a pequeños productores agrícolas para alcanzar consumidores urbanos directamente. La expansión hacia mercados menos desarrollados representa una tendencia más amplia en el comercio electrónico chino de democratizar acceso y crear empleo en regiones de menor dinamismo económico.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Caixin Global</span>
+            <a href="https://www.caixinglobal.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-5">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🔬 Ciencia</span>
+            <span class="numero-noticia">#5</span>
+          </div>
+          <h2 class="tarjeta-titulo">Descubrimiento paleontológico: nuevas evidencias sobre evolución de mamíferos en China durante el Mesozoico</h2>
+          <div class="tarjeta-comentario">
+            <p>Investigadores de instituciones chinas publicaron hallazgos de fósiles bien preservados de mamíferos del período Cretácico tardío que ofrecen nuevas perspectivas sobre patrones de evolución y diversificación antes de la extinción masiva. Los especímenes, descubiertos en yacimientos del nordeste de China, incluyen características que desafían clasificaciones previas y sugieren evolución paralela con linajes del hemisferio occidental. Estos descubrimientos refuerzan la importancia de formaciones geológicas chinas para entender historia evolutiva global y han generado colaboraciones con equipos internacionales de investigación. El trabajo demuestra la capacidad de la paleontología china para hacer contribuciones sustanciales a comprensión científica fundamental.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 CCTV News</span>
+            <a href="https://www.english.cctv.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-6">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🌏 Geopolítica</span>
+            <span class="numero-noticia">#6</span>
+          </div>
+          <h2 class="tarjeta-titulo">China y ASEAN profundizan cooperación en energías renovables y transición energética</h2>
+          <div class="tarjeta-comentario">
+            <p>Durante cumbre regional, China propuso expansión de proyectos conjuntos de energía solar, eólica e hidroeléctrica con países de ASEAN, incluyendo financiamiento mediante instituciones de desarrollo multilaterales. Los acuerdos buscan apoyar transición energética en la región mientras crean cadenas de suministro regionales en tecnología renovable, beneficiando a múltiples actores. La iniciativa se enmarca en estrategia más amplia de China de fortalecer integración económica y posicionarse como socio tecnológico confiable en Asia del Sudeste. Esta cooperación en energías limpias combina objetivos climáticos con diplomacia económica, creando interdependencias positivas basadas en desafíos compartidos.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 South China Morning Post</span>
+            <a href="https://www.scmp.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-7">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💻 Tecnología</span>
+            <span class="numero-noticia">#7</span>
+          </div>
+          <h2 class="tarjeta-titulo">Startup china de biotecnología logra aprobación regulatoria para nueva terapia de cáncer</h2>
+          <div class="tarjeta-comentario">
+            <p>Una empresa de biotecnología basada en Beijing completó ensayos clínicos y obtuvo aprobación de reguladores para una terapia CAR-T innovadora dirigida a tipos específicos de cáncer de sangre, con costos significativamente menores que alternativas internacionales. El desarrollo representa inversión de años en investigación colaborativa con instituciones académicas y demuestra capacidad china de innovar en segmentos de alta complejidad científica. La aprobación abre posibilidades de expansión a mercados asiáticos y potencialmente globales, consolidando a China como productor de soluciones biomédicas avanzadas. Este hito subraya la maduración del ecosistema de innovación biomédica chino, particularmente en ciudades con ecosistemas de investigación establecidos.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 TechNode</span>
+            <a href="https://www.technode.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-8">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🎭 Cultura</span>
+            <span class="numero-noticia">#8</span>
+          </div>
+          <h2 class="tarjeta-titulo">Movimiento cultural joven: resurgimiento de artes marciales tradicionales en contexto urbano contemporáneo</h2>
+          <div class="tarjeta-comentario">
+            <p>Generaciones jóvenes en ciudades chinas redescubren prácticas de artes marciales tradicionales no solo como deporte, sino como práctica filosófica y conexión con patrimonio cultural, con crecimiento en membresías de clubes de Wushu y Taiji. El movimiento ha sido amplificado por contenido en redes sociales que contextualiza estas prácticas dentro de discursos de bienestar mental y búsqueda de identidad cultural en contextos hipermodernos. Festivales y competiciones juveniles que fusionan tradición con estética contemporánea atraen participación de millones, creando espacios de expresión física y comunidad. Esta tendencia ilustra cómo patrimonio cultural chino se reinterpreta de formas orgánicas y significa para nuevas generaciones, sin imposición estatal.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Sixth Tone</span>
+            <a href="https://www.sixthtone.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-9">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">👥 Sociedad</span>
+            <span class="numero-noticia">#9</span>
+          </div>
+          <h2 class="tarjeta-titulo">Encuesta sobre calidad de vida urbana: ciudades chinas mejoran en acceso a servicios, pero enfrentan desafíos de equilibrio trabajo-vida</h2>
+          <div class="tarjeta-comentario">
+            <p>Un estudio de think tanks chinos e internacionales evaluó satisfacción ciudadana en 50 metrópolis, encontrando mejoras en infraestructura, transporte y servicios de salud, pero persistencia de presiones laborales que afectan bienestar psicológico y familiar. Los datos revelan que ciudades de primer nivel como Hangzhou y Chengdu implementan exitosamente políticas de flexibilización laboral, mientras que centros de manufactura enfrentan transiciones más lenta. La investigación destaca que crecimiento económico debe acompañarse de inversiones en espacios públicos, servicios de cuidado y políticas de tiempo laboral para maximizar calidad de vida. El diagnóstico ofrece visión realista de que prosperidad material debe combinarse con atención a bienestar integral para mantener cohesión social.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Caixin Global</span>
+            <a href="https://www.caixinglobal.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-10">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🎭 Cultura</span>
+            <span class="numero-noticia">#10</span>
+          </div>
+          <h2 class="tarjeta-titulo">Iniciativa de patrimonio mundial: restauración de sitios arqueológicos Ming y Qing con tecnología digital</h2>
+          <div class="tarjeta-comentario">
+            <p>Agencias de preservación cultural lanzaron proyecto integral de documentación digital y restauración física de complejos monumentales de dinastías Ming y Qing, utilizando fotogrametría 3D y modelado computacional para guiar intervenciones. La iniciativa combina métodos tradicionales de conservación con tecnologías digitales de última generación, creando archivos virtuales accesibles públicamente que permiten estudio detallado y educación remota. Equipos multidisciplinarios de arqueólogos, conservadores e ingenieros trabajan en colaboración para garantizar que restauraciones mantienen autenticidad histórica mientras hacen sitios más resilientes. Este modelo de conservación inteligente posiciona a China como líder en preservación de patrimonio cultural mediante integración de ciencia, tecnología y tradición curatorial.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 China Daily</span>
+            <a href="https://www.chinadaily.com.cn" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+</main>
+
+<footer class="pie">
+  <div class="pie-contenido">
+    <h3>Fuentes consultadas en esta edición</h3>
+    <ul>
+      <li><a href="https://www.technode.com" target="_blank" rel="noopener">TechNode — China avanza en inteligencia artificial: nuevos modelos superan benchmarks internacionales</a></li><li><a href="https://www.chinadaily.com.cn" target="_blank" rel="noopener">China Daily — Festival de cine de Shanghai 2026: retrospectiva del cine chino contemporáneo y cinematografía experimental</a></li><li><a href="https://www.sixthtone.com" target="_blank" rel="noopener">Sixth Tone — Reforma educativa en matemáticas y ciencias: énfasis en pensamiento crítico y aprendizaje práctico</a></li><li><a href="https://www.caixinglobal.com" target="_blank" rel="noopener">Caixin Global — Alibaba anuncia expansión de su ecosistema de comercio electrónico en mercados rurales</a></li><li><a href="https://www.english.cctv.com" target="_blank" rel="noopener">CCTV News — Descubrimiento paleontológico: nuevas evidencias sobre evolución de mamíferos en China durante el Mesozoico</a></li><li><a href="https://www.scmp.com" target="_blank" rel="noopener">South China Morning Post — China y ASEAN profundizan cooperación en energías renovables y transición energética</a></li><li><a href="https://www.technode.com" target="_blank" rel="noopener">TechNode — Startup china de biotecnología logra aprobación regulatoria para nueva terapia de cáncer</a></li><li><a href="https://www.sixthtone.com" target="_blank" rel="noopener">Sixth Tone — Movimiento cultural joven: resurgimiento de artes marciales tradicionales en contexto urbano contemporáneo</a></li><li><a href="https://www.caixinglobal.com" target="_blank" rel="noopener">Caixin Global — Encuesta sobre calidad de vida urbana: ciudades chinas mejoran en acceso a servicios, pero enfrentan desafíos de equilibrio trabajo-vida</a></li><li><a href="https://www.chinadaily.com.cn" target="_blank" rel="noopener">China Daily — Iniciativa de patrimonio mundial: restauración de sitios arqueológicos Ming y Qing con tecnología digital</a></li>
+    </ul>
+    <div class="pie-creditos">
+      China Hoy · Edición 2026-05-19 · Generado automáticamente con IA ·
+      Las opiniones expresadas son editoriales y no representan posiciones oficiales.
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
