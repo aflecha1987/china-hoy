@@ -570,5 +570,31 @@
       "Encuesta sobre calidad de vida urbana: ciudades chinas mejoran en acceso a servicios, pero enfrentan desafíos de equilibrio trabajo-vida",
       "Iniciativa de patrimonio mundial: restauración de sitios arqueológicos Ming y Qing con tecnología digital"
     ]
+  },
+  "2026-05-20": {
+    "fuentes": [
+      "https://www.technode.com",
+      "https://www.yicaiglobal.com",
+      "https://www.caixinglobal.com",
+      "https://www.chinadaily.com.cn",
+      "https://www.sixthtone.com",
+      "https://www.cgtn.com",
+      "https://www.pandaily.com",
+      "https://www.scmp.com",
+      "https://www.chinatoday.com.cn",
+      "https://www.reuters.com"
+    ],
+    "titulares": [
+      "China acelera inversión en infraestructura de IA y semiconductores",
+      "Nuevo récord de producción eléctrica en plantas solares chinas",
+      "Sector inmobiliario chino muestra signos de estabilización tras reformas regulatorias",
+      "Xi Jinping enfatiza importancia de educación tradicional y cultura clásica en reforma escolar",
+      "Jóvenes profesionales chinos enfrentan creciente presión laboral pero exploran nuevas formas de empleo",
+      "China fortalece cooperación científica con países en desarrollo en investigación biomédica",
+      "Empresas tecnológicas chinas lideran competencia global en aplicaciones de computación cuántica",
+      "Tensiones comerciales con EE.UU. impulsan diversificación de cadenas de suministro chinas hacia Asia del Sur",
+      "Iniciativas de promoción de lectura y consumo cultural despiertan interés renovado en literatura china contemporánea",
+      "Reguladores chinos implementan nuevos estándares de privacidad de datos con impacto global en plataformas tecnológicas"
+    ]
   }
 }
