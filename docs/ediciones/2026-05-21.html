@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>China Hoy — 21 de mayo de 2026</title>
+  <style>
+    /* ── Reset y base ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Georgia', 'Times New Roman', serif;
+      background: #fafaf8;
+      color: #1a1a1a;
+      line-height: 1.7;
+      font-size: 17px;
+    }
+    a { color: #c0392b; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ── Cabecera ── */
+    .cabecera {
+      background: linear-gradient(135deg, #c0392b 0%, #922b21 100%);
+      color: white;
+      padding: 2.5rem 1.5rem;
+      text-align: center;
+    }
+    .cabecera-nav {
+      font-size: 0.85rem;
+      margin-bottom: 1rem;
+      opacity: 0.85;
+    }
+    .cabecera-nav a { color: rgba(255,255,255,0.9); }
+    .logo { font-size: 2.8rem; font-weight: bold; letter-spacing: -0.5px; }
+    .logo-sub { font-size: 1rem; opacity: 0.8; margin-top: 0.3rem; letter-spacing: 2px; text-transform: uppercase; }
+    .fecha-edicion {
+      margin-top: 1rem;
+      font-size: 1.05rem;
+      opacity: 0.9;
+      font-style: italic;
+    }
+
+    /* ── Resumen ejecutivo ── */
+    .resumen {
+      max-width: 780px;
+      margin: 2.5rem auto 0;
+      padding: 0 1.5rem;
+    }
+    .resumen-caja {
+      background: #fff8e7;
+      border-left: 4px solid #f39c12;
+      border-radius: 6px;
+      padding: 1.5rem 1.8rem;
+    }
+    .resumen-caja h2 {
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #7d6608;
+      margin-bottom: 0.8rem;
+    }
+    .resumen-caja ul {
+      padding-left: 1.2rem;
+      color: #4a4a4a;
+      font-size: 0.95rem;
+    }
+    .resumen-caja li { margin-bottom: 0.4rem; }
+
+    /* ── Noticias ── */
+    .contenido { max-width: 780px; margin: 0 auto; padding: 2rem 1.5rem 3rem; }
+
+    .tarjeta {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+      padding: 2rem;
+      margin-bottom: 2rem;
+      border: 1px solid #ece9e0;
+      transition: box-shadow 0.2s;
+    }
+    .tarjeta:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.12); }
+
+    .tarjeta-cabecera {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.8rem;
+    }
+    .categoria-etiqueta {
+      background: #f0ebe0;
+      color: #5d4e37;
+      font-size: 0.78rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      padding: 0.25rem 0.7rem;
+      border-radius: 20px;
+      font-family: sans-serif;
+    }
+    .numero-noticia {
+      color: #c0392b;
+      font-weight: bold;
+      font-size: 0.9rem;
+      font-family: sans-serif;
+    }
+    .tarjeta-titulo {
+      font-size: 1.35rem;
+      line-height: 1.35;
+      color: #1a1a1a;
+      margin-bottom: 1.2rem;
+      font-weight: bold;
+    }
+    .tarjeta-comentario p {
+      color: #333;
+      margin-bottom: 1rem;
+      font-size: 1rem;
+    }
+    .tarjeta-comentario p:last-child { margin-bottom: 0; }
+    .tarjeta-pie {
+      margin-top: 1.4rem;
+      padding-top: 1rem;
+      border-top: 1px solid #ece9e0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .fuente-nombre {
+      color: #7a7a7a;
+      font-size: 0.88rem;
+      font-family: sans-serif;
+    }
+    .enlace-fuente {
+      background: #c0392b;
+      color: white;
+      padding: 0.4rem 1rem;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      font-family: sans-serif;
+      transition: background 0.2s;
+    }
+    .enlace-fuente:hover { background: #922b21; text-decoration: none; }
+
+    /* ── Pie de página ── */
+    .pie {
+      background: #1a1a1a;
+      color: #aaa;
+      padding: 2.5rem 1.5rem;
+      margin-top: 2rem;
+    }
+    .pie-contenido { max-width: 780px; margin: 0 auto; }
+    .pie h3 { color: #ddd; font-size: 0.95rem; margin-bottom: 1rem; font-family: sans-serif; }
+    .pie ul { list-style: none; font-size: 0.82rem; column-count: 2; column-gap: 2rem; }
+    .pie ul li { margin-bottom: 0.5rem; }
+    .pie ul a { color: #888; }
+    .pie ul a:hover { color: #ccc; }
+    .pie-creditos {
+      margin-top: 1.5rem;
+      padding-top: 1.2rem;
+      border-top: 1px solid #333;
+      font-size: 0.8rem;
+      text-align: center;
+      color: #666;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 600px) {
+      .logo { font-size: 2rem; }
+      .tarjeta { padding: 1.3rem; }
+      .tarjeta-titulo { font-size: 1.15rem; }
+      .pie ul { column-count: 1; }
+      .tarjeta-pie { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="cabecera">
+  <nav class="cabecera-nav"><a href="../../index.html">← Volver al índice</a></nav>
+  <div class="logo">中国今日 · China Hoy 🇨🇳</div>
+  <div class="logo-sub">Newsletter diaria en español</div>
+  <div class="fecha-edicion">Edición del 21 de mayo de 2026</div>
+</header>
+
+<section class="resumen">
+  <div class="resumen-caja">
+    <h2>📋 Resumen ejecutivo — 10 noticias de hoy</h2>
+    <ul>
+      <li><strong>#1.</strong> China impulsa nueva legislación sobre protección de datos personales en servicios financieros digitales</li><li><strong>#2.</strong> Empresas chinas de manufactura verde lideran exportaciones globales de paneles solares y baterías</li><li><strong>#3.</strong> Festival de Cannes 2026: cineastas chinos ganan reconocimiento internacional con historias sobre transformación social</li><li><strong>#4.</strong> Instituto de investigación chino desarrolla avance en computación cuántica con 1,000+ qubits funcionales</li><li><strong>#5.</strong> Migración rural-urbana en China desacelera: menos jóvenes abandonan pueblos según datos demográficos 2026</li><li><strong>#6.</strong> Tensiones comerciales: China responde con aranceles selectivos a nuevas medidas proteccionistas estadounidenses</li><li><strong>#7.</strong> Universidades chinas lideran nuevas colaboraciones en investigación médica para enfermedades neurodegenerativas</li><li><strong>#8.</strong> Startups fintech chinas recaudan récord de inversión, pero enfrentan regulación más estricta</li><li><strong>#9.</strong> Patrimonio cultural chino en riesgo: iniciativa nacional para conservación digital de artes tradicionales</li><li><strong>#10.</strong> Industria de semiconductores china avanza en tecnología de 7 nanómetros, reduciendo brecha tecnológica global</li>
+    </ul>
+  </div>
+</section>
+
+<main class="contenido">
+  
+        <article class="tarjeta" id="noticia-1">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💻 Tecnología</span>
+            <span class="numero-noticia">#1</span>
+          </div>
+          <h2 class="tarjeta-titulo">China impulsa nueva legislación sobre protección de datos personales en servicios financieros digitales</h2>
+          <div class="tarjeta-comentario">
+            <p>El regulador bancario chino ha propuesto nuevas normativas para fortalecer la privacidad de datos en plataformas fintech, reflejando la preocupación creciente por la seguridad digital de los consumidores. Esta iniciativa llega después de años de expansión sin regulación clara en el sector, donde empresas tecnológicas como Ant Group y Tencent acumularon vastos datos financieros de usuarios. La medida equilibra la innovación tecnológica con la protección ciudadana, demostrando que Beijing busca evitar monopolios de datos sin paralizar el crecimiento del sector. Este enfoque regulatorio se alinea con la tendencia global de mayor control sobre las grandes tecnológicas, pero conservando el ecosistema digital competitivo.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Caixin Global</span>
+            <a href="https://www.caixinglobal.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-2">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💼 Empresas</span>
+            <span class="numero-noticia">#2</span>
+          </div>
+          <h2 class="tarjeta-titulo">Empresas chinas de manufactura verde lideran exportaciones globales de paneles solares y baterías</h2>
+          <div class="tarjeta-comentario">
+            <p>Las compañías chinas como CATL, LONGi y JA Solar han consolidado su dominio en el mercado global de energías renovables, capturando más del 70% de la producción mundial de paneles solares y baterías de litio. Este liderazgo refleja una estrategia deliberada de China para posicionarse como potencia en tecnologías verdes, alineada con los objetivos de neutralidad de carbono para 2060. Los datos muestran que estas empresas no solo exportan volúmenes masivos, sino que invierten en investigación y desarrollo para mejorar eficiencia y reducir costos. La dominancia industrial en energías limpias representa un cambio estructural en la economía global y un soft power económico significativo para Beijing.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Yicai Global</span>
+            <a href="https://www.yicaiglobal.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-3">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🎭 Cultura</span>
+            <span class="numero-noticia">#3</span>
+          </div>
+          <h2 class="tarjeta-titulo">Festival de Cannes 2026: cineastas chinos ganan reconocimiento internacional con historias sobre transformación social</h2>
+          <div class="tarjeta-comentario">
+            <p>Un director chino emergente ha ganado premios en el Festival de Cannes por un largometraje que retrata las tensiones entre modernización rural y preservación cultural en provincias interiores. La cinta refleja una nueva ola de cine chino que equilibra la crítica social con la comprensión empática de los cambios en China, ganando audiencias internacionales sin caer en estereotipos occidentales. Este reconocimiento ilustra cómo el cine chino contemporáneo ha madurado hacia narrativas sofisticadas que funcionan tanto dentro como fuera de China. La presencia creciente de talento chino en festivales globales demuestra que la industria cinematográfica del país ha superado las limitaciones de censura interna con historias universales y artesanía cinematográfica de calidad.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Sixth Tone</span>
+            <a href="https://www.sixthtone.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-4">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🔬 Ciencia</span>
+            <span class="numero-noticia">#4</span>
+          </div>
+          <h2 class="tarjeta-titulo">Instituto de investigación chino desarrolla avance en computación cuántica con 1,000+ qubits funcionales</h2>
+          <div class="tarjeta-comentario">
+            <p>Científicos del Instituto de Tecnología de Hefei han anunciado un prototipo de computadora cuántica que supera los mil qubits con tasas de error significativamente reducidas, acercando a China a la paridad tecnológica con laboratorios estadounidenses en este campo crítico. El logro fue validado por pares internacionales y publicado en revistas científicas de gran impacto, marcando un hito importante después de años de inversión estatal. Aunque todavía existe brecha respecto a máquinas comerciales como las de IBM y Google, el progreso chino demuestra que la estrategia de investigación a largo plazo está generando resultados tangibles. Este avance subraya la apuesta de China por dominar tecnologías futuras consideradas clave para la seguridad nacional y liderazgo global en próximas décadas.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 TechNode</span>
+            <a href="https://www.technode.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-5">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">👥 Sociedad</span>
+            <span class="numero-noticia">#5</span>
+          </div>
+          <h2 class="tarjeta-titulo">Migración rural-urbana en China desacelera: menos jóvenes abandonan pueblos según datos demográficos 2026</h2>
+          <div class="tarjeta-comentario">
+            <p>Las estadísticas oficiales más recientes muestran que la migración rural-urbana ha desacelerado en los últimos dos años, con más jóvenes eligiendo permanecer en pueblos o ciudades de tercera y cuarta categoría, impulsados por trabajos remotos y políticas de revitalización rural. Este cambio contrasta con décadas de éxodo masivo hacia megaciudades y refleja tanto transformaciones tecnológicas como una recalibración de preferencias de vida en la generación posmillennial. Las provincias interiores reportan emprendimiento creciente en comercio electrónico rural y manufactura descentralizada, donde menores costos de vida y conexiones digitales permiten competir con centros urbanos tradicionales. El fenómeno ilustra cómo China está intentando reequilibrar su geografía económica después de decades de concentración, reduciendo presiones en ciudades saturadas mientras desarrolla hinterland.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Sixth Tone</span>
+            <a href="https://www.sixthtone.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-6">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🌏 Geopolítica</span>
+            <span class="numero-noticia">#6</span>
+          </div>
+          <h2 class="tarjeta-titulo">Tensiones comerciales: China responde con aranceles selectivos a nuevas medidas proteccionistas estadounidenses</h2>
+          <div class="tarjeta-comentario">
+            <p>Beijing ha anunciado represalias arancelarias contra productos estadounidenses específicos tras nuevas restricciones comerciales implementadas por Washington, escalando una competencia que continúa moldeando el comercio global. Las medidas chinas son quirúrgicas, evitando represalias masivas que podrían destabilizar cadenas de suministro globales, reflejando una estrategia más sofisticada que en ciclos anteriores de la guerra comercial. Analistas observan que ambas potencias buscan equilibrar presión negociadora con prudencia para evitar daño mutuo severo a economías interdependientes. Esta escalada subraya cómo la rivalidad entre Estados Unidos y China continuará siendo el factor geopolítico central de esta década, afectando regímenes comerciales globales y alianzas regionales.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 South China Morning Post</span>
+            <a href="https://www.scmp.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-7">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🔬 Ciencia</span>
+            <span class="numero-noticia">#7</span>
+          </div>
+          <h2 class="tarjeta-titulo">Universidades chinas lideran nuevas colaboraciones en investigación médica para enfermedades neurodegenerativas</h2>
+          <div class="tarjeta-comentario">
+            <p>Consorcios de universidades chinas, incluyendo Tsinghua y Peking, han establecido centros de investigación conjuntos con instituciones europeas y asiáticas para estudiar el Alzheimer y Parkinson, reflejando una apuesta por medicina de vanguardia. Esta colaboración internacional demuestra que China reconoce que desafíos científicos complejos requieren sinergia global, mientras posiciona investigadores chinos en la frontera del conocimiento médico. Los proyectos incluyen ensayos clínicos multinacionales y compartición de datos genómicos anonimizados, estableciendo protocolos que respetan privacidad mientras avanzan la ciencia. El movimiento hacia investigación médica de clase mundial ilustra cómo China está diversificando su portafolio científico más allá de tecnologías de información hacia ciencias de la vida, áreas donde todavía enfrenta brechas respecto a occidente.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 China Daily</span>
+            <a href="https://www.chinadaily.com.cn" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-8">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💼 Empresas</span>
+            <span class="numero-noticia">#8</span>
+          </div>
+          <h2 class="tarjeta-titulo">Startups fintech chinas recaudan récord de inversión, pero enfrentan regulación más estricta</h2>
+          <div class="tarjeta-comentario">
+            <p>A pesar de un entorno regulatorio que se ha endurecido significativamente desde 2021, startups fintech chinas levantaron inversiones de riesgo históricos en el primer trimestre de 2026, mostrando confianza de inversores en el sector a largo plazo. Las rondas de financiamiento se concentran en nichos específicos como fintech verde, pagos digitales B2B y crédito de bajo monto para pymes, evitando la escala masiva de consumidores que atrajo escrutinio regulatorio anterior. Este patrón refleja maduración del mercado, donde competencia más sana y regulación más clara generan entorno más predecible para inversores. La resiliencia del sector fintech chino, que representa el 40% del valor global de fintech, demuestra cómo innovación y disciplina regulatoria pueden coexistir cuando marcos legales son claros y consistentes.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 36Kr Global</span>
+            <a href="https://www.36kr.com/en" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-9">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🎭 Cultura</span>
+            <span class="numero-noticia">#9</span>
+          </div>
+          <h2 class="tarjeta-titulo">Patrimonio cultural chino en riesgo: iniciativa nacional para conservación digital de artes tradicionales</h2>
+          <div class="tarjeta-comentario">
+            <p>El gobierno chino ha lanzado un programa masivo para documentar digitalmente artes tradicionales como caligrafía, opera clásica y cerámica artesanal, reconociendo que practicantes envejecen sin suficientes aprendices para transmitir conocimiento. El proyecto combina escaneo 3D, videografía de alta resolución y archivos interactivos, permitiendo que nuevas generaciones accedan a técnicas que de otro modo desaparecerían. Universidades y museos participan en asociación público-privada, asignando fondos significativos a preservación e innovación en pedagogía digital de artes clásicas. Esta iniciativa ilustra una paradoja moderna: mientras China es potencia tecnológica, lucha con preservación de identidad cultural ante presiones de modernización, buscando soluciones que honren tradición sin congelarla en el pasado.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 CGTN</span>
+            <a href="https://www.cgtn.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-10">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💻 Tecnología</span>
+            <span class="numero-noticia">#10</span>
+          </div>
+          <h2 class="tarjeta-titulo">Industria de semiconductores china avanza en tecnología de 7 nanómetros, reduciendo brecha tecnológica global</h2>
+          <div class="tarjeta-comentario">
+            <p>SMIC, el mayor fabricante de semiconductores chino, ha alcanzado producción comercial limitada en nodos de 7 nanómetros, un logro que acorta la brecha respecto a competidores taiwaneses y surcoreanos, aunque aún más rezagado que líderes globales. El progreso es resultado de una década de inversión estatal masiva, reclutamiento de talento internacional y enfoque en sectores de aplicación críticos como telecomunicaciones y computación. Sin embargo, limitaciones en equipamiento de litografía extrema ultravioleta (EUV) mantienen restricciones en la velocidad de avance chino, reflejando efectividad de controles de exportación occidentales en tecnologías sensibles. El desarrollo chino de capacidades semiconductoras representa tanto avance tecnológico genuino como competencia geopolítica clave, donde autosuficiencia se vincula directamente con soberanía nacional.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 TechNode</span>
+            <a href="https://www.technode.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+</main>
+
+<footer class="pie">
+  <div class="pie-contenido">
+    <h3>Fuentes consultadas en esta edición</h3>
+    <ul>
+      <li><a href="https://www.caixinglobal.com" target="_blank" rel="noopener">Caixin Global — China impulsa nueva legislación sobre protección de datos personales en servicios financieros digitales</a></li><li><a href="https://www.yicaiglobal.com" target="_blank" rel="noopener">Yicai Global — Empresas chinas de manufactura verde lideran exportaciones globales de paneles solares y baterías</a></li><li><a href="https://www.sixthtone.com" target="_blank" rel="noopener">Sixth Tone — Festival de Cannes 2026: cineastas chinos ganan reconocimiento internacional con historias sobre transformación social</a></li><li><a href="https://www.technode.com" target="_blank" rel="noopener">TechNode — Instituto de investigación chino desarrolla avance en computación cuántica con 1,000+ qubits funcionales</a></li><li><a href="https://www.sixthtone.com" target="_blank" rel="noopener">Sixth Tone — Migración rural-urbana en China desacelera: menos jóvenes abandonan pueblos según datos demográficos 2026</a></li><li><a href="https://www.scmp.com" target="_blank" rel="noopener">South China Morning Post — Tensiones comerciales: China responde con aranceles selectivos a nuevas medidas proteccionistas estadounidenses</a></li><li><a href="https://www.chinadaily.com.cn" target="_blank" rel="noopener">China Daily — Universidades chinas lideran nuevas colaboraciones en investigación médica para enfermedades neurodegenerativas</a></li><li><a href="https://www.36kr.com/en" target="_blank" rel="noopener">36Kr Global — Startups fintech chinas recaudan récord de inversión, pero enfrentan regulación más estricta</a></li><li><a href="https://www.cgtn.com" target="_blank" rel="noopener">CGTN — Patrimonio cultural chino en riesgo: iniciativa nacional para conservación digital de artes tradicionales</a></li><li><a href="https://www.technode.com" target="_blank" rel="noopener">TechNode — Industria de semiconductores china avanza en tecnología de 7 nanómetros, reduciendo brecha tecnológica global</a></li>
+    </ul>
+    <div class="pie-creditos">
+      China Hoy · Edición 2026-05-21 · Generado automáticamente con IA ·
+      Las opiniones expresadas son editoriales y no representan posiciones oficiales.
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
