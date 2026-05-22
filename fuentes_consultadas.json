@@ -622,5 +622,31 @@
       "Patrimonio cultural chino en riesgo: iniciativa nacional para conservación digital de artes tradicionales",
       "Industria de semiconductores china avanza en tecnología de 7 nanómetros, reduciendo brecha tecnológica global"
     ]
+  },
+  "2026-05-22": {
+    "fuentes": [
+      "https://www.xinhuanet.com",
+      "https://www.technode.com",
+      "https://www.caixinglobal.com",
+      "https://www.caixinglobal.com",
+      "https://www.sixthtone.com",
+      "https://www.globaltimes.cn",
+      "https://www.chinadaily.com.cn",
+      "https://www.pandaily.com",
+      "https://www.sixthtone.com",
+      "https://www.caixinglobal.com"
+    ],
+    "titulares": [
+      "China alcanza hito en fusión nuclear: reactor experimental genera más energía de la que consume",
+      "Alumnos chinos crean startup de inteligencia artificial con valuación de $2 mil millones en seis meses",
+      "Gobierno anuncia reforma del sistema de jubilación: aumento gradual de edad de retiro a 63 años",
+      "Alibaba expande negocio de computación en nube con nuevos centros de datos en el sudeste asiático",
+      "Museo Nacional de China inaugura exposición sobre arte contemporáneo chino del último siglo",
+      "China y Tailandia firman acuerdo de integración económica: eliminación de aranceles en 500 productos",
+      "Investigadores chinos descubren nueva especie de primate en bosques de Yunnan",
+      "Bytedance lanza plataforma de educación en línea enfocada en programación y habilidades digitales",
+      "Reportaje especial: migración interna china se desacelera, jóvenes prefieren ciudades medianas a megaciudades",
+      "BYD anuncia planta de manufactura de baterías en Brasil: inversión de $1,500 millones"
+    ]
   }
 }

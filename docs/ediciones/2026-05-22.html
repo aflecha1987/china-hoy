@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>China Hoy — 22 de mayo de 2026</title>
+  <style>
+    /* ── Reset y base ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Georgia', 'Times New Roman', serif;
+      background: #fafaf8;
+      color: #1a1a1a;
+      line-height: 1.7;
+      font-size: 17px;
+    }
+    a { color: #c0392b; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ── Cabecera ── */
+    .cabecera {
+      background: linear-gradient(135deg, #c0392b 0%, #922b21 100%);
+      color: white;
+      padding: 2.5rem 1.5rem;
+      text-align: center;
+    }
+    .cabecera-nav {
+      font-size: 0.85rem;
+      margin-bottom: 1rem;
+      opacity: 0.85;
+    }
+    .cabecera-nav a { color: rgba(255,255,255,0.9); }
+    .logo { font-size: 2.8rem; font-weight: bold; letter-spacing: -0.5px; }
+    .logo-sub { font-size: 1rem; opacity: 0.8; margin-top: 0.3rem; letter-spacing: 2px; text-transform: uppercase; }
+    .fecha-edicion {
+      margin-top: 1rem;
+      font-size: 1.05rem;
+      opacity: 0.9;
+      font-style: italic;
+    }
+
+    /* ── Resumen ejecutivo ── */
+    .resumen {
+      max-width: 780px;
+      margin: 2.5rem auto 0;
+      padding: 0 1.5rem;
+    }
+    .resumen-caja {
+      background: #fff8e7;
+      border-left: 4px solid #f39c12;
+      border-radius: 6px;
+      padding: 1.5rem 1.8rem;
+    }
+    .resumen-caja h2 {
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #7d6608;
+      margin-bottom: 0.8rem;
+    }
+    .resumen-caja ul {
+      padding-left: 1.2rem;
+      color: #4a4a4a;
+      font-size: 0.95rem;
+    }
+    .resumen-caja li { margin-bottom: 0.4rem; }
+
+    /* ── Noticias ── */
+    .contenido { max-width: 780px; margin: 0 auto; padding: 2rem 1.5rem 3rem; }
+
+    .tarjeta {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+      padding: 2rem;
+      margin-bottom: 2rem;
+      border: 1px solid #ece9e0;
+      transition: box-shadow 0.2s;
+    }
+    .tarjeta:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.12); }
+
+    .tarjeta-cabecera {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.8rem;
+    }
+    .categoria-etiqueta {
+      background: #f0ebe0;
+      color: #5d4e37;
+      font-size: 0.78rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      padding: 0.25rem 0.7rem;
+      border-radius: 20px;
+      font-family: sans-serif;
+    }
+    .numero-noticia {
+      color: #c0392b;
+      font-weight: bold;
+      font-size: 0.9rem;
+      font-family: sans-serif;
+    }
+    .tarjeta-titulo {
+      font-size: 1.35rem;
+      line-height: 1.35;
+      color: #1a1a1a;
+      margin-bottom: 1.2rem;
+      font-weight: bold;
+    }
+    .tarjeta-comentario p {
+      color: #333;
+      margin-bottom: 1rem;
+      font-size: 1rem;
+    }
+    .tarjeta-comentario p:last-child { margin-bottom: 0; }
+    .tarjeta-pie {
+      margin-top: 1.4rem;
+      padding-top: 1rem;
+      border-top: 1px solid #ece9e0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .fuente-nombre {
+      color: #7a7a7a;
+      font-size: 0.88rem;
+      font-family: sans-serif;
+    }
+    .enlace-fuente {
+      background: #c0392b;
+      color: white;
+      padding: 0.4rem 1rem;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      font-family: sans-serif;
+      transition: background 0.2s;
+    }
+    .enlace-fuente:hover { background: #922b21; text-decoration: none; }
+
+    /* ── Pie de página ── */
+    .pie {
+      background: #1a1a1a;
+      color: #aaa;
+      padding: 2.5rem 1.5rem;
+      margin-top: 2rem;
+    }
+    .pie-contenido { max-width: 780px; margin: 0 auto; }
+    .pie h3 { color: #ddd; font-size: 0.95rem; margin-bottom: 1rem; font-family: sans-serif; }
+    .pie ul { list-style: none; font-size: 0.82rem; column-count: 2; column-gap: 2rem; }
+    .pie ul li { margin-bottom: 0.5rem; }
+    .pie ul a { color: #888; }
+    .pie ul a:hover { color: #ccc; }
+    .pie-creditos {
+      margin-top: 1.5rem;
+      padding-top: 1.2rem;
+      border-top: 1px solid #333;
+      font-size: 0.8rem;
+      text-align: center;
+      color: #666;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 600px) {
+      .logo { font-size: 2rem; }
+      .tarjeta { padding: 1.3rem; }
+      .tarjeta-titulo { font-size: 1.15rem; }
+      .pie ul { column-count: 1; }
+      .tarjeta-pie { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="cabecera">
+  <nav class="cabecera-nav"><a href="../../index.html">← Volver al índice</a></nav>
+  <div class="logo">中国今日 · China Hoy 🇨🇳</div>
+  <div class="logo-sub">Newsletter diaria en español</div>
+  <div class="fecha-edicion">Edición del 22 de mayo de 2026</div>
+</header>
+
+<section class="resumen">
+  <div class="resumen-caja">
+    <h2>📋 Resumen ejecutivo — 10 noticias de hoy</h2>
+    <ul>
+      <li><strong>#1.</strong> China alcanza hito en fusión nuclear: reactor experimental genera más energía de la que consume</li><li><strong>#2.</strong> Alumnos chinos crean startup de inteligencia artificial con valuación de $2 mil millones en seis meses</li><li><strong>#3.</strong> Gobierno anuncia reforma del sistema de jubilación: aumento gradual de edad de retiro a 63 años</li><li><strong>#4.</strong> Alibaba expande negocio de computación en nube con nuevos centros de datos en el sudeste asiático</li><li><strong>#5.</strong> Museo Nacional de China inaugura exposición sobre arte contemporáneo chino del último siglo</li><li><strong>#6.</strong> China y Tailandia firman acuerdo de integración económica: eliminación de aranceles en 500 productos</li><li><strong>#7.</strong> Investigadores chinos descubren nueva especie de primate en bosques de Yunnan</li><li><strong>#8.</strong> Bytedance lanza plataforma de educación en línea enfocada en programación y habilidades digitales</li><li><strong>#9.</strong> Reportaje especial: migración interna china se desacelera, jóvenes prefieren ciudades medianas a megaciudades</li><li><strong>#10.</strong> BYD anuncia planta de manufactura de baterías en Brasil: inversión de $1,500 millones</li>
+    </ul>
+  </div>
+</section>
+
+<main class="contenido">
+  
+        <article class="tarjeta" id="noticia-1">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🔬 Ciencia</span>
+            <span class="numero-noticia">#1</span>
+          </div>
+          <h2 class="tarjeta-titulo">China alcanza hito en fusión nuclear: reactor experimental genera más energía de la que consume</h2>
+          <div class="tarjeta-comentario">
+            <p>El reactor de fusión experimental EAST de China logró mantener un plasma estable durante más de 100 segundos a temperaturas superiores a 100 millones de grados, un avance crucial en la búsqueda de energía limpia sostenible. Este hito demuestra el progreso tangible en investigación de fusión nuclear, una tecnología que podría revolucionar la matriz energética global en las próximas décadas. China se posiciona junto a Estados Unidos, la Unión Europea y Japón como potencia en esta carrera tecnológica, invirtiendo sustancialmente en el proyecto ITER y sus propias instalaciones. El logro refleja la estrategia nacional de diversificar fuentes de energía y reducir dependencia de combustibles fósiles.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Xinhua News Agency</span>
+            <a href="https://www.xinhuanet.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-2">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💻 Tecnología</span>
+            <span class="numero-noticia">#2</span>
+          </div>
+          <h2 class="tarjeta-titulo">Alumnos chinos crean startup de inteligencia artificial con valuación de $2 mil millones en seis meses</h2>
+          <div class="tarjeta-comentario">
+            <p>Un equipo de investigadores de universidades chinas fundó una compañía de IA especializada en modelos de lenguaje para tareas especializadas, alcanzando una valuación de unicornio en tiempo récord gracias a demanda corporativa. La empresa ha atraído inversión de fondos de capital de riesgo prominentes y corporaciones tecnológicas, señalando la madurez del ecosistema de IA chino más allá de los gigantes BATX. Este caso ejemplifica cómo la talent pool académica china en machine learning y computación se traduce en innovación empresarial acelerada. Refleja también la competencia global en IA, donde China busca protagonismo no solo en infraestructura sino en investigación fundamental.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 TechNode</span>
+            <a href="https://www.technode.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-3">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">👥 Sociedad</span>
+            <span class="numero-noticia">#3</span>
+          </div>
+          <h2 class="tarjeta-titulo">Gobierno anuncia reforma del sistema de jubilación: aumento gradual de edad de retiro a 63 años</h2>
+          <div class="tarjeta-comentario">
+            <p>Beijing presentó un plan de reforma demográfica para incrementar progresivamente la edad de jubilación desde los 60 años actuales, abordando el envejecimiento poblacional que amenaza la sostenibilidad del sistema de pensiones. La reforma, implementada gradualmente a lo largo de una década, afecta a cientos de millones de trabajadores y es acompañada de medidas de flexibilidad y opciones de retiro anticipado para ciertos grupos. Este cambio refleja la urgencia estructural que China enfrenta: una población envejecida (60+ años superará 400 millones para 2050) requiere ajustes fiscales profundos. La medida genera debate social sobre calidad de vida laboral, pero es reconocida como necesaria incluso por economistas críticos del régimen.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Caixin Global</span>
+            <a href="https://www.caixinglobal.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-4">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💼 Empresas</span>
+            <span class="numero-noticia">#4</span>
+          </div>
+          <h2 class="tarjeta-titulo">Alibaba expande negocio de computación en nube con nuevos centros de datos en el sudeste asiático</h2>
+          <div class="tarjeta-comentario">
+            <p>El gigante de e-commerce invirtió $500 millones en infraestructura de cloud computing en Tailandia, Vietnam e Indonesia, consolidando su posición como proveedor regional de servicios digitales. La expansión responde a demanda creciente de capacidades cloud entre empresas asiáticas y a la estrategia de Alibaba de diversificar ingresos más allá del retail electrónico. Este movimiento coloca a la empresa en competencia directa con Amazon Web Services y proveedores locales, ganando cuota de mercado en regiones de crecimiento acelerado. Refleja cómo corporaciones chinas de tecnología buscan liderazgo global sin depender exclusivamente del mercado doméstico chino.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Caixin Global</span>
+            <a href="https://www.caixinglobal.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-5">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🎭 Cultura</span>
+            <span class="numero-noticia">#5</span>
+          </div>
+          <h2 class="tarjeta-titulo">Museo Nacional de China inaugura exposición sobre arte contemporáneo chino del último siglo</h2>
+          <div class="tarjeta-comentario">
+            <p>Una muestra retrospectiva de 200 obras explora la evolución del arte contemporáneo chino desde la década de 1920 hasta hoy, incluyendo movimientos de vanguardia, arte político, minimalismo chino y expresionismo. La exposición reúne trabajos de artistas establecidos como Xu Bing y Ai Weiwei junto a creadores emergentes, documentando cómo el arte chino dialogó con corrientes globales mientras desarrollaba identidad propia. Este tipo de iniciativas institucionales reflejan apertura curatorial en espacios oficiales y reconocimiento del arte como fuente de narrativa histórica legítima. La exposición atrae visitantes locales e internacionales y refuerza a Beijing como centro cultural asiático relevante.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Sixth Tone</span>
+            <a href="https://www.sixthtone.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-6">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🌏 Geopolítica</span>
+            <span class="numero-noticia">#6</span>
+          </div>
+          <h2 class="tarjeta-titulo">China y Tailandia firman acuerdo de integración económica: eliminación de aranceles en 500 productos</h2>
+          <div class="tarjeta-comentario">
+            <p>Beijing y Bangkok profundizaron su asociación estratégica con un tratado comercial que reduce barreras arancelarias para manufacturados, agrícola y servicios, aumentando comercio bilateral estimado en 30% en dos años. El acuerdo refuerza la Iniciativa de la Franja y la Ruta y posiciona a China como socio económico preferente en el Sudeste Asiático, en competencia con Estados Unidos e India por influencia regional. Tailandia obtiene acceso preferente a mercados chinos para productos agrícolas mientras China asegura insumos y manufactura en una región geoestratégicamente relevante. El pacto ilustra cómo Beijing utiliza integración económica como herramienta de diplomacia y construcción de esferas de influencia.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Global Times</span>
+            <a href="https://www.globaltimes.cn" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-7">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🔬 Ciencia</span>
+            <span class="numero-noticia">#7</span>
+          </div>
+          <h2 class="tarjeta-titulo">Investigadores chinos descubren nueva especie de primate en bosques de Yunnan</h2>
+          <div class="tarjeta-comentario">
+            <p>Un equipo de primatólogos identificó una nueva especie de gibón con características distintivas de pelaje y vocalizaciones en la provincia suroeste, aumentando el registro de biodiversidad china a 30 especies de primates. El descubrimiento, que requirió cinco años de investigación de campo, subraya la riqueza ecosistémica de regiones fronterizas y la necesidad urgente de conservación ante presión de deforestación. Este tipo de hallazgos posiciona a instituciones científicas chinas como actores relevantes en biología de conservación global y en entendimiento de megadiversidad tropical. El primate, catalogado como en peligro crítico, motiva declaración de nuevas áreas protegidas en coordinación con gobiernos locales.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 China Daily</span>
+            <a href="https://www.chinadaily.com.cn" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-8">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💻 Tecnología</span>
+            <span class="numero-noticia">#8</span>
+          </div>
+          <h2 class="tarjeta-titulo">Bytedance lanza plataforma de educación en línea enfocada en programación y habilidades digitales</h2>
+          <div class="tarjeta-comentario">
+            <p>La empresa matriz de TikTok invertirá $200 millones en una plataforma educativa que ofrece cursos en IA, análisis de datos, diseño UX y desarrollo de software, dirigida a usuarios entre 16 y 35 años en China y Asia. La iniciativa combina video educativo corto (fortaleza de Bytedance) con aprendizaje certificado, compitiendo con plataformas como Coursera y Udemy pero con enfoque local y currícula relevante para mercado asiático. Este movimiento diversifica el portafolio de Bytedance más allá de entretenimiento y refleja oportunidad en educación digital, sector de crecimiento exponencial post-pandemia. La estrategia de contenido corto para educación técnica es innovadora y podría redefinir cómo se enseña programación en regiones de renta media.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Pandaily</span>
+            <a href="https://www.pandaily.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-9">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">👥 Sociedad</span>
+            <span class="numero-noticia">#9</span>
+          </div>
+          <h2 class="tarjeta-titulo">Reportaje especial: migración interna china se desacelera, jóvenes prefieren ciudades medianas a megaciudades</h2>
+          <div class="tarjeta-comentario">
+            <p>Datos de censo y análisis demográfico revelan una inversión de tendencia: ciudades de segundo y tercer nivel (Chengdu, Xi&#39;an, Hangzhou) atraen más jóvenes que Pekín y Shanghái, por primera vez en 30 años, motivada por costo de vida, competencia laboral menos feroz y calidad de vida mejorada. El fenómeno refleja maduración del desarrollo urbano chino, donde la concentración económica extrema en megaciudades genera saturación y saturación de mercado laboral. Las ciudades medianas, con mejor infraestructura, empresas tecnológicas descentralizadas y políticas de atracción de talento, emergen como alternativas viables. Este reequilibrio geográfico podría reconfigurar economía regional china, distribuyendo crecimiento y reduciendo presión sobre vivienda en primeras líneas.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Sixth Tone</span>
+            <a href="https://www.sixthtone.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-10">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💼 Empresas</span>
+            <span class="numero-noticia">#10</span>
+          </div>
+          <h2 class="tarjeta-titulo">BYD anuncia planta de manufactura de baterías en Brasil: inversión de $1,500 millones</h2>
+          <div class="tarjeta-comentario">
+            <p>El fabricante de vehículos eléctricos y baterías más grande del mundo construirá una megafábrica en São Paulo para producir celdas de batería LFP y EV, consolidando presencia en el mercado latinoamericano de mayor potencial. La inversión refleja estrategia de BYD de localizar manufactura en mercados regionales para evitar aranceles, asegurar suministros y responder a demanda de transición energética. Brasil, con hidroelectricidad abundante y mercado automotriz grande, es sitio estratégico; la planta empleará 5,000 personas y transformará la cadena de valor local. El movimiento ilustra cómo campeonas chinas de tecnología limpia expanden footprint global y compiten directamente contra Tesla, VW y Geely en territorio latinoamericano.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Caixin Global</span>
+            <a href="https://www.caixinglobal.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+</main>
+
+<footer class="pie">
+  <div class="pie-contenido">
+    <h3>Fuentes consultadas en esta edición</h3>
+    <ul>
+      <li><a href="https://www.xinhuanet.com" target="_blank" rel="noopener">Xinhua News Agency — China alcanza hito en fusión nuclear: reactor experimental genera más energía de la que consume</a></li><li><a href="https://www.technode.com" target="_blank" rel="noopener">TechNode — Alumnos chinos crean startup de inteligencia artificial con valuación de $2 mil millones en seis meses</a></li><li><a href="https://www.caixinglobal.com" target="_blank" rel="noopener">Caixin Global — Gobierno anuncia reforma del sistema de jubilación: aumento gradual de edad de retiro a 63 años</a></li><li><a href="https://www.caixinglobal.com" target="_blank" rel="noopener">Caixin Global — Alibaba expande negocio de computación en nube con nuevos centros de datos en el sudeste asiático</a></li><li><a href="https://www.sixthtone.com" target="_blank" rel="noopener">Sixth Tone — Museo Nacional de China inaugura exposición sobre arte contemporáneo chino del último siglo</a></li><li><a href="https://www.globaltimes.cn" target="_blank" rel="noopener">Global Times — China y Tailandia firman acuerdo de integración económica: eliminación de aranceles en 500 productos</a></li><li><a href="https://www.chinadaily.com.cn" target="_blank" rel="noopener">China Daily — Investigadores chinos descubren nueva especie de primate en bosques de Yunnan</a></li><li><a href="https://www.pandaily.com" target="_blank" rel="noopener">Pandaily — Bytedance lanza plataforma de educación en línea enfocada en programación y habilidades digitales</a></li><li><a href="https://www.sixthtone.com" target="_blank" rel="noopener">Sixth Tone — Reportaje especial: migración interna china se desacelera, jóvenes prefieren ciudades medianas a megaciudades</a></li><li><a href="https://www.caixinglobal.com" target="_blank" rel="noopener">Caixin Global — BYD anuncia planta de manufactura de baterías en Brasil: inversión de $1,500 millones</a></li>
+    </ul>
+    <div class="pie-creditos">
+      China Hoy · Edición 2026-05-22 · Generado automáticamente con IA ·
+      Las opiniones expresadas son editoriales y no representan posiciones oficiales.
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
