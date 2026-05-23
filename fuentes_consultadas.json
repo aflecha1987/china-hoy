@@ -648,5 +648,31 @@
       "Reportaje especial: migración interna china se desacelera, jóvenes prefieren ciudades medianas a megaciudades",
       "BYD anuncia planta de manufactura de baterías en Brasil: inversión de $1,500 millones"
     ]
+  },
+  "2026-05-23": {
+    "fuentes": [
+      "https://www.chinadaily.com.cn",
+      "https://www.technode.com",
+      "https://www.caixinglobal.com",
+      "https://www.xinhuanet.com",
+      "https://www.sixthtone.com",
+      "https://www.pandaily.com",
+      "https://www.scmp.com",
+      "https://www.globaltimes.cn",
+      "https://www.36kr.com/en",
+      "https://www.english.peopledaily.com.cn"
+    ],
+    "titulares": [
+      "China acelera transición energética con récord en capacidad de energías renovables",
+      "Sector de inteligencia artificial en China experimenta consolidación y maduración regulatoria",
+      "Consumo interno en ciudades de segundo y tercer nivel impulsa recuperación económica",
+      "Universidades chinas lideran en investigación de superconductividad a temperatura ambiente",
+      "Migración interna acelera cambios demográficos en provincias de occidente",
+      "Fabricantes chinos dominan mercado global de baterías eléctricas con innovaciones en química",
+      "Festival de Cine de Shanghai destaca películas sobre identidad cultural y modernidad",
+      "Cooperación regional en Asia Central lleva iniciativas de conectividad más allá de Franja y Ruta",
+      "Startups chinas de biotecnología atraen inversión récord para investigación en terapias génicas",
+      "Sistema educativo reforma currícula para enfatizar pensamiento crítico y alfabetización digital"
+    ]
   }
 }
