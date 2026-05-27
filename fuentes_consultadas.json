@@ -726,5 +726,31 @@
       "Industria de energías renovables china alcanza hito con mayor capacidad instalada de solar y eólica",
       "Iniciativa de diplomacia cultural china expande presencia de cines y festivales de cine en el Sudeste Asiático"
     ]
+  },
+  "2026-05-27": {
+    "fuentes": [
+      "https://www.technode.com",
+      "https://www.caixinglobal.com",
+      "https://www.sixthtone.com",
+      "https://www.chinadaily.com.cn",
+      "https://www.pandaily.com",
+      "https://www.scmp.com",
+      "https://www.36kr.com/en",
+      "https://www.yicaiglobal.com",
+      "https://www.sixthtone.com",
+      "https://www.cgtn.com"
+    ],
+    "titulares": [
+      "China avanza en inteligencia artificial con nuevo modelo multimodal de código abierto",
+      "Economía china desacelera: crecimiento trimestral en 4.7% refleja presiones estructurales",
+      "Festival de cine de Shanghái: la cinematografía contemporánea china gana reconocimiento internacional",
+      "Investigación científica: descubrimiento chino en física cuántica avanza hacia computación cuántica práctica",
+      "Sociedad: encuesta revela cambios en expectativas de carrera profesional entre jóvenes chinos",
+      "Geopolítica: China amplía asociaciones comerciales en Asia Central mientras rebalancea su postura regional",
+      "Sector empresarial: gigante de logística china invierte en automatización de almacenes y última milla",
+      "Tecnología verde: China lidera producción global de paneles solares de eficiencia récord",
+      "Sociedad: iniciativa de bienestar mental en universidades chinas expande acceso a servicios psicológicos",
+      "Ciencia: avance en biotecnología: empresa china desarrolla terapia génica para enfermedad hereditaria común"
+    ]
   }
 }
