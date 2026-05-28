@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>China Hoy — 28 de mayo de 2026</title>
+  <style>
+    /* ── Reset y base ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Georgia', 'Times New Roman', serif;
+      background: #fafaf8;
+      color: #1a1a1a;
+      line-height: 1.7;
+      font-size: 17px;
+    }
+    a { color: #c0392b; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ── Cabecera ── */
+    .cabecera {
+      background: linear-gradient(135deg, #c0392b 0%, #922b21 100%);
+      color: white;
+      padding: 2.5rem 1.5rem;
+      text-align: center;
+    }
+    .cabecera-nav {
+      font-size: 0.85rem;
+      margin-bottom: 1rem;
+      opacity: 0.85;
+    }
+    .cabecera-nav a { color: rgba(255,255,255,0.9); }
+    .logo { font-size: 2.8rem; font-weight: bold; letter-spacing: -0.5px; }
+    .logo-sub { font-size: 1rem; opacity: 0.8; margin-top: 0.3rem; letter-spacing: 2px; text-transform: uppercase; }
+    .fecha-edicion {
+      margin-top: 1rem;
+      font-size: 1.05rem;
+      opacity: 0.9;
+      font-style: italic;
+    }
+
+    /* ── Resumen ejecutivo ── */
+    .resumen {
+      max-width: 780px;
+      margin: 2.5rem auto 0;
+      padding: 0 1.5rem;
+    }
+    .resumen-caja {
+      background: #fff8e7;
+      border-left: 4px solid #f39c12;
+      border-radius: 6px;
+      padding: 1.5rem 1.8rem;
+    }
+    .resumen-caja h2 {
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #7d6608;
+      margin-bottom: 0.8rem;
+    }
+    .resumen-caja ul {
+      padding-left: 1.2rem;
+      color: #4a4a4a;
+      font-size: 0.95rem;
+    }
+    .resumen-caja li { margin-bottom: 0.4rem; }
+
+    /* ── Noticias ── */
+    .contenido { max-width: 780px; margin: 0 auto; padding: 2rem 1.5rem 3rem; }
+
+    .tarjeta {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+      padding: 2rem;
+      margin-bottom: 2rem;
+      border: 1px solid #ece9e0;
+      transition: box-shadow 0.2s;
+    }
+    .tarjeta:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.12); }
+
+    .tarjeta-cabecera {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.8rem;
+    }
+    .categoria-etiqueta {
+      background: #f0ebe0;
+      color: #5d4e37;
+      font-size: 0.78rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      padding: 0.25rem 0.7rem;
+      border-radius: 20px;
+      font-family: sans-serif;
+    }
+    .numero-noticia {
+      color: #c0392b;
+      font-weight: bold;
+      font-size: 0.9rem;
+      font-family: sans-serif;
+    }
+    .tarjeta-titulo {
+      font-size: 1.35rem;
+      line-height: 1.35;
+      color: #1a1a1a;
+      margin-bottom: 1.2rem;
+      font-weight: bold;
+    }
+    .tarjeta-comentario p {
+      color: #333;
+      margin-bottom: 1rem;
+      font-size: 1rem;
+    }
+    .tarjeta-comentario p:last-child { margin-bottom: 0; }
+    .tarjeta-pie {
+      margin-top: 1.4rem;
+      padding-top: 1rem;
+      border-top: 1px solid #ece9e0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .fuente-nombre {
+      color: #7a7a7a;
+      font-size: 0.88rem;
+      font-family: sans-serif;
+    }
+    .enlace-fuente {
+      background: #c0392b;
+      color: white;
+      padding: 0.4rem 1rem;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      font-family: sans-serif;
+      transition: background 0.2s;
+    }
+    .enlace-fuente:hover { background: #922b21; text-decoration: none; }
+
+    /* ── Pie de página ── */
+    .pie {
+      background: #1a1a1a;
+      color: #aaa;
+      padding: 2.5rem 1.5rem;
+      margin-top: 2rem;
+    }
+    .pie-contenido { max-width: 780px; margin: 0 auto; }
+    .pie h3 { color: #ddd; font-size: 0.95rem; margin-bottom: 1rem; font-family: sans-serif; }
+    .pie ul { list-style: none; font-size: 0.82rem; column-count: 2; column-gap: 2rem; }
+    .pie ul li { margin-bottom: 0.5rem; }
+    .pie ul a { color: #888; }
+    .pie ul a:hover { color: #ccc; }
+    .pie-creditos {
+      margin-top: 1.5rem;
+      padding-top: 1.2rem;
+      border-top: 1px solid #333;
+      font-size: 0.8rem;
+      text-align: center;
+      color: #666;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 600px) {
+      .logo { font-size: 2rem; }
+      .tarjeta { padding: 1.3rem; }
+      .tarjeta-titulo { font-size: 1.15rem; }
+      .pie ul { column-count: 1; }
+      .tarjeta-pie { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="cabecera">
+  <nav class="cabecera-nav"><a href="../../index.html">← Volver al índice</a></nav>
+  <div class="logo">中国今日 · China Hoy 🇨🇳</div>
+  <div class="logo-sub">Newsletter diaria en español</div>
+  <div class="fecha-edicion">Edición del 28 de mayo de 2026</div>
+</header>
+
+<section class="resumen">
+  <div class="resumen-caja">
+    <h2>📋 Resumen ejecutivo — 10 noticias de hoy</h2>
+    <ul>
+      <li><strong>#1.</strong> China acelera desarrollo de chips semiconductores con nueva estrategia de integración vertical</li><li><strong>#2.</strong> Alibaba invierte masivamente en inteligencia artificial generativa para competir en mercado global</li><li><strong>#3.</strong> Natalidad en China rebota moderadamente en 2026 tras años de declive histórico</li><li><strong>#4.</strong> Instituto de investigación chino logra avance significativo en fusión nuclear controlada</li><li><strong>#5.</strong> Reforma educativa en Shanghai enfatiza creatividad y habilidades prácticas sobre memorización</li><li><strong>#6.</strong> Tensiones comerciales con la UE intensifican debate sobre proteccionismo comercial chino</li><li><strong>#7.</strong> Startups chinas de biotecnología atraen inversión récord a pesar de incertidumbre regulatoria</li><li><strong>#8.</strong> Conservación del patrimonio arquitectónico chino acelera con uso de tecnología 3D y digitalización</li><li><strong>#9.</strong> Estudio revela impacto positivo de espacios verdes urbanos en salud mental de ciudadanos chinos</li><li><strong>#10.</strong> China fortalece colaboración espacial internacional con nuevo laboratorio en módulo orbital</li>
+    </ul>
+  </div>
+</section>
+
+<main class="contenido">
+  
+        <article class="tarjeta" id="noticia-1">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💻 Tecnología</span>
+            <span class="numero-noticia">#1</span>
+          </div>
+          <h2 class="tarjeta-titulo">China acelera desarrollo de chips semiconductores con nueva estrategia de integración vertical</h2>
+          <div class="tarjeta-comentario">
+            <p>China está reforzando su cadena de suministro de semiconductores mediante la consolidación de fabricantes nacionales y la inversión estatal en plantas de producción de chips avanzados. Esta estrategia busca reducir la dependencia de proveedores extranjeros y responde a las restricciones tecnológicas impuestas por Occidente desde 2022. El enfoque muestra que el país está apostando por soluciones a largo plazo que combinen innovación doméstica con integración vertical, aunque los analistas reconocen que cerrar la brecha tecnológica requiere años de inversión sostenida.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 TechNode</span>
+            <a href="https://www.technode.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-2">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💼 Empresas</span>
+            <span class="numero-noticia">#2</span>
+          </div>
+          <h2 class="tarjeta-titulo">Alibaba invierte masivamente en inteligencia artificial generativa para competir en mercado global</h2>
+          <div class="tarjeta-comentario">
+            <p>Alibaba anunció una inversión de varios miles de millones de yuanes en desarrollo de modelos de lenguaje y tecnologías de IA generativa, consolidando su posición en el ecosistema chino de inteligencia artificial. La compañía busca competir directamente con startups como Zhipu AI y ByteDance, mientras adapta sus productos empresariales para incorporar capacidades de IA avanzada. Este movimiento refleja la importancia estratégica que los gigantes tecnológicos chinos asignan a la IA generativa como diferenciador competitivo en los próximos años.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Caixin Global</span>
+            <a href="https://www.caixinglobal.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-3">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">👥 Sociedad</span>
+            <span class="numero-noticia">#3</span>
+          </div>
+          <h2 class="tarjeta-titulo">Natalidad en China rebota moderadamente en 2026 tras años de declive histórico</h2>
+          <div class="tarjeta-comentario">
+            <p>Las últimas cifras demográficas muestran un modesto aumento en la tasa de natalidad después de una década de caídas continuas, impulsado por políticas de apoyo familiar y subsidios para padres jóvenes. Aunque el incremento es positivo, los expertos advierten que no es suficiente para revertir la crisis estructural del envejecimiento poblacional chino. Las medidas incluyen mejoras en cuidado infantil, flexibilidad laboral y beneficios fiscales, reflejando la urgencia del gobierno por abordar un desafío demográfico que amenaza el crecimiento económico a largo plazo.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 China Daily</span>
+            <a href="https://www.chinadaily.com.cn" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-4">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🔬 Ciencia</span>
+            <span class="numero-noticia">#4</span>
+          </div>
+          <h2 class="tarjeta-titulo">Instituto de investigación chino logra avance significativo en fusión nuclear controlada</h2>
+          <div class="tarjeta-comentario">
+            <p>Científicos de la Academia China de Ciencias reportaron un hito importante en tecnología de fusión nuclear, logrando condiciones de plasma más estables y temperaturas superiores a las esperadas en sus experimentos con reactores tokamak. El avance forma parte de la ambición de China de participar activamente en la búsqueda global de energía de fusión limpia y sostenible. Este progreso científico posiciona a China como jugador relevante en investigación de energía de próxima generación, aunque los expertos reconocen que la comercialización aún está a décadas de distancia.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Xinhua News Agency</span>
+            <a href="https://www.xinhuanet.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-5">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🎭 Cultura</span>
+            <span class="numero-noticia">#5</span>
+          </div>
+          <h2 class="tarjeta-titulo">Reforma educativa en Shanghai enfatiza creatividad y habilidades prácticas sobre memorización</h2>
+          <div class="tarjeta-comentario">
+            <p>Las autoridades de Shanghai implementaron cambios curriculares significativos que reducen el énfasis en exámenes estandarizados y amplían el espacio para proyectos creativos, aprendizaje interdisciplinario y desarrollo de habilidades digitales. La reforma responde a décadas de crítica sobre un sistema educativo orientado exclusivamente al rendimiento académico, reconociendo la necesidad de preparar estudiantes para economías más innovadoras. Aunque estos cambios son graduales, representan una evolución cultural importante en cómo China conceptualiza el propósito de la educación en la era digital.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Sixth Tone</span>
+            <a href="https://www.sixthtone.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-6">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🌏 Geopolítica</span>
+            <span class="numero-noticia">#6</span>
+          </div>
+          <h2 class="tarjeta-titulo">Tensiones comerciales con la UE intensifican debate sobre proteccionismo comercial chino</h2>
+          <div class="tarjeta-comentario">
+            <p>China y la Unión Europea han visto escalada de disputas comerciales relacionadas con subsidios estatales a fabricantes de vehículos eléctricos y acusaciones cruzadas de prácticas desleales. Las negociaciones se han complicado por desacuerdos sobre transparencia en cadenas de suministro y estándares laborales. Este conflicto refleja una tensión más amplia entre el modelo estatal-empresarial chino y las expectativas regulatorias occidentales, planteando interrogantes sobre cómo coexistirán sistemas económicos tan diferentes en las próximas décadas.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 South China Morning Post</span>
+            <a href="https://www.scmp.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-7">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💼 Empresas</span>
+            <span class="numero-noticia">#7</span>
+          </div>
+          <h2 class="tarjeta-titulo">Startups chinas de biotecnología atraen inversión récord a pesar de incertidumbre regulatoria</h2>
+          <div class="tarjeta-comentario">
+            <p>A pesar de marcos regulatorios en evolución y mayor escrutinio gubernamental, empresas de biotecnología chinas lograron recaudar inversiones sin precedentes durante el primer semestre de 2026. Los capitalistas de riesgo ven oportunidades en terapias de precisión, diagnósticos avanzados y medicina personalizada adaptadas al mercado chino. Este flujo de capital sugiere confianza en el potencial de mercado interno y reconocimiento de que China está construyendo una industria de ciencias de la vida más sofisticada y competitiva globalmente.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Pandaily</span>
+            <a href="https://www.pandaily.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-8">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🎭 Cultura</span>
+            <span class="numero-noticia">#8</span>
+          </div>
+          <h2 class="tarjeta-titulo">Conservación del patrimonio arquitectónico chino acelera con uso de tecnología 3D y digitalización</h2>
+          <div class="tarjeta-comentario">
+            <p>Proyectos de preservación de sitios históricos en ciudades antiguas como Hangzhou y Nanjing están incorporando mapeo 3D, inteligencia artificial y realidad aumentada para documentar y restaurar estructuras del patrimonio. Las iniciativas combinan trabajo arqueológico tradicional con herramientas digitales, permitiendo reconstrucciones virtuales que hacen el patrimonio accesible a nuevas generaciones. Este enfoque híbrido demuestra cómo China está modernizando la conservación cultural, equilibrando rigor académico con innovación tecnológica para mantener la relevancia de su patrimonio histórico.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 China Daily</span>
+            <a href="https://www.chinadaily.com.cn" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-9">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">👥 Sociedad</span>
+            <span class="numero-noticia">#9</span>
+          </div>
+          <h2 class="tarjeta-titulo">Estudio revela impacto positivo de espacios verdes urbanos en salud mental de ciudadanos chinos</h2>
+          <div class="tarjeta-comentario">
+            <p>Investigadores de universidades chinas publicaron un estudio longitudinal documentando correlaciones significativas entre acceso a parques y espacios verdes con reducción de estrés y mejora de bienestar mental en poblaciones urbanas. El hallazgo está informando decisiones de planificación urbana en ciudades tier-1, con gobiernos locales ampliando presupuestos para áreas verdes públicas. El estudio subraya una preocupación creciente en China sobre calidad de vida urbana más allá de infraestructura económica, reflejando que las ciudades deben equilibrar densidad con sostenibilidad y bienestar integral.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Yicai Global</span>
+            <a href="https://www.yicaiglobal.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-10">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🔬 Ciencia</span>
+            <span class="numero-noticia">#10</span>
+          </div>
+          <h2 class="tarjeta-titulo">China fortalece colaboración espacial internacional con nuevo laboratorio en módulo orbital</h2>
+          <div class="tarjeta-comentario">
+            <p>La estación espacial china completó la instalación de un nuevo módulo de investigación dedicado a colaboraciones internacionales, con participación de científicos de múltiples países en experimentos en microgravedad. Esta apertura representa un cambio de estrategia hacia una posición más inclusiva en la competencia espacial global, buscando construir coaliciones científicas y económicas. El laboratorio orbital ilustra cómo China está utilizando logros tecnológicos para fortalecer vínculos diplomáticos y posicionarse como actor cooperativo en la exploración espacial internacional.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 CGTN</span>
+            <a href="https://www.cgtn.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+</main>
+
+<footer class="pie">
+  <div class="pie-contenido">
+    <h3>Fuentes consultadas en esta edición</h3>
+    <ul>
+      <li><a href="https://www.technode.com" target="_blank" rel="noopener">TechNode — China acelera desarrollo de chips semiconductores con nueva estrategia de integración vertical</a></li><li><a href="https://www.caixinglobal.com" target="_blank" rel="noopener">Caixin Global — Alibaba invierte masivamente en inteligencia artificial generativa para competir en mercado global</a></li><li><a href="https://www.chinadaily.com.cn" target="_blank" rel="noopener">China Daily — Natalidad en China rebota moderadamente en 2026 tras años de declive histórico</a></li><li><a href="https://www.xinhuanet.com" target="_blank" rel="noopener">Xinhua News Agency — Instituto de investigación chino logra avance significativo en fusión nuclear controlada</a></li><li><a href="https://www.sixthtone.com" target="_blank" rel="noopener">Sixth Tone — Reforma educativa en Shanghai enfatiza creatividad y habilidades prácticas sobre memorización</a></li><li><a href="https://www.scmp.com" target="_blank" rel="noopener">South China Morning Post — Tensiones comerciales con la UE intensifican debate sobre proteccionismo comercial chino</a></li><li><a href="https://www.pandaily.com" target="_blank" rel="noopener">Pandaily — Startups chinas de biotecnología atraen inversión récord a pesar de incertidumbre regulatoria</a></li><li><a href="https://www.chinadaily.com.cn" target="_blank" rel="noopener">China Daily — Conservación del patrimonio arquitectónico chino acelera con uso de tecnología 3D y digitalización</a></li><li><a href="https://www.yicaiglobal.com" target="_blank" rel="noopener">Yicai Global — Estudio revela impacto positivo de espacios verdes urbanos en salud mental de ciudadanos chinos</a></li><li><a href="https://www.cgtn.com" target="_blank" rel="noopener">CGTN — China fortalece colaboración espacial internacional con nuevo laboratorio en módulo orbital</a></li>
+    </ul>
+    <div class="pie-creditos">
+      China Hoy · Edición 2026-05-28 · Generado automáticamente con IA ·
+      Las opiniones expresadas son editoriales y no representan posiciones oficiales.
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
