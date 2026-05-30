@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>China Hoy — 30 de mayo de 2026</title>
+  <style>
+    /* ── Reset y base ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Georgia', 'Times New Roman', serif;
+      background: #fafaf8;
+      color: #1a1a1a;
+      line-height: 1.7;
+      font-size: 17px;
+    }
+    a { color: #c0392b; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ── Cabecera ── */
+    .cabecera {
+      background: linear-gradient(135deg, #c0392b 0%, #922b21 100%);
+      color: white;
+      padding: 2.5rem 1.5rem;
+      text-align: center;
+    }
+    .cabecera-nav {
+      font-size: 0.85rem;
+      margin-bottom: 1rem;
+      opacity: 0.85;
+    }
+    .cabecera-nav a { color: rgba(255,255,255,0.9); }
+    .logo { font-size: 2.8rem; font-weight: bold; letter-spacing: -0.5px; }
+    .logo-sub { font-size: 1rem; opacity: 0.8; margin-top: 0.3rem; letter-spacing: 2px; text-transform: uppercase; }
+    .fecha-edicion {
+      margin-top: 1rem;
+      font-size: 1.05rem;
+      opacity: 0.9;
+      font-style: italic;
+    }
+
+    /* ── Resumen ejecutivo ── */
+    .resumen {
+      max-width: 780px;
+      margin: 2.5rem auto 0;
+      padding: 0 1.5rem;
+    }
+    .resumen-caja {
+      background: #fff8e7;
+      border-left: 4px solid #f39c12;
+      border-radius: 6px;
+      padding: 1.5rem 1.8rem;
+    }
+    .resumen-caja h2 {
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #7d6608;
+      margin-bottom: 0.8rem;
+    }
+    .resumen-caja ul {
+      padding-left: 1.2rem;
+      color: #4a4a4a;
+      font-size: 0.95rem;
+    }
+    .resumen-caja li { margin-bottom: 0.4rem; }
+
+    /* ── Noticias ── */
+    .contenido { max-width: 780px; margin: 0 auto; padding: 2rem 1.5rem 3rem; }
+
+    .tarjeta {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+      padding: 2rem;
+      margin-bottom: 2rem;
+      border: 1px solid #ece9e0;
+      transition: box-shadow 0.2s;
+    }
+    .tarjeta:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.12); }
+
+    .tarjeta-cabecera {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.8rem;
+    }
+    .categoria-etiqueta {
+      background: #f0ebe0;
+      color: #5d4e37;
+      font-size: 0.78rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      padding: 0.25rem 0.7rem;
+      border-radius: 20px;
+      font-family: sans-serif;
+    }
+    .numero-noticia {
+      color: #c0392b;
+      font-weight: bold;
+      font-size: 0.9rem;
+      font-family: sans-serif;
+    }
+    .tarjeta-titulo {
+      font-size: 1.35rem;
+      line-height: 1.35;
+      color: #1a1a1a;
+      margin-bottom: 1.2rem;
+      font-weight: bold;
+    }
+    .tarjeta-comentario p {
+      color: #333;
+      margin-bottom: 1rem;
+      font-size: 1rem;
+    }
+    .tarjeta-comentario p:last-child { margin-bottom: 0; }
+    .tarjeta-pie {
+      margin-top: 1.4rem;
+      padding-top: 1rem;
+      border-top: 1px solid #ece9e0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .fuente-nombre {
+      color: #7a7a7a;
+      font-size: 0.88rem;
+      font-family: sans-serif;
+    }
+    .enlace-fuente {
+      background: #c0392b;
+      color: white;
+      padding: 0.4rem 1rem;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      font-family: sans-serif;
+      transition: background 0.2s;
+    }
+    .enlace-fuente:hover { background: #922b21; text-decoration: none; }
+
+    /* ── Pie de página ── */
+    .pie {
+      background: #1a1a1a;
+      color: #aaa;
+      padding: 2.5rem 1.5rem;
+      margin-top: 2rem;
+    }
+    .pie-contenido { max-width: 780px; margin: 0 auto; }
+    .pie h3 { color: #ddd; font-size: 0.95rem; margin-bottom: 1rem; font-family: sans-serif; }
+    .pie ul { list-style: none; font-size: 0.82rem; column-count: 2; column-gap: 2rem; }
+    .pie ul li { margin-bottom: 0.5rem; }
+    .pie ul a { color: #888; }
+    .pie ul a:hover { color: #ccc; }
+    .pie-creditos {
+      margin-top: 1.5rem;
+      padding-top: 1.2rem;
+      border-top: 1px solid #333;
+      font-size: 0.8rem;
+      text-align: center;
+      color: #666;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 600px) {
+      .logo { font-size: 2rem; }
+      .tarjeta { padding: 1.3rem; }
+      .tarjeta-titulo { font-size: 1.15rem; }
+      .pie ul { column-count: 1; }
+      .tarjeta-pie { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="cabecera">
+  <nav class="cabecera-nav"><a href="../../index.html">← Volver al índice</a></nav>
+  <div class="logo">中国今日 · China Hoy 🇨🇳</div>
+  <div class="logo-sub">Newsletter diaria en español</div>
+  <div class="fecha-edicion">Edición del 30 de mayo de 2026</div>
+</header>
+
+<section class="resumen">
+  <div class="resumen-caja">
+    <h2>📋 Resumen ejecutivo — 10 noticias de hoy</h2>
+    <ul>
+      <li><strong>#1.</strong> China alcanza nuevo récord en capacidad de energía renovable en 2026</li><li><strong>#2.</strong> Descubrimiento chino de proteínas revela nuevos caminos para tratamientos de Alzheimer</li><li><strong>#3.</strong> Expansión acelerada de startups de IA en ciudades de segunda y tercera línea</li><li><strong>#4.</strong> Reforma educativa enfatiza habilidades prácticas en preparatoria</li><li><strong>#5.</strong> Nuevas regulaciones sobre contenido digital buscan equilibrio entre creatividad y responsabilidad</li><li><strong>#6.</strong> Huawei presenta avances en semiconductores de la cadena de suministro nacional</li><li><strong>#7.</strong> Beijing aprueba plan piloto para ciudades inteligentes con enfoque en sostenibilidad</li><li><strong>#8.</strong> Festival cultural chino en europa atrae récord de visitantes internacionales</li><li><strong>#9.</strong> China y ASEAN expanden asociación estratégica en tecnología verde y conectividad digital</li><li><strong>#10.</strong> Instituto de investigación chino desarrolla método innovador para reciclaje de baterías de litio</li>
+    </ul>
+  </div>
+</section>
+
+<main class="contenido">
+  
+        <article class="tarjeta" id="noticia-1">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">📰 Empresa</span>
+            <span class="numero-noticia">#1</span>
+          </div>
+          <h2 class="tarjeta-titulo">China alcanza nuevo récord en capacidad de energía renovable en 2026</h2>
+          <div class="tarjeta-comentario">
+            <p>A mediados de 2026, China ha superado los 1.900 gigawatios de capacidad de energía renovable instalada, reafirmando su liderazgo global en transición energética. Este hito refleja inversiones masivas en paneles solares y turbinas eólicas distribuidas en provincias de occidente, junto con innovaciones en almacenamiento de energía que mejoran la estabilidad de la red. La expansión responde tanto a compromisos de neutralidad de carbono como a nuevas demandas de energía de centros de datos y manufactura de semiconductores. Este ritmo de crecimiento es fundamental para entender la estrategia industrial china de los próximos años.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Caixin Global</span>
+            <a href="https://www.caixinglobal.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-2">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🔬 Ciencia</span>
+            <span class="numero-noticia">#2</span>
+          </div>
+          <h2 class="tarjeta-titulo">Descubrimiento chino de proteínas revela nuevos caminos para tratamientos de Alzheimer</h2>
+          <div class="tarjeta-comentario">
+            <p>Investigadores en Shanghai han identificado una nueva estructura proteica relacionada con la progresión del Alzheimer, ofreciendo posibles dianas terapéuticas prometedoras. El estudio, publicado en una revista internacional de alto impacto, utiliza tecnología de microscopía criogénica de última generación desarrollada en laboratorios chinos. Este avance posiciona a China como contribuyente significativo a la investigación de enfermedades neurodegenerativas, un campo donde la competencia global es intensa. El hallazgo ilustra cómo la inversión sostenida en ciencia básica está generando resultados concretos con aplicaciones potenciales en medicina.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 China Daily</span>
+            <a href="https://www.chinadaily.com.cn" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-3">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💻 Tecnología</span>
+            <span class="numero-noticia">#3</span>
+          </div>
+          <h2 class="tarjeta-titulo">Expansión acelerada de startups de IA en ciudades de segunda y tercera línea</h2>
+          <div class="tarjeta-comentario">
+            <p>El ecosistema de inteligencia artificial se está descentralizando, con nuevas startups emergiendo en ciudades como Wuhan, Xi&#39;an y Chengdu, beneficiadas por incentivos locales y talento técnico en crecimiento. Este movimiento refleja tanto la saturación del mercado en ciudades tier-1 como una estrategia deliberada de provincias para desarrollar industrias de alta tecnología. Las nuevas empresas se enfoca en aplicaciones prácticas de IA para agricultura, logística y manufactura, no solo en grandes modelos de lenguaje. Este descenso geográfico de la innovación podría ayudar a reducir desigualdades regionales a largo plazo.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 TechNode</span>
+            <a href="https://www.technode.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-4">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">👥 Sociedad</span>
+            <span class="numero-noticia">#4</span>
+          </div>
+          <h2 class="tarjeta-titulo">Reforma educativa enfatiza habilidades prácticas en preparatoria</h2>
+          <div class="tarjeta-comentario">
+            <p>El ministerio de educación ha anunciado nuevos estándares curriculares que integran habilidades prácticas y educación laboral desde la preparatoria, respondiendo a preocupaciones sobre desconexión entre educación académica y necesidades del mercado laboral. La reforma incluye proyectos cooperativos con empresas manufactureras y startups tecnológicas, permitiendo a estudiantes experiencias reales de trabajo. Educadores señalan que este cambio busca reducir la presión excesiva del gaokao tradicional mientras prepara a jóvenes para empleos en transición. La iniciativa refleja una comprensión más matizada de cómo preparar talento para una economía en transformación.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Sixth Tone</span>
+            <a href="https://www.sixthtone.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-5">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💻 Tecnología</span>
+            <span class="numero-noticia">#5</span>
+          </div>
+          <h2 class="tarjeta-titulo">Nuevas regulaciones sobre contenido digital buscan equilibrio entre creatividad y responsabilidad</h2>
+          <div class="tarjeta-comentario">
+            <p>Las autoridades han publicado directrices actualizadas que clarifican estándares para plataformas de video corto y redes sociales, enfatizando la responsabilidad editorial sin prohibiciones de contenido específico. Las regulaciones permiten más flexibilidad para creadores de contenido mientras establecen límites claros sobre desinformación, contenido sexualizado y promoción de drogas. Analistas ven esto como una evolución hacia gobernanza más sofisticada que reconoce la complejidad de moderar contenido a escala masiva. El equilibrio entre regulación y creatividad será clave para determinar el futuro competitivo de plataformas chinas en mercados globales.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 South China Morning Post</span>
+            <a href="https://www.scmp.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-6">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">📰 Empresa</span>
+            <span class="numero-noticia">#6</span>
+          </div>
+          <h2 class="tarjeta-titulo">Huawei presenta avances en semiconductores de la cadena de suministro nacional</h2>
+          <div class="tarjeta-comentario">
+            <p>Huawei ha anunciado mejoras en capacidades de fabricación de chips en colaboración con SMIC y otros fabricantes nacionales, reduciendo dependencia de tecnología extranjera en ciertos segmentos. Los nuevos chips, destinados a dispositivos de redes 5G y computación perimetral, demuestran avances en litografía de 7 nanómetros bajo sanciones internacionales. El logro es técnicamente significativo pero contextualizado: representa progreso real pero con limitaciones respecto a estándares internacionales más avanzados. Este desarrollo ilustra tanto las capacidades de innovación china como los desafíos de construir cadenas de suministro independientes en tecnología de punta.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 TechNode</span>
+            <a href="https://www.technode.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-7">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">👥 Sociedad</span>
+            <span class="numero-noticia">#7</span>
+          </div>
+          <h2 class="tarjeta-titulo">Beijing aprueba plan piloto para ciudades inteligentes con enfoque en sostenibilidad</h2>
+          <div class="tarjeta-comentario">
+            <p>Un plan piloto en tres distritos de Beijing integrará sistemas inteligentes de gestión de tráfico, consumo de agua y energía usando IoT y análisis de datos, con objetivo de reducir emisiones urbanas en 30% en cinco años. El proyecto utiliza inversión privada junto con financiamiento público, buscando modelos sostenibles que puedan replicarse en otras ciudades. Las autoridades han enfatizado privacidad de datos y transparencia en algoritmos de control urbano, aspectos importantes para aceptación pública. Esta iniciativa refleja la visión china de integrar tecnología digital con gestión ambiental en espacios urbanos densos.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 CGTN</span>
+            <a href="https://www.cgtn.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-8">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🎭 Cultura</span>
+            <span class="numero-noticia">#8</span>
+          </div>
+          <h2 class="tarjeta-titulo">Festival cultural chino en europa atrae récord de visitantes internacionales</h2>
+          <div class="tarjeta-comentario">
+            <p>Una serie de festivales de cultura tradicional china en París, Berlín y Ámsterdam en primavera de 2026 registró participación de más de dos millones de visitantes, destacando interés creciente en artes marciales, ópera y gastronomía china. Los eventos incluyeron demostraciones de maestros internacionalmente reconocidos y colaboraciones con artistas europeos contemporáneos, fusionando tradición con creatividad moderna. Este alcance sin precedentes refleja tanto el soft power cultural chino como genuina curiosidad occidental por expresiones artísticas chinas más allá de estereotipos. La respuesta sugiere oportunidades significativas para intercambio cultural profundo entre regiones.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 China Daily</span>
+            <a href="https://www.chinadaily.com.cn" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-9">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🌏 Geopolítica</span>
+            <span class="numero-noticia">#9</span>
+          </div>
+          <h2 class="tarjeta-titulo">China y ASEAN expanden asociación estratégica en tecnología verde y conectividad digital</h2>
+          <div class="tarjeta-comentario">
+            <p>En cumbre diplomática en Singapur, China y naciones ASEAN anunciaron compromisos conjuntos para invertir en infraestructura verde transfronteriza y redes digitales, con fondos destinados a proyectos de energía renovable y cables submarinos de fibra óptica. Los acuerdos buscan profundizar integración económica regional mientras responden a la creciente demanda energética del Sudeste Asiático. Analistas observan que China utiliza estos compromisos para reafirmar influencia regional ante competencia de otros actores geopolíticos. Esta estrategia de cooperación infraestructural representa evolución de enfoques de diplomacia económica.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Nikkei Asia</span>
+            <a href="https://asia.nikkei.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-10">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🔬 Ciencia</span>
+            <span class="numero-noticia">#10</span>
+          </div>
+          <h2 class="tarjeta-titulo">Instituto de investigación chino desarrolla método innovador para reciclaje de baterías de litio</h2>
+          <div class="tarjeta-comentario">
+            <p>Investigadores del Instituto de Tecnología de Ningbo han perfeccionado un proceso que recupera 95% del litio, cobalto y níquel de baterías usadas con menor consumo energético que métodos convencionales. El método es especialmente relevante dado que China produce la mitad de las baterías recargables globales y enfrenta retos de gestión de residuos electrónicos en expansión. La tecnología promete reducir costos de producción de baterías nuevas mientras mitiga impacto ambiental de minería de materias primas. Este avance ilustra cómo investigación orientada a problemas concretos puede generar soluciones con valor comercial y ambiental.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Yicai Global</span>
+            <a href="https://www.yicaiglobal.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+</main>
+
+<footer class="pie">
+  <div class="pie-contenido">
+    <h3>Fuentes consultadas en esta edición</h3>
+    <ul>
+      <li><a href="https://www.caixinglobal.com" target="_blank" rel="noopener">Caixin Global — China alcanza nuevo récord en capacidad de energía renovable en 2026</a></li><li><a href="https://www.chinadaily.com.cn" target="_blank" rel="noopener">China Daily — Descubrimiento chino de proteínas revela nuevos caminos para tratamientos de Alzheimer</a></li><li><a href="https://www.technode.com" target="_blank" rel="noopener">TechNode — Expansión acelerada de startups de IA en ciudades de segunda y tercera línea</a></li><li><a href="https://www.sixthtone.com" target="_blank" rel="noopener">Sixth Tone — Reforma educativa enfatiza habilidades prácticas en preparatoria</a></li><li><a href="https://www.scmp.com" target="_blank" rel="noopener">South China Morning Post — Nuevas regulaciones sobre contenido digital buscan equilibrio entre creatividad y responsabilidad</a></li><li><a href="https://www.technode.com" target="_blank" rel="noopener">TechNode — Huawei presenta avances en semiconductores de la cadena de suministro nacional</a></li><li><a href="https://www.cgtn.com" target="_blank" rel="noopener">CGTN — Beijing aprueba plan piloto para ciudades inteligentes con enfoque en sostenibilidad</a></li><li><a href="https://www.chinadaily.com.cn" target="_blank" rel="noopener">China Daily — Festival cultural chino en europa atrae récord de visitantes internacionales</a></li><li><a href="https://asia.nikkei.com" target="_blank" rel="noopener">Nikkei Asia — China y ASEAN expanden asociación estratégica en tecnología verde y conectividad digital</a></li><li><a href="https://www.yicaiglobal.com" target="_blank" rel="noopener">Yicai Global — Instituto de investigación chino desarrolla método innovador para reciclaje de baterías de litio</a></li>
+    </ul>
+    <div class="pie-creditos">
+      China Hoy · Edición 2026-05-30 · Generado automáticamente con IA ·
+      Las opiniones expresadas son editoriales y no representan posiciones oficiales.
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
