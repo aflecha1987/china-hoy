@@ -856,5 +856,31 @@
       "Empresa biotech china desarrolla vacuna contra dengue con eficacia superior al 95%",
       "Iniciativa de 'soberanía de datos' genera debate sobre privacidad corporativa en China"
     ]
+  },
+  "2026-06-01": {
+    "fuentes": [
+      "https://www.chinadaily.com.cn",
+      "https://www.technode.com",
+      "https://www.sixthtone.com",
+      "https://www.pandaily.com",
+      "https://www.xinhuanet.com",
+      "https://www.scmp.com",
+      "https://www.chinatoday.com.cn",
+      "https://www.36kr.com/en",
+      "https://www.caixinglobal.com",
+      "https://www.cgtn.com"
+    ],
+    "titulares": [
+      "China alcanza nuevo récord en capacidad de energía renovable instalada",
+      "Alibaba presenta avances en inteligencia artificial generativa aplicada al comercio electrónico",
+      "Reforma demográfica: nuevas políticas de apoyo a familias jóvenes y vivienda",
+      "Tencent expande su división de videojuegos en mercados emergentes de Asia",
+      "Descubrimiento científico: investigadores chinos avanzan en fusión nuclear controlada",
+      "Tensiones comerciales: negociaciones entre China y socios asiáticos sobre aranceles",
+      "Festival de cine de Shanghai 2026 destaca nuevo cine independiente chino",
+      "ByteDance invierte en manufactura inteligente y automatización industrial",
+      "Estudio sobre bienestar mental en universidades chinas revela cifras preocupantes",
+      "Cooperación científica China-Europa en investigación climática y modelado ambiental"
+    ]
   }
 }
