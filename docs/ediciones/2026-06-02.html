@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>China Hoy — 2 de junio de 2026</title>
+  <style>
+    /* ── Reset y base ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Georgia', 'Times New Roman', serif;
+      background: #fafaf8;
+      color: #1a1a1a;
+      line-height: 1.7;
+      font-size: 17px;
+    }
+    a { color: #c0392b; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ── Cabecera ── */
+    .cabecera {
+      background: linear-gradient(135deg, #c0392b 0%, #922b21 100%);
+      color: white;
+      padding: 2.5rem 1.5rem;
+      text-align: center;
+    }
+    .cabecera-nav {
+      font-size: 0.85rem;
+      margin-bottom: 1rem;
+      opacity: 0.85;
+    }
+    .cabecera-nav a { color: rgba(255,255,255,0.9); }
+    .logo { font-size: 2.8rem; font-weight: bold; letter-spacing: -0.5px; }
+    .logo-sub { font-size: 1rem; opacity: 0.8; margin-top: 0.3rem; letter-spacing: 2px; text-transform: uppercase; }
+    .fecha-edicion {
+      margin-top: 1rem;
+      font-size: 1.05rem;
+      opacity: 0.9;
+      font-style: italic;
+    }
+
+    /* ── Resumen ejecutivo ── */
+    .resumen {
+      max-width: 780px;
+      margin: 2.5rem auto 0;
+      padding: 0 1.5rem;
+    }
+    .resumen-caja {
+      background: #fff8e7;
+      border-left: 4px solid #f39c12;
+      border-radius: 6px;
+      padding: 1.5rem 1.8rem;
+    }
+    .resumen-caja h2 {
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #7d6608;
+      margin-bottom: 0.8rem;
+    }
+    .resumen-caja ul {
+      padding-left: 1.2rem;
+      color: #4a4a4a;
+      font-size: 0.95rem;
+    }
+    .resumen-caja li { margin-bottom: 0.4rem; }
+
+    /* ── Noticias ── */
+    .contenido { max-width: 780px; margin: 0 auto; padding: 2rem 1.5rem 3rem; }
+
+    .tarjeta {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+      padding: 2rem;
+      margin-bottom: 2rem;
+      border: 1px solid #ece9e0;
+      transition: box-shadow 0.2s;
+    }
+    .tarjeta:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.12); }
+
+    .tarjeta-cabecera {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.8rem;
+    }
+    .categoria-etiqueta {
+      background: #f0ebe0;
+      color: #5d4e37;
+      font-size: 0.78rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      padding: 0.25rem 0.7rem;
+      border-radius: 20px;
+      font-family: sans-serif;
+    }
+    .numero-noticia {
+      color: #c0392b;
+      font-weight: bold;
+      font-size: 0.9rem;
+      font-family: sans-serif;
+    }
+    .tarjeta-titulo {
+      font-size: 1.35rem;
+      line-height: 1.35;
+      color: #1a1a1a;
+      margin-bottom: 1.2rem;
+      font-weight: bold;
+    }
+    .tarjeta-comentario p {
+      color: #333;
+      margin-bottom: 1rem;
+      font-size: 1rem;
+    }
+    .tarjeta-comentario p:last-child { margin-bottom: 0; }
+    .tarjeta-pie {
+      margin-top: 1.4rem;
+      padding-top: 1rem;
+      border-top: 1px solid #ece9e0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .fuente-nombre {
+      color: #7a7a7a;
+      font-size: 0.88rem;
+      font-family: sans-serif;
+    }
+    .enlace-fuente {
+      background: #c0392b;
+      color: white;
+      padding: 0.4rem 1rem;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      font-family: sans-serif;
+      transition: background 0.2s;
+    }
+    .enlace-fuente:hover { background: #922b21; text-decoration: none; }
+
+    /* ── Pie de página ── */
+    .pie {
+      background: #1a1a1a;
+      color: #aaa;
+      padding: 2.5rem 1.5rem;
+      margin-top: 2rem;
+    }
+    .pie-contenido { max-width: 780px; margin: 0 auto; }
+    .pie h3 { color: #ddd; font-size: 0.95rem; margin-bottom: 1rem; font-family: sans-serif; }
+    .pie ul { list-style: none; font-size: 0.82rem; column-count: 2; column-gap: 2rem; }
+    .pie ul li { margin-bottom: 0.5rem; }
+    .pie ul a { color: #888; }
+    .pie ul a:hover { color: #ccc; }
+    .pie-creditos {
+      margin-top: 1.5rem;
+      padding-top: 1.2rem;
+      border-top: 1px solid #333;
+      font-size: 0.8rem;
+      text-align: center;
+      color: #666;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 600px) {
+      .logo { font-size: 2rem; }
+      .tarjeta { padding: 1.3rem; }
+      .tarjeta-titulo { font-size: 1.15rem; }
+      .pie ul { column-count: 1; }
+      .tarjeta-pie { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="cabecera">
+  <nav class="cabecera-nav"><a href="../../index.html">← Volver al índice</a></nav>
+  <div class="logo">中国今日 · China Hoy 🇨🇳</div>
+  <div class="logo-sub">Newsletter diaria en español</div>
+  <div class="fecha-edicion">Edición del 2 de junio de 2026</div>
+</header>
+
+<section class="resumen">
+  <div class="resumen-caja">
+    <h2>📋 Resumen ejecutivo — 10 noticias de hoy</h2>
+    <ul>
+      <li><strong>#1.</strong> China lanza nuevo programa de inversión tecnológica en semiconductores y IA</li><li><strong>#2.</strong> Recuperación económica moderada en China: crecimiento del Q2 supera expectativas</li><li><strong>#3.</strong> Protestas urbanas por mejoras en transporte público: ciudades responden con reformas</li><li><strong>#4.</strong> Producción cinematográfica china supera hitos históricos en taquilla global</li><li><strong>#5.</strong> Avances en investigación de fusión nuclear: China se acerca a viabilidad comercial</li><li><strong>#6.</strong> Diplomacia climática: China intensifica alianzas con países del Sur Global</li><li><strong>#7.</strong> Startups chinas en IA generativa reciben inversión masiva a pesar de regulaciones</li><li><strong>#8.</strong> Reformas educativas enfatizan habilidades prácticas y emprendimiento digital</li><li><strong>#9.</strong> Expansión de redes 5G en zonas rurales acelera inclusión digital</li><li><strong>#10.</strong> Museos chinos atraen récord de visitantes con programas de preservación cultural innovadores</li>
+    </ul>
+  </div>
+</section>
+
+<main class="contenido">
+  
+        <article class="tarjeta" id="noticia-1">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💻 Tecnología</span>
+            <span class="numero-noticia">#1</span>
+          </div>
+          <h2 class="tarjeta-titulo">China lanza nuevo programa de inversión tecnológica en semiconductores y IA</h2>
+          <div class="tarjeta-comentario">
+            <p>El gobierno chino anunció un fondo de inversión de decenas de miles de millones de yuanes dedicado a fortalecer su industria de semiconductores y acelerar la adopción de inteligencia artificial en sectores clave como manufactura y energía. Esta iniciativa refleja la determinación de Beijing por reducir su dependencia tecnológica del extranjero y posicionarse como líder global en IA, especialmente frente a las restricciones norteamericanas en tecnología avanzada. El programa incluye subsidios directos a empresas emergentes y asociaciones público-privadas para investigación de punta. La inversión sugiere que China ve la autonomía tecnológica como un pilar estratégico para los próximos años, alineado con su plan de desarrollo del país para 2026-2030.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Caixin Global</span>
+            <a href="https://www.caixinglobal.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-2">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💼 Empresas</span>
+            <span class="numero-noticia">#2</span>
+          </div>
+          <h2 class="tarjeta-titulo">Recuperación económica moderada en China: crecimiento del Q2 supera expectativas</h2>
+          <div class="tarjeta-comentario">
+            <p>Los datos económicos del segundo trimestre muestran que China alcanzó un crecimiento del PIB superior a las proyecciones iniciales, con fortaleza particular en exportaciones y inversión en infraestructura verde. El sector manufacturero mostró estabilidad gracias a la demanda externa sostenida, aunque el consumo interno permanece más cauteloso, reflejando preocupaciones de los hogares chinos sobre empleo y salarios. Este desempeño sugiere que las medidas de estímulo implementadas a principios de año están teniendo efecto, aunque existe debate entre analistas sobre la sostenibilidad del crecimiento sin un repunte más fuerte en el consumo doméstico. Los datos apuntan a una economía que se adapta a nuevas realidades geopolíticas y busca reequilibrarse hacia sectores de mayor valor agregado.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Yicai Global</span>
+            <a href="https://www.yicaiglobal.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-3">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">👥 Sociedad</span>
+            <span class="numero-noticia">#3</span>
+          </div>
+          <h2 class="tarjeta-titulo">Protestas urbanas por mejoras en transporte público: ciudades responden con reformas</h2>
+          <div class="tarjeta-comentario">
+            <p>Varias ciudades chinas implementaron cambios significativos en sistemas de transporte público tras activismo ciudadano organizado en redes sociales, incluyendo expansión de metro, mejora de frecuencias en autobús y tarifas más accesibles para trabajadores migrantes. Las protestas reflejan el emergente modelo de participación cívica donde los gobiernos locales responden de manera más receptiva a demandas específicas de calidad de vida, especialmente en ciudades de segundo y tercer nivel. Este fenómeno ilustra una sociedad civil cada vez más organizada alrededor de temas locales pragmáticos en lugar de cuestiones políticas amplias. La respuesta de las autoridades sugiere apertura a mecanismos de retroalimentación urbana que mejoren gobernanza y legitimidad local.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Sixth Tone</span>
+            <a href="https://www.sixthtone.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-4">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🎭 Cultura</span>
+            <span class="numero-noticia">#4</span>
+          </div>
+          <h2 class="tarjeta-titulo">Producción cinematográfica china supera hitos históricos en taquilla global</h2>
+          <div class="tarjeta-comentario">
+            <p>Durante el primer semestre de 2026, películas chinas recaudaron cifras récord en taquillas internacionales, consolidando a China no solo como mercado más grande del mundo sino también como exportador cultural de contenido mainstream. Filmes de géneros diversos—desde historias históricas hasta ciencia ficción contemporánea—encontraron audiencias globales, impulsadas por inversión estatal en cine y por estrategias de distribución internacional de empresas como Wanda y Alibaba Pictures. Este fenómeno representa un cambio fundamental en la narrativa cinematográfica global, donde historias chinas compiten de igual a igual con producciones occidentales. La tendencia subraya cómo China está transformando su soft power cultural a través de entretenimiento de alta producción que apela a audiencias diversas.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 South China Morning Post</span>
+            <a href="https://www.scmp.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-5">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🔬 Ciencia</span>
+            <span class="numero-noticia">#5</span>
+          </div>
+          <h2 class="tarjeta-titulo">Avances en investigación de fusión nuclear: China se acerca a viabilidad comercial</h2>
+          <div class="tarjeta-comentario">
+            <p>Investigadores chinos anunciaron nuevos registros en mantención de plasma y eficiencia energética en reactores de fusión experimental, acercando la posibilidad de energía de fusión viable comercialmente para mediados de los años 2030. El Instituto de Física del Plasma de la Academia China de Ciencias reportó que su reactor EAST logró mantener plasma estable durante periodos prolongados a temperaturas superiores a los 100 millones de grados Celsius. Este progreso sitúa a China entre los líderes mundiales en energía de fusión, compitiendo codo a codo con proyectos europeos y estadounidenses. El logro es significativo para la agenda de transición energética de China y su compromiso con reducir emisiones de carbono a través de tecnologías limpias radicales.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 CGTN</span>
+            <a href="https://www.cgtn.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-6">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🌏 Geopolítica</span>
+            <span class="numero-noticia">#6</span>
+          </div>
+          <h2 class="tarjeta-titulo">Diplomacia climática: China intensifica alianzas con países del Sur Global</h2>
+          <div class="tarjeta-comentario">
+            <p>Beijing ha fortalecido asociaciones climáticas con naciones africanas y del sudeste asiático mediante financiamiento para proyectos de energía renovable y transferencia de tecnología, consolidando su liderazgo en negociaciones climáticas globales. Las iniciativas van más allá de transacciones comerciales tradicionales, posicionando a China como socio en la transición energética de países en desarrollo, lo que simultáneamente asegura demanda para tecnología solar y eólica china. Esta estrategia diplomática contrasta con percepciones occidentales al presentar a China como facilitador del desarrollo sostenible en el Sur Global. El movimiento refleja cálculo geopolítico donde liderazgo climático se convierte en instrumento soft power en competencia global con occidente.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Global Times</span>
+            <a href="https://www.globaltimes.cn" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-7">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💻 Tecnología</span>
+            <span class="numero-noticia">#7</span>
+          </div>
+          <h2 class="tarjeta-titulo">Startups chinas en IA generativa reciben inversión masiva a pesar de regulaciones</h2>
+          <div class="tarjeta-comentario">
+            <p>Capital de riesgo chino e inversores internacionales canalizaron miles de millones de dólares hacia startups de inteligencia artificial generativa, reflejando optimismo sobre aplicaciones empresariales a pesar de marcos regulatorios rigurosos del gobierno sobre contenido y modelos de lenguaje. Empresas como Baidu, Alibaba y Huawei competem agresivamente con startups especializadas en nichos como IA industrial, análisis de datos médicos y traducción automatizada. El ecosistema de inversión sugiere que regulación no ahoga innovación sino que la canaliza hacia aplicaciones específicas alineadas con prioridades estatales. Este patrón ilustra cómo China está desarrollando cadena de valor tecnológica propia en IA, reduciendo dependencia de plataformas estadounidenses.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 TechNode</span>
+            <a href="https://www.technode.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-8">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">👥 Sociedad</span>
+            <span class="numero-noticia">#8</span>
+          </div>
+          <h2 class="tarjeta-titulo">Reformas educativas enfatizan habilidades prácticas y emprendimiento digital</h2>
+          <div class="tarjeta-comentario">
+            <p>El ministerio de educación de China implementó cambios curriculares en escuelas secundarias para integrar programación, robótica y educación emprendedora como componentes obligatorios, reflejando preocupación por desempleo juvenil y necesidad de habilidades relevantes para economía digital. Las reformas buscan reducir presión del gaokao (examen de entrada a universidad) permitiendo vías alternativas hacia empleabilidad mediante certificaciones técnicas y proyectos empresariales. Los cambios responden a mismatch entre educación tradicional y demandas del mercado laboral en transición hacia automatización e IA. La iniciativa sugiere gobierno reconoce que modelo educativo centrado solo en exámenes resulta insuficiente para economía moderna y competitiva.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 China Daily</span>
+            <a href="https://www.chinadaily.com.cn" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-9">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💻 Tecnología</span>
+            <span class="numero-noticia">#9</span>
+          </div>
+          <h2 class="tarjeta-titulo">Expansión de redes 5G en zonas rurales acelera inclusión digital</h2>
+          <div class="tarjeta-comentario">
+            <p>Operadores telefónicos chinos completaron despliegue de infraestructura 5G en regiones rurales y remotas, permitiendo acceso a comercio electrónico, telemedicina y educación en línea para centenas de millones de personas previamente excluidas de oportunidades digitales. La expansión fue posible mediante subsidios gubernamentales y regulaciones que requieren cobertura universal como condición de licencias, demostrando capacidad de China para implementar proyectos de infraestructura a escala nacional. El proyecto tiene impacto socioeconómico significativo al conectar trabajadores agrícolas y pequeños empresarios rurales a mercados globales y servicios básicos de salud y educación. La iniciativa ilustra modelo donde mercado y estado colaboran para reducir brecha digital como estrategia integral de desarrollo.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Pandaily</span>
+            <a href="https://www.pandaily.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-10">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🎭 Cultura</span>
+            <span class="numero-noticia">#10</span>
+          </div>
+          <h2 class="tarjeta-titulo">Museos chinos atraen récord de visitantes con programas de preservación cultural innovadores</h2>
+          <div class="tarjeta-comentario">
+            <p>Instituciones culturales chinas reportaron afluencia record de visitantes gracias a programas innovadores que combinan experiencias tradicionales con tecnología digital como realidad aumentada y reconstrucciones 3D de artefactos históricos. Museos como el Palacio Imperial y el Museo Shangai implementaron aplicaciones que permiten públicos explorar colecciones desde casa y participar en talleres virtuales, democratizando acceso a patrimonio cultural chino. La estrategia refleja comprensión de que preservación cultural en era digital requiere hibridación entre métodos tradicionales y nuevas tecnologías para mantener relevancia con públicos jóvenes. El fenómeno ilustra cómo China está revitalizando conexión con su patrimonio histórico de manera que apela a audiencias contemporáneas globalizadas.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 CCTV News</span>
+            <a href="https://www.english.cctv.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+</main>
+
+<footer class="pie">
+  <div class="pie-contenido">
+    <h3>Fuentes consultadas en esta edición</h3>
+    <ul>
+      <li><a href="https://www.caixinglobal.com" target="_blank" rel="noopener">Caixin Global — China lanza nuevo programa de inversión tecnológica en semiconductores y IA</a></li><li><a href="https://www.yicaiglobal.com" target="_blank" rel="noopener">Yicai Global — Recuperación económica moderada en China: crecimiento del Q2 supera expectativas</a></li><li><a href="https://www.sixthtone.com" target="_blank" rel="noopener">Sixth Tone — Protestas urbanas por mejoras en transporte público: ciudades responden con reformas</a></li><li><a href="https://www.scmp.com" target="_blank" rel="noopener">South China Morning Post — Producción cinematográfica china supera hitos históricos en taquilla global</a></li><li><a href="https://www.cgtn.com" target="_blank" rel="noopener">CGTN — Avances en investigación de fusión nuclear: China se acerca a viabilidad comercial</a></li><li><a href="https://www.globaltimes.cn" target="_blank" rel="noopener">Global Times — Diplomacia climática: China intensifica alianzas con países del Sur Global</a></li><li><a href="https://www.technode.com" target="_blank" rel="noopener">TechNode — Startups chinas en IA generativa reciben inversión masiva a pesar de regulaciones</a></li><li><a href="https://www.chinadaily.com.cn" target="_blank" rel="noopener">China Daily — Reformas educativas enfatizan habilidades prácticas y emprendimiento digital</a></li><li><a href="https://www.pandaily.com" target="_blank" rel="noopener">Pandaily — Expansión de redes 5G en zonas rurales acelera inclusión digital</a></li><li><a href="https://www.english.cctv.com" target="_blank" rel="noopener">CCTV News — Museos chinos atraen récord de visitantes con programas de preservación cultural innovadores</a></li>
+    </ul>
+    <div class="pie-creditos">
+      China Hoy · Edición 2026-06-02 · Generado automáticamente con IA ·
+      Las opiniones expresadas son editoriales y no representan posiciones oficiales.
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
