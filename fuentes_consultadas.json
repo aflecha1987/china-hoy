@@ -934,5 +934,31 @@
       "Crisis demográfica acelerada: tasa de natalidad cae 15% interanual, reformas de política familiar",
       "Expansión de Belt and Road Initiative en Africa: inversiones por 150.000 millones en infraestructura"
     ]
+  },
+  "2026-06-04": {
+    "fuentes": [
+      "https://www.technode.com",
+      "https://www.chinadaily.com.cn",
+      "https://www.sixthtone.com",
+      "https://www.caixinglobal.com",
+      "https://www.cgtn.com",
+      "https://www.chinatoday.com.cn",
+      "https://www.pandaily.com",
+      "https://www.yicaiglobal.com",
+      "https://www.scmp.com",
+      "https://www.xinhuanet.com"
+    ],
+    "titulares": [
+      "China lanza nuevo modelo de inteligencia artificial con capacidades multimodales avanzadas",
+      "Estudio revela progreso significativo en nanotecnología para tratamiento de cáncer",
+      "Reforma educativa enfatiza equilibrio entre académicos y habilidades prácticas",
+      "Alibaba expande servicios de computación en nube en mercados emergentes asiáticos",
+      "China fortalece cooperación espacial con países africanos mediante programa satelital conjunto",
+      "Festival cultural tradicional chino atrae récord de visitantes internacionales",
+      "Iniciativa de ciudades inteligentes reduce congestión vehicular en 15% en capitales provinciales",
+      "Avances en agricultura de precisión aumentan rendimiento de cultivos mientras reducen uso de agua",
+      "Empresa de manufactura china se convierte en referencia global en sostenibilidad industrial",
+      "Programa de intercambio juvenil China-ASEAN expande participación a 200 mil estudiantes anuales"
+    ]
   }
 }
