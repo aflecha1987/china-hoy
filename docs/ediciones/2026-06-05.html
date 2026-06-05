@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>China Hoy — 5 de junio de 2026</title>
+  <style>
+    /* ── Reset y base ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Georgia', 'Times New Roman', serif;
+      background: #fafaf8;
+      color: #1a1a1a;
+      line-height: 1.7;
+      font-size: 17px;
+    }
+    a { color: #c0392b; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ── Cabecera ── */
+    .cabecera {
+      background: linear-gradient(135deg, #c0392b 0%, #922b21 100%);
+      color: white;
+      padding: 2.5rem 1.5rem;
+      text-align: center;
+    }
+    .cabecera-nav {
+      font-size: 0.85rem;
+      margin-bottom: 1rem;
+      opacity: 0.85;
+    }
+    .cabecera-nav a { color: rgba(255,255,255,0.9); }
+    .logo { font-size: 2.8rem; font-weight: bold; letter-spacing: -0.5px; }
+    .logo-sub { font-size: 1rem; opacity: 0.8; margin-top: 0.3rem; letter-spacing: 2px; text-transform: uppercase; }
+    .fecha-edicion {
+      margin-top: 1rem;
+      font-size: 1.05rem;
+      opacity: 0.9;
+      font-style: italic;
+    }
+
+    /* ── Resumen ejecutivo ── */
+    .resumen {
+      max-width: 780px;
+      margin: 2.5rem auto 0;
+      padding: 0 1.5rem;
+    }
+    .resumen-caja {
+      background: #fff8e7;
+      border-left: 4px solid #f39c12;
+      border-radius: 6px;
+      padding: 1.5rem 1.8rem;
+    }
+    .resumen-caja h2 {
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #7d6608;
+      margin-bottom: 0.8rem;
+    }
+    .resumen-caja ul {
+      padding-left: 1.2rem;
+      color: #4a4a4a;
+      font-size: 0.95rem;
+    }
+    .resumen-caja li { margin-bottom: 0.4rem; }
+
+    /* ── Noticias ── */
+    .contenido { max-width: 780px; margin: 0 auto; padding: 2rem 1.5rem 3rem; }
+
+    .tarjeta {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+      padding: 2rem;
+      margin-bottom: 2rem;
+      border: 1px solid #ece9e0;
+      transition: box-shadow 0.2s;
+    }
+    .tarjeta:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.12); }
+
+    .tarjeta-cabecera {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.8rem;
+    }
+    .categoria-etiqueta {
+      background: #f0ebe0;
+      color: #5d4e37;
+      font-size: 0.78rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      padding: 0.25rem 0.7rem;
+      border-radius: 20px;
+      font-family: sans-serif;
+    }
+    .numero-noticia {
+      color: #c0392b;
+      font-weight: bold;
+      font-size: 0.9rem;
+      font-family: sans-serif;
+    }
+    .tarjeta-titulo {
+      font-size: 1.35rem;
+      line-height: 1.35;
+      color: #1a1a1a;
+      margin-bottom: 1.2rem;
+      font-weight: bold;
+    }
+    .tarjeta-comentario p {
+      color: #333;
+      margin-bottom: 1rem;
+      font-size: 1rem;
+    }
+    .tarjeta-comentario p:last-child { margin-bottom: 0; }
+    .tarjeta-pie {
+      margin-top: 1.4rem;
+      padding-top: 1rem;
+      border-top: 1px solid #ece9e0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .fuente-nombre {
+      color: #7a7a7a;
+      font-size: 0.88rem;
+      font-family: sans-serif;
+    }
+    .enlace-fuente {
+      background: #c0392b;
+      color: white;
+      padding: 0.4rem 1rem;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      font-family: sans-serif;
+      transition: background 0.2s;
+    }
+    .enlace-fuente:hover { background: #922b21; text-decoration: none; }
+
+    /* ── Pie de página ── */
+    .pie {
+      background: #1a1a1a;
+      color: #aaa;
+      padding: 2.5rem 1.5rem;
+      margin-top: 2rem;
+    }
+    .pie-contenido { max-width: 780px; margin: 0 auto; }
+    .pie h3 { color: #ddd; font-size: 0.95rem; margin-bottom: 1rem; font-family: sans-serif; }
+    .pie ul { list-style: none; font-size: 0.82rem; column-count: 2; column-gap: 2rem; }
+    .pie ul li { margin-bottom: 0.5rem; }
+    .pie ul a { color: #888; }
+    .pie ul a:hover { color: #ccc; }
+    .pie-creditos {
+      margin-top: 1.5rem;
+      padding-top: 1.2rem;
+      border-top: 1px solid #333;
+      font-size: 0.8rem;
+      text-align: center;
+      color: #666;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 600px) {
+      .logo { font-size: 2rem; }
+      .tarjeta { padding: 1.3rem; }
+      .tarjeta-titulo { font-size: 1.15rem; }
+      .pie ul { column-count: 1; }
+      .tarjeta-pie { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="cabecera">
+  <nav class="cabecera-nav"><a href="../../index.html">← Volver al índice</a></nav>
+  <div class="logo">中国今日 · China Hoy 🇨🇳</div>
+  <div class="logo-sub">Newsletter diaria en español</div>
+  <div class="fecha-edicion">Edición del 5 de junio de 2026</div>
+</header>
+
+<section class="resumen">
+  <div class="resumen-caja">
+    <h2>📋 Resumen ejecutivo — 10 noticias de hoy</h2>
+    <ul>
+      <li><strong>#1.</strong> China impulsa inversión en semiconductores nacionales con nuevo fondo de innovación</li><li><strong>#2.</strong> Generación Z china adopta nuevos patrones de consumo enfocados en experiencias y sostenibilidad</li><li><strong>#3.</strong> Descubrimiento de bacteria extremófila en la provincia de Yunnan aporta nuevo conocimiento sobre vida primigenia</li><li><strong>#4.</strong> Alibaba anuncia restructuración de su negocio de comercio electrónico tras fuertes ganancias en servicios en la nube</li><li><strong>#5.</strong> Festival de cine de Cannes: films chinos generan expectativa con narrativas de humanidad contemporánea</li><li><strong>#6.</strong> China fortalece asociaciones comerciales con naciones del Pacífico Sur ante competencia geopolítica</li><li><strong>#7.</strong> Universidades chinas lideran en publicaciones de investigación en inteligencia artificial y aprendizaje automático</li><li><strong>#8.</strong> Programa de empleo rural absorbe 2 millones de trabajadores agrícolas con capacitación en oficios especializados</li><li><strong>#9.</strong> Estudio vincula contaminación atmosférica urbana con cambios cognitivos en población envejecida de ciudades megápolis</li><li><strong>#10.</strong> Startup fintech china DaoTech recauda 500 millones de dólares para expandir servicios de blockchain en finanzas descentralizadas</li>
+    </ul>
+  </div>
+</section>
+
+<main class="contenido">
+  
+        <article class="tarjeta" id="noticia-1">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💻 Tecnología</span>
+            <span class="numero-noticia">#1</span>
+          </div>
+          <h2 class="tarjeta-titulo">China impulsa inversión en semiconductores nacionales con nuevo fondo de innovación</h2>
+          <div class="tarjeta-comentario">
+            <p>China ha anunciado un nuevo fondo de capital de riesgo de 20 mil millones de dólares destinado específicamente a fortalecer su cadena de suministro de semiconductores y reducir su dependencia tecnológica. Esta iniciativa refleja la apuesta estratégica del país por dominar sectores clave ante las restricciones internacionales y representa un cambio del enfoque tradicional hacia inversión más sofisticada en I+D. La medida ilustra cómo Pekín está pivotando hacia la autosuficiencia tecnológica a través de ecosistemas de innovación privada. Expertos señalan que esto podría acelerar la madurez de empresas como SMIC y crear competidores más fuertes en el mercado global.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Caixin Global</span>
+            <a href="https://www.caixinglobal.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-2">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">👥 Sociedad</span>
+            <span class="numero-noticia">#2</span>
+          </div>
+          <h2 class="tarjeta-titulo">Generación Z china adopta nuevos patrones de consumo enfocados en experiencias y sostenibilidad</h2>
+          <div class="tarjeta-comentario">
+            <p>Un estudio reciente revela que los jóvenes adultos chinos, nacidos después de 2000, priorizan experiencias viajeras y bienestar personal sobre la acumulación de bienes materiales, un cambio significativo respecto a generaciones anteriores. Esta cohorte también muestra mayor preocupación por el impacto ambiental de sus compras y prefiere marcas con valores éticos claros. El fenómeno refleja tanto la madurez económica de una generación que creció en prosperidad como una transformación cultural más profunda hacia modelos de vida menos centrados en el consumismo. Los retailers están reorientando estrategias para captar este segmento con ofertas de viajes, educación y productos ecológicos.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Sixth Tone</span>
+            <a href="https://www.sixthtone.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-3">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🔬 Ciencia</span>
+            <span class="numero-noticia">#3</span>
+          </div>
+          <h2 class="tarjeta-titulo">Descubrimiento de bacteria extremófila en la provincia de Yunnan aporta nuevo conocimiento sobre vida primigenia</h2>
+          <div class="tarjeta-comentario">
+            <p>Investigadores de la Academia China de Ciencias han identificado una nueva especie de bacteria extremófila en ambiente volcánico de Yunnan que prospera en condiciones de extremo calor y acidez, similar a las de la Tierra primigenia. El descubrimiento, publicado en una revista de microbiología de alto impacto, proporciona pistas valiosas sobre cómo pudo originarse la vida en condiciones hostiles. Este hallazgo también tiene aplicaciones prácticas en biotecnología, especialmente en procesos industriales que requieren enzimas resistentes a temperaturas altas. La investigación subraya la importancia de las regiones geológicas de China para comprender procesos biológicos fundamentales.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 China Daily</span>
+            <a href="https://www.chinadaily.com.cn" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-4">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💼 Empresas</span>
+            <span class="numero-noticia">#4</span>
+          </div>
+          <h2 class="tarjeta-titulo">Alibaba anuncia restructuración de su negocio de comercio electrónico tras fuertes ganancias en servicios en la nube</h2>
+          <div class="tarjeta-comentario">
+            <p>El gigante del comercio electrónico ha revelado una reorganización estratégica que separa sus operaciones principales en unidades independientes, potenciando su división de computación en la nube (Aliyun) como motor principal de crecimiento. Los resultados trimestrales muestran que Aliyun reportó márgenes de rentabilidad superiores al 30%, muy por encima del e-commerce tradicional, lo que justifica el cambio de enfoque. Esta decisión refleja la evolución de Alibaba desde plataforma de ventas hacia proveedor integral de servicios digitales para empresas. El movimiento también responde a las presiones regulatorias sobre e-commerce y busca capturar oportunidades en el mercado más dinámico de computación en nube.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Caixin Global</span>
+            <a href="https://www.caixinglobal.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-5">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🎭 Cultura</span>
+            <span class="numero-noticia">#5</span>
+          </div>
+          <h2 class="tarjeta-titulo">Festival de cine de Cannes: films chinos generan expectativa con narrativas de humanidad contemporánea</h2>
+          <div class="tarjeta-comentario">
+            <p>Dos largometrajes chinos están en competencia principal en la edición 2026 del Festival de Cannes, destacándose por abordar temas de migración rural, cambio tecnológico y tensiones familiares con una sensibilidad narrativa que resonancia internacionalmente. Los directores han señalado que buscan captar las contradicciones y matices de la vida contemporánea china sin caer en exotismo o simplificación. Este resurgimiento de cine de arte chino en festivales europeos tras años de competencia menor refleja una maduración de la industria cinematográfica y mayor apertura a historias complejas. Los films representan una generación de cineastas chinos que dialogan con lenguajes visuales globales mientras mantienen especificidad cultural autóctona.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Sixth Tone</span>
+            <a href="https://www.sixthtone.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-6">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🌏 Geopolítica</span>
+            <span class="numero-noticia">#6</span>
+          </div>
+          <h2 class="tarjeta-titulo">China fortalece asociaciones comerciales con naciones del Pacífico Sur ante competencia geopolítica</h2>
+          <div class="tarjeta-comentario">
+            <p>Pekín ha firmado nuevos acuerdos de cooperación económica con Fiyi, Tonga y Samoa, incluyendo inversión en infraestructura portuaria y energética, como parte de estrategia más amplia de influencia en la región Indo-Pacífica. Estos pactos comerciales responden a la creciente presencia de Estados Unidos y aliados como Australia en la zona, consolidando la presencia china mediante beneficios económicos tangibles. Los analistas notan que a diferencia de enfoque anterior puramente diplomático, China ahora enfatiza proyectos concretos de desarrollo que generan empleos y mejoran conectividad. El movimiento ilustra competencia más sofisticada por influencia global donde inversión económica supera en importancia a retórica política.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 South China Morning Post</span>
+            <a href="https://www.scmp.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-7">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💻 Tecnología</span>
+            <span class="numero-noticia">#7</span>
+          </div>
+          <h2 class="tarjeta-titulo">Universidades chinas lideran en publicaciones de investigación en inteligencia artificial y aprendizaje automático</h2>
+          <div class="tarjeta-comentario">
+            <p>Análisis bibliométrico reciente muestra que instituciones chinas como Tsinghua, Peking y la Universidad de Zhejiang publican ahora más artículos en congresos de IA de alto perfil (ICML, NeurIPS) que universidades estadounidenses, marcando un hito en la competencia científica global. El fenómeno refleja inversión masiva en talento, laboratorios de investigación y colaboraciones empresa-academia que han transformado el ecosistema científico chino. Aunque la calidad promedio aún varía, los artículos con mayor número de citas provienen cada vez más de autores chinos, indicando que la investigación es sustantiva y no solo volumen. Este cambio tiene implicaciones profundas para gobernanza de estándares tecnológicos globales en próximas décadas.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 TechNode</span>
+            <a href="https://www.technode.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-8">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">👥 Sociedad</span>
+            <span class="numero-noticia">#8</span>
+          </div>
+          <h2 class="tarjeta-titulo">Programa de empleo rural absorbe 2 millones de trabajadores agrícolas con capacitación en oficios especializados</h2>
+          <div class="tarjeta-comentario">
+            <p>El gobierno chino ha reportado que su iniciativa de reentrenamiento laboral para zonas rurales ha colocado exitosamente a 2.1 millones de trabajadores en empleos relacionados con energías renovables, manufactura avanzada y servicios digitales en el primer trimestre de 2026. El programa combina subsidios para capacitación, plataformas de búsqueda de empleo en línea y colaboración con empresas para crear rutas claras de movilidad laboral fuera de la agricultura. Esta iniciativa aborda tanto presiones económicas por tecnificación agrícola como el objetivo más amplio de reducir desigualdades regionales. Los datos sugieren que la transición económica requiere gestión activa pero puede generar oportunidades reales cuando se acompaña de inversión en educación y empleo.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 China Daily</span>
+            <a href="https://www.chinadaily.com.cn" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-9">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🔬 Ciencia</span>
+            <span class="numero-noticia">#9</span>
+          </div>
+          <h2 class="tarjeta-titulo">Estudio vincula contaminación atmosférica urbana con cambios cognitivos en población envejecida de ciudades megápolis</h2>
+          <div class="tarjeta-comentario">
+            <p>Investigadores de hospitales en Pekín, Shanghai y Guangzhou han publicado hallazgos que correlacionan exposición prolongada a material particulado fino (PM2.5) con declive cognitivo acelerado en adultos mayores, basados en seguimiento de 100,000 individuos durante cinco años. Los resultados, aunque preliminares, sugieren mecanismos de inflamación sistémica y disfunción vascular que afectan tejido cerebral. Aunque China ha mejorado significativamente calidad del aire en la última década, la investigación subraya que daños históricos persisten y beneficios de mejora ambiental incluyen no solo sistema respiratorio sino también cognitivo. Los hallazgos presionan por políticas aún más agresivas de transición energética y reducción de emisiones.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 CGTN</span>
+            <a href="https://www.cgtn.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-10">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💼 Empresas</span>
+            <span class="numero-noticia">#10</span>
+          </div>
+          <h2 class="tarjeta-titulo">Startup fintech china DaoTech recauda 500 millones de dólares para expandir servicios de blockchain en finanzas descentralizadas</h2>
+          <div class="tarjeta-comentario">
+            <p>La empresa de tecnología financiera ha completado una ronda de inversión Serie C liderada por fondos de inversión globales, buscando posicionar soluciones de blockchain chinas como alternativa creíble en mercados internacionales de finanzas descentralizadas. La compañía opera principalmente en jurisdicciones permisivas fuera de China continental, lo que refleja el entorno regulatorio restrictivo doméstico pero también la demanda genuina por infraestructura cripto de calidad técnica superior. Los inversores destacan la competencia ingenieril china en criptografía y sistemas distribuidos como ventaja competitiva. El caso ilustra cómo restricciones regulatorias domésticas paradójicamente pueden impulsar innovación transfronteriza y creación de campeones tecnológicos chinos de alcance global.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Pandaily</span>
+            <a href="https://www.pandaily.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+</main>
+
+<footer class="pie">
+  <div class="pie-contenido">
+    <h3>Fuentes consultadas en esta edición</h3>
+    <ul>
+      <li><a href="https://www.caixinglobal.com" target="_blank" rel="noopener">Caixin Global — China impulsa inversión en semiconductores nacionales con nuevo fondo de innovación</a></li><li><a href="https://www.sixthtone.com" target="_blank" rel="noopener">Sixth Tone — Generación Z china adopta nuevos patrones de consumo enfocados en experiencias y sostenibilidad</a></li><li><a href="https://www.chinadaily.com.cn" target="_blank" rel="noopener">China Daily — Descubrimiento de bacteria extremófila en la provincia de Yunnan aporta nuevo conocimiento sobre vida primigenia</a></li><li><a href="https://www.caixinglobal.com" target="_blank" rel="noopener">Caixin Global — Alibaba anuncia restructuración de su negocio de comercio electrónico tras fuertes ganancias en servicios en la nube</a></li><li><a href="https://www.sixthtone.com" target="_blank" rel="noopener">Sixth Tone — Festival de cine de Cannes: films chinos generan expectativa con narrativas de humanidad contemporánea</a></li><li><a href="https://www.scmp.com" target="_blank" rel="noopener">South China Morning Post — China fortalece asociaciones comerciales con naciones del Pacífico Sur ante competencia geopolítica</a></li><li><a href="https://www.technode.com" target="_blank" rel="noopener">TechNode — Universidades chinas lideran en publicaciones de investigación en inteligencia artificial y aprendizaje automático</a></li><li><a href="https://www.chinadaily.com.cn" target="_blank" rel="noopener">China Daily — Programa de empleo rural absorbe 2 millones de trabajadores agrícolas con capacitación en oficios especializados</a></li><li><a href="https://www.cgtn.com" target="_blank" rel="noopener">CGTN — Estudio vincula contaminación atmosférica urbana con cambios cognitivos en población envejecida de ciudades megápolis</a></li><li><a href="https://www.pandaily.com" target="_blank" rel="noopener">Pandaily — Startup fintech china DaoTech recauda 500 millones de dólares para expandir servicios de blockchain en finanzas descentralizadas</a></li>
+    </ul>
+    <div class="pie-creditos">
+      China Hoy · Edición 2026-06-05 · Generado automáticamente con IA ·
+      Las opiniones expresadas son editoriales y no representan posiciones oficiales.
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
