@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>China Hoy — 7 de junio de 2026</title>
+  <style>
+    /* ── Reset y base ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Georgia', 'Times New Roman', serif;
+      background: #fafaf8;
+      color: #1a1a1a;
+      line-height: 1.7;
+      font-size: 17px;
+    }
+    a { color: #c0392b; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ── Cabecera ── */
+    .cabecera {
+      background: linear-gradient(135deg, #c0392b 0%, #922b21 100%);
+      color: white;
+      padding: 2.5rem 1.5rem;
+      text-align: center;
+    }
+    .cabecera-nav {
+      font-size: 0.85rem;
+      margin-bottom: 1rem;
+      opacity: 0.85;
+    }
+    .cabecera-nav a { color: rgba(255,255,255,0.9); }
+    .logo { font-size: 2.8rem; font-weight: bold; letter-spacing: -0.5px; }
+    .logo-sub { font-size: 1rem; opacity: 0.8; margin-top: 0.3rem; letter-spacing: 2px; text-transform: uppercase; }
+    .fecha-edicion {
+      margin-top: 1rem;
+      font-size: 1.05rem;
+      opacity: 0.9;
+      font-style: italic;
+    }
+
+    /* ── Resumen ejecutivo ── */
+    .resumen {
+      max-width: 780px;
+      margin: 2.5rem auto 0;
+      padding: 0 1.5rem;
+    }
+    .resumen-caja {
+      background: #fff8e7;
+      border-left: 4px solid #f39c12;
+      border-radius: 6px;
+      padding: 1.5rem 1.8rem;
+    }
+    .resumen-caja h2 {
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #7d6608;
+      margin-bottom: 0.8rem;
+    }
+    .resumen-caja ul {
+      padding-left: 1.2rem;
+      color: #4a4a4a;
+      font-size: 0.95rem;
+    }
+    .resumen-caja li { margin-bottom: 0.4rem; }
+
+    /* ── Noticias ── */
+    .contenido { max-width: 780px; margin: 0 auto; padding: 2rem 1.5rem 3rem; }
+
+    .tarjeta {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+      padding: 2rem;
+      margin-bottom: 2rem;
+      border: 1px solid #ece9e0;
+      transition: box-shadow 0.2s;
+    }
+    .tarjeta:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.12); }
+
+    .tarjeta-cabecera {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.8rem;
+    }
+    .categoria-etiqueta {
+      background: #f0ebe0;
+      color: #5d4e37;
+      font-size: 0.78rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      padding: 0.25rem 0.7rem;
+      border-radius: 20px;
+      font-family: sans-serif;
+    }
+    .numero-noticia {
+      color: #c0392b;
+      font-weight: bold;
+      font-size: 0.9rem;
+      font-family: sans-serif;
+    }
+    .tarjeta-titulo {
+      font-size: 1.35rem;
+      line-height: 1.35;
+      color: #1a1a1a;
+      margin-bottom: 1.2rem;
+      font-weight: bold;
+    }
+    .tarjeta-comentario p {
+      color: #333;
+      margin-bottom: 1rem;
+      font-size: 1rem;
+    }
+    .tarjeta-comentario p:last-child { margin-bottom: 0; }
+    .tarjeta-pie {
+      margin-top: 1.4rem;
+      padding-top: 1rem;
+      border-top: 1px solid #ece9e0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .fuente-nombre {
+      color: #7a7a7a;
+      font-size: 0.88rem;
+      font-family: sans-serif;
+    }
+    .enlace-fuente {
+      background: #c0392b;
+      color: white;
+      padding: 0.4rem 1rem;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      font-family: sans-serif;
+      transition: background 0.2s;
+    }
+    .enlace-fuente:hover { background: #922b21; text-decoration: none; }
+
+    /* ── Pie de página ── */
+    .pie {
+      background: #1a1a1a;
+      color: #aaa;
+      padding: 2.5rem 1.5rem;
+      margin-top: 2rem;
+    }
+    .pie-contenido { max-width: 780px; margin: 0 auto; }
+    .pie h3 { color: #ddd; font-size: 0.95rem; margin-bottom: 1rem; font-family: sans-serif; }
+    .pie ul { list-style: none; font-size: 0.82rem; column-count: 2; column-gap: 2rem; }
+    .pie ul li { margin-bottom: 0.5rem; }
+    .pie ul a { color: #888; }
+    .pie ul a:hover { color: #ccc; }
+    .pie-creditos {
+      margin-top: 1.5rem;
+      padding-top: 1.2rem;
+      border-top: 1px solid #333;
+      font-size: 0.8rem;
+      text-align: center;
+      color: #666;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 600px) {
+      .logo { font-size: 2rem; }
+      .tarjeta { padding: 1.3rem; }
+      .tarjeta-titulo { font-size: 1.15rem; }
+      .pie ul { column-count: 1; }
+      .tarjeta-pie { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="cabecera">
+  <nav class="cabecera-nav"><a href="../../index.html">← Volver al índice</a></nav>
+  <div class="logo">中国今日 · China Hoy 🇨🇳</div>
+  <div class="logo-sub">Newsletter diaria en español</div>
+  <div class="fecha-edicion">Edición del 7 de junio de 2026</div>
+</header>
+
+<section class="resumen">
+  <div class="resumen-caja">
+    <h2>📋 Resumen ejecutivo — 10 noticias de hoy</h2>
+    <ul>
+      <li><strong>#1.</strong> China acelera inversión en energías renovables con nuevo récord de capacidad instalada</li><li><strong>#2.</strong> Empresas de IA chinas compiten globalmente: Alibaba lanza nuevo modelo de lenguaje</li><li><strong>#3.</strong> Reforma del sistema de pensiones: China busca sostenibilidad ante envejecimiento poblacional</li><li><strong>#4.</strong> Restauración cultural: China invierte en preservación de patrimonio intangible en zonas rurales</li><li><strong>#5.</strong> Científicos chinos logran avance en fusión nuclear: nuevo récord de estabilidad en reactor EAST</li><li><strong>#6.</strong> Tensiones comerciales: represalias arancelarias entre China y socios clave en sector textil</li><li><strong>#7.</strong> Expansión educativa: universidades chinas aumentan programas de posgrado en STEM</li><li><strong>#8.</strong> Reforma regulatoria en plataformas digitales: nuevas guías para protección de datos de usuarios</li><li><strong>#9.</strong> Sociedad: Aumento del voluntariado entre jóvenes profesionales en megaciudades chinas</li><li><strong>#10.</strong> Biodiversidad: Creación de corredor ecológico transnacional China-Vietnam en región fronteriza</li>
+    </ul>
+  </div>
+</section>
+
+<main class="contenido">
+  
+        <article class="tarjeta" id="noticia-1">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💻 Tecnología</span>
+            <span class="numero-noticia">#1</span>
+          </div>
+          <h2 class="tarjeta-titulo">China acelera inversión en energías renovables con nuevo récord de capacidad instalada</h2>
+          <div class="tarjeta-comentario">
+            <p>China instaló más de 200 GW de capacidad renovable en los primeros meses de 2026, consolidando su liderazgo mundial en transición energética. Este ritmo acelerado refleja tanto ambiciones climáticas como ventajas competitivas en manufactura de paneles solares y turbinas eólicas. La inversión masiva en infraestructura verde genera empleo en regiones industriales y moderniza la matriz energética del país. Aunque enfrenta desafíos de almacenamiento y integración a la red, estos números subrayan que China ve las renovables como oportunidad económica estratégica, no solo obligación ambiental.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Caixin Global</span>
+            <a href="https://www.caixinglobal.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-2">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💼 Empresas</span>
+            <span class="numero-noticia">#2</span>
+          </div>
+          <h2 class="tarjeta-titulo">Empresas de IA chinas compiten globalmente: Alibaba lanza nuevo modelo de lenguaje</h2>
+          <div class="tarjeta-comentario">
+            <p>Alibaba presentó una nueva generación de modelo de lenguaje grande competitivo en velocidad y precisión con alternativas globales, reflejando el avance acelerado del ecosistema de IA chino. La carrera por dominar estas tecnologías involucra a decenas de empresas (Baidu, Bytedance, Tencent) que invierten recursos significativos en investigación y aplicaciones prácticas. Este dinamismo ilustra cómo China transformó su déficit inicial en IA en un sector con capacidad de innovación real y escala de mercado única. El competencia interna feroz acelera el desarrollo pero también plantea preguntas sobre concentración de poder tecnológico y gobernanza.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Pandaily</span>
+            <a href="https://www.pandaily.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-3">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">👥 Sociedad</span>
+            <span class="numero-noticia">#3</span>
+          </div>
+          <h2 class="tarjeta-titulo">Reforma del sistema de pensiones: China busca sostenibilidad ante envejecimiento poblacional</h2>
+          <div class="tarjeta-comentario">
+            <p>El gobierno anunció ajustes graduales en la edad de jubilación y cambios en la fórmula de cálculo de beneficios, reconociendo que el envejecimiento demográfico hace insostenible el sistema actual. Las medidas incluyen incentivos para que trabajadores se jubilen más tarde y aumento de contribuciones de empleadores, buscando equilibrar cargas fiscales. Este es un tema delicado que afecta directamente a cientos de millones de ciudadanos, especialmente profesionales de mediana edad que se sienten presionados por ambos lados. La reforma ilustra cómo China enfrenta dilemas estructurales profundos de una sociedad que envejece rápidamente, donde soluciones requieren consenso difícil y trade-offs impopulares.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Sixth Tone</span>
+            <a href="https://www.sixthtone.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-4">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🎭 Cultura</span>
+            <span class="numero-noticia">#4</span>
+          </div>
+          <h2 class="tarjeta-titulo">Restauración cultural: China invierte en preservación de patrimonio intangible en zonas rurales</h2>
+          <div class="tarjeta-comentario">
+            <p>Programas nacionales de financiamiento otorgaron millones de yuanes para documentar y revitalizar tradiciones artesanales, musicales y culinarias en comunidades remotas antes de que desaparezcan. Iniciativas como talleres de oficios antiguos, festivales de patrimonio y plataformas digitales de transmisión de conocimiento buscan vincular generaciones jóvenes con raíces culturales. Esta inversión responde tanto a preocupaciones genuinas por pérdida cultural como a reconocimiento de que el patrimonio inmaterial puede generar turismo y economía local. El esfuerzo ilustra tensiones entre modernización y conservación que China navega, donde el estado juega rol activo en definir qué tradiciones merecen preservarse y cómo.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 China Daily</span>
+            <a href="https://www.chinadaily.com.cn" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-5">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🔬 Ciencia</span>
+            <span class="numero-noticia">#5</span>
+          </div>
+          <h2 class="tarjeta-titulo">Científicos chinos logran avance en fusión nuclear: nuevo récord de estabilidad en reactor EAST</h2>
+          <div class="tarjeta-comentario">
+            <p>El reactor experimental EAST mantuvo plasma a más de 100 millones de grados centígrados durante duración récord, marcando progreso importante hacia viabilidad comercial de la fusión nuclear. Este logro resulta de década de investigación sistemática y colaboración con institutos internacionales, posicionando a China entre líderes globales en tecnología de fusión. La relevancia no es solo científica sino energética: fusión podría resolver dependencia de combustibles fósiles en escala masiva si se logra comercializarlo. Aunque aún falta transitar de laboratorio a planta operativa, estos hitos demuestran inversión china en investigación fundamental con horizonte de largo plazo.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 CGTN</span>
+            <a href="https://www.cgtn.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-6">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🌏 Geopolítica</span>
+            <span class="numero-noticia">#6</span>
+          </div>
+          <h2 class="tarjeta-titulo">Tensiones comerciales: represalias arancelarias entre China y socios clave en sector textil</h2>
+          <div class="tarjeta-comentario">
+            <p>Disputas arancelarias sobre cuotas de importación de textiles escalaron entre China y varios socios comerciales, reflejando fricciones persistentes en cadenas globales post-pandemia. Aunque los montos en disputa son menores que conflictos anteriores, las medidas ilustran cómo proteccionismo sigue limitando comercio bilateral incluso en sectores tradicionales. China mantiene posición de que restricciones violan acuerdos multilaterales, mientras otros países argumentan sobre cumplimiento laboral y ambiental. Este patrón recurrente sugiere que la normalización completa del comercio sigue siendo frágil y que geopolítica sigue influyendo en decisiones económicas de múltiples actores.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 South China Morning Post</span>
+            <a href="https://www.scmp.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-7">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💻 Tecnología</span>
+            <span class="numero-noticia">#7</span>
+          </div>
+          <h2 class="tarjeta-titulo">Expansión educativa: universidades chinas aumentan programas de posgrado en STEM</h2>
+          <div class="tarjeta-comentario">
+            <p>Universidades de investigación chinas ampliaron significativamente cupos en posgrados de ciencias, ingeniería, matemáticas e informática, respondiendo a demanda del mercado laboral de talento especializado. El gobierno destinó financiamiento específico para becas y laboratorios, buscando producir más doctores e investigadores capaces de competir globalmente. Esta inversión en capital humano refleja estrategia clara de que ventaja competitiva futura depende de capacidad innovadora interna. Sin embargo, la tendencia también expone desafíos en retención de talento, con muchos graduados migrando a universidades occidentales, señalando que credenciales aún son factor importante en decisiones de carrera.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 TechNode</span>
+            <a href="https://www.technode.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-8">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💼 Empresas</span>
+            <span class="numero-noticia">#8</span>
+          </div>
+          <h2 class="tarjeta-titulo">Reforma regulatoria en plataformas digitales: nuevas guías para protección de datos de usuarios</h2>
+          <div class="tarjeta-comentario">
+            <p>Reguladores emitieron directrices actualizadas sobre cómo plataformas digitales (e-commerce, redes sociales, apps) deben proteger información personal, con multas significativas por incumplimiento. Las normas buscan equilibrar innovación con privacidad, un desafío complejo dado que modelos de negocio de muchas empresas dependen de análisis de datos de usuarios. Aunque algunas empresas critican que regulación restringe competencia, otros ven avance importante hacia protecciones de consumidor. Esta evolución refleja mayor conciencia china sobre temas de privacidad digital, similar a tendencias en mercados desarrollados, indicando que China también debe navegar tensión entre innovación y derechos de usuarios.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 36Kr Global</span>
+            <a href="https://www.36kr.com/en" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-9">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">👥 Sociedad</span>
+            <span class="numero-noticia">#9</span>
+          </div>
+          <h2 class="tarjeta-titulo">Sociedad: Aumento del voluntariado entre jóvenes profesionales en megaciudades chinas</h2>
+          <div class="tarjeta-comentario">
+            <p>Encuestas muestran que profesionales jóvenes en Shanghai, Beijing y Shenzhen dedican creciente cantidad de tiempo a trabajo voluntario en educación, ambiente y servicios sociales. Esta tendencia refleja búsqueda de propósito más allá de carrera corporativa, particularmente entre generación nacida post-1995 que valora impacto social. Organizaciones no gubernamentales reportan capacidad sin precedentes de movilizar voluntarios para proyectos comunitarios, aunque con variación notable entre ciudades y sectores. El fenómeno sugiere evolución en valores en segmentos jóvenes urbanos, donde acumulación de riqueza deja de ser único motivador y emerge interés genuino en contribución cívica.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 People&#39;s Daily Online</span>
+            <a href="https://www.englishpeople.com.cn" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-10">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🔬 Ciencia</span>
+            <span class="numero-noticia">#10</span>
+          </div>
+          <h2 class="tarjeta-titulo">Biodiversidad: Creación de corredor ecológico transnacional China-Vietnam en región fronteriza</h2>
+          <div class="tarjeta-comentario">
+            <p>China y Vietnam firmaron acuerdo para establecer corredor de conservación que proteja ecosistemas compartidos y especies migratorias en región montañosa fronteriza, con financiamiento conjunto para restauración. La iniciativa reconoce que biodiversidad no respeta fronteras y que cooperación regional es eficiente para proteger hábitats críticos de primates, aves y flora única. Este tipo de colaboración ambiental transnacional es poco frecuente en Asia del Sudeste, marcando precedente positivo para gobernanza ambiental compartida. El proyecto ilustra cómo China está ampliando liderazgo ambiental no solo internamente sino a través de asociaciones regionales que generan beneficios mutuos y demuestran que ecología es asunto geopolítico también.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Xinhua News Agency</span>
+            <a href="https://www.xinhuanet.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+</main>
+
+<footer class="pie">
+  <div class="pie-contenido">
+    <h3>Fuentes consultadas en esta edición</h3>
+    <ul>
+      <li><a href="https://www.caixinglobal.com" target="_blank" rel="noopener">Caixin Global — China acelera inversión en energías renovables con nuevo récord de capacidad instalada</a></li><li><a href="https://www.pandaily.com" target="_blank" rel="noopener">Pandaily — Empresas de IA chinas compiten globalmente: Alibaba lanza nuevo modelo de lenguaje</a></li><li><a href="https://www.sixthtone.com" target="_blank" rel="noopener">Sixth Tone — Reforma del sistema de pensiones: China busca sostenibilidad ante envejecimiento poblacional</a></li><li><a href="https://www.chinadaily.com.cn" target="_blank" rel="noopener">China Daily — Restauración cultural: China invierte en preservación de patrimonio intangible en zonas rurales</a></li><li><a href="https://www.cgtn.com" target="_blank" rel="noopener">CGTN — Científicos chinos logran avance en fusión nuclear: nuevo récord de estabilidad en reactor EAST</a></li><li><a href="https://www.scmp.com" target="_blank" rel="noopener">South China Morning Post — Tensiones comerciales: represalias arancelarias entre China y socios clave en sector textil</a></li><li><a href="https://www.technode.com" target="_blank" rel="noopener">TechNode — Expansión educativa: universidades chinas aumentan programas de posgrado en STEM</a></li><li><a href="https://www.36kr.com/en" target="_blank" rel="noopener">36Kr Global — Reforma regulatoria en plataformas digitales: nuevas guías para protección de datos de usuarios</a></li><li><a href="https://www.englishpeople.com.cn" target="_blank" rel="noopener">People&#39;s Daily Online — Sociedad: Aumento del voluntariado entre jóvenes profesionales en megaciudades chinas</a></li><li><a href="https://www.xinhuanet.com" target="_blank" rel="noopener">Xinhua News Agency — Biodiversidad: Creación de corredor ecológico transnacional China-Vietnam en región fronteriza</a></li>
+    </ul>
+    <div class="pie-creditos">
+      China Hoy · Edición 2026-06-07 · Generado automáticamente con IA ·
+      Las opiniones expresadas son editoriales y no representan posiciones oficiales.
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
