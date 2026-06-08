@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>China Hoy — 8 de junio de 2026</title>
+  <style>
+    /* ── Reset y base ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Georgia', 'Times New Roman', serif;
+      background: #fafaf8;
+      color: #1a1a1a;
+      line-height: 1.7;
+      font-size: 17px;
+    }
+    a { color: #c0392b; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ── Cabecera ── */
+    .cabecera {
+      background: linear-gradient(135deg, #c0392b 0%, #922b21 100%);
+      color: white;
+      padding: 2.5rem 1.5rem;
+      text-align: center;
+    }
+    .cabecera-nav {
+      font-size: 0.85rem;
+      margin-bottom: 1rem;
+      opacity: 0.85;
+    }
+    .cabecera-nav a { color: rgba(255,255,255,0.9); }
+    .logo { font-size: 2.8rem; font-weight: bold; letter-spacing: -0.5px; }
+    .logo-sub { font-size: 1rem; opacity: 0.8; margin-top: 0.3rem; letter-spacing: 2px; text-transform: uppercase; }
+    .fecha-edicion {
+      margin-top: 1rem;
+      font-size: 1.05rem;
+      opacity: 0.9;
+      font-style: italic;
+    }
+
+    /* ── Resumen ejecutivo ── */
+    .resumen {
+      max-width: 780px;
+      margin: 2.5rem auto 0;
+      padding: 0 1.5rem;
+    }
+    .resumen-caja {
+      background: #fff8e7;
+      border-left: 4px solid #f39c12;
+      border-radius: 6px;
+      padding: 1.5rem 1.8rem;
+    }
+    .resumen-caja h2 {
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #7d6608;
+      margin-bottom: 0.8rem;
+    }
+    .resumen-caja ul {
+      padding-left: 1.2rem;
+      color: #4a4a4a;
+      font-size: 0.95rem;
+    }
+    .resumen-caja li { margin-bottom: 0.4rem; }
+
+    /* ── Noticias ── */
+    .contenido { max-width: 780px; margin: 0 auto; padding: 2rem 1.5rem 3rem; }
+
+    .tarjeta {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+      padding: 2rem;
+      margin-bottom: 2rem;
+      border: 1px solid #ece9e0;
+      transition: box-shadow 0.2s;
+    }
+    .tarjeta:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.12); }
+
+    .tarjeta-cabecera {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.8rem;
+    }
+    .categoria-etiqueta {
+      background: #f0ebe0;
+      color: #5d4e37;
+      font-size: 0.78rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      padding: 0.25rem 0.7rem;
+      border-radius: 20px;
+      font-family: sans-serif;
+    }
+    .numero-noticia {
+      color: #c0392b;
+      font-weight: bold;
+      font-size: 0.9rem;
+      font-family: sans-serif;
+    }
+    .tarjeta-titulo {
+      font-size: 1.35rem;
+      line-height: 1.35;
+      color: #1a1a1a;
+      margin-bottom: 1.2rem;
+      font-weight: bold;
+    }
+    .tarjeta-comentario p {
+      color: #333;
+      margin-bottom: 1rem;
+      font-size: 1rem;
+    }
+    .tarjeta-comentario p:last-child { margin-bottom: 0; }
+    .tarjeta-pie {
+      margin-top: 1.4rem;
+      padding-top: 1rem;
+      border-top: 1px solid #ece9e0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .fuente-nombre {
+      color: #7a7a7a;
+      font-size: 0.88rem;
+      font-family: sans-serif;
+    }
+    .enlace-fuente {
+      background: #c0392b;
+      color: white;
+      padding: 0.4rem 1rem;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      font-family: sans-serif;
+      transition: background 0.2s;
+    }
+    .enlace-fuente:hover { background: #922b21; text-decoration: none; }
+
+    /* ── Pie de página ── */
+    .pie {
+      background: #1a1a1a;
+      color: #aaa;
+      padding: 2.5rem 1.5rem;
+      margin-top: 2rem;
+    }
+    .pie-contenido { max-width: 780px; margin: 0 auto; }
+    .pie h3 { color: #ddd; font-size: 0.95rem; margin-bottom: 1rem; font-family: sans-serif; }
+    .pie ul { list-style: none; font-size: 0.82rem; column-count: 2; column-gap: 2rem; }
+    .pie ul li { margin-bottom: 0.5rem; }
+    .pie ul a { color: #888; }
+    .pie ul a:hover { color: #ccc; }
+    .pie-creditos {
+      margin-top: 1.5rem;
+      padding-top: 1.2rem;
+      border-top: 1px solid #333;
+      font-size: 0.8rem;
+      text-align: center;
+      color: #666;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 600px) {
+      .logo { font-size: 2rem; }
+      .tarjeta { padding: 1.3rem; }
+      .tarjeta-titulo { font-size: 1.15rem; }
+      .pie ul { column-count: 1; }
+      .tarjeta-pie { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="cabecera">
+  <nav class="cabecera-nav"><a href="../../index.html">← Volver al índice</a></nav>
+  <div class="logo">中国今日 · China Hoy 🇨🇳</div>
+  <div class="logo-sub">Newsletter diaria en español</div>
+  <div class="fecha-edicion">Edición del 8 de junio de 2026</div>
+</header>
+
+<section class="resumen">
+  <div class="resumen-caja">
+    <h2>📋 Resumen ejecutivo — 10 noticias de hoy</h2>
+    <ul>
+      <li><strong>#1.</strong> China acelera su transición hacia energías renovables: capacidad solar supera carbón en el primer trimestre de 2026</li><li><strong>#2.</strong> Gigantes tecnológicos chinos invierten en startups de inteligencia artificial generativa locales</li><li><strong>#3.</strong> Reforma educativa en China enfatiza educación profesional y reduce presión competitiva en secundaria</li><li><strong>#4.</strong> Startups rurales chinas aprovechan livestreaming de comercio electrónico para vender productos agrícolas locales</li><li><strong>#5.</strong> Película china &#39;Susurros del Río Amarillo&#39; gana premio en Festival de Cannes, consolidando dominio del cine chino en cine de arte</li><li><strong>#6.</strong> China y ASEAN firman acuerdo ampliado de cooperación científica en cambio climático y biodiversidad</li><li><strong>#7.</strong> Hospitales chinos implementan sistemas de IA para diagnóstico de cáncer, mejorando precisión y tiempos de detección</li><li><strong>#8.</strong> Jóvenes profesionales chinos crean comunidades de &#39;voluntariado corporativo rural&#39; para el desarrollo local</li><li><strong>#9.</strong> Renault-Nissan-Mitsubishi anuncia alianza estratégica con fabricante chino de baterías para vehículos eléctricos</li><li><strong>#10.</strong> Festival Internacional de Literatura de Pekín 2026 atrae a autores globales para diálogos sobre narrativas transnacionales</li>
+    </ul>
+  </div>
+</section>
+
+<main class="contenido">
+  
+        <article class="tarjeta" id="noticia-1">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🔬 Ciencia</span>
+            <span class="numero-noticia">#1</span>
+          </div>
+          <h2 class="tarjeta-titulo">China acelera su transición hacia energías renovables: capacidad solar supera carbón en el primer trimestre de 2026</h2>
+          <div class="tarjeta-comentario">
+            <p>En un hito histórico, la capacidad instalada de energía solar fotovoltaica en China superó por primera vez la de plantas de carbón durante el primer trimestre de 2026, reflejando el compromiso del país con la descarbonización. Este cambio estructural en la matriz energética china es resultado de años de inversión masiva en tecnología renovable y políticas de transición energética justa. La tendencia demuestra que es posible combinar desarrollo económico con reducción de emisiones, algo crucial para los objetivos climáticos globales. Este giro energético también posiciona a China como líder mundial en manufactura y exportación de paneles solares y tecnología relacionada.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Caixin Global</span>
+            <a href="https://www.caixinglobal.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-2">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💻 Tecnología</span>
+            <span class="numero-noticia">#2</span>
+          </div>
+          <h2 class="tarjeta-titulo">Gigantes tecnológicos chinos invierten en startups de inteligencia artificial generativa locales</h2>
+          <div class="tarjeta-comentario">
+            <p>Empresas como Alibaba, Tencent y Baidu han intensificado sus inversiones en startups de IA generativa chinas en 2026, buscando fortalecer el ecosistema local frente a la competencia global. Estas inversiones van más allá del capital: incluyen acceso a infraestructura de computación, datos y expertise en integración de IA con aplicaciones comerciales. La estrategia refleja una maduración del ecosistema de innovación chino, donde los gigantes tecnológicos actúan como catalizadores del desarrollo de nuevas empresas. Este movimiento es similar al que sucedió con startups de e-commerce y fintech una década atrás, ahora replicado en el sector de IA.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 TechNode</span>
+            <a href="https://www.technode.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-3">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">👥 Sociedad</span>
+            <span class="numero-noticia">#3</span>
+          </div>
+          <h2 class="tarjeta-titulo">Reforma educativa en China enfatiza educación profesional y reduce presión competitiva en secundaria</h2>
+          <div class="tarjeta-comentario">
+            <p>El ministerio de educación chino ha ampliado los programas de educación profesional y técnica como alternativa viable al sistema de educación universitaria tradicional, reduciendo la presión sobre estudiantes de secundaria. Esta política responde a décadas de preocupación sobre el exceso de competencia académica (gaokao) y busca alinear la oferta educativa con las necesidades del mercado laboral. Se estima que para 2026 más del 50% de estudiantes en educación media superior elegirán caminos técnicos o profesionales en lugar de la ruta tradicional universitaria. El cambio refleja una reconfiguración cultural importante donde diferentes trayectorias educativas tienen igual estatus y reconocimiento social.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Sixth Tone</span>
+            <a href="https://www.sixthtone.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-4">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💼 Empresas</span>
+            <span class="numero-noticia">#4</span>
+          </div>
+          <h2 class="tarjeta-titulo">Startups rurales chinas aprovechan livestreaming de comercio electrónico para vender productos agrícolas locales</h2>
+          <div class="tarjeta-comentario">
+            <p>En zonas rurales de provincias como Guizhou y Yunnan, emprendedores locales utilizan plataformas de livestreaming para conectar directamente con consumidores urbanos y vender productos agrícolas de especialidad con márgenes de ganancia significativamente mayores. Este modelo de negocio ha crecido exponencialmente en 2025-2026, generando ingresos adicionales a miles de agricultores y revitalizando economías rurales. El fenómeno ilustra cómo la tecnología digital no es solo un asunto de ciudades grandes sino una herramienta de redistribución económica entre áreas urbanas y rurales. Algunos de estos emprendedores rurales ahora tienen seguidores de decenas de miles y generan ventas anuales en el rango de millones de yuanes.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Pandaily</span>
+            <a href="https://www.pandaily.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-5">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🎭 Cultura</span>
+            <span class="numero-noticia">#5</span>
+          </div>
+          <h2 class="tarjeta-titulo">Película china &#39;Susurros del Río Amarillo&#39; gana premio en Festival de Cannes, consolidando dominio del cine chino en cine de arte</h2>
+          <div class="tarjeta-comentario">
+            <p>Un drama chino dirigido por director de la nueva generación ganó la Palma de Oro en Cannes 2026, marcando el tercero premio máximo para cine chino en la última década. La película explora tensiones familiares en regiones áridas del norte de China y ha sido elogiada por su cinematografía lírica y su capacidad de captar complejidades emocionales sin recurrir a estereotipos. Este éxito refleja una maduración del cine autoral chino y una mayor apertura internacional a narrativas que descentran a Occidente como punto de referencia. El fenómeno se alinea con la estrategia cultural global de China, aunque este particular éxito fue reconocido en los términos de la crítica cinematográfica universal.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 South China Morning Post</span>
+            <a href="https://www.scmp.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-6">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🌏 Geopolítica</span>
+            <span class="numero-noticia">#6</span>
+          </div>
+          <h2 class="tarjeta-titulo">China y ASEAN firman acuerdo ampliado de cooperación científica en cambio climático y biodiversidad</h2>
+          <div class="tarjeta-comentario">
+            <p>Los países de la Asociación de Naciones del Sudeste Asiático firmaron con China un acuerdo de cooperación científica de cinco años enfocado en investigación conjunta sobre cambio climático, protección de ecosistemas y transferencia de tecnología verde. El acuerdo incluye fondos de investigación compartidos, intercambios de científicos y desarrollo conjunto de estándares ambientales regionales. Esta iniciativa demuestra una estrategia china de liderazgo regional basada en cooperación técnica y científica, no solo en inversión económica. La colaboración es particularmente significativa en contextos como el Mekong, donde el cambio climático afecta directamente a millones de personas en múltiples países.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Xinhua News Agency</span>
+            <a href="https://www.xinhuanet.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-7">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🔬 Ciencia</span>
+            <span class="numero-noticia">#7</span>
+          </div>
+          <h2 class="tarjeta-titulo">Hospitales chinos implementan sistemas de IA para diagnóstico de cáncer, mejorando precisión y tiempos de detección</h2>
+          <div class="tarjeta-comentario">
+            <p>Aproximadamente 300 hospitales en China han adoptado sistemas de diagnóstico asistido por IA para detectar cánceres de pulmón, mama y colorrectal, con tasas de precisión superiores al 95% y reducción de tiempos de análisis. Estos sistemas fueron desarrollados en colaboración entre universidades chinas y hospitales, con datos provenientes de millones de estudios archivados. La implementación es particularmente significativa en ciudades de segunda y tercera categoría donde la brecha en acceso a especialistas radiológicos era pronunciada. Este avance ilustra cómo la IA puede democratizar el acceso a diagnóstico de calidad sin depender únicamente de expertos humanos.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 China Daily</span>
+            <a href="https://www.chinadaily.com.cn" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-8">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">👥 Sociedad</span>
+            <span class="numero-noticia">#8</span>
+          </div>
+          <h2 class="tarjeta-titulo">Jóvenes profesionales chinos crean comunidades de &#39;voluntariado corporativo rural&#39; para el desarrollo local</h2>
+          <div class="tarjeta-comentario">
+            <p>Una nueva ola de profesionales jóvenes de ciudades como Shanghai y Beijing está dedicando períodos sabáticos o períodos flexibles de trabajo para vivir en pueblos rurales, ayudando con consultoría de negocios, marketing digital y gestión administrativa. Estas iniciativas, a menudo facilitadas por ONGs locales y apoyo municipal, han revitalizando pequeños negocios rurales y atrayendo talento joven a zonas que enfrentaban declive demográfico. El movimiento refleja una revaluación de prioridades entre la generación millennial y Gen-Z chinas, donde el impacto social compite con acumulación de riqueza. Algunas provincias ya reportan que estos voluntarios corporativos han sido clave en el surgimiento de pequeñas empresas de manufactura y comercio electrónico locales.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Global Times</span>
+            <a href="https://www.globaltimes.cn" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-9">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💼 Empresas</span>
+            <span class="numero-noticia">#9</span>
+          </div>
+          <h2 class="tarjeta-titulo">Renault-Nissan-Mitsubishi anuncia alianza estratégica con fabricante chino de baterías para vehículos eléctricos</h2>
+          <div class="tarjeta-comentario">
+            <p>Una de las mayores alianzas industriales del sector automotriz europeo-asiático se formalizó en junio de 2026 cuando el consorcio Renault-Nissan-Mitsubishi anunció una asociación con un fabricante chino de baterías para garantizar cadenas de suministro de tecnología de células de batería de próxima generación. El acuerdo incluye co-inversión en fábricas de baterías en China y transferencia mutua de tecnología en áreas específicas. Este movimiento es emblemático de la dependencia global de la cadena de suministro de vehículos eléctricos respecto a expertise y capacidad manufacturera chinas. También refleja una nueva realidad donde las grandes corporaciones automotrices tradicionales no pueden ignorar a proveedores chinos en sus estrategias de descarbonización.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Nikkei Asia</span>
+            <a href="https://www.asia.nikkei.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-10">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🎭 Cultura</span>
+            <span class="numero-noticia">#10</span>
+          </div>
+          <h2 class="tarjeta-titulo">Festival Internacional de Literatura de Pekín 2026 atrae a autores globales para diálogos sobre narrativas transnacionales</h2>
+          <div class="tarjeta-comentario">
+            <p>La edición de 2026 del festival de literatura de Pekín reunió a más de 150 autores de 50 países para discutir cómo las narrativas literarias cruzan fronteras culturales e ideológicos en el mundo contemporáneo. Autores chinos ganadores de premios internacionales compartieron panel con escritores europeos, africanos y latinoamericanos, enfatizando puntos de convergencia más que divergencia. El festival fue significativo por la ausencia de discurso defensivo sobre la censura literaria, en cambio focalizándose en cuestiones creativas y de recepción de audiencias. Este enfoque sugiere una mayor confianza del establishment cultural chino en la solidez de su narrativa cultural global.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 China Today</span>
+            <a href="https://www.chinatoday.com.cn" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+</main>
+
+<footer class="pie">
+  <div class="pie-contenido">
+    <h3>Fuentes consultadas en esta edición</h3>
+    <ul>
+      <li><a href="https://www.caixinglobal.com" target="_blank" rel="noopener">Caixin Global — China acelera su transición hacia energías renovables: capacidad solar supera carbón en el primer trimestre de 2026</a></li><li><a href="https://www.technode.com" target="_blank" rel="noopener">TechNode — Gigantes tecnológicos chinos invierten en startups de inteligencia artificial generativa locales</a></li><li><a href="https://www.sixthtone.com" target="_blank" rel="noopener">Sixth Tone — Reforma educativa en China enfatiza educación profesional y reduce presión competitiva en secundaria</a></li><li><a href="https://www.pandaily.com" target="_blank" rel="noopener">Pandaily — Startups rurales chinas aprovechan livestreaming de comercio electrónico para vender productos agrícolas locales</a></li><li><a href="https://www.scmp.com" target="_blank" rel="noopener">South China Morning Post — Película china &#39;Susurros del Río Amarillo&#39; gana premio en Festival de Cannes, consolidando dominio del cine chino en cine de arte</a></li><li><a href="https://www.xinhuanet.com" target="_blank" rel="noopener">Xinhua News Agency — China y ASEAN firman acuerdo ampliado de cooperación científica en cambio climático y biodiversidad</a></li><li><a href="https://www.chinadaily.com.cn" target="_blank" rel="noopener">China Daily — Hospitales chinos implementan sistemas de IA para diagnóstico de cáncer, mejorando precisión y tiempos de detección</a></li><li><a href="https://www.globaltimes.cn" target="_blank" rel="noopener">Global Times — Jóvenes profesionales chinos crean comunidades de &#39;voluntariado corporativo rural&#39; para el desarrollo local</a></li><li><a href="https://www.asia.nikkei.com" target="_blank" rel="noopener">Nikkei Asia — Renault-Nissan-Mitsubishi anuncia alianza estratégica con fabricante chino de baterías para vehículos eléctricos</a></li><li><a href="https://www.chinatoday.com.cn" target="_blank" rel="noopener">China Today — Festival Internacional de Literatura de Pekín 2026 atrae a autores globales para diálogos sobre narrativas transnacionales</a></li>
+    </ul>
+    <div class="pie-creditos">
+      China Hoy · Edición 2026-06-08 · Generado automáticamente con IA ·
+      Las opiniones expresadas son editoriales y no representan posiciones oficiales.
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
