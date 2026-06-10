@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>China Hoy — 10 de junio de 2026</title>
+  <style>
+    /* ── Reset y base ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Georgia', 'Times New Roman', serif;
+      background: #fafaf8;
+      color: #1a1a1a;
+      line-height: 1.7;
+      font-size: 17px;
+    }
+    a { color: #c0392b; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ── Cabecera ── */
+    .cabecera {
+      background: linear-gradient(135deg, #c0392b 0%, #922b21 100%);
+      color: white;
+      padding: 2.5rem 1.5rem;
+      text-align: center;
+    }
+    .cabecera-nav {
+      font-size: 0.85rem;
+      margin-bottom: 1rem;
+      opacity: 0.85;
+    }
+    .cabecera-nav a { color: rgba(255,255,255,0.9); }
+    .logo { font-size: 2.8rem; font-weight: bold; letter-spacing: -0.5px; }
+    .logo-sub { font-size: 1rem; opacity: 0.8; margin-top: 0.3rem; letter-spacing: 2px; text-transform: uppercase; }
+    .fecha-edicion {
+      margin-top: 1rem;
+      font-size: 1.05rem;
+      opacity: 0.9;
+      font-style: italic;
+    }
+
+    /* ── Resumen ejecutivo ── */
+    .resumen {
+      max-width: 780px;
+      margin: 2.5rem auto 0;
+      padding: 0 1.5rem;
+    }
+    .resumen-caja {
+      background: #fff8e7;
+      border-left: 4px solid #f39c12;
+      border-radius: 6px;
+      padding: 1.5rem 1.8rem;
+    }
+    .resumen-caja h2 {
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #7d6608;
+      margin-bottom: 0.8rem;
+    }
+    .resumen-caja ul {
+      padding-left: 1.2rem;
+      color: #4a4a4a;
+      font-size: 0.95rem;
+    }
+    .resumen-caja li { margin-bottom: 0.4rem; }
+
+    /* ── Noticias ── */
+    .contenido { max-width: 780px; margin: 0 auto; padding: 2rem 1.5rem 3rem; }
+
+    .tarjeta {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+      padding: 2rem;
+      margin-bottom: 2rem;
+      border: 1px solid #ece9e0;
+      transition: box-shadow 0.2s;
+    }
+    .tarjeta:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.12); }
+
+    .tarjeta-cabecera {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.8rem;
+    }
+    .categoria-etiqueta {
+      background: #f0ebe0;
+      color: #5d4e37;
+      font-size: 0.78rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      padding: 0.25rem 0.7rem;
+      border-radius: 20px;
+      font-family: sans-serif;
+    }
+    .numero-noticia {
+      color: #c0392b;
+      font-weight: bold;
+      font-size: 0.9rem;
+      font-family: sans-serif;
+    }
+    .tarjeta-titulo {
+      font-size: 1.35rem;
+      line-height: 1.35;
+      color: #1a1a1a;
+      margin-bottom: 1.2rem;
+      font-weight: bold;
+    }
+    .tarjeta-comentario p {
+      color: #333;
+      margin-bottom: 1rem;
+      font-size: 1rem;
+    }
+    .tarjeta-comentario p:last-child { margin-bottom: 0; }
+    .tarjeta-pie {
+      margin-top: 1.4rem;
+      padding-top: 1rem;
+      border-top: 1px solid #ece9e0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .fuente-nombre {
+      color: #7a7a7a;
+      font-size: 0.88rem;
+      font-family: sans-serif;
+    }
+    .enlace-fuente {
+      background: #c0392b;
+      color: white;
+      padding: 0.4rem 1rem;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      font-family: sans-serif;
+      transition: background 0.2s;
+    }
+    .enlace-fuente:hover { background: #922b21; text-decoration: none; }
+
+    /* ── Pie de página ── */
+    .pie {
+      background: #1a1a1a;
+      color: #aaa;
+      padding: 2.5rem 1.5rem;
+      margin-top: 2rem;
+    }
+    .pie-contenido { max-width: 780px; margin: 0 auto; }
+    .pie h3 { color: #ddd; font-size: 0.95rem; margin-bottom: 1rem; font-family: sans-serif; }
+    .pie ul { list-style: none; font-size: 0.82rem; column-count: 2; column-gap: 2rem; }
+    .pie ul li { margin-bottom: 0.5rem; }
+    .pie ul a { color: #888; }
+    .pie ul a:hover { color: #ccc; }
+    .pie-creditos {
+      margin-top: 1.5rem;
+      padding-top: 1.2rem;
+      border-top: 1px solid #333;
+      font-size: 0.8rem;
+      text-align: center;
+      color: #666;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 600px) {
+      .logo { font-size: 2rem; }
+      .tarjeta { padding: 1.3rem; }
+      .tarjeta-titulo { font-size: 1.15rem; }
+      .pie ul { column-count: 1; }
+      .tarjeta-pie { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="cabecera">
+  <nav class="cabecera-nav"><a href="../../index.html">← Volver al índice</a></nav>
+  <div class="logo">中国今日 · China Hoy 🇨🇳</div>
+  <div class="logo-sub">Newsletter diaria en español</div>
+  <div class="fecha-edicion">Edición del 10 de junio de 2026</div>
+</header>
+
+<section class="resumen">
+  <div class="resumen-caja">
+    <h2>📋 Resumen ejecutivo — 10 noticias de hoy</h2>
+    <ul>
+      <li><strong>#1.</strong> China acelera innovación en baterías de estado sólido para vehículos eléctricos</li><li><strong>#2.</strong> Plataformas de comercio electrónico chinas enfrentan nuevas regulaciones sobre datos de usuarios</li><li><strong>#3.</strong> Descubrimiento científico: avances chinos en fusión nuclear de confinamiento magnético</li><li><strong>#4.</strong> Resurgimiento de las artes tradicionales: festivales culturales atraen millones de visitantes</li><li><strong>#5.</strong> Reforma educativa: énfasis renovado en educación técnica y vocacional</li><li><strong>#6.</strong> Tensiones comerciales: China y la Unión Europea en negociaciones sobre aranceles</li><li><strong>#7.</strong> Startups de IA generativa chinas recaudan fondos récord en nueva ronda de inversión</li><li><strong>#8.</strong> Iniciativa ambiental: China duplica capacidad de energía solar instalada</li><li><strong>#9.</strong> Fenómeno social: aumento de comunidades rurales digitales y emprendimiento rural</li><li><strong>#10.</strong> Diplomacia científica: China lidera nuevo consorcio internacional de investigación sobre cambio climático</li>
+    </ul>
+  </div>
+</section>
+
+<main class="contenido">
+  
+        <article class="tarjeta" id="noticia-1">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💻 Tecnología</span>
+            <span class="numero-noticia">#1</span>
+          </div>
+          <h2 class="tarjeta-titulo">China acelera innovación en baterías de estado sólido para vehículos eléctricos</h2>
+          <div class="tarjeta-comentario">
+            <p>Los principales fabricantes chinos de baterías como CATL y BYD han anunciado avances significativos en tecnología de estado sólido, con planes para comercializar prototipos en 2027. Este desarrollo es crucial porque las baterías de estado sólido ofrecen mayor densidad energética, tiempos de carga más rápidos y mayor seguridad que las baterías de iones de litio convencionales. El dominio en esta tecnología refuerza la posición de China como líder global en la cadena de suministro de vehículos eléctricos y marca el siguiente paso en la carrera tecnológica de la industria automotriz mundial.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 TechNode</span>
+            <a href="https://www.technode.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-2">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💼 Empresas</span>
+            <span class="numero-noticia">#2</span>
+          </div>
+          <h2 class="tarjeta-titulo">Plataformas de comercio electrónico chinas enfrentan nuevas regulaciones sobre datos de usuarios</h2>
+          <div class="tarjeta-comentario">
+            <p>La Administración del Ciberespacio de China ha establecido directrices más estrictas sobre cómo plataformas como Alibaba y JD.com pueden recopilar, almacenar y monetizar datos de usuarios. Las nuevas normas buscan proteger la privacidad del consumidor mientras se mantiene la competencia leal en el sector del e-commerce. Esta regulación refleja la tensión creciente entre la innovación empresarial y la gobernanza digital en China, estableciendo estándares que probablemente servirán de modelo para otras economías en desarrollo.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Caixin Global</span>
+            <a href="https://www.caixinglobal.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-3">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🔬 Ciencia</span>
+            <span class="numero-noticia">#3</span>
+          </div>
+          <h2 class="tarjeta-titulo">Descubrimiento científico: avances chinos en fusión nuclear de confinamiento magnético</h2>
+          <div class="tarjeta-comentario">
+            <p>El reactor EAST de la Academia China de Ciencias ha establecido un nuevo récord manteniendo plasma a 120 millones de grados Celsius durante más de 400 segundos, un hito importante en la investigación de energía de fusión controlada. Este avance acerca la viabilidad comercial de la energía de fusión nuclear, que promete ser prácticamente ilimitada, limpia y segura. El progreso chino en fusión subraya el compromiso del país con tecnologías de energía limpia y su papel como actor científico global de primer nivel en la carrera hacia resolver el desafío energético mundial.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 China Daily</span>
+            <a href="https://www.chinadaily.com.cn" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-4">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🎭 Cultura</span>
+            <span class="numero-noticia">#4</span>
+          </div>
+          <h2 class="tarjeta-titulo">Resurgimiento de las artes tradicionales: festivales culturales atraen millones de visitantes</h2>
+          <div class="tarjeta-comentario">
+            <p>Ciudades como Xi&#39;an, Hangzhou y Nanjing han organizado grandes festivales que celebran la ópera clásica, la caligrafía y la pintura tradicional china, con participación creciente de jóvenes generaciones digitales. Estos eventos utilizan plataformas de redes sociales y tecnología de realidad aumentada para hacer las artes tradicionales más accesibles y atractivas para las audiencias modernas. El fenómeno refleja un movimiento más amplio en China hacia la revitalización del patrimonio cultural, demostrando que la modernización no implica abandonar las tradiciones, sino reinterpretarlas para nuevas generaciones.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Sixth Tone</span>
+            <a href="https://www.sixthtone.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-5">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">👥 Sociedad</span>
+            <span class="numero-noticia">#5</span>
+          </div>
+          <h2 class="tarjeta-titulo">Reforma educativa: énfasis renovado en educación técnica y vocacional</h2>
+          <div class="tarjeta-comentario">
+            <p>El Ministerio de Educación ha aumentado significativamente la inversión en escuelas técnicas y programas de formación profesional, con el objetivo de formar 1.5 millones de técnicos especializados en los próximos cinco años. Esta iniciativa responde a la escasez de mano de obra calificada en manufactura avanzada, energías renovables y sectores emergentes de alta tecnología. El cambio de política refleja una maduración del sistema educativo chino, reconociendo que no todos los estudiantes deben seguir la ruta tradicional universitaria para contribuir significativamente a la economía y sociedad.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 China Daily</span>
+            <a href="https://www.chinadaily.com.cn" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-6">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🌏 Geopolítica</span>
+            <span class="numero-noticia">#6</span>
+          </div>
+          <h2 class="tarjeta-titulo">Tensiones comerciales: China y la Unión Europea en negociaciones sobre aranceles</h2>
+          <div class="tarjeta-comentario">
+            <p>China y la Unión Europea han entablado conversaciones intensivas sobre posibles aranceles en vehículos eléctricos y tecnología verde, después de que Bruselas expresara preocupaciones sobre subsidios supuestamente injustos. Ambas partes reconocen que una guerra comercial dañaría a sus economías, pero también mantienen posiciones firmes sobre proteger sus industrias estratégicas. Estas negociaciones son emblemáticas del delicado equilibrio que caracteriza la relación económica Occidente-China en 2026, donde la competencia tecnológica y la interdependencia coexisten de manera tensa.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Reuters</span>
+            <a href="https://www.reuters.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-7">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💻 Tecnología</span>
+            <span class="numero-noticia">#7</span>
+          </div>
+          <h2 class="tarjeta-titulo">Startups de IA generativa chinas recaudan fondos récord en nueva ronda de inversión</h2>
+          <div class="tarjeta-comentario">
+            <p>Empresas como Zhipu AI y Baichuan Intelligence han completado rondas de financiación masivas para desarrollar modelos de lenguaje competitivos a nivel global, reflejo de la determinación china por cerrar la brecha en IA generativa. Las inversiones totales en startups de IA generativa chinas han alcanzado niveles históricos, impulsadas tanto por capital de riesgo privado como por fondos estratégicos estatales. Este fenómeno demuestra que, a pesar de los desafíos regulatorios y de acceso a chips, el ecosistema tecnológico chino mantiene su capacidad de movilizar recursos e innovación para competir en tecnologías transformadoras.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 36Kr Global</span>
+            <a href="https://www.36kr.com/en" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-8">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">📰 Empresa</span>
+            <span class="numero-noticia">#8</span>
+          </div>
+          <h2 class="tarjeta-titulo">Iniciativa ambiental: China duplica capacidad de energía solar instalada</h2>
+          <div class="tarjeta-comentario">
+            <p>China ha instalado una capacidad solar fotovoltaica equivalente a los últimos 15 años en apenas los últimos 12 meses, alcanzando más de 900 gigavatios de capacidad total. Este hito extraordinario coloca a China significativamente por delante de todos los demás países en energía solar instalada y refleja inversiones masivas en infraestructura verde. El acelerón de la energía solar es simultáneamente un logro tecnológico, un comentario sobre la urgencia climática que China reconoce internamente y una estrategia para dominar la cadena de suministro global de tecnología limpia.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 CGTN</span>
+            <a href="https://www.cgtn.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-9">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">👥 Sociedad</span>
+            <span class="numero-noticia">#9</span>
+          </div>
+          <h2 class="tarjeta-titulo">Fenómeno social: aumento de comunidades rurales digitales y emprendimiento rural</h2>
+          <div class="tarjeta-comentario">
+            <p>Pueblos remotos en provincias interiores están experimentando un renacimiento económico gracias a plataformas de livestream shopping y comercio electrónico, permitiendo que artesanos locales vendan directamente a mercados urbanos sin intermediarios. Estas «aldeas de livestream» han generado ingresos que retienen a jóvenes en zonas rurales y revitalizan comunidades que antes enfrentaban despoblación. El fenómeno ilustra cómo la tecnología digital puede servir como ecualizador económico, permitiendo que la periferia participe plenamente en la economía moderna y desafiando el modelo tradicional de migración campo-ciudad.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Sixth Tone</span>
+            <a href="https://www.sixthtone.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-10">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🌏 Geopolítica</span>
+            <span class="numero-noticia">#10</span>
+          </div>
+          <h2 class="tarjeta-titulo">Diplomacia científica: China lidera nuevo consorcio internacional de investigación sobre cambio climático</h2>
+          <div class="tarjeta-comentario">
+            <p>China ha convocado a 50 países para formar un consorcio colaborativo sobre investigación del cambio climático, combinando datos satelitales, modelado climático y soluciones tecnológicas de múltiples naciones. Esta iniciativa posiciona a China como potencia científica en gobernanza ambiental global, mientras establece alianzas que refuerzan su influencia en debates de política climática internacional. La iniciativa refleja una estrategia más amplia de diplomacia científica en la que China busca liderazgo en agendas globales críticas como clima y sostenibilidad, combinando capacidad técnica con poder blando.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Xinhua News Agency</span>
+            <a href="https://www.xinhuanet.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+</main>
+
+<footer class="pie">
+  <div class="pie-contenido">
+    <h3>Fuentes consultadas en esta edición</h3>
+    <ul>
+      <li><a href="https://www.technode.com" target="_blank" rel="noopener">TechNode — China acelera innovación en baterías de estado sólido para vehículos eléctricos</a></li><li><a href="https://www.caixinglobal.com" target="_blank" rel="noopener">Caixin Global — Plataformas de comercio electrónico chinas enfrentan nuevas regulaciones sobre datos de usuarios</a></li><li><a href="https://www.chinadaily.com.cn" target="_blank" rel="noopener">China Daily — Descubrimiento científico: avances chinos en fusión nuclear de confinamiento magnético</a></li><li><a href="https://www.sixthtone.com" target="_blank" rel="noopener">Sixth Tone — Resurgimiento de las artes tradicionales: festivales culturales atraen millones de visitantes</a></li><li><a href="https://www.chinadaily.com.cn" target="_blank" rel="noopener">China Daily — Reforma educativa: énfasis renovado en educación técnica y vocacional</a></li><li><a href="https://www.reuters.com" target="_blank" rel="noopener">Reuters — Tensiones comerciales: China y la Unión Europea en negociaciones sobre aranceles</a></li><li><a href="https://www.36kr.com/en" target="_blank" rel="noopener">36Kr Global — Startups de IA generativa chinas recaudan fondos récord en nueva ronda de inversión</a></li><li><a href="https://www.cgtn.com" target="_blank" rel="noopener">CGTN — Iniciativa ambiental: China duplica capacidad de energía solar instalada</a></li><li><a href="https://www.sixthtone.com" target="_blank" rel="noopener">Sixth Tone — Fenómeno social: aumento de comunidades rurales digitales y emprendimiento rural</a></li><li><a href="https://www.xinhuanet.com" target="_blank" rel="noopener">Xinhua News Agency — Diplomacia científica: China lidera nuevo consorcio internacional de investigación sobre cambio climático</a></li>
+    </ul>
+    <div class="pie-creditos">
+      China Hoy · Edición 2026-06-10 · Generado automáticamente con IA ·
+      Las opiniones expresadas son editoriales y no representan posiciones oficiales.
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
