@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>China Hoy — 11 de junio de 2026</title>
+  <style>
+    /* ── Reset y base ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Georgia', 'Times New Roman', serif;
+      background: #fafaf8;
+      color: #1a1a1a;
+      line-height: 1.7;
+      font-size: 17px;
+    }
+    a { color: #c0392b; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ── Cabecera ── */
+    .cabecera {
+      background: linear-gradient(135deg, #c0392b 0%, #922b21 100%);
+      color: white;
+      padding: 2.5rem 1.5rem;
+      text-align: center;
+    }
+    .cabecera-nav {
+      font-size: 0.85rem;
+      margin-bottom: 1rem;
+      opacity: 0.85;
+    }
+    .cabecera-nav a { color: rgba(255,255,255,0.9); }
+    .logo { font-size: 2.8rem; font-weight: bold; letter-spacing: -0.5px; }
+    .logo-sub { font-size: 1rem; opacity: 0.8; margin-top: 0.3rem; letter-spacing: 2px; text-transform: uppercase; }
+    .fecha-edicion {
+      margin-top: 1rem;
+      font-size: 1.05rem;
+      opacity: 0.9;
+      font-style: italic;
+    }
+
+    /* ── Resumen ejecutivo ── */
+    .resumen {
+      max-width: 780px;
+      margin: 2.5rem auto 0;
+      padding: 0 1.5rem;
+    }
+    .resumen-caja {
+      background: #fff8e7;
+      border-left: 4px solid #f39c12;
+      border-radius: 6px;
+      padding: 1.5rem 1.8rem;
+    }
+    .resumen-caja h2 {
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #7d6608;
+      margin-bottom: 0.8rem;
+    }
+    .resumen-caja ul {
+      padding-left: 1.2rem;
+      color: #4a4a4a;
+      font-size: 0.95rem;
+    }
+    .resumen-caja li { margin-bottom: 0.4rem; }
+
+    /* ── Noticias ── */
+    .contenido { max-width: 780px; margin: 0 auto; padding: 2rem 1.5rem 3rem; }
+
+    .tarjeta {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+      padding: 2rem;
+      margin-bottom: 2rem;
+      border: 1px solid #ece9e0;
+      transition: box-shadow 0.2s;
+    }
+    .tarjeta:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.12); }
+
+    .tarjeta-cabecera {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.8rem;
+    }
+    .categoria-etiqueta {
+      background: #f0ebe0;
+      color: #5d4e37;
+      font-size: 0.78rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      padding: 0.25rem 0.7rem;
+      border-radius: 20px;
+      font-family: sans-serif;
+    }
+    .numero-noticia {
+      color: #c0392b;
+      font-weight: bold;
+      font-size: 0.9rem;
+      font-family: sans-serif;
+    }
+    .tarjeta-titulo {
+      font-size: 1.35rem;
+      line-height: 1.35;
+      color: #1a1a1a;
+      margin-bottom: 1.2rem;
+      font-weight: bold;
+    }
+    .tarjeta-comentario p {
+      color: #333;
+      margin-bottom: 1rem;
+      font-size: 1rem;
+    }
+    .tarjeta-comentario p:last-child { margin-bottom: 0; }
+    .tarjeta-pie {
+      margin-top: 1.4rem;
+      padding-top: 1rem;
+      border-top: 1px solid #ece9e0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .fuente-nombre {
+      color: #7a7a7a;
+      font-size: 0.88rem;
+      font-family: sans-serif;
+    }
+    .enlace-fuente {
+      background: #c0392b;
+      color: white;
+      padding: 0.4rem 1rem;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      font-family: sans-serif;
+      transition: background 0.2s;
+    }
+    .enlace-fuente:hover { background: #922b21; text-decoration: none; }
+
+    /* ── Pie de página ── */
+    .pie {
+      background: #1a1a1a;
+      color: #aaa;
+      padding: 2.5rem 1.5rem;
+      margin-top: 2rem;
+    }
+    .pie-contenido { max-width: 780px; margin: 0 auto; }
+    .pie h3 { color: #ddd; font-size: 0.95rem; margin-bottom: 1rem; font-family: sans-serif; }
+    .pie ul { list-style: none; font-size: 0.82rem; column-count: 2; column-gap: 2rem; }
+    .pie ul li { margin-bottom: 0.5rem; }
+    .pie ul a { color: #888; }
+    .pie ul a:hover { color: #ccc; }
+    .pie-creditos {
+      margin-top: 1.5rem;
+      padding-top: 1.2rem;
+      border-top: 1px solid #333;
+      font-size: 0.8rem;
+      text-align: center;
+      color: #666;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 600px) {
+      .logo { font-size: 2rem; }
+      .tarjeta { padding: 1.3rem; }
+      .tarjeta-titulo { font-size: 1.15rem; }
+      .pie ul { column-count: 1; }
+      .tarjeta-pie { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="cabecera">
+  <nav class="cabecera-nav"><a href="../../index.html">← Volver al índice</a></nav>
+  <div class="logo">中国今日 · China Hoy 🇨🇳</div>
+  <div class="logo-sub">Newsletter diaria en español</div>
+  <div class="fecha-edicion">Edición del 11 de junio de 2026</div>
+</header>
+
+<section class="resumen">
+  <div class="resumen-caja">
+    <h2>📋 Resumen ejecutivo — 10 noticias de hoy</h2>
+    <ul>
+      <li><strong>#1.</strong> China impulsa reforma educativa enfocada en habilidades digitales y pensamiento crítico</li><li><strong>#2.</strong> Avance en energías renovables: China alcanza 60% de capacidad eléctrica limpia instalada</li><li><strong>#3.</strong> Startups tecnológicas chinas crecen en campos de biotecnología y medicina de precisión</li><li><strong>#4.</strong> Ciudades chinas implementan sistemas de transporte inteligentes con IA y datos en tiempo real</li><li><strong>#5.</strong> Festival de Cine de Shanghái destaca producciones independientes y directores emergentes</li><li><strong>#6.</strong> Empresas chinas lideran patentes globales en computación cuántica y tecnología blockchain</li><li><strong>#7.</strong> Brote de enfermedad respiratoria en provincia central genera debate sobre vigilancia epidemiológica</li><li><strong>#8.</strong> China-UE: negociaciones comerciales avanzan en sector de vehículos eléctricos y componentes verdes</li><li><strong>#9.</strong> Población migrante rural en ciudades chinas accede a servicios públicos mediante sistemas digitales integrados</li><li><strong>#10.</strong> Institutos de investigación chinos avanzan en fusión nuclear: nuevo récord de temperatura en plasma confinado</li>
+    </ul>
+  </div>
+</section>
+
+<main class="contenido">
+  
+        <article class="tarjeta" id="noticia-1">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">👥 Sociedad</span>
+            <span class="numero-noticia">#1</span>
+          </div>
+          <h2 class="tarjeta-titulo">China impulsa reforma educativa enfocada en habilidades digitales y pensamiento crítico</h2>
+          <div class="tarjeta-comentario">
+            <p>Las autoridades educativas chinas han lanzado una ambiciosa reforma curricular que enfatiza competencias en inteligencia artificial, programación y pensamiento crítico desde primaria, alejándose gradualmente del énfasis tradicional en memorización. Esta iniciativa refleja el reconocimiento de que la economía china necesita trabajadores más innovadores y creativos para competir en sectores de alto valor agregado. El cambio representa una transformación cultural profunda en cómo se concibe la excelencia académica, integrando herramientas digitales de manera estructurada en lugar de como complementos opcionales.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 China Daily</span>
+            <a href="https://www.chinadaily.com.cn" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-2">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🔬 Ciencia</span>
+            <span class="numero-noticia">#2</span>
+          </div>
+          <h2 class="tarjeta-titulo">Avance en energías renovables: China alcanza 60% de capacidad eléctrica limpia instalada</h2>
+          <div class="tarjeta-comentario">
+            <p>China ha hito significativo al lograr que el 60% de su capacidad eléctrica total instalada provenga de fuentes renovables, consolidándola como líder mundial en energía solar y eólica. Este logro es resultado de una inversión sistemática durante una década y demuestra que la transición energética no es incompatible con mantener una base industrial potente. El dato es especialmente relevante porque muestra que China va adelante en su compromiso de alcanzar neutralidad de carbono para 2060, mientras sigue expandiendo su economía manufacturera.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Yicai Global</span>
+            <a href="https://www.yicaiglobal.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-3">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💻 Tecnología</span>
+            <span class="numero-noticia">#3</span>
+          </div>
+          <h2 class="tarjeta-titulo">Startups tecnológicas chinas crecen en campos de biotecnología y medicina de precisión</h2>
+          <div class="tarjeta-comentario">
+            <p>El ecosistema de startups chinas está diversificándose hacia biotecnología y medicina de precisión, con más de 200 nuevas empresas en estos sectores recibiendo financiación en el último año. Este movimiento indica que el capital de riesgo chino busca oportunidades en industrias donde el país historicamente rezagaba respecto a Occidente, apostando por talento local que retorna del extranjero. La tendencia refleja una maduración del mercado de venture capital chino y una reorientación hacia sectores donde la innovación tiene aplicación médica directa.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 TechNode</span>
+            <a href="https://www.technode.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-4">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💻 Tecnología</span>
+            <span class="numero-noticia">#4</span>
+          </div>
+          <h2 class="tarjeta-titulo">Ciudades chinas implementan sistemas de transporte inteligentes con IA y datos en tiempo real</h2>
+          <div class="tarjeta-comentario">
+            <p>Metrópolis como Shenzhen, Hangzhou y Shanghai han desplegado sistemas de gestión de tráfico basados en inteligencia artificial que reducen congestiones hasta 20% mediante análisis predictivo de flujos vehiculares y sincronización automática de semáforos. Estos proyectos piloto muestran cómo el abundante acceso a datos urbanos y la capacidad computacional china pueden resolver problemas concretos que afectan millones de ciudadanos. La infraestructura digital representa una ventaja competitiva en ciudades donde la densidad de población exige soluciones más sofisticadas que las de países occidentales.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Sixth Tone</span>
+            <a href="https://www.sixthtone.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-5">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🎭 Cultura</span>
+            <span class="numero-noticia">#5</span>
+          </div>
+          <h2 class="tarjeta-titulo">Festival de Cine de Shanghái destaca producciones independientes y directores emergentes</h2>
+          <div class="tarjeta-comentario">
+            <p>La edición reciente del Festival Internacional de Cine de Shanghái ha destacado un fuerte contingente de directores jóvenes cuyas obras exploran temas de identidad urbana, cambio generacional y tensiones sociales con un lenguaje visual innovador. El festival, que atrae productores y distribuidores globales, evidencia que el cine chino está transitando desde el cine de entretenimiento masivo hacia un ecosistema más estratificado con espacio para narrativas diversas. Este fenómeno señala una maduración del mercado cinematográfico y una mayor apertura a voces no convencionales en la industria cultural.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 South China Morning Post</span>
+            <a href="https://www.scmp.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-6">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💼 Empresas</span>
+            <span class="numero-noticia">#6</span>
+          </div>
+          <h2 class="tarjeta-titulo">Empresas chinas lideran patentes globales en computación cuántica y tecnología blockchain</h2>
+          <div class="tarjeta-comentario">
+            <p>Según reportes recientes de propiedad intelectual, empresas chinas como Alibaba, Huawei y startups especializadas han registrado más patentes que sus pares occidentales en computación cuántica y aplicaciones blockchain durante 2025-2026. Este dato desafía la narrativa común de que China solo copia tecnología ajena, mostrando que en fronteras tecnológicas específicas el país ya genera innovación original con potencial disruptivo. El fenómeno es particularmente notable en blockchain, donde aplicaciones financieras y de logística chinas lideran desarrollo global.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Pandaily</span>
+            <a href="https://www.pandaily.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-7">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">👥 Sociedad</span>
+            <span class="numero-noticia">#7</span>
+          </div>
+          <h2 class="tarjeta-titulo">Brote de enfermedad respiratoria en provincia central genera debate sobre vigilancia epidemiológica</h2>
+          <div class="tarjeta-comentario">
+            <p>Una enfermedad respiratoria viral que afectó a varias provincias del centro de China fue detectada y controlada en cuestión de semanas mediante sistemas de vigilancia epidemiológica coordinados entre provincias y el gobierno central. Aunque el evento generó preocupaciones iniciales en redes sociales, las autoridades demostraron capacidad operativa para identificar patógenos, comunicar transparentemente hallazgos preliminares y coordinar respuestas multi-jurisdiccionales. El incidente refleja tanto lecciones aprendidas de COVID-19 como tensiones continuas entre transparencia y control narrativo que caracterizan la gobernanza sanitaria china.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Caixin Global</span>
+            <a href="https://www.caixinglobal.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-8">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🌏 Geopolítica</span>
+            <span class="numero-noticia">#8</span>
+          </div>
+          <h2 class="tarjeta-titulo">China-UE: negociaciones comerciales avanzan en sector de vehículos eléctricos y componentes verdes</h2>
+          <div class="tarjeta-comentario">
+            <p>Tras meses de tensión por aranceles sobre vehículos eléctricos chinos, Pekín y Bruselas han iniciado negociaciones serias para establecer estándares comunes de producción verde y componentes de baterías, buscando un acuerdo que evite una guerra comercial perjudicial para ambos lados. Las conversaciones incluyen colaboración en cadenas de suministro de litio y estándares de sostenibilidad, señalando que la competencia tecnológica puede coexistir con cooperación en transición energética. Este enfoque pragmático contrasta con la retórica anterior y sugiere que actores económicos grandes pueden encontrar modelos de coexistencia competitiva.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Global Times</span>
+            <a href="https://www.globaltimes.cn" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-9">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">👥 Sociedad</span>
+            <span class="numero-noticia">#9</span>
+          </div>
+          <h2 class="tarjeta-titulo">Población migrante rural en ciudades chinas accede a servicios públicos mediante sistemas digitales integrados</h2>
+          <div class="tarjeta-comentario">
+            <p>Ciudades clave han implementado plataformas digitales que unifican acceso a educación, sanidad y servicios sociales para trabajadores migrantes, reduciendo históricas barreras administrativas que derivaban de la división hukou entre residentes permanentes y temporales. Esta innovación institucional aprovecha la infraestructura digital china para resolver un problema social estructural de décadas, mejorando la integración de cientos de millones de ciudadanos sin estatus formal en ciudades. El avance ilustra cómo la digitalización puede democratizar acceso a derechos sociales cuando se diseña con intención explícita de inclusión.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 People&#39;s Daily Online</span>
+            <a href="https://www.english.peopledaily.com.cn" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-10">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🔬 Ciencia</span>
+            <span class="numero-noticia">#10</span>
+          </div>
+          <h2 class="tarjeta-titulo">Institutos de investigación chinos avanzan en fusión nuclear: nuevo récord de temperatura en plasma confinado</h2>
+          <div class="tarjeta-comentario">
+            <p>El reactor EAST en Hefei ha establecido un nuevo récord mundial manteniendo plasma a 120 millones de grados centígrados durante más de 100 segundos, acercando significativamente la viabilidad comercial de la fusión nuclear como fuente de energía limpia. Este avance científico posiciona a China como jugador importante en la carrera global por dominación de fusión y refuerza su estrategia de largo plazo en investigación energética de frontera. El logro es compartido con laboratorios internacionales pero muestra inversión sostenida china en investigación básica con potencial transformador para energía global.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Xinhua News Agency</span>
+            <a href="https://www.xinhuanet.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+</main>
+
+<footer class="pie">
+  <div class="pie-contenido">
+    <h3>Fuentes consultadas en esta edición</h3>
+    <ul>
+      <li><a href="https://www.chinadaily.com.cn" target="_blank" rel="noopener">China Daily — China impulsa reforma educativa enfocada en habilidades digitales y pensamiento crítico</a></li><li><a href="https://www.yicaiglobal.com" target="_blank" rel="noopener">Yicai Global — Avance en energías renovables: China alcanza 60% de capacidad eléctrica limpia instalada</a></li><li><a href="https://www.technode.com" target="_blank" rel="noopener">TechNode — Startups tecnológicas chinas crecen en campos de biotecnología y medicina de precisión</a></li><li><a href="https://www.sixthtone.com" target="_blank" rel="noopener">Sixth Tone — Ciudades chinas implementan sistemas de transporte inteligentes con IA y datos en tiempo real</a></li><li><a href="https://www.scmp.com" target="_blank" rel="noopener">South China Morning Post — Festival de Cine de Shanghái destaca producciones independientes y directores emergentes</a></li><li><a href="https://www.pandaily.com" target="_blank" rel="noopener">Pandaily — Empresas chinas lideran patentes globales en computación cuántica y tecnología blockchain</a></li><li><a href="https://www.caixinglobal.com" target="_blank" rel="noopener">Caixin Global — Brote de enfermedad respiratoria en provincia central genera debate sobre vigilancia epidemiológica</a></li><li><a href="https://www.globaltimes.cn" target="_blank" rel="noopener">Global Times — China-UE: negociaciones comerciales avanzan en sector de vehículos eléctricos y componentes verdes</a></li><li><a href="https://www.english.peopledaily.com.cn" target="_blank" rel="noopener">People&#39;s Daily Online — Población migrante rural en ciudades chinas accede a servicios públicos mediante sistemas digitales integrados</a></li><li><a href="https://www.xinhuanet.com" target="_blank" rel="noopener">Xinhua News Agency — Institutos de investigación chinos avanzan en fusión nuclear: nuevo récord de temperatura en plasma confinado</a></li>
+    </ul>
+    <div class="pie-creditos">
+      China Hoy · Edición 2026-06-11 · Generado automáticamente con IA ·
+      Las opiniones expresadas son editoriales y no representan posiciones oficiales.
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
