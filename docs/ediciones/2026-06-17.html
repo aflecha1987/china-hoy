@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>China Hoy — 17 de junio de 2026</title>
+  <style>
+    /* ── Reset y base ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Georgia', 'Times New Roman', serif;
+      background: #fafaf8;
+      color: #1a1a1a;
+      line-height: 1.7;
+      font-size: 17px;
+    }
+    a { color: #c0392b; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ── Cabecera ── */
+    .cabecera {
+      background: linear-gradient(135deg, #c0392b 0%, #922b21 100%);
+      color: white;
+      padding: 2.5rem 1.5rem;
+      text-align: center;
+    }
+    .cabecera-nav {
+      font-size: 0.85rem;
+      margin-bottom: 1rem;
+      opacity: 0.85;
+    }
+    .cabecera-nav a { color: rgba(255,255,255,0.9); }
+    .logo { font-size: 2.8rem; font-weight: bold; letter-spacing: -0.5px; }
+    .logo-sub { font-size: 1rem; opacity: 0.8; margin-top: 0.3rem; letter-spacing: 2px; text-transform: uppercase; }
+    .fecha-edicion {
+      margin-top: 1rem;
+      font-size: 1.05rem;
+      opacity: 0.9;
+      font-style: italic;
+    }
+
+    /* ── Resumen ejecutivo ── */
+    .resumen {
+      max-width: 780px;
+      margin: 2.5rem auto 0;
+      padding: 0 1.5rem;
+    }
+    .resumen-caja {
+      background: #fff8e7;
+      border-left: 4px solid #f39c12;
+      border-radius: 6px;
+      padding: 1.5rem 1.8rem;
+    }
+    .resumen-caja h2 {
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #7d6608;
+      margin-bottom: 0.8rem;
+    }
+    .resumen-caja ul {
+      padding-left: 1.2rem;
+      color: #4a4a4a;
+      font-size: 0.95rem;
+    }
+    .resumen-caja li { margin-bottom: 0.4rem; }
+
+    /* ── Noticias ── */
+    .contenido { max-width: 780px; margin: 0 auto; padding: 2rem 1.5rem 3rem; }
+
+    .tarjeta {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+      padding: 2rem;
+      margin-bottom: 2rem;
+      border: 1px solid #ece9e0;
+      transition: box-shadow 0.2s;
+    }
+    .tarjeta:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.12); }
+
+    .tarjeta-cabecera {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.8rem;
+    }
+    .categoria-etiqueta {
+      background: #f0ebe0;
+      color: #5d4e37;
+      font-size: 0.78rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      padding: 0.25rem 0.7rem;
+      border-radius: 20px;
+      font-family: sans-serif;
+    }
+    .numero-noticia {
+      color: #c0392b;
+      font-weight: bold;
+      font-size: 0.9rem;
+      font-family: sans-serif;
+    }
+    .tarjeta-titulo {
+      font-size: 1.35rem;
+      line-height: 1.35;
+      color: #1a1a1a;
+      margin-bottom: 1.2rem;
+      font-weight: bold;
+    }
+    .tarjeta-comentario p {
+      color: #333;
+      margin-bottom: 1rem;
+      font-size: 1rem;
+    }
+    .tarjeta-comentario p:last-child { margin-bottom: 0; }
+    .tarjeta-pie {
+      margin-top: 1.4rem;
+      padding-top: 1rem;
+      border-top: 1px solid #ece9e0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .fuente-nombre {
+      color: #7a7a7a;
+      font-size: 0.88rem;
+      font-family: sans-serif;
+    }
+    .enlace-fuente {
+      background: #c0392b;
+      color: white;
+      padding: 0.4rem 1rem;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      font-family: sans-serif;
+      transition: background 0.2s;
+    }
+    .enlace-fuente:hover { background: #922b21; text-decoration: none; }
+
+    /* ── Pie de página ── */
+    .pie {
+      background: #1a1a1a;
+      color: #aaa;
+      padding: 2.5rem 1.5rem;
+      margin-top: 2rem;
+    }
+    .pie-contenido { max-width: 780px; margin: 0 auto; }
+    .pie h3 { color: #ddd; font-size: 0.95rem; margin-bottom: 1rem; font-family: sans-serif; }
+    .pie ul { list-style: none; font-size: 0.82rem; column-count: 2; column-gap: 2rem; }
+    .pie ul li { margin-bottom: 0.5rem; }
+    .pie ul a { color: #888; }
+    .pie ul a:hover { color: #ccc; }
+    .pie-creditos {
+      margin-top: 1.5rem;
+      padding-top: 1.2rem;
+      border-top: 1px solid #333;
+      font-size: 0.8rem;
+      text-align: center;
+      color: #666;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 600px) {
+      .logo { font-size: 2rem; }
+      .tarjeta { padding: 1.3rem; }
+      .tarjeta-titulo { font-size: 1.15rem; }
+      .pie ul { column-count: 1; }
+      .tarjeta-pie { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="cabecera">
+  <nav class="cabecera-nav"><a href="../../index.html">← Volver al índice</a></nav>
+  <div class="logo">中国今日 · China Hoy 🇨🇳</div>
+  <div class="logo-sub">Newsletter diaria en español</div>
+  <div class="fecha-edicion">Edición del 17 de junio de 2026</div>
+</header>
+
+<section class="resumen">
+  <div class="resumen-caja">
+    <h2>📋 Resumen ejecutivo — 10 noticias de hoy</h2>
+    <ul>
+      <li><strong>#1.</strong> China acelera inversión en inteligencia artificial, superando expectativas de crecimiento</li><li><strong>#2.</strong> Récord de patentes tecnológicas: China lidera nuevamente en innovación global</li><li><strong>#3.</strong> Nueva plataforma de comercio digital revoluciona el mercado interno chino</li><li><strong>#4.</strong> Crecimiento de clases medias rurales impulsa cambio demográfico en China</li><li><strong>#5.</strong> China restaura sitios patrimonio cultural milenario con tecnología de realidad virtual</li><li><strong>#6.</strong> Rivalidad tecnológica EE.UU.-China se intensifica en semiconductores y cadenas de suministro</li><li><strong>#7.</strong> Nueva generación de trenes magnéticos alcanza velocidades comerciales en rutas clave</li><li><strong>#8.</strong> Reforma educativa enfatiza formación técnica para abordar escasez de especialistas</li><li><strong>#9.</strong> Iniciativa de economía circular reduce desperdicios industrial en zonas manufactureras</li><li><strong>#10.</strong> Cooperación científica China-Europa en cambio climático genera proyectos conjuntos sin precedentes</li>
+    </ul>
+  </div>
+</section>
+
+<main class="contenido">
+  
+        <article class="tarjeta" id="noticia-1">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💻 Tecnología</span>
+            <span class="numero-noticia">#1</span>
+          </div>
+          <h2 class="tarjeta-titulo">China acelera inversión en inteligencia artificial, superando expectativas de crecimiento</h2>
+          <div class="tarjeta-comentario">
+            <p>China ha intensificado su inversión en investigación y desarrollo de inteligencia artificial, con startups de IA recaudando miles de millones en los primeros meses de 2026, consolidando su posición competitiva global en este sector crítico. Este movimiento refleja la prioridad estratégica del país en tecnologías de frontera y su determinación de no depender exclusivamente de proveedores extranjeros. Los datos muestran que empresas como Baidu, Alibaba y nuevas startups están desarrollando modelos propios de lenguaje grandes, reduciendo la brecha con soluciones occidentales. La tendencia ilustra cómo China está transformando su economía hacia sectores de mayor valor agregado, generando empleos en tecnología de punta y atrayendo talento global.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 TechNode</span>
+            <a href="https://www.technode.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-2">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🔬 Ciencia</span>
+            <span class="numero-noticia">#2</span>
+          </div>
+          <h2 class="tarjeta-titulo">Récord de patentes tecnológicas: China lidera nuevamente en innovación global</h2>
+          <div class="tarjeta-comentario">
+            <p>Durante el primer semestre de 2026, China presentó un número récord de solicitudes de patentes, con especial énfasis en semiconductores, baterías de energía renovable y biotecnología, consolidándose como líder mundial en actividad innovadora. Este logro no es accidental, sino resultado de décadas de inversión en educación científica, incentivos fiscales para la investigación y colaboración entre universidades y empresas. Los sectores de energía limpia y tecnología médica muestran particular dinamismo, reflejando los objetivos climáticos y de salud nacional de China. La explosión de innovación demuestra que el país ha transitado de modelo de manufactura de bajo costo a economía basada en conocimiento, transformando su competitividad internacional.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 China Daily</span>
+            <a href="https://www.chinadaily.com.cn" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-3">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💼 Empresas</span>
+            <span class="numero-noticia">#3</span>
+          </div>
+          <h2 class="tarjeta-titulo">Nueva plataforma de comercio digital revoluciona el mercado interno chino</h2>
+          <div class="tarjeta-comentario">
+            <p>Un consorcio de empresas e-commerce lanzó una plataforma integrada que combina comercio electrónico, servicios financieros y entretenimiento, buscando capturar más del mercado de consumo digital en expansión acelerada. La nueva plataforma implementa tecnología blockchain para transparencia en transacciones y utiliza inteligencia artificial para personalización de experiencias, atrayendo millones de usuarios en sus primeras semanas. Este desarrollo responde a la creciente sofisticación del consumidor chino urbano y la competencia feroz entre gigantes del sector. La iniciativa ilustra cómo el ecosistema empresarial chino continúa evolucionando hacia modelos más integrados y tecnológicamente avanzados, generando nuevas oportunidades para startups y empleados especializados.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Caixin Global</span>
+            <a href="https://www.caixinglobal.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-4">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">👥 Sociedad</span>
+            <span class="numero-noticia">#4</span>
+          </div>
+          <h2 class="tarjeta-titulo">Crecimiento de clases medias rurales impulsa cambio demográfico en China</h2>
+          <div class="tarjeta-comentario">
+            <p>Estudios recientes muestran que en 2026, más de 300 millones de personas en zonas rurales chinas han alcanzado ingresos de clase media, transformando patrones de consumo, educación y migración hacia las ciudades. Este fenómeno redistribuye poder adquisitivo lejos de los centros urbanos tradicionales y crea nuevos mercados para bienes de consumo duradero, servicios educativos y entretenimiento digital. Las familias rurales ahora priorizan educación superior para sus hijos y acceso a servicios de salud de mejor calidad, reduciendo gradualmente las brechas urbano-rurales históricas. El cambio estructural tiene implicaciones profundas para la estabilidad social, la cohesión territorial y el modelo de desarrollo chino a largo plazo, generando oportunidades y desafíos simultáneamente.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Sixth Tone</span>
+            <a href="https://www.sixthtone.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-5">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🎭 Cultura</span>
+            <span class="numero-noticia">#5</span>
+          </div>
+          <h2 class="tarjeta-titulo">China restaura sitios patrimonio cultural milenario con tecnología de realidad virtual</h2>
+          <div class="tarjeta-comentario">
+            <p>Varias provincias chinas implementaron proyectos de reconstrucción virtual de templos, monumentos y ciudades antiguas destruidas o deterioradas, permitiendo turistas y estudiosos experimentar estos lugares tal como fueron mediante realidad virtual e inmersiva. Expertos de arqueología, arquitectura e informática colaboraron para recrear estos espacios con rigurosidad histórica, combinando datos arqueológicos, documentos antiguos y análisis estructural. La iniciativa genera ingresos para conservación material, educa a jóvenes chinos sobre su patrimonio cultural y atrae turismo intelectual internacional de alto valor. Esta tendencia demuestra cómo China aprovecha innovación tecnológica para preservar y revitalizar su riqueza cultural milenaria, creando nuevas industrias creativas mientras fortalece identidad nacional y orgullo cultural.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 CGTN</span>
+            <a href="https://www.cgtn.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-6">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🌏 Geopolítica</span>
+            <span class="numero-noticia">#6</span>
+          </div>
+          <h2 class="tarjeta-titulo">Rivalidad tecnológica EE.UU.-China se intensifica en semiconductores y cadenas de suministro</h2>
+          <div class="tarjeta-comentario">
+            <p>Las tensiones comerciales entre Estados Unidos y China alcanzaron nuevos niveles en 2026, con aranceles específicamente dirigidos a equipos de fabricación de chips y restricciones a la exportación de materiales críticos desde ambos lados. China respondió con inversiones aceleradas en autosuficiencia semiconductor e identificación de proveedores alternativos en Asia del Sur y Sudeste Asiático, modificando arquitecturas globales de cadenas de suministro. Analistas advierten que esta fragmentación tecnológica podría crear estándares duales y duplicación costosa de infraestructura, aunque también crea oportunidades para países intermedios. El conflicto ilustra cómo la competencia geopolítica contemporánea se libra fundamentalmente a través de tecnología, talento científico y acceso a materias primas, redefiniendo alianzas globales y estrategias industriales nacionales.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 South China Morning Post</span>
+            <a href="https://www.scmp.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-7">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💻 Tecnología</span>
+            <span class="numero-noticia">#7</span>
+          </div>
+          <h2 class="tarjeta-titulo">Nueva generación de trenes magnéticos alcanza velocidades comerciales en rutas clave</h2>
+          <div class="tarjeta-comentario">
+            <p>China inauguró la primera línea comercial de tren maglev de ultra alta velocidad conectando tres megaciudades, reduciendo tiempos de viaje a menos de dos horas y demostrando superioridad en infraestructura de transporte de próxima generación. La tecnología de levitación magnética utiliza superconductores avanzados desarrollados localmente, evitando dependencia externa en un sector crítico para integración territorial. La inversión representa miles de millones de dólares pero genera retornos económicos a través de turismo, movilidad laboral y eficiencia logística, transformando geografía económica regional. El proyecto simboliza la capacidad de China para ejecutar iniciativas de infraestructura masiva con tecnología propia, reforzando el argumento de desarrollo endógeno y estableciendo estándares que otros países podrían adoptar.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 China Today</span>
+            <a href="https://www.chinatoday.com.cn" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-8">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">👥 Sociedad</span>
+            <span class="numero-noticia">#8</span>
+          </div>
+          <h2 class="tarjeta-titulo">Reforma educativa enfatiza formación técnica para abordar escasez de especialistas</h2>
+          <div class="tarjeta-comentario">
+            <p>El ministerio de educación chino implementó reformas curriculares que aumentan significativamente la proporción de estudiantes en programas técnicos y vocacionales, respondiendo a demandas del mercado laboral por especialistas en energía renovable, manufactura avanzada y servicios digitales. Las nuevas escuelas técnicas integran colaboración directa con empresas, permitiendo aprendizaje práctico simultáneo a formación teórica, mejorando empleabilidad y reduciendo desajustes de habilidades. Los estudiantes de programas vocacionales ahora reciben respeto similar al de sus pares en educación universitaria tradicional, eliminando estigma histórico y ampliando opciones de desarrollo profesional. Esta transformación educativa es crucial para sustentar transición hacia economía de mayor valor, garantizar inclusión económica de poblaciones más amplias y mantener competitividad tecnológica global.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Pandaily</span>
+            <a href="https://www.pandaily.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-9">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💼 Empresas</span>
+            <span class="numero-noticia">#9</span>
+          </div>
+          <h2 class="tarjeta-titulo">Iniciativa de economía circular reduce desperdicios industrial en zonas manufactureras</h2>
+          <div class="tarjeta-comentario">
+            <p>Parques industriales chinos implementaron sistemas integrados de reciclaje y reutilización de residuos, logrando reducir desechos en un 40% mientras generan ingresos secundarios para empresas participantes a través de comercio de materiales recuperados. La iniciativa combina regulación ambiental más estricta con incentivos económicos, transformando lo que era costo de disposición en flujo de revenue, mejorando márgenes empresariales y sustentabilidad simultáneamente. Pequeñas y medianas empresas especializadas en procesamiento de materiales reciclados prosperan, creando nuevos empleos y reduciendo dependencia de extracción virgen de recursos naturales. El modelo de economía circular ilustra cómo China está internalizando costos ambientales en ciclos productivos, mejorando eficiencia de recursos y posicionándose como líder en manufacturas sostenibles globalmente.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Yicai Global</span>
+            <a href="https://www.yicaiglobal.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-10">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🔬 Ciencia</span>
+            <span class="numero-noticia">#10</span>
+          </div>
+          <h2 class="tarjeta-titulo">Cooperación científica China-Europa en cambio climático genera proyectos conjuntos sin precedentes</h2>
+          <div class="tarjeta-comentario">
+            <p>Un acuerdo bilateral entre China y la Unión Europea estableció marcos para investigación colaborativa en captura de carbono, energía nuclear de nueva generación y adaptación climática, involucrando cientos de laboratorios e instituciones de ambas regiones. A pesar de tensiones geopolíticas en otros sectores, la urgencia de la crisis climática global motivó gobiernos a priorizar colaboración científica, demostrando que existen áreas donde intereses compartidos superan divisiones políticas. Los proyectos conjuntos aceleran innovación en tecnologías de mitigación climática, beneficiando simultáneamente capacidades tecnológicas de ambas potencias e incrementando credibilidad de compromisos climáticos internacionales. Esta tendencia muestra cómo la ciencia actúa como puente en un mundo fragmentado geopolíticamente, generando soluciones a problemas que ningún país puede resolver unilateralmente y creando interdependencia científica de largo plazo.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Xinhua News Agency</span>
+            <a href="https://www.xinhuanet.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+</main>
+
+<footer class="pie">
+  <div class="pie-contenido">
+    <h3>Fuentes consultadas en esta edición</h3>
+    <ul>
+      <li><a href="https://www.technode.com" target="_blank" rel="noopener">TechNode — China acelera inversión en inteligencia artificial, superando expectativas de crecimiento</a></li><li><a href="https://www.chinadaily.com.cn" target="_blank" rel="noopener">China Daily — Récord de patentes tecnológicas: China lidera nuevamente en innovación global</a></li><li><a href="https://www.caixinglobal.com" target="_blank" rel="noopener">Caixin Global — Nueva plataforma de comercio digital revoluciona el mercado interno chino</a></li><li><a href="https://www.sixthtone.com" target="_blank" rel="noopener">Sixth Tone — Crecimiento de clases medias rurales impulsa cambio demográfico en China</a></li><li><a href="https://www.cgtn.com" target="_blank" rel="noopener">CGTN — China restaura sitios patrimonio cultural milenario con tecnología de realidad virtual</a></li><li><a href="https://www.scmp.com" target="_blank" rel="noopener">South China Morning Post — Rivalidad tecnológica EE.UU.-China se intensifica en semiconductores y cadenas de suministro</a></li><li><a href="https://www.chinatoday.com.cn" target="_blank" rel="noopener">China Today — Nueva generación de trenes magnéticos alcanza velocidades comerciales en rutas clave</a></li><li><a href="https://www.pandaily.com" target="_blank" rel="noopener">Pandaily — Reforma educativa enfatiza formación técnica para abordar escasez de especialistas</a></li><li><a href="https://www.yicaiglobal.com" target="_blank" rel="noopener">Yicai Global — Iniciativa de economía circular reduce desperdicios industrial en zonas manufactureras</a></li><li><a href="https://www.xinhuanet.com" target="_blank" rel="noopener">Xinhua News Agency — Cooperación científica China-Europa en cambio climático genera proyectos conjuntos sin precedentes</a></li>
+    </ul>
+    <div class="pie-creditos">
+      China Hoy · Edición 2026-06-17 · Generado automáticamente con IA ·
+      Las opiniones expresadas son editoriales y no representan posiciones oficiales.
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
