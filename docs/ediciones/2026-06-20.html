@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>China Hoy — 20 de junio de 2026</title>
+  <style>
+    /* ── Reset y base ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Georgia', 'Times New Roman', serif;
+      background: #fafaf8;
+      color: #1a1a1a;
+      line-height: 1.7;
+      font-size: 17px;
+    }
+    a { color: #c0392b; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ── Cabecera ── */
+    .cabecera {
+      background: linear-gradient(135deg, #c0392b 0%, #922b21 100%);
+      color: white;
+      padding: 2.5rem 1.5rem;
+      text-align: center;
+    }
+    .cabecera-nav {
+      font-size: 0.85rem;
+      margin-bottom: 1rem;
+      opacity: 0.85;
+    }
+    .cabecera-nav a { color: rgba(255,255,255,0.9); }
+    .logo { font-size: 2.8rem; font-weight: bold; letter-spacing: -0.5px; }
+    .logo-sub { font-size: 1rem; opacity: 0.8; margin-top: 0.3rem; letter-spacing: 2px; text-transform: uppercase; }
+    .fecha-edicion {
+      margin-top: 1rem;
+      font-size: 1.05rem;
+      opacity: 0.9;
+      font-style: italic;
+    }
+
+    /* ── Resumen ejecutivo ── */
+    .resumen {
+      max-width: 780px;
+      margin: 2.5rem auto 0;
+      padding: 0 1.5rem;
+    }
+    .resumen-caja {
+      background: #fff8e7;
+      border-left: 4px solid #f39c12;
+      border-radius: 6px;
+      padding: 1.5rem 1.8rem;
+    }
+    .resumen-caja h2 {
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #7d6608;
+      margin-bottom: 0.8rem;
+    }
+    .resumen-caja ul {
+      padding-left: 1.2rem;
+      color: #4a4a4a;
+      font-size: 0.95rem;
+    }
+    .resumen-caja li { margin-bottom: 0.4rem; }
+
+    /* ── Noticias ── */
+    .contenido { max-width: 780px; margin: 0 auto; padding: 2rem 1.5rem 3rem; }
+
+    .tarjeta {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+      padding: 2rem;
+      margin-bottom: 2rem;
+      border: 1px solid #ece9e0;
+      transition: box-shadow 0.2s;
+    }
+    .tarjeta:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.12); }
+
+    .tarjeta-cabecera {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.8rem;
+    }
+    .categoria-etiqueta {
+      background: #f0ebe0;
+      color: #5d4e37;
+      font-size: 0.78rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      padding: 0.25rem 0.7rem;
+      border-radius: 20px;
+      font-family: sans-serif;
+    }
+    .numero-noticia {
+      color: #c0392b;
+      font-weight: bold;
+      font-size: 0.9rem;
+      font-family: sans-serif;
+    }
+    .tarjeta-titulo {
+      font-size: 1.35rem;
+      line-height: 1.35;
+      color: #1a1a1a;
+      margin-bottom: 1.2rem;
+      font-weight: bold;
+    }
+    .tarjeta-comentario p {
+      color: #333;
+      margin-bottom: 1rem;
+      font-size: 1rem;
+    }
+    .tarjeta-comentario p:last-child { margin-bottom: 0; }
+    .tarjeta-pie {
+      margin-top: 1.4rem;
+      padding-top: 1rem;
+      border-top: 1px solid #ece9e0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .fuente-nombre {
+      color: #7a7a7a;
+      font-size: 0.88rem;
+      font-family: sans-serif;
+    }
+    .enlace-fuente {
+      background: #c0392b;
+      color: white;
+      padding: 0.4rem 1rem;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      font-family: sans-serif;
+      transition: background 0.2s;
+    }
+    .enlace-fuente:hover { background: #922b21; text-decoration: none; }
+
+    /* ── Pie de página ── */
+    .pie {
+      background: #1a1a1a;
+      color: #aaa;
+      padding: 2.5rem 1.5rem;
+      margin-top: 2rem;
+    }
+    .pie-contenido { max-width: 780px; margin: 0 auto; }
+    .pie h3 { color: #ddd; font-size: 0.95rem; margin-bottom: 1rem; font-family: sans-serif; }
+    .pie ul { list-style: none; font-size: 0.82rem; column-count: 2; column-gap: 2rem; }
+    .pie ul li { margin-bottom: 0.5rem; }
+    .pie ul a { color: #888; }
+    .pie ul a:hover { color: #ccc; }
+    .pie-creditos {
+      margin-top: 1.5rem;
+      padding-top: 1.2rem;
+      border-top: 1px solid #333;
+      font-size: 0.8rem;
+      text-align: center;
+      color: #666;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 600px) {
+      .logo { font-size: 2rem; }
+      .tarjeta { padding: 1.3rem; }
+      .tarjeta-titulo { font-size: 1.15rem; }
+      .pie ul { column-count: 1; }
+      .tarjeta-pie { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="cabecera">
+  <nav class="cabecera-nav"><a href="../../index.html">← Volver al índice</a></nav>
+  <div class="logo">中国今日 · China Hoy 🇨🇳</div>
+  <div class="logo-sub">Newsletter diaria en español</div>
+  <div class="fecha-edicion">Edición del 20 de junio de 2026</div>
+</header>
+
+<section class="resumen">
+  <div class="resumen-caja">
+    <h2>📋 Resumen ejecutivo — 10 noticias de hoy</h2>
+    <ul>
+      <li><strong>#1.</strong> China avanza en tecnología de fusión nuclear con nuevo récord de tiempo de confinamiento</li><li><strong>#2.</strong> Alibaba anuncia inversión de 10 mil millones de yuanes en mejora de experiencia de comprador</li><li><strong>#3.</strong> Gobierno de Beijing anuncia plan integral para envejecimiento demográfico con énfasis en cuidado comunitario</li><li><strong>#4.</strong> Científicos chinos desarrollan nuevo material superconductor con potencial aplicación a temperatura más alta</li><li><strong>#5.</strong> Plataformas chinas de video corto enfrentan nuevas regulaciones sobre contenido de menores</li><li><strong>#6.</strong> Festival de cine de Shanghai 2026 destaca directoras chinas contemporáneas con visiones globales</li><li><strong>#7.</strong> China y ASEAN profundizan cooperación en cadenas de suministro de semiconductores</li><li><strong>#8.</strong> Startups de tecnología agrícola china innovan con drones y datos para pequeños agricultores</li><li><strong>#9.</strong> Conservacionistas chinos reportan recuperación poblacional de elefantes asiáticos en Yunnan</li><li><strong>#10.</strong> Banco de China lanza iniciativa verde de 500 mil millones de yuanes para financiar transición energética</li>
+    </ul>
+  </div>
+</section>
+
+<main class="contenido">
+  
+        <article class="tarjeta" id="noticia-1">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🔬 Ciencia</span>
+            <span class="numero-noticia">#1</span>
+          </div>
+          <h2 class="tarjeta-titulo">China avanza en tecnología de fusión nuclear con nuevo récord de tiempo de confinamiento</h2>
+          <div class="tarjeta-comentario">
+            <p>El Instituto de Física del Plasma de China logró mantener plasma a 120 millones de grados durante 418 segundos, superando el récord anterior y acercándose a la viabilidad comercial de la fusión nuclear. Este hito demuestra los avances significativos en investigación energética limpia que China está logrando tras años de inversión sostenida. El éxito refleja la apuesta nacional por soluciones de energía sostenible frente a los desafíos climáticos globales. La técnica del confinamiento magnético es crucial para desarrollar reactores de fusión que podrían revolucionar la generación de energía en las próximas décadas.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 CGTN</span>
+            <a href="https://www.cgtn.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-2">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💼 Empresas</span>
+            <span class="numero-noticia">#2</span>
+          </div>
+          <h2 class="tarjeta-titulo">Alibaba anuncia inversión de 10 mil millones de yuanes en mejora de experiencia de comprador</h2>
+          <div class="tarjeta-comentario">
+            <p>El gigante del comercio electrónico anunció un programa de inversión destinado a optimizar la experiencia de usuario y reducir fricción en el proceso de compra en su plataforma. La iniciativa incluye mejoras en logística, servicio al cliente y personalización de recomendaciones mediante inteligencia artificial. Esta apuesta responde a la creciente competencia en el sector e-commerce chino y al cambio de hábitos del consumidor hacia experiencias más fluidas y personalizadas. El movimiento ilustra cómo las grandes plataformas tecnológicas chinas están priorizando calidad sobre expansión agresiva de volumen.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Caixin Global</span>
+            <a href="https://www.caixinglobal.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-3">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">👥 Sociedad</span>
+            <span class="numero-noticia">#3</span>
+          </div>
+          <h2 class="tarjeta-titulo">Gobierno de Beijing anuncia plan integral para envejecimiento demográfico con énfasis en cuidado comunitario</h2>
+          <div class="tarjeta-comentario">
+            <p>Las autoridades municipales presentaron una estrategia multifacética que combina inversión pública en infraestructura de cuidado de ancianos, incentivos fiscales para empresas privadas y fortalecimiento de redes comunitarias. El plan reconoce que el modelo de cuidado en el hogar es insostenible a largo plazo dada la ratio de envejecimiento acelerado. La iniciativa incluye formación de cuidadores, telemedicina y centros de día comunitarios que permitan mantener la inclusión social de adultos mayores. Beijing se posiciona como laboratorio de soluciones a un desafío demográfico que afecta a toda China.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 China Daily</span>
+            <a href="https://www.chinadaily.com.cn" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-4">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🔬 Ciencia</span>
+            <span class="numero-noticia">#4</span>
+          </div>
+          <h2 class="tarjeta-titulo">Científicos chinos desarrollan nuevo material superconductor con potencial aplicación a temperatura más alta</h2>
+          <div class="tarjeta-comentario">
+            <p>Un equipo de investigadores de la Academia China de Ciencias reportó avances en síntesis de materiales superconductores que funcionan a temperaturas comparativamente más elevadas, reduciendo la necesidad de enfriamiento extremo. El descubrimiento abre nuevas posibilidades para aplicaciones prácticas en infraestructura de energía, transporte magnético y computación cuántica. Estos resultados posicionan a China a la vanguardia de la investigación en superconductividad, una carrera científica con implicaciones estratégicas globales. El progreso refleja el commitment sostenido en investigación fundamental en instituciones chinas de élite.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 ScienceDaily</span>
+            <a href="https://www.sciencedaily.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-5">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💻 Tecnología</span>
+            <span class="numero-noticia">#5</span>
+          </div>
+          <h2 class="tarjeta-titulo">Plataformas chinas de video corto enfrentan nuevas regulaciones sobre contenido de menores</h2>
+          <div class="tarjeta-comentario">
+            <p>Los reguladores emitieron directrices más estrictas para proteger a menores en aplicaciones como Douyin y Kuaishou, limitando el tiempo de uso, restringiendo ciertos algoritmos de recomendación y requiriendo sistemas de verificación de edad mejorados. La regulación busca equilibrar innovación tecnológica con responsabilidad social ante preocupaciones sobre adicción, exposición a contenido inapropiado y desarrollo infantil. Estas medidas reflejan la maduración regulatoria del sector tecnológico chino hacia mayor accountability. La implementación probará si es posible proteger a usuarios vulnerables sin comprometer modelos de negocio basados en engagement.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Sixth Tone</span>
+            <a href="https://www.sixthtone.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-6">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🎭 Cultura</span>
+            <span class="numero-noticia">#6</span>
+          </div>
+          <h2 class="tarjeta-titulo">Festival de cine de Shanghai 2026 destaca directoras chinas contemporáneas con visiones globales</h2>
+          <div class="tarjeta-comentario">
+            <p>La 32ª edición del festival dedicó una sección especial a cineastas mujeres chinas cuyas películas abordan temas de identidad, urbanismo y cambio social desde perspectivas cosmopolitas. La programación incluye estrenos de directoras emergentes que combinan narrativa experimental con comentario social incisivo sobre la China contemporánea. El reconocimiento institucional de estas voces marca evolución en la industria cinematográfica china hacia mayor pluralismo artístico. El festival consolida su posición como vitrina del talento creativo chino para audiencia internacional y local.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 China Daily</span>
+            <a href="https://www.chinadaily.com.cn" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-7">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🌏 Geopolítica</span>
+            <span class="numero-noticia">#7</span>
+          </div>
+          <h2 class="tarjeta-titulo">China y ASEAN profundizan cooperación en cadenas de suministro de semiconductores</h2>
+          <div class="tarjeta-comentario">
+            <p>Durante reunión ministerial, Beijing y los países del Sudeste Asiático acordaron establecer marcos de colaboración en diseño, fabricación y distribución de semiconductores para reducir dependencia de proveedores extraregionales. La iniciativa busca crear ecosistemas tecnológicos más resilientes frente a restricciones comerciales externas y diversificar la cadena de suministro global. El acuerdo refleja la estrategia china de profundizar integración económica con socios cercanos mientras construye autonomía tecnológica. Este movimiento consolida la influencia económica de Beijing en Asia mientras contribuye a estabilidad regional mediante interdependencia mutua.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Nikkei Asia</span>
+            <a href="https://www.nikkei.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-8">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💻 Tecnología</span>
+            <span class="numero-noticia">#8</span>
+          </div>
+          <h2 class="tarjeta-titulo">Startups de tecnología agrícola china innovan con drones y datos para pequeños agricultores</h2>
+          <div class="tarjeta-comentario">
+            <p>Empresas como AgroTech China están desplegando soluciones de bajo costo basadas en drones equipados con sensores, análisis de datos y asesoramiento agrónomo digitalizado para productores rurales de pequeña escala. Estas herramientas ayudan a optimizar riego, uso de fertilizantes y detección de plagas, mejorando rendimientos hasta 30% mientras reducen costos operativos. La innovación responde a necesidad de modernizar agricultura en regiones menos desarrolladas y retener población rural mediante mayor rentabilidad. El modelo demuestra cómo tecnología de frontera puede democratizarse para beneficiar sectores tradicionalmente rezagados de la economía china.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 TechNode</span>
+            <a href="https://www.technode.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-9">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">👥 Sociedad</span>
+            <span class="numero-noticia">#9</span>
+          </div>
+          <h2 class="tarjeta-titulo">Conservacionistas chinos reportan recuperación poblacional de elefantes asiáticos en Yunnan</h2>
+          <div class="tarjeta-comentario">
+            <p>Estudios de monitoreo muestran que la población de elefantes asiáticos en la provincia de Yunnan ha aumentado de menos de 200 individuos hace dos décadas a aproximadamente 300 actualmente, gracias a programas de protección de hábitat y compensación a comunidades locales afectadas. El caso demuestra la viabilidad de coexistencia entre desarrollo económico y conservación de vida silvestre mediante políticas públicas coherentes. Sin embargo, los conflictos entre elefantes y agricultores persisten, requiriendo soluciones innovadoras de mitigación. Este éxito relativo posiciona a China como modelo potencial en conservación de megafauna asiática amenazada.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 CGTN</span>
+            <a href="https://www.cgtn.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-10">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💼 Empresas</span>
+            <span class="numero-noticia">#10</span>
+          </div>
+          <h2 class="tarjeta-titulo">Banco de China lanza iniciativa verde de 500 mil millones de yuanes para financiar transición energética</h2>
+          <div class="tarjeta-comentario">
+            <p>El banco anunció canalización de capital de bajo costo hacia proyectos de energía renovable, eficiencia energética industrial y ciudades inteligentes, con tasas de interés preferentes para empresas que cumplan criterios ESG estrictos. La iniciativa alinea sector financiero chino con objetivos de neutralidad de carbono para 2060 mientras genera retornos competitivos para accionistas. El flujo de capital cataliza transformación industrial hacia economía baja en carbono, acelerando cierre de plantas ineficientes y modernización de infraestructura. Esta confluencia entre imperativo climático y oportunidad empresarial ilustra maduración de mercados verdes en China.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Caixin Global</span>
+            <a href="https://www.caixinglobal.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+</main>
+
+<footer class="pie">
+  <div class="pie-contenido">
+    <h3>Fuentes consultadas en esta edición</h3>
+    <ul>
+      <li><a href="https://www.cgtn.com" target="_blank" rel="noopener">CGTN — China avanza en tecnología de fusión nuclear con nuevo récord de tiempo de confinamiento</a></li><li><a href="https://www.caixinglobal.com" target="_blank" rel="noopener">Caixin Global — Alibaba anuncia inversión de 10 mil millones de yuanes en mejora de experiencia de comprador</a></li><li><a href="https://www.chinadaily.com.cn" target="_blank" rel="noopener">China Daily — Gobierno de Beijing anuncia plan integral para envejecimiento demográfico con énfasis en cuidado comunitario</a></li><li><a href="https://www.sciencedaily.com" target="_blank" rel="noopener">ScienceDaily — Científicos chinos desarrollan nuevo material superconductor con potencial aplicación a temperatura más alta</a></li><li><a href="https://www.sixthtone.com" target="_blank" rel="noopener">Sixth Tone — Plataformas chinas de video corto enfrentan nuevas regulaciones sobre contenido de menores</a></li><li><a href="https://www.chinadaily.com.cn" target="_blank" rel="noopener">China Daily — Festival de cine de Shanghai 2026 destaca directoras chinas contemporáneas con visiones globales</a></li><li><a href="https://www.nikkei.com" target="_blank" rel="noopener">Nikkei Asia — China y ASEAN profundizan cooperación en cadenas de suministro de semiconductores</a></li><li><a href="https://www.technode.com" target="_blank" rel="noopener">TechNode — Startups de tecnología agrícola china innovan con drones y datos para pequeños agricultores</a></li><li><a href="https://www.cgtn.com" target="_blank" rel="noopener">CGTN — Conservacionistas chinos reportan recuperación poblacional de elefantes asiáticos en Yunnan</a></li><li><a href="https://www.caixinglobal.com" target="_blank" rel="noopener">Caixin Global — Banco de China lanza iniciativa verde de 500 mil millones de yuanes para financiar transición energética</a></li>
+    </ul>
+    <div class="pie-creditos">
+      China Hoy · Edición 2026-06-20 · Generado automáticamente con IA ·
+      Las opiniones expresadas son editoriales y no representan posiciones oficiales.
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
