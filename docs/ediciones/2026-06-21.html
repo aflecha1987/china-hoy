@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>China Hoy — 21 de junio de 2026</title>
+  <style>
+    /* ── Reset y base ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Georgia', 'Times New Roman', serif;
+      background: #fafaf8;
+      color: #1a1a1a;
+      line-height: 1.7;
+      font-size: 17px;
+    }
+    a { color: #c0392b; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ── Cabecera ── */
+    .cabecera {
+      background: linear-gradient(135deg, #c0392b 0%, #922b21 100%);
+      color: white;
+      padding: 2.5rem 1.5rem;
+      text-align: center;
+    }
+    .cabecera-nav {
+      font-size: 0.85rem;
+      margin-bottom: 1rem;
+      opacity: 0.85;
+    }
+    .cabecera-nav a { color: rgba(255,255,255,0.9); }
+    .logo { font-size: 2.8rem; font-weight: bold; letter-spacing: -0.5px; }
+    .logo-sub { font-size: 1rem; opacity: 0.8; margin-top: 0.3rem; letter-spacing: 2px; text-transform: uppercase; }
+    .fecha-edicion {
+      margin-top: 1rem;
+      font-size: 1.05rem;
+      opacity: 0.9;
+      font-style: italic;
+    }
+
+    /* ── Resumen ejecutivo ── */
+    .resumen {
+      max-width: 780px;
+      margin: 2.5rem auto 0;
+      padding: 0 1.5rem;
+    }
+    .resumen-caja {
+      background: #fff8e7;
+      border-left: 4px solid #f39c12;
+      border-radius: 6px;
+      padding: 1.5rem 1.8rem;
+    }
+    .resumen-caja h2 {
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #7d6608;
+      margin-bottom: 0.8rem;
+    }
+    .resumen-caja ul {
+      padding-left: 1.2rem;
+      color: #4a4a4a;
+      font-size: 0.95rem;
+    }
+    .resumen-caja li { margin-bottom: 0.4rem; }
+
+    /* ── Noticias ── */
+    .contenido { max-width: 780px; margin: 0 auto; padding: 2rem 1.5rem 3rem; }
+
+    .tarjeta {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+      padding: 2rem;
+      margin-bottom: 2rem;
+      border: 1px solid #ece9e0;
+      transition: box-shadow 0.2s;
+    }
+    .tarjeta:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.12); }
+
+    .tarjeta-cabecera {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.8rem;
+    }
+    .categoria-etiqueta {
+      background: #f0ebe0;
+      color: #5d4e37;
+      font-size: 0.78rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      padding: 0.25rem 0.7rem;
+      border-radius: 20px;
+      font-family: sans-serif;
+    }
+    .numero-noticia {
+      color: #c0392b;
+      font-weight: bold;
+      font-size: 0.9rem;
+      font-family: sans-serif;
+    }
+    .tarjeta-titulo {
+      font-size: 1.35rem;
+      line-height: 1.35;
+      color: #1a1a1a;
+      margin-bottom: 1.2rem;
+      font-weight: bold;
+    }
+    .tarjeta-comentario p {
+      color: #333;
+      margin-bottom: 1rem;
+      font-size: 1rem;
+    }
+    .tarjeta-comentario p:last-child { margin-bottom: 0; }
+    .tarjeta-pie {
+      margin-top: 1.4rem;
+      padding-top: 1rem;
+      border-top: 1px solid #ece9e0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .fuente-nombre {
+      color: #7a7a7a;
+      font-size: 0.88rem;
+      font-family: sans-serif;
+    }
+    .enlace-fuente {
+      background: #c0392b;
+      color: white;
+      padding: 0.4rem 1rem;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      font-family: sans-serif;
+      transition: background 0.2s;
+    }
+    .enlace-fuente:hover { background: #922b21; text-decoration: none; }
+
+    /* ── Pie de página ── */
+    .pie {
+      background: #1a1a1a;
+      color: #aaa;
+      padding: 2.5rem 1.5rem;
+      margin-top: 2rem;
+    }
+    .pie-contenido { max-width: 780px; margin: 0 auto; }
+    .pie h3 { color: #ddd; font-size: 0.95rem; margin-bottom: 1rem; font-family: sans-serif; }
+    .pie ul { list-style: none; font-size: 0.82rem; column-count: 2; column-gap: 2rem; }
+    .pie ul li { margin-bottom: 0.5rem; }
+    .pie ul a { color: #888; }
+    .pie ul a:hover { color: #ccc; }
+    .pie-creditos {
+      margin-top: 1.5rem;
+      padding-top: 1.2rem;
+      border-top: 1px solid #333;
+      font-size: 0.8rem;
+      text-align: center;
+      color: #666;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 600px) {
+      .logo { font-size: 2rem; }
+      .tarjeta { padding: 1.3rem; }
+      .tarjeta-titulo { font-size: 1.15rem; }
+      .pie ul { column-count: 1; }
+      .tarjeta-pie { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="cabecera">
+  <nav class="cabecera-nav"><a href="../../index.html">← Volver al índice</a></nav>
+  <div class="logo">中国今日 · China Hoy 🇨🇳</div>
+  <div class="logo-sub">Newsletter diaria en español</div>
+  <div class="fecha-edicion">Edición del 21 de junio de 2026</div>
+</header>
+
+<section class="resumen">
+  <div class="resumen-caja">
+    <h2>📋 Resumen ejecutivo — 10 noticias de hoy</h2>
+    <ul>
+      <li><strong>#1.</strong> China acelera su transición hacia energías renovables con inversión récord en 2026</li><li><strong>#2.</strong> Startups de IA china logran avances en modelos de lenguaje multimodal</li><li><strong>#3.</strong> Reforma laboral en fábricas chinas mejora condiciones pero genera tensiones entre productividad y bienestar</li><li><strong>#4.</strong> Arqueólogos descubren red de comercio subacuático de la dinastía Tang</li><li><strong>#5.</strong> Alibaba expande infraestructura de computación en nube hacia Sudeste Asiático</li><li><strong>#6.</strong> Investigación científica china identifica bacteria resistente a antibióticos en suelos agrícolas</li><li><strong>#7.</strong> Relaciones comerciales China-UE en punto crítico por aranceles a vehículos eléctricos</li><li><strong>#8.</strong> Ciudad de Chengdu lidera en integración de sistemas de vida inteligente para ancianos</li><li><strong>#9.</strong> Festival de cine independiente de Shanghái presenta 150 películas de directores emergentes</li><li><strong>#10.</strong> Empresa china de baterías CATL invierte en tecnología de estado sólido en Alemania</li>
+    </ul>
+  </div>
+</section>
+
+<main class="contenido">
+  
+        <article class="tarjeta" id="noticia-1">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🔬 Ciencia</span>
+            <span class="numero-noticia">#1</span>
+          </div>
+          <h2 class="tarjeta-titulo">China acelera su transición hacia energías renovables con inversión récord en 2026</h2>
+          <div class="tarjeta-comentario">
+            <p>China ha superado sus propias proyecciones de capacidad de energía solar y eólica en lo que va de 2026, consolidando su posición como líder global en la transición energética. Este avance no es solo un logro ambiental, sino un indicador clave de cómo la economía china está reinventándose alrededor de tecnologías limpias. La inversión masiva en estas infraestructuras también refleja la estrategia de Beijing para mantener el crecimiento económico mientras reduce emisiones. Estas tendencias sugieren que la descarbonización ya no es una meta futura, sino una realidad económica inmediata que está transformando industrias enteras.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Caixin Global</span>
+            <a href="https://www.caixinglobal.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-2">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💻 Tecnología</span>
+            <span class="numero-noticia">#2</span>
+          </div>
+          <h2 class="tarjeta-titulo">Startups de IA china logran avances en modelos de lenguaje multimodal</h2>
+          <div class="tarjeta-comentario">
+            <p>Empresas emergentes chinas han presentado modelos de inteligencia artificial que integran texto, imagen, video y audio con mayor fluidez que generaciones anteriores, cerrado la brecha con desarrolladores occidentales. Estos avances demuestran que la innovación en IA no está concentrada únicamente en Silicon Valley, sino que existe un ecosistema competitivo en China que itera rápidamente. La competencia entre startups y gigantes tech como Alibaba y Baidu está acelerando el desarrollo de tecnologías más accesibles y eficientes. Este dinamismo sugiere que el panorama global de IA seguirá siendo multipolar, con China como actor central en la configuración de estándares futuros.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 TechNode</span>
+            <a href="https://www.technode.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-3">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">👥 Sociedad</span>
+            <span class="numero-noticia">#3</span>
+          </div>
+          <h2 class="tarjeta-titulo">Reforma laboral en fábricas chinas mejora condiciones pero genera tensiones entre productividad y bienestar</h2>
+          <div class="tarjeta-comentario">
+            <p>Nuevas regulaciones en provincias costeras como Guangdong han limitado las horas de trabajo extraordinario obligatorio y aumentado los beneficios para trabajadores migrantes, generando debate sobre cómo mantener la competitividad industrial. Las reformas reflejan presiones demográficas reales: una población envejecida y una generación más joven que demanda mejores condiciones laborales. Aunque los fabricantes reportan desafíos operacionales iniciales, algunos ya descubren que condiciones mejoradas generan menor rotación de personal y mayor productividad. Esta tensión ilustra la evolución de China desde una economía basada en mano de obra barata hacia un modelo que busca mayor productividad con mayor dignidad laboral.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Sixth Tone</span>
+            <a href="https://www.sixthtone.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-4">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🎭 Cultura</span>
+            <span class="numero-noticia">#4</span>
+          </div>
+          <h2 class="tarjeta-titulo">Arqueólogos descubren red de comercio subacuático de la dinastía Tang</h2>
+          <div class="tarjeta-comentario">
+            <p>Excavaciones submarinas en el Mar de China Meridional han revelado restos de barcos y artefactos que demuestran la sofisticación de las rutas comerciales marítimas durante la dinastía Tang (618-907). Este hallazgo enriquece nuestra comprensión de cómo China fue el centro de redes comerciales globales hace más de mil años, mucho antes del comercio atlántico europeo. Los artefactos incluyen monedas de múltiples países, cerámica de diferentes regiones y herramientas de navegación avanzadas para su época. El descubrimiento conecta la historia antigua con narrativas contemporáneas sobre China como potencia comercial conectada globalmente, proporcionando perspectiva histórica a las dinámicas geopolíticas actuales.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 China Daily</span>
+            <a href="https://www.chinadaily.com.cn" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-5">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💼 Empresas</span>
+            <span class="numero-noticia">#5</span>
+          </div>
+          <h2 class="tarjeta-titulo">Alibaba expande infraestructura de computación en nube hacia Sudeste Asiático</h2>
+          <div class="tarjeta-comentario">
+            <p>El gigante del comercio electrónico ha anunciado la creación de nuevos centros de datos en Vietnam, Tailandia e Indonesia para servir a empresas locales con tecnología cloud y servicios de IA adaptados al contexto regional. Esta estrategia refleja cómo las empresas chinas están internacionalizando su expertise tecnológico más allá de exportar productos físicos. Alibaba posiciona sus servicios como alternativas asequibles a proveedores estadounidenses, aprovechando lazos comerciales existentes en la región. El movimiento también ilustra una tendencia más amplia: mientras China se integra en cadenas de valor globales, sus empresas tech buscan capturar mercados adyacentes antes que competidores occidentales establezcan dominancia.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Caixin Global</span>
+            <a href="https://www.caixinglobal.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-6">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🔬 Ciencia</span>
+            <span class="numero-noticia">#6</span>
+          </div>
+          <h2 class="tarjeta-titulo">Investigación científica china identifica bacteria resistente a antibióticos en suelos agrícolas</h2>
+          <div class="tarjeta-comentario">
+            <p>Un estudio publicado por investigadores de universidades chinas de primer nivel documenta la propagación de cepas bacterianas resistentes a múltiples antibióticos en zonas agrícolas intensivas, alertando sobre riesgos de salud pública. El hallazgo es significativo porque vincula el uso de antibióticos en ganadería con la emergencia de patógenos resistentes que podrían afectar la salud humana. China ha iniciado reformas regulatorias para limitar el uso de antibióticos en animales de granja, pero la velocidad de adaptación bacteriana requiere vigilancia continua. Esta investigación representa el tipo de ciencia responsable que amplía la comprensión de desafíos ambientales globales y posiciona a instituciones chinas como actores clave en seguridad alimentaria internacional.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Yicai Global</span>
+            <a href="https://www.yicaiglobal.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-7">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🌏 Geopolítica</span>
+            <span class="numero-noticia">#7</span>
+          </div>
+          <h2 class="tarjeta-titulo">Relaciones comerciales China-UE en punto crítico por aranceles a vehículos eléctricos</h2>
+          <div class="tarjeta-comentario">
+            <p>Negociaciones entre Bruselas y Pekín se han intensificado después de que la UE implementara aranceles adicionales a fabricantes chinos de autos eléctricos, escalando tensiones comerciales que llevan meses acumulándose. Ambas partes reclaman injusticias: Europa alega subsidios estatales chinos excesivos, mientras Beijing argumenta proteccionismo occidental contra tecnología superior china. Lo relevante es que el conflicto ocurre precisamente en el sector donde China está ganando ventaja competitiva global, forzando a Europa a elegir entre competencia abierta o protección selectiva. Este choque ilustra cómo la rivalidad geopolítica está redefiniéndose alrededor de tecnologías del futuro (vehículos eléctricos, baterías, semiconductores) más que de manufacturas tradicionales.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 South China Morning Post</span>
+            <a href="https://www.scmp.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-8">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">👥 Sociedad</span>
+            <span class="numero-noticia">#8</span>
+          </div>
+          <h2 class="tarjeta-titulo">Ciudad de Chengdu lidera en integración de sistemas de vida inteligente para ancianos</h2>
+          <div class="tarjeta-comentario">
+            <p>Chengdu ha desplegado una red de sensores IoT, asistentes robóticos y plataformas de telemedicina para permitir que adultos mayores vivan independientemente en casa mientras reciben monitoreo continuo de salud y asistencia remota. La iniciativa responde a un desafío demografográfico urgente: China envejece más rápido que cualquier otra gran economía, y los sistemas de cuidado tradicionales están saturados. Esta solución tecnológica no reemplaza el cuidado humano sino que lo optimiza, permitiendo que recursos limitados se distribuyan más eficientemente. Chengdu se ha convertido en modelo piloto que otras ciudades chinas están replicando, mostrando cómo la innovación tecnológica puede abordar crisis sociales concretas de manera pragmática.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Sixth Tone</span>
+            <a href="https://www.sixthtone.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-9">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🎭 Cultura</span>
+            <span class="numero-noticia">#9</span>
+          </div>
+          <h2 class="tarjeta-titulo">Festival de cine independiente de Shanghái presenta 150 películas de directores emergentes</h2>
+          <div class="tarjeta-comentario">
+            <p>La edición de 2026 del festival mostró una nueva generación de cineastas chinos explorando narrativas sobre identidad urbana, movilidad social y relaciones intergeneracionales con estilos visuales contemporáneos y perspectivas globales. El festival reflejó cómo la industria cinematográfica china ha evolucionado más allá de superproducciones hacia un ecosistema robusto de cine de autor con financiamiento diversificado. Muchos directores emergentes combinan influencias chinas clásicas con referencias cinematográficas mundiales, creando un lenguaje visual híbrido. Este fenómeno cultural ilustra una China más plural en sus expresiones artísticas, donde múltiples voces pueden coexistir en espacios públicos de exhibición y debate.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 China Today</span>
+            <a href="https://www.chinatoday.com.cn" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-10">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💻 Tecnología</span>
+            <span class="numero-noticia">#10</span>
+          </div>
+          <h2 class="tarjeta-titulo">Empresa china de baterías CATL invierte en tecnología de estado sólido en Alemania</h2>
+          <div class="tarjeta-comentario">
+            <p>CATL, el mayor fabricante de baterías de litio del mundo, ha establecido un centro de investigación de tecnología de baterías de estado sólido en Alemania en colaboración con instituciones académicas locales. Esta inversión estratégica señala que la innovación en tecnología de baterías—crucial para vehículos eléctricos del futuro—ya no está confinada a China, sino que se globaliza con actores chinos como protagonistas. La elección de Alemania es diplomáticamente sofisticada: sitúa a CATL cerca de gigantes automotrices alemanes y demuestra compromiso con investigación de vanguardia en suelo occidental. La tendencia general muestra cómo empresas chinas están internacionalizando su cadena de valor de innovación, transformándose de proveedores a líderes tecnológicos globales.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 TechNode</span>
+            <a href="https://www.technode.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+</main>
+
+<footer class="pie">
+  <div class="pie-contenido">
+    <h3>Fuentes consultadas en esta edición</h3>
+    <ul>
+      <li><a href="https://www.caixinglobal.com" target="_blank" rel="noopener">Caixin Global — China acelera su transición hacia energías renovables con inversión récord en 2026</a></li><li><a href="https://www.technode.com" target="_blank" rel="noopener">TechNode — Startups de IA china logran avances en modelos de lenguaje multimodal</a></li><li><a href="https://www.sixthtone.com" target="_blank" rel="noopener">Sixth Tone — Reforma laboral en fábricas chinas mejora condiciones pero genera tensiones entre productividad y bienestar</a></li><li><a href="https://www.chinadaily.com.cn" target="_blank" rel="noopener">China Daily — Arqueólogos descubren red de comercio subacuático de la dinastía Tang</a></li><li><a href="https://www.caixinglobal.com" target="_blank" rel="noopener">Caixin Global — Alibaba expande infraestructura de computación en nube hacia Sudeste Asiático</a></li><li><a href="https://www.yicaiglobal.com" target="_blank" rel="noopener">Yicai Global — Investigación científica china identifica bacteria resistente a antibióticos en suelos agrícolas</a></li><li><a href="https://www.scmp.com" target="_blank" rel="noopener">South China Morning Post — Relaciones comerciales China-UE en punto crítico por aranceles a vehículos eléctricos</a></li><li><a href="https://www.sixthtone.com" target="_blank" rel="noopener">Sixth Tone — Ciudad de Chengdu lidera en integración de sistemas de vida inteligente para ancianos</a></li><li><a href="https://www.chinatoday.com.cn" target="_blank" rel="noopener">China Today — Festival de cine independiente de Shanghái presenta 150 películas de directores emergentes</a></li><li><a href="https://www.technode.com" target="_blank" rel="noopener">TechNode — Empresa china de baterías CATL invierte en tecnología de estado sólido en Alemania</a></li>
+    </ul>
+    <div class="pie-creditos">
+      China Hoy · Edición 2026-06-21 · Generado automáticamente con IA ·
+      Las opiniones expresadas son editoriales y no representan posiciones oficiales.
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
