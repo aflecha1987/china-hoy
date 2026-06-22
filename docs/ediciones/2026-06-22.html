@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>China Hoy — 22 de junio de 2026</title>
+  <style>
+    /* ── Reset y base ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Georgia', 'Times New Roman', serif;
+      background: #fafaf8;
+      color: #1a1a1a;
+      line-height: 1.7;
+      font-size: 17px;
+    }
+    a { color: #c0392b; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ── Cabecera ── */
+    .cabecera {
+      background: linear-gradient(135deg, #c0392b 0%, #922b21 100%);
+      color: white;
+      padding: 2.5rem 1.5rem;
+      text-align: center;
+    }
+    .cabecera-nav {
+      font-size: 0.85rem;
+      margin-bottom: 1rem;
+      opacity: 0.85;
+    }
+    .cabecera-nav a { color: rgba(255,255,255,0.9); }
+    .logo { font-size: 2.8rem; font-weight: bold; letter-spacing: -0.5px; }
+    .logo-sub { font-size: 1rem; opacity: 0.8; margin-top: 0.3rem; letter-spacing: 2px; text-transform: uppercase; }
+    .fecha-edicion {
+      margin-top: 1rem;
+      font-size: 1.05rem;
+      opacity: 0.9;
+      font-style: italic;
+    }
+
+    /* ── Resumen ejecutivo ── */
+    .resumen {
+      max-width: 780px;
+      margin: 2.5rem auto 0;
+      padding: 0 1.5rem;
+    }
+    .resumen-caja {
+      background: #fff8e7;
+      border-left: 4px solid #f39c12;
+      border-radius: 6px;
+      padding: 1.5rem 1.8rem;
+    }
+    .resumen-caja h2 {
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #7d6608;
+      margin-bottom: 0.8rem;
+    }
+    .resumen-caja ul {
+      padding-left: 1.2rem;
+      color: #4a4a4a;
+      font-size: 0.95rem;
+    }
+    .resumen-caja li { margin-bottom: 0.4rem; }
+
+    /* ── Noticias ── */
+    .contenido { max-width: 780px; margin: 0 auto; padding: 2rem 1.5rem 3rem; }
+
+    .tarjeta {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+      padding: 2rem;
+      margin-bottom: 2rem;
+      border: 1px solid #ece9e0;
+      transition: box-shadow 0.2s;
+    }
+    .tarjeta:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.12); }
+
+    .tarjeta-cabecera {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.8rem;
+    }
+    .categoria-etiqueta {
+      background: #f0ebe0;
+      color: #5d4e37;
+      font-size: 0.78rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      padding: 0.25rem 0.7rem;
+      border-radius: 20px;
+      font-family: sans-serif;
+    }
+    .numero-noticia {
+      color: #c0392b;
+      font-weight: bold;
+      font-size: 0.9rem;
+      font-family: sans-serif;
+    }
+    .tarjeta-titulo {
+      font-size: 1.35rem;
+      line-height: 1.35;
+      color: #1a1a1a;
+      margin-bottom: 1.2rem;
+      font-weight: bold;
+    }
+    .tarjeta-comentario p {
+      color: #333;
+      margin-bottom: 1rem;
+      font-size: 1rem;
+    }
+    .tarjeta-comentario p:last-child { margin-bottom: 0; }
+    .tarjeta-pie {
+      margin-top: 1.4rem;
+      padding-top: 1rem;
+      border-top: 1px solid #ece9e0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .fuente-nombre {
+      color: #7a7a7a;
+      font-size: 0.88rem;
+      font-family: sans-serif;
+    }
+    .enlace-fuente {
+      background: #c0392b;
+      color: white;
+      padding: 0.4rem 1rem;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      font-family: sans-serif;
+      transition: background 0.2s;
+    }
+    .enlace-fuente:hover { background: #922b21; text-decoration: none; }
+
+    /* ── Pie de página ── */
+    .pie {
+      background: #1a1a1a;
+      color: #aaa;
+      padding: 2.5rem 1.5rem;
+      margin-top: 2rem;
+    }
+    .pie-contenido { max-width: 780px; margin: 0 auto; }
+    .pie h3 { color: #ddd; font-size: 0.95rem; margin-bottom: 1rem; font-family: sans-serif; }
+    .pie ul { list-style: none; font-size: 0.82rem; column-count: 2; column-gap: 2rem; }
+    .pie ul li { margin-bottom: 0.5rem; }
+    .pie ul a { color: #888; }
+    .pie ul a:hover { color: #ccc; }
+    .pie-creditos {
+      margin-top: 1.5rem;
+      padding-top: 1.2rem;
+      border-top: 1px solid #333;
+      font-size: 0.8rem;
+      text-align: center;
+      color: #666;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 600px) {
+      .logo { font-size: 2rem; }
+      .tarjeta { padding: 1.3rem; }
+      .tarjeta-titulo { font-size: 1.15rem; }
+      .pie ul { column-count: 1; }
+      .tarjeta-pie { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="cabecera">
+  <nav class="cabecera-nav"><a href="../../index.html">← Volver al índice</a></nav>
+  <div class="logo">中国今日 · China Hoy 🇨🇳</div>
+  <div class="logo-sub">Newsletter diaria en español</div>
+  <div class="fecha-edicion">Edición del 22 de junio de 2026</div>
+</header>
+
+<section class="resumen">
+  <div class="resumen-caja">
+    <h2>📋 Resumen ejecutivo — 10 noticias de hoy</h2>
+    <ul>
+      <li><strong>#1.</strong> China acelera inversión en energías renovables alcanzando récord de capacidad solar instalada</li><li><strong>#2.</strong> Alibaba expande su plataforma de comercio digital en mercados emergentes de Asia Sudoriental</li><li><strong>#3.</strong> Investigadores chinos logran avance significativo en computación cuántica con nuevo procesador</li><li><strong>#4.</strong> Juventud china muestra menor interés en carreras tradicionales, optando por emprendimiento digital</li><li><strong>#5.</strong> Gobierno chino refuerza regulaciones sobre privacidad de datos en plataformas digitales</li><li><strong>#6.</strong> Cine chino experimenta resurgimiento con películas independientes y narrativas diversas</li><li><strong>#7.</strong> China-ASEAN: acuerdo comercial ampliado para fortalecer integración regional</li><li><strong>#8.</strong> Universidades chinas lideran en publicaciones de investigación científica, especializada en IA y materiales</li><li><strong>#9.</strong> Sector inmobiliario chino se reorganiza tras reformas: enfoque en vivienda asequible</li><li><strong>#10.</strong> Iniciativa de conservación de humedales en la cuenca del Yangtze logra restauración de ecosistemas</li>
+    </ul>
+  </div>
+</section>
+
+<main class="contenido">
+  
+        <article class="tarjeta" id="noticia-1">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💻 Tecnología</span>
+            <span class="numero-noticia">#1</span>
+          </div>
+          <h2 class="tarjeta-titulo">China acelera inversión en energías renovables alcanzando récord de capacidad solar instalada</h2>
+          <div class="tarjeta-comentario">
+            <p>China ha superado sus propias proyecciones al instalar más de 500 GW de capacidad solar en 2025, posicionándose como líder mundial indiscutible en esta tecnología crucial para la transición energética. Este logro refleja no solo la capacidad industrial del país, sino también su compromiso con reducir la dependencia de combustibles fósiles y liderar la agenda climática global. La inversión masiva en infraestructura renovable está creando nuevas cadenas de suministro y oportunidades de exportación, especialmente en paneles solares de última generación. Esta tendencia subraya cómo China está transformando su economía hacia modelos más sostenibles mientras mantiene su competitividad manufacturera.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Caixin Global</span>
+            <a href="https://www.caixinglobal.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-2">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💼 Empresas</span>
+            <span class="numero-noticia">#2</span>
+          </div>
+          <h2 class="tarjeta-titulo">Alibaba expande su plataforma de comercio digital en mercados emergentes de Asia Sudoriental</h2>
+          <div class="tarjeta-comentario">
+            <p>El gigante del e-commerce ha anunciado una estrategia ambiciosa de expansión en Vietnam, Tailandia e Indonesia, invirtiendo más de 2.000 millones de dólares en infraestructura local y asociaciones con distribuidores regionales. La iniciativa responde a la creciente demanda de servicios digitales en Asia Sudoriental y al mayor acceso a internet en zonas rurales de estos países. Alibaba no solo busca vender productos chinos, sino también construir ecosistemas digitales locales que conecten pequeños negocios con consumidores regionales. Esta expansión ilustra cómo las empresas chinas están adaptando su modelo de negocio para mercados específicos, más allá de la simple exportación.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Caixin Global</span>
+            <a href="https://www.caixinglobal.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-3">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🔬 Ciencia</span>
+            <span class="numero-noticia">#3</span>
+          </div>
+          <h2 class="tarjeta-titulo">Investigadores chinos logran avance significativo en computación cuántica con nuevo procesador</h2>
+          <div class="tarjeta-comentario">
+            <p>Un equipo de investigadores de la Universidad de Ciencia y Tecnología de China ha presentado un nuevo procesador cuántico con 1.000 qubits, representando un paso importante hacia la computación cuántica práctica y escalable. El desarrollo, resultado de años de investigación financiada por el Estado, demuestra la maduración de la capacidad científica china en tecnologías de frontera. Aunque todavía hay retos significativos antes de aplicaciones comerciales generalizadas, este avance coloca a China a la par con otros líderes mundiales en este campo. El hito ilustra cómo las inversiones a largo plazo en investigación básica están generando innovaciones que podrían transformar la computación global.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 TechNode</span>
+            <a href="https://www.technode.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-4">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">👥 Sociedad</span>
+            <span class="numero-noticia">#4</span>
+          </div>
+          <h2 class="tarjeta-titulo">Juventud china muestra menor interés en carreras tradicionales, optando por emprendimiento digital</h2>
+          <div class="tarjeta-comentario">
+            <p>Encuestas recientes indican que aproximadamente el 40% de los graduados universitarios chinos en 2025 han elegido iniciar negocios en línea en lugar de buscar empleos corporativos tradicionales, un cambio significativo respecto a hace una década. Este fenómeno refleja tanto la saturación del mercado laboral corporativo como la mayor facilidad para acceder a herramientas de emprendimiento digital y plataformas de comercio electrónico. Los jóvenes buscan mayor autonomía, flexibilidad y la posibilidad de monetizar creatividad e innovación a través de contenido, servicios digitales y micro-empresas. Este cambio generacional tiene implicaciones profundas para la estructura económica china y cómo el país gestiona el empleo y el desarrollo de talento.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Sixth Tone</span>
+            <a href="https://www.sixthtone.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-5">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💻 Tecnología</span>
+            <span class="numero-noticia">#5</span>
+          </div>
+          <h2 class="tarjeta-titulo">Gobierno chino refuerza regulaciones sobre privacidad de datos en plataformas digitales</h2>
+          <div class="tarjeta-comentario">
+            <p>Las autoridades de protección de datos de China han introducido nuevas regulaciones que requieren que las plataformas digitales obtengan consentimiento explícito antes de recopilar datos biométricos o de comportamiento, afectando a gigantes como Tencent y ByteDance. Las medidas buscan equilibrar la innovación tecnológica con la protección de derechos individuales, respondiendo a preocupaciones crecientes sobre vigilancia digital y el uso comercial de datos personales. Las nuevas normas incluyen multas significativas para incumplimiento y mayor transparencia en algoritmos de recomendación, obligando a las empresas a rediseñar sistemas operativos. Esta regulación marca una maduración del enfoque estatal hacia la gobernanza digital, reconociendo tanto beneficios como riesgos de la economía de datos.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 South China Morning Post</span>
+            <a href="https://www.scmp.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-6">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🎭 Cultura</span>
+            <span class="numero-noticia">#6</span>
+          </div>
+          <h2 class="tarjeta-titulo">Cine chino experimenta resurgimiento con películas independientes y narrativas diversas</h2>
+          <div class="tarjeta-comentario">
+            <p>El festival de cine de Shanghái de 2025 ha destacado una nueva generación de directores chinos que exploran narrativas menos convencionales, con películas sobre identidad, migración rural y relaciones familiares ganando reconocimiento internacional. Este resurgimiento refleja una audiencia más sofisticada y curiosa, así como mayor espacio creativo dentro del marco regulatorio chino para historias que desafíen convenciones sin ser directamente políticas. Las plataformas de streaming están invirtiendo en talento de cine independiente, democratizando el acceso a historias chinas diversas más allá de blockbusters comerciales. Esta tendencia ilustra cómo la industria cultural china está evolucionando hacia mayor pluralismo narrativo, atrayendo tanto a audiencias locales como internacionales.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Sixth Tone</span>
+            <a href="https://www.sixthtone.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-7">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🌏 Geopolítica</span>
+            <span class="numero-noticia">#7</span>
+          </div>
+          <h2 class="tarjeta-titulo">China-ASEAN: acuerdo comercial ampliado para fortalecer integración regional</h2>
+          <div class="tarjeta-comentario">
+            <p>China y los países de la ASEAN han alcanzado un acuerdo ampliado que reduce aranceles en sectores clave como agricultura, tecnología y manufactura, proyectando aumentar el comercio bilateral en un 25% durante los próximos cinco años. El acuerdo refuerza la posición de China como socio económico central en Asia Sudoriental y fortalece los lazos establecidos por la Asociación Regional Integral de Inversión (RCEP). La integración económica más profunda beneficia a empresas pequeñas y medianas en toda la región, facilitando cadenas de suministro más eficientes y acceso a mercados. Este movimiento subraya la estrategia china de construir influencia a través de interdependencia económica y cooperación mutuamente beneficiosa.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Caixin Global</span>
+            <a href="https://www.caixinglobal.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-8">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🔬 Ciencia</span>
+            <span class="numero-noticia">#8</span>
+          </div>
+          <h2 class="tarjeta-titulo">Universidades chinas lideran en publicaciones de investigación científica, especializada en IA y materiales</h2>
+          <div class="tarjeta-comentario">
+            <p>Según análisis bibliométricos recientes, instituciones chinas como Tsinghua y Peking University han aumentado su participación en publicaciones científicas internacionales de alto impacto, particularmente en inteligencia artificial, nanotecnología y ciencias de materiales avanzados. Este avance es resultado de décadas de inversión estatal en educación superior, reclutamiento de talento internacional y colaboraciones de investigación transfronterizas. Las universidades chinas no solo generan más papers, sino que estos están siendo citados y replicados por colegas globales, indicando calidad y relevancia del trabajo científico. Esta tendencia refleja la transición de China de consumidor a productor de conocimiento científico de vanguardia.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Yicai Global</span>
+            <a href="https://www.yicaiglobal.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-9">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💼 Empresas</span>
+            <span class="numero-noticia">#9</span>
+          </div>
+          <h2 class="tarjeta-titulo">Sector inmobiliario chino se reorganiza tras reformas: enfoque en vivienda asequible</h2>
+          <div class="tarjeta-comentario">
+            <p>Las grandes constructoras chinas están reorientando sus modelos de negocio hacia proyectos de vivienda asequible y ciudades medianas, en respuesta a las políticas gubernamentales que desalientan la especulación inmobiliaria en grandes metrópolis. Empresas como China State Construction están desarrollando nuevos estándares de eficiencia constructiva y sostenibilidad ambiental en proyectos residenciales. Este cambio estructural en la industria es beneficioso para la estabilidad financiera y el acceso vivienda de millones de familias de clase media-baja. La reorganización del sector ilustra cómo las políticas regulatorias pueden reorientar capital privado hacia objetivos sociales sin eliminar el crecimiento económico.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 South China Morning Post</span>
+            <a href="https://www.scmp.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-10">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">👥 Sociedad</span>
+            <span class="numero-noticia">#10</span>
+          </div>
+          <h2 class="tarjeta-titulo">Iniciativa de conservación de humedales en la cuenca del Yangtze logra restauración de ecosistemas</h2>
+          <div class="tarjeta-comentario">
+            <p>Un ambicioso programa de restauración de humedales en cinco provincias de la cuenca del Yangtze ha logrado rehabilitar más de 50.000 hectáreas, mejorando hábitats para especies endémicas y aumentando la captura natural de carbono en la región. El proyecto combina financiamiento público con participación de comunidades locales y empresas que compensan su huella de carbono invirtiendo en conservación, demostrando modelo de colaboración público-privada. Los humedales restaurados también están reduciendo el riesgo de inundaciones y mejorando la calidad del agua para decenas de millones de personas aguas abajo. Esta iniciativa ejemplifica cómo China está integrando objetivos ambientales con desarrollo económico y bienestar comunitario a escala regional.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 China Daily</span>
+            <a href="https://www.chinadaily.com.cn" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+</main>
+
+<footer class="pie">
+  <div class="pie-contenido">
+    <h3>Fuentes consultadas en esta edición</h3>
+    <ul>
+      <li><a href="https://www.caixinglobal.com" target="_blank" rel="noopener">Caixin Global — China acelera inversión en energías renovables alcanzando récord de capacidad solar instalada</a></li><li><a href="https://www.caixinglobal.com" target="_blank" rel="noopener">Caixin Global — Alibaba expande su plataforma de comercio digital en mercados emergentes de Asia Sudoriental</a></li><li><a href="https://www.technode.com" target="_blank" rel="noopener">TechNode — Investigadores chinos logran avance significativo en computación cuántica con nuevo procesador</a></li><li><a href="https://www.sixthtone.com" target="_blank" rel="noopener">Sixth Tone — Juventud china muestra menor interés en carreras tradicionales, optando por emprendimiento digital</a></li><li><a href="https://www.scmp.com" target="_blank" rel="noopener">South China Morning Post — Gobierno chino refuerza regulaciones sobre privacidad de datos en plataformas digitales</a></li><li><a href="https://www.sixthtone.com" target="_blank" rel="noopener">Sixth Tone — Cine chino experimenta resurgimiento con películas independientes y narrativas diversas</a></li><li><a href="https://www.caixinglobal.com" target="_blank" rel="noopener">Caixin Global — China-ASEAN: acuerdo comercial ampliado para fortalecer integración regional</a></li><li><a href="https://www.yicaiglobal.com" target="_blank" rel="noopener">Yicai Global — Universidades chinas lideran en publicaciones de investigación científica, especializada en IA y materiales</a></li><li><a href="https://www.scmp.com" target="_blank" rel="noopener">South China Morning Post — Sector inmobiliario chino se reorganiza tras reformas: enfoque en vivienda asequible</a></li><li><a href="https://www.chinadaily.com.cn" target="_blank" rel="noopener">China Daily — Iniciativa de conservación de humedales en la cuenca del Yangtze logra restauración de ecosistemas</a></li>
+    </ul>
+    <div class="pie-creditos">
+      China Hoy · Edición 2026-06-22 · Generado automáticamente con IA ·
+      Las opiniones expresadas son editoriales y no representan posiciones oficiales.
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
