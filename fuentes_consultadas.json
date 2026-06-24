@@ -1454,5 +1454,31 @@
       "Reforma de pensiones: China amplía cobertura del sistema de seguridad social a trabajadores informales urbanos",
       "Iniciativa de turismo cultural: China promueve viajes internos y externos enfocados en patrimonio e industria creativa"
     ]
+  },
+  "2026-06-24": {
+    "fuentes": [
+      "https://www.caixinglobal.com",
+      "https://www.technode.com",
+      "https://www.scmp.com",
+      "https://www.pandaily.com",
+      "https://www.chinadaily.com.cn",
+      "https://www.cgtn.com",
+      "https://www.sixthtone.com",
+      "https://www.yicaiglobal.com",
+      "https://www.chinanews.com.cn",
+      "https://www.36kr.com/en"
+    ],
+    "titulares": [
+      "China aprueba reforma integral del sistema de pensiones para enfrentar envejecimiento poblacional",
+      "Huawei presenta procesador Kirin avanzado con capacidades de IA tras sanciones estadounidenses",
+      "Alibaba y Tencent expanden presencia en comercio electrónico rural con nuevas plataformas",
+      "China aprueba primeros medicamentos biosintéticos desarrollados por startups locales",
+      "Gobierno chino implementa nueva política educativa enfocada en habilidades prácticas y emprendimiento",
+      "Estudio científico chino demuestra avance en fusión nuclear con nuevo reactor experimental",
+      "Festival Internacional de Cine de Shanghai abre con películas sobre dinámicas sociales contemporáneas",
+      "China y ASEAN firman protocolo de cooperación en cadena de suministro de semiconductores",
+      "Municipios chinos implementan programas de economía circular en gestión de residuos urbanos",
+      "Empresa china de inteligencia artificial lanza plataforma de asistentes especializados para pequeños negocios"
+    ]
   }
 }

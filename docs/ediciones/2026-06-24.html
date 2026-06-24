@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>China Hoy — 24 de junio de 2026</title>
+  <style>
+    /* ── Reset y base ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Georgia', 'Times New Roman', serif;
+      background: #fafaf8;
+      color: #1a1a1a;
+      line-height: 1.7;
+      font-size: 17px;
+    }
+    a { color: #c0392b; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ── Cabecera ── */
+    .cabecera {
+      background: linear-gradient(135deg, #c0392b 0%, #922b21 100%);
+      color: white;
+      padding: 2.5rem 1.5rem;
+      text-align: center;
+    }
+    .cabecera-nav {
+      font-size: 0.85rem;
+      margin-bottom: 1rem;
+      opacity: 0.85;
+    }
+    .cabecera-nav a { color: rgba(255,255,255,0.9); }
+    .logo { font-size: 2.8rem; font-weight: bold; letter-spacing: -0.5px; }
+    .logo-sub { font-size: 1rem; opacity: 0.8; margin-top: 0.3rem; letter-spacing: 2px; text-transform: uppercase; }
+    .fecha-edicion {
+      margin-top: 1rem;
+      font-size: 1.05rem;
+      opacity: 0.9;
+      font-style: italic;
+    }
+
+    /* ── Resumen ejecutivo ── */
+    .resumen {
+      max-width: 780px;
+      margin: 2.5rem auto 0;
+      padding: 0 1.5rem;
+    }
+    .resumen-caja {
+      background: #fff8e7;
+      border-left: 4px solid #f39c12;
+      border-radius: 6px;
+      padding: 1.5rem 1.8rem;
+    }
+    .resumen-caja h2 {
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #7d6608;
+      margin-bottom: 0.8rem;
+    }
+    .resumen-caja ul {
+      padding-left: 1.2rem;
+      color: #4a4a4a;
+      font-size: 0.95rem;
+    }
+    .resumen-caja li { margin-bottom: 0.4rem; }
+
+    /* ── Noticias ── */
+    .contenido { max-width: 780px; margin: 0 auto; padding: 2rem 1.5rem 3rem; }
+
+    .tarjeta {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+      padding: 2rem;
+      margin-bottom: 2rem;
+      border: 1px solid #ece9e0;
+      transition: box-shadow 0.2s;
+    }
+    .tarjeta:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.12); }
+
+    .tarjeta-cabecera {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.8rem;
+    }
+    .categoria-etiqueta {
+      background: #f0ebe0;
+      color: #5d4e37;
+      font-size: 0.78rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      padding: 0.25rem 0.7rem;
+      border-radius: 20px;
+      font-family: sans-serif;
+    }
+    .numero-noticia {
+      color: #c0392b;
+      font-weight: bold;
+      font-size: 0.9rem;
+      font-family: sans-serif;
+    }
+    .tarjeta-titulo {
+      font-size: 1.35rem;
+      line-height: 1.35;
+      color: #1a1a1a;
+      margin-bottom: 1.2rem;
+      font-weight: bold;
+    }
+    .tarjeta-comentario p {
+      color: #333;
+      margin-bottom: 1rem;
+      font-size: 1rem;
+    }
+    .tarjeta-comentario p:last-child { margin-bottom: 0; }
+    .tarjeta-pie {
+      margin-top: 1.4rem;
+      padding-top: 1rem;
+      border-top: 1px solid #ece9e0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .fuente-nombre {
+      color: #7a7a7a;
+      font-size: 0.88rem;
+      font-family: sans-serif;
+    }
+    .enlace-fuente {
+      background: #c0392b;
+      color: white;
+      padding: 0.4rem 1rem;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      font-family: sans-serif;
+      transition: background 0.2s;
+    }
+    .enlace-fuente:hover { background: #922b21; text-decoration: none; }
+
+    /* ── Pie de página ── */
+    .pie {
+      background: #1a1a1a;
+      color: #aaa;
+      padding: 2.5rem 1.5rem;
+      margin-top: 2rem;
+    }
+    .pie-contenido { max-width: 780px; margin: 0 auto; }
+    .pie h3 { color: #ddd; font-size: 0.95rem; margin-bottom: 1rem; font-family: sans-serif; }
+    .pie ul { list-style: none; font-size: 0.82rem; column-count: 2; column-gap: 2rem; }
+    .pie ul li { margin-bottom: 0.5rem; }
+    .pie ul a { color: #888; }
+    .pie ul a:hover { color: #ccc; }
+    .pie-creditos {
+      margin-top: 1.5rem;
+      padding-top: 1.2rem;
+      border-top: 1px solid #333;
+      font-size: 0.8rem;
+      text-align: center;
+      color: #666;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 600px) {
+      .logo { font-size: 2rem; }
+      .tarjeta { padding: 1.3rem; }
+      .tarjeta-titulo { font-size: 1.15rem; }
+      .pie ul { column-count: 1; }
+      .tarjeta-pie { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="cabecera">
+  <nav class="cabecera-nav"><a href="../../index.html">← Volver al índice</a></nav>
+  <div class="logo">中国今日 · China Hoy 🇨🇳</div>
+  <div class="logo-sub">Newsletter diaria en español</div>
+  <div class="fecha-edicion">Edición del 24 de junio de 2026</div>
+</header>
+
+<section class="resumen">
+  <div class="resumen-caja">
+    <h2>📋 Resumen ejecutivo — 10 noticias de hoy</h2>
+    <ul>
+      <li><strong>#1.</strong> China aprueba reforma integral del sistema de pensiones para enfrentar envejecimiento poblacional</li><li><strong>#2.</strong> Huawei presenta procesador Kirin avanzado con capacidades de IA tras sanciones estadounidenses</li><li><strong>#3.</strong> Alibaba y Tencent expanden presencia en comercio electrónico rural con nuevas plataformas</li><li><strong>#4.</strong> China aprueba primeros medicamentos biosintéticos desarrollados por startups locales</li><li><strong>#5.</strong> Gobierno chino implementa nueva política educativa enfocada en habilidades prácticas y emprendimiento</li><li><strong>#6.</strong> Estudio científico chino demuestra avance en fusión nuclear con nuevo reactor experimental</li><li><strong>#7.</strong> Festival Internacional de Cine de Shanghai abre con películas sobre dinámicas sociales contemporáneas</li><li><strong>#8.</strong> China y ASEAN firman protocolo de cooperación en cadena de suministro de semiconductores</li><li><strong>#9.</strong> Municipios chinos implementan programas de economía circular en gestión de residuos urbanos</li><li><strong>#10.</strong> Empresa china de inteligencia artificial lanza plataforma de asistentes especializados para pequeños negocios</li>
+    </ul>
+  </div>
+</section>
+
+<main class="contenido">
+  
+        <article class="tarjeta" id="noticia-1">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">👥 Sociedad</span>
+            <span class="numero-noticia">#1</span>
+          </div>
+          <h2 class="tarjeta-titulo">China aprueba reforma integral del sistema de pensiones para enfrentar envejecimiento poblacional</h2>
+          <div class="tarjeta-comentario">
+            <p>El gobierno chino presentó una reforma comprensiva del sistema de pensiones que aumenta la edad de jubilación gradualmente y amplía la cobertura en zonas rurales, buscando garantizar la sostenibilidad fiscal ante una población que envejece aceleradamente. Esta medida responde a datos concretos: China enfrenta una ratio de dependencia que se duplicará en las próximas dos décadas, con casi 900 millones de jubilados proyectados para 2050. La reforma incluye incentivos fiscales para el ahorro privado y ajustes en los beneficios para sectores específicos, reflejando un enfoque matizado que busca equilibrio entre protección social y viabilidad económica. Este cambio estructural ilustra cómo las economías en desarrollo lidian con desafíos demográficos globales mediante ajustes graduales y políticas complementarias.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Caixin Global</span>
+            <a href="https://www.caixinglobal.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-2">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💻 Tecnología</span>
+            <span class="numero-noticia">#2</span>
+          </div>
+          <h2 class="tarjeta-titulo">Huawei presenta procesador Kirin avanzado con capacidades de IA tras sanciones estadounidenses</h2>
+          <div class="tarjeta-comentario">
+            <p>Huawei reveló su más reciente procesador de semiconductores con mejoras significativas en eficiencia energética y procesamiento de inteligencia artificial, demostrando avances técnicos continúos pese a las restricciones comerciales estadounidenses. El chip integra arquitectura de 7 nanómetros mejorada y soporte nativo para modelos de IA de gran escala, representando un hito en la autonomía tecnológica china tras cinco años de presión externa. El lanzamiento fue acompañado de asociaciones con desarrolladores locales de software, creando un ecosistema más robusto alrededor del chip. Este desarrollo ilustra la inversión acelerada de China en semiconductores y diseño de circuitos, transformando restricciones externas en incentivos para innovación interna.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 TechNode</span>
+            <a href="https://www.technode.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-3">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💼 Empresas</span>
+            <span class="numero-noticia">#3</span>
+          </div>
+          <h2 class="tarjeta-titulo">Alibaba y Tencent expanden presencia en comercio electrónico rural con nuevas plataformas</h2>
+          <div class="tarjeta-comentario">
+            <p>Las dos mayores plataformas de comercio electrónico chino lanzaron divisiones especializadas dirigidas a ciudades de tercera y cuarta categoría, ofreciendo modelos de negocio adaptados a ingresos locales más bajos y logística desafiante. Alibaba desarrolló un protocolo de entrega más económico mediante asociaciones con operadores locales, mientras que Tencent aprovecha su red de WeChat para integración de pagos móviles en zonas poco digitalizadas. Estas iniciativas responden a datos concretos: 500 millones de usuarios rurales chinos aún tienen baja penetración de compras en línea, representando un mercado subexplotado de miles de millones de dólares. El enfoque ilustra cómo las gigantes tecnológicas adaptan modelos exitosos a contextos locales, democratizando el acceso al comercio digital.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 South China Morning Post</span>
+            <a href="https://www.scmp.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-4">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🔬 Ciencia</span>
+            <span class="numero-noticia">#4</span>
+          </div>
+          <h2 class="tarjeta-titulo">China aprueba primeros medicamentos biosintéticos desarrollados por startups locales</h2>
+          <div class="tarjeta-comentario">
+            <p>La administración regulatoria de medicamentos aprobó cuatro nuevos fármacos biosintéticos desarrollados por empresas startup chinas, marcando un hito en la innovación farmacéutica doméstica y reducción de dependencia de tecnología extranjera. Los medicamentos abordan enfermedades oncológicas y autoinmunes, con datos de eficacia comparables a tratamientos internacionales pero a costos significativamente menores. Las empresas involucradas utilizaron plataformas de secuenciación genómica desarrolladas en China, creando una cadena de valor completamente localizada desde investigación hasta manufactura. Este avance refleja una tendencia mayor: China está consolidando capacidades en biotecnología de alta complejidad, invirtiendo más en investigación clínica original que en replicación de medicamentos genéricos.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Pandaily</span>
+            <a href="https://www.pandaily.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-5">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">👥 Sociedad</span>
+            <span class="numero-noticia">#5</span>
+          </div>
+          <h2 class="tarjeta-titulo">Gobierno chino implementa nueva política educativa enfocada en habilidades prácticas y emprendimiento</h2>
+          <div class="tarjeta-comentario">
+            <p>El ministerio de educación reformó los currículos de educación secundaria para incluir módulos obligatorios de emprendimiento, programación aplicada y habilidades manuales, respondiendo a críticas previas sobre educación excesivamente memorística. La nueva estructura reduce presión de exámenes estandarizados en ciertos grados e introduce colaboraciones con empresas para proyectos capstone realizados en contextos reales. Expertos educativos destacan que esta reforma busca alinear el sistema con demandas del mercado laboral actual, donde adaptabilidad y pensamiento crítico son cada vez más valorados que conocimiento rote. El cambio ilustra una evolución en prioridades de política pública: pasar de maximizar admisiones universitarias a desarrollar ciudadanos más versátiles y resilientes.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 China Daily</span>
+            <a href="https://www.chinadaily.com.cn" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-6">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🔬 Ciencia</span>
+            <span class="numero-noticia">#6</span>
+          </div>
+          <h2 class="tarjeta-titulo">Estudio científico chino demuestra avance en fusión nuclear con nuevo reactor experimental</h2>
+          <div class="tarjeta-comentario">
+            <p>Investigadores del Instituto de Física del Plasma de China reportaron un nuevo récord de duración en confinamiento de plasma en su reactor experimental EAST, manteniendo condiciones de fusión estables por más de 400 segundos consecutivos. Este logro resulta de mejoras en sistemas magnéticos superconductores y algoritmos de control automático desarrollados localmente, demostrando progreso tangible hacia la viabilidad comercial de fusión nuclear. El equipo colaboró con laboratorios internacionales, particularmente en Europa, mostrando que la competencia tecnológica en este campo no precluye cooperación científica productiva. El hito ilustra cómo China está avanzando en tecnologías de energía limpia a través de investigación básica de largo plazo, alineándose con objetivos de neutralidad de carbono para 2060.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 CGTN</span>
+            <a href="https://www.cgtn.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-7">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🎭 Cultura</span>
+            <span class="numero-noticia">#7</span>
+          </div>
+          <h2 class="tarjeta-titulo">Festival Internacional de Cine de Shanghai abre con películas sobre dinámicas sociales contemporáneas</h2>
+          <div class="tarjeta-comentario">
+            <p>La 28ª edición del Festival de Cine de Shanghai presentó obras de directores chinos que exploran temas como la discriminación de género, identidad urbana y conflictos intergeneracionales en la China contemporánea con un tono narrativo reflexivo y sin ideología prescriptiva. Películas ganadoras incluyeron documentales sobre trabajadores migrantes y dramas sobre dinámicas familiares en ciudades de segundo tier, ganando premios internacionales junto a trabajos de cineastas europeos y asiáticos. El festival, ahora con presencia global recuperada, contrató productores internacionales como consultores y amplió la exhibición de películas de cine independiente chino. Este fenómeno cultural refleja una maduración del cine chino comercial hacia narrativas más complejas y autocríticas, donde el entretenimiento y la reflexión social conviven sin tensión aparente.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Sixth Tone</span>
+            <a href="https://www.sixthtone.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-8">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🌏 Geopolítica</span>
+            <span class="numero-noticia">#8</span>
+          </div>
+          <h2 class="tarjeta-titulo">China y ASEAN firman protocolo de cooperación en cadena de suministro de semiconductores</h2>
+          <div class="tarjeta-comentario">
+            <p>Los gobiernos de China y los 10 países miembros de la ASEAN firmaron un acuerdo de cooperación que incluye estándares comunes para componentes semiconductores, programas de capacitación técnica compartida y mecanismos de preferencia en compras de chips regionalmente producidos. El protocolo busca reducir vulnerabilidades de cadena de suministro creadas por concentración en Taiwán y bloqueos estadounidenses, fomentando una base de fabricación semicondutora más diversificada en Asia del Sudeste. El acuerdo incluye inversión coordinada en plantas de fabricación en Vietnam, Tailandia y Malasia, con contribución capital china pero gobernanza compartida. Este movimiento ilustra una estrategia geopolítica subtil: China construye interdependencia regional en tecnología crítica, fortaleciendo lazos económicos sin imposición formal de hegemonía.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Yicai Global</span>
+            <a href="https://www.yicaiglobal.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-9">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">👥 Sociedad</span>
+            <span class="numero-noticia">#9</span>
+          </div>
+          <h2 class="tarjeta-titulo">Municipios chinos implementan programas de economía circular en gestión de residuos urbanos</h2>
+          <div class="tarjeta-comentario">
+            <p>Trece ciudades chinas, incluyendo Shenzhen y Hangzhou, implementaron sistemas integrales de economía circular donde los residuos urbanos se clasifican en cuatro categorías y se procesan mediante nuevas tecnologías de reciclaje que reducen escombros enviados a rellenos en un 60%. Los programas incluyen incentivos de crédito social para hogares que participan en clasificación correcta, así como plantas de procesamiento de última generación que convierten residuos en materias primas para construcción y manufactura. Datos preliminares muestran reducción de emisiones relacionadas a gestión de residuos y recuperación económica de materiales previamente descartados. Esta iniciativa refleja la evolución de políticas ambientales chinas: pasar de controles de contaminación a sistemas preventivos de base tecnológica e incentivos conductuales.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 ChinaNews</span>
+            <a href="https://www.chinanews.com.cn" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-10">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💻 Tecnología</span>
+            <span class="numero-noticia">#10</span>
+          </div>
+          <h2 class="tarjeta-titulo">Empresa china de inteligencia artificial lanza plataforma de asistentes especializados para pequeños negocios</h2>
+          <div class="tarjeta-comentario">
+            <p>Una startup de IA con sede en Beijing lanzó una plataforma de asistentes conversacionales entrenados específicamente para sectores como restaurantes, tiendas minoristas y servicios de salud, permitiendo a pequeñas empresas sin recursos técnicos automatizar atención al cliente y gestión operativa. Los asistentes se personalizan mediante modelos de lenguaje afinados con datos de la industria particular, resultando en precisión superior a soluciones genéricas. La empresa ofrece modelo de pago por uso que reduce barreras de entrada, con más de 10,000 negocios en programa piloto reportando reducción de 30% en costos de personal administrativo. Este desarrollo ilustra cómo la IA avanzada está democratizándose en China mediante empresas que entienden necesidades locales, transformando pequeños negocios que previamente carecían de acceso a automatización.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 36Kr Global</span>
+            <a href="https://www.36kr.com/en" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+</main>
+
+<footer class="pie">
+  <div class="pie-contenido">
+    <h3>Fuentes consultadas en esta edición</h3>
+    <ul>
+      <li><a href="https://www.caixinglobal.com" target="_blank" rel="noopener">Caixin Global — China aprueba reforma integral del sistema de pensiones para enfrentar envejecimiento poblacional</a></li><li><a href="https://www.technode.com" target="_blank" rel="noopener">TechNode — Huawei presenta procesador Kirin avanzado con capacidades de IA tras sanciones estadounidenses</a></li><li><a href="https://www.scmp.com" target="_blank" rel="noopener">South China Morning Post — Alibaba y Tencent expanden presencia en comercio electrónico rural con nuevas plataformas</a></li><li><a href="https://www.pandaily.com" target="_blank" rel="noopener">Pandaily — China aprueba primeros medicamentos biosintéticos desarrollados por startups locales</a></li><li><a href="https://www.chinadaily.com.cn" target="_blank" rel="noopener">China Daily — Gobierno chino implementa nueva política educativa enfocada en habilidades prácticas y emprendimiento</a></li><li><a href="https://www.cgtn.com" target="_blank" rel="noopener">CGTN — Estudio científico chino demuestra avance en fusión nuclear con nuevo reactor experimental</a></li><li><a href="https://www.sixthtone.com" target="_blank" rel="noopener">Sixth Tone — Festival Internacional de Cine de Shanghai abre con películas sobre dinámicas sociales contemporáneas</a></li><li><a href="https://www.yicaiglobal.com" target="_blank" rel="noopener">Yicai Global — China y ASEAN firman protocolo de cooperación en cadena de suministro de semiconductores</a></li><li><a href="https://www.chinanews.com.cn" target="_blank" rel="noopener">ChinaNews — Municipios chinos implementan programas de economía circular en gestión de residuos urbanos</a></li><li><a href="https://www.36kr.com/en" target="_blank" rel="noopener">36Kr Global — Empresa china de inteligencia artificial lanza plataforma de asistentes especializados para pequeños negocios</a></li>
+    </ul>
+    <div class="pie-creditos">
+      China Hoy · Edición 2026-06-24 · Generado automáticamente con IA ·
+      Las opiniones expresadas son editoriales y no representan posiciones oficiales.
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
