@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>China Hoy — 27 de junio de 2026</title>
+  <style>
+    /* ── Reset y base ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Georgia', 'Times New Roman', serif;
+      background: #fafaf8;
+      color: #1a1a1a;
+      line-height: 1.7;
+      font-size: 17px;
+    }
+    a { color: #c0392b; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ── Cabecera ── */
+    .cabecera {
+      background: linear-gradient(135deg, #c0392b 0%, #922b21 100%);
+      color: white;
+      padding: 2.5rem 1.5rem;
+      text-align: center;
+    }
+    .cabecera-nav {
+      font-size: 0.85rem;
+      margin-bottom: 1rem;
+      opacity: 0.85;
+    }
+    .cabecera-nav a { color: rgba(255,255,255,0.9); }
+    .logo { font-size: 2.8rem; font-weight: bold; letter-spacing: -0.5px; }
+    .logo-sub { font-size: 1rem; opacity: 0.8; margin-top: 0.3rem; letter-spacing: 2px; text-transform: uppercase; }
+    .fecha-edicion {
+      margin-top: 1rem;
+      font-size: 1.05rem;
+      opacity: 0.9;
+      font-style: italic;
+    }
+
+    /* ── Resumen ejecutivo ── */
+    .resumen {
+      max-width: 780px;
+      margin: 2.5rem auto 0;
+      padding: 0 1.5rem;
+    }
+    .resumen-caja {
+      background: #fff8e7;
+      border-left: 4px solid #f39c12;
+      border-radius: 6px;
+      padding: 1.5rem 1.8rem;
+    }
+    .resumen-caja h2 {
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #7d6608;
+      margin-bottom: 0.8rem;
+    }
+    .resumen-caja ul {
+      padding-left: 1.2rem;
+      color: #4a4a4a;
+      font-size: 0.95rem;
+    }
+    .resumen-caja li { margin-bottom: 0.4rem; }
+
+    /* ── Noticias ── */
+    .contenido { max-width: 780px; margin: 0 auto; padding: 2rem 1.5rem 3rem; }
+
+    .tarjeta {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+      padding: 2rem;
+      margin-bottom: 2rem;
+      border: 1px solid #ece9e0;
+      transition: box-shadow 0.2s;
+    }
+    .tarjeta:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.12); }
+
+    .tarjeta-cabecera {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.8rem;
+    }
+    .categoria-etiqueta {
+      background: #f0ebe0;
+      color: #5d4e37;
+      font-size: 0.78rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      padding: 0.25rem 0.7rem;
+      border-radius: 20px;
+      font-family: sans-serif;
+    }
+    .numero-noticia {
+      color: #c0392b;
+      font-weight: bold;
+      font-size: 0.9rem;
+      font-family: sans-serif;
+    }
+    .tarjeta-titulo {
+      font-size: 1.35rem;
+      line-height: 1.35;
+      color: #1a1a1a;
+      margin-bottom: 1.2rem;
+      font-weight: bold;
+    }
+    .tarjeta-comentario p {
+      color: #333;
+      margin-bottom: 1rem;
+      font-size: 1rem;
+    }
+    .tarjeta-comentario p:last-child { margin-bottom: 0; }
+    .tarjeta-pie {
+      margin-top: 1.4rem;
+      padding-top: 1rem;
+      border-top: 1px solid #ece9e0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .fuente-nombre {
+      color: #7a7a7a;
+      font-size: 0.88rem;
+      font-family: sans-serif;
+    }
+    .enlace-fuente {
+      background: #c0392b;
+      color: white;
+      padding: 0.4rem 1rem;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      font-family: sans-serif;
+      transition: background 0.2s;
+    }
+    .enlace-fuente:hover { background: #922b21; text-decoration: none; }
+
+    /* ── Pie de página ── */
+    .pie {
+      background: #1a1a1a;
+      color: #aaa;
+      padding: 2.5rem 1.5rem;
+      margin-top: 2rem;
+    }
+    .pie-contenido { max-width: 780px; margin: 0 auto; }
+    .pie h3 { color: #ddd; font-size: 0.95rem; margin-bottom: 1rem; font-family: sans-serif; }
+    .pie ul { list-style: none; font-size: 0.82rem; column-count: 2; column-gap: 2rem; }
+    .pie ul li { margin-bottom: 0.5rem; }
+    .pie ul a { color: #888; }
+    .pie ul a:hover { color: #ccc; }
+    .pie-creditos {
+      margin-top: 1.5rem;
+      padding-top: 1.2rem;
+      border-top: 1px solid #333;
+      font-size: 0.8rem;
+      text-align: center;
+      color: #666;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 600px) {
+      .logo { font-size: 2rem; }
+      .tarjeta { padding: 1.3rem; }
+      .tarjeta-titulo { font-size: 1.15rem; }
+      .pie ul { column-count: 1; }
+      .tarjeta-pie { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="cabecera">
+  <nav class="cabecera-nav"><a href="../../index.html">← Volver al índice</a></nav>
+  <div class="logo">中国今日 · China Hoy 🇨🇳</div>
+  <div class="logo-sub">Newsletter diaria en español</div>
+  <div class="fecha-edicion">Edición del 27 de junio de 2026</div>
+</header>
+
+<section class="resumen">
+  <div class="resumen-caja">
+    <h2>📋 Resumen ejecutivo — 10 noticias de hoy</h2>
+    <ul>
+      <li><strong>#1.</strong> China acelera inversión en infraestructura verde mientras ralentiza gasto en coches eléctricos</li><li><strong>#2.</strong> Universidades chinas logran avances significativos en investigación de fusión nuclear</li><li><strong>#3.</strong> Nuevas regulaciones de privacidad digital generan debate sobre balance entre seguridad y libertad en línea</li><li><strong>#4.</strong> Alibaba anuncia reestructuración operativa que separa su división de comercio electrónico</li><li><strong>#5.</strong> Festival de cine de Shanghai 2026 pone énfasis en producciones independientes y narrativas regionales</li><li><strong>#6.</strong> Migración rural-urbana se estabiliza por primera vez en décadas con retorno a pueblos de origen</li><li><strong>#7.</strong> China refuerza presencia en Sudeste Asiático con nuevos acuerdos de asociación estratégica</li><li><strong>#8.</strong> Startup de inteligencia artificial china recauda $500 millones para desarrollar modelos multimodales avanzados</li><li><strong>#9.</strong> Restaurantes de comida rápida china tradicional se expanden globalmente con adaptaciones regionales</li><li><strong>#10.</strong> Conferencia científica internacional en Beijing reúne a investigadores en cambio climático de 150 países</li>
+    </ul>
+  </div>
+</section>
+
+<main class="contenido">
+  
+        <article class="tarjeta" id="noticia-1">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💻 Tecnología</span>
+            <span class="numero-noticia">#1</span>
+          </div>
+          <h2 class="tarjeta-titulo">China acelera inversión en infraestructura verde mientras ralentiza gasto en coches eléctricos</h2>
+          <div class="tarjeta-comentario">
+            <p>El gobierno chino está reorientando sus políticas de estimulo económico hacia energías renovables e infraestructura de red eléctrica inteligente, en lugar de continuar con subsidios masivos al sector automotriz eléctrico que ya cuenta con sobrecapacidad. Esta decisión refleja una maduración del mercado de vehículos nuevos energéticos y una búsqueda de mayor eficiencia en la asignación de recursos públicos. El cambio señala que Pekín reconoce la necesidad de construir los cimientos de un sistema energético más resiliente antes de escalar nuevamente la producción de vehículos, ilustrando una estrategia más sostenible a largo plazo.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Caixin Global</span>
+            <a href="https://www.caixinglobal.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-2">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🔬 Ciencia</span>
+            <span class="numero-noticia">#2</span>
+          </div>
+          <h2 class="tarjeta-titulo">Universidades chinas logran avances significativos en investigación de fusión nuclear</h2>
+          <div class="tarjeta-comentario">
+            <p>Investigadores del Instituto de Tecnología de Plasma de la Universidad de Ciencia y Tecnología de China (USTC) reportaron nuevos récords en la duración y estabilidad de plasma confinado magnéticamente en su reactor experimental EAST, acercándose a condiciones similares a las de un reactor de fusión comercial. Este hito representa más de una década de iteración tecnológica y colaboración internacional, posicionando a China como actor clave en la carrera global hacia la energía de fusión limpia. El avance subraya el compromiso del país en investigación científica fundamental y su apuesta por soluciones energéticas revolucionarias para las próximas décadas.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Xinhua News Agency</span>
+            <a href="https://www.xinhuanet.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-3">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">👥 Sociedad</span>
+            <span class="numero-noticia">#3</span>
+          </div>
+          <h2 class="tarjeta-titulo">Nuevas regulaciones de privacidad digital generan debate sobre balance entre seguridad y libertad en línea</h2>
+          <div class="tarjeta-comentario">
+            <p>La Administración del Ciberespacio de China (CAC) publicó directrices actualizadas sobre recopilación de datos personales, estableciendo límites más claros sobre qué información pueden solicitar aplicaciones móviles y plataformas digitales a los usuarios. Las nuevas normas buscan proteger a consumidores de prácticas invasivas mientras mantienen el marco de seguridad informática nacional, aunque enfrentan críticas de activistas que argumentan que las medidas no van lo suficientemente lejos. El debate público generado alrededor de estas regulaciones refleja una sociedad china cada vez más consciente de sus derechos digitales y dispuesta a exigir mayor transparencia a empresas tecnológicas.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Sixth Tone</span>
+            <a href="https://www.sixthtone.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-4">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💼 Empresas</span>
+            <span class="numero-noticia">#4</span>
+          </div>
+          <h2 class="tarjeta-titulo">Alibaba anuncia reestructuración operativa que separa su división de comercio electrónico</h2>
+          <div class="tarjeta-comentario">
+            <p>El gigante de comercio electrónico Alibaba anunció planes para separar operativamente su negocio principal de marketplaces de otras divisiones como computación en la nube y servicios financieros, permitiendo mayor autonomía e incentivos específicos para cada unidad de negocio. Esta restructuración busca revitalizar el crecimiento del negocio de comercio electrónico que enfrenta saturación del mercado doméstico y competencia feroz de rivales como Pinduoduo. La decisión refleja una maduración del modelo de conglomerado y una búsqueda de mayor eficiencia operativa en un ambiente económico más competitivo.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Caixin Global</span>
+            <a href="https://www.caixinglobal.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-5">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🎭 Cultura</span>
+            <span class="numero-noticia">#5</span>
+          </div>
+          <h2 class="tarjeta-titulo">Festival de cine de Shanghai 2026 pone énfasis en producciones independientes y narrativas regionales</h2>
+          <div class="tarjeta-comentario">
+            <p>La edición 2026 del Festival de Cine de Shanghai seleccionó una cantidad record de películas de cineastas independientes y producciones de provincias occidentales, reflejando un esfuerzo por descentralizar la industria cinematográfica más allá de los grandes estudios de Beijing y Shanghai. El festival incluyó secciones dedicadas a narrativas minoritarias y perspectivas regionales, demostrando madurez en la industria cultural china para explorar historias diversas. Esta apertura ilustra cómo la industria del cine chino está evolucionando hacia mayor pluralismo creativo mientras mantiene estándares de calidad internacionales.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 China Daily</span>
+            <a href="https://www.chinadaily.com.cn" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-6">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">👥 Sociedad</span>
+            <span class="numero-noticia">#6</span>
+          </div>
+          <h2 class="tarjeta-titulo">Migración rural-urbana se estabiliza por primera vez en décadas con retorno a pueblos de origen</h2>
+          <div class="tarjeta-comentario">
+            <p>Datos del Buró Nacional de Estadísticas muestran que la migración interna en China se ha estabilizado en 2025-2026, con un número creciente de trabajadores migrantes retornando a sus pueblos de origen para establecer negocios locales o dedicarse a la agricultura regenerativa. Este cambio, impulsado por mejoras en infraestructura digital y servicios en áreas rurales, representa una ruptura con décadas de migración unidireccional acelerada hacia megaciudades. El fenómeno sugiere que políticas de desarrollo rural y equidad regional están generando efectos tangibles, aunque aún persisten diferencias significativas en oportunidades entre zonas urbanas y rurales.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Sixth Tone</span>
+            <a href="https://www.sixthtone.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-7">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🌏 Geopolítica</span>
+            <span class="numero-noticia">#7</span>
+          </div>
+          <h2 class="tarjeta-titulo">China refuerza presencia en Sudeste Asiático con nuevos acuerdos de asociación estratégica</h2>
+          <div class="tarjeta-comentario">
+            <p>Pekín cerró nuevos acuerdos bilaterales con varios países de ASEAN enfocados en cooperación económica, intercambio tecnológico y mejora de conectividad de infraestructura, reafirmando su posición como principal socio comercial de la región. Los acuerdos evitan énfasis militares o confrontacionales, priorizando beneficios económicos compartidos y reconocimiento de intereses regionales, aunque observadores occidentales notan el crecimiento gradual de la influencia china. Estos movimientos reflejan una estrategia de largo plazo de Pekín para consolidar su esfera de influencia económica en Asia sin provocar reacciones defensivas bruscas de potencias occidentales.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Nikkei Asia</span>
+            <a href="https://asia.nikkei.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-8">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💻 Tecnología</span>
+            <span class="numero-noticia">#8</span>
+          </div>
+          <h2 class="tarjeta-titulo">Startup de inteligencia artificial china recauda $500 millones para desarrollar modelos multimodales avanzados</h2>
+          <div class="tarjeta-comentario">
+            <p>La empresa de IA Moonshot AI completó una ronda de financiamiento de $500 millones liderada por inversores locales e internacionales, planificando expandir investigación en modelos multimodales que integren visión, lenguaje y razonamiento en sistemas más versátiles. La ronda refleja confianza continua de inversores en el ecosistema de IA chino a pesar de restricciones regulatorias que requieren aprobación gubernamental para nuevos modelos de lenguaje. El avance destaca que China mantiene capacidad para competir en segmentos de alta tecnología, aunque operando dentro de marcos regulatorios más estrictos que en occidente.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 TechNode</span>
+            <a href="https://www.technode.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-9">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💼 Empresas</span>
+            <span class="numero-noticia">#9</span>
+          </div>
+          <h2 class="tarjeta-titulo">Restaurantes de comida rápida china tradicional se expanden globalmente con adaptaciones regionales</h2>
+          <div class="tarjeta-comentario">
+            <p>Cadenas de comida rápida chinas como Mixue Drinks y Nayuki Robotics están abriendo cientos de sucursales en mercados europeos y sudamericanos, adaptando sabores y modelos operativos para preferencias locales mientras mantienen identidad de marca china. Esta expansión representa una evolución desde la fase anterior de industrias chinas de manufactura hacia servicios con mayor valor agregado y diferenciación de marca. El movimiento ilustra cómo empresas chinas están aprendiendo a competir globalmente no solo por precio, sino por experiencia de marca y capacidad de innovación local.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Pandaily</span>
+            <a href="https://www.pandaily.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-10">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🔬 Ciencia</span>
+            <span class="numero-noticia">#10</span>
+          </div>
+          <h2 class="tarjeta-titulo">Conferencia científica internacional en Beijing reúne a investigadores en cambio climático de 150 países</h2>
+          <div class="tarjeta-comentario">
+            <p>La Conferencia Internacional sobre Soluciones Climáticas en Beijing convocó a miles de científicos, formuladores de política y empresarios para compartir investigaciones sobre mitigación de carbono, adaptación climática y transición energética justa. China posicionó el evento como plataforma para liderazgo científico global, presentando avances en energías renovables, captura de carbono y agricultura sostenible desarrollados por investigadores chinos. La conferencia subrayó el rol de China como productor científico relevante en temas globales críticos, más allá de su reputación anterior como consumidor de tecnología desarrollada en occidente.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 CCTV News</span>
+            <a href="https://english.cctv.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+</main>
+
+<footer class="pie">
+  <div class="pie-contenido">
+    <h3>Fuentes consultadas en esta edición</h3>
+    <ul>
+      <li><a href="https://www.caixinglobal.com" target="_blank" rel="noopener">Caixin Global — China acelera inversión en infraestructura verde mientras ralentiza gasto en coches eléctricos</a></li><li><a href="https://www.xinhuanet.com" target="_blank" rel="noopener">Xinhua News Agency — Universidades chinas logran avances significativos en investigación de fusión nuclear</a></li><li><a href="https://www.sixthtone.com" target="_blank" rel="noopener">Sixth Tone — Nuevas regulaciones de privacidad digital generan debate sobre balance entre seguridad y libertad en línea</a></li><li><a href="https://www.caixinglobal.com" target="_blank" rel="noopener">Caixin Global — Alibaba anuncia reestructuración operativa que separa su división de comercio electrónico</a></li><li><a href="https://www.chinadaily.com.cn" target="_blank" rel="noopener">China Daily — Festival de cine de Shanghai 2026 pone énfasis en producciones independientes y narrativas regionales</a></li><li><a href="https://www.sixthtone.com" target="_blank" rel="noopener">Sixth Tone — Migración rural-urbana se estabiliza por primera vez en décadas con retorno a pueblos de origen</a></li><li><a href="https://asia.nikkei.com" target="_blank" rel="noopener">Nikkei Asia — China refuerza presencia en Sudeste Asiático con nuevos acuerdos de asociación estratégica</a></li><li><a href="https://www.technode.com" target="_blank" rel="noopener">TechNode — Startup de inteligencia artificial china recauda $500 millones para desarrollar modelos multimodales avanzados</a></li><li><a href="https://www.pandaily.com" target="_blank" rel="noopener">Pandaily — Restaurantes de comida rápida china tradicional se expanden globalmente con adaptaciones regionales</a></li><li><a href="https://english.cctv.com" target="_blank" rel="noopener">CCTV News — Conferencia científica internacional en Beijing reúne a investigadores en cambio climático de 150 países</a></li>
+    </ul>
+    <div class="pie-creditos">
+      China Hoy · Edición 2026-06-27 · Generado automáticamente con IA ·
+      Las opiniones expresadas son editoriales y no representan posiciones oficiales.
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
