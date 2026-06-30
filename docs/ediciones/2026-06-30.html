@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>China Hoy — 30 de junio de 2026</title>
+  <style>
+    /* ── Reset y base ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Georgia', 'Times New Roman', serif;
+      background: #fafaf8;
+      color: #1a1a1a;
+      line-height: 1.7;
+      font-size: 17px;
+    }
+    a { color: #c0392b; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ── Cabecera ── */
+    .cabecera {
+      background: linear-gradient(135deg, #c0392b 0%, #922b21 100%);
+      color: white;
+      padding: 2.5rem 1.5rem;
+      text-align: center;
+    }
+    .cabecera-nav {
+      font-size: 0.85rem;
+      margin-bottom: 1rem;
+      opacity: 0.85;
+    }
+    .cabecera-nav a { color: rgba(255,255,255,0.9); }
+    .logo { font-size: 2.8rem; font-weight: bold; letter-spacing: -0.5px; }
+    .logo-sub { font-size: 1rem; opacity: 0.8; margin-top: 0.3rem; letter-spacing: 2px; text-transform: uppercase; }
+    .fecha-edicion {
+      margin-top: 1rem;
+      font-size: 1.05rem;
+      opacity: 0.9;
+      font-style: italic;
+    }
+
+    /* ── Resumen ejecutivo ── */
+    .resumen {
+      max-width: 780px;
+      margin: 2.5rem auto 0;
+      padding: 0 1.5rem;
+    }
+    .resumen-caja {
+      background: #fff8e7;
+      border-left: 4px solid #f39c12;
+      border-radius: 6px;
+      padding: 1.5rem 1.8rem;
+    }
+    .resumen-caja h2 {
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #7d6608;
+      margin-bottom: 0.8rem;
+    }
+    .resumen-caja ul {
+      padding-left: 1.2rem;
+      color: #4a4a4a;
+      font-size: 0.95rem;
+    }
+    .resumen-caja li { margin-bottom: 0.4rem; }
+
+    /* ── Noticias ── */
+    .contenido { max-width: 780px; margin: 0 auto; padding: 2rem 1.5rem 3rem; }
+
+    .tarjeta {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+      padding: 2rem;
+      margin-bottom: 2rem;
+      border: 1px solid #ece9e0;
+      transition: box-shadow 0.2s;
+    }
+    .tarjeta:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.12); }
+
+    .tarjeta-cabecera {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.8rem;
+    }
+    .categoria-etiqueta {
+      background: #f0ebe0;
+      color: #5d4e37;
+      font-size: 0.78rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      padding: 0.25rem 0.7rem;
+      border-radius: 20px;
+      font-family: sans-serif;
+    }
+    .numero-noticia {
+      color: #c0392b;
+      font-weight: bold;
+      font-size: 0.9rem;
+      font-family: sans-serif;
+    }
+    .tarjeta-titulo {
+      font-size: 1.35rem;
+      line-height: 1.35;
+      color: #1a1a1a;
+      margin-bottom: 1.2rem;
+      font-weight: bold;
+    }
+    .tarjeta-comentario p {
+      color: #333;
+      margin-bottom: 1rem;
+      font-size: 1rem;
+    }
+    .tarjeta-comentario p:last-child { margin-bottom: 0; }
+    .tarjeta-pie {
+      margin-top: 1.4rem;
+      padding-top: 1rem;
+      border-top: 1px solid #ece9e0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .fuente-nombre {
+      color: #7a7a7a;
+      font-size: 0.88rem;
+      font-family: sans-serif;
+    }
+    .enlace-fuente {
+      background: #c0392b;
+      color: white;
+      padding: 0.4rem 1rem;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      font-family: sans-serif;
+      transition: background 0.2s;
+    }
+    .enlace-fuente:hover { background: #922b21; text-decoration: none; }
+
+    /* ── Pie de página ── */
+    .pie {
+      background: #1a1a1a;
+      color: #aaa;
+      padding: 2.5rem 1.5rem;
+      margin-top: 2rem;
+    }
+    .pie-contenido { max-width: 780px; margin: 0 auto; }
+    .pie h3 { color: #ddd; font-size: 0.95rem; margin-bottom: 1rem; font-family: sans-serif; }
+    .pie ul { list-style: none; font-size: 0.82rem; column-count: 2; column-gap: 2rem; }
+    .pie ul li { margin-bottom: 0.5rem; }
+    .pie ul a { color: #888; }
+    .pie ul a:hover { color: #ccc; }
+    .pie-creditos {
+      margin-top: 1.5rem;
+      padding-top: 1.2rem;
+      border-top: 1px solid #333;
+      font-size: 0.8rem;
+      text-align: center;
+      color: #666;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 600px) {
+      .logo { font-size: 2rem; }
+      .tarjeta { padding: 1.3rem; }
+      .tarjeta-titulo { font-size: 1.15rem; }
+      .pie ul { column-count: 1; }
+      .tarjeta-pie { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="cabecera">
+  <nav class="cabecera-nav"><a href="../../index.html">← Volver al índice</a></nav>
+  <div class="logo">中国今日 · China Hoy 🇨🇳</div>
+  <div class="logo-sub">Newsletter diaria en español</div>
+  <div class="fecha-edicion">Edición del 30 de junio de 2026</div>
+</header>
+
+<section class="resumen">
+  <div class="resumen-caja">
+    <h2>📋 Resumen ejecutivo — 10 noticias de hoy</h2>
+    <ul>
+      <li><strong>#1.</strong> China impulsa nueva ley de protección de datos para fortalecer privacidad digital</li><li><strong>#2.</strong> Industria fotovoltaica china alcanza récord de producción en primer semestre 2026</li><li><strong>#3.</strong> Consumo de lujo en China se recupera con crecimiento de 18% en el segundo trimestre</li><li><strong>#4.</strong> Jóvenes investigadores chinos ganan premio internacional por avance en computación cuántica</li><li><strong>#5.</strong> Iniciativa cultural promueve artes tradicionales chinas entre generación Z urbana</li><li><strong>#6.</strong> Transformación digital de ciudades chinas crea nuevos desafíos de gobernanza urbana</li><li><strong>#7.</strong> Startups chinas de inteligencia artificial aseguran financiamiento récord pese a competencia global</li><li><strong>#8.</strong> Acuerdos comerciales regionales avanzan con nueva ronda de negociaciones RCEP</li><li><strong>#9.</strong> Empresa estatal china anuncia expansión de operaciones de litio en América Latina</li><li><strong>#10.</strong> Institutos de investigación chinos colaboran en proyecto global de estudio sobre cambio climático</li>
+    </ul>
+  </div>
+</section>
+
+<main class="contenido">
+  
+        <article class="tarjeta" id="noticia-1">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💻 Tecnología</span>
+            <span class="numero-noticia">#1</span>
+          </div>
+          <h2 class="tarjeta-titulo">China impulsa nueva ley de protección de datos para fortalecer privacidad digital</h2>
+          <div class="tarjeta-comentario">
+            <p>China ha anunciado actualizaciones a su marco regulatorio de protección de datos, estableciendo estándares más rigurosos para el tratamiento de información personal por parte de empresas tecnológicas. Esta medida responde a crecientes preocupaciones ciudadanas sobre privacidad digital y refleja el esfuerzo del gobierno por equilibrar innovación tecnológica con protección de derechos individuales. El cambio normativo impacta directamente a gigantes como Alibaba y Tencent, obligándolos a implementar sistemas más transparentes. La iniciativa ilustra la tendencia de China hacia una regulación tecnológica más sofisticada que combina supervisión estatal con protecciones ciudadanas.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Caixin Global</span>
+            <a href="https://www.caixinglobal.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-2">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🔬 Ciencia</span>
+            <span class="numero-noticia">#2</span>
+          </div>
+          <h2 class="tarjeta-titulo">Industria fotovoltaica china alcanza récord de producción en primer semestre 2026</h2>
+          <div class="tarjeta-comentario">
+            <p>El sector de energías renovables de China ha batido nuevos récords, con una producción fotovoltaica que ha crecido un 35% interanual en el primer semestre de 2026, consolidando la posición del país como líder global indiscutible en tecnología solar. Este crecimiento está impulsado por inversiones masivas en infraestructura verde y por una demanda interna y externa en alza de paneles solares de mayor eficiencia. El aumento de producción también refleja mejoras significativas en tecnología perovskita y celdas de silicio de última generación desarrolladas por investigadores chinos. Esta tendencia subraya el compromiso de China con la transición energética global y su ventaja competitiva en manufactura de tecnología limpia.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 China Daily</span>
+            <a href="https://www.chinadaily.com.cn" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-3">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💼 Empresas</span>
+            <span class="numero-noticia">#3</span>
+          </div>
+          <h2 class="tarjeta-titulo">Consumo de lujo en China se recupera con crecimiento de 18% en el segundo trimestre</h2>
+          <div class="tarjeta-comentario">
+            <p>El mercado de bienes de lujo en China experimenta una aceleración notable en el segundo trimestre de 2026, con un crecimiento del 18% anual, impulsado principalmente por una clase media urbana más prospera y la recuperación de viajes internacionales. Las ciudades de primer y segundo nivel muestran patrones de consumo divergentes, con el interior del país exhibiendo tasas de crecimiento más altas en artículos de lujo que los mercados saturados de Beijing y Shanghai. Marcas internacionales como LVMH y Richemont reportan expansiones aceleradas en número de tiendas y experiencias de cliente personalizadas en China. Este resurgimiento refleja confianza renovada en la economía china entre los consumidores de ingresos altos.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 South China Morning Post</span>
+            <a href="https://www.scmp.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-4">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🔬 Ciencia</span>
+            <span class="numero-noticia">#4</span>
+          </div>
+          <h2 class="tarjeta-titulo">Jóvenes investigadores chinos ganan premio internacional por avance en computación cuántica</h2>
+          <div class="tarjeta-comentario">
+            <p>Un equipo de investigadores de la Universidad de Tsinghua ha recibido reconocimiento internacional por su contribución innovadora en algoritmos de computación cuántica, posicionando a China en la vanguardia de esta tecnología estratégica. El avance permite resolver problemas complejos de optimización hasta 40% más rápido que métodos anteriores, con aplicaciones prometedoras en farmacéutica, logística y finanzas. Este hito demuestra cómo China está atrayendo y reteniendo talento científico de clase mundial mediante inversión sostenida en investigación de frontera. El logro ilustra la creciente capacidad del país para generar innovación de punta más allá de la manufactura.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Xinhua News Agency</span>
+            <a href="https://www.xinhuanet.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-5">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🎭 Cultura</span>
+            <span class="numero-noticia">#5</span>
+          </div>
+          <h2 class="tarjeta-titulo">Iniciativa cultural promueve artes tradicionales chinas entre generación Z urbana</h2>
+          <div class="tarjeta-comentario">
+            <p>A través de plataformas de redes sociales y espacios culturales urbanos, iniciativas del gobierno y privadas están revitalizando prácticas artísticas ancestrales como caligrafía, pintura clásica y música tradicional entre jóvenes chinos de 18 a 30 años. El fenómeno ha sido amplificado por creators de contenido que mezclan técnicas milenarias con estéticas contemporáneas, generando millones de visualizaciones en Douyin y TikTok. Museos y galerías reportan asistencia juvenil sin precedentes, transformando lo que parecía patrimonio en extinción en tendencia cultural vibrante. Este movimiento refleja el deseo generacional de reconectar con identidad cultural mientras navegan modernidad digital.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Sixth Tone</span>
+            <a href="https://www.sixthtone.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-6">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">👥 Sociedad</span>
+            <span class="numero-noticia">#6</span>
+          </div>
+          <h2 class="tarjeta-titulo">Transformación digital de ciudades chinas crea nuevos desafíos de gobernanza urbana</h2>
+          <div class="tarjeta-comentario">
+            <p>Ciudades como Chongqing y Suzhou experimentan cambios acelerados en cómo se administra la vida urbana, con sistemas de inteligencia artificial ayudando a optimizar tráfico, servicios de salud y gestión de residuos, aunque plantean preguntas sobre privacidad y equidad en el acceso tecnológico. Las autoridades están implementando algoritmos de toma de decisiones que afectan desde asignación de recursos educativos hasta planificación de espacios públicos, con resultados mixtos en transparencia y participación ciudadana. Académicos y funcionarios debaten marcos regulatorios que balanceen eficiencia administrativa con derechos de privacidad individual. Esta tensión ilustra cómo China negocia la modernización urbana de 1.4 mil millones de personas bajo gobiernanza digital.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Pandaily</span>
+            <a href="https://www.pandaily.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-7">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💻 Tecnología</span>
+            <span class="numero-noticia">#7</span>
+          </div>
+          <h2 class="tarjeta-titulo">Startups chinas de inteligencia artificial aseguran financiamiento récord pese a competencia global</h2>
+          <div class="tarjeta-comentario">
+            <p>Empresas emergentes chinas de IA han recaudado más de 12 mil millones de dólares en los primeros seis meses de 2026, superando cifras de períodos comparables y consolidando el ecosistema de startups del país como competidor global serio frente a Silicon Valley. Rondas de financiamiento lideradas por fondos de riesgo locales y corporativos reflejan confianza en modelos de negocio específicamente adaptados al mercado chino en procesamiento de lenguaje natural, visión por computadora y automatización industrial. Empresas como SenseTime y Megvii reportan valuaciones crecientes y expansión en mercados internacionales, particularmente en Asia Sudoriental. Este dinamismo evidencia cómo China está cerrando brecha tecnológica en IA y desarrollando capacidades de innovación propias.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 TechNode</span>
+            <a href="https://www.technode.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-8">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🌏 Geopolítica</span>
+            <span class="numero-noticia">#8</span>
+          </div>
+          <h2 class="tarjeta-titulo">Acuerdos comerciales regionales avanzan con nueva ronda de negociaciones RCEP</h2>
+          <div class="tarjeta-comentario">
+            <p>China participó activamente en la nueva ronda de negociaciones del RCEP (Acuerdo Regional Integral de Asociación Económica), consolidando su posición como actor central en integración económica del Indo-Pacífico frente a crecientes tensiones comerciales globales. Los acuerdos amplían acceso a mercados para manufacturas, servicios digitales y productos agrícolas entre los 15 miembros, con China como beneficiario estratégico de cadenas de suministro diversificadas. Las negociaciones ocurren en contexto de competencia renovada con alianzas occidentales como AUKUS, demostrando el objetivo chino de profundizar interdependencia regional. El avance del RCEP muestra la apuesta china por multilateralismo económico como herramienta de influencia geopolítica.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Global Times</span>
+            <a href="https://www.globaltimes.cn" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-9">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💼 Empresas</span>
+            <span class="numero-noticia">#9</span>
+          </div>
+          <h2 class="tarjeta-titulo">Empresa estatal china anuncia expansión de operaciones de litio en América Latina</h2>
+          <div class="tarjeta-comentario">
+            <p>Corporaciones estatales chinas han formalizado acuerdos de inversión por 8 mil millones de dólares en proyectos de extracción y refinación de litio en Argentina, Bolivia y Chile, asegurando suministros críticos para su industria de baterías y vehículos eléctricos. Esta estrategia de vertical integration refleja aprendizaje de crisis de suministro previas y la determinación de China de controlar cadenas de valor en tecnologías de transición energética consideradas estratégicas. Los acuerdos generan debate en gobiernos latinoamericanos sobre beneficios económicos versus dependencia geoeconómica. El movimiento ilustra cómo China instrumentaliza inversión extranjera directa para asegurar recursos necesarios para su liderazgo en tecnología verde.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Reuters</span>
+            <a href="https://www.reuters.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-10">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🔬 Ciencia</span>
+            <span class="numero-noticia">#10</span>
+          </div>
+          <h2 class="tarjeta-titulo">Institutos de investigación chinos colaboran en proyecto global de estudio sobre cambio climático</h2>
+          <div class="tarjeta-comentario">
+            <p>Centros de investigación chinos liderados por la Academia de Ciencias de China han integrado datos de satélites propios y análisis de ecosistemas para contribuir de forma significativa a un proyecto colaborativo internacional de modelado climático que involucra 47 países. La participación china aporta capacidades computacionales avanzadas y observación regional detallada del cambio ambiental en monzones asiáticos, glaciares tibetanos y océanos adyacentes, información crucial para predicciones globales. Este esfuerzo científico multilateral demuestra disposición de China por colaboración en desafíos planetarios comunes, independientemente de tensiones geopolíticas. La iniciativa subraya cómo la ciencia china se inserta cada vez más en discursos globales de sostenibilidad.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 CGTN</span>
+            <a href="https://www.cgtn.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+</main>
+
+<footer class="pie">
+  <div class="pie-contenido">
+    <h3>Fuentes consultadas en esta edición</h3>
+    <ul>
+      <li><a href="https://www.caixinglobal.com" target="_blank" rel="noopener">Caixin Global — China impulsa nueva ley de protección de datos para fortalecer privacidad digital</a></li><li><a href="https://www.chinadaily.com.cn" target="_blank" rel="noopener">China Daily — Industria fotovoltaica china alcanza récord de producción en primer semestre 2026</a></li><li><a href="https://www.scmp.com" target="_blank" rel="noopener">South China Morning Post — Consumo de lujo en China se recupera con crecimiento de 18% en el segundo trimestre</a></li><li><a href="https://www.xinhuanet.com" target="_blank" rel="noopener">Xinhua News Agency — Jóvenes investigadores chinos ganan premio internacional por avance en computación cuántica</a></li><li><a href="https://www.sixthtone.com" target="_blank" rel="noopener">Sixth Tone — Iniciativa cultural promueve artes tradicionales chinas entre generación Z urbana</a></li><li><a href="https://www.pandaily.com" target="_blank" rel="noopener">Pandaily — Transformación digital de ciudades chinas crea nuevos desafíos de gobernanza urbana</a></li><li><a href="https://www.technode.com" target="_blank" rel="noopener">TechNode — Startups chinas de inteligencia artificial aseguran financiamiento récord pese a competencia global</a></li><li><a href="https://www.globaltimes.cn" target="_blank" rel="noopener">Global Times — Acuerdos comerciales regionales avanzan con nueva ronda de negociaciones RCEP</a></li><li><a href="https://www.reuters.com" target="_blank" rel="noopener">Reuters — Empresa estatal china anuncia expansión de operaciones de litio en América Latina</a></li><li><a href="https://www.cgtn.com" target="_blank" rel="noopener">CGTN — Institutos de investigación chinos colaboran en proyecto global de estudio sobre cambio climático</a></li>
+    </ul>
+    <div class="pie-creditos">
+      China Hoy · Edición 2026-06-30 · Generado automáticamente con IA ·
+      Las opiniones expresadas son editoriales y no representan posiciones oficiales.
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
