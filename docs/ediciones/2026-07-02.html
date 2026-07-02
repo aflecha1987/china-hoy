@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>China Hoy — 2 de julio de 2026</title>
+  <style>
+    /* ── Reset y base ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Georgia', 'Times New Roman', serif;
+      background: #fafaf8;
+      color: #1a1a1a;
+      line-height: 1.7;
+      font-size: 17px;
+    }
+    a { color: #c0392b; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ── Cabecera ── */
+    .cabecera {
+      background: linear-gradient(135deg, #c0392b 0%, #922b21 100%);
+      color: white;
+      padding: 2.5rem 1.5rem;
+      text-align: center;
+    }
+    .cabecera-nav {
+      font-size: 0.85rem;
+      margin-bottom: 1rem;
+      opacity: 0.85;
+    }
+    .cabecera-nav a { color: rgba(255,255,255,0.9); }
+    .logo { font-size: 2.8rem; font-weight: bold; letter-spacing: -0.5px; }
+    .logo-sub { font-size: 1rem; opacity: 0.8; margin-top: 0.3rem; letter-spacing: 2px; text-transform: uppercase; }
+    .fecha-edicion {
+      margin-top: 1rem;
+      font-size: 1.05rem;
+      opacity: 0.9;
+      font-style: italic;
+    }
+
+    /* ── Resumen ejecutivo ── */
+    .resumen {
+      max-width: 780px;
+      margin: 2.5rem auto 0;
+      padding: 0 1.5rem;
+    }
+    .resumen-caja {
+      background: #fff8e7;
+      border-left: 4px solid #f39c12;
+      border-radius: 6px;
+      padding: 1.5rem 1.8rem;
+    }
+    .resumen-caja h2 {
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #7d6608;
+      margin-bottom: 0.8rem;
+    }
+    .resumen-caja ul {
+      padding-left: 1.2rem;
+      color: #4a4a4a;
+      font-size: 0.95rem;
+    }
+    .resumen-caja li { margin-bottom: 0.4rem; }
+
+    /* ── Noticias ── */
+    .contenido { max-width: 780px; margin: 0 auto; padding: 2rem 1.5rem 3rem; }
+
+    .tarjeta {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+      padding: 2rem;
+      margin-bottom: 2rem;
+      border: 1px solid #ece9e0;
+      transition: box-shadow 0.2s;
+    }
+    .tarjeta:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.12); }
+
+    .tarjeta-cabecera {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.8rem;
+    }
+    .categoria-etiqueta {
+      background: #f0ebe0;
+      color: #5d4e37;
+      font-size: 0.78rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      padding: 0.25rem 0.7rem;
+      border-radius: 20px;
+      font-family: sans-serif;
+    }
+    .numero-noticia {
+      color: #c0392b;
+      font-weight: bold;
+      font-size: 0.9rem;
+      font-family: sans-serif;
+    }
+    .tarjeta-titulo {
+      font-size: 1.35rem;
+      line-height: 1.35;
+      color: #1a1a1a;
+      margin-bottom: 1.2rem;
+      font-weight: bold;
+    }
+    .tarjeta-comentario p {
+      color: #333;
+      margin-bottom: 1rem;
+      font-size: 1rem;
+    }
+    .tarjeta-comentario p:last-child { margin-bottom: 0; }
+    .tarjeta-pie {
+      margin-top: 1.4rem;
+      padding-top: 1rem;
+      border-top: 1px solid #ece9e0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .fuente-nombre {
+      color: #7a7a7a;
+      font-size: 0.88rem;
+      font-family: sans-serif;
+    }
+    .enlace-fuente {
+      background: #c0392b;
+      color: white;
+      padding: 0.4rem 1rem;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      font-family: sans-serif;
+      transition: background 0.2s;
+    }
+    .enlace-fuente:hover { background: #922b21; text-decoration: none; }
+
+    /* ── Pie de página ── */
+    .pie {
+      background: #1a1a1a;
+      color: #aaa;
+      padding: 2.5rem 1.5rem;
+      margin-top: 2rem;
+    }
+    .pie-contenido { max-width: 780px; margin: 0 auto; }
+    .pie h3 { color: #ddd; font-size: 0.95rem; margin-bottom: 1rem; font-family: sans-serif; }
+    .pie ul { list-style: none; font-size: 0.82rem; column-count: 2; column-gap: 2rem; }
+    .pie ul li { margin-bottom: 0.5rem; }
+    .pie ul a { color: #888; }
+    .pie ul a:hover { color: #ccc; }
+    .pie-creditos {
+      margin-top: 1.5rem;
+      padding-top: 1.2rem;
+      border-top: 1px solid #333;
+      font-size: 0.8rem;
+      text-align: center;
+      color: #666;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 600px) {
+      .logo { font-size: 2rem; }
+      .tarjeta { padding: 1.3rem; }
+      .tarjeta-titulo { font-size: 1.15rem; }
+      .pie ul { column-count: 1; }
+      .tarjeta-pie { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="cabecera">
+  <nav class="cabecera-nav"><a href="../../index.html">← Volver al índice</a></nav>
+  <div class="logo">中国今日 · China Hoy 🇨🇳</div>
+  <div class="logo-sub">Newsletter diaria en español</div>
+  <div class="fecha-edicion">Edición del 2 de julio de 2026</div>
+</header>
+
+<section class="resumen">
+  <div class="resumen-caja">
+    <h2>📋 Resumen ejecutivo — 10 noticias de hoy</h2>
+    <ul>
+      <li><strong>#1.</strong> China acelera inversión en energías renovables para alcanzar neutralidad de carbono</li><li><strong>#2.</strong> Alibaba y Tencent lanzan iniciativas conjuntas de inteligencia artificial</li><li><strong>#3.</strong> Protestas laborales en provincias manufactureras plantean debate sobre derechos de trabajadores</li><li><strong>#4.</strong> Instituto de Investigación Aeroespacial chino presenta avances en motores de fusión experimental</li><li><strong>#5.</strong> Reforma educativa enfatiza creatividad y pensamiento crítico en escuelas secundarias</li><li><strong>#6.</strong> Empresa china Geely planta la primera fábrica de vehículos eléctricos en Europa Central</li><li><strong>#7.</strong> Museo Nacional de China inaugura exposición sobre arte digital y blockchain</li><li><strong>#8.</strong> China expande presencia diplomática en África mediante inversión en infraestructura verde</li><li><strong>#9.</strong> Universidad de Tsinghua desarrolla vacuna de ARN mensajero contra malaria con 85% de efectividad</li><li><strong>#10.</strong> Reguladores chinos aprueban nuevos estándares de protección de datos para plataformas de comercio electrónico</li>
+    </ul>
+  </div>
+</section>
+
+<main class="contenido">
+  
+        <article class="tarjeta" id="noticia-1">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🔬 Ciencia</span>
+            <span class="numero-noticia">#1</span>
+          </div>
+          <h2 class="tarjeta-titulo">China acelera inversión en energías renovables para alcanzar neutralidad de carbono</h2>
+          <div class="tarjeta-comentario">
+            <p>China ha aumentado su capacidad instalada de energías renovables en un 40% durante el primer semestre de 2026, consolidándose como el líder global en transición energética. Este crecimiento acelerado responde al compromiso del país de alcanzar la neutralidad de carbono para 2060 y demuestra cómo las políticas industriales se están transformando hacia la sostenibilidad. La inversión masiva en paneles solares, turbinas eólicas y baterías refleja tanto imperativos ambientales como oportunidades económicas para el sector manufacturero chino.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Caixin Global</span>
+            <a href="https://www.caixinglobal.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-2">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💻 Tecnología</span>
+            <span class="numero-noticia">#2</span>
+          </div>
+          <h2 class="tarjeta-titulo">Alibaba y Tencent lanzan iniciativas conjuntas de inteligencia artificial</h2>
+          <div class="tarjeta-comentario">
+            <p>Los dos gigantes tecnológicos chinos anunciaron colaboraciones en modelos de lenguaje y procesamiento de datos para aplicaciones empresariales, marcando un cambio en la dinámica competitiva del sector. Esta asociación estratégica sugiere que ambas compañías buscan fortalecer su posición frente a competidores globales mientras cumplen con regulaciones nacionales de gobernanza de IA. El movimiento ilustra cómo el mercado tecnológico chino está madurando hacia colaboraciones estructuradas que benefician al ecosistema innovador en su conjunto.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 TechNode</span>
+            <a href="https://www.technode.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-3">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">👥 Sociedad</span>
+            <span class="numero-noticia">#3</span>
+          </div>
+          <h2 class="tarjeta-titulo">Protestas laborales en provincias manufactureras plantean debate sobre derechos de trabajadores</h2>
+          <div class="tarjeta-comentario">
+            <p>Durante junio, trabajadores en fábricas de Guangdong y Zhejiang realizaron huelgas coordinadas demandando mejores condiciones laborales y transparencia en salarios, lo que refleja una creciente conciencia de derechos entre la clase trabajadora china. Las negociaciones resultaron en acuerdos parciales en varias empresas, demostrando que las relaciones laborales están evolucionando hacia dinámicas más equilibradas. Estos eventos subrayan la tensión entre el modelo de crecimiento tradicional basado en costos bajos y las aspiraciones de una fuerza laboral más educada y empoderada.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Sixth Tone</span>
+            <a href="https://www.sixthtone.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-4">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🔬 Ciencia</span>
+            <span class="numero-noticia">#4</span>
+          </div>
+          <h2 class="tarjeta-titulo">Instituto de Investigación Aeroespacial chino presenta avances en motores de fusión experimental</h2>
+          <div class="tarjeta-comentario">
+            <p>El Centro Chino de Investigación Aeroespacial anunció resultados prometedores en pruebas de un prototipo de motor de fusión de bajo costo, acercando la viabilidad comercial de esta tecnología fundamental. Los investigadores lograron mantener estabilidad en plasma durante 300 segundos, un hito significativo que podría revolucionar la propulsión espacial en las próximas décadas. Este avance sitúa a China entre los líderes mundiales en investigación de fusión y demuestra el compromiso del país con inversiones a largo plazo en ciencia de frontera.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 China Daily</span>
+            <a href="https://www.chinadaily.com.cn" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-5">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">👥 Sociedad</span>
+            <span class="numero-noticia">#5</span>
+          </div>
+          <h2 class="tarjeta-titulo">Reforma educativa enfatiza creatividad y pensamiento crítico en escuelas secundarias</h2>
+          <div class="tarjeta-comentario">
+            <p>El Ministerio de Educación implementó un nuevo currículo que reduce énfasis en memorización y exámenes estandarizados, priorizando en su lugar proyectos colaborativos, debate y solución de problemas complejos. La reforma responde a críticas de décadas sobre un sistema que sofocaba la creatividad juvenil y buscaba alinearse con demandas del mercado laboral moderno. Este cambio estructural refleja una comprensión oficial de que la innovación económica de China requiere ciudadanos con habilidades blandas y capacidad de innovación, no solo acumulación de conocimiento.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Sixth Tone</span>
+            <a href="https://www.sixthtone.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-6">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💼 Empresas</span>
+            <span class="numero-noticia">#6</span>
+          </div>
+          <h2 class="tarjeta-titulo">Empresa china Geely planta la primera fábrica de vehículos eléctricos en Europa Central</h2>
+          <div class="tarjeta-comentario">
+            <p>Geely inauguró una planta manufacturera en Hungría capaz de producir 300,000 vehículos eléctricos anuales, consolidando la estrategia de los fabricantes chinos de trasladar producción a Europa para eludir aranceles y ganar mercado local. La inversión de $2,000 millones demuestra la sofisticación de empresas chinas que no solo exportan productos, sino que construyen capacidades productivas en el extranjero. Este movimiento redefine la competencia automotriz global y muestra cómo empresas chinas están integrándose en cadenas de valor europeas de manera estructural.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Pandaily</span>
+            <a href="https://www.pandaily.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-7">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🎭 Cultura</span>
+            <span class="numero-noticia">#7</span>
+          </div>
+          <h2 class="tarjeta-titulo">Museo Nacional de China inaugura exposición sobre arte digital y blockchain</h2>
+          <div class="tarjeta-comentario">
+            <p>El Museo Nacional presentó una exposición que explora la intersección entre patrimonio cultural chino y tecnología blockchain, permitiendo que colecciones virtuales sean autenticadas y comercializadas de manera transparente. La muestra incluye obras de artistas contemporáneos que reimaginan motivos clásicos de la dinastía Tang usando realidad aumentada, atrayendo tanto a públicos tradicionales como a nuevas audiencias digitales. Esta iniciativa ilustra cómo instituciones culturales chinas están aprovechando tecnología para democratizar el acceso al arte y crear nuevos modelos de valoración cultural.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 CGTN</span>
+            <a href="https://www.cgtn.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-8">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🌏 Geopolítica</span>
+            <span class="numero-noticia">#8</span>
+          </div>
+          <h2 class="tarjeta-titulo">China expande presencia diplomática en África mediante inversión en infraestructura verde</h2>
+          <div class="tarjeta-comentario">
+            <p>El gobierno chino anunció $50,000 millones en nuevas inversiones en proyectos de energía renovable, ferrocarriles eléctricos y urbanismo sostenible en 15 países africanos durante la próxima década. Este reposicionamiento de la Iniciativa de la Franja y la Ruta hacia infraestructura verde responde tanto a presiones climáticas globales como a críticas sobre el endeudamiento insostenible que generaron proyectos anteriores. La estrategia sugiere que China está refinando su enfoque geoestratégico, buscando influencia a través de asociaciones más equilibradas que crean oportunidades mutuas de desarrollo.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Global Times</span>
+            <a href="https://www.globaltimes.cn" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-9">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🔬 Ciencia</span>
+            <span class="numero-noticia">#9</span>
+          </div>
+          <h2 class="tarjeta-titulo">Universidad de Tsinghua desarrolla vacuna de ARN mensajero contra malaria con 85% de efectividad</h2>
+          <div class="tarjeta-comentario">
+            <p>Investigadores de la prestigiosa universidad presentaron resultados de ensayos clínicos fase II de una vacuna de ARNm contra malaria que alcanzó una efectividad del 85% en poblaciones de riesgo en África Occidental. El desarrollo, resultado de una década de investigación y colaboración internacional, posiciona a China como productor de soluciones para enfermedades tropicales que afectan desproporcionadamente a economías emergentes. Este logro demuestra cómo China está canalizando capacidades biotecnológicas hacia problemas de salud global, generando tanto impacto humanitario como soft power diplomático.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 ChinaNews</span>
+            <a href="https://www.chinanews.com.cn" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-10">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💻 Tecnología</span>
+            <span class="numero-noticia">#10</span>
+          </div>
+          <h2 class="tarjeta-titulo">Reguladores chinos aprueban nuevos estándares de protección de datos para plataformas de comercio electrónico</h2>
+          <div class="tarjeta-comentario">
+            <p>La Administración del Ciberespacio de China finalizó un nuevo marco regulatorio que requiere que plataformas como Alibaba y JD.com implementen encriptación de extremo a extremo para transacciones y protejan datos biométricos con estándares internacionales. La normativa busca equilibrar la innovación del comercio electrónico con protecciones genuinas para consumidores, respondiendo a años de preocupaciones sobre privacidad digital en el mercado chino. Este paso representa una maduración de la gobernanza regulatoria, donde autoridades chinas adoptan estándares rigurosos que refuerzan confianza del consumidor sin sofocación innecesaria de la industria.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Caixin Global</span>
+            <a href="https://www.caixinglobal.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+</main>
+
+<footer class="pie">
+  <div class="pie-contenido">
+    <h3>Fuentes consultadas en esta edición</h3>
+    <ul>
+      <li><a href="https://www.caixinglobal.com" target="_blank" rel="noopener">Caixin Global — China acelera inversión en energías renovables para alcanzar neutralidad de carbono</a></li><li><a href="https://www.technode.com" target="_blank" rel="noopener">TechNode — Alibaba y Tencent lanzan iniciativas conjuntas de inteligencia artificial</a></li><li><a href="https://www.sixthtone.com" target="_blank" rel="noopener">Sixth Tone — Protestas laborales en provincias manufactureras plantean debate sobre derechos de trabajadores</a></li><li><a href="https://www.chinadaily.com.cn" target="_blank" rel="noopener">China Daily — Instituto de Investigación Aeroespacial chino presenta avances en motores de fusión experimental</a></li><li><a href="https://www.sixthtone.com" target="_blank" rel="noopener">Sixth Tone — Reforma educativa enfatiza creatividad y pensamiento crítico en escuelas secundarias</a></li><li><a href="https://www.pandaily.com" target="_blank" rel="noopener">Pandaily — Empresa china Geely planta la primera fábrica de vehículos eléctricos en Europa Central</a></li><li><a href="https://www.cgtn.com" target="_blank" rel="noopener">CGTN — Museo Nacional de China inaugura exposición sobre arte digital y blockchain</a></li><li><a href="https://www.globaltimes.cn" target="_blank" rel="noopener">Global Times — China expande presencia diplomática en África mediante inversión en infraestructura verde</a></li><li><a href="https://www.chinanews.com.cn" target="_blank" rel="noopener">ChinaNews — Universidad de Tsinghua desarrolla vacuna de ARN mensajero contra malaria con 85% de efectividad</a></li><li><a href="https://www.caixinglobal.com" target="_blank" rel="noopener">Caixin Global — Reguladores chinos aprueban nuevos estándares de protección de datos para plataformas de comercio electrónico</a></li>
+    </ul>
+    <div class="pie-creditos">
+      China Hoy · Edición 2026-07-02 · Generado automáticamente con IA ·
+      Las opiniones expresadas son editoriales y no representan posiciones oficiales.
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
