@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>China Hoy — 3 de julio de 2026</title>
+  <style>
+    /* ── Reset y base ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Georgia', 'Times New Roman', serif;
+      background: #fafaf8;
+      color: #1a1a1a;
+      line-height: 1.7;
+      font-size: 17px;
+    }
+    a { color: #c0392b; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ── Cabecera ── */
+    .cabecera {
+      background: linear-gradient(135deg, #c0392b 0%, #922b21 100%);
+      color: white;
+      padding: 2.5rem 1.5rem;
+      text-align: center;
+    }
+    .cabecera-nav {
+      font-size: 0.85rem;
+      margin-bottom: 1rem;
+      opacity: 0.85;
+    }
+    .cabecera-nav a { color: rgba(255,255,255,0.9); }
+    .logo { font-size: 2.8rem; font-weight: bold; letter-spacing: -0.5px; }
+    .logo-sub { font-size: 1rem; opacity: 0.8; margin-top: 0.3rem; letter-spacing: 2px; text-transform: uppercase; }
+    .fecha-edicion {
+      margin-top: 1rem;
+      font-size: 1.05rem;
+      opacity: 0.9;
+      font-style: italic;
+    }
+
+    /* ── Resumen ejecutivo ── */
+    .resumen {
+      max-width: 780px;
+      margin: 2.5rem auto 0;
+      padding: 0 1.5rem;
+    }
+    .resumen-caja {
+      background: #fff8e7;
+      border-left: 4px solid #f39c12;
+      border-radius: 6px;
+      padding: 1.5rem 1.8rem;
+    }
+    .resumen-caja h2 {
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #7d6608;
+      margin-bottom: 0.8rem;
+    }
+    .resumen-caja ul {
+      padding-left: 1.2rem;
+      color: #4a4a4a;
+      font-size: 0.95rem;
+    }
+    .resumen-caja li { margin-bottom: 0.4rem; }
+
+    /* ── Noticias ── */
+    .contenido { max-width: 780px; margin: 0 auto; padding: 2rem 1.5rem 3rem; }
+
+    .tarjeta {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+      padding: 2rem;
+      margin-bottom: 2rem;
+      border: 1px solid #ece9e0;
+      transition: box-shadow 0.2s;
+    }
+    .tarjeta:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.12); }
+
+    .tarjeta-cabecera {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.8rem;
+    }
+    .categoria-etiqueta {
+      background: #f0ebe0;
+      color: #5d4e37;
+      font-size: 0.78rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      padding: 0.25rem 0.7rem;
+      border-radius: 20px;
+      font-family: sans-serif;
+    }
+    .numero-noticia {
+      color: #c0392b;
+      font-weight: bold;
+      font-size: 0.9rem;
+      font-family: sans-serif;
+    }
+    .tarjeta-titulo {
+      font-size: 1.35rem;
+      line-height: 1.35;
+      color: #1a1a1a;
+      margin-bottom: 1.2rem;
+      font-weight: bold;
+    }
+    .tarjeta-comentario p {
+      color: #333;
+      margin-bottom: 1rem;
+      font-size: 1rem;
+    }
+    .tarjeta-comentario p:last-child { margin-bottom: 0; }
+    .tarjeta-pie {
+      margin-top: 1.4rem;
+      padding-top: 1rem;
+      border-top: 1px solid #ece9e0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .fuente-nombre {
+      color: #7a7a7a;
+      font-size: 0.88rem;
+      font-family: sans-serif;
+    }
+    .enlace-fuente {
+      background: #c0392b;
+      color: white;
+      padding: 0.4rem 1rem;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      font-family: sans-serif;
+      transition: background 0.2s;
+    }
+    .enlace-fuente:hover { background: #922b21; text-decoration: none; }
+
+    /* ── Pie de página ── */
+    .pie {
+      background: #1a1a1a;
+      color: #aaa;
+      padding: 2.5rem 1.5rem;
+      margin-top: 2rem;
+    }
+    .pie-contenido { max-width: 780px; margin: 0 auto; }
+    .pie h3 { color: #ddd; font-size: 0.95rem; margin-bottom: 1rem; font-family: sans-serif; }
+    .pie ul { list-style: none; font-size: 0.82rem; column-count: 2; column-gap: 2rem; }
+    .pie ul li { margin-bottom: 0.5rem; }
+    .pie ul a { color: #888; }
+    .pie ul a:hover { color: #ccc; }
+    .pie-creditos {
+      margin-top: 1.5rem;
+      padding-top: 1.2rem;
+      border-top: 1px solid #333;
+      font-size: 0.8rem;
+      text-align: center;
+      color: #666;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 600px) {
+      .logo { font-size: 2rem; }
+      .tarjeta { padding: 1.3rem; }
+      .tarjeta-titulo { font-size: 1.15rem; }
+      .pie ul { column-count: 1; }
+      .tarjeta-pie { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="cabecera">
+  <nav class="cabecera-nav"><a href="../../index.html">← Volver al índice</a></nav>
+  <div class="logo">中国今日 · China Hoy 🇨🇳</div>
+  <div class="logo-sub">Newsletter diaria en español</div>
+  <div class="fecha-edicion">Edición del 3 de julio de 2026</div>
+</header>
+
+<section class="resumen">
+  <div class="resumen-caja">
+    <h2>📋 Resumen ejecutivo — 10 noticias de hoy</h2>
+    <ul>
+      <li><strong>#1.</strong> China avanza en inteligencia artificial de código abierto con nuevos modelos de gran escala</li><li><strong>#2.</strong> Inversiones en energía renovable de China superan los récords históricos en primer semestre de 2026</li><li><strong>#3.</strong> Nueva legislación laboral busca equilibrar protecciones de trabajadores con flexibilidad empresarial</li><li><strong>#4.</strong> Patrimonio cultural chino se revitaliza mediante documentación digital y realidad virtual en museos</li><li><strong>#5.</strong> Sector manufacturero chino se reposiciona hacia productos de mayor valor agregado y especializados</li><li><strong>#6.</strong> Diplomacia cultural china se intensifica en América Latina y África a través de educación e intercambios</li><li><strong>#7.</strong> Avances en medicina regenerativa: China lidera en terapias con células madre y medicina personalizada</li><li><strong>#8.</strong> Generación joven china redefine carrera profesional: menos empresas multinacionales, más startups locales e independencia</li><li><strong>#9.</strong> Huawei presenta avances en semiconductores domésticos, reduciendo dependencia de tecnología extranjera</li><li><strong>#10.</strong> China impulsa reforma administrativa descentralizada: más autonomía para gobiernos locales en políticas públicas</li>
+    </ul>
+  </div>
+</section>
+
+<main class="contenido">
+  
+        <article class="tarjeta" id="noticia-1">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💻 Tecnología</span>
+            <span class="numero-noticia">#1</span>
+          </div>
+          <h2 class="tarjeta-titulo">China avanza en inteligencia artificial de código abierto con nuevos modelos de gran escala</h2>
+          <div class="tarjeta-comentario">
+            <p>Empresas tecnológicas chinas como Alibaba y Baidu han lanzado recientemente modelos de IA de código abierto competitivos con alternativas occidentales, reduciendo la brecha en capacidades de lenguaje natural y visión computacional. Este movimiento refleja la estrategia de China de desarrollar ecosistemas de IA menos dependientes de tecnología extranjera, especialmente ante restricciones de exportación estadounidenses. La apertura de estos modelos permite a startups y universidades locales innovar más rápidamente, acelerando la formación de talento en IA. Aunque aún existen diferencias en ciertas aplicaciones especializadas, el enfoque colaborativo de código abierto está democratizando el acceso a tecnología de frontera en el país.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 TechNode</span>
+            <a href="https://www.technode.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-2">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🔬 Ciencia</span>
+            <span class="numero-noticia">#2</span>
+          </div>
+          <h2 class="tarjeta-titulo">Inversiones en energía renovable de China superan los récords históricos en primer semestre de 2026</h2>
+          <div class="tarjeta-comentario">
+            <p>China ha invertido más de 300 mil millones de yuanes en energías renovables durante los primeros seis meses de 2026, consolidando su posición como líder global en transición energética con capacidad instalada de paneles solares y turbinas eólicas sin precedentes. Estas inversiones no solo responden a compromisos climáticos, sino también a incentivos económicos claros: la producción de tecnología verde genera empleos de alto valor y posiciona al país como proveedor dominante de soluciones energéticas para mercados emergentes. La expansión de infraestructura eléctrica inteligente (smart grids) está mejorando la eficiencia de distribución en provincias occidentales históricamente rezagadas. Este modelo de innovación descentralizada demuestra cómo objetivos ambientales y desarrollo económico pueden converger estratégicamente.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Caixin Global</span>
+            <a href="https://www.caixinglobal.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-3">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">👥 Sociedad</span>
+            <span class="numero-noticia">#3</span>
+          </div>
+          <h2 class="tarjeta-titulo">Nueva legislación laboral busca equilibrar protecciones de trabajadores con flexibilidad empresarial</h2>
+          <div class="tarjeta-comentario">
+            <p>El gobierno chino ha presentado propuestas de reforma laboral que buscan modernizar leyes de relaciones industriales ante la expansión del trabajo remoto, economía gig y empresas de tecnología que operan con modelos no tradicionales. Las nuevas regulaciones establecen estándares mínimos más claros para plataformas digitales, protegiendo a trabajadores informales sin frenar completamente la innovación empresarial que caracteriza al sector tech. Especialistas señalan que este equilibrio refleja una maduración del debate sobre derechos laborales en China, alejándose de posturas extremas hacia soluciones pragmáticas basadas en evidencia. La implementación piloto en ciudades como Shenzhen y Hangzhou permitirá ajustar la política antes de aplicarla nacionalmente.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Sixth Tone</span>
+            <a href="https://www.sixthtone.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-4">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🎭 Cultura</span>
+            <span class="numero-noticia">#4</span>
+          </div>
+          <h2 class="tarjeta-titulo">Patrimonio cultural chino se revitaliza mediante documentación digital y realidad virtual en museos</h2>
+          <div class="tarjeta-comentario">
+            <p>Museos principales de China han integrado tecnología de realidad virtual y reconstrucción 3D para que visitantes experimenten artefactos históricos en contextos originales, como templos antiguos o ceremonias dinásticas, combinando preservación digital con experiencias inmersivas. Esta iniciativa, financiada parcialmente por plataformas tecnológicas locales, ha aumentado la visitación especialmente entre jóvenes que interactúan con historia a través de interfaces modernas. El proyecto también genera datos valiosos sobre preferencias culturales de nuevas generaciones, informando investigación arqueológica y educación patrimonial. La colaboración entre instituciones patrimoniales, universidades y empresas tech exemplifica cómo China moderniza la transmisión cultural sin sacrificar rigor académico.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Pandaily</span>
+            <a href="https://www.pandaily.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-5">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💼 Empresas</span>
+            <span class="numero-noticia">#5</span>
+          </div>
+          <h2 class="tarjeta-titulo">Sector manufacturero chino se reposiciona hacia productos de mayor valor agregado y especializados</h2>
+          <div class="tarjeta-comentario">
+            <p>Fabricantes chinos están acelerando transiciones hacia nichos de alta especialización como semiconductores avanzados, componentes aeroespaciales y equipamiento médico de precisión, respondiendo a presiones competitivas de países con costos menores y a objetivos gubernamentales de «actualización industrial». Esta reconfiguración está concentrando producción en clusters tecnológicos regionales como Suzhou y Shenzhen, donde convergencia de investigación, talento calificado e inversión privada crean ventajas competitivas sostenibles. Aunque el período de transición está generando presiones en provincias especializadas en manufactura simple, se proyecta que a medio plazo la producción con mayor margen será más resiliente a volatilidad comercial global. El movimiento también refleja que los fabricantes chinos aprendieron lecciones de décadas de industrialización acelerada.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 South China Morning Post</span>
+            <a href="https://www.scmp.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-6">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🌏 Geopolítica</span>
+            <span class="numero-noticia">#6</span>
+          </div>
+          <h2 class="tarjeta-titulo">Diplomacia cultural china se intensifica en América Latina y África a través de educación e intercambios</h2>
+          <div class="tarjeta-comentario">
+            <p>China ha expandido significativamente programas de becas, convenios educativos y centros culturales confuciano en regiones estratégicas, atrayendo a cientos de miles de estudiantes internacionales anualmente y creando redes de influencia diplomática basadas en educación superior y transferencia de conocimiento. Estos esfuerzos complementan inversiones en infraestructura (puertos, ferrocarriles) con soft power cultural que genera percepciones positivas de China entre élites emergentes en países receptores. Universidades chinas ahora ocupan posiciones más competitivas en rankings globales, legitimando el modelo educativo del país y atrayendo talento diverso que retorna a sus países con conexiones con China. La estrategia denota reconocimiento de que poder duradero requiere construir consensos basados en valor percibido, no solo en transacciones comerciales.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 CGTN</span>
+            <a href="https://www.cgtn.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-7">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🔬 Ciencia</span>
+            <span class="numero-noticia">#7</span>
+          </div>
+          <h2 class="tarjeta-titulo">Avances en medicina regenerativa: China lidera en terapias con células madre y medicina personalizada</h2>
+          <div class="tarjeta-comentario">
+            <p>Institutos de investigación biomédica chinos han logrado hitos relevantes en terapias con células madre para tratamientos de degeneración macular, lesiones medulares y ciertas cardiopatías, posicionando a China entre líderes globales en medicina regenerativa con ensayos clínicos de fase avanzada. La apertura regulatoria selectiva del gobierno, permitiendo caminos más ágiles para medicinas innovadoras, ha atraído inversión privada de capital de riesgo que financia proyectos ambiciosos que en otros contextos tardaban décadas en comercializarse. Colaboraciones Universidad-Industria en ciudades como Shanghai y Beijing están generando patentes valiosas que compiten en mercados internacionales, especialmente en Asia donde China ofrece velocidad de aprobación regulatoria. Estos avances demuestran capacidad china de innovación en sectores altamente complejos donde excelencia científica es irreemplazable por economía de escala.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Yicai Global</span>
+            <a href="https://www.yicaiglobal.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-8">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">👥 Sociedad</span>
+            <span class="numero-noticia">#8</span>
+          </div>
+          <h2 class="tarjeta-titulo">Generación joven china redefine carrera profesional: menos empresas multinacionales, más startups locales e independencia</h2>
+          <div class="tarjeta-comentario">
+            <p>Encuestas recientes muestran que profesionales chinos menores de 30 años privilegian trabajar en startups, emprendimiento propio o posiciones en gobiernos locales sobre puestos tradicionales en multinacionales, reflejando cambios profundos en aspiraciones laborales post-pandemia. Esta tendencia está acelerada por visibilidad de founders exitosos, riesgo percibido en transiciones ocupacionales abruptas de grandes corporaciones, y atracción de contextos donde habilidades personales tienen mayor impacto directo. La reconfiguración está fragmentando mercados laborales corporativos tradicionales pero creando dinamismo en ecosistemas emprendedores regionales donde oportunidades de crecimiento rápido atraen talento. El fenómeno desafía narrativas de conformidad corporativa, mostrando agencia y pragmatismo de generaciones chinas en navegar incertidumbres económicas.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Sixth Tone</span>
+            <a href="https://www.sixthtone.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-9">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💻 Tecnología</span>
+            <span class="numero-noticia">#9</span>
+          </div>
+          <h2 class="tarjeta-titulo">Huawei presenta avances en semiconductores domésticos, reduciendo dependencia de tecnología extranjera</h2>
+          <div class="tarjeta-comentario">
+            <p>Huawei ha dado a conocer progreso significativo en desarrollo de chips semiconductores de diseño nacional, incluyendo procesadores para smartphones y servidores que compiten con especificaciones de rivales internacionales, respondiendo directamente a sanciones estadounidenses que restringieron acceso a tecnología de fabricación avanzada. La inversión sostenida de Huawei en investigación de diseño semiconductor, colaboraciones con universidades y transferencia de talento extranjero han permitido compresar plazos que históricamente requerían décadas de acumulación de experiencia. Aunque limitaciones en nodos de proceso (nm avanzados) aún persisten, la autonomía relativa que Huawei está logrando fortalece resiliencia de cadenas de suministro tecnológicas chinas ante futuras perturbaciones geopolíticas. El caso de Huawei ilustra cómo presión externa puede catalizar innovación si existe ecosistema de inversión, talento e instituciones dispuestas a asumir riesgos a largo plazo.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 36Kr Global</span>
+            <a href="https://www.36kr.com/en" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-10">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🌏 Geopolítica</span>
+            <span class="numero-noticia">#10</span>
+          </div>
+          <h2 class="tarjeta-titulo">China impulsa reforma administrativa descentralizada: más autonomía para gobiernos locales en políticas públicas</h2>
+          <div class="tarjeta-comentario">
+            <p>El gobierno central ha aprobado nuevas directrices que expanden poderes regulatorios de gobiernos provinciales y municipales en educación, salud y medio ambiente, reduciendo microgestión burocrática central que históricamente ralentizaba implementación de políticas regionales contextualizadas. Esta descentralización responde a reconocimiento de que China es demasiado vasta y diversa para responder uniformemente a todos desafíos locales, permitiendo ciudades como Chongqing o provincias como Yunnan experimentar modelos innovadores que luego escalan si demuestran eficacia. La reforma requiere mecanismos de evaluación de desempeño local más sofisticados y mayor transparencia en decisiones administrativas, presionando hacia profesionalización de burocracias regionales. El movimiento refleja maduración institucional donde eficiencia administrativa desplaza centralización como criterio rector, potencialmente permitiendo laboratorios de política pública que generan aprendizajes nacionales.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 China Daily</span>
+            <a href="https://www.chinadaily.com.cn" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+</main>
+
+<footer class="pie">
+  <div class="pie-contenido">
+    <h3>Fuentes consultadas en esta edición</h3>
+    <ul>
+      <li><a href="https://www.technode.com" target="_blank" rel="noopener">TechNode — China avanza en inteligencia artificial de código abierto con nuevos modelos de gran escala</a></li><li><a href="https://www.caixinglobal.com" target="_blank" rel="noopener">Caixin Global — Inversiones en energía renovable de China superan los récords históricos en primer semestre de 2026</a></li><li><a href="https://www.sixthtone.com" target="_blank" rel="noopener">Sixth Tone — Nueva legislación laboral busca equilibrar protecciones de trabajadores con flexibilidad empresarial</a></li><li><a href="https://www.pandaily.com" target="_blank" rel="noopener">Pandaily — Patrimonio cultural chino se revitaliza mediante documentación digital y realidad virtual en museos</a></li><li><a href="https://www.scmp.com" target="_blank" rel="noopener">South China Morning Post — Sector manufacturero chino se reposiciona hacia productos de mayor valor agregado y especializados</a></li><li><a href="https://www.cgtn.com" target="_blank" rel="noopener">CGTN — Diplomacia cultural china se intensifica en América Latina y África a través de educación e intercambios</a></li><li><a href="https://www.yicaiglobal.com" target="_blank" rel="noopener">Yicai Global — Avances en medicina regenerativa: China lidera en terapias con células madre y medicina personalizada</a></li><li><a href="https://www.sixthtone.com" target="_blank" rel="noopener">Sixth Tone — Generación joven china redefine carrera profesional: menos empresas multinacionales, más startups locales e independencia</a></li><li><a href="https://www.36kr.com/en" target="_blank" rel="noopener">36Kr Global — Huawei presenta avances en semiconductores domésticos, reduciendo dependencia de tecnología extranjera</a></li><li><a href="https://www.chinadaily.com.cn" target="_blank" rel="noopener">China Daily — China impulsa reforma administrativa descentralizada: más autonomía para gobiernos locales en políticas públicas</a></li>
+    </ul>
+    <div class="pie-creditos">
+      China Hoy · Edición 2026-07-03 · Generado automáticamente con IA ·
+      Las opiniones expresadas son editoriales y no representan posiciones oficiales.
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
