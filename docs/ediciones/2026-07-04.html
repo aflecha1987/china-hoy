@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>China Hoy — 4 de julio de 2026</title>
+  <style>
+    /* ── Reset y base ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Georgia', 'Times New Roman', serif;
+      background: #fafaf8;
+      color: #1a1a1a;
+      line-height: 1.7;
+      font-size: 17px;
+    }
+    a { color: #c0392b; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ── Cabecera ── */
+    .cabecera {
+      background: linear-gradient(135deg, #c0392b 0%, #922b21 100%);
+      color: white;
+      padding: 2.5rem 1.5rem;
+      text-align: center;
+    }
+    .cabecera-nav {
+      font-size: 0.85rem;
+      margin-bottom: 1rem;
+      opacity: 0.85;
+    }
+    .cabecera-nav a { color: rgba(255,255,255,0.9); }
+    .logo { font-size: 2.8rem; font-weight: bold; letter-spacing: -0.5px; }
+    .logo-sub { font-size: 1rem; opacity: 0.8; margin-top: 0.3rem; letter-spacing: 2px; text-transform: uppercase; }
+    .fecha-edicion {
+      margin-top: 1rem;
+      font-size: 1.05rem;
+      opacity: 0.9;
+      font-style: italic;
+    }
+
+    /* ── Resumen ejecutivo ── */
+    .resumen {
+      max-width: 780px;
+      margin: 2.5rem auto 0;
+      padding: 0 1.5rem;
+    }
+    .resumen-caja {
+      background: #fff8e7;
+      border-left: 4px solid #f39c12;
+      border-radius: 6px;
+      padding: 1.5rem 1.8rem;
+    }
+    .resumen-caja h2 {
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #7d6608;
+      margin-bottom: 0.8rem;
+    }
+    .resumen-caja ul {
+      padding-left: 1.2rem;
+      color: #4a4a4a;
+      font-size: 0.95rem;
+    }
+    .resumen-caja li { margin-bottom: 0.4rem; }
+
+    /* ── Noticias ── */
+    .contenido { max-width: 780px; margin: 0 auto; padding: 2rem 1.5rem 3rem; }
+
+    .tarjeta {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+      padding: 2rem;
+      margin-bottom: 2rem;
+      border: 1px solid #ece9e0;
+      transition: box-shadow 0.2s;
+    }
+    .tarjeta:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.12); }
+
+    .tarjeta-cabecera {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.8rem;
+    }
+    .categoria-etiqueta {
+      background: #f0ebe0;
+      color: #5d4e37;
+      font-size: 0.78rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      padding: 0.25rem 0.7rem;
+      border-radius: 20px;
+      font-family: sans-serif;
+    }
+    .numero-noticia {
+      color: #c0392b;
+      font-weight: bold;
+      font-size: 0.9rem;
+      font-family: sans-serif;
+    }
+    .tarjeta-titulo {
+      font-size: 1.35rem;
+      line-height: 1.35;
+      color: #1a1a1a;
+      margin-bottom: 1.2rem;
+      font-weight: bold;
+    }
+    .tarjeta-comentario p {
+      color: #333;
+      margin-bottom: 1rem;
+      font-size: 1rem;
+    }
+    .tarjeta-comentario p:last-child { margin-bottom: 0; }
+    .tarjeta-pie {
+      margin-top: 1.4rem;
+      padding-top: 1rem;
+      border-top: 1px solid #ece9e0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .fuente-nombre {
+      color: #7a7a7a;
+      font-size: 0.88rem;
+      font-family: sans-serif;
+    }
+    .enlace-fuente {
+      background: #c0392b;
+      color: white;
+      padding: 0.4rem 1rem;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      font-family: sans-serif;
+      transition: background 0.2s;
+    }
+    .enlace-fuente:hover { background: #922b21; text-decoration: none; }
+
+    /* ── Pie de página ── */
+    .pie {
+      background: #1a1a1a;
+      color: #aaa;
+      padding: 2.5rem 1.5rem;
+      margin-top: 2rem;
+    }
+    .pie-contenido { max-width: 780px; margin: 0 auto; }
+    .pie h3 { color: #ddd; font-size: 0.95rem; margin-bottom: 1rem; font-family: sans-serif; }
+    .pie ul { list-style: none; font-size: 0.82rem; column-count: 2; column-gap: 2rem; }
+    .pie ul li { margin-bottom: 0.5rem; }
+    .pie ul a { color: #888; }
+    .pie ul a:hover { color: #ccc; }
+    .pie-creditos {
+      margin-top: 1.5rem;
+      padding-top: 1.2rem;
+      border-top: 1px solid #333;
+      font-size: 0.8rem;
+      text-align: center;
+      color: #666;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 600px) {
+      .logo { font-size: 2rem; }
+      .tarjeta { padding: 1.3rem; }
+      .tarjeta-titulo { font-size: 1.15rem; }
+      .pie ul { column-count: 1; }
+      .tarjeta-pie { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="cabecera">
+  <nav class="cabecera-nav"><a href="../../index.html">← Volver al índice</a></nav>
+  <div class="logo">中国今日 · China Hoy 🇨🇳</div>
+  <div class="logo-sub">Newsletter diaria en español</div>
+  <div class="fecha-edicion">Edición del 4 de julio de 2026</div>
+</header>
+
+<section class="resumen">
+  <div class="resumen-caja">
+    <h2>📋 Resumen ejecutivo — 10 noticias de hoy</h2>
+    <ul>
+      <li><strong>#1.</strong> China acelera desarrollo de inteligencia artificial doméstica tras restricciones occidentales</li><li><strong>#2.</strong> Sector de energías renovables chino lidera expansión global con nuevo récord de instalación</li><li><strong>#3.</strong> Universidades chinas registran avances en investigación de fusión nuclear controlada</li><li><strong>#4.</strong> Plataforma de e-commerce rural china expande servicios financieros a comunidades agrícolas</li><li><strong>#5.</strong> Industria del cine chino experimenta resurgimiento post-pandémico con taquilla histórica</li><li><strong>#6.</strong> Legislación sobre protección de datos personales entra en fase de implementación más estricta</li><li><strong>#7.</strong> Conflicto comercial con socio asiático se atenúa tras negociaciones bilaterales</li><li><strong>#8.</strong> Empresa automotriz china lanza vehículo eléctrico con autonomía revolucionaria en mercado global</li><li><strong>#9.</strong> Festivales culturales tradicionales reviven en ciudades chinas con participación masiva y adaptación digital</li><li><strong>#10.</strong> Iniciativa de investigación colaborativa entre universidades chinas y occidentales logra avance en medicina de precisión</li>
+    </ul>
+  </div>
+</section>
+
+<main class="contenido">
+  
+        <article class="tarjeta" id="noticia-1">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💻 Tecnología</span>
+            <span class="numero-noticia">#1</span>
+          </div>
+          <h2 class="tarjeta-titulo">China acelera desarrollo de inteligencia artificial doméstica tras restricciones occidentales</h2>
+          <div class="tarjeta-comentario">
+            <p>Las empresas tecnológicas chinas intensifican inversiones en modelos de lenguaje grandes y chips de IA como respuesta a los controles de exportación occidentales, reflejando una estrategia más autosuficiente en tecnología crítica. Startups como Zhipu AI y empresas establecidas como Baidu están lanzando nuevas versiones mejoradas de sus sistemas de IA con capacidades competitivas. Este movimiento ilustra cómo las tensiones tecnológicas globales están acelerando la innovación local china, aunque con desafíos significativos en acceso a componentes avanzados. La reorientación hacia la autosuficiencia representa un cambio estructural en la industria tecnológica china que probablemente persistirá en el mediano plazo.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 TechNode</span>
+            <a href="https://www.technode.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-2">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🔬 Ciencia</span>
+            <span class="numero-noticia">#2</span>
+          </div>
+          <h2 class="tarjeta-titulo">Sector de energías renovables chino lidera expansión global con nuevo récord de instalación</h2>
+          <div class="tarjeta-comentario">
+            <p>China instaló en el primer semestre de 2026 una capacidad récord de energía solar y eólica, consolidando su posición como líder mundial en la transición energética global. Los datos muestran que la energía renovable ya representa más del 40% de la capacidad de generación total instalada en el país, reflejando inversiones sostenidas en infraestructura limpia. Este progreso es particularmente significativo considerando que también supone avances en tecnología de almacenamiento de batería y redes inteligentes que hacen viable esta integración masiva. La expansión renovable china no solo reduce emisiones domésticas sino que también establece estándares de precio y tecnología que influyen en mercados globales de energía limpia.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Yicai Global</span>
+            <a href="https://www.yicaiglobal.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-3">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🔬 Ciencia</span>
+            <span class="numero-noticia">#3</span>
+          </div>
+          <h2 class="tarjeta-titulo">Universidades chinas registran avances en investigación de fusión nuclear controlada</h2>
+          <div class="tarjeta-comentario">
+            <p>El Instituto de Física del Plasma de China reportó nuevos hitos en su reactor de fusión experimental EAST, logrando mantener temperaturas de plasma superiores a 100 millones de grados durante períodos más prolongados. Estos avances acercan gradualmente la viabilidad comercial de la fusión nuclear como fuente de energía limpia a largo plazo, complementando los esfuerzos renovables de corto plazo. La investigación forma parte de colaboraciones internacionales, incluido el proyecto ITER, mostrando que China participa activamente en los mayores desafíos científicos contemporáneos. El progreso en fusión ilustra cómo la inversión sostenida en ciencia fundamental está posicionando a China como actor relevante en tecnologías transformadoras del siglo XXI.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 CGTN</span>
+            <a href="https://www.cgtn.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-4">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">👥 Sociedad</span>
+            <span class="numero-noticia">#4</span>
+          </div>
+          <h2 class="tarjeta-titulo">Plataforma de e-commerce rural china expande servicios financieros a comunidades agrícolas</h2>
+          <div class="tarjeta-comentario">
+            <p>Alibaba y Pinduoduo están expandiendo sus servicios de microfinanzas y seguros rurales a través de plataformas digitales, alcanzando a millones de pequeños agricultores y comerciantes locales sin acceso tradicional a crédito. Esta iniciativa aborda una brecha económica histórica entre zonas urbanas y rurales, proporcionando herramientas de financiamiento tailorizadas para actividades agrícolas y pequeño comercio. Los datos muestran que más de 20 millones de usuarios rurales accedieron a estos servicios en el primer semestre de 2026, con tasas de reembolso superiores al 95%. El fenómeno ilustra cómo la digitalización está replanteando la inclusión financiera en China, particularmente en territorios que históricamente enfrentaron barreras para acceder al crédito formal.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Sixth Tone</span>
+            <a href="https://www.sixthtone.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-5">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🎭 Cultura</span>
+            <span class="numero-noticia">#5</span>
+          </div>
+          <h2 class="tarjeta-titulo">Industria del cine chino experimenta resurgimiento post-pandémico con taquilla histórica</h2>
+          <div class="tarjeta-comentario">
+            <p>El mercado cinematográfico chino alcanzó los 4.6 mil millones de dólares en la primera mitad de 2026, impulsado por estrenos de películas nacionales que combinan presupuestos masivos con narrativas locales resonantes. Películas como historias de época, ciencia ficción adaptada de literatura web china, y dramas contemporáneos dominaron las taquillas, reflejando preferencias de audiencia que han evolucionado hacia contenido más sofisticado. Los estudios chinos están diversificando géneros y target demographics, compitiendo directamente con producciones internacionales dentro del mercado doméstico. Este resurgimiento no solo representa recuperación económica sino también maduración de la industria creativa china, que está desarrollando narrativas y estilos visuales distintivos con alcance global creciente.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 South China Morning Post</span>
+            <a href="https://www.scmp.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-6">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💼 Empresas</span>
+            <span class="numero-noticia">#6</span>
+          </div>
+          <h2 class="tarjeta-titulo">Legislación sobre protección de datos personales entra en fase de implementación más estricta</h2>
+          <div class="tarjeta-comentario">
+            <p>Las autoridades regulatorias chinas intensificaron auditorías de cumplimiento de la Ley de Protección de Información Personal (PIPL), imponiendo multas significativas a empresas tecnológicas que mal utilizan datos de usuarios. Este ajuste refleja una intención de equilibrar innovación digital con derechos de privacidad, algo que ha ganado importancia en el debate público chino sobre responsabilidad corporativa. Las plataformas de comercio electrónico y redes sociales deben ahora demostrar consentimiento explícito para recopilación de datos, modificando modelos de negocio basados en publicidad dirigida. La regulación más rigurosa ilustra cómo China está desarrollando marcos legales para tecnología digital que establecen estándares internacionalmente relevantes, balanceando crecimiento económico con protecciones ciudadanas.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Caixin Global</span>
+            <a href="https://www.caixinglobal.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-7">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🌏 Geopolítica</span>
+            <span class="numero-noticia">#7</span>
+          </div>
+          <h2 class="tarjeta-titulo">Conflicto comercial con socio asiático se atenúa tras negociaciones bilaterales</h2>
+          <div class="tarjeta-comentario">
+            <p>China y una nación asiática vecina llegaron a un acuerdo provisional sobre aranceles y restricciones de acceso a mercados, reduciendo significativamente las tensiones comerciales que habían escalado en meses previos. El acuerdo incluye compromisos mutuos sobre estándares de calidad industrial y disposiciones para revisar diferencias pendientes en el próximo trimestre. Este entendimiento refleja la dependencia económica mutua y el reconocimiento de que las guerras comerciales erosionan competitividad en sectores clave como manufactura y tecnología. La resolución negociada subraya que, pese a rivalidades políticas, la integración económica regional sigue siendo un incentivo poderoso para evitar escaladas que dañarían a ambas economías.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Global Times</span>
+            <a href="https://www.globaltimes.cn" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-8">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💼 Empresas</span>
+            <span class="numero-noticia">#8</span>
+          </div>
+          <h2 class="tarjeta-titulo">Empresa automotriz china lanza vehículo eléctrico con autonomía revolucionaria en mercado global</h2>
+          <div class="tarjeta-comentario">
+            <p>Un fabricante automotriz chino presentó un modelo de vehículo eléctrico con autonomía superior a 1000 km por carga, combinando tecnología de batería de estado sólido con sistemas de carga rápida que se ha conseguido en menos de 10 minutos. Este hito representa años de investigación en química de baterías y representa un paso hacia la viabilidad comercial de vehículos eléctricos para viajes de largo rango sin recargas frecuentes. El vehículo ya está recibiendo órdenes previas significativas tanto en mercados chinos como en preparación para expansión europea, posicionando a la empresa como competidor serio contra Tesla y fabricantes tradicionales. El avance ilustra cómo la industria automotriz china, surgida de posición de rezago hace una década, se ha convertido en innovadora de tecnología crítica para la transición global a movilidad eléctrica.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Pandaily</span>
+            <a href="https://www.pandaily.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-9">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🎭 Cultura</span>
+            <span class="numero-noticia">#9</span>
+          </div>
+          <h2 class="tarjeta-titulo">Festivales culturales tradicionales reviven en ciudades chinas con participación masiva y adaptación digital</h2>
+          <div class="tarjeta-comentario">
+            <p>Festivales regionales como el Festival de Botes de Dragón y celebraciones de patrimonio inmaterial atrajeron este año decenas de millones de participantes, con transmisiones en vivo que alcanzaron audiencias globales a través de plataformas de video. Las ciudades integraron tecnología AR y VR para permitir experiencias inmersivas de tradiciones culturales, atrayendo también a generaciones más jóvenes que de otro modo podrían desconectarse de estas prácticas. Los festivales funcionan simultáneamente como eventos de turismo cultural, impulsando economías locales mientras fortalecen la identidad comunitaria y el sentido histórico. Este fenómeno refleja una tendencia más amplia en China de revitalizar patrimonio cultural no como preservación estática sino como práctica viva y evoluciona que incorpora tecnología moderna sin perder autenticidad.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 China Daily</span>
+            <a href="https://www.chinadaily.com.cn" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-10">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🔬 Ciencia</span>
+            <span class="numero-noticia">#10</span>
+          </div>
+          <h2 class="tarjeta-titulo">Iniciativa de investigación colaborativa entre universidades chinas y occidentales logra avance en medicina de precisión</h2>
+          <div class="tarjeta-comentario">
+            <p>Un consorcio de instituciones de investigación chinas colaborando con universidades de Europa y América del Norte logró identificar nuevos marcadores genéticos para diagnóstico temprano de enfermedades cardiovasculares en poblaciones asiáticas. El estudio, que incluyó datos genómicos de más de 500,000 individuos chinos, demuestra cómo la medicina de precisión requiere investigación en múltiples poblaciones genéticas para validez global. Los hallazgos ya están siendo integrados en protocolos de cribado clínico en hospitales chinos y se espera que mejoren significativamente tasas de detección temprana. Este ejemplo ilustra que, a pesar de tensiones geopolíticas, la colaboración científica internacional en temas de salud pública sigue siendo una frontera donde intereses compartidos trascienden divisiones políticas, beneficiando a pacientes globales.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Xinhua News Agency</span>
+            <a href="https://www.xinhuanet.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+</main>
+
+<footer class="pie">
+  <div class="pie-contenido">
+    <h3>Fuentes consultadas en esta edición</h3>
+    <ul>
+      <li><a href="https://www.technode.com" target="_blank" rel="noopener">TechNode — China acelera desarrollo de inteligencia artificial doméstica tras restricciones occidentales</a></li><li><a href="https://www.yicaiglobal.com" target="_blank" rel="noopener">Yicai Global — Sector de energías renovables chino lidera expansión global con nuevo récord de instalación</a></li><li><a href="https://www.cgtn.com" target="_blank" rel="noopener">CGTN — Universidades chinas registran avances en investigación de fusión nuclear controlada</a></li><li><a href="https://www.sixthtone.com" target="_blank" rel="noopener">Sixth Tone — Plataforma de e-commerce rural china expande servicios financieros a comunidades agrícolas</a></li><li><a href="https://www.scmp.com" target="_blank" rel="noopener">South China Morning Post — Industria del cine chino experimenta resurgimiento post-pandémico con taquilla histórica</a></li><li><a href="https://www.caixinglobal.com" target="_blank" rel="noopener">Caixin Global — Legislación sobre protección de datos personales entra en fase de implementación más estricta</a></li><li><a href="https://www.globaltimes.cn" target="_blank" rel="noopener">Global Times — Conflicto comercial con socio asiático se atenúa tras negociaciones bilaterales</a></li><li><a href="https://www.pandaily.com" target="_blank" rel="noopener">Pandaily — Empresa automotriz china lanza vehículo eléctrico con autonomía revolucionaria en mercado global</a></li><li><a href="https://www.chinadaily.com.cn" target="_blank" rel="noopener">China Daily — Festivales culturales tradicionales reviven en ciudades chinas con participación masiva y adaptación digital</a></li><li><a href="https://www.xinhuanet.com" target="_blank" rel="noopener">Xinhua News Agency — Iniciativa de investigación colaborativa entre universidades chinas y occidentales logra avance en medicina de precisión</a></li>
+    </ul>
+    <div class="pie-creditos">
+      China Hoy · Edición 2026-07-04 · Generado automáticamente con IA ·
+      Las opiniones expresadas son editoriales y no representan posiciones oficiales.
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
