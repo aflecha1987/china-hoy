@@ -1740,5 +1740,31 @@
       "Startups chinas de biotecnología acceden a rondas de financiamiento récord pese a regulaciones más estrictas",
       "Jóvenes chinos participan en movimiento cultural de 'vida lenta': crecer en espacios rurales y actividades artesanales"
     ]
+  },
+  "2026-07-06": {
+    "fuentes": [
+      "https://www.sixthtone.com",
+      "https://www.caixinglobal.com",
+      "https://www.scmp.com",
+      "https://www.technode.com",
+      "https://www.36kr.com/en",
+      "https://www.pandaily.com",
+      "https://www.chinadaily.com.cn",
+      "https://www.cgtn.com",
+      "https://www.reuters.com",
+      "https://www.globaltimes.cn"
+    ],
+    "titulares": [
+      "China avanza en conectividad óptica cuántica con nuevo récord de transmisión",
+      "Reforma tributaria para startups tecnológicas busca reequilibrar inversión en innovación",
+      "Museos chinos implementan plataformas de experiencia virtual para patrimonio cultural",
+      "Nuevas normativas de vivienda en ciudades de segundo nivel buscan estabilizar mercado inmobiliario",
+      "Investigación china sobre vacuna anticáncer de nueva generación muestra resultados prometedores",
+      "Acuerdo comercial regional RCEP genera récord de intercambio entre miembros",
+      "Iniciativa de transporte inteligente reduce congestión vehicular en megaciudades",
+      "Cooperación en investigación agrícola resuelve desafíos de seguridad alimentaria regional",
+      "Consolidación de plataformas fintech promete mayor inclusión financiera rural",
+      "Reforma educativa enfatiza equilibrio entre excelencia académica y bienestar mental juvenil"
+    ]
   }
 }
