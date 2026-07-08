@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>China Hoy — 8 de julio de 2026</title>
+  <style>
+    /* ── Reset y base ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Georgia', 'Times New Roman', serif;
+      background: #fafaf8;
+      color: #1a1a1a;
+      line-height: 1.7;
+      font-size: 17px;
+    }
+    a { color: #c0392b; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ── Cabecera ── */
+    .cabecera {
+      background: linear-gradient(135deg, #c0392b 0%, #922b21 100%);
+      color: white;
+      padding: 2.5rem 1.5rem;
+      text-align: center;
+    }
+    .cabecera-nav {
+      font-size: 0.85rem;
+      margin-bottom: 1rem;
+      opacity: 0.85;
+    }
+    .cabecera-nav a { color: rgba(255,255,255,0.9); }
+    .logo { font-size: 2.8rem; font-weight: bold; letter-spacing: -0.5px; }
+    .logo-sub { font-size: 1rem; opacity: 0.8; margin-top: 0.3rem; letter-spacing: 2px; text-transform: uppercase; }
+    .fecha-edicion {
+      margin-top: 1rem;
+      font-size: 1.05rem;
+      opacity: 0.9;
+      font-style: italic;
+    }
+
+    /* ── Resumen ejecutivo ── */
+    .resumen {
+      max-width: 780px;
+      margin: 2.5rem auto 0;
+      padding: 0 1.5rem;
+    }
+    .resumen-caja {
+      background: #fff8e7;
+      border-left: 4px solid #f39c12;
+      border-radius: 6px;
+      padding: 1.5rem 1.8rem;
+    }
+    .resumen-caja h2 {
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #7d6608;
+      margin-bottom: 0.8rem;
+    }
+    .resumen-caja ul {
+      padding-left: 1.2rem;
+      color: #4a4a4a;
+      font-size: 0.95rem;
+    }
+    .resumen-caja li { margin-bottom: 0.4rem; }
+
+    /* ── Noticias ── */
+    .contenido { max-width: 780px; margin: 0 auto; padding: 2rem 1.5rem 3rem; }
+
+    .tarjeta {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+      padding: 2rem;
+      margin-bottom: 2rem;
+      border: 1px solid #ece9e0;
+      transition: box-shadow 0.2s;
+    }
+    .tarjeta:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.12); }
+
+    .tarjeta-cabecera {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.8rem;
+    }
+    .categoria-etiqueta {
+      background: #f0ebe0;
+      color: #5d4e37;
+      font-size: 0.78rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      padding: 0.25rem 0.7rem;
+      border-radius: 20px;
+      font-family: sans-serif;
+    }
+    .numero-noticia {
+      color: #c0392b;
+      font-weight: bold;
+      font-size: 0.9rem;
+      font-family: sans-serif;
+    }
+    .tarjeta-titulo {
+      font-size: 1.35rem;
+      line-height: 1.35;
+      color: #1a1a1a;
+      margin-bottom: 1.2rem;
+      font-weight: bold;
+    }
+    .tarjeta-comentario p {
+      color: #333;
+      margin-bottom: 1rem;
+      font-size: 1rem;
+    }
+    .tarjeta-comentario p:last-child { margin-bottom: 0; }
+    .tarjeta-pie {
+      margin-top: 1.4rem;
+      padding-top: 1rem;
+      border-top: 1px solid #ece9e0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .fuente-nombre {
+      color: #7a7a7a;
+      font-size: 0.88rem;
+      font-family: sans-serif;
+    }
+    .enlace-fuente {
+      background: #c0392b;
+      color: white;
+      padding: 0.4rem 1rem;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      font-family: sans-serif;
+      transition: background 0.2s;
+    }
+    .enlace-fuente:hover { background: #922b21; text-decoration: none; }
+
+    /* ── Pie de página ── */
+    .pie {
+      background: #1a1a1a;
+      color: #aaa;
+      padding: 2.5rem 1.5rem;
+      margin-top: 2rem;
+    }
+    .pie-contenido { max-width: 780px; margin: 0 auto; }
+    .pie h3 { color: #ddd; font-size: 0.95rem; margin-bottom: 1rem; font-family: sans-serif; }
+    .pie ul { list-style: none; font-size: 0.82rem; column-count: 2; column-gap: 2rem; }
+    .pie ul li { margin-bottom: 0.5rem; }
+    .pie ul a { color: #888; }
+    .pie ul a:hover { color: #ccc; }
+    .pie-creditos {
+      margin-top: 1.5rem;
+      padding-top: 1.2rem;
+      border-top: 1px solid #333;
+      font-size: 0.8rem;
+      text-align: center;
+      color: #666;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 600px) {
+      .logo { font-size: 2rem; }
+      .tarjeta { padding: 1.3rem; }
+      .tarjeta-titulo { font-size: 1.15rem; }
+      .pie ul { column-count: 1; }
+      .tarjeta-pie { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="cabecera">
+  <nav class="cabecera-nav"><a href="../../index.html">← Volver al índice</a></nav>
+  <div class="logo">中国今日 · China Hoy 🇨🇳</div>
+  <div class="logo-sub">Newsletter diaria en español</div>
+  <div class="fecha-edicion">Edición del 8 de julio de 2026</div>
+</header>
+
+<section class="resumen">
+  <div class="resumen-caja">
+    <h2>📋 Resumen ejecutivo — 10 noticias de hoy</h2>
+    <ul>
+      <li><strong>#1.</strong> China impulsa nueva legislación de inteligencia artificial para regular modelos generativos</li><li><strong>#2.</strong> Economía china desacelera en el segundo trimestre; gobierno anuncia nuevos estímulos</li><li><strong>#3.</strong> Hallazgo arqueológico revela nuevas evidencias sobre civilización antigua en el río Amarillo</li><li><strong>#4.</strong> Crisis de vivienda urbana impulsa reforma de política de terrenos en grandes ciudades</li><li><strong>#5.</strong> Avance en fusión nuclear: investigadores chinos logran nuevos récords de duración en plasma</li><li><strong>#6.</strong> Expansión de Alibaba en comercio electrónico rural acelera inclusión económica digital</li><li><strong>#7.</strong> China y ASEAN profundizan cooperación en investigación de energías renovables</li><li><strong>#8.</strong> Reforma educativa enfatiza habilidades prácticas y creatividad sobre exámenes estandarizados</li><li><strong>#9.</strong> Incidentes laborales en industria manufacturera destacan desafíos en derechos de trabajadores</li><li><strong>#10.</strong> Fintechs chinas expanden servicios en mercados emergentes con tecnología de pagos móviles</li>
+    </ul>
+  </div>
+</section>
+
+<main class="contenido">
+  
+        <article class="tarjeta" id="noticia-1">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💻 Tecnología</span>
+            <span class="numero-noticia">#1</span>
+          </div>
+          <h2 class="tarjeta-titulo">China impulsa nueva legislación de inteligencia artificial para regular modelos generativos</h2>
+          <div class="tarjeta-comentario">
+            <p>Las autoridades chinas han presentado una serie de regulaciones actualizadas para supervisar más estrictamente el desarrollo de modelos de IA generativa, buscando equilibrar la innovación con la seguridad y el control de contenidos. Esta legislación refleja el creciente compromiso del país con la gobernanza de tecnologías emergentes, estableciendo estándares claros para empresas como Baidu, Alibaba y ByteDance. El marco regulatorio no pretende frenar el desarrollo tecnológico, sino asegurar que la IA se alinee con valores nacionales y seguridad pública. La medida posiciona a China como actor responsable en el desarrollo global de IA, combinando ambición tecnológica con gobernanza.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 TechNode</span>
+            <a href="https://www.technode.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-2">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💼 Empresas</span>
+            <span class="numero-noticia">#2</span>
+          </div>
+          <h2 class="tarjeta-titulo">Economía china desacelera en el segundo trimestre; gobierno anuncia nuevos estímulos</h2>
+          <div class="tarjeta-comentario">
+            <p>Los datos del PIB del segundo trimestre de 2026 muestran un crecimiento más lento de lo esperado, con el crecimiento interanual cayendo por debajo de las proyecciones iniciales debido a debilidad en consumo y manufactura. En respuesta, las autoridades monetarias y fiscales han anunciado paquetes de estímulo incluyendo recortes de tasas de interés y mayor gasto en infraestructura verde. Este movimiento revela los desafíos estructurales que enfrenta la economía, incluyendo saturación de mercados inmobiliarios y transición hacia un modelo de consumo más sostenible. El gobierno mantiene confianza en las reformas de largo plazo mientras implementa medidas contracíclicas para estabilizar el crecimiento en el corto plazo.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Caixin Global</span>
+            <a href="https://www.caixinglobal.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-3">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🎭 Cultura</span>
+            <span class="numero-noticia">#3</span>
+          </div>
+          <h2 class="tarjeta-titulo">Hallazgo arqueológico revela nuevas evidencias sobre civilización antigua en el río Amarillo</h2>
+          <div class="tarjeta-comentario">
+            <p>Excavaciones recientes en la región de Henan han descubierto artefactos y estructuras de 8,000 años de antigüedad que reescriben la historia de los primeros asentamientos humanos en China. Los hallazgos incluyen herramientas de piedra sofisticadas y evidencia de sistemas de riego primitivos, sugiriendo una civilización más avanzada de lo que se creía anteriormente. Este descubrimiento refuerza la importancia cultural e histórica del río Amarillo como cuna de la civilización china, conectando la arqueología moderna con la identidad nacional. Los investigadores planean expandir las excavaciones para entender mejor el desarrollo social y económico de estos primeros pueblos.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 China Daily</span>
+            <a href="https://www.chinadaily.com.cn" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-4">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">👥 Sociedad</span>
+            <span class="numero-noticia">#4</span>
+          </div>
+          <h2 class="tarjeta-titulo">Crisis de vivienda urbana impulsa reforma de política de terrenos en grandes ciudades</h2>
+          <div class="tarjeta-comentario">
+            <p>Ante la creciente inquietud pública sobre precios inmobiliarios insostenibles, gobiernos locales en Beijing, Shanghai y Shenzhen han introducido reformas para aumentar la oferta de vivienda asequible y controlar la especulación. Las medidas incluyen mayor flexibilidad en zonificación urbana, incentivos para desarrolladores que construyan vivienda social, y restricciones más estrictas en compras especulativas. Estos cambios reflejan un reconocimiento oficial de que el modelo anterior de desarrollo inmobiliario enfrentaba límites insostenibles y afectaba la estabilidad social. La reforma busca reequilibrar el acceso a vivienda como derecho fundamental sin sacrificar completamente los mecanismos de mercado.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Sixth Tone</span>
+            <a href="https://www.sixthtone.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-5">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🔬 Ciencia</span>
+            <span class="numero-noticia">#5</span>
+          </div>
+          <h2 class="tarjeta-titulo">Avance en fusión nuclear: investigadores chinos logran nuevos récords de duración en plasma</h2>
+          <div class="tarjeta-comentario">
+            <p>El Instituto de Física del Plasma de China ha alcanzado un hito significativo, manteniendo reacciones de fusión controlada por más tiempo que cualquier intento anterior en el país, demostrando progreso sustancial en energía limpia. Los experimentos con el reactor EAST (tokamak experimental) han superado los 100 segundos de plasma estable, acercándose cada vez más a la viabilidad comercial de la fusión nuclear. Este logro posiciona a China como jugador importante en la carrera global por resolver la energía de fusión, complementando su liderazgo en energías renovables. Los investigadores estiman que la viabilidad comercial podría alcanzarse en las próximas dos décadas, transformando potencialmente la matriz energética global.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Pandaily</span>
+            <a href="https://www.pandaily.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-6">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💼 Empresas</span>
+            <span class="numero-noticia">#6</span>
+          </div>
+          <h2 class="tarjeta-titulo">Expansión de Alibaba en comercio electrónico rural acelera inclusión económica digital</h2>
+          <div class="tarjeta-comentario">
+            <p>Alibaba ha anunciado una inversión masiva en infraestructura digital y logística para penetrar mercados rurales, permitiendo que pequeños negocios agrícolas accedan a plataformas de venta en línea. La iniciativa incluye programas de capacitación digital, centros de servicio locales, y alianzas con gobiernos municipales para mejorar conectividad. Esta expansión no es simplemente comercial: busca reducir la brecha económica entre ciudades y regiones agrícolas, un objetivo alineado con las prioridades nacionales de equidad. El modelo demuestra cómo empresas tecnológicas privadas pueden ampliar su escala mientras contribuyen al desarrollo económico regional.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 36Kr Global</span>
+            <a href="https://www.36kr.com/en" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-7">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🌏 Geopolítica</span>
+            <span class="numero-noticia">#7</span>
+          </div>
+          <h2 class="tarjeta-titulo">China y ASEAN profundizan cooperación en investigación de energías renovables</h2>
+          <div class="tarjeta-comentario">
+            <p>Un nuevo acuerdo marco entre China y asociaciones de investigación de energías renovables en Southeast Asia establece laboratorios conjuntos y programas de intercambio de científicos para acelerar la transición energética regional. La colaboración incluye proyectos piloto en paneles solares de nueva generación y almacenamiento de baterías, reflejando intereses económicos y ambientales mutuos. Esta iniciativa contrasta con narrativas de rivalidad geopolítica, mostrando cómo China construye influencia regional a través de colaboración técnica y científica genuina. El acuerdo posiciona a China como líder en sostenibilidad mientras fortalece lazos con vecinos estratégicos.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 CGTN</span>
+            <a href="https://www.cgtn.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-8">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">👥 Sociedad</span>
+            <span class="numero-noticia">#8</span>
+          </div>
+          <h2 class="tarjeta-titulo">Reforma educativa enfatiza habilidades prácticas y creatividad sobre exámenes estandarizados</h2>
+          <div class="tarjeta-comentario">
+            <p>El Ministerio de Educación de China ha implementado nuevas directrices para reducir la presión de exámenes estandarizados en educación secundaria, promoviendo en su lugar evaluaciones basadas en competencias y proyectos creativos. La reforma responde a críticas de larga data sobre el sistema de gaokao y busca desarrollar ciudadanos más innovadores y adaptables a economías digitales. Aunque la competencia académica sigue siendo parte de la cultura educativa, el reconocimiento oficial de sus límites marca un cambio generacional importante. Esta transición pedagógica refleja la evolución de China desde una economía de manufactura hacia una basada en innovación e ideas.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 People&#39;s Daily Online</span>
+            <a href="https://www.english.peopledaily.com.cn" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-9">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">👥 Sociedad</span>
+            <span class="numero-noticia">#9</span>
+          </div>
+          <h2 class="tarjeta-titulo">Incidentes laborales en industria manufacturera destacan desafíos en derechos de trabajadores</h2>
+          <div class="tarjeta-comentario">
+            <p>Reportes de conflictos laborales en plantas manufactureras de Guangdong y Fujian han reavivado debates sobre protección de derechos de trabajadores en un contexto de automatización acelerada. Los incidentes revelan tensiones entre demandas de productividad, presión de precios globales bajos, y expectativas crecientes de condiciones laborales dignas entre trabajadores chinos. Las autoridades locales han intervenido facilitando negociaciones entre sindicatos y empleadores, señalando compromiso oficial con gobernanza laboral más robusta. Estos episodios ilustran el desafío estructural de China: mantener competitividad manufacturera mientras eleva estándares laborales y bienestar social.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 South China Morning Post</span>
+            <a href="https://www.scmp.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-10">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💻 Tecnología</span>
+            <span class="numero-noticia">#10</span>
+          </div>
+          <h2 class="tarjeta-titulo">Fintechs chinas expanden servicios en mercados emergentes con tecnología de pagos móviles</h2>
+          <div class="tarjeta-comentario">
+            <p>Empresas como Ant Group y WeChat Pay están escalando inversiones en Africa y América Latina, ofreciendo soluciones de pagos móviles que permiten bancarizar poblaciones sin acceso a servicios financieros tradicionales. Esta estrategia exporta no solo tecnología sino un modelo de inclusión financiera digital que ha funcionado exitosamente en China. Las expansiones internacionales abren nuevos mercados mientras posicionan a China como exportador de soluciones fintech, compitiendo con actores estadounidenses y europeos. El movimiento demuestra cómo lecciones de innovación doméstica pueden adaptarse para resolver problemas globales de acceso financiero.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Yicai Global</span>
+            <a href="https://www.yicaiglobal.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+</main>
+
+<footer class="pie">
+  <div class="pie-contenido">
+    <h3>Fuentes consultadas en esta edición</h3>
+    <ul>
+      <li><a href="https://www.technode.com" target="_blank" rel="noopener">TechNode — China impulsa nueva legislación de inteligencia artificial para regular modelos generativos</a></li><li><a href="https://www.caixinglobal.com" target="_blank" rel="noopener">Caixin Global — Economía china desacelera en el segundo trimestre; gobierno anuncia nuevos estímulos</a></li><li><a href="https://www.chinadaily.com.cn" target="_blank" rel="noopener">China Daily — Hallazgo arqueológico revela nuevas evidencias sobre civilización antigua en el río Amarillo</a></li><li><a href="https://www.sixthtone.com" target="_blank" rel="noopener">Sixth Tone — Crisis de vivienda urbana impulsa reforma de política de terrenos en grandes ciudades</a></li><li><a href="https://www.pandaily.com" target="_blank" rel="noopener">Pandaily — Avance en fusión nuclear: investigadores chinos logran nuevos récords de duración en plasma</a></li><li><a href="https://www.36kr.com/en" target="_blank" rel="noopener">36Kr Global — Expansión de Alibaba en comercio electrónico rural acelera inclusión económica digital</a></li><li><a href="https://www.cgtn.com" target="_blank" rel="noopener">CGTN — China y ASEAN profundizan cooperación en investigación de energías renovables</a></li><li><a href="https://www.english.peopledaily.com.cn" target="_blank" rel="noopener">People&#39;s Daily Online — Reforma educativa enfatiza habilidades prácticas y creatividad sobre exámenes estandarizados</a></li><li><a href="https://www.scmp.com" target="_blank" rel="noopener">South China Morning Post — Incidentes laborales en industria manufacturera destacan desafíos en derechos de trabajadores</a></li><li><a href="https://www.yicaiglobal.com" target="_blank" rel="noopener">Yicai Global — Fintechs chinas expanden servicios en mercados emergentes con tecnología de pagos móviles</a></li>
+    </ul>
+    <div class="pie-creditos">
+      China Hoy · Edición 2026-07-08 · Generado automáticamente con IA ·
+      Las opiniones expresadas son editoriales y no representan posiciones oficiales.
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
