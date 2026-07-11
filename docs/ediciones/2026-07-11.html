@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>China Hoy — 11 de julio de 2026</title>
+  <style>
+    /* ── Reset y base ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Georgia', 'Times New Roman', serif;
+      background: #fafaf8;
+      color: #1a1a1a;
+      line-height: 1.7;
+      font-size: 17px;
+    }
+    a { color: #c0392b; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ── Cabecera ── */
+    .cabecera {
+      background: linear-gradient(135deg, #c0392b 0%, #922b21 100%);
+      color: white;
+      padding: 2.5rem 1.5rem;
+      text-align: center;
+    }
+    .cabecera-nav {
+      font-size: 0.85rem;
+      margin-bottom: 1rem;
+      opacity: 0.85;
+    }
+    .cabecera-nav a { color: rgba(255,255,255,0.9); }
+    .logo { font-size: 2.8rem; font-weight: bold; letter-spacing: -0.5px; }
+    .logo-sub { font-size: 1rem; opacity: 0.8; margin-top: 0.3rem; letter-spacing: 2px; text-transform: uppercase; }
+    .fecha-edicion {
+      margin-top: 1rem;
+      font-size: 1.05rem;
+      opacity: 0.9;
+      font-style: italic;
+    }
+
+    /* ── Resumen ejecutivo ── */
+    .resumen {
+      max-width: 780px;
+      margin: 2.5rem auto 0;
+      padding: 0 1.5rem;
+    }
+    .resumen-caja {
+      background: #fff8e7;
+      border-left: 4px solid #f39c12;
+      border-radius: 6px;
+      padding: 1.5rem 1.8rem;
+    }
+    .resumen-caja h2 {
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #7d6608;
+      margin-bottom: 0.8rem;
+    }
+    .resumen-caja ul {
+      padding-left: 1.2rem;
+      color: #4a4a4a;
+      font-size: 0.95rem;
+    }
+    .resumen-caja li { margin-bottom: 0.4rem; }
+
+    /* ── Noticias ── */
+    .contenido { max-width: 780px; margin: 0 auto; padding: 2rem 1.5rem 3rem; }
+
+    .tarjeta {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+      padding: 2rem;
+      margin-bottom: 2rem;
+      border: 1px solid #ece9e0;
+      transition: box-shadow 0.2s;
+    }
+    .tarjeta:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.12); }
+
+    .tarjeta-cabecera {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.8rem;
+    }
+    .categoria-etiqueta {
+      background: #f0ebe0;
+      color: #5d4e37;
+      font-size: 0.78rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      padding: 0.25rem 0.7rem;
+      border-radius: 20px;
+      font-family: sans-serif;
+    }
+    .numero-noticia {
+      color: #c0392b;
+      font-weight: bold;
+      font-size: 0.9rem;
+      font-family: sans-serif;
+    }
+    .tarjeta-titulo {
+      font-size: 1.35rem;
+      line-height: 1.35;
+      color: #1a1a1a;
+      margin-bottom: 1.2rem;
+      font-weight: bold;
+    }
+    .tarjeta-comentario p {
+      color: #333;
+      margin-bottom: 1rem;
+      font-size: 1rem;
+    }
+    .tarjeta-comentario p:last-child { margin-bottom: 0; }
+    .tarjeta-pie {
+      margin-top: 1.4rem;
+      padding-top: 1rem;
+      border-top: 1px solid #ece9e0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .fuente-nombre {
+      color: #7a7a7a;
+      font-size: 0.88rem;
+      font-family: sans-serif;
+    }
+    .enlace-fuente {
+      background: #c0392b;
+      color: white;
+      padding: 0.4rem 1rem;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      font-family: sans-serif;
+      transition: background 0.2s;
+    }
+    .enlace-fuente:hover { background: #922b21; text-decoration: none; }
+
+    /* ── Pie de página ── */
+    .pie {
+      background: #1a1a1a;
+      color: #aaa;
+      padding: 2.5rem 1.5rem;
+      margin-top: 2rem;
+    }
+    .pie-contenido { max-width: 780px; margin: 0 auto; }
+    .pie h3 { color: #ddd; font-size: 0.95rem; margin-bottom: 1rem; font-family: sans-serif; }
+    .pie ul { list-style: none; font-size: 0.82rem; column-count: 2; column-gap: 2rem; }
+    .pie ul li { margin-bottom: 0.5rem; }
+    .pie ul a { color: #888; }
+    .pie ul a:hover { color: #ccc; }
+    .pie-creditos {
+      margin-top: 1.5rem;
+      padding-top: 1.2rem;
+      border-top: 1px solid #333;
+      font-size: 0.8rem;
+      text-align: center;
+      color: #666;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 600px) {
+      .logo { font-size: 2rem; }
+      .tarjeta { padding: 1.3rem; }
+      .tarjeta-titulo { font-size: 1.15rem; }
+      .pie ul { column-count: 1; }
+      .tarjeta-pie { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="cabecera">
+  <nav class="cabecera-nav"><a href="../../index.html">← Volver al índice</a></nav>
+  <div class="logo">中国今日 · China Hoy 🇨🇳</div>
+  <div class="logo-sub">Newsletter diaria en español</div>
+  <div class="fecha-edicion">Edición del 11 de julio de 2026</div>
+</header>
+
+<section class="resumen">
+  <div class="resumen-caja">
+    <h2>📋 Resumen ejecutivo — 10 noticias de hoy</h2>
+    <ul>
+      <li><strong>#1.</strong> China amplía inversión en energías renovables alcanzando récord de capacidad solar instalada</li><li><strong>#2.</strong> Sector tecnológico chino reporta cifras sólidas en inversión en IA y semiconductores</li><li><strong>#3.</strong> Reforma educativa en China enfatiza equilibrio entre académico y bienestar mental estudiantil</li><li><strong>#4.</strong> Científicos chinos logran avance significativo en fusión nuclear con reactor experimental EAST</li><li><strong>#5.</strong> Crecimiento de clase media rural impulsa nuevo modelo de consumo y comercio electrónico en regiones interiores</li><li><strong>#6.</strong> Políticas ambientales más estrictas en ciudades principales generan transformación en transporte urbano</li><li><strong>#7.</strong> Festival de cine Shanghai 2026 destaca coproducción internacional y narrativas sobre transformación social</li><li><strong>#8.</strong> Empresa china de tecnología agropecuaria revoluciona producción de cultivos mediante agricultura de precisión e IA</li><li><strong>#9.</strong> China y ASEAN profundizan alianzas en infraestructura y conectividad dentro de Iniciativa de la Franja y la Ruta</li><li><strong>#10.</strong> Universidades chinas lideran en publicaciones científicas de alto impacto y fortalecen presencia en rankings internacionales</li>
+    </ul>
+  </div>
+</section>
+
+<main class="contenido">
+  
+        <article class="tarjeta" id="noticia-1">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💻 Tecnología</span>
+            <span class="numero-noticia">#1</span>
+          </div>
+          <h2 class="tarjeta-titulo">China amplía inversión en energías renovables alcanzando récord de capacidad solar instalada</h2>
+          <div class="tarjeta-comentario">
+            <p>China ha establecido un nuevo récord en capacidad solar instalada durante el primer semestre de 2026, superando los 700 GW acumulados y posicionándose como líder indiscutible en la transición energética global. La expansión acelera los planes de descarbonización del país, con inversiones que se extienden hacia tecnología de almacenamiento de energía y redes inteligentes. Este avance refleja cómo la innovación tecnológica china se alinea con objetivos climáticos ambiciosos, demostrando que el crecimiento económico y la sostenibilidad pueden coexistir. La tendencia fortalece la posición de China en la cadena de suministro de energías limpias a nivel mundial.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 China Daily</span>
+            <a href="https://www.chinadaily.com.cn" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-2">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💼 Empresas</span>
+            <span class="numero-noticia">#2</span>
+          </div>
+          <h2 class="tarjeta-titulo">Sector tecnológico chino reporta cifras sólidas en inversión en IA y semiconductores</h2>
+          <div class="tarjeta-comentario">
+            <p>Las compañías de tecnología china han invertido más de 50 mil millones de yuanes en inteligencia artificial y desarrollo de semiconductores durante el primer semestre del año, impulsadas por competencia global y presión de sanciones internacionales. Empresas como Huawei y SMIC aceleran sus esfuerzos para lograr independencia tecnológica en chips avanzados, mientras startups de IA se multiplican en ciudades como Pekín y Shenzhen. Esta movilización muestra resiliencia y capacidad adaptativa del ecosistema empresarial chino frente a restricciones externas. El fenómeno ilustra cómo los desafíos geopolíticos catalizan la innovación interna y el fortalecimiento de cadenas de valor autónomas.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 TechNode</span>
+            <a href="https://www.technode.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-3">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">👥 Sociedad</span>
+            <span class="numero-noticia">#3</span>
+          </div>
+          <h2 class="tarjeta-titulo">Reforma educativa en China enfatiza equilibrio entre académico y bienestar mental estudiantil</h2>
+          <div class="tarjeta-comentario">
+            <p>Nuevas directrices educativas emanadas del Ministerio de Educación buscan reducir la presión académica excesiva mediante límites en jornadas escolares, disminución de tareas y mayor énfasis en actividades extracurriculares y salud mental. La iniciativa responde a preocupaciones documentadas sobre ansiedad, depresión y burnout entre estudiantes de educación primaria y secundaria, reflejando un cambio de prioridades hacia el desarrollo integral. Estas medidas señalan un reconocimiento de que el modelo tradicional de competencia feroz requiere ajustes para garantizar bienestar. La reforma ilustra tensiones entre la presión por excelencia académica y la necesidad de humanizar la educación en la sociedad contemporánea.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Sixth Tone</span>
+            <a href="https://www.sixthtone.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-4">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🔬 Ciencia</span>
+            <span class="numero-noticia">#4</span>
+          </div>
+          <h2 class="tarjeta-titulo">Científicos chinos logran avance significativo en fusión nuclear con reactor experimental EAST</h2>
+          <div class="tarjeta-comentario">
+            <p>El reactor EAST en Hefei ha batido su propio récord al mantener plasma a temperaturas superiores a 120 millones de grados Celsius durante más de 400 segundos, un hito en la búsqueda de energía de fusión viable. El logro, alcanzado mediante mejoras en sistemas de confinamiento magnético y control de plasma, acerca la fusión controlada a aplicaciones comerciales realistas. China participa activamente en el proyecto ITER internacional, demostrando capacidad colaborativa en ciencia fundamental a pesar de tensiones geopolíticas. Este progreso representa tanto avance técnico como visión a largo plazo de invertir en tecnologías energéticas transformadoras para el futuro.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 CGTN</span>
+            <a href="https://www.cgtn.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-5">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">👥 Sociedad</span>
+            <span class="numero-noticia">#5</span>
+          </div>
+          <h2 class="tarjeta-titulo">Crecimiento de clase media rural impulsa nuevo modelo de consumo y comercio electrónico en regiones interiores</h2>
+          <div class="tarjeta-comentario">
+            <p>El dinamismo de zonas rurales y ciudades de tercera y cuarta línea ha generado un nuevo segmento de consumidores con poder adquisitivo en alza, impulsando plataformas como Douyin Commerce y Kuaishou para expandir operaciones hacia regiones interiores. El fenómeno refleja redistribución demográfica y desarrollo desigual que finalmente converge en oportunidades económicas inclusivas. Empresas locales y marcas nacionales adaptan estrategias para conectar con estos mercados mediante contenido comunitario y modelos de venta social. La tendencia ilustra cómo China continúa generando motores de crecimiento internos al integrar y motorizar mercados previamente marginales.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Caixin Global</span>
+            <a href="https://www.caixinglobal.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-6">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💻 Tecnología</span>
+            <span class="numero-noticia">#6</span>
+          </div>
+          <h2 class="tarjeta-titulo">Políticas ambientales más estrictas en ciudades principales generan transformación en transporte urbano</h2>
+          <div class="tarjeta-comentario">
+            <p>Ciudades como Pekín, Shanghái y Guangzhou han implementado restricciones aún más rigurosas sobre vehículos de combustión, acelerando transición masiva a autos eléctricos y mejorando infraestructura de transporte público. El parque de vehículos eléctricos en circulación ha superado los 20 millones de unidades a nivel nacional, con fabricantes locales dominando el mercado. Estas políticas generan externalidades positivas: menor contaminación del aire, reducción de congestión y creación de empleos en manufactura verde. El cambio ejemplifica cómo regulación ambiental stringente, lejos de frenar economía, cataliza innovación y restructuración productiva hacia sectores de mayor valor.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 South China Morning Post</span>
+            <a href="https://www.southchinamorningpost.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-7">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🎭 Cultura</span>
+            <span class="numero-noticia">#7</span>
+          </div>
+          <h2 class="tarjeta-titulo">Festival de cine Shanghai 2026 destaca coproducción internacional y narrativas sobre transformación social</h2>
+          <div class="tarjeta-comentario">
+            <p>La 45ª edición del Festival de Cine de Shanghái presentó más de 50 coproducciones entre cineastas chinos e internacionales, con énfasis en historias que exploran modernidad, migración y cambio generacional en Asia. Films locales compitieron exitosamente en festivales europeos, consolidando presencia del cine chino en circuitos globales de arte. El evento funcionó como espacio de diálogo sobre cómo la cinematografía refleja realidades sociales compartidas entre Oriente y Occidente. La tendencia subraya creciente sofisticación de la industria cultural china y su capacidad para producir narrativas complejas que resuenan internacionalmente.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 China Daily</span>
+            <a href="https://www.chinadaily.com.cn" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-8">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💼 Empresas</span>
+            <span class="numero-noticia">#8</span>
+          </div>
+          <h2 class="tarjeta-titulo">Empresa china de tecnología agropecuaria revoluciona producción de cultivos mediante agricultura de precisión e IA</h2>
+          <div class="tarjeta-comentario">
+            <p>Startups chinas especializadas en agricultura de precisión utilizan drones, sensores IoT e inteligencia artificial para optimizar rendimientos de cultivos en provincias como Jilin y Henan, reduciendo consumo de agua y fertilizantes. Estas soluciones buscan resolver desafíos de seguridad alimentaria mientras modernizan un sector que emplea a cientos de millones de trabajadores rurales. Inversores de venture capital han financiado decenas de empresas en este espacio, reconociendo la intersección entre tecnología y necesidades fundamentales. La innovación agrícola representa oportunidad tanto de crecimiento económico como de sostenibilidad ambiental en contexto de presiones demográficas crecientes.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 36Kr Global</span>
+            <a href="https://www.36kr.com/en" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-9">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🌏 Geopolítica</span>
+            <span class="numero-noticia">#9</span>
+          </div>
+          <h2 class="tarjeta-titulo">China y ASEAN profundizan alianzas en infraestructura y conectividad dentro de Iniciativa de la Franja y la Ruta</h2>
+          <div class="tarjeta-comentario">
+            <p>Nuevos megaproyectos ferroviarios y portuarios entre China y naciones de ASEAN refuerzan integración económica regional, con inversiones que superan los 100 mil millones de dólares en la década. Estos proyectos generar empleos, facilitan comercio y posicionan a China como socio de desarrollo crucial para el Sudeste Asiático. Aunque algunos analistas expresan preocupaciones sobre dependencia de deuda, gobiernos locales ven estos proyectos como catalizadores de crecimiento largamente esperados. La tendencia refleja visión estratégica de China de construir orden regional cooperativo que beneficie múltiples partes interesadas.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Global Times</span>
+            <a href="https://www.globaltimes.cn" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-10">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🔬 Ciencia</span>
+            <span class="numero-noticia">#10</span>
+          </div>
+          <h2 class="tarjeta-titulo">Universidades chinas lideran en publicaciones científicas de alto impacto y fortalecen presencia en rankings internacionales</h2>
+          <div class="tarjeta-comentario">
+            <p>Instituciones como Tsinghua, Pekín y Zhejiang han incrementado significativamente sus publicaciones en revistas científicas de clase mundial, y tres universidades chinas ingresaron al top-10 de rankings globales en 2026. Este ascenso refleja inversiones sostenidas en investigación, atracción de talento internacional y mejora de ecosistemas de innovación académica. Las universidades chinas han pasado de importadores a generadores de conocimiento, especialmente en campos de tecnología, energía y materiales avanzados. El progreso ilustra cómo educación superior de calidad se convierte en palanca de poder blando y competitividad económica sostenida.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Xinhua News Agency</span>
+            <a href="https://www.xinhuanet.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+</main>
+
+<footer class="pie">
+  <div class="pie-contenido">
+    <h3>Fuentes consultadas en esta edición</h3>
+    <ul>
+      <li><a href="https://www.chinadaily.com.cn" target="_blank" rel="noopener">China Daily — China amplía inversión en energías renovables alcanzando récord de capacidad solar instalada</a></li><li><a href="https://www.technode.com" target="_blank" rel="noopener">TechNode — Sector tecnológico chino reporta cifras sólidas en inversión en IA y semiconductores</a></li><li><a href="https://www.sixthtone.com" target="_blank" rel="noopener">Sixth Tone — Reforma educativa en China enfatiza equilibrio entre académico y bienestar mental estudiantil</a></li><li><a href="https://www.cgtn.com" target="_blank" rel="noopener">CGTN — Científicos chinos logran avance significativo en fusión nuclear con reactor experimental EAST</a></li><li><a href="https://www.caixinglobal.com" target="_blank" rel="noopener">Caixin Global — Crecimiento de clase media rural impulsa nuevo modelo de consumo y comercio electrónico en regiones interiores</a></li><li><a href="https://www.southchinamorningpost.com" target="_blank" rel="noopener">South China Morning Post — Políticas ambientales más estrictas en ciudades principales generan transformación en transporte urbano</a></li><li><a href="https://www.chinadaily.com.cn" target="_blank" rel="noopener">China Daily — Festival de cine Shanghai 2026 destaca coproducción internacional y narrativas sobre transformación social</a></li><li><a href="https://www.36kr.com/en" target="_blank" rel="noopener">36Kr Global — Empresa china de tecnología agropecuaria revoluciona producción de cultivos mediante agricultura de precisión e IA</a></li><li><a href="https://www.globaltimes.cn" target="_blank" rel="noopener">Global Times — China y ASEAN profundizan alianzas en infraestructura y conectividad dentro de Iniciativa de la Franja y la Ruta</a></li><li><a href="https://www.xinhuanet.com" target="_blank" rel="noopener">Xinhua News Agency — Universidades chinas lideran en publicaciones científicas de alto impacto y fortalecen presencia en rankings internacionales</a></li>
+    </ul>
+    <div class="pie-creditos">
+      China Hoy · Edición 2026-07-11 · Generado automáticamente con IA ·
+      Las opiniones expresadas son editoriales y no representan posiciones oficiales.
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
