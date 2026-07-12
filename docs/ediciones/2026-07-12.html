@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>China Hoy — 12 de julio de 2026</title>
+  <style>
+    /* ── Reset y base ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Georgia', 'Times New Roman', serif;
+      background: #fafaf8;
+      color: #1a1a1a;
+      line-height: 1.7;
+      font-size: 17px;
+    }
+    a { color: #c0392b; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ── Cabecera ── */
+    .cabecera {
+      background: linear-gradient(135deg, #c0392b 0%, #922b21 100%);
+      color: white;
+      padding: 2.5rem 1.5rem;
+      text-align: center;
+    }
+    .cabecera-nav {
+      font-size: 0.85rem;
+      margin-bottom: 1rem;
+      opacity: 0.85;
+    }
+    .cabecera-nav a { color: rgba(255,255,255,0.9); }
+    .logo { font-size: 2.8rem; font-weight: bold; letter-spacing: -0.5px; }
+    .logo-sub { font-size: 1rem; opacity: 0.8; margin-top: 0.3rem; letter-spacing: 2px; text-transform: uppercase; }
+    .fecha-edicion {
+      margin-top: 1rem;
+      font-size: 1.05rem;
+      opacity: 0.9;
+      font-style: italic;
+    }
+
+    /* ── Resumen ejecutivo ── */
+    .resumen {
+      max-width: 780px;
+      margin: 2.5rem auto 0;
+      padding: 0 1.5rem;
+    }
+    .resumen-caja {
+      background: #fff8e7;
+      border-left: 4px solid #f39c12;
+      border-radius: 6px;
+      padding: 1.5rem 1.8rem;
+    }
+    .resumen-caja h2 {
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #7d6608;
+      margin-bottom: 0.8rem;
+    }
+    .resumen-caja ul {
+      padding-left: 1.2rem;
+      color: #4a4a4a;
+      font-size: 0.95rem;
+    }
+    .resumen-caja li { margin-bottom: 0.4rem; }
+
+    /* ── Noticias ── */
+    .contenido { max-width: 780px; margin: 0 auto; padding: 2rem 1.5rem 3rem; }
+
+    .tarjeta {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+      padding: 2rem;
+      margin-bottom: 2rem;
+      border: 1px solid #ece9e0;
+      transition: box-shadow 0.2s;
+    }
+    .tarjeta:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.12); }
+
+    .tarjeta-cabecera {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.8rem;
+    }
+    .categoria-etiqueta {
+      background: #f0ebe0;
+      color: #5d4e37;
+      font-size: 0.78rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      padding: 0.25rem 0.7rem;
+      border-radius: 20px;
+      font-family: sans-serif;
+    }
+    .numero-noticia {
+      color: #c0392b;
+      font-weight: bold;
+      font-size: 0.9rem;
+      font-family: sans-serif;
+    }
+    .tarjeta-titulo {
+      font-size: 1.35rem;
+      line-height: 1.35;
+      color: #1a1a1a;
+      margin-bottom: 1.2rem;
+      font-weight: bold;
+    }
+    .tarjeta-comentario p {
+      color: #333;
+      margin-bottom: 1rem;
+      font-size: 1rem;
+    }
+    .tarjeta-comentario p:last-child { margin-bottom: 0; }
+    .tarjeta-pie {
+      margin-top: 1.4rem;
+      padding-top: 1rem;
+      border-top: 1px solid #ece9e0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .fuente-nombre {
+      color: #7a7a7a;
+      font-size: 0.88rem;
+      font-family: sans-serif;
+    }
+    .enlace-fuente {
+      background: #c0392b;
+      color: white;
+      padding: 0.4rem 1rem;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      font-family: sans-serif;
+      transition: background 0.2s;
+    }
+    .enlace-fuente:hover { background: #922b21; text-decoration: none; }
+
+    /* ── Pie de página ── */
+    .pie {
+      background: #1a1a1a;
+      color: #aaa;
+      padding: 2.5rem 1.5rem;
+      margin-top: 2rem;
+    }
+    .pie-contenido { max-width: 780px; margin: 0 auto; }
+    .pie h3 { color: #ddd; font-size: 0.95rem; margin-bottom: 1rem; font-family: sans-serif; }
+    .pie ul { list-style: none; font-size: 0.82rem; column-count: 2; column-gap: 2rem; }
+    .pie ul li { margin-bottom: 0.5rem; }
+    .pie ul a { color: #888; }
+    .pie ul a:hover { color: #ccc; }
+    .pie-creditos {
+      margin-top: 1.5rem;
+      padding-top: 1.2rem;
+      border-top: 1px solid #333;
+      font-size: 0.8rem;
+      text-align: center;
+      color: #666;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 600px) {
+      .logo { font-size: 2rem; }
+      .tarjeta { padding: 1.3rem; }
+      .tarjeta-titulo { font-size: 1.15rem; }
+      .pie ul { column-count: 1; }
+      .tarjeta-pie { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="cabecera">
+  <nav class="cabecera-nav"><a href="../../index.html">← Volver al índice</a></nav>
+  <div class="logo">中国今日 · China Hoy 🇨🇳</div>
+  <div class="logo-sub">Newsletter diaria en español</div>
+  <div class="fecha-edicion">Edición del 12 de julio de 2026</div>
+</header>
+
+<section class="resumen">
+  <div class="resumen-caja">
+    <h2>📋 Resumen ejecutivo — 10 noticias de hoy</h2>
+    <ul>
+      <li><strong>#1.</strong> China avanza en computación cuántica con nuevo chip de 1000+ qubits</li><li><strong>#2.</strong> Comercio minorista de China crece 3.2% en junio pese a presiones externas</li><li><strong>#3.</strong> China lanza programa nacional de protección de derechos de los artesanos tradicionales</li><li><strong>#4.</strong> Urbanización de migrantes rurales alcanza hito: 65% de población china es urbana</li><li><strong>#5.</strong> Científicos chinos logran avance en fusión nuclear con plasma a 180 millones de grados</li><li><strong>#6.</strong> Nueva ruta comercial terrestre China-Europa reduce tiempos de entrega 25%</li><li><strong>#7.</strong> Alibaba y Tencent invierten 5,000 millones en startups de inteligencia artificial generativa</li><li><strong>#8.</strong> Tasa de natalidad en China repunta levemente después de años de declive</li><li><strong>#9.</strong> China establece primer parque industrial de manufactura circular en Shandong</li><li><strong>#10.</strong> Cooperación cultural entre China y América Latina se expande con nuevo instituto en São Paulo</li>
+    </ul>
+  </div>
+</section>
+
+<main class="contenido">
+  
+        <article class="tarjeta" id="noticia-1">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💻 Tecnología</span>
+            <span class="numero-noticia">#1</span>
+          </div>
+          <h2 class="tarjeta-titulo">China avanza en computación cuántica con nuevo chip de 1000+ qubits</h2>
+          <div class="tarjeta-comentario">
+            <p>China ha presentado recientemente avances significativos en computación cuántica con prototipos que superan los 1000 qubits, acercándose a la paridad con líderes globales como Google e IBM. Este hito refleja la inversión masiva del país en tecnología de frontera y su estrategia de reducir dependencia de infraestructuras extranjeras críticas. La computación cuántica es fundamental para criptografía, diseño de materiales y simulación molecular, sectores donde China busca liderazgo global. Aunque aún quedan desafíos en estabilidad y corrección de errores, estos avances demuestran el progreso concreto en una carrera tecnológica vital para el siglo XXI.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 TechNode</span>
+            <a href="https://www.technode.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-2">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💼 Empresas</span>
+            <span class="numero-noticia">#2</span>
+          </div>
+          <h2 class="tarjeta-titulo">Comercio minorista de China crece 3.2% en junio pese a presiones externas</h2>
+          <div class="tarjeta-comentario">
+            <p>Las ventas minoristas en China registraron un crecimiento del 3.2% interanual en junio de 2026, superando las expectativas de analistas y mostrando resiliencia del consumidor doméstico frente a tensiones geopolíticas. El crecimiento fue impulsado por sectores como comercio electrónico, automóviles de nueva energía y productos premium, reflejando cambios en patrones de consumo hacia bienes de mayor valor agregado. Este desempeño es particularmente notable en un contexto de desaceleración global y presiones comerciales, sugiriendo que las políticas de estímulo doméstico están teniendo impacto. Sin embargo, el crecimiento sigue siendo moderado comparado con tasas históricas, indicando que la economía china enfrenta estructuralmente nuevos equilibrios de crecimiento.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Caixin Global</span>
+            <a href="https://www.caixinglobal.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-3">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🎭 Cultura</span>
+            <span class="numero-noticia">#3</span>
+          </div>
+          <h2 class="tarjeta-titulo">China lanza programa nacional de protección de derechos de los artesanos tradicionales</h2>
+          <div class="tarjeta-comentario">
+            <p>El gobierno chino ha anunciado una iniciativa integral para proteger y promocionar oficios artesanales tradicionales, incluyendo porcelana, seda, carpintería y artes marciales, mediante becas educativas y reconocimiento oficial de maestros artesanos. Esta política responde a la preocupación sobre el envejecimiento de la población de artesanos tradicionales y la fuga de jóvenes hacia sectores de tecnología, amenazando patrimonio cultural milenario. El programa incluye financiamiento para talleres, museos virtuales y plataformas de comercio electrónico para productos artesanales, conectando tradición con consumo moderno. La iniciativa ilustra cómo China intenta equilibrar modernización con preservación identitaria, reconociendo que el patrimonio cultural es activo económico y patrimonio nacional valioso.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 China Daily</span>
+            <a href="https://www.chinadaily.com.cn" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-4">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">👥 Sociedad</span>
+            <span class="numero-noticia">#4</span>
+          </div>
+          <h2 class="tarjeta-titulo">Urbanización de migrantes rurales alcanza hito: 65% de población china es urbana</h2>
+          <div class="tarjeta-comentario">
+            <p>China ha cruzado un umbral demográfico importante con el 65% de su población viviendo en zonas urbanas en 2026, representando una transformación social sin precedentes desde el inicio de las reformas de 1978. Este cambio ha sido acompañado de reformas en políticas de residencia y acceso a servicios sociales en ciudades, aunque aún persisten brechas entre ciudadanos permanentes y migrantes de hecho. La urbanización ha generado riqueza pero también desafíos como congestión, segregación residencial y presión sobre servicios públicos, particularmente en megaciudades. Este fenómeno marca el final de una era donde la población rural era mayoritaria y abre preguntas sobre sostenibilidad urbana, envejecimiento acelerado y políticas de cohesión social en una China cada vez más urbanizada.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Sixth Tone</span>
+            <a href="https://www.sixthtone.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-5">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🔬 Ciencia</span>
+            <span class="numero-noticia">#5</span>
+          </div>
+          <h2 class="tarjeta-titulo">Científicos chinos logran avance en fusión nuclear con plasma a 180 millones de grados</h2>
+          <div class="tarjeta-comentario">
+            <p>El reactor EAST de China ha establecido un nuevo récord al mantener plasma a 180 millones de grados Celsius durante 100 segundos, un paso significativo hacia viabilidad comercial de la fusión nuclear como fuente de energía limpia. Este logro posiciona a China como líder en investigación de fusión, competiendo con proyectos internacionales como ITER en Francia, aunque la comercialización sigue siendo objetivo de varias décadas. La fusión nuclear es tecnología transformacional que podría descarbonizar energía global si se resuelven los desafíos técnicos, algo en lo que China está invirtiendo recursos masivos. El hito refleja estrategia china de invertir en soluciones de largo plazo para sostenibilidad energética, alineada con objetivos de neutralidad de carbono para 2060.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Xinhua News Agency</span>
+            <a href="https://www.xinhuanet.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-6">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🌏 Geopolítica</span>
+            <span class="numero-noticia">#6</span>
+          </div>
+          <h2 class="tarjeta-titulo">Nueva ruta comercial terrestre China-Europa reduce tiempos de entrega 25%</h2>
+          <div class="tarjeta-comentario">
+            <p>China ha completado infraestructura de nueva ruta logística terrestre que conecta centros industriales con Europa central, reduciendo tiempos de entrega de mercancías manufacturadas en 25% comparado con rutas marítimas tradicionales. Esta iniciativa es extensión de la Iniciativa de la Franja y la Ruta, pero enfocada en eficiencia y reducción de costos, reflejando maduración del modelo hacia pragmatismo económico. La ruta atraviesa Asia Central y el Cáucaso, consolidando influencia económica china en regiones de importancia geopolítica estratégica. El desarrollo infraestructural tiene implicaciones para reconfiguración de cadenas de suministro globales y redistribución de poder comercial, con China posicionándose como hub logístico central entre Asia y Europa.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Yicai Global</span>
+            <a href="https://www.yicaiglobal.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-7">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💻 Tecnología</span>
+            <span class="numero-noticia">#7</span>
+          </div>
+          <h2 class="tarjeta-titulo">Alibaba y Tencent invierten 5,000 millones en startups de inteligencia artificial generativa</h2>
+          <div class="tarjeta-comentario">
+            <p>Los gigantes tecnológicos chinos Alibaba y Tencent han anunciado fondos de inversión combinados por 5,000 millones de dólares dedicados a startups en inteligencia artificial generativa, reconociendo que la IA generativa es próxima frontera tecnológica de transformación industrial. Estas inversiones buscan desarrollar modelos de lenguaje y visión competitivos globalmente, aunque enfrentan regulaciones chinas sobre contenido y privacidad que añaden complejidad comparado con competidores occidentales. Los fondos financiarán investigación en aplicaciones de IA para manufactura, medicina, educación y comercio electrónico, áreas donde China tiene base instalada grande. La iniciativa demuestra que a pesar de restricciones regulatorias, el ecosistema de innovación chino continúa siendo dinámico y competitivo en tecnologías de frontera.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 PanDaily</span>
+            <a href="https://www.pandaily.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-8">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">👥 Sociedad</span>
+            <span class="numero-noticia">#8</span>
+          </div>
+          <h2 class="tarjeta-titulo">Tasa de natalidad en China repunta levemente después de años de declive</h2>
+          <div class="tarjeta-comentario">
+            <p>China registró un repunte modesto en tasa de natalidad en el primer semestre de 2026, terminando una racha de décadas de descenso, aunque las cifras permanecen muy por debajo de niveles de reemplazo poblacional. El gobierno atribuye el cambio a nuevas políticas de subsidios familiares y expansión de cuidado infantil gratuito, iniciativas piloto en varias provincias que buscan remover barreras económicas a tener hijos. A pesar de medidas incentivadoras, expertos señalan que factores culturales profundos, como costo de educación, presión laboral y preferencias de mujeres por carreras profesionales, siguen siendo obstáculos estructurales. El repunte, aunque positivo, es insuficiente para invertir envejecimiento poblacional que plantea desafíos a largo plazo para sistema de pensiones y composición demográfica de la nación.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 South China Morning Post</span>
+            <a href="https://www.scmp.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-9">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💼 Empresas</span>
+            <span class="numero-noticia">#9</span>
+          </div>
+          <h2 class="tarjeta-titulo">China establece primer parque industrial de manufactura circular en Shandong</h2>
+          <div class="tarjeta-comentario">
+            <p>China ha inaugurado su primer parque industrial completo dedicado a manufactura circular en la provincia de Shandong, donde empresas comparten infraestructura y materiales residuales en ecosistema cerrado que minimiza desperdicios. El parque integra 150 empresas de sectores como acero, química y textiles, transformando lo que serían desperdicios de una industria en materias primas de otras, reduciendo costos y emisiones simultáneamente. Esta iniciativa es respuesta a presión ambiental y objetivos de neutralidad de carbono, pero también representa modelo económico viable que mejora márgenes de ganancia en contexto de costos laborales crecientes. El parque de Shandong es piloto que podría replicarse en otras regiones, ilustrando cómo China está integrando sostenibilidad en modelo económico como ventaja competitiva más que como restricción.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 CGTN</span>
+            <a href="https://www.cgtn.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-10">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🎭 Cultura</span>
+            <span class="numero-noticia">#10</span>
+          </div>
+          <h2 class="tarjeta-titulo">Cooperación cultural entre China y América Latina se expande con nuevo instituto en São Paulo</h2>
+          <div class="tarjeta-comentario">
+            <p>China ha inaugurado un nuevo instituto cultural en São Paulo dedicado a enseñanza de idioma chino, artes marciales y filosofía oriental, ampliando presencia cultural en América Latina en contexto de relaciones económicas crecientes. El instituto se suma a más de 30 instituciones Confucio ya operativas en la región, pero con énfasis renovado en intercambio artístico bidireccional y colaboraciones con universidades locales. La expansión responde a estrategia china de construcción de poder blando en regiones donde inversión económica es masiva, generando aceptación cultural que facilita relaciones políticas. Esta iniciativa muestra cómo China concibe diplomacia cultural como complemento integral a poder económico y político, construyendo narrativa positiva de influencia china en espacios donde antes era occidental-céntrica la institucionalidad cultural.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 China Today</span>
+            <a href="https://www.chinatoday.com.cn" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+</main>
+
+<footer class="pie">
+  <div class="pie-contenido">
+    <h3>Fuentes consultadas en esta edición</h3>
+    <ul>
+      <li><a href="https://www.technode.com" target="_blank" rel="noopener">TechNode — China avanza en computación cuántica con nuevo chip de 1000+ qubits</a></li><li><a href="https://www.caixinglobal.com" target="_blank" rel="noopener">Caixin Global — Comercio minorista de China crece 3.2% en junio pese a presiones externas</a></li><li><a href="https://www.chinadaily.com.cn" target="_blank" rel="noopener">China Daily — China lanza programa nacional de protección de derechos de los artesanos tradicionales</a></li><li><a href="https://www.sixthtone.com" target="_blank" rel="noopener">Sixth Tone — Urbanización de migrantes rurales alcanza hito: 65% de población china es urbana</a></li><li><a href="https://www.xinhuanet.com" target="_blank" rel="noopener">Xinhua News Agency — Científicos chinos logran avance en fusión nuclear con plasma a 180 millones de grados</a></li><li><a href="https://www.yicaiglobal.com" target="_blank" rel="noopener">Yicai Global — Nueva ruta comercial terrestre China-Europa reduce tiempos de entrega 25%</a></li><li><a href="https://www.pandaily.com" target="_blank" rel="noopener">PanDaily — Alibaba y Tencent invierten 5,000 millones en startups de inteligencia artificial generativa</a></li><li><a href="https://www.scmp.com" target="_blank" rel="noopener">South China Morning Post — Tasa de natalidad en China repunta levemente después de años de declive</a></li><li><a href="https://www.cgtn.com" target="_blank" rel="noopener">CGTN — China establece primer parque industrial de manufactura circular en Shandong</a></li><li><a href="https://www.chinatoday.com.cn" target="_blank" rel="noopener">China Today — Cooperación cultural entre China y América Latina se expande con nuevo instituto en São Paulo</a></li>
+    </ul>
+    <div class="pie-creditos">
+      China Hoy · Edición 2026-07-12 · Generado automáticamente con IA ·
+      Las opiniones expresadas son editoriales y no representan posiciones oficiales.
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
