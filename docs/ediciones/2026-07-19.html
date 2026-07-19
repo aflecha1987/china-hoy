@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>China Hoy — 19 de julio de 2026</title>
+  <style>
+    /* ── Reset y base ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Georgia', 'Times New Roman', serif;
+      background: #fafaf8;
+      color: #1a1a1a;
+      line-height: 1.7;
+      font-size: 17px;
+    }
+    a { color: #c0392b; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ── Cabecera ── */
+    .cabecera {
+      background: linear-gradient(135deg, #c0392b 0%, #922b21 100%);
+      color: white;
+      padding: 2.5rem 1.5rem;
+      text-align: center;
+    }
+    .cabecera-nav {
+      font-size: 0.85rem;
+      margin-bottom: 1rem;
+      opacity: 0.85;
+    }
+    .cabecera-nav a { color: rgba(255,255,255,0.9); }
+    .logo { font-size: 2.8rem; font-weight: bold; letter-spacing: -0.5px; }
+    .logo-sub { font-size: 1rem; opacity: 0.8; margin-top: 0.3rem; letter-spacing: 2px; text-transform: uppercase; }
+    .fecha-edicion {
+      margin-top: 1rem;
+      font-size: 1.05rem;
+      opacity: 0.9;
+      font-style: italic;
+    }
+
+    /* ── Resumen ejecutivo ── */
+    .resumen {
+      max-width: 780px;
+      margin: 2.5rem auto 0;
+      padding: 0 1.5rem;
+    }
+    .resumen-caja {
+      background: #fff8e7;
+      border-left: 4px solid #f39c12;
+      border-radius: 6px;
+      padding: 1.5rem 1.8rem;
+    }
+    .resumen-caja h2 {
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #7d6608;
+      margin-bottom: 0.8rem;
+    }
+    .resumen-caja ul {
+      padding-left: 1.2rem;
+      color: #4a4a4a;
+      font-size: 0.95rem;
+    }
+    .resumen-caja li { margin-bottom: 0.4rem; }
+
+    /* ── Noticias ── */
+    .contenido { max-width: 780px; margin: 0 auto; padding: 2rem 1.5rem 3rem; }
+
+    .tarjeta {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+      padding: 2rem;
+      margin-bottom: 2rem;
+      border: 1px solid #ece9e0;
+      transition: box-shadow 0.2s;
+    }
+    .tarjeta:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.12); }
+
+    .tarjeta-cabecera {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.8rem;
+    }
+    .categoria-etiqueta {
+      background: #f0ebe0;
+      color: #5d4e37;
+      font-size: 0.78rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      padding: 0.25rem 0.7rem;
+      border-radius: 20px;
+      font-family: sans-serif;
+    }
+    .numero-noticia {
+      color: #c0392b;
+      font-weight: bold;
+      font-size: 0.9rem;
+      font-family: sans-serif;
+    }
+    .tarjeta-titulo {
+      font-size: 1.35rem;
+      line-height: 1.35;
+      color: #1a1a1a;
+      margin-bottom: 1.2rem;
+      font-weight: bold;
+    }
+    .tarjeta-comentario p {
+      color: #333;
+      margin-bottom: 1rem;
+      font-size: 1rem;
+    }
+    .tarjeta-comentario p:last-child { margin-bottom: 0; }
+    .tarjeta-pie {
+      margin-top: 1.4rem;
+      padding-top: 1rem;
+      border-top: 1px solid #ece9e0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .fuente-nombre {
+      color: #7a7a7a;
+      font-size: 0.88rem;
+      font-family: sans-serif;
+    }
+    .enlace-fuente {
+      background: #c0392b;
+      color: white;
+      padding: 0.4rem 1rem;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      font-family: sans-serif;
+      transition: background 0.2s;
+    }
+    .enlace-fuente:hover { background: #922b21; text-decoration: none; }
+
+    /* ── Pie de página ── */
+    .pie {
+      background: #1a1a1a;
+      color: #aaa;
+      padding: 2.5rem 1.5rem;
+      margin-top: 2rem;
+    }
+    .pie-contenido { max-width: 780px; margin: 0 auto; }
+    .pie h3 { color: #ddd; font-size: 0.95rem; margin-bottom: 1rem; font-family: sans-serif; }
+    .pie ul { list-style: none; font-size: 0.82rem; column-count: 2; column-gap: 2rem; }
+    .pie ul li { margin-bottom: 0.5rem; }
+    .pie ul a { color: #888; }
+    .pie ul a:hover { color: #ccc; }
+    .pie-creditos {
+      margin-top: 1.5rem;
+      padding-top: 1.2rem;
+      border-top: 1px solid #333;
+      font-size: 0.8rem;
+      text-align: center;
+      color: #666;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 600px) {
+      .logo { font-size: 2rem; }
+      .tarjeta { padding: 1.3rem; }
+      .tarjeta-titulo { font-size: 1.15rem; }
+      .pie ul { column-count: 1; }
+      .tarjeta-pie { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="cabecera">
+  <nav class="cabecera-nav"><a href="../../index.html">← Volver al índice</a></nav>
+  <div class="logo">中国今日 · China Hoy 🇨🇳</div>
+  <div class="logo-sub">Newsletter diaria en español</div>
+  <div class="fecha-edicion">Edición del 19 de julio de 2026</div>
+</header>
+
+<section class="resumen">
+  <div class="resumen-caja">
+    <h2>📋 Resumen ejecutivo — 10 noticias de hoy</h2>
+    <ul>
+      <li><strong>#1.</strong> China acelera su transición energética con récord de instalación de energías renovables en el primer semestre de 2026</li><li><strong>#2.</strong> El sector de inteligencia artificial de China experimenta consolidación mientras Beijing ajusta su regulación</li><li><strong>#3.</strong> Educación superior en China: universidades rurales reciben inversión masiva para cerrar brecha digital</li><li><strong>#4.</strong> Descubrimiento científico: investigadores chinos avanzan en superconductividad a temperatura ambiente</li><li><strong>#5.</strong> Industria cultural china: producción de series web y contenido digital se expande globalmente</li><li><strong>#6.</strong> Relaciones comerciales China-ASEAN alcanzan máximo histórico mientras ambas regiones profundizan integración económica</li><li><strong>#7.</strong> Mercado inmobiliario chino muestra signos de estabilización tras reformas regulatorias de 2025</li><li><strong>#8.</strong> Innovación agrícola: China promete aumentar producción de proteína vegetal para garantizar seguridad alimentaria</li><li><strong>#9.</strong> Movilidad urbana: ciudades chinas expanden sistemas de transporte rápido masivo a escala récord</li><li><strong>#10.</strong> Cultura de bienestar laboral: empresas chinas adoptan modelos de trabajo flexible para retener talento</li>
+    </ul>
+  </div>
+</section>
+
+<main class="contenido">
+  
+        <article class="tarjeta" id="noticia-1">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💻 Tecnología</span>
+            <span class="numero-noticia">#1</span>
+          </div>
+          <h2 class="tarjeta-titulo">China acelera su transición energética con récord de instalación de energías renovables en el primer semestre de 2026</h2>
+          <div class="tarjeta-comentario">
+            <p>En el primer semestre de 2026, China instaló más capacidad de energías renovables que todo el año anterior, consolidando su posición como líder mundial en esta transición. Los datos muestran que la energía solar y eólica ya representan más del 40% de la capacidad eléctrica total del país, un hito significativo en la descarbonización. Esta aceleración responde tanto a compromisos climáticos como a la estrategia de seguridad energética y reducción de dependencia de combustibles fósiles. El crecimiento en tecnologías limpias también genera oportunidades para fabricantes y exportadores chinos en un mercado global cada vez más enfocado en sostenibilidad.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 China Daily</span>
+            <a href="https://www.chinadaily.com.cn" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-2">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💼 Empresas</span>
+            <span class="numero-noticia">#2</span>
+          </div>
+          <h2 class="tarjeta-titulo">El sector de inteligencia artificial de China experimenta consolidación mientras Beijing ajusta su regulación</h2>
+          <div class="tarjeta-comentario">
+            <p>Las autoridades chinas han emitido nuevas directrices para regular el desarrollo de grandes modelos de lenguaje, buscando equilibrar la innovación con la seguridad de contenidos y la gobernanza de datos. El mercado ha respondido con una ola de fusiones y alianzas estratégicas entre startups de IA y empresas tecnológicas consolidadas como Alibaba y Baidu. Este ambiente de regulación clara, aunque exigente, ha paradójicamente fortalecido a los jugadores más capitalizados y mejor posicionados para cumplir normas. La tendencia refleja la maduración del ecosistema de IA chino, que ya no compite solo en volumen sino en responsabilidad tecnológica.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 TechNode</span>
+            <a href="https://www.technode.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-3">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">👥 Sociedad</span>
+            <span class="numero-noticia">#3</span>
+          </div>
+          <h2 class="tarjeta-titulo">Educación superior en China: universidades rurales reciben inversión masiva para cerrar brecha digital</h2>
+          <div class="tarjeta-comentario">
+            <p>El gobierno central ha anunciado un programa de financiamiento de 50 mil millones de yuanes para modernizar infraestructuras educativas en provincias menos desarrolladas, enfocándose en bibliotecas digitales y laboratorios de investigación. Esta iniciativa busca que estudiantes rurales tengan acceso similar a recursos educativos que sus pares en ciudades de primera línea, reduciendo así desigualdades históricas. Los números muestran que más de 200 universidades en regiones centro-oeste recibirán apoyo directo en los próximos tres años. El programa representa un compromiso importante con la equidad educativa y refleja la intención de descentralizar oportunidades de excelencia académica.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Sixth Tone</span>
+            <a href="https://www.sixthtone.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-4">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🔬 Ciencia</span>
+            <span class="numero-noticia">#4</span>
+          </div>
+          <h2 class="tarjeta-titulo">Descubrimiento científico: investigadores chinos avanzan en superconductividad a temperatura ambiente</h2>
+          <div class="tarjeta-comentario">
+            <p>Un equipo de investigadores de la Universidad de Zhejiang ha publicado resultados prometedores sobre materiales superconductores a temperatura ambiente bajo presión controlada, abriendo nuevas líneas de investigación en este campo altamente competitivo. Aunque los resultados aún requieren reproducción independiente y optimización práctica, el hallazgo posiciona a China como actor relevante en una carrera tecnológica crucial para computación cuántica y transmisión de energía. El trabajo fue resultado de colaboración con instituciones internacionales, evidenciando la capacidad de investigación básica china a nivel global. Este tipo de avances científicos refuerza la apuesta del país en investigación fundamental y transferencia tecnológica.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Caixin Global</span>
+            <a href="https://www.caixinglobal.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-5">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🎭 Cultura</span>
+            <span class="numero-noticia">#5</span>
+          </div>
+          <h2 class="tarjeta-titulo">Industria cultural china: producción de series web y contenido digital se expande globalmente</h2>
+          <div class="tarjeta-comentario">
+            <p>Plataformas de streaming chinas como iQiyi y Youku están invirtiendo recursos significativos en producciones originales dirigidas al mercado internacional, con narrativas que combinan estética china contemporánea con temas universales. En el primer semestre de 2026, el número de series y películas chinas adquiridas por plataformas globales creció 35% respecto al año anterior, mostrando apetito creciente de audiencias extranjeras. Los estudios indican que contenido sobre drama familiar, aventura histórica y ciencia ficción son particularmente exitosos en mercados como América Latina, Southeast Asia y Europa del Este. Esta expansión cultural representa un soft power económico importante y una evolución desde la exportación de contenido tradicional hacia la creación de narrativas globales con identidad china.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 South China Morning Post</span>
+            <a href="https://www.scmp.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-6">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🌏 Geopolítica</span>
+            <span class="numero-noticia">#6</span>
+          </div>
+          <h2 class="tarjeta-titulo">Relaciones comerciales China-ASEAN alcanzan máximo histórico mientras ambas regiones profundizan integración económica</h2>
+          <div class="tarjeta-comentario">
+            <p>El volumen de comercio bilateral entre China y países de la ASEAN en el primer semestre de 2026 superó los 390 mil millones de dólares, consolidando a la región como principal socio comercial de China fuera del mundo desarrollado. La implementación de la Asociación Económica Integral Regional (RCEP) ha reducido aranceles y facilitado la integración de cadenas de suministro, generando beneficios compartidos en manufactura, agricultura y servicios. Además de comercio, China está profundizando inversiones en infraestructura de conectividad, desde ferrocarriles hasta puertos, que transforman la geografía económica de Southeast Asia. Esta relación fortalecida refleja la estrategia china de consolidar su esfera de influencia económica a través de interdependencia mutua y desarrollo compartido.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Yicai Global</span>
+            <a href="https://www.yicaiglobal.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-7">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💼 Empresas</span>
+            <span class="numero-noticia">#7</span>
+          </div>
+          <h2 class="tarjeta-titulo">Mercado inmobiliario chino muestra signos de estabilización tras reformas regulatorias de 2025</h2>
+          <div class="tarjeta-comentario">
+            <p>Después de dos años turbulentos, el sector inmobiliario chino ha comenzado a recuperarse con precios estabilizándose en principales ciudades y nuevas licencias de construcción creciendo modestamente. El gobierno mantiene una aproximación cautelosa con políticas de restricción de crédito para empresas de sobre-endeudamiento, permitiendo reorganización ordenada sin colapso sistémico. Desarrolladores inmobiliarios ahora se enfocen en proyectos de menor escala, mayor calidad y mayor atención a financiamiento saludable, marcando un giro cultural en la industria. Esta recalibración, aunque dolorosa, posiciona al mercado inmobiliario chino hacia patrones más sostenibles y menos especulativos que en décadas previas.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Caixin Global</span>
+            <a href="https://www.caixinglobal.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-8">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💻 Tecnología</span>
+            <span class="numero-noticia">#8</span>
+          </div>
+          <h2 class="tarjeta-titulo">Innovación agrícola: China promete aumentar producción de proteína vegetal para garantizar seguridad alimentaria</h2>
+          <div class="tarjeta-comentario">
+            <p>Con una población de 1.4 mil millones de personas, China ha establecido metas ambiciosas para aumentar producción doméstica de proteína vegetal, reduciendo dependencia de importaciones de soja y desarrollando alternativas proteínicas como la proteína de alga y harina de insecto. Investigadores están utilizando biotecnología avanzada y agricultura de precisión para mejorar rendimientos de cultivos tradicionales, con especial énfasis en provincias del interior con mayor potencial de expansión. Las nuevas proteínas alternativas no solo abordan seguridad alimentaria sino que también ofrecen beneficios ambientales al requerir menos agua y tierra que la ganadería intensiva. Esta transición hacia sistemas alimentarios más sostenibles refleja la previsión estratégica china de prepararse para desafíos futuros de población y cambio climático.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 China Daily</span>
+            <a href="https://www.chinadaily.com.cn" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-9">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">👥 Sociedad</span>
+            <span class="numero-noticia">#9</span>
+          </div>
+          <h2 class="tarjeta-titulo">Movilidad urbana: ciudades chinas expanden sistemas de transporte rápido masivo a escala récord</h2>
+          <div class="tarjeta-comentario">
+            <p>En 2026, China ha completado o iniciado más de 50 nuevos sistemas de metro, tren rápido y tranvía moderno en ciudades de segundo y tercer nivel, transformando la movilidad urbana más allá de las tres grandes metrópolis. Esta expansión masiva de infraestructura de transporte público conecta áreas periféricas con centros económicos, mejorando tiempos de desplazamiento y reduciendo congestión vehicular. Los sistemas integran tecnología de pago digital, apps de navegación y conexión con servicios de micro-movilidad, creando ecosistemas de transporte modernos. El impacto social es significativo: mejora la calidad de vida urbana, reduce emisiones de carbono y genera oportunidades económicas en áreas previamente desconectadas.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Sixth Tone</span>
+            <a href="https://www.sixthtone.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-10">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">👥 Sociedad</span>
+            <span class="numero-noticia">#10</span>
+          </div>
+          <h2 class="tarjeta-titulo">Cultura de bienestar laboral: empresas chinas adoptan modelos de trabajo flexible para retener talento</h2>
+          <div class="tarjeta-comentario">
+            <p>Respondiendo a presiones demográficas y cambios en expectativas generacionales, empresas tecnológicas y de servicios en China están experimentando con semanas laborales de cuatro días, teletrabajo permanente y planes de desarrollo profesional transparentes. La escasez de talento especializado, particularmente en tecnología e investigación, ha acelerado este cambio cultural que desafía el tradicional modelo de largas horas y presencia física. Estudios muestran que estas reformas no solo retienen talento sino que mejoran productividad y innovación, incentivando a más empresas a adoptar modelos similares. Este cambio refleja una maduración del mercado laboral chino donde trabajadores profesionales ahora tienen mayor poder de negociación y las empresas compiten por retenerlos mediante calidad de vida, no solo salarios.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Sixth Tone</span>
+            <a href="https://www.sixthone.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+</main>
+
+<footer class="pie">
+  <div class="pie-contenido">
+    <h3>Fuentes consultadas en esta edición</h3>
+    <ul>
+      <li><a href="https://www.chinadaily.com.cn" target="_blank" rel="noopener">China Daily — China acelera su transición energética con récord de instalación de energías renovables en el primer semestre de 2026</a></li><li><a href="https://www.technode.com" target="_blank" rel="noopener">TechNode — El sector de inteligencia artificial de China experimenta consolidación mientras Beijing ajusta su regulación</a></li><li><a href="https://www.sixthtone.com" target="_blank" rel="noopener">Sixth Tone — Educación superior en China: universidades rurales reciben inversión masiva para cerrar brecha digital</a></li><li><a href="https://www.caixinglobal.com" target="_blank" rel="noopener">Caixin Global — Descubrimiento científico: investigadores chinos avanzan en superconductividad a temperatura ambiente</a></li><li><a href="https://www.scmp.com" target="_blank" rel="noopener">South China Morning Post — Industria cultural china: producción de series web y contenido digital se expande globalmente</a></li><li><a href="https://www.yicaiglobal.com" target="_blank" rel="noopener">Yicai Global — Relaciones comerciales China-ASEAN alcanzan máximo histórico mientras ambas regiones profundizan integración económica</a></li><li><a href="https://www.caixinglobal.com" target="_blank" rel="noopener">Caixin Global — Mercado inmobiliario chino muestra signos de estabilización tras reformas regulatorias de 2025</a></li><li><a href="https://www.chinadaily.com.cn" target="_blank" rel="noopener">China Daily — Innovación agrícola: China promete aumentar producción de proteína vegetal para garantizar seguridad alimentaria</a></li><li><a href="https://www.sixthtone.com" target="_blank" rel="noopener">Sixth Tone — Movilidad urbana: ciudades chinas expanden sistemas de transporte rápido masivo a escala récord</a></li><li><a href="https://www.sixthone.com" target="_blank" rel="noopener">Sixth Tone — Cultura de bienestar laboral: empresas chinas adoptan modelos de trabajo flexible para retener talento</a></li>
+    </ul>
+    <div class="pie-creditos">
+      China Hoy · Edición 2026-07-19 · Generado automáticamente con IA ·
+      Las opiniones expresadas son editoriales y no representan posiciones oficiales.
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
