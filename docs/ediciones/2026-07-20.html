@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>China Hoy — 20 de julio de 2026</title>
+  <style>
+    /* ── Reset y base ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Georgia', 'Times New Roman', serif;
+      background: #fafaf8;
+      color: #1a1a1a;
+      line-height: 1.7;
+      font-size: 17px;
+    }
+    a { color: #c0392b; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ── Cabecera ── */
+    .cabecera {
+      background: linear-gradient(135deg, #c0392b 0%, #922b21 100%);
+      color: white;
+      padding: 2.5rem 1.5rem;
+      text-align: center;
+    }
+    .cabecera-nav {
+      font-size: 0.85rem;
+      margin-bottom: 1rem;
+      opacity: 0.85;
+    }
+    .cabecera-nav a { color: rgba(255,255,255,0.9); }
+    .logo { font-size: 2.8rem; font-weight: bold; letter-spacing: -0.5px; }
+    .logo-sub { font-size: 1rem; opacity: 0.8; margin-top: 0.3rem; letter-spacing: 2px; text-transform: uppercase; }
+    .fecha-edicion {
+      margin-top: 1rem;
+      font-size: 1.05rem;
+      opacity: 0.9;
+      font-style: italic;
+    }
+
+    /* ── Resumen ejecutivo ── */
+    .resumen {
+      max-width: 780px;
+      margin: 2.5rem auto 0;
+      padding: 0 1.5rem;
+    }
+    .resumen-caja {
+      background: #fff8e7;
+      border-left: 4px solid #f39c12;
+      border-radius: 6px;
+      padding: 1.5rem 1.8rem;
+    }
+    .resumen-caja h2 {
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #7d6608;
+      margin-bottom: 0.8rem;
+    }
+    .resumen-caja ul {
+      padding-left: 1.2rem;
+      color: #4a4a4a;
+      font-size: 0.95rem;
+    }
+    .resumen-caja li { margin-bottom: 0.4rem; }
+
+    /* ── Noticias ── */
+    .contenido { max-width: 780px; margin: 0 auto; padding: 2rem 1.5rem 3rem; }
+
+    .tarjeta {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+      padding: 2rem;
+      margin-bottom: 2rem;
+      border: 1px solid #ece9e0;
+      transition: box-shadow 0.2s;
+    }
+    .tarjeta:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.12); }
+
+    .tarjeta-cabecera {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.8rem;
+    }
+    .categoria-etiqueta {
+      background: #f0ebe0;
+      color: #5d4e37;
+      font-size: 0.78rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      padding: 0.25rem 0.7rem;
+      border-radius: 20px;
+      font-family: sans-serif;
+    }
+    .numero-noticia {
+      color: #c0392b;
+      font-weight: bold;
+      font-size: 0.9rem;
+      font-family: sans-serif;
+    }
+    .tarjeta-titulo {
+      font-size: 1.35rem;
+      line-height: 1.35;
+      color: #1a1a1a;
+      margin-bottom: 1.2rem;
+      font-weight: bold;
+    }
+    .tarjeta-comentario p {
+      color: #333;
+      margin-bottom: 1rem;
+      font-size: 1rem;
+    }
+    .tarjeta-comentario p:last-child { margin-bottom: 0; }
+    .tarjeta-pie {
+      margin-top: 1.4rem;
+      padding-top: 1rem;
+      border-top: 1px solid #ece9e0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .fuente-nombre {
+      color: #7a7a7a;
+      font-size: 0.88rem;
+      font-family: sans-serif;
+    }
+    .enlace-fuente {
+      background: #c0392b;
+      color: white;
+      padding: 0.4rem 1rem;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      font-family: sans-serif;
+      transition: background 0.2s;
+    }
+    .enlace-fuente:hover { background: #922b21; text-decoration: none; }
+
+    /* ── Pie de página ── */
+    .pie {
+      background: #1a1a1a;
+      color: #aaa;
+      padding: 2.5rem 1.5rem;
+      margin-top: 2rem;
+    }
+    .pie-contenido { max-width: 780px; margin: 0 auto; }
+    .pie h3 { color: #ddd; font-size: 0.95rem; margin-bottom: 1rem; font-family: sans-serif; }
+    .pie ul { list-style: none; font-size: 0.82rem; column-count: 2; column-gap: 2rem; }
+    .pie ul li { margin-bottom: 0.5rem; }
+    .pie ul a { color: #888; }
+    .pie ul a:hover { color: #ccc; }
+    .pie-creditos {
+      margin-top: 1.5rem;
+      padding-top: 1.2rem;
+      border-top: 1px solid #333;
+      font-size: 0.8rem;
+      text-align: center;
+      color: #666;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 600px) {
+      .logo { font-size: 2rem; }
+      .tarjeta { padding: 1.3rem; }
+      .tarjeta-titulo { font-size: 1.15rem; }
+      .pie ul { column-count: 1; }
+      .tarjeta-pie { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="cabecera">
+  <nav class="cabecera-nav"><a href="../../index.html">← Volver al índice</a></nav>
+  <div class="logo">中国今日 · China Hoy 🇨🇳</div>
+  <div class="logo-sub">Newsletter diaria en español</div>
+  <div class="fecha-edicion">Edición del 20 de julio de 2026</div>
+</header>
+
+<section class="resumen">
+  <div class="resumen-caja">
+    <h2>📋 Resumen ejecutivo — 10 noticias de hoy</h2>
+    <ul>
+      <li><strong>#1.</strong> China amplía inversión en inteligencia artificial y computación de punta</li><li><strong>#2.</strong> Reforma educativa enfatiza habilidades prácticas y reducción de presión académica</li><li><strong>#3.</strong> Avances en biotecnología china: nuevos tratamientos para enfermedades crónicas</li><li><strong>#4.</strong> Empresas chinas de logística digital dominan mercado asiático de comercio electrónico</li><li><strong>#5.</strong> Tensiones comerciales con Occidente: China diversifica cadenas de suministro hacia Asia Central y Sudamérica</li><li><strong>#6.</strong> Festival de artes tradicionales chinas atrae récord de asistencia nacional e internacional</li><li><strong>#7.</strong> Soluciones de energía renovable: China instala mayor capacidad de paneles solares en décadas</li><li><strong>#8.</strong> Universidad de Tsinghua lidera investigación en fusión nuclear para energía limpia</li><li><strong>#9.</strong> Sector turístico chino se recupera con nuevas experiencias culturales y tecnología inmersiva</li><li><strong>#10.</strong> Nuevas regulaciones sobre bienestar animal impulsan transformación de industria agrícola moderna</li>
+    </ul>
+  </div>
+</section>
+
+<main class="contenido">
+  
+        <article class="tarjeta" id="noticia-1">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💻 Tecnología</span>
+            <span class="numero-noticia">#1</span>
+          </div>
+          <h2 class="tarjeta-titulo">China amplía inversión en inteligencia artificial y computación de punta</h2>
+          <div class="tarjeta-comentario">
+            <p>China continúa consolidando su posición en tecnología de IA con nuevas rondas de financiación para empresas de chips y software avanzado, reflejando la estrategia nacional de reducir dependencia de semiconductores extranjeros. Los fondos de capital de riesgo chinos han invertido más de 8,000 millones de dólares en startups de tecnología este año, con enfoque particular en computación cuántica y procesamiento de datos. Esta tendencia ilustra cómo Pekín está diversificando su ecosistema tecnológico más allá de plataformas de consumo tradicionales. El gobierno ha implementado políticas de apoyo fiscal que incentivan la innovación en sectores estratégicos, reconociendo que la competencia tecnológica global requiere inversión sostenida en investigación básica.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Sixth Tone</span>
+            <a href="https://www.sixthtone.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-2">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">👥 Sociedad</span>
+            <span class="numero-noticia">#2</span>
+          </div>
+          <h2 class="tarjeta-titulo">Reforma educativa enfatiza habilidades prácticas y reducción de presión académica</h2>
+          <div class="tarjeta-comentario">
+            <p>El Ministerio de Educación de China ha anunciado cambios significativos en los currículos de educación media para enfatizar competencias prácticas, creatividad y bienestar mental de estudiantes. Las nuevas directrices buscan reducir la presión del sistema de exámenes tradicionales, permitiendo mayor flexibilidad en métodos de evaluación y alentando actividades extracurriculares significativas. Este cambio refleja un reconocimiento creciente de que el modelo educativo anterior generaba estrés insostenible en jóvenes y desperdiciaba talento creativo. Las instituciones están siendo incentivadas a colaborar con empresas para ofrecer experiencias de aprendizaje aplicado que preparen mejor a los estudiantes para desafíos del siglo XXI.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 China Daily</span>
+            <a href="https://www.chinadaily.com.cn" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-3">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🔬 Ciencia</span>
+            <span class="numero-noticia">#3</span>
+          </div>
+          <h2 class="tarjeta-titulo">Avances en biotecnología china: nuevos tratamientos para enfermedades crónicas</h2>
+          <div class="tarjeta-comentario">
+            <p>Laboratorios de investigación chinos han presentado resultados prometedores en ensayos clínicos de nuevas terapias biológicas para diabetes tipo 2 y enfermedades cardiovasculares, demostrando eficacia comparable a medicamentos internacionales de referencia. Estos desarrollos surgieron de colaboraciones entre universidades de investigación, institutos estatales y empresas farmacéuticas privadas, con inversión pública significativa en infraestructura de ciencias de la vida. El avance ilustra cómo China está transitando de ser productora de medicamentos genéricos a desarrolladora de innovaciones originales en medicina de precisión. Estos éxitos tienen implicaciones no solo para la salud pública china, sino también para mercados emergentes que buscan alternativas de tratamiento accesibles.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Caixin Global</span>
+            <a href="https://www.caixinglobal.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-4">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💼 Empresas</span>
+            <span class="numero-noticia">#4</span>
+          </div>
+          <h2 class="tarjeta-titulo">Empresas chinas de logística digital dominan mercado asiático de comercio electrónico</h2>
+          <div class="tarjeta-comentario">
+            <p>Plataformas de logística como Cainiao (grupo Alibaba) y JD Logistics han expandido operaciones a 20 nuevos mercados en Asia Sudoriental este semestre, revolucionando velocidades de entrega y reduciendo costos operativos mediante inteligencia artificial y automatización. Estas empresas están transformando cadenas de suministro regionales con centros de distribución inteligentes que procesan millones de paquetes diariamente usando robótica avanzada. El dominio chino en logística digital refleja competencias desarrolladas primero internamente en mercado de comercio electrónico más saturado del mundo, ahora siendo exportadas como ventaja competitiva. Este modelo de negocios demuestra cómo innovación china en sectores específicos puede capturar valor significativo en mercados emergentes.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 TechNode</span>
+            <a href="https://www.technode.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-5">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🌏 Geopolítica</span>
+            <span class="numero-noticia">#5</span>
+          </div>
+          <h2 class="tarjeta-titulo">Tensiones comerciales con Occidente: China diversifica cadenas de suministro hacia Asia Central y Sudamérica</h2>
+          <div class="tarjeta-comentario">
+            <p>Ante aranceles crecientes de Estados Unidos y presiones regulatorias en Europa, empresas manufactureras chinas están reorientando inversiones hacia economías de Asia Central y Sudamérica, particularmente en sectores de electrónica y manufactura ligera. China ha intensificado acuerdos comerciales con Kazajistán, Uzbekistán y países andinos, ofreciendo financiamiento de largo plazo e inversión en infraestructura para asegurar acceso a mercados menos saturados. Esta estrategia refleja aprendizaje de experiencias previas con sanciones, buscando resiliencia mediante diversificación geográfica de cadenas de valor. El movimiento tiene implicaciones importantes para geopolítica global, reorientando flujos de inversión hacia regiones históricamente menos industrializadas.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 South China Morning Post</span>
+            <a href="https://www.scmp.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-6">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🎭 Cultura</span>
+            <span class="numero-noticia">#6</span>
+          </div>
+          <h2 class="tarjeta-titulo">Festival de artes tradicionales chinas atrae récord de asistencia nacional e internacional</h2>
+          <div class="tarjeta-comentario">
+            <p>El Festival Anual de Artes Clásicas Chinas celebrado en múltiples ciudades entre junio y julio registró más de 3 millones de visitantes, incluyendo delegaciones de más de 50 países, evidenciando renovado interés global en patrimonio cultural chino. Las exhibiciones incluyeron ópera de Pekín, caligrafía, escultura antigua y artes marciales tradicionales, con enfoque en narrativas que conectan prácticas históricas con contextos contemporáneos. Este resurgimiento cultural ha sido impulsado por políticas gubernamentales que reconocen el soft power cultural como herramienta estratégica en relaciones internacionales. Los datos de asistencia sugieren que las estrategias de museología moderna y presentación digital han hecho más accesibles estas tradiciones a audiencias jóvenes y extranjeras.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 CGTN</span>
+            <a href="https://www.cgtn.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-7">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💻 Tecnología</span>
+            <span class="numero-noticia">#7</span>
+          </div>
+          <h2 class="tarjeta-titulo">Soluciones de energía renovable: China instala mayor capacidad de paneles solares en décadas</h2>
+          <div class="tarjeta-comentario">
+            <p>China instaló 150 gigavatios de capacidad solar en el primer semestre de 2026, estableciendo nuevo récord y demostrando compromiso con transición energética hacia electricidad limpia a escala masiva. La mayoría de estas instalaciones son parques solares de gran escala en provincias occidentales combinadas con sistemas de almacenamiento de batería integrados, mejorando eficiencia de la red eléctrica nacional. Este crecimiento acelerado de energías renovables está siendo apoyado por políticas de subsidios decrecientes pero dirigidos, demostrando que el sector es ahora viable económicamente sin apoyo estatal extenso. El despliegue masivo de infraestructura solar china está teniendo efectos multiplicadores en exportación de tecnología y componentes a mercados globales.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Xinhua News Agency</span>
+            <a href="https://www.xinhuanet.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-8">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🔬 Ciencia</span>
+            <span class="numero-noticia">#8</span>
+          </div>
+          <h2 class="tarjeta-titulo">Universidad de Tsinghua lidera investigación en fusión nuclear para energía limpia</h2>
+          <div class="tarjeta-comentario">
+            <p>El Instituto de Investigación Nuclear de la Universidad de Tsinghua anunció avances significativos en tecnología de fusión nuclear, logrando estabilidad de plasma a temperaturas de 120 millones de grados Celsius durante 302 segundos, mejorando récords previos. Esta investigación colaborativa con instituciones internacionales representa décadas de inversión china en ciencia fundamental con aplicaciones potenciales para generación de energía limpia ilimitada. Los resultados demuestran que China está compitiendo a nivel mundial en una de las fronteras más desafiantes de la física aplicada. El reconocimiento internacional de estos logros refuerza el posicionamiento de China como potencia científica capaz de resolver problemas energéticos globales.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 ChinaNews</span>
+            <a href="https://www.chinanews.com.cn" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-9">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🎭 Cultura</span>
+            <span class="numero-noticia">#9</span>
+          </div>
+          <h2 class="tarjeta-titulo">Sector turístico chino se recupera con nuevas experiencias culturales y tecnología inmersiva</h2>
+          <div class="tarjeta-comentario">
+            <p>El turismo doméstico e internacional a China alcanzó 45 millones de visitantes en los primeros seis meses de 2026, con crecimiento particular en experiencias de realidad virtual que permiten explorar sitios arqueológicos y patrimonio histórico de forma interactiva. Ciudades como Xi&#39;an y Hangzhou han invertido en centros de experiencia digital que combinan museología tradicional con tecnología inmersiva, atrayendo especialmente turismo joven e internacional. Esta hibridación de cultura tradicional con tecnología moderna es estrategia deliberada para diversificar oferta turística más allá de playas y destinos convencionales. El modelo está siendo replicado en otras ciudades, creando nuevas oportunidades económicas en provincías con patrimonio cultural significativo.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Pandaily</span>
+            <a href="https://www.pandaily.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-10">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">👥 Sociedad</span>
+            <span class="numero-noticia">#10</span>
+          </div>
+          <h2 class="tarjeta-titulo">Nuevas regulaciones sobre bienestar animal impulsan transformación de industria agrícola moderna</h2>
+          <div class="tarjeta-comentario">
+            <p>China implementó nuevas normas de bienestar animal en producción de ganado y aves de corral, requiriendo estándares mínimos de espacio vital, luz natural y enriquecimiento ambiental que alinean regulaciones domésticas más cercanamente con estándares internacionales. Estas regulaciones están acelerando automatización y modernización de granjas comerciales medianas y grandes, con empresas agroindustriales adoptando sistemas de monitoreo digital y manejo animal mejorado. El cambio refleja presión creciente de consumidores urbanos chinos por productos que respeten bienestar animal, así como reconocimiento que estos estándares mejoran calidad de carne y reducen uso de antibióticos preventivos. La transformación ofrece oportunidad de diferenciación de mercado para productores que adopten prácticas mejoradas tempranamente.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Yicai Global</span>
+            <a href="https://www.yicaiglobal.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+</main>
+
+<footer class="pie">
+  <div class="pie-contenido">
+    <h3>Fuentes consultadas en esta edición</h3>
+    <ul>
+      <li><a href="https://www.sixthtone.com" target="_blank" rel="noopener">Sixth Tone — China amplía inversión en inteligencia artificial y computación de punta</a></li><li><a href="https://www.chinadaily.com.cn" target="_blank" rel="noopener">China Daily — Reforma educativa enfatiza habilidades prácticas y reducción de presión académica</a></li><li><a href="https://www.caixinglobal.com" target="_blank" rel="noopener">Caixin Global — Avances en biotecnología china: nuevos tratamientos para enfermedades crónicas</a></li><li><a href="https://www.technode.com" target="_blank" rel="noopener">TechNode — Empresas chinas de logística digital dominan mercado asiático de comercio electrónico</a></li><li><a href="https://www.scmp.com" target="_blank" rel="noopener">South China Morning Post — Tensiones comerciales con Occidente: China diversifica cadenas de suministro hacia Asia Central y Sudamérica</a></li><li><a href="https://www.cgtn.com" target="_blank" rel="noopener">CGTN — Festival de artes tradicionales chinas atrae récord de asistencia nacional e internacional</a></li><li><a href="https://www.xinhuanet.com" target="_blank" rel="noopener">Xinhua News Agency — Soluciones de energía renovable: China instala mayor capacidad de paneles solares en décadas</a></li><li><a href="https://www.chinanews.com.cn" target="_blank" rel="noopener">ChinaNews — Universidad de Tsinghua lidera investigación en fusión nuclear para energía limpia</a></li><li><a href="https://www.pandaily.com" target="_blank" rel="noopener">Pandaily — Sector turístico chino se recupera con nuevas experiencias culturales y tecnología inmersiva</a></li><li><a href="https://www.yicaiglobal.com" target="_blank" rel="noopener">Yicai Global — Nuevas regulaciones sobre bienestar animal impulsan transformación de industria agrícola moderna</a></li>
+    </ul>
+    <div class="pie-creditos">
+      China Hoy · Edición 2026-07-20 · Generado automáticamente con IA ·
+      Las opiniones expresadas son editoriales y no representan posiciones oficiales.
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
