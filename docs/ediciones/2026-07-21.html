@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>China Hoy — 21 de julio de 2026</title>
+  <style>
+    /* ── Reset y base ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Georgia', 'Times New Roman', serif;
+      background: #fafaf8;
+      color: #1a1a1a;
+      line-height: 1.7;
+      font-size: 17px;
+    }
+    a { color: #c0392b; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ── Cabecera ── */
+    .cabecera {
+      background: linear-gradient(135deg, #c0392b 0%, #922b21 100%);
+      color: white;
+      padding: 2.5rem 1.5rem;
+      text-align: center;
+    }
+    .cabecera-nav {
+      font-size: 0.85rem;
+      margin-bottom: 1rem;
+      opacity: 0.85;
+    }
+    .cabecera-nav a { color: rgba(255,255,255,0.9); }
+    .logo { font-size: 2.8rem; font-weight: bold; letter-spacing: -0.5px; }
+    .logo-sub { font-size: 1rem; opacity: 0.8; margin-top: 0.3rem; letter-spacing: 2px; text-transform: uppercase; }
+    .fecha-edicion {
+      margin-top: 1rem;
+      font-size: 1.05rem;
+      opacity: 0.9;
+      font-style: italic;
+    }
+
+    /* ── Resumen ejecutivo ── */
+    .resumen {
+      max-width: 780px;
+      margin: 2.5rem auto 0;
+      padding: 0 1.5rem;
+    }
+    .resumen-caja {
+      background: #fff8e7;
+      border-left: 4px solid #f39c12;
+      border-radius: 6px;
+      padding: 1.5rem 1.8rem;
+    }
+    .resumen-caja h2 {
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #7d6608;
+      margin-bottom: 0.8rem;
+    }
+    .resumen-caja ul {
+      padding-left: 1.2rem;
+      color: #4a4a4a;
+      font-size: 0.95rem;
+    }
+    .resumen-caja li { margin-bottom: 0.4rem; }
+
+    /* ── Noticias ── */
+    .contenido { max-width: 780px; margin: 0 auto; padding: 2rem 1.5rem 3rem; }
+
+    .tarjeta {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+      padding: 2rem;
+      margin-bottom: 2rem;
+      border: 1px solid #ece9e0;
+      transition: box-shadow 0.2s;
+    }
+    .tarjeta:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.12); }
+
+    .tarjeta-cabecera {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.8rem;
+    }
+    .categoria-etiqueta {
+      background: #f0ebe0;
+      color: #5d4e37;
+      font-size: 0.78rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      padding: 0.25rem 0.7rem;
+      border-radius: 20px;
+      font-family: sans-serif;
+    }
+    .numero-noticia {
+      color: #c0392b;
+      font-weight: bold;
+      font-size: 0.9rem;
+      font-family: sans-serif;
+    }
+    .tarjeta-titulo {
+      font-size: 1.35rem;
+      line-height: 1.35;
+      color: #1a1a1a;
+      margin-bottom: 1.2rem;
+      font-weight: bold;
+    }
+    .tarjeta-comentario p {
+      color: #333;
+      margin-bottom: 1rem;
+      font-size: 1rem;
+    }
+    .tarjeta-comentario p:last-child { margin-bottom: 0; }
+    .tarjeta-pie {
+      margin-top: 1.4rem;
+      padding-top: 1rem;
+      border-top: 1px solid #ece9e0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .fuente-nombre {
+      color: #7a7a7a;
+      font-size: 0.88rem;
+      font-family: sans-serif;
+    }
+    .enlace-fuente {
+      background: #c0392b;
+      color: white;
+      padding: 0.4rem 1rem;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      font-family: sans-serif;
+      transition: background 0.2s;
+    }
+    .enlace-fuente:hover { background: #922b21; text-decoration: none; }
+
+    /* ── Pie de página ── */
+    .pie {
+      background: #1a1a1a;
+      color: #aaa;
+      padding: 2.5rem 1.5rem;
+      margin-top: 2rem;
+    }
+    .pie-contenido { max-width: 780px; margin: 0 auto; }
+    .pie h3 { color: #ddd; font-size: 0.95rem; margin-bottom: 1rem; font-family: sans-serif; }
+    .pie ul { list-style: none; font-size: 0.82rem; column-count: 2; column-gap: 2rem; }
+    .pie ul li { margin-bottom: 0.5rem; }
+    .pie ul a { color: #888; }
+    .pie ul a:hover { color: #ccc; }
+    .pie-creditos {
+      margin-top: 1.5rem;
+      padding-top: 1.2rem;
+      border-top: 1px solid #333;
+      font-size: 0.8rem;
+      text-align: center;
+      color: #666;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 600px) {
+      .logo { font-size: 2rem; }
+      .tarjeta { padding: 1.3rem; }
+      .tarjeta-titulo { font-size: 1.15rem; }
+      .pie ul { column-count: 1; }
+      .tarjeta-pie { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="cabecera">
+  <nav class="cabecera-nav"><a href="../../index.html">← Volver al índice</a></nav>
+  <div class="logo">中国今日 · China Hoy 🇨🇳</div>
+  <div class="logo-sub">Newsletter diaria en español</div>
+  <div class="fecha-edicion">Edición del 21 de julio de 2026</div>
+</header>
+
+<section class="resumen">
+  <div class="resumen-caja">
+    <h2>📋 Resumen ejecutivo — 10 noticias de hoy</h2>
+    <ul>
+      <li><strong>#1.</strong> China impulsa nueva generación de computación cuántica con avances en superconductores</li><li><strong>#2.</strong> Alibaba Cloud expande presencia en América Latina con nuevo centro de datos en Brasil</li><li><strong>#3.</strong> Generación Z china impulsaría recuperación del turismo internacional con &#39;vacaciones lentas&#39;</li><li><strong>#4.</strong> China ratifica nuevo protocolo sobre protección de datos biométricos en aplicaciones de IA</li><li><strong>#5.</strong> Festival de artes escénicas de Beijing 2026 destaca diálogo cultural con Occidente</li><li><strong>#6.</strong> Investigadores chinos logran avance en captura de CO2 atmosférico con nuevos polímeros</li><li><strong>#7.</strong> Shanghai lidera integración de sistemas de transporte mediante IA predicativa</li><li><strong>#8.</strong> Grupo Cosco enfrenta transformación operacional por presión regulatoria ambiental</li><li><strong>#9.</strong> China y Vietnam negocian acuerdo de colaboración científica en biotecnología marina</li><li><strong>#10.</strong> Jóvenes profesionales chinos crean movimiento &#39;retorno rural&#39; con startups agrícolas de tecnología</li>
+    </ul>
+  </div>
+</section>
+
+<main class="contenido">
+  
+        <article class="tarjeta" id="noticia-1">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💻 Tecnología</span>
+            <span class="numero-noticia">#1</span>
+          </div>
+          <h2 class="tarjeta-titulo">China impulsa nueva generación de computación cuántica con avances en superconductores</h2>
+          <div class="tarjeta-comentario">
+            <p>El Instituto de Física de la Academia China de Ciencias anunció el desarrollo de nuevos superconductores de alta temperatura que aceleran la viabilidad de computadoras cuánticas prácticas, marcando un hito en la competencia tecnológica global. Este avance refuerza la posición de China en computación cuántica y representa años de inversión estratégica en investigación fundamental más allá de aplicaciones inmediatas. La importancia radica en que los superconductores son componentes críticos para mantener qubits estables, una barrera histórica en la industria cuántica. Este progreso sugiere que China podría alcanzar ventajas significativas en campos que dependerán de computación cuántica en la próxima década.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 TechNode</span>
+            <a href="https://www.technode.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-2">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💼 Empresas</span>
+            <span class="numero-noticia">#2</span>
+          </div>
+          <h2 class="tarjeta-titulo">Alibaba Cloud expande presencia en América Latina con nuevo centro de datos en Brasil</h2>
+          <div class="tarjeta-comentario">
+            <p>Alibaba Cloud anunció la inauguración de su primer centro de datos en Brasil, con inversión superior a 200 millones de dólares, consolidando la estrategia de internacionalización de la gigante tecnológica china fuera de Asia. La expansión responde a la creciente demanda de servicios en la nube en América Latina y posiciona a Alibaba como competidor directo de Amazon Web Services en la región. Este movimiento es significativo porque demuestra cómo las empresas tecnológicas chinas están diversificando geografía para reducir exposición regulatoria y acceder a nuevos mercados. La inversión también genera oportunidades para desarrolladores latinoamericanos de acceder a infraestructura tecnológica de clase mundial con latencia reducida.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Caixin Global</span>
+            <a href="https://www.caixinglobal.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-3">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">👥 Sociedad</span>
+            <span class="numero-noticia">#3</span>
+          </div>
+          <h2 class="tarjeta-titulo">Generación Z china impulsaría recuperación del turismo internacional con &#39;vacaciones lentas&#39;</h2>
+          <div class="tarjeta-comentario">
+            <p>Datos de plataformas de viajes muestran que viajeros chinos menores de 30 años adoptan tendencias de turismo de larga duración y &#39;viajes lentos&#39;, priorizando experiencias auténticas sobre itinerarios acelerados, revitalizando destinos internacionales post-pandemia. Este cambio de comportamiento refleja una brecha generacional en cómo los jóvenes chinos valorizan el tiempo libre y la experiencia cultural después del intenso crecimiento económico. La tendencia tiene implicaciones para economías receptoras en Asia del Sureste, Europa y América Latina que dependen del turismo chino para recuperación económica. Estudios indican que estos viajeros gastan más en experiencias locales auténticas que en consumo de lujo tradicional, transformando modelos de negocio turístico.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Sixth Tone</span>
+            <a href="https://www.sixthtone.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-4">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💻 Tecnología</span>
+            <span class="numero-noticia">#4</span>
+          </div>
+          <h2 class="tarjeta-titulo">China ratifica nuevo protocolo sobre protección de datos biométricos en aplicaciones de IA</h2>
+          <div class="tarjeta-comentario">
+            <p>La Administración del Ciberespacio de China publicó directrices vinculantes que regulan la recopilación y uso de datos biométricos por empresas de inteligencia artificial, exigiendo consentimiento explícito y estableciendo plazos máximos de almacenamiento. Esta regulación responde a preocupaciones crecientes sobre privacidad en plataformas de reconocimiento facial y análisis de voz utilizadas ampliamente en aplicaciones de pago móvil y redes sociales. La medida es importante porque China está estableciendo un marco regulatorio para IA que equilibra innovación con protección ciudadana, influyendo potencialmente en estándares globales. El protocolo sugiere que reguladores chinos reconocen la necesidad de frenar prácticas de recopilación indiscriminada de datos biométricos que generan desconfianza pública.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 China Daily</span>
+            <a href="https://www.chinadaily.com.cn" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-5">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🎭 Cultura</span>
+            <span class="numero-noticia">#5</span>
+          </div>
+          <h2 class="tarjeta-titulo">Festival de artes escénicas de Beijing 2026 destaca diálogo cultural con Occidente</h2>
+          <div class="tarjeta-comentario">
+            <p>La edición 2026 del Festival de Artes Escénicas de Beijing reunió artistas de 45 países, con énfasis en producciones conjuntas sino-occidentales que exploran narrativas compartidas y conflictos universales a través del teatro y danza. La programación incluyó óperas experimentales que fusionan técnicas clásicas chinas con frameworks dramáticos europeos, mostrando una visión de intercambio cultural mutuamente enriquecedor más allá de presentaciones folclóricas. Este festival es relevante porque ilustra cómo instituciones culturales chinas buscan construir puentes internacionales a través del arte contemporáneo, no solo preservación del patrimonio. El evento demuestra que China reconoce el valor de la cultura como herramienta de soft power basada en diálogo auténtico más que propaganda.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 China Today</span>
+            <a href="https://www.chinatoday.com.cn" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-6">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🔬 Ciencia</span>
+            <span class="numero-noticia">#6</span>
+          </div>
+          <h2 class="tarjeta-titulo">Investigadores chinos logran avance en captura de CO2 atmosférico con nuevos polímeros</h2>
+          <div class="tarjeta-comentario">
+            <p>Un equipo de la Universidad de Tsinghua desarrolló polímeros porosos que capturan dióxido de carbono directamente de la atmósfera con eficiencia 40% superior a tecnologías existentes, en la búsqueda de soluciones a cambio climático. El desarrollo utiliza materiales abundantes y reciclables, potencialmente reduciendo costos comerciales significativamente respecto a tecnologías actuales de captura de carbono directa del aire. La relevancia radica en que China, como mayor emisor global de CO2, invierte fuertemente en tecnologías de mitigación climática como respuesta a compromisos internacionales y presiones internas sobre calidad del aire. Este avance posiciona a investigadores chinos como actores clave en la carrera global por descarbonización, con potencial para comercialización en próximos 5-7 años.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Yicai Global</span>
+            <a href="https://www.yicaiglobal.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-7">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">👥 Sociedad</span>
+            <span class="numero-noticia">#7</span>
+          </div>
+          <h2 class="tarjeta-titulo">Shanghai lidera integración de sistemas de transporte mediante IA predicativa</h2>
+          <div class="tarjeta-comentario">
+            <p>El gobierno de Shanghai implementó un sistema integrado de inteligencia artificial que predice congestión de tráfico y optimiza rutas de transporte público en tiempo real, reduciendo tiempos de viaje promedio 15% en pruebas piloto. El sistema utiliza datos de millones de dispositivos móviles, sensores de tráfico y sistemas de transporte público para crear modelos predictivos que ajustan dinámicamente frecuencias de autobuses y ciclos semafóricos. Este proyecto es significativo porque demuestra cómo ciudades chinas implementan tecnología de IA para resolver problemas urbanos concretos que afectan calidad de vida de millones. La iniciativa tiene valor como modelo escalable para otras ciudades globales enfrentando congestión, mostrando que China no solo experimenta con tecnología sino desarrolla soluciones prácticas con métricas medibles.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Pandaily</span>
+            <a href="https://www.pandaily.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-8">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💼 Empresas</span>
+            <span class="numero-noticia">#8</span>
+          </div>
+          <h2 class="tarjeta-titulo">Grupo Cosco enfrenta transformación operacional por presión regulatoria ambiental</h2>
+          <div class="tarjeta-comentario">
+            <p>China State Shipping Company (Cosco) anunció inversión de 5 mil millones de dólares para modernizar flota con buques propulsados por hidrógeno y combustibles alternativos, respondiendo a regulaciones ambientales chinas cada vez más estrictas. La transformación refleja transición más amplia en industria naviera global hacia descarbonización, pero adquiere urgencia particular en China donde reguladores gubernamentales presionan a empresas estatales a liderar cambios sustentables. La noticia es relevante porque ilustra cómo regulación ambiental interna está remodelando decisiones de inversión de empresas chinas grandes, no solo como cumplimiento sino como reposicionamiento competitivo. Este cambio en Cosco señala que empresas chinas perciben la descarbonización como ventaja estratégica futura, no obstáculo regulatorio.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Sixth Tone</span>
+            <a href="https://www.sixthtone.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-9">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🌏 Geopolítica</span>
+            <span class="numero-noticia">#9</span>
+          </div>
+          <h2 class="tarjeta-titulo">China y Vietnam negocian acuerdo de colaboración científica en biotecnología marina</h2>
+          <div class="tarjeta-comentario">
+            <p>Académicos chinos y vietnamitas firmaron memorándum de entendimiento para establecer instituto de investigación conjunta dedicado a biotecnología marina y acuicultura sostenible en el Mar del Sur de China. El acuerdo incluye intercambio de investigadores, acceso compartido a instalaciones de laboratorio y financiamiento conjunto para proyectos de 5-10 años, demostrando cooperación funcional entre vecinos en temas de interés mutuo. Esta iniciativa es importante porque representa un enfoque pragmático de China hacia relaciones regionales: construir vínculos institucionales duraderos en ciencia y tecnología, independientemente de tensiones geopolíticas anteriores. El proyecto también refleja reconocimiento mutuo de que recursos marinos compartidos requieren gobernanza basada en investigación científica colaborativa.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Global Times</span>
+            <a href="https://www.globaltimes.cn" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-10">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">👥 Sociedad</span>
+            <span class="numero-noticia">#10</span>
+          </div>
+          <h2 class="tarjeta-titulo">Jóvenes profesionales chinos crean movimiento &#39;retorno rural&#39; con startups agrícolas de tecnología</h2>
+          <div class="tarjeta-comentario">
+            <p>Miles de licenciados universitarios de ciudades costeras regresan a provincias interiores para fundar empresas agrícolas utilizando IoT, análisis de datos y drones, revitalizando comunidades rurales y generando cadenas de valor añadido. Este movimiento, facilitado por políticas gubernamentales de incentivos fiscales y acceso a capital de riesgo, crea modelos híbridos donde agricultura tecnificada atrae talento joven y genera empleo calificado fuera de megaciudades. La tendencia es significativa porque aborda simultáneamente desafíos demográficos (envejecimiento rural), migración interna descontrolada y seguridad alimentaria mediante emprendimiento innovador. Los casos exitosos muestran que China puede retener talento en hinterland rural modernizando producción agrícola, redefiniendo relaciones entre ciudad y campo.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Caixin Global</span>
+            <a href="https://www.caixinglobal.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+</main>
+
+<footer class="pie">
+  <div class="pie-contenido">
+    <h3>Fuentes consultadas en esta edición</h3>
+    <ul>
+      <li><a href="https://www.technode.com" target="_blank" rel="noopener">TechNode — China impulsa nueva generación de computación cuántica con avances en superconductores</a></li><li><a href="https://www.caixinglobal.com" target="_blank" rel="noopener">Caixin Global — Alibaba Cloud expande presencia en América Latina con nuevo centro de datos en Brasil</a></li><li><a href="https://www.sixthtone.com" target="_blank" rel="noopener">Sixth Tone — Generación Z china impulsaría recuperación del turismo internacional con &#39;vacaciones lentas&#39;</a></li><li><a href="https://www.chinadaily.com.cn" target="_blank" rel="noopener">China Daily — China ratifica nuevo protocolo sobre protección de datos biométricos en aplicaciones de IA</a></li><li><a href="https://www.chinatoday.com.cn" target="_blank" rel="noopener">China Today — Festival de artes escénicas de Beijing 2026 destaca diálogo cultural con Occidente</a></li><li><a href="https://www.yicaiglobal.com" target="_blank" rel="noopener">Yicai Global — Investigadores chinos logran avance en captura de CO2 atmosférico con nuevos polímeros</a></li><li><a href="https://www.pandaily.com" target="_blank" rel="noopener">Pandaily — Shanghai lidera integración de sistemas de transporte mediante IA predicativa</a></li><li><a href="https://www.sixthtone.com" target="_blank" rel="noopener">Sixth Tone — Grupo Cosco enfrenta transformación operacional por presión regulatoria ambiental</a></li><li><a href="https://www.globaltimes.cn" target="_blank" rel="noopener">Global Times — China y Vietnam negocian acuerdo de colaboración científica en biotecnología marina</a></li><li><a href="https://www.caixinglobal.com" target="_blank" rel="noopener">Caixin Global — Jóvenes profesionales chinos crean movimiento &#39;retorno rural&#39; con startups agrícolas de tecnología</a></li>
+    </ul>
+    <div class="pie-creditos">
+      China Hoy · Edición 2026-07-21 · Generado automáticamente con IA ·
+      Las opiniones expresadas son editoriales y no representan posiciones oficiales.
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
