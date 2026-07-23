@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>China Hoy — 23 de julio de 2026</title>
+  <style>
+    /* ── Reset y base ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Georgia', 'Times New Roman', serif;
+      background: #fafaf8;
+      color: #1a1a1a;
+      line-height: 1.7;
+      font-size: 17px;
+    }
+    a { color: #c0392b; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ── Cabecera ── */
+    .cabecera {
+      background: linear-gradient(135deg, #c0392b 0%, #922b21 100%);
+      color: white;
+      padding: 2.5rem 1.5rem;
+      text-align: center;
+    }
+    .cabecera-nav {
+      font-size: 0.85rem;
+      margin-bottom: 1rem;
+      opacity: 0.85;
+    }
+    .cabecera-nav a { color: rgba(255,255,255,0.9); }
+    .logo { font-size: 2.8rem; font-weight: bold; letter-spacing: -0.5px; }
+    .logo-sub { font-size: 1rem; opacity: 0.8; margin-top: 0.3rem; letter-spacing: 2px; text-transform: uppercase; }
+    .fecha-edicion {
+      margin-top: 1rem;
+      font-size: 1.05rem;
+      opacity: 0.9;
+      font-style: italic;
+    }
+
+    /* ── Resumen ejecutivo ── */
+    .resumen {
+      max-width: 780px;
+      margin: 2.5rem auto 0;
+      padding: 0 1.5rem;
+    }
+    .resumen-caja {
+      background: #fff8e7;
+      border-left: 4px solid #f39c12;
+      border-radius: 6px;
+      padding: 1.5rem 1.8rem;
+    }
+    .resumen-caja h2 {
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #7d6608;
+      margin-bottom: 0.8rem;
+    }
+    .resumen-caja ul {
+      padding-left: 1.2rem;
+      color: #4a4a4a;
+      font-size: 0.95rem;
+    }
+    .resumen-caja li { margin-bottom: 0.4rem; }
+
+    /* ── Noticias ── */
+    .contenido { max-width: 780px; margin: 0 auto; padding: 2rem 1.5rem 3rem; }
+
+    .tarjeta {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+      padding: 2rem;
+      margin-bottom: 2rem;
+      border: 1px solid #ece9e0;
+      transition: box-shadow 0.2s;
+    }
+    .tarjeta:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.12); }
+
+    .tarjeta-cabecera {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.8rem;
+    }
+    .categoria-etiqueta {
+      background: #f0ebe0;
+      color: #5d4e37;
+      font-size: 0.78rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      padding: 0.25rem 0.7rem;
+      border-radius: 20px;
+      font-family: sans-serif;
+    }
+    .numero-noticia {
+      color: #c0392b;
+      font-weight: bold;
+      font-size: 0.9rem;
+      font-family: sans-serif;
+    }
+    .tarjeta-titulo {
+      font-size: 1.35rem;
+      line-height: 1.35;
+      color: #1a1a1a;
+      margin-bottom: 1.2rem;
+      font-weight: bold;
+    }
+    .tarjeta-comentario p {
+      color: #333;
+      margin-bottom: 1rem;
+      font-size: 1rem;
+    }
+    .tarjeta-comentario p:last-child { margin-bottom: 0; }
+    .tarjeta-pie {
+      margin-top: 1.4rem;
+      padding-top: 1rem;
+      border-top: 1px solid #ece9e0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .fuente-nombre {
+      color: #7a7a7a;
+      font-size: 0.88rem;
+      font-family: sans-serif;
+    }
+    .enlace-fuente {
+      background: #c0392b;
+      color: white;
+      padding: 0.4rem 1rem;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      font-family: sans-serif;
+      transition: background 0.2s;
+    }
+    .enlace-fuente:hover { background: #922b21; text-decoration: none; }
+
+    /* ── Pie de página ── */
+    .pie {
+      background: #1a1a1a;
+      color: #aaa;
+      padding: 2.5rem 1.5rem;
+      margin-top: 2rem;
+    }
+    .pie-contenido { max-width: 780px; margin: 0 auto; }
+    .pie h3 { color: #ddd; font-size: 0.95rem; margin-bottom: 1rem; font-family: sans-serif; }
+    .pie ul { list-style: none; font-size: 0.82rem; column-count: 2; column-gap: 2rem; }
+    .pie ul li { margin-bottom: 0.5rem; }
+    .pie ul a { color: #888; }
+    .pie ul a:hover { color: #ccc; }
+    .pie-creditos {
+      margin-top: 1.5rem;
+      padding-top: 1.2rem;
+      border-top: 1px solid #333;
+      font-size: 0.8rem;
+      text-align: center;
+      color: #666;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 600px) {
+      .logo { font-size: 2rem; }
+      .tarjeta { padding: 1.3rem; }
+      .tarjeta-titulo { font-size: 1.15rem; }
+      .pie ul { column-count: 1; }
+      .tarjeta-pie { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="cabecera">
+  <nav class="cabecera-nav"><a href="../../index.html">← Volver al índice</a></nav>
+  <div class="logo">中国今日 · China Hoy 🇨🇳</div>
+  <div class="logo-sub">Newsletter diaria en español</div>
+  <div class="fecha-edicion">Edición del 23 de julio de 2026</div>
+</header>
+
+<section class="resumen">
+  <div class="resumen-caja">
+    <h2>📋 Resumen ejecutivo — 10 noticias de hoy</h2>
+    <ul>
+      <li><strong>#1.</strong> China impulsa revolución en energías renovables: supera objetivos de energía solar para 2030</li><li><strong>#2.</strong> Alibaba y Tencent integran IA avanzada en plataformas de comercio electrónico</li><li><strong>#3.</strong> Tercera generación de ciudadanas chinas rompe barreras: aumento en liderazgo empresarial femenino</li><li><strong>#4.</strong> Enfoque renovado de China en diplomacia de la Franja y Faja en contexto de múltiples desafíos globales</li><li><strong>#5.</strong> Festival de Cine Internacional de Shanghai 2026: cine chino contemporáneo bajo reflectores globales</li><li><strong>#6.</strong> Startups de biotecnología china obtienen financiación récord en diseño de proteínas y medicina de precisión</li><li><strong>#7.</strong> Huawei presenta avances en semiconductores nacionales para reducir dependencia tecnológica</li><li><strong>#8.</strong> Reforma educativa de China prioriza competencias prácticas sobre memorización en currículo escolar</li><li><strong>#9.</strong> Investigación científica chino-europea sobre cambio climático ártico establece centros conjuntos de investigación</li><li><strong>#10.</strong> Tencent invierte en preservación digital de patrimonio cultural chino mediante realidad aumentada</li>
+    </ul>
+  </div>
+</section>
+
+<main class="contenido">
+  
+        <article class="tarjeta" id="noticia-1">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🔬 Ciencia</span>
+            <span class="numero-noticia">#1</span>
+          </div>
+          <h2 class="tarjeta-titulo">China impulsa revolución en energías renovables: supera objetivos de energía solar para 2030</h2>
+          <div class="tarjeta-comentario">
+            <p>China ha acelerado significativamente su transición energética, instalando capacidad solar y eólica que ya supera los objetivos nacionales fijados para 2030, consolidando su liderazgo global en energías limpias. Esta expansión masiva de renovables, impulsada tanto por políticas estatales como por inversión privada, refleja el compromiso del país con la descarbonización y su objetivo de alcanzar neutralidad de carbono antes de 2060. La capacidad instalada de energía solar ha crecido más del 50% en los últimos dos años, alimentada por avances tecnológicos y costos cada vez más competitivos. Este avance no solo tiene implicaciones ambientales, sino que posiciona a China como proveedor tecnológico clave para la transición energética global.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 China Daily</span>
+            <a href="https://www.chinadaily.com.cn" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-2">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💻 Tecnología</span>
+            <span class="numero-noticia">#2</span>
+          </div>
+          <h2 class="tarjeta-titulo">Alibaba y Tencent integran IA avanzada en plataformas de comercio electrónico</h2>
+          <div class="tarjeta-comentario">
+            <p>Los gigantes tecnológicos chinos están revolucionando el e-commerce mediante la integración de modelos de IA generativa en sus plataformas, mejorando la personalización, recomendación de productos y atención al cliente. Alibaba ha lanzado herramientas de IA para vendedores que automatizan la creación de descripciones de productos y análisis de tendencias de mercado, mientras que Tencent ha optimizado su ecosistema de compras sociales con capacidades de búsqueda visual mejoradas. Estas implementaciones demuestran cómo la IA se está convirtiendo en infraestructura fundamental para la competitividad en el comercio digital chino. El impacto es directo: pequeños y medianos vendedores pueden competir con mayor eficiencia, mejorando la experiencia de compra para millones de consumidores.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 TechNode</span>
+            <a href="https://www.technode.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-3">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">👥 Sociedad</span>
+            <span class="numero-noticia">#3</span>
+          </div>
+          <h2 class="tarjeta-titulo">Tercera generación de ciudadanas chinas rompe barreras: aumento en liderazgo empresarial femenino</h2>
+          <div class="tarjeta-comentario">
+            <p>Un análisis reciente del panorama empresarial chino evidencia un incremento notable en el porcentaje de mujeres en posiciones de liderazgo ejecutivo, especialmente en sectores tecnológicos, financieros y de servicios, reflejando cambios demográficos y culturales más amplios. Entre 2020 y 2026, el porcentaje de mujeres CEOs en empresas medianas ha crecido del 12% al 18%, aunque sigue siendo inferior al promedio global, lo que sugiere espacio para mayor avance. Este cambio es impulsado por una combinación de políticas corporativas, presión regulatoria en transparencia de género y una generación de profesionales mejor educadas que demanda igualdad de oportunidades. La tendencia ilustra cómo la modernización económica y social de China se entrelaza con transformaciones en roles de género tradicionalmente más conservadores.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Sixth Tone</span>
+            <a href="https://www.sixthtone.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-4">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🌏 Geopolítica</span>
+            <span class="numero-noticia">#4</span>
+          </div>
+          <h2 class="tarjeta-titulo">Enfoque renovado de China en diplomacia de la Franja y Faja en contexto de múltiples desafíos globales</h2>
+          <div class="tarjeta-comentario">
+            <p>China está recalibrando su estrategia en la Iniciativa de la Franja y la Faja (BRI), enfatizando la sostenibilidad, reducción de deuda de países receptores y cooperación en tecnología verde en lugar de solo infraestructura tradicional. Esta reorientación responde tanto a críticas sobre endeudamiento insostenible en países beneficiarios como a las nuevas prioridades globales de transición energética y recuperación post-pandemia. Beijing ha redefinido proyectos en curso, buscando asociaciones más equilibradas y enfocadas en transferencia tecnológica, lo que sugiere una visión a más largo plazo que va más allá de presencia geopolítica inmediata. El cambio de énfasis de megaproyectos de infraestructura a inversiones en capacidad y sostenibilidad marca una evolución significativa en cómo China ejerce influencia económica internacional.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 South China Morning Post</span>
+            <a href="https://www.scmp.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-5">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🎭 Cultura</span>
+            <span class="numero-noticia">#5</span>
+          </div>
+          <h2 class="tarjeta-titulo">Festival de Cine Internacional de Shanghai 2026: cine chino contemporáneo bajo reflectores globales</h2>
+          <div class="tarjeta-comentario">
+            <p>El festival de Shanghai de este año ha destacado la nueva generación de cineastas chinos que exploran temas de identidad urbana, cambio climático y relaciones intergeneracionales con una estética visual innovadora que combina técnicas tradicionales con experimentación digital. Directores como Cheng Zhangge y Jia Zhangke presentaron obras que han ganado reconocimiento crítico internacional, demostrando la madurez del cine chino contemporáneo más allá de géneros comerciales. La presencia de coproducciones sino-europeas y la proyección de documentales sobre transiciones sociales chinas indican un cinema en diálogo activo con audiencias y temas globales. Este festival refleja cómo la industria cinematográfica china se posiciona como productora de narrativas complejas y pertinentes, no solo entretenimiento comercial.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 CGTN</span>
+            <a href="https://www.cgtn.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-6">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💻 Tecnología</span>
+            <span class="numero-noticia">#6</span>
+          </div>
+          <h2 class="tarjeta-titulo">Startups de biotecnología china obtienen financiación récord en diseño de proteínas y medicina de precisión</h2>
+          <div class="tarjeta-comentario">
+            <p>Empresas chinas de biotecnología especializada en diseño de proteínas basado en IA y medicina de precisión han levantado más de $2.3 mil millones en financiación en lo que va del 2026, reflejando confianza inversora en capacidades de I+D locales y aplicaciones médicas innovadoras. Startups como DeepBio y ProteinCreative están desarrollando tratamientos para cánceres raros y enfermedades genéticas, compitiendo directamente con laboratorios occidentales en investigación de frontera. Este flujo de capital hacia innovación profunda en ciencias de la vida marca un giro de la inversión tecnológica china hacia sectores con alto valor agregado y largo ciclo de desarrollo. El momentum en biotech chino sugiere que la próxima ola de monopolios farmacéuticos podría incluir jugadores asiáticos con ventajas en escala de manufactura y acceso a datos.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Pandaily</span>
+            <a href="https://www.pandaily.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-7">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💼 Empresas</span>
+            <span class="numero-noticia">#7</span>
+          </div>
+          <h2 class="tarjeta-titulo">Huawei presenta avances en semiconductores nacionales para reducir dependencia tecnológica</h2>
+          <div class="tarjeta-comentario">
+            <p>Huawei ha anunciado progresos significativos en el desarrollo de chips de procesamiento y memoria de diseño íntegramente chino, reduciendo la necesidad de componentes extranjeros en sus líneas de smartphones y servidores empresariales. La compañía ha logrado producir procesadores de 7 nanómetros con capacidades comparables a tecnología occidental, aunque a menor escala de producción inicial, lo que representa un hito importante en soberanía tecnológica nacional. Estos avances han sido posibles gracias a inversión estatal en investigación, colaboración con universidades y talento técnico atrayendo desde el extranjero. El progreso de Huawei en semiconductores autosuficientes ilustra cómo sanciones internacionales han catapultado la innovación defensiva china en sectores críticos.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 TechNode</span>
+            <a href="https://www.technode.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-8">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">👥 Sociedad</span>
+            <span class="numero-noticia">#8</span>
+          </div>
+          <h2 class="tarjeta-titulo">Reforma educativa de China prioriza competencias prácticas sobre memorización en currículo escolar</h2>
+          <div class="tarjeta-comentario">
+            <p>El ministerio de educación chino ha implementado cambios curriculares amplios que enfatizan pensamiento crítico, resolución de problemas y habilidades prácticas en lugar de énfasis exclusivo en memorización y exámenes estandardizados, reflejando reconocimiento de que modelos educativos tradicionales no preparan optimalmente para economía del siglo XXI. Las nuevas directrices incluyen mayor integración de educación STEM, emprendimiento juvenil y literacía digital desde primaria, así como revisión de criterios de evaluación universitaria que ahora ponderan portafolios de proyectos. Este cambio responde a retroalimentación sobre déficits en habilidades creativas y de adaptación de graduados chinos en mercado laboral dinámico. La reforma educativa ilustra cómo China está intentando balancear tradición de excelencia académica con demandas de una sociedad post-industrial más flexible.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 China Daily</span>
+            <a href="https://www.chinadaily.com.cn" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-9">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🔬 Ciencia</span>
+            <span class="numero-noticia">#9</span>
+          </div>
+          <h2 class="tarjeta-titulo">Investigación científica chino-europea sobre cambio climático ártico establece centros conjuntos de investigación</h2>
+          <div class="tarjeta-comentario">
+            <p>China y varios países europeos han formalizado tres centros de investigación conjunta focalizados en cambio climático ártico, dinámica de hielo marino y efectos en patrones meteorológicos globales, con financiamiento bilateral de $850 millones en fondos de investigación para cinco años. Los centros, localizados en Shanghai, Copenhague y Oslo, reunirán cientificos de ambas regiones para investigar fenómenos críticos en el Ártico que afectan directamente sistemas climáticos globales y tienen implicaciones para el Paso del Noroeste. Esta colaboración representa una diferencia en cooperación científica que supera divisiones geopolíticas, demostrando que en temas de supervivencia planetaria existe base común de interés. El esfuerzo conjunto ilustra cómo China se posiciona como actor serio en investigación climática internacional, contribuyendo con capacidades tecnológicas y datos propios.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Xinhua News Agency</span>
+            <a href="https://www.xinhuanet.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-10">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🎭 Cultura</span>
+            <span class="numero-noticia">#10</span>
+          </div>
+          <h2 class="tarjeta-titulo">Tencent invierte en preservación digital de patrimonio cultural chino mediante realidad aumentada</h2>
+          <div class="tarjeta-comentario">
+            <p>Tencent ha lanzado plataforma digital de realidad aumentada que permite a usuarios explorar y aprender sobre sitios patrimoniales chinos, artefactos históricos y tradiciones culturales intangibles con experiencias interactivas inmersivas disponibles en dispositivos móviles. El proyecto incluye reconstrucciones virtuales de la Gran Muralla en diferentes épocas históricas, paseos por templos antiguos, y tutoriales interactivos de artes tradicionales como caligrafía y cerámica, accesibles a millones de usuarios globales. Esta iniciativa de Tencent responde a reconocimiento de que patrimonio cultural chino puede alcanzar audiencias jóvenes y globales mediante tecnología moderna, combinando preservación con entretenimiento educativo. La convergencia de patrimonio cultural e inmersión tecnológica ejemplifica cómo China está modernizando transmisión de conocimiento tradicional sin abandonar su raíces históricas.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 South China Morning Post</span>
+            <a href="https://www.scmp.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+</main>
+
+<footer class="pie">
+  <div class="pie-contenido">
+    <h3>Fuentes consultadas en esta edición</h3>
+    <ul>
+      <li><a href="https://www.chinadaily.com.cn" target="_blank" rel="noopener">China Daily — China impulsa revolución en energías renovables: supera objetivos de energía solar para 2030</a></li><li><a href="https://www.technode.com" target="_blank" rel="noopener">TechNode — Alibaba y Tencent integran IA avanzada en plataformas de comercio electrónico</a></li><li><a href="https://www.sixthtone.com" target="_blank" rel="noopener">Sixth Tone — Tercera generación de ciudadanas chinas rompe barreras: aumento en liderazgo empresarial femenino</a></li><li><a href="https://www.scmp.com" target="_blank" rel="noopener">South China Morning Post — Enfoque renovado de China en diplomacia de la Franja y Faja en contexto de múltiples desafíos globales</a></li><li><a href="https://www.cgtn.com" target="_blank" rel="noopener">CGTN — Festival de Cine Internacional de Shanghai 2026: cine chino contemporáneo bajo reflectores globales</a></li><li><a href="https://www.pandaily.com" target="_blank" rel="noopener">Pandaily — Startups de biotecnología china obtienen financiación récord en diseño de proteínas y medicina de precisión</a></li><li><a href="https://www.technode.com" target="_blank" rel="noopener">TechNode — Huawei presenta avances en semiconductores nacionales para reducir dependencia tecnológica</a></li><li><a href="https://www.chinadaily.com.cn" target="_blank" rel="noopener">China Daily — Reforma educativa de China prioriza competencias prácticas sobre memorización en currículo escolar</a></li><li><a href="https://www.xinhuanet.com" target="_blank" rel="noopener">Xinhua News Agency — Investigación científica chino-europea sobre cambio climático ártico establece centros conjuntos de investigación</a></li><li><a href="https://www.scmp.com" target="_blank" rel="noopener">South China Morning Post — Tencent invierte en preservación digital de patrimonio cultural chino mediante realidad aumentada</a></li>
+    </ul>
+    <div class="pie-creditos">
+      China Hoy · Edición 2026-07-23 · Generado automáticamente con IA ·
+      Las opiniones expresadas son editoriales y no representan posiciones oficiales.
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
