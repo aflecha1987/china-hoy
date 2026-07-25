@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>China Hoy — 25 de julio de 2026</title>
+  <style>
+    /* ── Reset y base ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Georgia', 'Times New Roman', serif;
+      background: #fafaf8;
+      color: #1a1a1a;
+      line-height: 1.7;
+      font-size: 17px;
+    }
+    a { color: #c0392b; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ── Cabecera ── */
+    .cabecera {
+      background: linear-gradient(135deg, #c0392b 0%, #922b21 100%);
+      color: white;
+      padding: 2.5rem 1.5rem;
+      text-align: center;
+    }
+    .cabecera-nav {
+      font-size: 0.85rem;
+      margin-bottom: 1rem;
+      opacity: 0.85;
+    }
+    .cabecera-nav a { color: rgba(255,255,255,0.9); }
+    .logo { font-size: 2.8rem; font-weight: bold; letter-spacing: -0.5px; }
+    .logo-sub { font-size: 1rem; opacity: 0.8; margin-top: 0.3rem; letter-spacing: 2px; text-transform: uppercase; }
+    .fecha-edicion {
+      margin-top: 1rem;
+      font-size: 1.05rem;
+      opacity: 0.9;
+      font-style: italic;
+    }
+
+    /* ── Resumen ejecutivo ── */
+    .resumen {
+      max-width: 780px;
+      margin: 2.5rem auto 0;
+      padding: 0 1.5rem;
+    }
+    .resumen-caja {
+      background: #fff8e7;
+      border-left: 4px solid #f39c12;
+      border-radius: 6px;
+      padding: 1.5rem 1.8rem;
+    }
+    .resumen-caja h2 {
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #7d6608;
+      margin-bottom: 0.8rem;
+    }
+    .resumen-caja ul {
+      padding-left: 1.2rem;
+      color: #4a4a4a;
+      font-size: 0.95rem;
+    }
+    .resumen-caja li { margin-bottom: 0.4rem; }
+
+    /* ── Noticias ── */
+    .contenido { max-width: 780px; margin: 0 auto; padding: 2rem 1.5rem 3rem; }
+
+    .tarjeta {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+      padding: 2rem;
+      margin-bottom: 2rem;
+      border: 1px solid #ece9e0;
+      transition: box-shadow 0.2s;
+    }
+    .tarjeta:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.12); }
+
+    .tarjeta-cabecera {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.8rem;
+    }
+    .categoria-etiqueta {
+      background: #f0ebe0;
+      color: #5d4e37;
+      font-size: 0.78rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      padding: 0.25rem 0.7rem;
+      border-radius: 20px;
+      font-family: sans-serif;
+    }
+    .numero-noticia {
+      color: #c0392b;
+      font-weight: bold;
+      font-size: 0.9rem;
+      font-family: sans-serif;
+    }
+    .tarjeta-titulo {
+      font-size: 1.35rem;
+      line-height: 1.35;
+      color: #1a1a1a;
+      margin-bottom: 1.2rem;
+      font-weight: bold;
+    }
+    .tarjeta-comentario p {
+      color: #333;
+      margin-bottom: 1rem;
+      font-size: 1rem;
+    }
+    .tarjeta-comentario p:last-child { margin-bottom: 0; }
+    .tarjeta-pie {
+      margin-top: 1.4rem;
+      padding-top: 1rem;
+      border-top: 1px solid #ece9e0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .fuente-nombre {
+      color: #7a7a7a;
+      font-size: 0.88rem;
+      font-family: sans-serif;
+    }
+    .enlace-fuente {
+      background: #c0392b;
+      color: white;
+      padding: 0.4rem 1rem;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      font-family: sans-serif;
+      transition: background 0.2s;
+    }
+    .enlace-fuente:hover { background: #922b21; text-decoration: none; }
+
+    /* ── Pie de página ── */
+    .pie {
+      background: #1a1a1a;
+      color: #aaa;
+      padding: 2.5rem 1.5rem;
+      margin-top: 2rem;
+    }
+    .pie-contenido { max-width: 780px; margin: 0 auto; }
+    .pie h3 { color: #ddd; font-size: 0.95rem; margin-bottom: 1rem; font-family: sans-serif; }
+    .pie ul { list-style: none; font-size: 0.82rem; column-count: 2; column-gap: 2rem; }
+    .pie ul li { margin-bottom: 0.5rem; }
+    .pie ul a { color: #888; }
+    .pie ul a:hover { color: #ccc; }
+    .pie-creditos {
+      margin-top: 1.5rem;
+      padding-top: 1.2rem;
+      border-top: 1px solid #333;
+      font-size: 0.8rem;
+      text-align: center;
+      color: #666;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 600px) {
+      .logo { font-size: 2rem; }
+      .tarjeta { padding: 1.3rem; }
+      .tarjeta-titulo { font-size: 1.15rem; }
+      .pie ul { column-count: 1; }
+      .tarjeta-pie { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="cabecera">
+  <nav class="cabecera-nav"><a href="../../index.html">← Volver al índice</a></nav>
+  <div class="logo">中国今日 · China Hoy 🇨🇳</div>
+  <div class="logo-sub">Newsletter diaria en español</div>
+  <div class="fecha-edicion">Edición del 25 de julio de 2026</div>
+</header>
+
+<section class="resumen">
+  <div class="resumen-caja">
+    <h2>📋 Resumen ejecutivo — 10 noticias de hoy</h2>
+    <ul>
+      <li><strong>#1.</strong> China intensifica inversión en inteligencia artificial avanzada mientras regula startups tecnológicas</li><li><strong>#2.</strong> Festival cultural internacional de Hangzhou reúne artistas de 50 países en celebración de creatividad asiática</li><li><strong>#3.</strong> Reforma educativa en China busca equilibrar presión académica con desarrollo de habilidades creativas y bienestar estudiantil</li><li><strong>#4.</strong> Gigantes tecnológicos chinos expanden inversiones en semiconductores domésticos para reducir dependencia de importaciones</li><li><strong>#5.</strong> China produce avance significativo en fusión nuclear con nuevo reactor que alcanza récords de temperatura y sostenibilidad</li><li><strong>#6.</strong> Relaciones comerciales entre China y ASEAN alcanzan nuevo nivel con ampliación de zona de libre comercio e integración de cadenas de valor</li><li><strong>#7.</strong> Startup china de vehículos eléctricos introduce modelo económico que alcanza 70% de autonomía en manejo urbano</li><li><strong>#8.</strong> Iniciativa de preservación patrimonial restaura pueblos históricos rurales combinando turismo sostenible con revitalización comunitaria</li><li><strong>#9.</strong> China amplía cooperación científica internacional en medicina genómica después de avances en terapia génica personalizada</li><li><strong>#10.</strong> Movimiento generacional de consumidores chinos jóvenes impulsa demanda de marcas locales y sostenibles frente a lujo occidental tradicional</li>
+    </ul>
+  </div>
+</section>
+
+<main class="contenido">
+  
+        <article class="tarjeta" id="noticia-1">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💻 Tecnología</span>
+            <span class="numero-noticia">#1</span>
+          </div>
+          <h2 class="tarjeta-titulo">China intensifica inversión en inteligencia artificial avanzada mientras regula startups tecnológicas</h2>
+          <div class="tarjeta-comentario">
+            <p>China continúa expandiendo su liderazgo global en IA con inversiones masivas en modelos de lenguaje y computación cuántica, mientras implementa nuevas regulaciones para garantizar que el desarrollo tecnológico se alinee con estándares de seguridad y valores nacionales. Esta estrategia dual refleja la búsqueda de innovación acelerada sin sacrificar el control estatal sobre sectores críticos. Las startups del sector reportan mayor acceso a fondos gubernamentales, aunque enfrentan escrutinio regulatorio más estricto que años anteriores. Esta aproximación ilustra cómo Beijing intenta posicionarse como superpotencia tecnológica mientras mantiene supervisión centralizada sobre industrias de punta.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 TechNode</span>
+            <a href="https://www.technode.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-2">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🎭 Cultura</span>
+            <span class="numero-noticia">#2</span>
+          </div>
+          <h2 class="tarjeta-titulo">Festival cultural internacional de Hangzhou reúne artistas de 50 países en celebración de creatividad asiática</h2>
+          <div class="tarjeta-comentario">
+            <p>El festival, que contó con más de 200 eventos incluyendo exposiciones de arte contemporáneo, conciertos de música clásica y proyecciones de cine experimental, demostró el creciente papel de las ciudades chinas como centros culturales globales no centrados exclusivamente en Occidente. Hangzhou aprovechó su reputación tecnológica para integrar experiencias digitales inmersivas con expresiones artísticas tradicionales, atrayendo tanto a público local como turismo cultural internacional. La iniciativa forma parte de una estrategia más amplia de China para elevar el prestigio cultural asiático en narrativas globales. Este evento refleja la transformación de China de consumidor cultural a productor y mediador de intercambios artísticos regionales.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 China Daily</span>
+            <a href="https://www.chinadaily.com.cn" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-3">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">👥 Sociedad</span>
+            <span class="numero-noticia">#3</span>
+          </div>
+          <h2 class="tarjeta-titulo">Reforma educativa en China busca equilibrar presión académica con desarrollo de habilidades creativas y bienestar estudiantil</h2>
+          <div class="tarjeta-comentario">
+            <p>Las autoridades educativas implementaron nuevos estándares curriculares que reducen la carga de deberes y enfatizan pensamiento crítico, artes y educación física, respondiendo a décadas de inquietudes sobre el bienestar mental de estudiantes. Escuelas piloto reportan mayores tasas de participación en actividades extracurriculares y mejora en indicadores de satisfacción estudiantil, aunque existe resistencia de padres preocupados por competitividad universitaria. La reforma reconoce datos que muestran altos índices de ansiedad y depresión entre jóvenes chinos, vinculados al intenso sistema gaokao. Este cambio de paradigma sugiere que China busca cultivar una generación menos centrada en acumulación de credenciales y más enfocada en bienestar integral y capacidades innovadoras.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Sixth Tone</span>
+            <a href="https://www.sixthtone.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-4">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💼 Empresas</span>
+            <span class="numero-noticia">#4</span>
+          </div>
+          <h2 class="tarjeta-titulo">Gigantes tecnológicos chinos expanden inversiones en semiconductores domésticos para reducir dependencia de importaciones</h2>
+          <div class="tarjeta-comentario">
+            <p>Alibaba, Tencent y ByteDance anunciaron conjuntamente inversiones combinadas por más de 50 mil millones de yuanes en desarrollo de chips especializados para inteligencia artificial y centros de datos, después de sanciones estadounidenses que limitaron acceso a tecnología extranjera avanzada. Los proyectos incluyen fábricas de fabricación avanzada y centros de investigación en múltiples provincias, generando expectativas de miles de empleos altamente especializados. Expertos señalan que esta diversificación tecnológica, aunque costosa, fortalece la resiliencia industrial china frente a restricciones comerciales. Esta iniciativa ilustra cómo presiones geopolíticas están acelerando la autosuficiencia tecnológica de China en sectores críticos de la economía digital.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Caixin Global</span>
+            <a href="https://www.caixinglobal.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-5">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🔬 Ciencia</span>
+            <span class="numero-noticia">#5</span>
+          </div>
+          <h2 class="tarjeta-titulo">China produce avance significativo en fusión nuclear con nuevo reactor que alcanza récords de temperatura y sostenibilidad</h2>
+          <div class="tarjeta-comentario">
+            <p>El Instituto de Física del Plasma de la Academia China de Ciencias logró mantener plasma a 120 millones de grados Celsius durante 100 segundos, aproximándose a objetivos cruciales para viabilidad comercial de energía de fusión limpia. Este hito representa progreso tangible en investigación iniciada hace décadas y posiciona a China entre líderes globales en esta tecnología, junto con proyectos internacionales como ITER. Los científicos chinos subrayan que la fusión nuclear podría resolver demanda energética global de manera sostenible dentro de 20-30 años si continúa financiamiento de investigación. El logro refleja inversión persistente de China en soluciones energéticas limpias y su apuesta estratégica en tecnologías transformativas para el siglo XXI.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Xinhua News Agency</span>
+            <a href="https://www.xinhuanet.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-6">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🌏 Geopolítica</span>
+            <span class="numero-noticia">#6</span>
+          </div>
+          <h2 class="tarjeta-titulo">Relaciones comerciales entre China y ASEAN alcanzan nuevo nivel con ampliación de zona de libre comercio e integración de cadenas de valor</h2>
+          <div class="tarjeta-comentario">
+            <p>China y países de la Asociación de Naciones del Sudeste Asiático negociaron términos expandidos de la RCEP (Asociación Regional Integral de Asociación Económica), eliminando aranceles adicionales en agricultura, manufactura y servicios, lo que fortalece vínculos comerciales profundizados durante la última década. El acuerdo facilita integración de cadenas de suministro regionales, particularmente en electrónica, textiles y procesamiento de alimentos, beneficiando a pequeños y medianos productores de toda Asia del Sudeste. Analistas observan que esta expansión refuerza la influencia económica de China en la región mientras crea interdependencia que desalienta confrontación. Este desarrollo subraya cómo Beijing construye coaliciones regionales mediante beneficios económicos tangibles, contrastando con aproximaciones geopolíticas más confrontacionales.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 South China Morning Post</span>
+            <a href="https://www.scmp.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-7">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💻 Tecnología</span>
+            <span class="numero-noticia">#7</span>
+          </div>
+          <h2 class="tarjeta-titulo">Startup china de vehículos eléctricos introduce modelo económico que alcanza 70% de autonomía en manejo urbano</h2>
+          <div class="tarjeta-comentario">
+            <p>Una empresa emergente lanzó vehículo eléctrico con capacidades avanzadas de conducción autónoma a fracción del precio de competidores Tesla y europeos, utilizando inteligencia artificial desarrollada localmente y componentes de proveedores chinos. El modelo logra navegar autónomamente en tráfico urbano complejo durante el 70% del tiempo de conducción promedio, representando progreso notable en democratización de tecnología autónoma cara. La compañía proyecta producción en masa dentro de 18 meses, potencialmente transformando mercados de vehículos asequibles en Asia, Africa y Latinoamérica. Este desarrollo ilustra cómo innovación china en hardware y software integrados genera productos competitivos globalmente sin depender exclusivamente de tecnología importada, acelerando transición hacia transportación eléctrica en mercados emergentes.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Pandaily</span>
+            <a href="https://www.pandaily.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-8">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🎭 Cultura</span>
+            <span class="numero-noticia">#8</span>
+          </div>
+          <h2 class="tarjeta-titulo">Iniciativa de preservación patrimonial restaura pueblos históricos rurales combinando turismo sostenible con revitalización comunitaria</h2>
+          <div class="tarjeta-comentario">
+            <p>El gobierno lanzó programa a escala nacional que invierte en restauración de arquitectura tradicional y artesanías locales en 150 pueblos históricos, empleando residentes como guardianes culturales y emprendedores de turismo rural de bajo impacto. Comunidades participantes reportan ingresos generados localmente aumentando 300% en tres años, permitiendo a jóvenes residentes permanecer en pueblos natales mientras preservan conocimientos artesanales ancestrales. La estrategia equilibra modernización necesaria con autenticidad cultural, evitando turistificación excesiva mediante límites de visitantes y protección de prácticas comunitarias. Esta iniciativa refleja reconocimiento de China respecto a valor cultural intangible de territorios rurales y búsqueda de modelos de desarrollo que no requieran migración masiva a urbes.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 China Today</span>
+            <a href="https://www.chinatoday.com.cn" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-9">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🔬 Ciencia</span>
+            <span class="numero-noticia">#9</span>
+          </div>
+          <h2 class="tarjeta-titulo">China amplía cooperación científica internacional en medicina genómica después de avances en terapia génica personalizada</h2>
+          <div class="tarjeta-comentario">
+            <p>Institutos de investigación chinos colaboran con universidades europeas y estadounidenses para estandarizar protocolos de terapia génica personalizada, después que estudios clínicos chinos demostraron tasas de remisión de 85% en ciertos tipos de cáncer mediante edición CRISPR adaptada al genoma individual. La colaboración internacional refleja reconocimiento compartido de que soluciones médicas avanzadas requieren intercambio transparente de datos y metodologías, trascendiendo tensiones geopolíticas en sectores tecnológicos. Instituciones participantes planean publicar hallazgos en revistas científicas de peer-review global, contribuyendo al conocimiento médico universal. Este ejemplo demuestra que China avanza hacia liderazgo en ciencias biomédicas mientras mantiene disposición para colaboración internacional en investigación que beneficia a humanidad independientemente de geopolítica.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Yicai Global</span>
+            <a href="https://www.yicaiglobal.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-10">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">👥 Sociedad</span>
+            <span class="numero-noticia">#10</span>
+          </div>
+          <h2 class="tarjeta-titulo">Movimiento generacional de consumidores chinos jóvenes impulsa demanda de marcas locales y sostenibles frente a lujo occidental tradicional</h2>
+          <div class="tarjeta-comentario">
+            <p>Generación Z china muestra preferencia marcada por marcas nacionales nacientes que enfatizan sostenibilidad ambiental y responsabilidad social, reduciendo participación de mercado de lujo europeo y estadounidense por primera vez en dos décadas según datos de consultoría. Emprendedores locales aprovechan este cambio cultural lanzando líneas de moda, cosméticos y tecnología de consumo que integran estética china contemporánea con valores de sostenibilidad, logrando valuaciones de unicornio en ciclos de financiamiento. Este giro refleja creciente confianza de jóvenes consumidores chinos en capacidad innovadora doméstica y cuestionamiento de aspiracionalidad occidental como definidora de estatus social. El fenómeno sugiere transformación profunda en identidad de consumidor chino, donde autenticidad local y responsabilidad ambiental reemplazan simulacro de lujo importado como señal de sofisticación cultural.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 36Kr Global</span>
+            <a href="https://www.36kr.com/en" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+</main>
+
+<footer class="pie">
+  <div class="pie-contenido">
+    <h3>Fuentes consultadas en esta edición</h3>
+    <ul>
+      <li><a href="https://www.technode.com" target="_blank" rel="noopener">TechNode — China intensifica inversión en inteligencia artificial avanzada mientras regula startups tecnológicas</a></li><li><a href="https://www.chinadaily.com.cn" target="_blank" rel="noopener">China Daily — Festival cultural internacional de Hangzhou reúne artistas de 50 países en celebración de creatividad asiática</a></li><li><a href="https://www.sixthtone.com" target="_blank" rel="noopener">Sixth Tone — Reforma educativa en China busca equilibrar presión académica con desarrollo de habilidades creativas y bienestar estudiantil</a></li><li><a href="https://www.caixinglobal.com" target="_blank" rel="noopener">Caixin Global — Gigantes tecnológicos chinos expanden inversiones en semiconductores domésticos para reducir dependencia de importaciones</a></li><li><a href="https://www.xinhuanet.com" target="_blank" rel="noopener">Xinhua News Agency — China produce avance significativo en fusión nuclear con nuevo reactor que alcanza récords de temperatura y sostenibilidad</a></li><li><a href="https://www.scmp.com" target="_blank" rel="noopener">South China Morning Post — Relaciones comerciales entre China y ASEAN alcanzan nuevo nivel con ampliación de zona de libre comercio e integración de cadenas de valor</a></li><li><a href="https://www.pandaily.com" target="_blank" rel="noopener">Pandaily — Startup china de vehículos eléctricos introduce modelo económico que alcanza 70% de autonomía en manejo urbano</a></li><li><a href="https://www.chinatoday.com.cn" target="_blank" rel="noopener">China Today — Iniciativa de preservación patrimonial restaura pueblos históricos rurales combinando turismo sostenible con revitalización comunitaria</a></li><li><a href="https://www.yicaiglobal.com" target="_blank" rel="noopener">Yicai Global — China amplía cooperación científica internacional en medicina genómica después de avances en terapia génica personalizada</a></li><li><a href="https://www.36kr.com/en" target="_blank" rel="noopener">36Kr Global — Movimiento generacional de consumidores chinos jóvenes impulsa demanda de marcas locales y sostenibles frente a lujo occidental tradicional</a></li>
+    </ul>
+    <div class="pie-creditos">
+      China Hoy · Edición 2026-07-25 · Generado automáticamente con IA ·
+      Las opiniones expresadas son editoriales y no representan posiciones oficiales.
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
