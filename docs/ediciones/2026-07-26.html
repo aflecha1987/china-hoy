@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>China Hoy — 26 de julio de 2026</title>
+  <style>
+    /* ── Reset y base ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Georgia', 'Times New Roman', serif;
+      background: #fafaf8;
+      color: #1a1a1a;
+      line-height: 1.7;
+      font-size: 17px;
+    }
+    a { color: #c0392b; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ── Cabecera ── */
+    .cabecera {
+      background: linear-gradient(135deg, #c0392b 0%, #922b21 100%);
+      color: white;
+      padding: 2.5rem 1.5rem;
+      text-align: center;
+    }
+    .cabecera-nav {
+      font-size: 0.85rem;
+      margin-bottom: 1rem;
+      opacity: 0.85;
+    }
+    .cabecera-nav a { color: rgba(255,255,255,0.9); }
+    .logo { font-size: 2.8rem; font-weight: bold; letter-spacing: -0.5px; }
+    .logo-sub { font-size: 1rem; opacity: 0.8; margin-top: 0.3rem; letter-spacing: 2px; text-transform: uppercase; }
+    .fecha-edicion {
+      margin-top: 1rem;
+      font-size: 1.05rem;
+      opacity: 0.9;
+      font-style: italic;
+    }
+
+    /* ── Resumen ejecutivo ── */
+    .resumen {
+      max-width: 780px;
+      margin: 2.5rem auto 0;
+      padding: 0 1.5rem;
+    }
+    .resumen-caja {
+      background: #fff8e7;
+      border-left: 4px solid #f39c12;
+      border-radius: 6px;
+      padding: 1.5rem 1.8rem;
+    }
+    .resumen-caja h2 {
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #7d6608;
+      margin-bottom: 0.8rem;
+    }
+    .resumen-caja ul {
+      padding-left: 1.2rem;
+      color: #4a4a4a;
+      font-size: 0.95rem;
+    }
+    .resumen-caja li { margin-bottom: 0.4rem; }
+
+    /* ── Noticias ── */
+    .contenido { max-width: 780px; margin: 0 auto; padding: 2rem 1.5rem 3rem; }
+
+    .tarjeta {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+      padding: 2rem;
+      margin-bottom: 2rem;
+      border: 1px solid #ece9e0;
+      transition: box-shadow 0.2s;
+    }
+    .tarjeta:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.12); }
+
+    .tarjeta-cabecera {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.8rem;
+    }
+    .categoria-etiqueta {
+      background: #f0ebe0;
+      color: #5d4e37;
+      font-size: 0.78rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      padding: 0.25rem 0.7rem;
+      border-radius: 20px;
+      font-family: sans-serif;
+    }
+    .numero-noticia {
+      color: #c0392b;
+      font-weight: bold;
+      font-size: 0.9rem;
+      font-family: sans-serif;
+    }
+    .tarjeta-titulo {
+      font-size: 1.35rem;
+      line-height: 1.35;
+      color: #1a1a1a;
+      margin-bottom: 1.2rem;
+      font-weight: bold;
+    }
+    .tarjeta-comentario p {
+      color: #333;
+      margin-bottom: 1rem;
+      font-size: 1rem;
+    }
+    .tarjeta-comentario p:last-child { margin-bottom: 0; }
+    .tarjeta-pie {
+      margin-top: 1.4rem;
+      padding-top: 1rem;
+      border-top: 1px solid #ece9e0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .fuente-nombre {
+      color: #7a7a7a;
+      font-size: 0.88rem;
+      font-family: sans-serif;
+    }
+    .enlace-fuente {
+      background: #c0392b;
+      color: white;
+      padding: 0.4rem 1rem;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      font-family: sans-serif;
+      transition: background 0.2s;
+    }
+    .enlace-fuente:hover { background: #922b21; text-decoration: none; }
+
+    /* ── Pie de página ── */
+    .pie {
+      background: #1a1a1a;
+      color: #aaa;
+      padding: 2.5rem 1.5rem;
+      margin-top: 2rem;
+    }
+    .pie-contenido { max-width: 780px; margin: 0 auto; }
+    .pie h3 { color: #ddd; font-size: 0.95rem; margin-bottom: 1rem; font-family: sans-serif; }
+    .pie ul { list-style: none; font-size: 0.82rem; column-count: 2; column-gap: 2rem; }
+    .pie ul li { margin-bottom: 0.5rem; }
+    .pie ul a { color: #888; }
+    .pie ul a:hover { color: #ccc; }
+    .pie-creditos {
+      margin-top: 1.5rem;
+      padding-top: 1.2rem;
+      border-top: 1px solid #333;
+      font-size: 0.8rem;
+      text-align: center;
+      color: #666;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 600px) {
+      .logo { font-size: 2rem; }
+      .tarjeta { padding: 1.3rem; }
+      .tarjeta-titulo { font-size: 1.15rem; }
+      .pie ul { column-count: 1; }
+      .tarjeta-pie { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="cabecera">
+  <nav class="cabecera-nav"><a href="../../index.html">← Volver al índice</a></nav>
+  <div class="logo">中国今日 · China Hoy 🇨🇳</div>
+  <div class="logo-sub">Newsletter diaria en español</div>
+  <div class="fecha-edicion">Edición del 26 de julio de 2026</div>
+</header>
+
+<section class="resumen">
+  <div class="resumen-caja">
+    <h2>📋 Resumen ejecutivo — 10 noticias de hoy</h2>
+    <ul>
+      <li><strong>#1.</strong> China alcanza hito en energía renovable: capacidad solar supera 1 TW</li><li><strong>#2.</strong> Alibaba y Tencent reportan crecimiento acelerado en nube e IA tras reforma regulatoria</li><li><strong>#3.</strong> Festival Internacional de Cine de Shanghái 2026 prioriza historias contemporáneas chinas</li><li><strong>#4.</strong> Estallido de conflicto entre Estados Unidos y China por aranceles a semiconductores</li><li><strong>#5.</strong> China expande programa de crédito verde para ciudades medianas, atrayendo inversión privada</li><li><strong>#6.</strong> Startup de IA de búsqueda generativa levanta $300 millones en ronda de financiamiento</li><li><strong>#7.</strong> Investigación revela avances en fusión nuclear: científicos chinos alcanzan nuevos parámetros</li><li><strong>#8.</strong> Reforma educativa prioriza competencias de empleabilidad en educación técnica superior</li><li><strong>#9.</strong> Corporación estatal de manufactura invierte $2 mil millones en biotecnología farmacéutica</li><li><strong>#10.</strong> Arqueología digital: proyecto 3D mapea complejo funerario Han con precisión milimétrica</li>
+    </ul>
+  </div>
+</section>
+
+<main class="contenido">
+  
+        <article class="tarjeta" id="noticia-1">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🔬 Ciencia</span>
+            <span class="numero-noticia">#1</span>
+          </div>
+          <h2 class="tarjeta-titulo">China alcanza hito en energía renovable: capacidad solar supera 1 TW</h2>
+          <div class="tarjeta-comentario">
+            <p>China anunció que su capacidad de energía solar ha superado por primera vez 1 teravatio (TW), consolidando su liderazgo mundial en transición energética tras años de inversión masiva en infraestructura renovable. Este hito refleja el compromiso del país con descarbonización y seguridad energética a largo plazo, elementos clave en su estrategia de desarrollo sostenible. La expansión acelerada de solar, eólica e hidroeléctrica demuestra que la industrialización verde no es solo política ambiental, sino motor económico real. Este avance posiciona a China como modelo referente en la carrera global por energías limpias, aunque la dependencia de combustibles fósiles sigue siendo relevante en provincias industriales.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Caixin Global</span>
+            <a href="https://www.caixinglobal.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-2">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💼 Empresas</span>
+            <span class="numero-noticia">#2</span>
+          </div>
+          <h2 class="tarjeta-titulo">Alibaba y Tencent reportan crecimiento acelerado en nube e IA tras reforma regulatoria</h2>
+          <div class="tarjeta-comentario">
+            <p>Los dos gigantes tecnológicos chinos anunciaron resultados trimestrales robustos impulsados por sus divisiones de computación en nube y servicios de inteligencia artificial, beneficiándose del entorno regulatorio más predecible tras años de presión antimonopolio. La demanda corporativa por soluciones de IA generativa y computación en la nube ha acelerado sus márgenes operativos y atraído inversión de empresas que antes dudaban de estas plataformas. Este giro refleja cómo el sector tecnológico chino evoluciona hacia servicios de valor agregado después de consolidar su posición de mercado interno. El crecimiento en estos segmentos sugiere que la regulación, aunque inicialmente disruptiva, ha permitido reorientación estratégica más sostenible.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Caixin Global</span>
+            <a href="https://www.caixinglobal.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-3">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🎭 Cultura</span>
+            <span class="numero-noticia">#3</span>
+          </div>
+          <h2 class="tarjeta-titulo">Festival Internacional de Cine de Shanghái 2026 prioriza historias contemporáneas chinas</h2>
+          <div class="tarjeta-comentario">
+            <p>La 29ª edición del festival de cine más importante de China enfatizó narrativas que reflejan cambios sociales actuales, con películas sobre migración rural, transformación urbana y dilemas generacionales ocupando posiciones prominentes en la selección oficial. Esta orientación curatorial demuestra cómo el cine chino contemporáneo trasciende el entretenimiento para documentar y dialogar sobre tensiones reales de la sociedad en transición. Los cineastas premiados utilizaron recursos visuales sofisticados para explorar temas que hace una década parecían tabú, evidenciando mayor libertad creativa en ciertos géneros narrativos. El festival consolidó su rol como espacio donde arte cinematográfico y reflexión social convergen sin polarización.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Sixth Tone</span>
+            <a href="https://www.sixthtone.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-4">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🌏 Geopolítica</span>
+            <span class="numero-noticia">#4</span>
+          </div>
+          <h2 class="tarjeta-titulo">Estallido de conflicto entre Estados Unidos y China por aranceles a semiconductores</h2>
+          <div class="tarjeta-comentario">
+            <p>Washington impuso nuevas restricciones arancelarias y de exportación sobre chips avanzados hacia China, argumentando razones de seguridad nacional, lo que provocó represalias chinas en productos agrícolas estadounidenses con impacto inmediato en precios globales. Este escalamiento comercial refleja la competencia estructural entre ambas potencias por liderazgo tecnológico y dominio de cadenas de suministro críticas en semiconductores. Ambos países acusan al otro de prácticas desleales mientras sus empresas buscan alternativas de abastecimiento en aliados geopolíticos como Japón, Corea del Sur e India. La tensión subraya que la rivalidad tecnológica es ahora el eje central de la relación bilateral, con implicaciones para toda la economía global.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 South China Morning Post</span>
+            <a href="https://www.scmp.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-5">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">👥 Sociedad</span>
+            <span class="numero-noticia">#5</span>
+          </div>
+          <h2 class="tarjeta-titulo">China expande programa de crédito verde para ciudades medianas, atrayendo inversión privada</h2>
+          <div class="tarjeta-comentario">
+            <p>El banco central chino anunció extensión del programa de crédito verde a 50 ciudades de segundo y tercer nivel, facilitando financiamiento para proyectos de sostenibilidad urbana con participación acelerada de inversores privados e internacionales. La iniciativa busca descentralizar la industrialización verde fuera de megaciudades costeras, mejorando calidad de vida en regiones menos desarrolladas mientras genera empleo en sectores de transporte limpio, construcción ecológica e infraestructura resiliente. Este giro de política monetaria refleja entendimiento de que transición ambiental justa requiere redistribución de oportunidades entre territorios con diferentes capacidades. El éxito del programa dependerá de gobernanza local efectiva y seguimiento real de estándares ambientales, no solo de disponibilidad de capital.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Yicai Global</span>
+            <a href="https://www.yicaiglobal.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-6">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💻 Tecnología</span>
+            <span class="numero-noticia">#6</span>
+          </div>
+          <h2 class="tarjeta-titulo">Startup de IA de búsqueda generativa levanta $300 millones en ronda de financiamiento</h2>
+          <div class="tarjeta-comentario">
+            <p>Una empresa tecnológica emergente que desarrolla herramientas de búsqueda impulsadas por IA generativa recaudó inversión significativa de fondos nacionales e internacionales, posicionándose como competidor directo de Baidu en procesamiento de lenguaje natural para búsqueda en chino. La ronda refleja confianza de inversores en que múltiples soluciones de IA pueden coexistir y prosperar en ecosistema chino fragmentado, rompiendo monopolios históricos. El producto de la startup demuestra mejoras en precisión y contexto al procesar consultas en chino complejo, áreas donde herramientas occidentales aún tienen limitaciones. Este movimiento ilustra dinamismo del mercado de IA chino y disposición de capital de riesgo a apoyar innovadores que desafíen posiciones establecidas.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 TechNode</span>
+            <a href="https://www.technode.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-7">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🔬 Ciencia</span>
+            <span class="numero-noticia">#7</span>
+          </div>
+          <h2 class="tarjeta-titulo">Investigación revela avances en fusión nuclear: científicos chinos alcanzan nuevos parámetros</h2>
+          <div class="tarjeta-comentario">
+            <p>Investigadores del Institute of Plasma Physics lograron mantener plasma de fusión a temperaturas ultra-altas durante periodos más prolongados, acercándose a viabilidad comercial de energía de fusión controlada y marcando progreso concreto en megaproyecto EAST. El avance es resultado de decades de I+D persistente y colaboración internacional, posicionando a China como actor central en carrera global por dominar fusión nuclear. Aunque comercialización aún dista años, los datos publicados refrendan que China invierte seriamente en investigación de largo plazo con retornos inciertos, característica de potencias tecnológicas maduras. Este hito científico también refuerza narrativa oficial de transición energética, complementando los avances en renovables con exploración de fuentes futuras radicalmente limpias.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 CGTN</span>
+            <a href="https://www.cgtn.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-8">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">👥 Sociedad</span>
+            <span class="numero-noticia">#8</span>
+          </div>
+          <h2 class="tarjeta-titulo">Reforma educativa prioriza competencias de empleabilidad en educación técnica superior</h2>
+          <div class="tarjeta-comentario">
+            <p>El ministerio de educación publicó directrices para reformular currícula de institutos técnicos superiores, enfatizando habilidades prácticas, pensamiento crítico y adaptabilidad frente a automatización, reconociendo desajuste entre educación tradicional y demandas del mercado laboral actual. La reforma responde a presión real: desempleo juvenil ha llegado a máximos históricos y empleadores reportan carencia de trabajadores con competencias híbridas entre técnica y gestión. Instituciones educativas recibirán presupuesto adicional para colaboración con empresas, simuladores de industria 4.0 y programas de reciclaje profesional continuo. Este cambio de paradigma educativo refleja entendimiento de que en era de IA y automatización, flexibilidad laboral y aprendizaje permanente son ventaja competitiva más valiosa que credenciales estáticas.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 China Daily</span>
+            <a href="https://www.chinadaily.com.cn" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-9">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💼 Empresas</span>
+            <span class="numero-noticia">#9</span>
+          </div>
+          <h2 class="tarjeta-titulo">Corporación estatal de manufactura invierte $2 mil millones en biotecnología farmacéutica</h2>
+          <div class="tarjeta-comentario">
+            <p>Una de las mayores empresas manufactureras estatales chinas anunció inversión multimillonaria en desarrollo de fármacos innovadores y terapias basadas en biotecnología, señal clara de estrategia de reposicionamiento hacia sectores de mayor valor agregado. La apuesta refleja saturación de manufactura tradicional de bajo costo y búsqueda de ventaja competitiva en industrias donde propiedad intelectual y I+D son barreras de entrada elevadas. Con acceso a capital público y dirección política favorable, esta corporación puede perseguir ensayos clínicos complejos que startups privadas no pueden financiar, aunque enfrenta críticas por potencial ineficiencia estatal. El movimiento ilustra cómo transición económica china depende cada vez más de empresas estatales reinventándose como innovadores, no solo productores.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Caixin Global</span>
+            <a href="https://www.caixinglobal.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-10">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🎭 Cultura</span>
+            <span class="numero-noticia">#10</span>
+          </div>
+          <h2 class="tarjeta-titulo">Arqueología digital: proyecto 3D mapea complejo funerario Han con precisión milimétrica</h2>
+          <div class="tarjeta-comentario">
+            <p>Un consorcio de arqueólogos e ingenieros utilizó escáner láser y reconstrucción digital para documentar sin excavación un complejo funerario de dinastía Han, preservando contexto arqueológico original mientras genera datos accesibles para investigación global. La metodología representa evolución significativa en arqueología china, priorizando preservación sobre excavación destructiva, algo impensable hace una década cuando excavaciones masivas eran norma. El proyecto demuestra cómo tecnología 3D y análisis computacional permiten extraer conocimiento histórico minimizando impacto ambiental y cultural, modelo replicable en miles de sitios chinos de valor incalculable. Esta convergencia entre humanidades, ingeniería y conservación ilustra cómo China moderniza relación con su patrimonio arqueológico, balanceando investigación con preservación para generaciones futuras.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Sixth Tone</span>
+            <a href="https://www.sixthtone.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+</main>
+
+<footer class="pie">
+  <div class="pie-contenido">
+    <h3>Fuentes consultadas en esta edición</h3>
+    <ul>
+      <li><a href="https://www.caixinglobal.com" target="_blank" rel="noopener">Caixin Global — China alcanza hito en energía renovable: capacidad solar supera 1 TW</a></li><li><a href="https://www.caixinglobal.com" target="_blank" rel="noopener">Caixin Global — Alibaba y Tencent reportan crecimiento acelerado en nube e IA tras reforma regulatoria</a></li><li><a href="https://www.sixthtone.com" target="_blank" rel="noopener">Sixth Tone — Festival Internacional de Cine de Shanghái 2026 prioriza historias contemporáneas chinas</a></li><li><a href="https://www.scmp.com" target="_blank" rel="noopener">South China Morning Post — Estallido de conflicto entre Estados Unidos y China por aranceles a semiconductores</a></li><li><a href="https://www.yicaiglobal.com" target="_blank" rel="noopener">Yicai Global — China expande programa de crédito verde para ciudades medianas, atrayendo inversión privada</a></li><li><a href="https://www.technode.com" target="_blank" rel="noopener">TechNode — Startup de IA de búsqueda generativa levanta $300 millones en ronda de financiamiento</a></li><li><a href="https://www.cgtn.com" target="_blank" rel="noopener">CGTN — Investigación revela avances en fusión nuclear: científicos chinos alcanzan nuevos parámetros</a></li><li><a href="https://www.chinadaily.com.cn" target="_blank" rel="noopener">China Daily — Reforma educativa prioriza competencias de empleabilidad en educación técnica superior</a></li><li><a href="https://www.caixinglobal.com" target="_blank" rel="noopener">Caixin Global — Corporación estatal de manufactura invierte $2 mil millones en biotecnología farmacéutica</a></li><li><a href="https://www.sixthtone.com" target="_blank" rel="noopener">Sixth Tone — Arqueología digital: proyecto 3D mapea complejo funerario Han con precisión milimétrica</a></li>
+    </ul>
+    <div class="pie-creditos">
+      China Hoy · Edición 2026-07-26 · Generado automáticamente con IA ·
+      Las opiniones expresadas son editoriales y no representan posiciones oficiales.
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
