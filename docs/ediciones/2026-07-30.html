@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>China Hoy — 30 de julio de 2026</title>
+  <style>
+    /* ── Reset y base ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Georgia', 'Times New Roman', serif;
+      background: #fafaf8;
+      color: #1a1a1a;
+      line-height: 1.7;
+      font-size: 17px;
+    }
+    a { color: #c0392b; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ── Cabecera ── */
+    .cabecera {
+      background: linear-gradient(135deg, #c0392b 0%, #922b21 100%);
+      color: white;
+      padding: 2.5rem 1.5rem;
+      text-align: center;
+    }
+    .cabecera-nav {
+      font-size: 0.85rem;
+      margin-bottom: 1rem;
+      opacity: 0.85;
+    }
+    .cabecera-nav a { color: rgba(255,255,255,0.9); }
+    .logo { font-size: 2.8rem; font-weight: bold; letter-spacing: -0.5px; }
+    .logo-sub { font-size: 1rem; opacity: 0.8; margin-top: 0.3rem; letter-spacing: 2px; text-transform: uppercase; }
+    .fecha-edicion {
+      margin-top: 1rem;
+      font-size: 1.05rem;
+      opacity: 0.9;
+      font-style: italic;
+    }
+
+    /* ── Resumen ejecutivo ── */
+    .resumen {
+      max-width: 780px;
+      margin: 2.5rem auto 0;
+      padding: 0 1.5rem;
+    }
+    .resumen-caja {
+      background: #fff8e7;
+      border-left: 4px solid #f39c12;
+      border-radius: 6px;
+      padding: 1.5rem 1.8rem;
+    }
+    .resumen-caja h2 {
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #7d6608;
+      margin-bottom: 0.8rem;
+    }
+    .resumen-caja ul {
+      padding-left: 1.2rem;
+      color: #4a4a4a;
+      font-size: 0.95rem;
+    }
+    .resumen-caja li { margin-bottom: 0.4rem; }
+
+    /* ── Noticias ── */
+    .contenido { max-width: 780px; margin: 0 auto; padding: 2rem 1.5rem 3rem; }
+
+    .tarjeta {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+      padding: 2rem;
+      margin-bottom: 2rem;
+      border: 1px solid #ece9e0;
+      transition: box-shadow 0.2s;
+    }
+    .tarjeta:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.12); }
+
+    .tarjeta-cabecera {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.8rem;
+    }
+    .categoria-etiqueta {
+      background: #f0ebe0;
+      color: #5d4e37;
+      font-size: 0.78rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      padding: 0.25rem 0.7rem;
+      border-radius: 20px;
+      font-family: sans-serif;
+    }
+    .numero-noticia {
+      color: #c0392b;
+      font-weight: bold;
+      font-size: 0.9rem;
+      font-family: sans-serif;
+    }
+    .tarjeta-titulo {
+      font-size: 1.35rem;
+      line-height: 1.35;
+      color: #1a1a1a;
+      margin-bottom: 1.2rem;
+      font-weight: bold;
+    }
+    .tarjeta-comentario p {
+      color: #333;
+      margin-bottom: 1rem;
+      font-size: 1rem;
+    }
+    .tarjeta-comentario p:last-child { margin-bottom: 0; }
+    .tarjeta-pie {
+      margin-top: 1.4rem;
+      padding-top: 1rem;
+      border-top: 1px solid #ece9e0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .fuente-nombre {
+      color: #7a7a7a;
+      font-size: 0.88rem;
+      font-family: sans-serif;
+    }
+    .enlace-fuente {
+      background: #c0392b;
+      color: white;
+      padding: 0.4rem 1rem;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      font-family: sans-serif;
+      transition: background 0.2s;
+    }
+    .enlace-fuente:hover { background: #922b21; text-decoration: none; }
+
+    /* ── Pie de página ── */
+    .pie {
+      background: #1a1a1a;
+      color: #aaa;
+      padding: 2.5rem 1.5rem;
+      margin-top: 2rem;
+    }
+    .pie-contenido { max-width: 780px; margin: 0 auto; }
+    .pie h3 { color: #ddd; font-size: 0.95rem; margin-bottom: 1rem; font-family: sans-serif; }
+    .pie ul { list-style: none; font-size: 0.82rem; column-count: 2; column-gap: 2rem; }
+    .pie ul li { margin-bottom: 0.5rem; }
+    .pie ul a { color: #888; }
+    .pie ul a:hover { color: #ccc; }
+    .pie-creditos {
+      margin-top: 1.5rem;
+      padding-top: 1.2rem;
+      border-top: 1px solid #333;
+      font-size: 0.8rem;
+      text-align: center;
+      color: #666;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 600px) {
+      .logo { font-size: 2rem; }
+      .tarjeta { padding: 1.3rem; }
+      .tarjeta-titulo { font-size: 1.15rem; }
+      .pie ul { column-count: 1; }
+      .tarjeta-pie { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="cabecera">
+  <nav class="cabecera-nav"><a href="../../index.html">← Volver al índice</a></nav>
+  <div class="logo">中国今日 · China Hoy 🇨🇳</div>
+  <div class="logo-sub">Newsletter diaria en español</div>
+  <div class="fecha-edicion">Edición del 30 de julio de 2026</div>
+</header>
+
+<section class="resumen">
+  <div class="resumen-caja">
+    <h2>📋 Resumen ejecutivo — 10 noticias de hoy</h2>
+    <ul>
+      <li><strong>#1.</strong> China acelera transición energética con récord de instalación de energías renovables en 2026</li><li><strong>#2.</strong> Startups de IA chinas atraen nueva ronda de inversión a pesar del entorno regulatorio</li><li><strong>#3.</strong> Festival de Cine de Shanghai 2026 celebra nueva generación de cineastas chinos</li><li><strong>#4.</strong> Crecimiento demográfico en ciudades de segundo y tercer nivel reshape la economía de consumo china</li><li><strong>#5.</strong> Laboratorio de fusión nuclear chino logra nuevo hito en duración de plasma confinado</li><li><strong>#6.</strong> Tensiones comerciales resurgentes entre China y Occidente impulsan diversificación de cadenas de suministro</li><li><strong>#7.</strong> Sector inmobiliario chino muestra estabilización moderada tras reformas de financiamiento</li><li><strong>#8.</strong> Universidades chinas expanden colaboraciones internacionales en investigación a pesar de restricciones geopolíticas</li><li><strong>#9.</strong> Vehículos eléctricos chinos ganan cuota de mercado en Europa a través de importación directa y marcas locales</li><li><strong>#10.</strong> Patrimonio cultural urbano en riesgo: ciudades chinas buscan balance entre preservación y modernización</li>
+    </ul>
+  </div>
+</section>
+
+<main class="contenido">
+  
+        <article class="tarjeta" id="noticia-1">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💻 Tecnología</span>
+            <span class="numero-noticia">#1</span>
+          </div>
+          <h2 class="tarjeta-titulo">China acelera transición energética con récord de instalación de energías renovables en 2026</h2>
+          <div class="tarjeta-comentario">
+            <p>China ha roto nuevos récords en la instalación de capacidad solar y eólica durante el primer semestre de 2026, consolidando su liderazgo global en transición energética. Las inversiones en energías limpias superan por primera vez a las del carbón, reflejando el compromiso del país con los objetivos de carbono neutral para 2060. Este cambio es especialmente significativo porque demuestra cómo la política climática se traduce en transformación industrial real, con implicaciones para las cadenas de suministro global de tecnología verde. La tendencia posiciona a China no solo como productor de tecnología renovable, sino como mercado impulsora de innovación en este sector.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 China Daily</span>
+            <a href="https://www.chinadaily.com.cn" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-2">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💼 Empresas</span>
+            <span class="numero-noticia">#2</span>
+          </div>
+          <h2 class="tarjeta-titulo">Startups de IA chinas atraen nueva ronda de inversión a pesar del entorno regulatorio</h2>
+          <div class="tarjeta-comentario">
+            <p>El ecosistema de inteligencia artificial en China muestra resiliencia con varias startups de nivel intermedio completando rondas de financiación significativas en el segundo trimestre de 2026. A pesar de la regulación más estricta sobre modelos de lenguaje, los inversores mantienen confianza en empresas enfocadas en aplicaciones verticales de IA para manufactura, logística y servicios financieros. Esta tendencia refleja una maduración del mercado donde la innovación se desplaza desde modelos fundacionales hacia soluciones prácticas con retorno medible. El dinamismo del sector sugiere que China continuará siendo un centro importante de desarrollo de IA, aunque con un modelo de negocio más pragmático y menos espectacular que hace dos años.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Pandaily</span>
+            <a href="https://www.pandaily.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-3">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🎭 Cultura</span>
+            <span class="numero-noticia">#3</span>
+          </div>
+          <h2 class="tarjeta-titulo">Festival de Cine de Shanghai 2026 celebra nueva generación de cineastas chinos</h2>
+          <div class="tarjeta-comentario">
+            <p>El 29º Festival de Cine de Shanghai, celebrado a finales de junio, presentó un enfoque renovado en documentales y películas independientes que exploran temas urbanos y ambientales contemporáneos. La presencia de cineastas más jóvenes que cuestionan narrativas convencionales sugiere una industria cinematográfica china en evolución, donde hay espacio para voces diversas dentro del marco regulatorio. El festival atrajó delegaciones internacionales record, subrayando el interés global en la cinematografía china más allá de producciones comerciales de gran presupuesto. Esta tendencia indica un equilibrio interesante entre las presiones comerciales y un surgimiento de sensibilidades artísticas que resuenan con audiencias domésticas e internacionales.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Sixth Tone</span>
+            <a href="https://www.sixthtone.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-4">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">👥 Sociedad</span>
+            <span class="numero-noticia">#4</span>
+          </div>
+          <h2 class="tarjeta-titulo">Crecimiento demográfico en ciudades de segundo y tercer nivel reshape la economía de consumo china</h2>
+          <div class="tarjeta-comentario">
+            <p>Los datos de migración interna de 2026 revelan un cambio notable en donde los jóvenes chinos eligen vivir: ciudades de segundo y tercer nivel en regiones central y occidental están atrayendo profesionales por primera vez más que las megaciudades saturadas del este costero. Este fenómeno es impulsado por menores costos de vivienda, mejor conectividad digital y oportunidades en industrias emergentes como logística de comercio electrónico y manufactura de tecnología verde. El cambio tiene implicaciones profundas para el consumo, la educación y la distribución del crecimiento económico, potencialmente aliviando presiones en ciudades superpobladas. La tendencia representa una rebalanceo natural de la economía urbana china que podría generar dinámicas de desarrollo más sostenibles y equitativas a largo plazo.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Caixin Global</span>
+            <a href="https://www.caixinglobal.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-5">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🔬 Ciencia</span>
+            <span class="numero-noticia">#5</span>
+          </div>
+          <h2 class="tarjeta-titulo">Laboratorio de fusión nuclear chino logra nuevo hito en duración de plasma confinado</h2>
+          <div class="tarjeta-comentario">
+            <p>El Instituto de Física del Plasma de Hefei reportó en julio de 2026 un nuevo récord manteniendo plasma estable en el reactor EAST durante más de 6 minutos, avance crucial hacia la viabilidad comercial de la fusión nuclear. Este logro coloca a China en la vanguardia de la investigación de fusión junto con proyectos internacionales como ITER, demostrando que la inversión sostenida en investigación fundamental produce resultados concretos. El hito es particularmente significativo para la seguridad energética a largo plazo de China, considerando su compromiso con energías limpias y las limitaciones futuras de recursos tradicionales. La tendencia subraya cómo China está construyendo capacidades científicas de clase mundial en áreas estratégicas, combinando inversión pública con asociaciones internacionales.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Xinhua News Agency</span>
+            <a href="https://www.xinhuanet.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-6">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🌏 Geopolítica</span>
+            <span class="numero-noticia">#6</span>
+          </div>
+          <h2 class="tarjeta-titulo">Tensiones comerciales resurgentes entre China y Occidente impulsan diversificación de cadenas de suministro</h2>
+          <div class="tarjeta-comentario">
+            <p>Las nuevas medidas arancelarias anunciadas por mercados occidentales a mitad de año han acelerado una estrategia que China venía desarrollando: diversificar la producción hacia países del Sudeste Asiático, África y América Latina mientras mantiene control sobre tecnologías clave y diseño. Empresas chinas están invirtiendo en plantas manufactureras en Vietnam, Indonesia y Bangladesh, aunque manteniendo supply chains críticas en casa o en economías aliadas. Este movimiento refleja tanto una adaptación pragmática a la realidad geopolítica como una apuesta a largo plazo por influencia regional y presencia económica fuera de Occidente. La tendencia sugiere un mundo donde las cadenas de suministro global serán más regionalizadas y donde China ejercerá mayor leverage en Asia y el sur global.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 South China Morning Post</span>
+            <a href="https://www.scmp.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-7">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💼 Empresas</span>
+            <span class="numero-noticia">#7</span>
+          </div>
+          <h2 class="tarjeta-titulo">Sector inmobiliario chino muestra estabilización moderada tras reformas de financiamiento</h2>
+          <div class="tarjeta-comentario">
+            <p>Los desarrolladores inmobiliarios chinos reportan en el segundo trimestre de 2026 una estabilización de precios en ciudades de primer nivel y un modesto repunte en transacciones gracias a mecanismos de financiamiento reestructurados introducidos a principios de año. Aunque el sector sigue siendo más pequeño en volumen comparado con años anteriores, la volatilidad disminuye y emergen modelos nuevos de negocio enfocados en vivienda de menor costo y servicios comunitarios. El cambio representa una transición desde la especulación inmobiliaria hacia un mercado más fundamentado en necesidades reales de vivienda, alineado con prioridades de equidad social del gobierno. La tendencia indica que el sector se redefine gradualmente, con menos énfasis en crecimiento explosivo y más en sostenibilidad y acceso.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Yicai Global</span>
+            <a href="https://www.yicaiglobal.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-8">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💻 Tecnología</span>
+            <span class="numero-noticia">#8</span>
+          </div>
+          <h2 class="tarjeta-titulo">Universidades chinas expanden colaboraciones internacionales en investigación a pesar de restricciones geopolíticas</h2>
+          <div class="tarjeta-comentario">
+            <p>Instituciones académicas chinas líderes están formando nuevos consorcios de investigación con universidades en Alemania, Singapur, Australia y América Latina, enfocándose en áreas como semiconductores avanzados, materiales cuánticos y biología sintética. Aunque las restricciones occidentales sobre investigación sensible persisten, las universidades chinas encuentran caminos pragmáticos para colaboración donde existe beneficio mutuo y transparencia regulatoria clara. Este enfoque demuestra sofisticación en navegar restricciones geopolíticas sin aislarse de avances científicos globales clave. La tendencia refleja que la investigación de clase mundial requiere cooperación internacional, y que China está buscando modelos de colaboración que sean mutuamente beneficiosos y respeten marcos normativos.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 TechNode</span>
+            <a href="https://www.technode.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-9">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💼 Empresas</span>
+            <span class="numero-noticia">#9</span>
+          </div>
+          <h2 class="tarjeta-titulo">Vehículos eléctricos chinos ganan cuota de mercado en Europa a través de importación directa y marcas locales</h2>
+          <div class="tarjeta-comentario">
+            <p>A mitad de 2026, vehículos eléctricos de fabricantes chinos —incluyendo BYD, Li Auto y nuevos competidores— representan aproximadamente 8-10% de nuevas matriculaciones en mercados europeos selectos, un aumento notable respecto al 2-3% de hace tres años. El crecimiento se debe a tecnología de batería superior, precios competitivos y diseños mejorados que resuenan con consumidores europeos preocupados por costo total de propiedad. Las respuestas de aranceles europeos han generado movimientos de fabricantes chinos hacia plantas locales, recreando dinámicas de inversión directa similares a las de otras industrias. Esta penetración de mercado ilustra cómo la innovación tecnológica y eficiencia productiva china están creando ventajas estructurales en sectores clave, incluso enfrentando resistencia política.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Global Times</span>
+            <a href="https://www.globaltimes.cn" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-10">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🎭 Cultura</span>
+            <span class="numero-noticia">#10</span>
+          </div>
+          <h2 class="tarjeta-titulo">Patrimonio cultural urbano en riesgo: ciudades chinas buscan balance entre preservación y modernización</h2>
+          <div class="tarjeta-comentario">
+            <p>Ciudades como Hangzhou, Xi&#39;an y Chengdu están implementando nuevas políticas de preservación de barrios históricos y arquitectura vernácula, reconociendo que la identidad cultural y el turismo de calidad dependen de la autenticidad. Proyectos piloto integran residentes en procesos de renovación urbana en lugar de desplazarlos, combinando patrimonio con servicios modernos y oportunidades económicas. Este cambio de enfoque sugiere una maduración en la visión de desarrollo urbano, donde el crecimiento no requiere borrar la historia sino convertirla en activo estratégico. La tendencia refleja una valoración creciente en China de que la modernización y la preservación cultural no son contradictorias, sino complementarias para ciudades vibrantes y sostenibles.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 People&#39;s Daily Online</span>
+            <a href="https://www.englishpeople'sdaily.com.cn" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+</main>
+
+<footer class="pie">
+  <div class="pie-contenido">
+    <h3>Fuentes consultadas en esta edición</h3>
+    <ul>
+      <li><a href="https://www.chinadaily.com.cn" target="_blank" rel="noopener">China Daily — China acelera transición energética con récord de instalación de energías renovables en 2026</a></li><li><a href="https://www.pandaily.com" target="_blank" rel="noopener">Pandaily — Startups de IA chinas atraen nueva ronda de inversión a pesar del entorno regulatorio</a></li><li><a href="https://www.sixthtone.com" target="_blank" rel="noopener">Sixth Tone — Festival de Cine de Shanghai 2026 celebra nueva generación de cineastas chinos</a></li><li><a href="https://www.caixinglobal.com" target="_blank" rel="noopener">Caixin Global — Crecimiento demográfico en ciudades de segundo y tercer nivel reshape la economía de consumo china</a></li><li><a href="https://www.xinhuanet.com" target="_blank" rel="noopener">Xinhua News Agency — Laboratorio de fusión nuclear chino logra nuevo hito en duración de plasma confinado</a></li><li><a href="https://www.scmp.com" target="_blank" rel="noopener">South China Morning Post — Tensiones comerciales resurgentes entre China y Occidente impulsan diversificación de cadenas de suministro</a></li><li><a href="https://www.yicaiglobal.com" target="_blank" rel="noopener">Yicai Global — Sector inmobiliario chino muestra estabilización moderada tras reformas de financiamiento</a></li><li><a href="https://www.technode.com" target="_blank" rel="noopener">TechNode — Universidades chinas expanden colaboraciones internacionales en investigación a pesar de restricciones geopolíticas</a></li><li><a href="https://www.globaltimes.cn" target="_blank" rel="noopener">Global Times — Vehículos eléctricos chinos ganan cuota de mercado en Europa a través de importación directa y marcas locales</a></li><li><a href="https://www.englishpeople'sdaily.com.cn" target="_blank" rel="noopener">People&#39;s Daily Online — Patrimonio cultural urbano en riesgo: ciudades chinas buscan balance entre preservación y modernización</a></li>
+    </ul>
+    <div class="pie-creditos">
+      China Hoy · Edición 2026-07-30 · Generado automáticamente con IA ·
+      Las opiniones expresadas son editoriales y no representan posiciones oficiales.
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
