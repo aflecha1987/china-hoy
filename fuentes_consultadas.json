@@ -2390,5 +2390,31 @@
       "Vehículos eléctricos chinos ganan cuota de mercado en Europa a través de importación directa y marcas locales",
       "Patrimonio cultural urbano en riesgo: ciudades chinas buscan balance entre preservación y modernización"
     ]
+  },
+  "2026-07-31": {
+    "fuentes": [
+      "https://www.chinadaily.com.cn",
+      "https://www.caixinglobal.com",
+      "https://www.sixthtone.com",
+      "https://www.cgtn.com",
+      "https://www.pandaily.com",
+      "https://www.yicaiglobal.com",
+      "https://www.scmp.com",
+      "https://www.xinhuanet.com",
+      "https://www.chinatoday.com.cn",
+      "https://www.technode.com"
+    ],
+    "titulares": [
+      "China alcanza nuevo récord en producción de energías renovables en el primer semestre de 2026",
+      "Alibaba y Tencent expanden servicios de inteligencia artificial generativa para pequeñas empresas",
+      "Estudio revela crecimiento significativo en adopción de vehículos eléctricos entre ciudadanos chinos de edad avanzada",
+      "Beijing abre nuevo museo dedicado a la historia del cine chino con acervo digitalizado",
+      "Provincia de Guangdong implementa programa piloto de reducción de horas laborales sin corte salarial",
+      "Investigadores chinos avanzan en tecnología de fusión nuclear con nuevo récord de confinamiento",
+      "Relaciones comerciales China-ASEAN alcanzan nuevo máximo en primer semestre de 2026",
+      "Instituto de Biotecnología de Beijing logra avance en edición genética con aplicaciones agrícolas",
+      "Escuelas chinas implementan nueva metodología educativa enfocada en pensamiento crítico y creatividad",
+      "Compañía china de logística revoluciona distribución rural con drones autónomos de carga"
+    ]
   }
 }
