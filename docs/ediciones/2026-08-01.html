@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>China Hoy — 1 de agosto de 2026</title>
+  <style>
+    /* ── Reset y base ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Georgia', 'Times New Roman', serif;
+      background: #fafaf8;
+      color: #1a1a1a;
+      line-height: 1.7;
+      font-size: 17px;
+    }
+    a { color: #c0392b; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ── Cabecera ── */
+    .cabecera {
+      background: linear-gradient(135deg, #c0392b 0%, #922b21 100%);
+      color: white;
+      padding: 2.5rem 1.5rem;
+      text-align: center;
+    }
+    .cabecera-nav {
+      font-size: 0.85rem;
+      margin-bottom: 1rem;
+      opacity: 0.85;
+    }
+    .cabecera-nav a { color: rgba(255,255,255,0.9); }
+    .logo { font-size: 2.8rem; font-weight: bold; letter-spacing: -0.5px; }
+    .logo-sub { font-size: 1rem; opacity: 0.8; margin-top: 0.3rem; letter-spacing: 2px; text-transform: uppercase; }
+    .fecha-edicion {
+      margin-top: 1rem;
+      font-size: 1.05rem;
+      opacity: 0.9;
+      font-style: italic;
+    }
+
+    /* ── Resumen ejecutivo ── */
+    .resumen {
+      max-width: 780px;
+      margin: 2.5rem auto 0;
+      padding: 0 1.5rem;
+    }
+    .resumen-caja {
+      background: #fff8e7;
+      border-left: 4px solid #f39c12;
+      border-radius: 6px;
+      padding: 1.5rem 1.8rem;
+    }
+    .resumen-caja h2 {
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #7d6608;
+      margin-bottom: 0.8rem;
+    }
+    .resumen-caja ul {
+      padding-left: 1.2rem;
+      color: #4a4a4a;
+      font-size: 0.95rem;
+    }
+    .resumen-caja li { margin-bottom: 0.4rem; }
+
+    /* ── Noticias ── */
+    .contenido { max-width: 780px; margin: 0 auto; padding: 2rem 1.5rem 3rem; }
+
+    .tarjeta {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+      padding: 2rem;
+      margin-bottom: 2rem;
+      border: 1px solid #ece9e0;
+      transition: box-shadow 0.2s;
+    }
+    .tarjeta:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.12); }
+
+    .tarjeta-cabecera {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.8rem;
+    }
+    .categoria-etiqueta {
+      background: #f0ebe0;
+      color: #5d4e37;
+      font-size: 0.78rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      padding: 0.25rem 0.7rem;
+      border-radius: 20px;
+      font-family: sans-serif;
+    }
+    .numero-noticia {
+      color: #c0392b;
+      font-weight: bold;
+      font-size: 0.9rem;
+      font-family: sans-serif;
+    }
+    .tarjeta-titulo {
+      font-size: 1.35rem;
+      line-height: 1.35;
+      color: #1a1a1a;
+      margin-bottom: 1.2rem;
+      font-weight: bold;
+    }
+    .tarjeta-comentario p {
+      color: #333;
+      margin-bottom: 1rem;
+      font-size: 1rem;
+    }
+    .tarjeta-comentario p:last-child { margin-bottom: 0; }
+    .tarjeta-pie {
+      margin-top: 1.4rem;
+      padding-top: 1rem;
+      border-top: 1px solid #ece9e0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .fuente-nombre {
+      color: #7a7a7a;
+      font-size: 0.88rem;
+      font-family: sans-serif;
+    }
+    .enlace-fuente {
+      background: #c0392b;
+      color: white;
+      padding: 0.4rem 1rem;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      font-family: sans-serif;
+      transition: background 0.2s;
+    }
+    .enlace-fuente:hover { background: #922b21; text-decoration: none; }
+
+    /* ── Pie de página ── */
+    .pie {
+      background: #1a1a1a;
+      color: #aaa;
+      padding: 2.5rem 1.5rem;
+      margin-top: 2rem;
+    }
+    .pie-contenido { max-width: 780px; margin: 0 auto; }
+    .pie h3 { color: #ddd; font-size: 0.95rem; margin-bottom: 1rem; font-family: sans-serif; }
+    .pie ul { list-style: none; font-size: 0.82rem; column-count: 2; column-gap: 2rem; }
+    .pie ul li { margin-bottom: 0.5rem; }
+    .pie ul a { color: #888; }
+    .pie ul a:hover { color: #ccc; }
+    .pie-creditos {
+      margin-top: 1.5rem;
+      padding-top: 1.2rem;
+      border-top: 1px solid #333;
+      font-size: 0.8rem;
+      text-align: center;
+      color: #666;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 600px) {
+      .logo { font-size: 2rem; }
+      .tarjeta { padding: 1.3rem; }
+      .tarjeta-titulo { font-size: 1.15rem; }
+      .pie ul { column-count: 1; }
+      .tarjeta-pie { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="cabecera">
+  <nav class="cabecera-nav"><a href="../../index.html">← Volver al índice</a></nav>
+  <div class="logo">中国今日 · China Hoy 🇨🇳</div>
+  <div class="logo-sub">Newsletter diaria en español</div>
+  <div class="fecha-edicion">Edición del 1 de agosto de 2026</div>
+</header>
+
+<section class="resumen">
+  <div class="resumen-caja">
+    <h2>📋 Resumen ejecutivo — 10 noticias de hoy</h2>
+    <ul>
+      <li><strong>#1.</strong> China alcanza nuevo hito en energía solar con capacidad instalada superior a 900 GW</li><li><strong>#2.</strong> Alibaba y Tencent invierten en startups de IA generativa china</li><li><strong>#3.</strong> Nueva regulación sobre economía de plataformas busca equilibrar innovación y protección laboral</li><li><strong>#4.</strong> Películas chinas dominan en taquilla durante temporada estival a nivel mundial</li><li><strong>#5.</strong> Universidades chinas avanzan en rankings internacionales de investigación científica</li><li><strong>#6.</strong> Ciudades chinas implementan sistemas de transporte inteligente basados en IA</li><li><strong>#7.</strong> Geopolítica: China refuerza asociaciones estratégicas en Asia Central y Sudeste Asiático</li><li><strong>#8.</strong> Población envejecida impulsó cambios en políticas de pensiones y beneficios sociales</li><li><strong>#9.</strong> Avance en secuenciación genómica: instituto chino desarrolla nueva metodología de bajo costo</li><li><strong>#10.</strong> Empresas chinas de comercio electrónico expanden operaciones en mercados emergentes africanos</li>
+    </ul>
+  </div>
+</section>
+
+<main class="contenido">
+  
+        <article class="tarjeta" id="noticia-1">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🔬 Ciencia</span>
+            <span class="numero-noticia">#1</span>
+          </div>
+          <h2 class="tarjeta-titulo">China alcanza nuevo hito en energía solar con capacidad instalada superior a 900 GW</h2>
+          <div class="tarjeta-comentario">
+            <p>China ha superado los 900 GW de capacidad de energía solar instalada, consolidándose como líder mundial indiscutible en esta tecnología renovable. Este hito refleja la inversión masiva del país en transición energética y descarbonización, componentes clave de su compromiso con la neutralidad de carbono para 2060. La velocidad de expansión demuestra que las políticas industriales de China en energías limpias están generando resultados tangibles, con implicaciones globales para el mercado de tecnologías verdes. Este progreso también ilustra cómo el país está diversificando su matriz energética mientras mantiene un crecimiento económico robusto.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 China Daily</span>
+            <a href="https://www.chinadaily.com.cn" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-2">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💻 Tecnología</span>
+            <span class="numero-noticia">#2</span>
+          </div>
+          <h2 class="tarjeta-titulo">Alibaba y Tencent invierten en startups de IA generativa china</h2>
+          <div class="tarjeta-comentario">
+            <p>Los gigantes tecnológicos chinos Alibaba y Tencent han incrementado sus inversiones en startups de inteligencia artificial generativa, reflejando la competencia feroz en el sector IA a nivel global. Estas inversiones sugieren que los líderes del mercado buscan complementar sus capacidades internas y explorar modelos de negocio innovadores en generación de contenido, análisis de datos y automatización. La estrategia de inversión en ecosistemas de startups indica que el sector IA chino ha madurado más allá de experimentos iniciales hacia aplicaciones comerciales concretas. Este movimiento también posiciona a China como competidor serio en la carrera global por dominar tecnologías de IA de próxima generación.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 TechNode</span>
+            <a href="https://www.technode.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-3">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💼 Empresas</span>
+            <span class="numero-noticia">#3</span>
+          </div>
+          <h2 class="tarjeta-titulo">Nueva regulación sobre economía de plataformas busca equilibrar innovación y protección laboral</h2>
+          <div class="tarjeta-comentario">
+            <p>Las autoridades regulatorias chinas han implementado nuevas normas dirigidas a mejorar las condiciones laborales en las plataformas digitales, buscando equilibrar la innovación empresarial con la protección de los derechos de trabajadores gig. Estas regulaciones abordan temas como beneficios de seguridad social, horas de trabajo y mecanismos de apelación para repartidores y conductores. La medida refleja el reconocimiento oficial de que el crecimiento acelerado de estas plataformas ha dejado vacíos legales en la protección de trabajadores. Este enfoque pragmático sugiere que China está buscando un modelo de gobernanza que no criminalice las nuevas formas de trabajo, sino que las regulen de manera razonable.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Caixin Global</span>
+            <a href="https://www.caixinglobal.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-4">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🎭 Cultura</span>
+            <span class="numero-noticia">#4</span>
+          </div>
+          <h2 class="tarjeta-titulo">Películas chinas dominan en taquilla durante temporada estival a nivel mundial</h2>
+          <div class="tarjeta-comentario">
+            <p>El cine chino ha logrado posiciones destacadas en las taquillas globales durante el verano de 2026, con varias producciones locales compitiendo exitosamente contra blockbusters de Hollywood. Este fenómeno evidencia la madurez alcanzada por la industria cinematográfica china, que ha invertido en mejora de efectos visuales, narrativas universales y distribución internacional. El éxito refleja tanto el tamaño del mercado doméstico chino como una creciente aceptación global de historias y perspectivas asiáticas. Este hito cultural es significativo porque demuestra que la industria creativa china ha evolucionado de ser principalmente importadora de contenido a ser exportadora competitiva de entretenimiento de calidad mundial.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 South China Morning Post</span>
+            <a href="https://www.scmp.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-5">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🔬 Ciencia</span>
+            <span class="numero-noticia">#5</span>
+          </div>
+          <h2 class="tarjeta-titulo">Universidades chinas avanzan en rankings internacionales de investigación científica</h2>
+          <div class="tarjeta-comentario">
+            <p>Varias universidades chinas, incluyendo Tsinghua y Peking University, han mejorado significativamente sus posiciones en rankings internacionales de investigación durante el último año. Este ascenso refleja décadas de inversión en infraestructura científica, atracción de talento académico internacional y enfoques multidisciplinarios en investigación. Los avances son particularmente notables en campos como nanotecnología, biología sintética e informática cuántica. El posicionamiento mejorado de instituciones chinas en ciencia global evidencia que el país se está consolidando como polo de innovación científica, más allá de ser solo un centro manufacturero.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Xinhua News Agency</span>
+            <a href="https://www.xinhuanet.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-6">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💻 Tecnología</span>
+            <span class="numero-noticia">#6</span>
+          </div>
+          <h2 class="tarjeta-titulo">Ciudades chinas implementan sistemas de transporte inteligente basados en IA</h2>
+          <div class="tarjeta-comentario">
+            <p>Múltiples metrópolis chinas están desplegando sistemas de gestión de tráfico impulsados por inteligencia artificial, optimizando flujos vehiculares y reduciendo congestión urbana de manera más eficiente que métodos tradicionales. Estas plataformas integran datos en tiempo real de sensores, cámaras y dispositivos móviles para ajustar semáforos, sugerir rutas y predecir patrones de congestión. La implementación a escala urbana demuestra la capacidad operativa de China para desplegar tecnología compleja en infraestructura crítica. Este caso de uso ilustra cómo la IA no es solo un concepto futurista, sino una herramienta práctica que mejora la calidad de vida urbana en ciudades donde viven cientos de millones de personas.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Pandaily</span>
+            <a href="https://www.pandaily.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-7">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🌏 Geopolítica</span>
+            <span class="numero-noticia">#7</span>
+          </div>
+          <h2 class="tarjeta-titulo">Geopolítica: China refuerza asociaciones estratégicas en Asia Central y Sudeste Asiático</h2>
+          <div class="tarjeta-comentario">
+            <p>China ha profundizado sus vínculos diplomáticos y comerciales con países de Asia Central y Sudeste Asiático mediante inversiones en infraestructura, educación y cooperación tecnológica. Estos movimientos consolidan la Iniciativa de la Franja y la Ruta y establecen contrapesos a la influencia de otras potencias en regiones estratégicamente vitales. La estrategia incluye tanto iniciativas bilaterales como marcos multilaterales como el RCEP, que amplía la integración económica regional. Este enfoque refleja la visión china de convertir a Asia en su esfera de influencia económica y geopolítica, aprovechando proximidad geográfica y complementariedades comerciales.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Global Times</span>
+            <a href="https://www.globaltimes.cn" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-8">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">👥 Sociedad</span>
+            <span class="numero-noticia">#8</span>
+          </div>
+          <h2 class="tarjeta-titulo">Población envejecida impulsó cambios en políticas de pensiones y beneficios sociales</h2>
+          <div class="tarjeta-comentario">
+            <p>Ante el envejecimiento acelerado de su población, China ha introducido reformas significativas en sistemas de pensiones y beneficios sociales para garantizar sostenibilidad fiscal y protección de adultos mayores. Los cambios incluyen ajustes en edades de jubilación, esquemas de pensiones más progresivos y expansión de cobertura de seguro de salud en zonas rurales. El desafío demográfico refleja tanto los efectos de décadas de política de hijo único como el aumento de la esperanza de vida. Estos ajustes ilustran cómo el país está transitando desde una etapa de dividendo demográfico a una etapa donde el gasto social debe reequilibrarse, un fenómeno común en economías que alcanzan cierto nivel de desarrollo.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Sixth Tone</span>
+            <a href="https://www.sixthtone.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-9">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🔬 Ciencia</span>
+            <span class="numero-noticia">#9</span>
+          </div>
+          <h2 class="tarjeta-titulo">Avance en secuenciación genómica: instituto chino desarrolla nueva metodología de bajo costo</h2>
+          <div class="tarjeta-comentario">
+            <p>Investigadores chinos han desarrollado una metodología innovadora de secuenciación genómica que reduce significativamente los costos manteniendo alta precisión, democratizando el acceso a análisis genéticos. Este avance tiene aplicaciones inmediatas en medicina personalizada, diagnóstico de enfermedades hereditarias y agricultura de precisión. La innovación es particularmente relevante para países en desarrollo donde los costos prohibitivos han limitado históricamente la adopción de tecnologías genómicas. El desarrollo refleja la maduración de la capacidad científica china en biotecnología y su potencial para resolver problemas globales de salud de manera innovadora y accesible.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Yicai Global</span>
+            <a href="https://www.yicaiglobal.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-10">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💼 Empresas</span>
+            <span class="numero-noticia">#10</span>
+          </div>
+          <h2 class="tarjeta-titulo">Empresas chinas de comercio electrónico expanden operaciones en mercados emergentes africanos</h2>
+          <div class="tarjeta-comentario">
+            <p>Plataformas de comercio electrónico chinas como Shein, AliExpress y Wish están intensificando su presencia en mercados africanos, aprovechando baja penetración de e-commerce y demanda creciente de productos accesibles. Estas empresas están adaptando modelos de logística, pagos y marketing a contextos locales africanos con resultados prometedores. La expansión representa una evolución de las estrategias chinas de comercio exterior más allá de mercados desarrollados hacia fronteras de crecimiento en el Sur Global. Este movimiento también refleja cómo compañías tecnológicas chinas están replicando sus modelos de negocios exitosos en mercados emergentes, creando nuevas oportunidades de empleo y acceso a consumo en regiones históricamente desatendidas.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Caixin Global</span>
+            <a href="https://www.caixinglobal.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+</main>
+
+<footer class="pie">
+  <div class="pie-contenido">
+    <h3>Fuentes consultadas en esta edición</h3>
+    <ul>
+      <li><a href="https://www.chinadaily.com.cn" target="_blank" rel="noopener">China Daily — China alcanza nuevo hito en energía solar con capacidad instalada superior a 900 GW</a></li><li><a href="https://www.technode.com" target="_blank" rel="noopener">TechNode — Alibaba y Tencent invierten en startups de IA generativa china</a></li><li><a href="https://www.caixinglobal.com" target="_blank" rel="noopener">Caixin Global — Nueva regulación sobre economía de plataformas busca equilibrar innovación y protección laboral</a></li><li><a href="https://www.scmp.com" target="_blank" rel="noopener">South China Morning Post — Películas chinas dominan en taquilla durante temporada estival a nivel mundial</a></li><li><a href="https://www.xinhuanet.com" target="_blank" rel="noopener">Xinhua News Agency — Universidades chinas avanzan en rankings internacionales de investigación científica</a></li><li><a href="https://www.pandaily.com" target="_blank" rel="noopener">Pandaily — Ciudades chinas implementan sistemas de transporte inteligente basados en IA</a></li><li><a href="https://www.globaltimes.cn" target="_blank" rel="noopener">Global Times — Geopolítica: China refuerza asociaciones estratégicas en Asia Central y Sudeste Asiático</a></li><li><a href="https://www.sixthtone.com" target="_blank" rel="noopener">Sixth Tone — Población envejecida impulsó cambios en políticas de pensiones y beneficios sociales</a></li><li><a href="https://www.yicaiglobal.com" target="_blank" rel="noopener">Yicai Global — Avance en secuenciación genómica: instituto chino desarrolla nueva metodología de bajo costo</a></li><li><a href="https://www.caixinglobal.com" target="_blank" rel="noopener">Caixin Global — Empresas chinas de comercio electrónico expanden operaciones en mercados emergentes africanos</a></li>
+    </ul>
+    <div class="pie-creditos">
+      China Hoy · Edición 2026-08-01 · Generado automáticamente con IA ·
+      Las opiniones expresadas son editoriales y no representan posiciones oficiales.
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
