@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>China Hoy — 2 de agosto de 2026</title>
+  <style>
+    /* ── Reset y base ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Georgia', 'Times New Roman', serif;
+      background: #fafaf8;
+      color: #1a1a1a;
+      line-height: 1.7;
+      font-size: 17px;
+    }
+    a { color: #c0392b; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ── Cabecera ── */
+    .cabecera {
+      background: linear-gradient(135deg, #c0392b 0%, #922b21 100%);
+      color: white;
+      padding: 2.5rem 1.5rem;
+      text-align: center;
+    }
+    .cabecera-nav {
+      font-size: 0.85rem;
+      margin-bottom: 1rem;
+      opacity: 0.85;
+    }
+    .cabecera-nav a { color: rgba(255,255,255,0.9); }
+    .logo { font-size: 2.8rem; font-weight: bold; letter-spacing: -0.5px; }
+    .logo-sub { font-size: 1rem; opacity: 0.8; margin-top: 0.3rem; letter-spacing: 2px; text-transform: uppercase; }
+    .fecha-edicion {
+      margin-top: 1rem;
+      font-size: 1.05rem;
+      opacity: 0.9;
+      font-style: italic;
+    }
+
+    /* ── Resumen ejecutivo ── */
+    .resumen {
+      max-width: 780px;
+      margin: 2.5rem auto 0;
+      padding: 0 1.5rem;
+    }
+    .resumen-caja {
+      background: #fff8e7;
+      border-left: 4px solid #f39c12;
+      border-radius: 6px;
+      padding: 1.5rem 1.8rem;
+    }
+    .resumen-caja h2 {
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #7d6608;
+      margin-bottom: 0.8rem;
+    }
+    .resumen-caja ul {
+      padding-left: 1.2rem;
+      color: #4a4a4a;
+      font-size: 0.95rem;
+    }
+    .resumen-caja li { margin-bottom: 0.4rem; }
+
+    /* ── Noticias ── */
+    .contenido { max-width: 780px; margin: 0 auto; padding: 2rem 1.5rem 3rem; }
+
+    .tarjeta {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+      padding: 2rem;
+      margin-bottom: 2rem;
+      border: 1px solid #ece9e0;
+      transition: box-shadow 0.2s;
+    }
+    .tarjeta:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.12); }
+
+    .tarjeta-cabecera {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.8rem;
+    }
+    .categoria-etiqueta {
+      background: #f0ebe0;
+      color: #5d4e37;
+      font-size: 0.78rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      padding: 0.25rem 0.7rem;
+      border-radius: 20px;
+      font-family: sans-serif;
+    }
+    .numero-noticia {
+      color: #c0392b;
+      font-weight: bold;
+      font-size: 0.9rem;
+      font-family: sans-serif;
+    }
+    .tarjeta-titulo {
+      font-size: 1.35rem;
+      line-height: 1.35;
+      color: #1a1a1a;
+      margin-bottom: 1.2rem;
+      font-weight: bold;
+    }
+    .tarjeta-comentario p {
+      color: #333;
+      margin-bottom: 1rem;
+      font-size: 1rem;
+    }
+    .tarjeta-comentario p:last-child { margin-bottom: 0; }
+    .tarjeta-pie {
+      margin-top: 1.4rem;
+      padding-top: 1rem;
+      border-top: 1px solid #ece9e0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .fuente-nombre {
+      color: #7a7a7a;
+      font-size: 0.88rem;
+      font-family: sans-serif;
+    }
+    .enlace-fuente {
+      background: #c0392b;
+      color: white;
+      padding: 0.4rem 1rem;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      font-family: sans-serif;
+      transition: background 0.2s;
+    }
+    .enlace-fuente:hover { background: #922b21; text-decoration: none; }
+
+    /* ── Pie de página ── */
+    .pie {
+      background: #1a1a1a;
+      color: #aaa;
+      padding: 2.5rem 1.5rem;
+      margin-top: 2rem;
+    }
+    .pie-contenido { max-width: 780px; margin: 0 auto; }
+    .pie h3 { color: #ddd; font-size: 0.95rem; margin-bottom: 1rem; font-family: sans-serif; }
+    .pie ul { list-style: none; font-size: 0.82rem; column-count: 2; column-gap: 2rem; }
+    .pie ul li { margin-bottom: 0.5rem; }
+    .pie ul a { color: #888; }
+    .pie ul a:hover { color: #ccc; }
+    .pie-creditos {
+      margin-top: 1.5rem;
+      padding-top: 1.2rem;
+      border-top: 1px solid #333;
+      font-size: 0.8rem;
+      text-align: center;
+      color: #666;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 600px) {
+      .logo { font-size: 2rem; }
+      .tarjeta { padding: 1.3rem; }
+      .tarjeta-titulo { font-size: 1.15rem; }
+      .pie ul { column-count: 1; }
+      .tarjeta-pie { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="cabecera">
+  <nav class="cabecera-nav"><a href="../../index.html">← Volver al índice</a></nav>
+  <div class="logo">中国今日 · China Hoy 🇨🇳</div>
+  <div class="logo-sub">Newsletter diaria en español</div>
+  <div class="fecha-edicion">Edición del 2 de agosto de 2026</div>
+</header>
+
+<section class="resumen">
+  <div class="resumen-caja">
+    <h2>📋 Resumen ejecutivo — 10 noticias de hoy</h2>
+    <ul>
+      <li><strong>#1.</strong> China acelera inversión en energías renovables, superando el 50% de nueva capacidad instalada</li><li><strong>#2.</strong> Sector tecnológico chino innova en inteligencia artificial aplicada a manufactura y logística</li><li><strong>#3.</strong> Nuevas regulaciones en plataformas de comercio electrónico buscan proteger derechos de vendedores pequeños</li><li><strong>#4.</strong> China invierte en investigación de medicina regenerativa con enfoque en órganos bioartificiales</li><li><strong>#5.</strong> Festival de cine en Shanghái celebra el cine documental chino contemporáneo con perspectivas diversas</li><li><strong>#6.</strong> Expansión de sistemas de metro en ciudades de segundo nivel transforma movilidad urbana</li><li><strong>#7.</strong> Sector exportador chino se adapta a nuevas cadenas de suministro en contexto de fragmentación global</li><li><strong>#8.</strong> Programa de intercambio cultural juvenil entre China y países africanos alcanza nuevo hito de participantes</li><li><strong>#9.</strong> Industria de alimentos funcionales en China crece con demanda de consumidores por salud preventiva</li><li><strong>#10.</strong> Iniciativas de educación vocacional en zonas rurales buscan reducir brecha de habilidades y oportunidades</li>
+    </ul>
+  </div>
+</section>
+
+<main class="contenido">
+  
+        <article class="tarjeta" id="noticia-1">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💻 Tecnología</span>
+            <span class="numero-noticia">#1</span>
+          </div>
+          <h2 class="tarjeta-titulo">China acelera inversión en energías renovables, superando el 50% de nueva capacidad instalada</h2>
+          <div class="tarjeta-comentario">
+            <p>China ha consolidado su posición como líder mundial en energías renovables, con más del 50% de la nueva capacidad energética instalada en el primer semestre de 2026 proveniente de fuentes limpias como solar y eólica. Este hito refleja la aceleración de la transición energética china, impulsada por objetivos de pico de emisiones de carbono antes de 2030 y neutralidad de carbono en 2060. La inversión en paneles solares, turbinas eólicas y sistemas de almacenamiento de energía continúa creciendo, consolidando un modelo que combina ambición climática con oportunidades industriales y de exportación. Este cambio no solo redefine la matriz energética interna, sino que también posiciona a China como exportador tecnológico en energías limpias a nivel global.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Caixin Global</span>
+            <a href="https://www.caixinglobal.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-2">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💻 Tecnología</span>
+            <span class="numero-noticia">#2</span>
+          </div>
+          <h2 class="tarjeta-titulo">Sector tecnológico chino innova en inteligencia artificial aplicada a manufactura y logística</h2>
+          <div class="tarjeta-comentario">
+            <p>Empresas chinas de tecnología están implementando soluciones avanzadas de IA en cadenas de suministro y plantas manufactureras, mejorando eficiencia operativa y reduciendo costos de manera significativa. Startups y gigantes como Alibaba y Baidu desarrollan modelos de lenguaje personalizados y sistemas de visión por computadora que optimizan desde la predicción de demanda hasta la robótica industrial. Esta aplicación práctica de IA en sectores tradicionales ilustra la maduración del ecosistema tecnológico chino, que evoluciona desde la adopción hacia la innovación diferenciada. La tendencia refleja cómo China busca mantener competitividad manufacturera en contextos de envejecimiento demográfico y presiones salariales.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 TechNode</span>
+            <a href="https://www.technode.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-3">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">👥 Sociedad</span>
+            <span class="numero-noticia">#3</span>
+          </div>
+          <h2 class="tarjeta-titulo">Nuevas regulaciones en plataformas de comercio electrónico buscan proteger derechos de vendedores pequeños</h2>
+          <div class="tarjeta-comentario">
+            <p>Los reguladores chinos han introducido nuevas normas para equilibrar el poder de plataformas como Alibaba y JD.com con respecto a vendedores pequeños y medianos, estableciendo criterios claros sobre algoritmos de recomendación y prácticas comerciales discriminatorias. Estas medidas responden a preocupaciones sobre la concentración de poder en el comercio digital y la erosión de márgenes para pequeños negocios que dependen de estas plataformas. La regulación busca proteger a millones de pymes que representan una parte crucial del empleo y el dinamismo económico chino. Este enfoque refleja un interés más amplio del gobierno por equilibrar innovación digital con protección social y equidad económica.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 South China Morning Post</span>
+            <a href="https://www.scmp.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-4">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🔬 Ciencia</span>
+            <span class="numero-noticia">#4</span>
+          </div>
+          <h2 class="tarjeta-titulo">China invierte en investigación de medicina regenerativa con enfoque en órganos bioartificiales</h2>
+          <div class="tarjeta-comentario">
+            <p>Institutos de investigación chinos avanzados están desarrollando tecnologías de medicina regenerativa, incluyendo órganos bioartificiales creados mediante ingeniería de tejidos y células madre, con potencial para resolver la escasez de órganos para trasplante. Proyectos financiados por el gobierno y colaboraciones con universidades líderes buscan comercializar estas tecnologías en los próximos cinco años, aprovechando el envejecimiento poblacional que aumenta la demanda de soluciones médicas sofisticadas. El avance en bioingeniería posiciona a China como competidor serio en medicina de frontera, un sector donde antes predominaban Europa y Estados Unidos. Esta inversión en investigación fundamental refleja la estrategia de largo plazo de convertir el capital humano científico en ventaja competitiva.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 China Daily</span>
+            <a href="https://www.chinadaily.com.cn" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-5">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🎭 Cultura</span>
+            <span class="numero-noticia">#5</span>
+          </div>
+          <h2 class="tarjeta-titulo">Festival de cine en Shanghái celebra el cine documental chino contemporáneo con perspectivas diversas</h2>
+          <div class="tarjeta-comentario">
+            <p>El festival de cine de Shanghái de este año ha destacado documentales chinos que exploran historias locales, cambios sociales y voces de comunidades frecuentemente ausentes de la narrativa dominante. Estos trabajos, producidos por cineastas independientes y estudios estatales, muestran una industria del documental en expansión que logra profundidad narrativa mientras navega los límites del espacio público de discusión. La diversidad de temas—desde migrantes rurales hasta innovadores tecnológicos—ilustra cómo el documental chino contemporáneo puede ser honesto sobre complejidades sociales sin entrar en territorios prohibidos. Este fenómeno refleja una maduración del público chino de medios que busca historias más matizadas y auténticas sobre su propio país.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Sixth Tone</span>
+            <a href="https://www.sixthtone.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-6">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">👥 Sociedad</span>
+            <span class="numero-noticia">#6</span>
+          </div>
+          <h2 class="tarjeta-titulo">Expansión de sistemas de metro en ciudades de segundo nivel transforma movilidad urbana</h2>
+          <div class="tarjeta-comentario">
+            <p>Durante 2026, ciudades chinas de segundo y tercer nivel han continuado expandiendo rápidamente sus sistemas de transporte metro, con más de 50 nuevas líneas en construcción o inauguración reciente, mejorando la conectividad y reduciendo congestión vehicular. Estas inversiones en infraestructura de transporte público mejoran significativamente la calidad de vida urbana y democratizan el acceso a oportunidades de empleo, educación y servicios en zonas metropolitanas en expansión. El fenómeno también refleja la descentralización de actividad económica desde megaciudades hacia centros urbanos medianos, redistribuyendo crecimiento y oportunidades geográficamente. Esta transformación infraestructural es un pilar fundamental de la visión de urbanización inteligente y sostenible que persigue el gobierno chino.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Yicai Global</span>
+            <a href="https://www.yicaiglobal.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-7">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💼 Empresas</span>
+            <span class="numero-noticia">#7</span>
+          </div>
+          <h2 class="tarjeta-titulo">Sector exportador chino se adapta a nuevas cadenas de suministro en contexto de fragmentación global</h2>
+          <div class="tarjeta-comentario">
+            <p>Empresas manufactureras chinas están diversificando ubicaciones de producción y socios comerciales, estableciendo operaciones en Vietnam, Bangladesh e Indonesia para mantener competitividad frente a presiones arancelarias y fragmentación de la economía global. Esta estrategia, conocida como &#39;China Plus One&#39;, permite a empresas chinas mantener control de tecnología y cadenas de valor mientras reducen exposición a riesgos geopolíticos y tarifarios. Gigantes como Foxconn y BYD lideran esta reconfiguración, invirtiendo en manufactureras en el extranjero sin perder su centro de innovación en China. La tendencia ilustra pragmatismo empresarial chino para adaptarse a un mundo cada vez más fragmentado sin abandonar ambiciones de liderazgo tecnológico.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Reuters</span>
+            <a href="https://www.reuters.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-8">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🌏 Geopolítica</span>
+            <span class="numero-noticia">#8</span>
+          </div>
+          <h2 class="tarjeta-titulo">Programa de intercambio cultural juvenil entre China y países africanos alcanza nuevo hito de participantes</h2>
+          <div class="tarjeta-comentario">
+            <p>China ha aumentado significativamente los programas de becas y intercambios culturales con países africanos, reflejando una inversión de largo plazo en relaciones bilaterales a través de la educación y construcción de puentes generacionales. Estos programas envían miles de estudiantes chinos a universidades africanas y traen jóvenes africanos a China anualmente, creando redes de influencia cultural y diplomática mutuales. La iniciativa forma parte de la estrategia más amplia de profundizar lazos con el continente africano, complementando inversiones económicas en infraestructura y comercio. Este enfoque soft power educativo representa una visión de China como actor global que busca influencia duradera mediante conexiones humanas, no solo transacciones comerciales.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Xinhua News Agency</span>
+            <a href="https://www.xinhuanet.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-9">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💼 Empresas</span>
+            <span class="numero-noticia">#9</span>
+          </div>
+          <h2 class="tarjeta-titulo">Industria de alimentos funcionales en China crece con demanda de consumidores por salud preventiva</h2>
+          <div class="tarjeta-comentario">
+            <p>El mercado chino de alimentos funcionales y suplementos dirigidos a bienestar preventivo está experimentando crecimiento de doble dígito, impulsado por consumidores urbanos preocupados por envejecimiento saludable, estrés y calidad de vida. Empresas nacionales como Perfect World y Infinitus compiten con marcas internacionales ofreciendo productos basados en ingredientes tradicionales chinos combinados con investigación científica moderna. Este fenómeno refleja tanto cambios demográficos—envejecimiento poblacional—como culturales, con creciente enfoque en medicina preventiva y wellness integral. La industria también beneficia de regulaciones más claras que distinguen entre suplementos y medicinas, creando un espacio institucional más definido para la innovación.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Pandaily</span>
+            <a href="https://www.pandaily.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-10">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">👥 Sociedad</span>
+            <span class="numero-noticia">#10</span>
+          </div>
+          <h2 class="tarjeta-titulo">Iniciativas de educación vocacional en zonas rurales buscan reducir brecha de habilidades y oportunidades</h2>
+          <div class="tarjeta-comentario">
+            <p>El gobierno chino está expandiendo programas de capacitación vocacional en provincias rurales, entrenando a jóvenes en oficios técnicos demandados como electricidad, plomería, energías renovables y mantenimiento industrial para reducir la brecha de oportunidades entre zonas urbanas y rurales. Estas iniciativas buscan tanto mejorar ingresos y calidad de vida en el campo como conectar trabajadores calificados con empleadores en expansión en ciudades de segundo nivel. El enfoque reconoce que no todos los estudiantes seguirán educación universitaria tradicional, y que las economías modernas necesitan profesionales técnicos bien preparados. Esta estrategia representa un cambio importante hacia una visión de educación más inclusiva y orientada a necesidades laborales reales del mercado chino contemporáneo.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Global Times</span>
+            <a href="https://www.globaltimes.cn" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+</main>
+
+<footer class="pie">
+  <div class="pie-contenido">
+    <h3>Fuentes consultadas en esta edición</h3>
+    <ul>
+      <li><a href="https://www.caixinglobal.com" target="_blank" rel="noopener">Caixin Global — China acelera inversión en energías renovables, superando el 50% de nueva capacidad instalada</a></li><li><a href="https://www.technode.com" target="_blank" rel="noopener">TechNode — Sector tecnológico chino innova en inteligencia artificial aplicada a manufactura y logística</a></li><li><a href="https://www.scmp.com" target="_blank" rel="noopener">South China Morning Post — Nuevas regulaciones en plataformas de comercio electrónico buscan proteger derechos de vendedores pequeños</a></li><li><a href="https://www.chinadaily.com.cn" target="_blank" rel="noopener">China Daily — China invierte en investigación de medicina regenerativa con enfoque en órganos bioartificiales</a></li><li><a href="https://www.sixthtone.com" target="_blank" rel="noopener">Sixth Tone — Festival de cine en Shanghái celebra el cine documental chino contemporáneo con perspectivas diversas</a></li><li><a href="https://www.yicaiglobal.com" target="_blank" rel="noopener">Yicai Global — Expansión de sistemas de metro en ciudades de segundo nivel transforma movilidad urbana</a></li><li><a href="https://www.reuters.com" target="_blank" rel="noopener">Reuters — Sector exportador chino se adapta a nuevas cadenas de suministro en contexto de fragmentación global</a></li><li><a href="https://www.xinhuanet.com" target="_blank" rel="noopener">Xinhua News Agency — Programa de intercambio cultural juvenil entre China y países africanos alcanza nuevo hito de participantes</a></li><li><a href="https://www.pandaily.com" target="_blank" rel="noopener">Pandaily — Industria de alimentos funcionales en China crece con demanda de consumidores por salud preventiva</a></li><li><a href="https://www.globaltimes.cn" target="_blank" rel="noopener">Global Times — Iniciativas de educación vocacional en zonas rurales buscan reducir brecha de habilidades y oportunidades</a></li>
+    </ul>
+    <div class="pie-creditos">
+      China Hoy · Edición 2026-08-02 · Generado automáticamente con IA ·
+      Las opiniones expresadas son editoriales y no representan posiciones oficiales.
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
