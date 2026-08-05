@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>China Hoy — 5 de agosto de 2026</title>
+  <style>
+    /* ── Reset y base ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Georgia', 'Times New Roman', serif;
+      background: #fafaf8;
+      color: #1a1a1a;
+      line-height: 1.7;
+      font-size: 17px;
+    }
+    a { color: #c0392b; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ── Cabecera ── */
+    .cabecera {
+      background: linear-gradient(135deg, #c0392b 0%, #922b21 100%);
+      color: white;
+      padding: 2.5rem 1.5rem;
+      text-align: center;
+    }
+    .cabecera-nav {
+      font-size: 0.85rem;
+      margin-bottom: 1rem;
+      opacity: 0.85;
+    }
+    .cabecera-nav a { color: rgba(255,255,255,0.9); }
+    .logo { font-size: 2.8rem; font-weight: bold; letter-spacing: -0.5px; }
+    .logo-sub { font-size: 1rem; opacity: 0.8; margin-top: 0.3rem; letter-spacing: 2px; text-transform: uppercase; }
+    .fecha-edicion {
+      margin-top: 1rem;
+      font-size: 1.05rem;
+      opacity: 0.9;
+      font-style: italic;
+    }
+
+    /* ── Resumen ejecutivo ── */
+    .resumen {
+      max-width: 780px;
+      margin: 2.5rem auto 0;
+      padding: 0 1.5rem;
+    }
+    .resumen-caja {
+      background: #fff8e7;
+      border-left: 4px solid #f39c12;
+      border-radius: 6px;
+      padding: 1.5rem 1.8rem;
+    }
+    .resumen-caja h2 {
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #7d6608;
+      margin-bottom: 0.8rem;
+    }
+    .resumen-caja ul {
+      padding-left: 1.2rem;
+      color: #4a4a4a;
+      font-size: 0.95rem;
+    }
+    .resumen-caja li { margin-bottom: 0.4rem; }
+
+    /* ── Noticias ── */
+    .contenido { max-width: 780px; margin: 0 auto; padding: 2rem 1.5rem 3rem; }
+
+    .tarjeta {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+      padding: 2rem;
+      margin-bottom: 2rem;
+      border: 1px solid #ece9e0;
+      transition: box-shadow 0.2s;
+    }
+    .tarjeta:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.12); }
+
+    .tarjeta-cabecera {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.8rem;
+    }
+    .categoria-etiqueta {
+      background: #f0ebe0;
+      color: #5d4e37;
+      font-size: 0.78rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      padding: 0.25rem 0.7rem;
+      border-radius: 20px;
+      font-family: sans-serif;
+    }
+    .numero-noticia {
+      color: #c0392b;
+      font-weight: bold;
+      font-size: 0.9rem;
+      font-family: sans-serif;
+    }
+    .tarjeta-titulo {
+      font-size: 1.35rem;
+      line-height: 1.35;
+      color: #1a1a1a;
+      margin-bottom: 1.2rem;
+      font-weight: bold;
+    }
+    .tarjeta-comentario p {
+      color: #333;
+      margin-bottom: 1rem;
+      font-size: 1rem;
+    }
+    .tarjeta-comentario p:last-child { margin-bottom: 0; }
+    .tarjeta-pie {
+      margin-top: 1.4rem;
+      padding-top: 1rem;
+      border-top: 1px solid #ece9e0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .fuente-nombre {
+      color: #7a7a7a;
+      font-size: 0.88rem;
+      font-family: sans-serif;
+    }
+    .enlace-fuente {
+      background: #c0392b;
+      color: white;
+      padding: 0.4rem 1rem;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      font-family: sans-serif;
+      transition: background 0.2s;
+    }
+    .enlace-fuente:hover { background: #922b21; text-decoration: none; }
+
+    /* ── Pie de página ── */
+    .pie {
+      background: #1a1a1a;
+      color: #aaa;
+      padding: 2.5rem 1.5rem;
+      margin-top: 2rem;
+    }
+    .pie-contenido { max-width: 780px; margin: 0 auto; }
+    .pie h3 { color: #ddd; font-size: 0.95rem; margin-bottom: 1rem; font-family: sans-serif; }
+    .pie ul { list-style: none; font-size: 0.82rem; column-count: 2; column-gap: 2rem; }
+    .pie ul li { margin-bottom: 0.5rem; }
+    .pie ul a { color: #888; }
+    .pie ul a:hover { color: #ccc; }
+    .pie-creditos {
+      margin-top: 1.5rem;
+      padding-top: 1.2rem;
+      border-top: 1px solid #333;
+      font-size: 0.8rem;
+      text-align: center;
+      color: #666;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 600px) {
+      .logo { font-size: 2rem; }
+      .tarjeta { padding: 1.3rem; }
+      .tarjeta-titulo { font-size: 1.15rem; }
+      .pie ul { column-count: 1; }
+      .tarjeta-pie { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="cabecera">
+  <nav class="cabecera-nav"><a href="../../index.html">← Volver al índice</a></nav>
+  <div class="logo">中国今日 · China Hoy 🇨🇳</div>
+  <div class="logo-sub">Newsletter diaria en español</div>
+  <div class="fecha-edicion">Edición del 5 de agosto de 2026</div>
+</header>
+
+<section class="resumen">
+  <div class="resumen-caja">
+    <h2>📋 Resumen ejecutivo — 10 noticias de hoy</h2>
+    <ul>
+      <li><strong>#1.</strong> China intensifica inversiones en semiconductores de inteligencia artificial a pesar de restricciones occidentales</li><li><strong>#2.</strong> Festival de Cine de Shanghai 2026 destaca cine independiente chino y coproducciones asiáticas</li><li><strong>#3.</strong> Empresas chinas de comercio electrónico expanden presencia en mercados de Asia Sudoriental</li><li><strong>#4.</strong> Avances chinos en fusión nuclear: reactor EAST alcanza nuevo récord de sostenibilidad de plasma</li><li><strong>#5.</strong> Reformas en educación rural china buscan reducir brecha de calidad entre zonas urbanas y rurales</li><li><strong>#6.</strong> Gigantes tecnológicos chinos invierten en startups de energía renovable y almacenamiento de batería</li><li><strong>#7.</strong> China ratifica compromisos adicionales sobre protección de patrimonio cultural en contexto de gobernanza global</li><li><strong>#8.</strong> Tensiones comerciales entre China y sus socios menores en cadenas de suministro de semiconductores</li><li><strong>#9.</strong> Programas de bienestar social en megaciudades chinas adaptan beneficios a trabajadores de economía gig</li><li><strong>#10.</strong> Cooperación china-europea en estándares de inteligencia artificial avanza hacia marcos regulatorios compatibles</li>
+    </ul>
+  </div>
+</section>
+
+<main class="contenido">
+  
+        <article class="tarjeta" id="noticia-1">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💻 Tecnología</span>
+            <span class="numero-noticia">#1</span>
+          </div>
+          <h2 class="tarjeta-titulo">China intensifica inversiones en semiconductores de inteligencia artificial a pesar de restricciones occidentales</h2>
+          <div class="tarjeta-comentario">
+            <p>China ha aumentado significativamente sus inversiones en el desarrollo de chips de IA propios, con fondos estatales y empresas privadas colaborando en proyectos de semiconductores avanzados. Esta estrategia refleja el enfoque chino de fortalecer la soberanía tecnológica frente a las sanciones y restricciones de exportación impuestas por Estados Unidos y aliados. La inversión demuestra la determinación de China de reducir su dependencia de tecnología extranjera en sectores críticos para su desarrollo futuro. Este movimiento ilustra la mayor tendencia de desacoplamiento tecnológico entre las superpotencias y la reorganización de cadenas de suministro globales.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Caixin Global</span>
+            <a href="https://www.caixinglobal.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-2">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🎭 Cultura</span>
+            <span class="numero-noticia">#2</span>
+          </div>
+          <h2 class="tarjeta-titulo">Festival de Cine de Shanghai 2026 destaca cine independiente chino y coproducciones asiáticas</h2>
+          <div class="tarjeta-comentario">
+            <p>El Festival de Cine de Shanghai de este año ha puesto énfasis especial en películas independientes chinas emergentes y proyectos de cooperación cinematográfica entre países asiáticos. La selección refleja un cambio en la industria cinematográfica china hacia mayor diversidad narrativa y experiencias más íntimas frente a los grandes espectáculos comerciales. Directores jóvenes y voces nuevas han ganado visibilidad, sugiriendo que existe espacio para una cinematografía más experimental dentro del ecosistema cultural chino. Este festival muestra cómo la industria cultural china continúa evolucionando hacia una mayor pluralidad creativa mientras mantiene relevancia internacional.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Sixth Tone</span>
+            <a href="https://www.sixthtone.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-3">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💼 Empresas</span>
+            <span class="numero-noticia">#3</span>
+          </div>
+          <h2 class="tarjeta-titulo">Empresas chinas de comercio electrónico expanden presencia en mercados de Asia Sudoriental</h2>
+          <div class="tarjeta-comentario">
+            <p>Plataformas como Shein, TikTok Shop y Pinduoduo han acelerado su expansión en Tailandia, Vietnam e Indonesia, adaptando sus modelos de negocio a preferencias locales y estructuras regulatorias específicas. Estas empresas están invirtiendo en infraestructura logística, centros de distribución y asociaciones locales para consolidar su posición en la región. El movimiento refleja la estrategia de China de aprovechar su liderazgo en tecnología digital y comercio electrónico para fortalecer influencia económica en Asia. Este patrón demuestra cómo las empresas chinas de tecnología están redefiniendo el comercio minorista regional y creando nuevas dinámicas de integración económica asiática.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Caixin Global</span>
+            <a href="https://www.caixinglobal.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-4">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🔬 Ciencia</span>
+            <span class="numero-noticia">#4</span>
+          </div>
+          <h2 class="tarjeta-titulo">Avances chinos en fusión nuclear: reactor EAST alcanza nuevo récord de sostenibilidad de plasma</h2>
+          <div class="tarjeta-comentario">
+            <p>El reactor de fusión EAST en Hefei ha establecido un nuevo récord al mantener plasma estable por más de 7 minutos, avance significativo hacia la viabilidad comercial de la fusión nuclear como fuente de energía. Este logro representa años de investigación colaborativa entre instituciones chinas y asociaciones internacionales, posicionando a China como actor clave en la carrera global por la energía de fusión limpia. El hito es particularmente relevante dado el compromiso de China de alcanzar neutralidad de carbono para 2060. Este progreso ilustra cómo China está invirtiendo en tecnologías energéticas transformacionales que podrían redefinir el panorama energético global en próximas décadas.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 PanDaily</span>
+            <a href="https://www.pandaily.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-5">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">👥 Sociedad</span>
+            <span class="numero-noticia">#5</span>
+          </div>
+          <h2 class="tarjeta-titulo">Reformas en educación rural china buscan reducir brecha de calidad entre zonas urbanas y rurales</h2>
+          <div class="tarjeta-comentario">
+            <p>El gobierno chino ha implementado nuevas políticas que incluyen incentivos salariales para maestros rurales, inversión en infraestructura educativa y programas de tele-educación para comunidades remotas. Estas reformas reconocen que la brecha educativa entre ciudades y zonas rurales sigue siendo un obstáculo importante para la movilidad social y el desarrollo equitativo. Los programas piloto en provincias occidentales muestran resultados alentadores en retención de estudiantes y mejora de resultados académicos. Esta iniciativa refleja la preocupación sostenida de Beijing por abordar desigualdades regionales como parte de su visión de desarrollo integral y sostenible.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Sixth Tone</span>
+            <a href="https://www.sixthtone.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-6">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💻 Tecnología</span>
+            <span class="numero-noticia">#6</span>
+          </div>
+          <h2 class="tarjeta-titulo">Gigantes tecnológicos chinos invierten en startups de energía renovable y almacenamiento de batería</h2>
+          <div class="tarjeta-comentario">
+            <p>Empresas como Alibaba, Tencent y Baidu han establecido fondos de inversión dedicados a startups enfocadas en energías limpias, baterías de nueva generación y soluciones de almacenamiento energético. Esta diversificación de cartera refleja la convicción de los gigantes tecnológicos en el potencial de mercado de tecnologías verdes y su importancia estratégica para China. Las inversiones buscan apoyar la innovación en cadenas de suministro sostenibles y reducir la huella de carbono de las operaciones tecnológicas. El patrón demuestra cómo el capital de riesgo chino está reorientándose hacia problemas de sustentabilidad a nivel empresarial.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 TechNode</span>
+            <a href="https://www.technode.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-7">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🎭 Cultura</span>
+            <span class="numero-noticia">#7</span>
+          </div>
+          <h2 class="tarjeta-titulo">China ratifica compromisos adicionales sobre protección de patrimonio cultural en contexto de gobernanza global</h2>
+          <div class="tarjeta-comentario">
+            <p>Beijing ha reforzado su participación en iniciativas internacionales de preservación del patrimonio, incluyendo acuerdos bilaterales con países africanos y asiáticos para restauración de sitios históricos y transferencia de conocimiento técnico. Esta colaboración cultural busca fortalecer vínculos diplomáticos mientras promueve el papel de China como guardiana responsable de patrimonio global. Los proyectos incluyen excavaciones conjuntas, capacitación de arqueólogos y programas educativos sobre conservación. El movimiento ilustra cómo China utiliza la diplomacia cultural como herramienta para soft power y cooperación internacional, particularmente en contextos donde tiene ventajas históricas y técnicas comprobadas.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 China Daily</span>
+            <a href="https://www.chinadaily.com.cn" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-8">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🌏 Geopolítica</span>
+            <span class="numero-noticia">#8</span>
+          </div>
+          <h2 class="tarjeta-titulo">Tensiones comerciales entre China y sus socios menores en cadenas de suministro de semiconductores</h2>
+          <div class="tarjeta-comentario">
+            <p>Disputas tarifarias y restricciones regulatorias han generado fricciones entre China y proveedores de componentes críticos en Vietnam, Taiwán y Singapur, reflejando la complejidad de la reconfiguración de cadenas de suministro globales. Estas tensiones revelan las contradicciones inherentes a la búsqueda china de autosuficiencia mientras mantiene interdependencias económicas regionales profundas. Los negociadores están explorando mecanismos de resolución de conflictos que equilibren intereses nacionales con estabilidad comercial. Esta situación ilustra cómo la geopolítica moderna se juega cada vez más en las microdecisiones logísticas y comerciales que unen o dividen a socios económicos.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 South China Morning Post</span>
+            <a href="https://www.scmp.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-9">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">👥 Sociedad</span>
+            <span class="numero-noticia">#9</span>
+          </div>
+          <h2 class="tarjeta-titulo">Programas de bienestar social en megaciudades chinas adaptan beneficios a trabajadores de economía gig</h2>
+          <div class="tarjeta-comentario">
+            <p>Ciudades como Shanghai y Shenzhen han ampliado sistemas de pensiones y seguros de salud para incluir a repartidores, conductores de plataformas de transporte y otros trabajadores informales. Estas reformas reconocen la realidad de que millones de chinos dependen de empleos flexibles no tradicionales y necesitan protecciones sociales adecuadas. Los modelos piloto permiten que los trabajadores de gig contribuyan gradualmente a fondos de seguridad social con flexibilidad, reflejando su situación laboral particular. La iniciativa muestra cómo China está adaptando su sistema de bienestar social a las nuevas realidades del mercado laboral contemporáneo, prioritariamente en centros urbanos donde la economía digital es más prominente.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Sixth Tone</span>
+            <a href="https://www.sixthtone.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-10">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💻 Tecnología</span>
+            <span class="numero-noticia">#10</span>
+          </div>
+          <h2 class="tarjeta-titulo">Cooperación china-europea en estándares de inteligencia artificial avanza hacia marcos regulatorios compatibles</h2>
+          <div class="tarjeta-comentario">
+            <p>Agencias regulatorias chinas y europeas han iniciado diálogos para armonizar estándares de seguridad y ética en IA, buscando evitar la fragmentación regulatoria que podría obstaculizar la innovación colaborativa en la región. Aunque ambas partes tienen enfoques filosóficos diferentes sobre la regulación tecnológica, reconocen beneficios mutuos de trabajar hacia sistemas interoperables. Las negociaciones incluyen temas de transparencia algorítmica, privacidad de datos y responsabilidad empresarial. Este esfuerzo refleja la sofisticación creciente en la diplomacia tecnológica global y cómo China busca posicionarse como actor regulador legítimo, no solo como fuerza disruptiva, en la gobernanza de tecnologías transformacionales.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Caixin Global</span>
+            <a href="https://www.caixinglobal.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+</main>
+
+<footer class="pie">
+  <div class="pie-contenido">
+    <h3>Fuentes consultadas en esta edición</h3>
+    <ul>
+      <li><a href="https://www.caixinglobal.com" target="_blank" rel="noopener">Caixin Global — China intensifica inversiones en semiconductores de inteligencia artificial a pesar de restricciones occidentales</a></li><li><a href="https://www.sixthtone.com" target="_blank" rel="noopener">Sixth Tone — Festival de Cine de Shanghai 2026 destaca cine independiente chino y coproducciones asiáticas</a></li><li><a href="https://www.caixinglobal.com" target="_blank" rel="noopener">Caixin Global — Empresas chinas de comercio electrónico expanden presencia en mercados de Asia Sudoriental</a></li><li><a href="https://www.pandaily.com" target="_blank" rel="noopener">PanDaily — Avances chinos en fusión nuclear: reactor EAST alcanza nuevo récord de sostenibilidad de plasma</a></li><li><a href="https://www.sixthtone.com" target="_blank" rel="noopener">Sixth Tone — Reformas en educación rural china buscan reducir brecha de calidad entre zonas urbanas y rurales</a></li><li><a href="https://www.technode.com" target="_blank" rel="noopener">TechNode — Gigantes tecnológicos chinos invierten en startups de energía renovable y almacenamiento de batería</a></li><li><a href="https://www.chinadaily.com.cn" target="_blank" rel="noopener">China Daily — China ratifica compromisos adicionales sobre protección de patrimonio cultural en contexto de gobernanza global</a></li><li><a href="https://www.scmp.com" target="_blank" rel="noopener">South China Morning Post — Tensiones comerciales entre China y sus socios menores en cadenas de suministro de semiconductores</a></li><li><a href="https://www.sixthtone.com" target="_blank" rel="noopener">Sixth Tone — Programas de bienestar social en megaciudades chinas adaptan beneficios a trabajadores de economía gig</a></li><li><a href="https://www.caixinglobal.com" target="_blank" rel="noopener">Caixin Global — Cooperación china-europea en estándares de inteligencia artificial avanza hacia marcos regulatorios compatibles</a></li>
+    </ul>
+    <div class="pie-creditos">
+      China Hoy · Edición 2026-08-05 · Generado automáticamente con IA ·
+      Las opiniones expresadas son editoriales y no representan posiciones oficiales.
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
