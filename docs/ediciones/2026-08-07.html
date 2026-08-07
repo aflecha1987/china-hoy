@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>China Hoy — 7 de agosto de 2026</title>
+  <style>
+    /* ── Reset y base ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Georgia', 'Times New Roman', serif;
+      background: #fafaf8;
+      color: #1a1a1a;
+      line-height: 1.7;
+      font-size: 17px;
+    }
+    a { color: #c0392b; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ── Cabecera ── */
+    .cabecera {
+      background: linear-gradient(135deg, #c0392b 0%, #922b21 100%);
+      color: white;
+      padding: 2.5rem 1.5rem;
+      text-align: center;
+    }
+    .cabecera-nav {
+      font-size: 0.85rem;
+      margin-bottom: 1rem;
+      opacity: 0.85;
+    }
+    .cabecera-nav a { color: rgba(255,255,255,0.9); }
+    .logo { font-size: 2.8rem; font-weight: bold; letter-spacing: -0.5px; }
+    .logo-sub { font-size: 1rem; opacity: 0.8; margin-top: 0.3rem; letter-spacing: 2px; text-transform: uppercase; }
+    .fecha-edicion {
+      margin-top: 1rem;
+      font-size: 1.05rem;
+      opacity: 0.9;
+      font-style: italic;
+    }
+
+    /* ── Resumen ejecutivo ── */
+    .resumen {
+      max-width: 780px;
+      margin: 2.5rem auto 0;
+      padding: 0 1.5rem;
+    }
+    .resumen-caja {
+      background: #fff8e7;
+      border-left: 4px solid #f39c12;
+      border-radius: 6px;
+      padding: 1.5rem 1.8rem;
+    }
+    .resumen-caja h2 {
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #7d6608;
+      margin-bottom: 0.8rem;
+    }
+    .resumen-caja ul {
+      padding-left: 1.2rem;
+      color: #4a4a4a;
+      font-size: 0.95rem;
+    }
+    .resumen-caja li { margin-bottom: 0.4rem; }
+
+    /* ── Noticias ── */
+    .contenido { max-width: 780px; margin: 0 auto; padding: 2rem 1.5rem 3rem; }
+
+    .tarjeta {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+      padding: 2rem;
+      margin-bottom: 2rem;
+      border: 1px solid #ece9e0;
+      transition: box-shadow 0.2s;
+    }
+    .tarjeta:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.12); }
+
+    .tarjeta-cabecera {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.8rem;
+    }
+    .categoria-etiqueta {
+      background: #f0ebe0;
+      color: #5d4e37;
+      font-size: 0.78rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      padding: 0.25rem 0.7rem;
+      border-radius: 20px;
+      font-family: sans-serif;
+    }
+    .numero-noticia {
+      color: #c0392b;
+      font-weight: bold;
+      font-size: 0.9rem;
+      font-family: sans-serif;
+    }
+    .tarjeta-titulo {
+      font-size: 1.35rem;
+      line-height: 1.35;
+      color: #1a1a1a;
+      margin-bottom: 1.2rem;
+      font-weight: bold;
+    }
+    .tarjeta-comentario p {
+      color: #333;
+      margin-bottom: 1rem;
+      font-size: 1rem;
+    }
+    .tarjeta-comentario p:last-child { margin-bottom: 0; }
+    .tarjeta-pie {
+      margin-top: 1.4rem;
+      padding-top: 1rem;
+      border-top: 1px solid #ece9e0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .fuente-nombre {
+      color: #7a7a7a;
+      font-size: 0.88rem;
+      font-family: sans-serif;
+    }
+    .enlace-fuente {
+      background: #c0392b;
+      color: white;
+      padding: 0.4rem 1rem;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      font-family: sans-serif;
+      transition: background 0.2s;
+    }
+    .enlace-fuente:hover { background: #922b21; text-decoration: none; }
+
+    /* ── Pie de página ── */
+    .pie {
+      background: #1a1a1a;
+      color: #aaa;
+      padding: 2.5rem 1.5rem;
+      margin-top: 2rem;
+    }
+    .pie-contenido { max-width: 780px; margin: 0 auto; }
+    .pie h3 { color: #ddd; font-size: 0.95rem; margin-bottom: 1rem; font-family: sans-serif; }
+    .pie ul { list-style: none; font-size: 0.82rem; column-count: 2; column-gap: 2rem; }
+    .pie ul li { margin-bottom: 0.5rem; }
+    .pie ul a { color: #888; }
+    .pie ul a:hover { color: #ccc; }
+    .pie-creditos {
+      margin-top: 1.5rem;
+      padding-top: 1.2rem;
+      border-top: 1px solid #333;
+      font-size: 0.8rem;
+      text-align: center;
+      color: #666;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 600px) {
+      .logo { font-size: 2rem; }
+      .tarjeta { padding: 1.3rem; }
+      .tarjeta-titulo { font-size: 1.15rem; }
+      .pie ul { column-count: 1; }
+      .tarjeta-pie { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="cabecera">
+  <nav class="cabecera-nav"><a href="../../index.html">← Volver al índice</a></nav>
+  <div class="logo">中国今日 · China Hoy 🇨🇳</div>
+  <div class="logo-sub">Newsletter diaria en español</div>
+  <div class="fecha-edicion">Edición del 7 de agosto de 2026</div>
+</header>
+
+<section class="resumen">
+  <div class="resumen-caja">
+    <h2>📋 Resumen ejecutivo — 10 noticias de hoy</h2>
+    <ul>
+      <li><strong>#1.</strong> China alcanza nuevo hito en energía renovable con capacidad solar superior a 800 GW</li><li><strong>#2.</strong> Alibaba y Tencent reportan crecimiento de usuarios activos en plataformas de comercio electrónico</li><li><strong>#3.</strong> Instituto de investigación chino desarrolla avances en baterías de estado sólido para vehículos eléctricos</li><li><strong>#4.</strong> Festival de cine de Shanghái presenta retrospectiva de directores chinos contemporáneos</li><li><strong>#5.</strong> Estudio revela impacto de políticas de natalidad en ciudades de segundo y tercer nivel de China</li><li><strong>#6.</strong> Huawei anuncia nuevo ecosistema de hardware y software para computación en nube doméstica</li><li><strong>#7.</strong> China y Vietnam avanzan en negociaciones sobre delimitación de zona económica exclusiva</li><li><strong>#8.</strong> Universidades chinas lideran publicaciones en inteligencia artificial en revista Nature</li><li><strong>#9.</strong> Nuevos reguladores de protección de datos personal impulsan cambios en plataformas de medios sociales chinas</li><li><strong>#10.</strong> BYD expande presencia en mercados automotrices europeos con nuevas plantas de fabricación</li>
+    </ul>
+  </div>
+</section>
+
+<main class="contenido">
+  
+        <article class="tarjeta" id="noticia-1">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🔬 Ciencia</span>
+            <span class="numero-noticia">#1</span>
+          </div>
+          <h2 class="tarjeta-titulo">China alcanza nuevo hito en energía renovable con capacidad solar superior a 800 GW</h2>
+          <div class="tarjeta-comentario">
+            <p>China ha superado los 800 gigavatios de capacidad de energía solar instalada, consolidándose como líder mundial indiscutible en transición energética. Este logro refleja la aceleración de la inversión en tecnologías limpias y la integración a gran escala de renovables en la red nacional. El hito es especialmente significativo porque demuestra que la descarbonización de la economía china no es solo un objetivo político, sino una realidad en construcción con implicaciones globales para el mercado de tecnología verde.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 China Daily</span>
+            <a href="https://www.chinadaily.com.cn" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-2">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💼 Empresas</span>
+            <span class="numero-noticia">#2</span>
+          </div>
+          <h2 class="tarjeta-titulo">Alibaba y Tencent reportan crecimiento de usuarios activos en plataformas de comercio electrónico</h2>
+          <div class="tarjeta-comentario">
+            <p>Los gigantes del comercio electrónico chino muestran resiliencia con números de usuarios activos en aumento, impulsados por la integración de inteligencia artificial y sistemas de recomendación más sofisticados. El crecimiento ocurre en un contexto de competencia feroz con nuevos jugadores como Pinduoduo, que han redefinido la captura de usuarios de menor ingreso. Estos datos sugieren una maduración del mercado donde las plataformas compiten no solo por volumen, sino por engagement y permanencia de usuarios.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Caixin Global</span>
+            <a href="https://www.caixinglobal.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-3">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💻 Tecnología</span>
+            <span class="numero-noticia">#3</span>
+          </div>
+          <h2 class="tarjeta-titulo">Instituto de investigación chino desarrolla avances en baterías de estado sólido para vehículos eléctricos</h2>
+          <div class="tarjeta-comentario">
+            <p>Investigadores chinos han logrado mejoras significativas en la densidad energética y ciclos de vida útil de baterías de estado sólido, una tecnología clave para la próxima generación de vehículos eléctricos. El avance posiciona a China en la vanguardia de la carrera global por solucionar los problemas de autonomía y tiempo de carga de los EV. Este desarrollo es estratégico porque las baterías de estado sólido podrían revolucionar la industria automotriz mundial en los próximos 5-10 años.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 TechNode</span>
+            <a href="https://www.technode.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-4">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🎭 Cultura</span>
+            <span class="numero-noticia">#4</span>
+          </div>
+          <h2 class="tarjeta-titulo">Festival de cine de Shanghái presenta retrospectiva de directores chinos contemporáneos</h2>
+          <div class="tarjeta-comentario">
+            <p>La 28ª edición del Festival Internacional de Cine de Shanghái destaca la vitalidad del cine chino contemporáneo con una retrospectiva que examina cómo los directores están abordando temas urbanos, migración rural y transformación generacional. El festival refleja una industria cinematográfica china que ha evolucionado desde producciones de gran presupuesto hacia narrativas más introspectivas y experimentales. Esta tendencia es importante porque muestra una maduración artística y una mayor libertad creativa en la industria del cine chino.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Sixth Tone</span>
+            <a href="https://www.sixthtone.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-5">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">👥 Sociedad</span>
+            <span class="numero-noticia">#5</span>
+          </div>
+          <h2 class="tarjeta-titulo">Estudio revela impacto de políticas de natalidad en ciudades de segundo y tercer nivel de China</h2>
+          <div class="tarjeta-comentario">
+            <p>Una investigación reciente muestra que las políticas de incentivos para la natalidad tienen resultados dispares entre ciudades desarrolladas y ciudades de segundo nivel, donde factores como vivienda asequible y servicios de cuidado infantil son críticos. El estudio revela que el desafío demográfico de China no se resuelve solo con incentivos económicos, sino requiere transformación estructural de políticas de bienestar. Este análisis es relevante porque subraya la complejidad regional de los desafíos demográficos chinos y cómo no existe una solución única para todo el país.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 South China Morning Post</span>
+            <a href="https://www.scmp.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-6">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💻 Tecnología</span>
+            <span class="numero-noticia">#6</span>
+          </div>
+          <h2 class="tarjeta-titulo">Huawei anuncia nuevo ecosistema de hardware y software para computación en nube doméstica</h2>
+          <div class="tarjeta-comentario">
+            <p>Huawei ha presentado una nueva plataforma integrada que busca reducir la dependencia de servicios en la nube occidentales, ofreciendo soluciones de almacenamiento y computación completamente locales para usuarios domésticos y pequeñas empresas. Esta iniciativa refleja la estrategia más amplia de China de construir cadenas de valor tecnológico autónomas frente a restricciones comerciales internacionales. La importancia radica en cómo las sanciones han acelerado la innovación en alternativas locales, creando un mercado interno robusto de soluciones tecnológicas.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Pandaily</span>
+            <a href="https://www.pandaily.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-7">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🌏 Geopolítica</span>
+            <span class="numero-noticia">#7</span>
+          </div>
+          <h2 class="tarjeta-titulo">China y Vietnam avanzan en negociaciones sobre delimitación de zona económica exclusiva</h2>
+          <div class="tarjeta-comentario">
+            <p>Después de meses de negociaciones diplomáticas, China y Vietnam han avanzado en discusiones para resolver disputas sobre la delimitación de sus zonas económicas exclusivas en el Mar de China Meridional. Los diálogos representan un enfoque pragmático de gestión de diferencias en una región estratégicamente vital para el comercio global. Este progreso es significativo porque demuestra que los países ribereños pueden avanzar en cooperación a pesar de tensiones históricas, sentando precedentes para resoluciones pacíficas en disputas marítimas.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Global Times</span>
+            <a href="https://www.globaltimes.cn" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-8">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🔬 Ciencia</span>
+            <span class="numero-noticia">#8</span>
+          </div>
+          <h2 class="tarjeta-titulo">Universidades chinas lideran publicaciones en inteligencia artificial en revista Nature</h2>
+          <div class="tarjeta-comentario">
+            <p>Instituciones académicas chinas han aumentado significativamente sus publicaciones en revistas científicas de alto impacto en el campo de la inteligencia artificial, reflejando el ascenso de China como potencia en investigación en IA. El crecimiento de publicaciones es acompañado por una calidad metodológica que compete con estándares internacionales, incluyendo reproductibilidad y rigor experimental. Este fenómeno ilustra cómo la inversión estatal en investigación y desarrollo está produciendo resultados tangibles en la frontera científica global.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Yicai Global</span>
+            <a href="https://www.yicaiglobal.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-9">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">👥 Sociedad</span>
+            <span class="numero-noticia">#9</span>
+          </div>
+          <h2 class="tarjeta-titulo">Nuevos reguladores de protección de datos personal impulsan cambios en plataformas de medios sociales chinas</h2>
+          <div class="tarjeta-comentario">
+            <p>Las nuevas regulaciones sobre privacidad de datos han obligado a plataformas de redes sociales como WeChat y Douyin a implementar controles más granulares sobre la recopilación y uso de información personal de usuarios. Los cambios reflejan una tendencia global hacia regulación más estricta de datos, similar a la GDPR europea, pero adaptada al contexto regulatorio chino. La importancia de esta medida es que equilibra la necesidad de supervisión estatal con protecciones para el usuario, mostrando evolución en cómo China aborda la gobernanza digital.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 36Kr Global</span>
+            <a href="https://www.36kr.com/en" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-10">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💼 Empresas</span>
+            <span class="numero-noticia">#10</span>
+          </div>
+          <h2 class="tarjeta-titulo">BYD expande presencia en mercados automotrices europeos con nuevas plantas de fabricación</h2>
+          <div class="tarjeta-comentario">
+            <p>BYD, el fabricante de vehículos eléctricos más grande del mundo, ha anunciado la expansión de sus operaciones europeas con nuevas plantas de manufactura diseñadas para reducir costos logísticos y taranceles comerciales. La estrategia refleja la maduración de la industria de EV china y su capacidad competitiva a nivel global sin depender solo de exportaciones desde fábricas domésticas. Este movimiento es significativo porque marca el momento en que fabricantes chinos no solo compiten en precio, sino que establecen presencia industrial permanente en mercados desarrollados.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Reuters</span>
+            <a href="https://www.reuters.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+</main>
+
+<footer class="pie">
+  <div class="pie-contenido">
+    <h3>Fuentes consultadas en esta edición</h3>
+    <ul>
+      <li><a href="https://www.chinadaily.com.cn" target="_blank" rel="noopener">China Daily — China alcanza nuevo hito en energía renovable con capacidad solar superior a 800 GW</a></li><li><a href="https://www.caixinglobal.com" target="_blank" rel="noopener">Caixin Global — Alibaba y Tencent reportan crecimiento de usuarios activos en plataformas de comercio electrónico</a></li><li><a href="https://www.technode.com" target="_blank" rel="noopener">TechNode — Instituto de investigación chino desarrolla avances en baterías de estado sólido para vehículos eléctricos</a></li><li><a href="https://www.sixthtone.com" target="_blank" rel="noopener">Sixth Tone — Festival de cine de Shanghái presenta retrospectiva de directores chinos contemporáneos</a></li><li><a href="https://www.scmp.com" target="_blank" rel="noopener">South China Morning Post — Estudio revela impacto de políticas de natalidad en ciudades de segundo y tercer nivel de China</a></li><li><a href="https://www.pandaily.com" target="_blank" rel="noopener">Pandaily — Huawei anuncia nuevo ecosistema de hardware y software para computación en nube doméstica</a></li><li><a href="https://www.globaltimes.cn" target="_blank" rel="noopener">Global Times — China y Vietnam avanzan en negociaciones sobre delimitación de zona económica exclusiva</a></li><li><a href="https://www.yicaiglobal.com" target="_blank" rel="noopener">Yicai Global — Universidades chinas lideran publicaciones en inteligencia artificial en revista Nature</a></li><li><a href="https://www.36kr.com/en" target="_blank" rel="noopener">36Kr Global — Nuevos reguladores de protección de datos personal impulsan cambios en plataformas de medios sociales chinas</a></li><li><a href="https://www.reuters.com" target="_blank" rel="noopener">Reuters — BYD expande presencia en mercados automotrices europeos con nuevas plantas de fabricación</a></li>
+    </ul>
+    <div class="pie-creditos">
+      China Hoy · Edición 2026-08-07 · Generado automáticamente con IA ·
+      Las opiniones expresadas son editoriales y no representan posiciones oficiales.
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
