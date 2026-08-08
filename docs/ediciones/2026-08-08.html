@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>China Hoy — 8 de agosto de 2026</title>
+  <style>
+    /* ── Reset y base ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Georgia', 'Times New Roman', serif;
+      background: #fafaf8;
+      color: #1a1a1a;
+      line-height: 1.7;
+      font-size: 17px;
+    }
+    a { color: #c0392b; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ── Cabecera ── */
+    .cabecera {
+      background: linear-gradient(135deg, #c0392b 0%, #922b21 100%);
+      color: white;
+      padding: 2.5rem 1.5rem;
+      text-align: center;
+    }
+    .cabecera-nav {
+      font-size: 0.85rem;
+      margin-bottom: 1rem;
+      opacity: 0.85;
+    }
+    .cabecera-nav a { color: rgba(255,255,255,0.9); }
+    .logo { font-size: 2.8rem; font-weight: bold; letter-spacing: -0.5px; }
+    .logo-sub { font-size: 1rem; opacity: 0.8; margin-top: 0.3rem; letter-spacing: 2px; text-transform: uppercase; }
+    .fecha-edicion {
+      margin-top: 1rem;
+      font-size: 1.05rem;
+      opacity: 0.9;
+      font-style: italic;
+    }
+
+    /* ── Resumen ejecutivo ── */
+    .resumen {
+      max-width: 780px;
+      margin: 2.5rem auto 0;
+      padding: 0 1.5rem;
+    }
+    .resumen-caja {
+      background: #fff8e7;
+      border-left: 4px solid #f39c12;
+      border-radius: 6px;
+      padding: 1.5rem 1.8rem;
+    }
+    .resumen-caja h2 {
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #7d6608;
+      margin-bottom: 0.8rem;
+    }
+    .resumen-caja ul {
+      padding-left: 1.2rem;
+      color: #4a4a4a;
+      font-size: 0.95rem;
+    }
+    .resumen-caja li { margin-bottom: 0.4rem; }
+
+    /* ── Noticias ── */
+    .contenido { max-width: 780px; margin: 0 auto; padding: 2rem 1.5rem 3rem; }
+
+    .tarjeta {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+      padding: 2rem;
+      margin-bottom: 2rem;
+      border: 1px solid #ece9e0;
+      transition: box-shadow 0.2s;
+    }
+    .tarjeta:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.12); }
+
+    .tarjeta-cabecera {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.8rem;
+    }
+    .categoria-etiqueta {
+      background: #f0ebe0;
+      color: #5d4e37;
+      font-size: 0.78rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      padding: 0.25rem 0.7rem;
+      border-radius: 20px;
+      font-family: sans-serif;
+    }
+    .numero-noticia {
+      color: #c0392b;
+      font-weight: bold;
+      font-size: 0.9rem;
+      font-family: sans-serif;
+    }
+    .tarjeta-titulo {
+      font-size: 1.35rem;
+      line-height: 1.35;
+      color: #1a1a1a;
+      margin-bottom: 1.2rem;
+      font-weight: bold;
+    }
+    .tarjeta-comentario p {
+      color: #333;
+      margin-bottom: 1rem;
+      font-size: 1rem;
+    }
+    .tarjeta-comentario p:last-child { margin-bottom: 0; }
+    .tarjeta-pie {
+      margin-top: 1.4rem;
+      padding-top: 1rem;
+      border-top: 1px solid #ece9e0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .fuente-nombre {
+      color: #7a7a7a;
+      font-size: 0.88rem;
+      font-family: sans-serif;
+    }
+    .enlace-fuente {
+      background: #c0392b;
+      color: white;
+      padding: 0.4rem 1rem;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      font-family: sans-serif;
+      transition: background 0.2s;
+    }
+    .enlace-fuente:hover { background: #922b21; text-decoration: none; }
+
+    /* ── Pie de página ── */
+    .pie {
+      background: #1a1a1a;
+      color: #aaa;
+      padding: 2.5rem 1.5rem;
+      margin-top: 2rem;
+    }
+    .pie-contenido { max-width: 780px; margin: 0 auto; }
+    .pie h3 { color: #ddd; font-size: 0.95rem; margin-bottom: 1rem; font-family: sans-serif; }
+    .pie ul { list-style: none; font-size: 0.82rem; column-count: 2; column-gap: 2rem; }
+    .pie ul li { margin-bottom: 0.5rem; }
+    .pie ul a { color: #888; }
+    .pie ul a:hover { color: #ccc; }
+    .pie-creditos {
+      margin-top: 1.5rem;
+      padding-top: 1.2rem;
+      border-top: 1px solid #333;
+      font-size: 0.8rem;
+      text-align: center;
+      color: #666;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 600px) {
+      .logo { font-size: 2rem; }
+      .tarjeta { padding: 1.3rem; }
+      .tarjeta-titulo { font-size: 1.15rem; }
+      .pie ul { column-count: 1; }
+      .tarjeta-pie { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="cabecera">
+  <nav class="cabecera-nav"><a href="../../index.html">← Volver al índice</a></nav>
+  <div class="logo">中国今日 · China Hoy 🇨🇳</div>
+  <div class="logo-sub">Newsletter diaria en español</div>
+  <div class="fecha-edicion">Edición del 8 de agosto de 2026</div>
+</header>
+
+<section class="resumen">
+  <div class="resumen-caja">
+    <h2>📋 Resumen ejecutivo — 10 noticias de hoy</h2>
+    <ul>
+      <li><strong>#1.</strong> China acelera desarrollo de chips de inteligencia artificial domésticos</li><li><strong>#2.</strong> Reforma educativa en China: énfasis en educación técnica y vocacional</li><li><strong>#3.</strong> Recuperación de ecosistemas fluviales: resultados en el Yangtze tras restricciones de pesca</li><li><strong>#4.</strong> Expansión de Alibaba en servicios financieros digitales para pequeñas empresas</li><li><strong>#5.</strong> Fortalecimiento de cooperación China-América Latina en infraestructura y comercio</li><li><strong>#6.</strong> Festival de artes tradicionales chinas atrae audiencias globales a través de plataformas digitales</li><li><strong>#7.</strong> Avances en medicina regenerativa: trasplantes de órganos con ingeniería de tejidos</li><li><strong>#8.</strong> Regulación de publicidad en línea: nuevas normas para protección de datos infantiles</li><li><strong>#9.</strong> Huawei lanza línea de smartphones premium con tecnología óptica revolucionaria</li><li><strong>#10.</strong> Iniciativa de turismo sostenible en regiones alpinas: eco-resorts y conservación cultural</li>
+    </ul>
+  </div>
+</section>
+
+<main class="contenido">
+  
+        <article class="tarjeta" id="noticia-1">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💻 Tecnología</span>
+            <span class="numero-noticia">#1</span>
+          </div>
+          <h2 class="tarjeta-titulo">China acelera desarrollo de chips de inteligencia artificial domésticos</h2>
+          <div class="tarjeta-comentario">
+            <p>Frente a las restricciones occidentales de exportación de semiconductores avanzados, China ha intensificado inversiones en diseño y manufactura local de chips para IA, con empresas como Huawei y Cambrian ganando terreno en mercados internacionales. Este esfuerzo refleja una estrategia de autosuficiencia tecnológica que busca reducir la dependencia de proveedores extranjeros y posicionar al país como líder en computación de IA. Los avances recientes en arquitecturas de chips más eficientes demuestran que, aunque China aún está rezagada en nanómetros más pequeños, está cerrando la brecha en aplicaciones prácticas de IA. Esta tendencia ilustra cómo las restricciones comerciales pueden acelerar la innovación doméstica, aunque con ciclos de desarrollo más lentos que los de competidores occidentales.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 TechNode</span>
+            <a href="https://www.technode.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-2">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">👥 Sociedad</span>
+            <span class="numero-noticia">#2</span>
+          </div>
+          <h2 class="tarjeta-titulo">Reforma educativa en China: énfasis en educación técnica y vocacional</h2>
+          <div class="tarjeta-comentario">
+            <p>El gobierno chino ha reforzado políticas para expandir la educación vocacional y técnica, buscando alinear el sistema educativo con demandas del mercado laboral en sectores de manufactura avanzada y servicios especializados. Esta iniciativa responde a cambios demográficos, incluyendo una población envejecida y menor número de estudiantes, mientras redistribuye recursos hacia habilidades prácticas que enfrentan escasez. Las reformas incluyen mayor financiamiento para institutos técnicos, colaboraciones con empresas para programas de capacitación y una revalorización social de profesiones no universitarias. El cambio simboliza una evolución en cómo China entiende el desarrollo humano: menos énfasis en credenciales universitarias masivas y más en empleabilidad y especialización práctica.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 China Daily</span>
+            <a href="https://www.chinadaily.com.cn" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-3">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🔬 Ciencia</span>
+            <span class="numero-noticia">#3</span>
+          </div>
+          <h2 class="tarjeta-titulo">Recuperación de ecosistemas fluviales: resultados en el Yangtze tras restricciones de pesca</h2>
+          <div class="tarjeta-comentario">
+            <p>Después de varios años de prohibición total de pesca comercial en el río Yangtze, estudios científicos muestran recuperación significativa en poblaciones de peces y biodiversidad acuática, con reportes de avistamientos de especies amenazadas como delfines de río. La moratoria, que afectó a más de 280,000 pescadores, fue compensada con subsidios estatales y programas de reconversión laboral hacia sectores como turismo y acuicultura controlada. Los datos recopilados por institutos de investigación demuestran que las políticas ambientales restrictivas pueden generar resultados concretos, aunque requieren inversión social significativa para mitigar impactos en comunidades locales. Este caso se ha convertido en referencia global para iniciativas de restauración fluvial, mostrando que China está priorizando recuperación ecológica incluso con costos económicos de corto plazo.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 CGTN</span>
+            <a href="https://www.cgtn.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-4">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💼 Empresas</span>
+            <span class="numero-noticia">#4</span>
+          </div>
+          <h2 class="tarjeta-titulo">Expansión de Alibaba en servicios financieros digitales para pequeñas empresas</h2>
+          <div class="tarjeta-comentario">
+            <p>Alibaba ha lanzado nuevas plataformas de financiamiento digital dirigidas a pequeños y medianos empresarios, ofreciendo microcréditos, seguros y servicios de gestión financiera integrados en su ecosistema de negocios. La estrategia busca profundizar la presencia de Alibaba en economía rural y ciudades de menor tier, donde tradicionales instituciones financieras tienen menor alcance, democratizando acceso a capital para emprendedores. Los servicios utilizan análisis de datos y IA para evaluar creditworthiness sin requerir garantías físicas, reduciendo fricciones burocráticas. Esta expansión refleja la evolución de plataformas chinas que buscan monetizar ecosistemas completos mientras cumplen objetivos de inclusión financiera, una tendencia que redibuja el rol de tech companies como intermediarios financieros.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Caixin Global</span>
+            <a href="https://www.caixinglobal.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-5">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🌏 Geopolítica</span>
+            <span class="numero-noticia">#5</span>
+          </div>
+          <h2 class="tarjeta-titulo">Fortalecimiento de cooperación China-América Latina en infraestructura y comercio</h2>
+          <div class="tarjeta-comentario">
+            <p>China ha profundizado acuerdos comerciales y de inversión con países latinoamericanos, enfocándose en proyectos de infraestructura, energías limpias y cadenas de suministro de materias primas críticas para la transición energética. Estos compromisos responden a intereses estratégicos múltiples: asegurar acceso a litio, cobre y otros minerales esenciales para producción de baterías, mientras posiciona a China como socio alternativo a influencias occidentales tradicionales. Los proyectos incluyen ampliación de puertos, ferrocarriles y plantas de energía renovable, generando empleo local aunque también generando críticas sobre endeudamiento de gobiernos receptores. La estrategia ilustra cómo China utiliza diplomacia económica para expandir influencia geopolítica, particularmente en regiones donde EEUU ha tenido presencia tradicional, reconfigurando relaciones comerciales y políticas globales.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Global Times</span>
+            <a href="https://www.globaltimes.cn" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-6">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🎭 Cultura</span>
+            <span class="numero-noticia">#6</span>
+          </div>
+          <h2 class="tarjeta-titulo">Festival de artes tradicionales chinas atrae audiencias globales a través de plataformas digitales</h2>
+          <div class="tarjeta-comentario">
+            <p>Festivales que celebran ópera china, caligrafía, cerámica y danzas folclóricas han expandido significativamente su alcance mediante transmisiones en vivo en redes sociales, llegando a millones de espectadores internacionales que nunca antes accedieron a estas expresiones artísticas. Las iniciativas de digitalización, impulsadas tanto por gobiernos locales como por plataformas privadas como Douyin y Bilibili, han transformado cultura tradicional en contenido viral sin diluir autenticidad, con expertos artesanos explicando técnicas milenarias a audiencias globales. Este fenómeno genera ingresos para artistas y comunidades, mientras refuerza soft power chino mostrando profundidad cultural más allá de productos tecnológicos. La tendencia refleja cómo China está modernizando promoción de patrimonio cultural, utilizando herramientas digitales para conectar tradición con públicos contemporáneos.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Sixth Tone</span>
+            <a href="https://www.sixthtone.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-7">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🔬 Ciencia</span>
+            <span class="numero-noticia">#7</span>
+          </div>
+          <h2 class="tarjeta-titulo">Avances en medicina regenerativa: trasplantes de órganos con ingeniería de tejidos</h2>
+          <div class="tarjeta-comentario">
+            <p>Institutos de investigación chinos han logrado avances significativos en ingeniería de tejidos e impresión 3D de órganos, realizando trasplantes experimentales que reducen rechazo inmunológico y mejoran tasas de supervivencia en comparación con procedimientos convencionales. Los proyectos combinan biomateriales innovadores con técnicas de bioimpresión, permitiendo crear estructuras orgánicas personalizadas para cada paciente, una aproximación que puede revolucionar medicina regenerativa global. La inversión estatal en investigación biomédica ha posicionado a institutos como el de la Academia China de Ciencias en la vanguardia de estos desarrollos, compitiendo directamente con laboratorios estadounidenses y europeos. Estos avances demuestran capacidad de China para traducir investigación básica en aplicaciones médicas prácticas, potencialmente beneficiando millones de pacientes que dependen de trasplantes.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Xinhua News Agency</span>
+            <a href="https://www.xinhuanet.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-8">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">👥 Sociedad</span>
+            <span class="numero-noticia">#8</span>
+          </div>
+          <h2 class="tarjeta-titulo">Regulación de publicidad en línea: nuevas normas para protección de datos infantiles</h2>
+          <div class="tarjeta-comentario">
+            <p>Las autoridades regulatorias chinas han implementado nuevas directrices que restringen recopilación de datos personales de menores de edad para publicidad dirigida, requiriendo consentimiento parental explícito y limitando seguimiento comportamental de usuarios jóvenes en plataformas digitales. Las regulaciones responden a preocupaciones crecientes sobre impacto psicológico de publicidad personalizada en niños, incluyendo potencial para hábitos de consumo compulsivo y dependencia digital. Las compañías tecnológicas como Tencent y Bytedance han ajustado algoritmos para cumplir estas normas, priorizando contenido educativo sobre consumista para usuarios menores. Esta tendencia refleja balance que China intenta lograr: permitir innovación digital mientras protege grupos vulnerables, un modelo de regulación que podría influenciar enfoques globales sobre gobernanza de plataformas.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Pandaily</span>
+            <a href="https://www.pandaily.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-9">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💻 Tecnología</span>
+            <span class="numero-noticia">#9</span>
+          </div>
+          <h2 class="tarjeta-titulo">Huawei lanza línea de smartphones premium con tecnología óptica revolucionaria</h2>
+          <div class="tarjeta-comentario">
+            <p>Huawei ha presentado su nueva línea de smartphones con capacidades fotográficas avanzadas basadas en tecnología óptica patentada, desafiando dominio de Samsung y Apple en segmento premium mediante innovaciones en lentes de periscopio y sensores de imagen de alta resolución. El dispositivo representa culminación de inversión multianual en investigación de óptica y procesamiento computacional de imágenes, áreas donde China ha fortalecido su industria de componentes domésticos. Pese a restricciones de exportación de semiconductores, Huawei ha logrado integrar chips diseñados localmente con capacidades comparables a competidores internacionales en segmentos específicos. Este lanzamiento simboliza resiliencia de empresa china frente a sanciones occidentales, demostrando que innovación y diferenciación en productos pueden compensar parcialmente limitaciones tecnológicas en acceso a componentes de punta.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 36Kr Global</span>
+            <a href="https://www.36kr.com/en" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-10">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🎭 Cultura</span>
+            <span class="numero-noticia">#10</span>
+          </div>
+          <h2 class="tarjeta-titulo">Iniciativa de turismo sostenible en regiones alpinas: eco-resorts y conservación cultural</h2>
+          <div class="tarjeta-comentario">
+            <p>Provincias como Yunnan y Tíbet han desarrollado modelos de turismo de base comunitaria que generan ingresos para poblaciones locales mientras preservan ecosistemas montañosos y patrimonio cultural de minorías étnicas, con eco-resorts que emplean arquitectura tradicional y energías renovables. Estas iniciativas buscan alternativa a turismo masivo destructivo, involucrando directamente a comunidades indígenas en gestión de recursos y distribución de ganancias, fortaleciendo identidades culturales frente a presiones de homogenización. El modelo ha atraído turistas nacionales e internacionales interesados en experiencias auténticas, generando demanda por productos artesanales y servicios locales especializados. La tendencia demuestra evolución en cómo China conceptualiza desarrollo: no como extracción de recursos naturales y culturales, sino como oportunidades para que comunidades rurales prosperen mientras mantienen identidades y territorios intactos.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 China Daily</span>
+            <a href="https://www.chinadaily.com.cn" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+</main>
+
+<footer class="pie">
+  <div class="pie-contenido">
+    <h3>Fuentes consultadas en esta edición</h3>
+    <ul>
+      <li><a href="https://www.technode.com" target="_blank" rel="noopener">TechNode — China acelera desarrollo de chips de inteligencia artificial domésticos</a></li><li><a href="https://www.chinadaily.com.cn" target="_blank" rel="noopener">China Daily — Reforma educativa en China: énfasis en educación técnica y vocacional</a></li><li><a href="https://www.cgtn.com" target="_blank" rel="noopener">CGTN — Recuperación de ecosistemas fluviales: resultados en el Yangtze tras restricciones de pesca</a></li><li><a href="https://www.caixinglobal.com" target="_blank" rel="noopener">Caixin Global — Expansión de Alibaba en servicios financieros digitales para pequeñas empresas</a></li><li><a href="https://www.globaltimes.cn" target="_blank" rel="noopener">Global Times — Fortalecimiento de cooperación China-América Latina en infraestructura y comercio</a></li><li><a href="https://www.sixthtone.com" target="_blank" rel="noopener">Sixth Tone — Festival de artes tradicionales chinas atrae audiencias globales a través de plataformas digitales</a></li><li><a href="https://www.xinhuanet.com" target="_blank" rel="noopener">Xinhua News Agency — Avances en medicina regenerativa: trasplantes de órganos con ingeniería de tejidos</a></li><li><a href="https://www.pandaily.com" target="_blank" rel="noopener">Pandaily — Regulación de publicidad en línea: nuevas normas para protección de datos infantiles</a></li><li><a href="https://www.36kr.com/en" target="_blank" rel="noopener">36Kr Global — Huawei lanza línea de smartphones premium con tecnología óptica revolucionaria</a></li><li><a href="https://www.chinadaily.com.cn" target="_blank" rel="noopener">China Daily — Iniciativa de turismo sostenible en regiones alpinas: eco-resorts y conservación cultural</a></li>
+    </ul>
+    <div class="pie-creditos">
+      China Hoy · Edición 2026-08-08 · Generado automáticamente con IA ·
+      Las opiniones expresadas son editoriales y no representan posiciones oficiales.
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
