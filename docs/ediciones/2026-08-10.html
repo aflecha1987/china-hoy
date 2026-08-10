@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>China Hoy — 10 de agosto de 2026</title>
+  <style>
+    /* ── Reset y base ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Georgia', 'Times New Roman', serif;
+      background: #fafaf8;
+      color: #1a1a1a;
+      line-height: 1.7;
+      font-size: 17px;
+    }
+    a { color: #c0392b; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ── Cabecera ── */
+    .cabecera {
+      background: linear-gradient(135deg, #c0392b 0%, #922b21 100%);
+      color: white;
+      padding: 2.5rem 1.5rem;
+      text-align: center;
+    }
+    .cabecera-nav {
+      font-size: 0.85rem;
+      margin-bottom: 1rem;
+      opacity: 0.85;
+    }
+    .cabecera-nav a { color: rgba(255,255,255,0.9); }
+    .logo { font-size: 2.8rem; font-weight: bold; letter-spacing: -0.5px; }
+    .logo-sub { font-size: 1rem; opacity: 0.8; margin-top: 0.3rem; letter-spacing: 2px; text-transform: uppercase; }
+    .fecha-edicion {
+      margin-top: 1rem;
+      font-size: 1.05rem;
+      opacity: 0.9;
+      font-style: italic;
+    }
+
+    /* ── Resumen ejecutivo ── */
+    .resumen {
+      max-width: 780px;
+      margin: 2.5rem auto 0;
+      padding: 0 1.5rem;
+    }
+    .resumen-caja {
+      background: #fff8e7;
+      border-left: 4px solid #f39c12;
+      border-radius: 6px;
+      padding: 1.5rem 1.8rem;
+    }
+    .resumen-caja h2 {
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #7d6608;
+      margin-bottom: 0.8rem;
+    }
+    .resumen-caja ul {
+      padding-left: 1.2rem;
+      color: #4a4a4a;
+      font-size: 0.95rem;
+    }
+    .resumen-caja li { margin-bottom: 0.4rem; }
+
+    /* ── Noticias ── */
+    .contenido { max-width: 780px; margin: 0 auto; padding: 2rem 1.5rem 3rem; }
+
+    .tarjeta {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+      padding: 2rem;
+      margin-bottom: 2rem;
+      border: 1px solid #ece9e0;
+      transition: box-shadow 0.2s;
+    }
+    .tarjeta:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.12); }
+
+    .tarjeta-cabecera {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.8rem;
+    }
+    .categoria-etiqueta {
+      background: #f0ebe0;
+      color: #5d4e37;
+      font-size: 0.78rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      padding: 0.25rem 0.7rem;
+      border-radius: 20px;
+      font-family: sans-serif;
+    }
+    .numero-noticia {
+      color: #c0392b;
+      font-weight: bold;
+      font-size: 0.9rem;
+      font-family: sans-serif;
+    }
+    .tarjeta-titulo {
+      font-size: 1.35rem;
+      line-height: 1.35;
+      color: #1a1a1a;
+      margin-bottom: 1.2rem;
+      font-weight: bold;
+    }
+    .tarjeta-comentario p {
+      color: #333;
+      margin-bottom: 1rem;
+      font-size: 1rem;
+    }
+    .tarjeta-comentario p:last-child { margin-bottom: 0; }
+    .tarjeta-pie {
+      margin-top: 1.4rem;
+      padding-top: 1rem;
+      border-top: 1px solid #ece9e0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .fuente-nombre {
+      color: #7a7a7a;
+      font-size: 0.88rem;
+      font-family: sans-serif;
+    }
+    .enlace-fuente {
+      background: #c0392b;
+      color: white;
+      padding: 0.4rem 1rem;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      font-family: sans-serif;
+      transition: background 0.2s;
+    }
+    .enlace-fuente:hover { background: #922b21; text-decoration: none; }
+
+    /* ── Pie de página ── */
+    .pie {
+      background: #1a1a1a;
+      color: #aaa;
+      padding: 2.5rem 1.5rem;
+      margin-top: 2rem;
+    }
+    .pie-contenido { max-width: 780px; margin: 0 auto; }
+    .pie h3 { color: #ddd; font-size: 0.95rem; margin-bottom: 1rem; font-family: sans-serif; }
+    .pie ul { list-style: none; font-size: 0.82rem; column-count: 2; column-gap: 2rem; }
+    .pie ul li { margin-bottom: 0.5rem; }
+    .pie ul a { color: #888; }
+    .pie ul a:hover { color: #ccc; }
+    .pie-creditos {
+      margin-top: 1.5rem;
+      padding-top: 1.2rem;
+      border-top: 1px solid #333;
+      font-size: 0.8rem;
+      text-align: center;
+      color: #666;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 600px) {
+      .logo { font-size: 2rem; }
+      .tarjeta { padding: 1.3rem; }
+      .tarjeta-titulo { font-size: 1.15rem; }
+      .pie ul { column-count: 1; }
+      .tarjeta-pie { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="cabecera">
+  <nav class="cabecera-nav"><a href="../../index.html">← Volver al índice</a></nav>
+  <div class="logo">中国今日 · China Hoy 🇨🇳</div>
+  <div class="logo-sub">Newsletter diaria en español</div>
+  <div class="fecha-edicion">Edición del 10 de agosto de 2026</div>
+</header>
+
+<section class="resumen">
+  <div class="resumen-caja">
+    <h2>📋 Resumen ejecutivo — 10 noticias de hoy</h2>
+    <ul>
+      <li><strong>#1.</strong> China avanza en computación cuántica con nuevo procesador Zuchongzhi</li><li><strong>#2.</strong> Reforma educativa: China amplía educación vocacional en ciudades de tercer nivel</li><li><strong>#3.</strong> Crece consumo de bebidas saludables en China: marcas locales desafían a occidentales</li><li><strong>#4.</strong> Descubrimiento arqueológico: nueva dinastía identificada antes de la Shang</li><li><strong>#5.</strong> Colaboración científica: China y países africanos en proyectos de energía renovable</li><li><strong>#6.</strong> Regulación fintech: Banco Central fortalece supervisión de plataformas de pagos</li><li><strong>#7.</strong> Tensión comercial: Aranceles estadounidenses a productos tecnológicos chinos suben nuevamente</li><li><strong>#8.</strong> Innovación urbana: Ciudades inteligentes chinas integran IA en gestión del tráfico</li><li><strong>#9.</strong> Patrimonio inmaterial: China reconoce nuevas prácticas culturales como patrimonio de la humanidad</li><li><strong>#10.</strong> Salud pública: Campaña masiva de prevención de enfermedades crónicas en áreas rurales</li>
+    </ul>
+  </div>
+</section>
+
+<main class="contenido">
+  
+        <article class="tarjeta" id="noticia-1">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💻 Tecnología</span>
+            <span class="numero-noticia">#1</span>
+          </div>
+          <h2 class="tarjeta-titulo">China avanza en computación cuántica con nuevo procesador Zuchongzhi</h2>
+          <div class="tarjeta-comentario">
+            <p>Investigadores chinos han presentado avances significativos en procesadores cuánticos, demostrando mejoras sustanciales en velocidad y estabilidad respecto a generaciones anteriores. Este logro posiciona a China como competidor clave en la carrera global por la supremacía cuántica, un campo crítico para criptografía, simulación molecular y optimización de complejos problemas. El desarrollo refleja inversiones masivas en I+D y el creciente ecosistema de investigación en institutos como la Academia de Ciencias de China. La velocidad de innovación muestra que los objetivos establecidos en el Plan Made in China 2025 en semiconductores avanzados están generando resultados tangibles.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 TechNode</span>
+            <a href="https://www.technode.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-2">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">👥 Sociedad</span>
+            <span class="numero-noticia">#2</span>
+          </div>
+          <h2 class="tarjeta-titulo">Reforma educativa: China amplía educación vocacional en ciudades de tercer nivel</h2>
+          <div class="tarjeta-comentario">
+            <p>El Ministerio de Educación ha lanzado una iniciativa para expandir programas de educación técnica y vocacional en ciudades menores, buscando reducir la presión de las universidades tradicionales y alinear la formación con demandas del mercado laboral regional. Esta política responde a décadas de énfasis en educación académica que ha dejado déficit de profesionales capacitados en oficios especializados. La medida también busca reducir disparidades educativas entre zonas urbanas de primera línea y territorios menos desarrollados, reflejando preocupaciones por equidad y cohesión territorial. Se trata de un reajuste importante en la priorización de qué tipo de educación se valora en la sociedad china.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Sixth Tone</span>
+            <a href="https://www.sixthtone.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-3">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💼 Empresas</span>
+            <span class="numero-noticia">#3</span>
+          </div>
+          <h2 class="tarjeta-titulo">Crece consumo de bebidas saludables en China: marcas locales desafían a occidentales</h2>
+          <div class="tarjeta-comentario">
+            <p>Startups chinas de bebidas funcionales y wellness han capturado significativa cuota de mercado, desplazando opciones tradicionales y compitiendo directamente con marcas internacionales como Coca-Cola y Pepsi. Empresas como Nongfu Spring y nuevos jugadores enfocados en tés de hierbas, aguas minerales y bebidas probióticas están respondiendo a cambios demográficos y de preferencias hacia productos percibidos como más saludables. El fenómeno refleja tanto evolución en hábitos de consumo como mayor sofisticación de empresas locales en branding y distribución. Este patrón de desplazamiento de marcas occidentales por innovadores locales se replica en múltiples sectores de consumo en China.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Caixin Global</span>
+            <a href="https://www.caixinglobal.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-4">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🎭 Cultura</span>
+            <span class="numero-noticia">#4</span>
+          </div>
+          <h2 class="tarjeta-titulo">Descubrimiento arqueológico: nueva dinastía identificada antes de la Shang</h2>
+          <div class="tarjeta-comentario">
+            <p>Arqueólogos chinos han identificado evidencia de una civilización perdida en la llanura central que precede a la dinastía Shang, basándose en análisis de cerámica, estructuras y artefactos hallados en excavaciones recientes. Este descubrimiento reescribe parcialmente la cronología de la historia antigua china y sugiere redes comerciales y tecnológicas más complejas de lo previamente reconocido en el segundo milenio antes de nuestra era. Los hallazgos enfatizan la importancia de la arqueología como disciplina para entender continuidades y cambios en civilización china. Las investigaciones, financiadas con recursos nacionales significativos, refuerzan la prioridad política de fortalecer la arqueología como herramienta de comprensión histórica y patrimonio cultural.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 CCTV News</span>
+            <a href="https://english.cctv.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-5">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🔬 Ciencia</span>
+            <span class="numero-noticia">#5</span>
+          </div>
+          <h2 class="tarjeta-titulo">Colaboración científica: China y países africanos en proyectos de energía renovable</h2>
+          <div class="tarjeta-comentario">
+            <p>Instituciones de investigación chinas se han asociado con universidades y centros de investigación africanos en proyectos de energía solar y eólica, compartiendo tecnología y capacitación técnica en el contexto de la iniciativa Cinturón y Ruta. Los proyectos incluyen fabricación de paneles solares mejorados, sistemas de almacenamiento de energía y capacitación de ingenieros locales en mantenimiento y operación. Esta colaboración ilustra cómo China está posicionando expertise tecnológico como activo geopolítico mientras contribuye a objetivos de desarrollo sostenible en el Sur Global. La estrategia combina interés comercial con diplomacia de transferencia tecnológica que fortalece lazos a largo plazo.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Xinhua News Agency</span>
+            <a href="https://www.xinhuanet.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-6">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💼 Empresas</span>
+            <span class="numero-noticia">#6</span>
+          </div>
+          <h2 class="tarjeta-titulo">Regulación fintech: Banco Central fortalece supervisión de plataformas de pagos</h2>
+          <div class="tarjeta-comentario">
+            <p>El Banco Popular de China ha emitido nuevas directrices para aumentar supervisión de plataformas de pago digital y servicios fintech no bancarios, enfocándose en prevención de lavado de dinero, protección del consumidor y estabilidad sistémica. Las medidas incluyen requisitos más estrictos de capital, auditorías frecuentes y límites en ciertos tipos de transacciones de alto riesgo. La regulación refleja maduración del sector fintech, que ha experimentado crecimiento explosivo en la última década, y responde a preocupaciones legítimas sobre riesgos sistémicos y fraude. El balance buscado es mantener innovación mientras se protegen depósitos y usuarios, un desafío que enfrentan reguladores en todo el mundo.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Caixin Global</span>
+            <a href="https://www.caixinglobal.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-7">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🌏 Geopolítica</span>
+            <span class="numero-noticia">#7</span>
+          </div>
+          <h2 class="tarjeta-titulo">Tensión comercial: Aranceles estadounidenses a productos tecnológicos chinos suben nuevamente</h2>
+          <div class="tarjeta-comentario">
+            <p>Administración estadounidense ha anunciado incrementos en aranceles a semiconductores, componentes electrónicos y software chinos como parte de política de restricción tecnológica para mantener ventaja competitiva occidental. China ha respondido con sus propias contramedidasarancelarias en productos agrícolas y químicos estadounidenses, escalando nuevamente ciclos de represalias comerciales que afectan cadenas de suministro globales. El conflicto subyacente refleja competencia estructural por liderazgo tecnológico en inteligencia artificial, computación cuántica y semiconductores, no simplemente desacuerdos comerciales. El patrón de escalada muestra que las presiones geopolíticas seguirán moldeando decisiones empresariales y de inversión en ambos países.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 South China Morning Post</span>
+            <a href="https://www.scmp.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-8">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💻 Tecnología</span>
+            <span class="numero-noticia">#8</span>
+          </div>
+          <h2 class="tarjeta-titulo">Innovación urbana: Ciudades inteligentes chinas integran IA en gestión del tráfico</h2>
+          <div class="tarjeta-comentario">
+            <p>Ciudades como Shenzhen, Hangzhou y Chongqing han desplegado sistemas de control de tráfico basados en inteligencia artificial que procesan datos de millones de sensores en tiempo real para optimizar flujo vehicular y reducir congestión. Los sistemas utilizan aprendizaje automático para predecir patrones de circulación, ajustar semáforos dinámicamente y priorizar transporte público, mejorando eficiencia hasta 20-30 por ciento en zonas piloto. Estas implementaciones son laboratórios vivos para tecnología urbana que China espera exportar como soluciones a otras ciudades bajo iniciativas de infraestructura global. El despliegue masivo de IA en ciudades chinas genera datos y experiencia operativa sin igual a nivel global.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 TechNode</span>
+            <a href="https://www.technode.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-9">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🎭 Cultura</span>
+            <span class="numero-noticia">#9</span>
+          </div>
+          <h2 class="tarjeta-titulo">Patrimonio inmaterial: China reconoce nuevas prácticas culturales como patrimonio de la humanidad</h2>
+          <div class="tarjeta-comentario">
+            <p>UNESCO ha añadido varias prácticas culturales chinas a su lista de patrimonio inmaterial de la humanidad, incluyendo artes tradicionales, técnicas textiles ancestrales y festividades regionales de décadas de antigüedad. Los reconocimientos, resultado de nominaciones sistemáticas del gobierno chino, elevan visibilidad global de tradiciones culturales mientras generan incentivos para preservación y transmisión intergeneracional en comunidades locales. Esta estrategia de patrimonialización es herramienta de soft power cultural que posiciona a China como guardiana de tradiciones y diversidad, particularmente en regiones autónomas. El énfasis en patrimonio inmaterial refleja deseo de equilibrar modernización con preservación cultural, tema central en políticas de desarrollo cultural nacional.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 China Daily</span>
+            <a href="https://www.chinadaily.com.cn" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-10">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">👥 Sociedad</span>
+            <span class="numero-noticia">#10</span>
+          </div>
+          <h2 class="tarjeta-titulo">Salud pública: Campaña masiva de prevención de enfermedades crónicas en áreas rurales</h2>
+          <div class="tarjeta-comentario">
+            <p>El Ministerio de Salud ha iniciado campaña nacional de detección temprana y educación preventiva enfocada en diabetes, hipertensión y enfermedades cardiovasculares en zonas rurales, donde acceso a servicios de salud y conciencia médica son tradicionalmente menores. La iniciativa incluye envío de equipos médicos móviles, entrenamiento de médicos locales y educación comunitaria sobre estilos de vida saludables. El programa refleja reconocimiento de que enfermedades crónicas, antes concentradas en áreas urbanas, están creciendo rápidamente en el campo debido a cambios dietéticos y envejecimiento poblacional. Estas inversiones en salud preventiva rural son componente clave de equidad territorial y sostenibilidad de sistemas de salud a largo plazo.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 People&#39;s Daily Online</span>
+            <a href="https://english.peopledaily.com.cn" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+</main>
+
+<footer class="pie">
+  <div class="pie-contenido">
+    <h3>Fuentes consultadas en esta edición</h3>
+    <ul>
+      <li><a href="https://www.technode.com" target="_blank" rel="noopener">TechNode — China avanza en computación cuántica con nuevo procesador Zuchongzhi</a></li><li><a href="https://www.sixthtone.com" target="_blank" rel="noopener">Sixth Tone — Reforma educativa: China amplía educación vocacional en ciudades de tercer nivel</a></li><li><a href="https://www.caixinglobal.com" target="_blank" rel="noopener">Caixin Global — Crece consumo de bebidas saludables en China: marcas locales desafían a occidentales</a></li><li><a href="https://english.cctv.com" target="_blank" rel="noopener">CCTV News — Descubrimiento arqueológico: nueva dinastía identificada antes de la Shang</a></li><li><a href="https://www.xinhuanet.com" target="_blank" rel="noopener">Xinhua News Agency — Colaboración científica: China y países africanos en proyectos de energía renovable</a></li><li><a href="https://www.caixinglobal.com" target="_blank" rel="noopener">Caixin Global — Regulación fintech: Banco Central fortalece supervisión de plataformas de pagos</a></li><li><a href="https://www.scmp.com" target="_blank" rel="noopener">South China Morning Post — Tensión comercial: Aranceles estadounidenses a productos tecnológicos chinos suben nuevamente</a></li><li><a href="https://www.technode.com" target="_blank" rel="noopener">TechNode — Innovación urbana: Ciudades inteligentes chinas integran IA en gestión del tráfico</a></li><li><a href="https://www.chinadaily.com.cn" target="_blank" rel="noopener">China Daily — Patrimonio inmaterial: China reconoce nuevas prácticas culturales como patrimonio de la humanidad</a></li><li><a href="https://english.peopledaily.com.cn" target="_blank" rel="noopener">People&#39;s Daily Online — Salud pública: Campaña masiva de prevención de enfermedades crónicas en áreas rurales</a></li>
+    </ul>
+    <div class="pie-creditos">
+      China Hoy · Edición 2026-08-10 · Generado automáticamente con IA ·
+      Las opiniones expresadas son editoriales y no representan posiciones oficiales.
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
