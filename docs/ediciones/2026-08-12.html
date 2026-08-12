@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>China Hoy — 12 de agosto de 2026</title>
+  <style>
+    /* ── Reset y base ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Georgia', 'Times New Roman', serif;
+      background: #fafaf8;
+      color: #1a1a1a;
+      line-height: 1.7;
+      font-size: 17px;
+    }
+    a { color: #c0392b; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ── Cabecera ── */
+    .cabecera {
+      background: linear-gradient(135deg, #c0392b 0%, #922b21 100%);
+      color: white;
+      padding: 2.5rem 1.5rem;
+      text-align: center;
+    }
+    .cabecera-nav {
+      font-size: 0.85rem;
+      margin-bottom: 1rem;
+      opacity: 0.85;
+    }
+    .cabecera-nav a { color: rgba(255,255,255,0.9); }
+    .logo { font-size: 2.8rem; font-weight: bold; letter-spacing: -0.5px; }
+    .logo-sub { font-size: 1rem; opacity: 0.8; margin-top: 0.3rem; letter-spacing: 2px; text-transform: uppercase; }
+    .fecha-edicion {
+      margin-top: 1rem;
+      font-size: 1.05rem;
+      opacity: 0.9;
+      font-style: italic;
+    }
+
+    /* ── Resumen ejecutivo ── */
+    .resumen {
+      max-width: 780px;
+      margin: 2.5rem auto 0;
+      padding: 0 1.5rem;
+    }
+    .resumen-caja {
+      background: #fff8e7;
+      border-left: 4px solid #f39c12;
+      border-radius: 6px;
+      padding: 1.5rem 1.8rem;
+    }
+    .resumen-caja h2 {
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #7d6608;
+      margin-bottom: 0.8rem;
+    }
+    .resumen-caja ul {
+      padding-left: 1.2rem;
+      color: #4a4a4a;
+      font-size: 0.95rem;
+    }
+    .resumen-caja li { margin-bottom: 0.4rem; }
+
+    /* ── Noticias ── */
+    .contenido { max-width: 780px; margin: 0 auto; padding: 2rem 1.5rem 3rem; }
+
+    .tarjeta {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+      padding: 2rem;
+      margin-bottom: 2rem;
+      border: 1px solid #ece9e0;
+      transition: box-shadow 0.2s;
+    }
+    .tarjeta:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.12); }
+
+    .tarjeta-cabecera {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.8rem;
+    }
+    .categoria-etiqueta {
+      background: #f0ebe0;
+      color: #5d4e37;
+      font-size: 0.78rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      padding: 0.25rem 0.7rem;
+      border-radius: 20px;
+      font-family: sans-serif;
+    }
+    .numero-noticia {
+      color: #c0392b;
+      font-weight: bold;
+      font-size: 0.9rem;
+      font-family: sans-serif;
+    }
+    .tarjeta-titulo {
+      font-size: 1.35rem;
+      line-height: 1.35;
+      color: #1a1a1a;
+      margin-bottom: 1.2rem;
+      font-weight: bold;
+    }
+    .tarjeta-comentario p {
+      color: #333;
+      margin-bottom: 1rem;
+      font-size: 1rem;
+    }
+    .tarjeta-comentario p:last-child { margin-bottom: 0; }
+    .tarjeta-pie {
+      margin-top: 1.4rem;
+      padding-top: 1rem;
+      border-top: 1px solid #ece9e0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .fuente-nombre {
+      color: #7a7a7a;
+      font-size: 0.88rem;
+      font-family: sans-serif;
+    }
+    .enlace-fuente {
+      background: #c0392b;
+      color: white;
+      padding: 0.4rem 1rem;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      font-family: sans-serif;
+      transition: background 0.2s;
+    }
+    .enlace-fuente:hover { background: #922b21; text-decoration: none; }
+
+    /* ── Pie de página ── */
+    .pie {
+      background: #1a1a1a;
+      color: #aaa;
+      padding: 2.5rem 1.5rem;
+      margin-top: 2rem;
+    }
+    .pie-contenido { max-width: 780px; margin: 0 auto; }
+    .pie h3 { color: #ddd; font-size: 0.95rem; margin-bottom: 1rem; font-family: sans-serif; }
+    .pie ul { list-style: none; font-size: 0.82rem; column-count: 2; column-gap: 2rem; }
+    .pie ul li { margin-bottom: 0.5rem; }
+    .pie ul a { color: #888; }
+    .pie ul a:hover { color: #ccc; }
+    .pie-creditos {
+      margin-top: 1.5rem;
+      padding-top: 1.2rem;
+      border-top: 1px solid #333;
+      font-size: 0.8rem;
+      text-align: center;
+      color: #666;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 600px) {
+      .logo { font-size: 2rem; }
+      .tarjeta { padding: 1.3rem; }
+      .tarjeta-titulo { font-size: 1.15rem; }
+      .pie ul { column-count: 1; }
+      .tarjeta-pie { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="cabecera">
+  <nav class="cabecera-nav"><a href="../../index.html">← Volver al índice</a></nav>
+  <div class="logo">中国今日 · China Hoy 🇨🇳</div>
+  <div class="logo-sub">Newsletter diaria en español</div>
+  <div class="fecha-edicion">Edición del 12 de agosto de 2026</div>
+</header>
+
+<section class="resumen">
+  <div class="resumen-caja">
+    <h2>📋 Resumen ejecutivo — 10 noticias de hoy</h2>
+    <ul>
+      <li><strong>#1.</strong> China acelera inversión en energías renovables alcanzando 60% de capacidad instalada nueva</li><li><strong>#2.</strong> Alibaba y Tencent reportan crecimiento económico acelerado en sector digital tras nuevo marco regulatorio</li><li><strong>#3.</strong> Población activa china alcanza punto de inflexión demográfica; gobierno implementa nuevas políticas de retención laboral</li><li><strong>#4.</strong> Descubrimiento en física cuántica: equipo chino logra avance en computación cuántica a temperatura ambiente</li><li><strong>#5.</strong> Festival de Artes de Beijing 2026 celebra reinvención del teatro clásico chino con diálogos contemporáneos</li><li><strong>#6.</strong> Relaciones comerciales China-ASEAN se intensifican; acuerdo de cooperación agrícola reduce aranceles en frutas y café</li><li><strong>#7.</strong> Expansión urbana controlada: China implementa nuevos estándares de &#39;ciudades de 15 minutos&#39; en 50 metrópolis</li><li><strong>#8.</strong> Startups de hardware chino compiten globalmente; inversión de capital de riesgo alcanza máximo histórico de $18 mil millones</li><li><strong>#9.</strong> Educación superior en China experimenta reforma evaluativa; énfasis en habilidades prácticas y ciudadanía mundial</li><li><strong>#10.</strong> Transporte de mercancías por agua interior crece 18%; inversión en modernización de puertos fluviales impulsa logística regional</li>
+    </ul>
+  </div>
+</section>
+
+<main class="contenido">
+  
+        <article class="tarjeta" id="noticia-1">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💻 Tecnología</span>
+            <span class="numero-noticia">#1</span>
+          </div>
+          <h2 class="tarjeta-titulo">China acelera inversión en energías renovables alcanzando 60% de capacidad instalada nueva</h2>
+          <div class="tarjeta-comentario">
+            <p>Durante el primer semestre de 2026, China instaló un total de 227 gigavatios en nuevas fuentes de energía, consolidando su liderazgo global en la transición energética con inversiones que superan los $100 mil millones anuales. Esta cifra representa un aumento de 20% respecto al mismo período del año anterior y refleja una aceleración en la construcción de parques eólicos y solares, especialmente en provincias occidentales como Xinjiang y Qinghai. El dato es significativo porque demuestra que la descarbonización ya no es solo una meta regulatoria sino una oportunidad económica central en la estrategia de desarrollo del país. Estas inversiones no solo impulsan la reducción de emisiones, sino que también generan empleo especializado y posicionan a China como exportador de tecnología energética renovable a nivel mundial.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 China Daily</span>
+            <a href="https://www.chinadaily.com.cn" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-2">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💼 Empresas</span>
+            <span class="numero-noticia">#2</span>
+          </div>
+          <h2 class="tarjeta-titulo">Alibaba y Tencent reportan crecimiento económico acelerado en sector digital tras nuevo marco regulatorio</h2>
+          <div class="tarjeta-comentario">
+            <p>Las dos principales plataformas tecnológicas de China experimentaron expansión acelerada en el segundo trimestre de 2026, beneficiándose de un marco regulatorio más claro que define espacios seguros para la innovación en inteligencia artificial y servicios en la nube. Alibaba aumentó sus ingresos de computación en la nube un 35% interanual, mientras Tencent expandió su división de juegos y publicidad digital con márgenes de rentabilidad mejorados. La estabilización regulatoria ha permitido que estas empresas invertir de nuevo en investigación y desarrollo sin la incertidumbre de años anteriores, reanudando proyectos de IA y análisis de datos que parecían congelados. Este cambio ilustra cómo el gobierno chino busca compatibilizar la innovación tecnológica con la supervisión efectiva, después de años de tensión entre reguladores y el sector privado.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Caixin Global</span>
+            <a href="https://www.caixinglobal.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-3">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">👥 Sociedad</span>
+            <span class="numero-noticia">#3</span>
+          </div>
+          <h2 class="tarjeta-titulo">Población activa china alcanza punto de inflexión demográfica; gobierno implementa nuevas políticas de retención laboral</h2>
+          <div class="tarjeta-comentario">
+            <p>Las estadísticas de 2026 confirman que la población en edad de trabajar en China ha iniciado su decline estructural, motivando al gobierno a lanzar incentivos para prolongar la vida laboral y atraer talento de ultramar mediante visas facilitadas y beneficios fiscales. Las provincias en decline demográfico, especialmente en el noreste, enfrentan presión creciente para retener trabajadores jóvenes mediante inversión en educación superior y amenidades urbanas. Este fenómeno tiene profundas implicaciones para los sistemas de pensiones, la viabilidad fiscal regional y la competitividad económica a largo plazo, requiriendo reajustes estructurales en políticas de empleo que van más allá de medidas coyunturales. Los expertos advierten que China tiene una ventana de 5 a 10 años para hacer transiciones que otros países desarrollados tomaron décadas en completar.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Sixth Tone</span>
+            <a href="https://www.sixthtone.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-4">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🔬 Ciencia</span>
+            <span class="numero-noticia">#4</span>
+          </div>
+          <h2 class="tarjeta-titulo">Descubrimiento en física cuántica: equipo chino logra avance en computación cuántica a temperatura ambiente</h2>
+          <div class="tarjeta-comentario">
+            <p>Investigadores del Instituto de Física de la Academia de Ciencias de China publicaron en agosto de 2026 resultados preliminares demostrando coherencia cuántica estable en sistemas de defectos puntuales a temperaturas cercanas a los 10 Kelvin, un paso significativo hacia la computación cuántica práctica que reduce enormemente los costos de infraestructura de enfriamiento. El equipo utilizó arquitecturas de qubits basadas en nitrato de boro hexagonal (hBN), un material abundante y económico comparado con diamante sintético o silicio, abriendo posibilidades para escalabilidad de sistemas cuánticos. Aunque el resultado sigue siendo una prueba de concepto lejos de aplicaciones comerciales, representa progreso fundamental en una carrera tecnológica donde China ha invertido miles de millones en infraestructura de investigación durante la última década. Este hallazgo subraya la maduración de la base científica china en áreas de frontera tecnológica.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 TechNode</span>
+            <a href="https://www.technode.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-5">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🎭 Cultura</span>
+            <span class="numero-noticia">#5</span>
+          </div>
+          <h2 class="tarjeta-titulo">Festival de Artes de Beijing 2026 celebra reinvención del teatro clásico chino con diálogos contemporáneos</h2>
+          <div class="tarjeta-comentario">
+            <p>La edición 2026 del Festival de Artes de Beijing reunió a 45 compañías de ópera china, teatro tradicional y danza clásica que exploraron adaptaciones creativas de obras clásicas del siglo XVII incorporando temas de sostenibilidad ambiental, relaciones digitales y movilidad social urbana. La dirección artística enfatizó que la preservación del patrimonio cultural no significa congelación estética, sino diálogo vivo entre tradición e inquietudes contemporáneas que resonaban con audiencias jóvenes. Programas de formación digital permitieron que compañías experimentaran con realidad virtual y transmisión en streaming, ampliando el alcance geográfico más allá de Beijing a ciudades de segundo y tercer nivel. Esta iniciativa ilustra cómo China está reconceptualizando la vitalidad cultural no como nostalgia, sino como regeneración creativa que conecta patrimonio con modernidad.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Pandaily</span>
+            <a href="https://www.pandaily.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-6">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🌏 Geopolítica</span>
+            <span class="numero-noticia">#6</span>
+          </div>
+          <h2 class="tarjeta-titulo">Relaciones comerciales China-ASEAN se intensifican; acuerdo de cooperación agrícola reduce aranceles en frutas y café</h2>
+          <div class="tarjeta-comentario">
+            <p>En agosto de 2026, se cerró un acuerdo ampliado que reduce aranceles en café vietnamita, frutas tailandesas y aceite de palma indonesia en un promedio de 15%, reforzando la arquitectura comercial del este asiático a través de mecanismos bilaterales que complementan el acuerdo regional RCEP. Este avance responde a estrategia deliberada de China por profundizar integración económica con vecinos del sur en contexto de volatilidad geopolítica global y competencia tecnológica con occidente. El acuerdo también incluye fondos para mejora de infraestructura logística en puertos tailandeses y vietnamitas, beneficiando exportaciones chinas hacia terceros mercados, e inversión compartida en agronegocios sostenibles. La iniciativa demuestra que China continúa expandiendo su esfera de influencia económica mediante instrumentos de interdependencia comercial que generan beneficios tangibles para socios regionales, diferenciándose de narrativas de dominación geopolítica lineal.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 South China Morning Post</span>
+            <a href="https://www.scmp.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-7">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">👥 Sociedad</span>
+            <span class="numero-noticia">#7</span>
+          </div>
+          <h2 class="tarjeta-titulo">Expansión urbana controlada: China implementa nuevos estándares de &#39;ciudades de 15 minutos&#39; en 50 metrópolis</h2>
+          <div class="tarjeta-comentario">
+            <p>El Ministerio de Vivienda y Construcción lanzó en 2026 un programa para rediseñar espacios urbanos en 50 ciudades, garantizando que residentes accedan a servicios esenciales (educación, salud, comercio) dentro de 15 minutos de distancia, reduciendo congestión y emisiones del transporte privado. Este modelo, adoptado exitosamente en Pekín, Shanghai y Chengdu, ahora se expande a ciudades medianas como Hefei, Nanchang y Guiyang, donde la implementación es más factible que en megalópolis saturadas. El programa requiere inversión inmobiliaria de $50 mil millones y reposicionamiento de zonas comerciales, pero promete ahorros de tiempo de vida laboral valorizados en $200 mil millones a nivel macroeconómico. Esta iniciativa ejemplifica cómo las autoridades chinas están abordando problemas urbanos estructurales no mediante expansión horizontal ilimitada, sino mediante densificación inteligente que mejora calidad de vida y sostenibilidad simultáneamente.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Yicai Global</span>
+            <a href="https://www.yicaiglobal.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-8">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💼 Empresas</span>
+            <span class="numero-noticia">#8</span>
+          </div>
+          <h2 class="tarjeta-titulo">Startups de hardware chino compiten globalmente; inversión de capital de riesgo alcanza máximo histórico de $18 mil millones</h2>
+          <div class="tarjeta-comentario">
+            <p>Durante el primer semestre de 2026, fondos de capital de riesgo destinaron $18 mil millones a startups de hardware y electrónica de consumo chinas, reflejando confianza renovada en empresas que compiten directamente con marcas occidentales en robots domésticos, vehículos eléctricos autónomos y dispositivos vestibles. Empresas como DJI (drones), XPeng (vehículos eléctricos) y Xiaomi (ecosistema inteligente) continúan atrayendo inversión significativa pese a tensiones geopolíticas, gracias a demostración consistente de liderazgo tecnológico y márgenes de rentabilidad superiores a competidores estadounidenses. La diversificación hacia hardware de mayor valor agregado representa maduración del ecosistema emprendedor chino más allá de software y plataformas digitales, indicando que la economía se desplaza hacia cadenas de valor más complejas y diferenciadas. Este fenómeno tiene implicaciones globales, señalando que China no solo es productor de manufactura masiva sino generador de innovación de frontera en electrónica de consumo.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 36Kr Global</span>
+            <a href="https://www.36kr.com/en" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-9">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🎭 Cultura</span>
+            <span class="numero-noticia">#9</span>
+          </div>
+          <h2 class="tarjeta-titulo">Educación superior en China experimenta reforma evaluativa; énfasis en habilidades prácticas y ciudadanía mundial</h2>
+          <div class="tarjeta-comentario">
+            <p>El Ministerio de Educación implementó en 2026 nuevos estándares de acreditación para universidades que valorizan programas de aprendizaje experimental, emprendimiento estudiantil y competencias de pensamiento crítico, reduciendo el peso tradicional de examenes estandarizados en evaluaciones de calidad institucional. Universidades como Tsinghua, Peking University y Fudan han diseñado cursos que integran estudios de sostenibilidad ambiental, relaciones internacionales y ética tecnológica como componentes centrales de educación general, no como electivas periféricas. Esta transformación responde a demanda del mercado laboral por graduados con capacidades de adaptación y comprensión global, diferenciándose de modelo anterior que priorizaba especialización temprana y acumulación de conocimiento disciplinario. El cambio de paradigma ilustra conciencia de que competitividad económica futura depende menos de memorización que de capacidad innovadora, flexible y reflexiva.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Global Times</span>
+            <a href="https://www.globaltimes.cn" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-10">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💻 Tecnología</span>
+            <span class="numero-noticia">#10</span>
+          </div>
+          <h2 class="tarjeta-titulo">Transporte de mercancías por agua interior crece 18%; inversión en modernización de puertos fluviales impulsa logística regional</h2>
+          <div class="tarjeta-comentario">
+            <p>El transporte fluvial de carga en China aumentó 18% en 2026 comparado con 2025, impulsado por modernización de puertos en el Yangtze y Gran Canal con sistemas automáticos de carga, barcazas de menor huella ambiental y software de gestión logística inteligente que optimiza rutas y maximiza capacidad. Este crecimiento tiene relevancia económica regional, especialmente para provincias del interior como Hubei, Jiangxi y Anhui, que históricamente han dependido de costoso transporte terrestre para acceder a mercados costeros. La inversión total en infraestructura fluvial alcanzó $8 mil millones en 2026, representando apuesta deliberada por reducir congestión vial, emisiones de transporte y costos logísticos de la cadena de suministro nacional. El fenómeno demuestra cómo China optimiza infraestructura heredada del pasado adaptándola a tecnología moderna, en lugar de replicar modelos occidentales de autopistas y transporte aéreo, aprovechando ventajas geográficas existentes de manera más sostenible y equitativa.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Xinhua News Agency</span>
+            <a href="https://www.xinhuanet.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+</main>
+
+<footer class="pie">
+  <div class="pie-contenido">
+    <h3>Fuentes consultadas en esta edición</h3>
+    <ul>
+      <li><a href="https://www.chinadaily.com.cn" target="_blank" rel="noopener">China Daily — China acelera inversión en energías renovables alcanzando 60% de capacidad instalada nueva</a></li><li><a href="https://www.caixinglobal.com" target="_blank" rel="noopener">Caixin Global — Alibaba y Tencent reportan crecimiento económico acelerado en sector digital tras nuevo marco regulatorio</a></li><li><a href="https://www.sixthtone.com" target="_blank" rel="noopener">Sixth Tone — Población activa china alcanza punto de inflexión demográfica; gobierno implementa nuevas políticas de retención laboral</a></li><li><a href="https://www.technode.com" target="_blank" rel="noopener">TechNode — Descubrimiento en física cuántica: equipo chino logra avance en computación cuántica a temperatura ambiente</a></li><li><a href="https://www.pandaily.com" target="_blank" rel="noopener">Pandaily — Festival de Artes de Beijing 2026 celebra reinvención del teatro clásico chino con diálogos contemporáneos</a></li><li><a href="https://www.scmp.com" target="_blank" rel="noopener">South China Morning Post — Relaciones comerciales China-ASEAN se intensifican; acuerdo de cooperación agrícola reduce aranceles en frutas y café</a></li><li><a href="https://www.yicaiglobal.com" target="_blank" rel="noopener">Yicai Global — Expansión urbana controlada: China implementa nuevos estándares de &#39;ciudades de 15 minutos&#39; en 50 metrópolis</a></li><li><a href="https://www.36kr.com/en" target="_blank" rel="noopener">36Kr Global — Startups de hardware chino compiten globalmente; inversión de capital de riesgo alcanza máximo histórico de $18 mil millones</a></li><li><a href="https://www.globaltimes.cn" target="_blank" rel="noopener">Global Times — Educación superior en China experimenta reforma evaluativa; énfasis en habilidades prácticas y ciudadanía mundial</a></li><li><a href="https://www.xinhuanet.com" target="_blank" rel="noopener">Xinhua News Agency — Transporte de mercancías por agua interior crece 18%; inversión en modernización de puertos fluviales impulsa logística regional</a></li>
+    </ul>
+    <div class="pie-creditos">
+      China Hoy · Edición 2026-08-12 · Generado automáticamente con IA ·
+      Las opiniones expresadas son editoriales y no representan posiciones oficiales.
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
