@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>China Hoy — 15 de agosto de 2026</title>
+  <style>
+    /* ── Reset y base ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Georgia', 'Times New Roman', serif;
+      background: #fafaf8;
+      color: #1a1a1a;
+      line-height: 1.7;
+      font-size: 17px;
+    }
+    a { color: #c0392b; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ── Cabecera ── */
+    .cabecera {
+      background: linear-gradient(135deg, #c0392b 0%, #922b21 100%);
+      color: white;
+      padding: 2.5rem 1.5rem;
+      text-align: center;
+    }
+    .cabecera-nav {
+      font-size: 0.85rem;
+      margin-bottom: 1rem;
+      opacity: 0.85;
+    }
+    .cabecera-nav a { color: rgba(255,255,255,0.9); }
+    .logo { font-size: 2.8rem; font-weight: bold; letter-spacing: -0.5px; }
+    .logo-sub { font-size: 1rem; opacity: 0.8; margin-top: 0.3rem; letter-spacing: 2px; text-transform: uppercase; }
+    .fecha-edicion {
+      margin-top: 1rem;
+      font-size: 1.05rem;
+      opacity: 0.9;
+      font-style: italic;
+    }
+
+    /* ── Resumen ejecutivo ── */
+    .resumen {
+      max-width: 780px;
+      margin: 2.5rem auto 0;
+      padding: 0 1.5rem;
+    }
+    .resumen-caja {
+      background: #fff8e7;
+      border-left: 4px solid #f39c12;
+      border-radius: 6px;
+      padding: 1.5rem 1.8rem;
+    }
+    .resumen-caja h2 {
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #7d6608;
+      margin-bottom: 0.8rem;
+    }
+    .resumen-caja ul {
+      padding-left: 1.2rem;
+      color: #4a4a4a;
+      font-size: 0.95rem;
+    }
+    .resumen-caja li { margin-bottom: 0.4rem; }
+
+    /* ── Noticias ── */
+    .contenido { max-width: 780px; margin: 0 auto; padding: 2rem 1.5rem 3rem; }
+
+    .tarjeta {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+      padding: 2rem;
+      margin-bottom: 2rem;
+      border: 1px solid #ece9e0;
+      transition: box-shadow 0.2s;
+    }
+    .tarjeta:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.12); }
+
+    .tarjeta-cabecera {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.8rem;
+    }
+    .categoria-etiqueta {
+      background: #f0ebe0;
+      color: #5d4e37;
+      font-size: 0.78rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      padding: 0.25rem 0.7rem;
+      border-radius: 20px;
+      font-family: sans-serif;
+    }
+    .numero-noticia {
+      color: #c0392b;
+      font-weight: bold;
+      font-size: 0.9rem;
+      font-family: sans-serif;
+    }
+    .tarjeta-titulo {
+      font-size: 1.35rem;
+      line-height: 1.35;
+      color: #1a1a1a;
+      margin-bottom: 1.2rem;
+      font-weight: bold;
+    }
+    .tarjeta-comentario p {
+      color: #333;
+      margin-bottom: 1rem;
+      font-size: 1rem;
+    }
+    .tarjeta-comentario p:last-child { margin-bottom: 0; }
+    .tarjeta-pie {
+      margin-top: 1.4rem;
+      padding-top: 1rem;
+      border-top: 1px solid #ece9e0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .fuente-nombre {
+      color: #7a7a7a;
+      font-size: 0.88rem;
+      font-family: sans-serif;
+    }
+    .enlace-fuente {
+      background: #c0392b;
+      color: white;
+      padding: 0.4rem 1rem;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      font-family: sans-serif;
+      transition: background 0.2s;
+    }
+    .enlace-fuente:hover { background: #922b21; text-decoration: none; }
+
+    /* ── Pie de página ── */
+    .pie {
+      background: #1a1a1a;
+      color: #aaa;
+      padding: 2.5rem 1.5rem;
+      margin-top: 2rem;
+    }
+    .pie-contenido { max-width: 780px; margin: 0 auto; }
+    .pie h3 { color: #ddd; font-size: 0.95rem; margin-bottom: 1rem; font-family: sans-serif; }
+    .pie ul { list-style: none; font-size: 0.82rem; column-count: 2; column-gap: 2rem; }
+    .pie ul li { margin-bottom: 0.5rem; }
+    .pie ul a { color: #888; }
+    .pie ul a:hover { color: #ccc; }
+    .pie-creditos {
+      margin-top: 1.5rem;
+      padding-top: 1.2rem;
+      border-top: 1px solid #333;
+      font-size: 0.8rem;
+      text-align: center;
+      color: #666;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 600px) {
+      .logo { font-size: 2rem; }
+      .tarjeta { padding: 1.3rem; }
+      .tarjeta-titulo { font-size: 1.15rem; }
+      .pie ul { column-count: 1; }
+      .tarjeta-pie { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="cabecera">
+  <nav class="cabecera-nav"><a href="../../index.html">← Volver al índice</a></nav>
+  <div class="logo">中国今日 · China Hoy 🇨🇳</div>
+  <div class="logo-sub">Newsletter diaria en español</div>
+  <div class="fecha-edicion">Edición del 15 de agosto de 2026</div>
+</header>
+
+<section class="resumen">
+  <div class="resumen-caja">
+    <h2>📋 Resumen ejecutivo — 10 noticias de hoy</h2>
+    <ul>
+      <li><strong>#1.</strong> China acelera inversión en energías renovables, superando récords de capacidad instalada</li><li><strong>#2.</strong> Reforma educativa china enfatiza competencias prácticas y reducción de presión académica</li><li><strong>#3.</strong> Startups de inteligencia artificial china atraen inversión récord a pesar de regulación estricta</li><li><strong>#4.</strong> Descubrimiento arqueológico revela nueva complejidad en dinastías tempranas chinas</li><li><strong>#5.</strong> Beijing amplía zonas de prueba para vehículos autónomos, con expansión a ciudades de segundo nivel</li><li><strong>#6.</strong> Investigación revela avances chinos en fusión nuclear controlada con resultados prometedores</li><li><strong>#7.</strong> Corporaciones chinas avanzan en fabricación de semiconductores avanzados, ganando mercado doméstico</li><li><strong>#8.</strong> Urbanismo verde se expande: ciudades chinas integran espacios naturales en infraestructura metropolitana</li><li><strong>#9.</strong> Plataforma e-commerce china lidera en comercio transfronterizo con nuevas operaciones en América Latina</li><li><strong>#10.</strong> China y sus vecinos avanzan en acuerdos comerciales regionales mientras negocia relaciones con economías desarrolladas</li>
+    </ul>
+  </div>
+</section>
+
+<main class="contenido">
+  
+        <article class="tarjeta" id="noticia-1">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💻 Tecnología</span>
+            <span class="numero-noticia">#1</span>
+          </div>
+          <h2 class="tarjeta-titulo">China acelera inversión en energías renovables, superando récords de capacidad instalada</h2>
+          <div class="tarjeta-comentario">
+            <p>China ha alcanzado un hito histórico con la instalación de capacidad renovable que supera los 1.5 teravatios, consolidándose como líder mundial en transición energética. Esta expansión acelerada de paneles solares y turbinas eólicas responde tanto a compromisos climáticos como a estrategia de seguridad energética independiente. El crecimiento demuestra cómo la innovación en manufactura a escala ha permitido reducir costos drásticamente, convirtiendo las renovables en opción económicamente competitiva. La tendencia refleja el pivote definitivo de China hacia una matriz energética descarbonizada, con implicaciones para cadenas globales de suministro de tecnología verde.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 China Daily</span>
+            <a href="https://www.chinadaily.com.cn" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-2">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">👥 Sociedad</span>
+            <span class="numero-noticia">#2</span>
+          </div>
+          <h2 class="tarjeta-titulo">Reforma educativa china enfatiza competencias prácticas y reducción de presión académica</h2>
+          <div class="tarjeta-comentario">
+            <p>Los nuevos lineamientos del ministerio educativo chino buscan reequilibrar el sistema hacia destrezas vocacionales y creativas, alejándose del énfasis exclusivo en exámenes estandarizados. Esta iniciativa responde a presiones sociales por reducir estrés en menores y a necesidades económicas de mano de obra calificada en sectores específicos. Las reformas incluyen mayor flexibilidad curricular, promoción de artes y oficios, e incentivos para que estudiantes exploren caminos alternativos al examen de entrada universitaria tradicional. El cambio ilustra cómo China está recalibrando su modelo educativo para generar capital humano diverso en una economía más sofisticada.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Sixth Tone</span>
+            <a href="https://www.sixthtone.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-3">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💼 Empresas</span>
+            <span class="numero-noticia">#3</span>
+          </div>
+          <h2 class="tarjeta-titulo">Startups de inteligencia artificial china atraen inversión récord a pesar de regulación estricta</h2>
+          <div class="tarjeta-comentario">
+            <p>Empresas emergentes en IA como Zhipu, Moonshot y otros han captado miles de millones de dólares en financiamiento durante 2026, demostrando que el marco regulatorio chino coexiste con dinamismo empresarial. Los inversores apuestan a que estas compañías pueden desarrollar modelos de lenguaje competitivos globalmente mientras se ajustan a requisitos de seguridad y gobernanza. El fenómeno sugiere una maduración del ecosistema donde regulación y innovación no son necesariamente contradictorias. Este patrón refleja la apuesta de China por liderar en IA a través de consolidación doméstica de talento y capital en empresas nacionales.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 TechNode</span>
+            <a href="https://www.technode.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-4">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🎭 Cultura</span>
+            <span class="numero-noticia">#4</span>
+          </div>
+          <h2 class="tarjeta-titulo">Descubrimiento arqueológico revela nueva complejidad en dinastías tempranas chinas</h2>
+          <div class="tarjeta-comentario">
+            <p>Excavaciones recientes han revelado evidencia de intercambio comercial y influencia cultural más extensa de lo previamente documentado entre civilizaciones chinas antiguas y regiones de Asia Central durante la dinastía Shang. Los hallazgos incluyen artefactos cerámicos, herramientas metalúrgicas y inscripciones que sugieren redes comerciales tempranas más sofisticadas que lo que apuntaba la historiografía convencional. Estos descubrimientos reescriben cronologías y enfatizan la naturaleza cosmopolita de antiguos centros chinos. El hallazgo ilustra cómo arqueología contemporánea sigue desafiando narrativas históricas simplificadas y confirma que China antigua fue un punto de confluencia de múltiples influencias desde épocas tempranas.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 China Today</span>
+            <a href="https://www.chinatoday.com.cn" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-5">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💻 Tecnología</span>
+            <span class="numero-noticia">#5</span>
+          </div>
+          <h2 class="tarjeta-titulo">Beijing amplía zonas de prueba para vehículos autónomos, con expansión a ciudades de segundo nivel</h2>
+          <div class="tarjeta-comentario">
+            <p>La capital china ha autorizado operaciones de taxis autónomos en áreas residenciales y comerciales más amplias, mientras otras metrópolis como Chongqing y Wuhan establecen sus propios programas piloto con regulación coordinada. Estas zonas de prueba permiten recopilar datos masivos sobre comportamiento de vehículos en condiciones urbanas complejas, acelerando el desarrollo de tecnología y generando evidencia para futuras normativas. Las autorizaciones demuestran confianza regulatoria en madurez de plataformas como Baidu Apollo y Didi Chuxing. El movimiento posiciona a China como laboratorio a escala nacional para automatización vehicular, con potencial para exportar tanto tecnología como marcos regulatorios hacia otros mercados.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Pandaily</span>
+            <a href="https://www.pandaily.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-6">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🔬 Ciencia</span>
+            <span class="numero-noticia">#6</span>
+          </div>
+          <h2 class="tarjeta-titulo">Investigación revela avances chinos en fusión nuclear controlada con resultados prometedores</h2>
+          <div class="tarjeta-comentario">
+            <p>El Instituto de Física del Plasma de China ha reportado que su reactor experimental ha mantenido plasma a temperaturas extremas durante periodos más prolongados, marcando progreso tangible hacia viabilidad comercial de energía por fusión nuclear. Aunque los objetivos finales (producción de energía neta positiva) aún requieren años de refinamiento, los resultados demuestran capacidades tecnológicas en criogenia, confinamiento magnético y modelado computacional de clase mundial. Este trabajo se alinea con esfuerzos globales simultáneos en fusión, pero diferenciado por escala de inversión y velocidad de iteración chinas. Los avances subrayan cómo China está invirtiendo en tecnologías de frontera con horizonte de 20-30 años, apostando a transformaciones energéticas profundas.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Caixin Global</span>
+            <a href="https://www.caixinglobal.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-7">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💼 Empresas</span>
+            <span class="numero-noticia">#7</span>
+          </div>
+          <h2 class="tarjeta-titulo">Corporaciones chinas avanzan en fabricación de semiconductores avanzados, ganando mercado doméstico</h2>
+          <div class="tarjeta-comentario">
+            <p>Fabricantes como SMIC y otros han logrado incrementar su participación en producción de chips de nodos más avanzados, reduciendo la dependencia de importaciones estadounidenses y taiwanesas en segmentos específicos. Aunque aún existen limitaciones tecnológicas debido a sanciones occidentales en equipamiento litográfico, los progresos en optimización de procesos y diseño representan un logro ingenieril tangible. El mercado doméstico de semiconductores está diversificándose con inversión masiva estatal y privada en fabricación de chips especializados. Este patrón ilustra una estrategia de autosuficiencia tecnológica donde China intenta construir cadenas completas de valor domésticas en sectores críticos.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 South China Morning Post</span>
+            <a href="https://www.scmp.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-8">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">👥 Sociedad</span>
+            <span class="numero-noticia">#8</span>
+          </div>
+          <h2 class="tarjeta-titulo">Urbanismo verde se expande: ciudades chinas integran espacios naturales en infraestructura metropolitana</h2>
+          <div class="tarjeta-comentario">
+            <p>Más de una docena de ciudades chinas están implementando proyectos de &#39;esponjas urbanas&#39; que capturan y filtran agua de lluvia, parques lineales que conectan espacios verdes discontinuos, y corredores biológicos que cruzan zonas urbanizadas. Estas iniciativas abordan simultáneamente inundaciones urbanas, contaminación del aire, presión térmica y desconexión social del entorno natural en megaciudades sobrecargadas. Los proyectos combinan ancestral sabiduría sobre drenaje con tecnología digital para optimizar sistemas ecológicos distribuidos. La tendencia refleja evolución de China hacia ciudades menos depredadoras ambientalmente y más habitables, donde infraestructura gris se reimagina como interfaz ecológica.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 CGTN</span>
+            <a href="https://www.cgtn.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-9">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💼 Empresas</span>
+            <span class="numero-noticia">#9</span>
+          </div>
+          <h2 class="tarjeta-titulo">Plataforma e-commerce china lidera en comercio transfronterizo con nuevas operaciones en América Latina</h2>
+          <div class="tarjeta-comentario">
+            <p>Plataformas como Shein y Temu han expandido agresivamente sus operaciones en mercados latinoamericanos, ofreciendo productos a precios extremadamente competitivos mediante modelos directos de fabricante a consumidor. Este movimiento representa una estrategia defensiva contra saturación del mercado doméstico y presiones regulatorias en Occidente, mientras simultáneamente introduce nuevos competidores en regiones menos saturadas. Los modelos crean fricciones con comerciantes locales y generan debates sobre sustentabilidad laboral y ambiental de la moda ultrarrápida. La expansión evidencia cómo empresas chinas están escalando globalmente mediante aprovechamiento de ventajas de manufactura y logística, reconfigurando competencia minorista internacional.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 36Kr Global</span>
+            <a href="https://www.36kr.com/en" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-10">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🌏 Geopolítica</span>
+            <span class="numero-noticia">#10</span>
+          </div>
+          <h2 class="tarjeta-titulo">China y sus vecinos avanzan en acuerdos comerciales regionales mientras negocia relaciones con economías desarrolladas</h2>
+          <div class="tarjeta-comentario">
+            <p>La firma de acuerdos bilaterales profundizados con Indonesia, Vietnam y Tailandia sobre integración de cadenas de valor, junto con renovación de marcos de cooperación regional, refleja estrategia china de fortalecer vínculos asiáticos ante tensiones con Occidente. Estos tratados combinan reducción arancelaria, flujo de inversión, y coordinación industrial que posiciona a China como núcleo gravitacional de una región económicamente interdependiente. Simultáneamente, China continúa negociaciones con Estados Unidos y la Unión Europea en áreas de tecnología y comercio. El panorama muestra a China pivotando hacia profundización de influencia económica en su periferia inmediata mientras mantiene canales de diálogo global más complejos.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Yicai Global</span>
+            <a href="https://www.yicaiglobal.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+</main>
+
+<footer class="pie">
+  <div class="pie-contenido">
+    <h3>Fuentes consultadas en esta edición</h3>
+    <ul>
+      <li><a href="https://www.chinadaily.com.cn" target="_blank" rel="noopener">China Daily — China acelera inversión en energías renovables, superando récords de capacidad instalada</a></li><li><a href="https://www.sixthtone.com" target="_blank" rel="noopener">Sixth Tone — Reforma educativa china enfatiza competencias prácticas y reducción de presión académica</a></li><li><a href="https://www.technode.com" target="_blank" rel="noopener">TechNode — Startups de inteligencia artificial china atraen inversión récord a pesar de regulación estricta</a></li><li><a href="https://www.chinatoday.com.cn" target="_blank" rel="noopener">China Today — Descubrimiento arqueológico revela nueva complejidad en dinastías tempranas chinas</a></li><li><a href="https://www.pandaily.com" target="_blank" rel="noopener">Pandaily — Beijing amplía zonas de prueba para vehículos autónomos, con expansión a ciudades de segundo nivel</a></li><li><a href="https://www.caixinglobal.com" target="_blank" rel="noopener">Caixin Global — Investigación revela avances chinos en fusión nuclear controlada con resultados prometedores</a></li><li><a href="https://www.scmp.com" target="_blank" rel="noopener">South China Morning Post — Corporaciones chinas avanzan en fabricación de semiconductores avanzados, ganando mercado doméstico</a></li><li><a href="https://www.cgtn.com" target="_blank" rel="noopener">CGTN — Urbanismo verde se expande: ciudades chinas integran espacios naturales en infraestructura metropolitana</a></li><li><a href="https://www.36kr.com/en" target="_blank" rel="noopener">36Kr Global — Plataforma e-commerce china lidera en comercio transfronterizo con nuevas operaciones en América Latina</a></li><li><a href="https://www.yicaiglobal.com" target="_blank" rel="noopener">Yicai Global — China y sus vecinos avanzan en acuerdos comerciales regionales mientras negocia relaciones con economías desarrolladas</a></li>
+    </ul>
+    <div class="pie-creditos">
+      China Hoy · Edición 2026-08-15 · Generado automáticamente con IA ·
+      Las opiniones expresadas son editoriales y no representan posiciones oficiales.
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
