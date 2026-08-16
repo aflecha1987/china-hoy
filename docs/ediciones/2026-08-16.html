@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>China Hoy — 16 de agosto de 2026</title>
+  <style>
+    /* ── Reset y base ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Georgia', 'Times New Roman', serif;
+      background: #fafaf8;
+      color: #1a1a1a;
+      line-height: 1.7;
+      font-size: 17px;
+    }
+    a { color: #c0392b; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ── Cabecera ── */
+    .cabecera {
+      background: linear-gradient(135deg, #c0392b 0%, #922b21 100%);
+      color: white;
+      padding: 2.5rem 1.5rem;
+      text-align: center;
+    }
+    .cabecera-nav {
+      font-size: 0.85rem;
+      margin-bottom: 1rem;
+      opacity: 0.85;
+    }
+    .cabecera-nav a { color: rgba(255,255,255,0.9); }
+    .logo { font-size: 2.8rem; font-weight: bold; letter-spacing: -0.5px; }
+    .logo-sub { font-size: 1rem; opacity: 0.8; margin-top: 0.3rem; letter-spacing: 2px; text-transform: uppercase; }
+    .fecha-edicion {
+      margin-top: 1rem;
+      font-size: 1.05rem;
+      opacity: 0.9;
+      font-style: italic;
+    }
+
+    /* ── Resumen ejecutivo ── */
+    .resumen {
+      max-width: 780px;
+      margin: 2.5rem auto 0;
+      padding: 0 1.5rem;
+    }
+    .resumen-caja {
+      background: #fff8e7;
+      border-left: 4px solid #f39c12;
+      border-radius: 6px;
+      padding: 1.5rem 1.8rem;
+    }
+    .resumen-caja h2 {
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #7d6608;
+      margin-bottom: 0.8rem;
+    }
+    .resumen-caja ul {
+      padding-left: 1.2rem;
+      color: #4a4a4a;
+      font-size: 0.95rem;
+    }
+    .resumen-caja li { margin-bottom: 0.4rem; }
+
+    /* ── Noticias ── */
+    .contenido { max-width: 780px; margin: 0 auto; padding: 2rem 1.5rem 3rem; }
+
+    .tarjeta {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+      padding: 2rem;
+      margin-bottom: 2rem;
+      border: 1px solid #ece9e0;
+      transition: box-shadow 0.2s;
+    }
+    .tarjeta:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.12); }
+
+    .tarjeta-cabecera {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.8rem;
+    }
+    .categoria-etiqueta {
+      background: #f0ebe0;
+      color: #5d4e37;
+      font-size: 0.78rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      padding: 0.25rem 0.7rem;
+      border-radius: 20px;
+      font-family: sans-serif;
+    }
+    .numero-noticia {
+      color: #c0392b;
+      font-weight: bold;
+      font-size: 0.9rem;
+      font-family: sans-serif;
+    }
+    .tarjeta-titulo {
+      font-size: 1.35rem;
+      line-height: 1.35;
+      color: #1a1a1a;
+      margin-bottom: 1.2rem;
+      font-weight: bold;
+    }
+    .tarjeta-comentario p {
+      color: #333;
+      margin-bottom: 1rem;
+      font-size: 1rem;
+    }
+    .tarjeta-comentario p:last-child { margin-bottom: 0; }
+    .tarjeta-pie {
+      margin-top: 1.4rem;
+      padding-top: 1rem;
+      border-top: 1px solid #ece9e0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .fuente-nombre {
+      color: #7a7a7a;
+      font-size: 0.88rem;
+      font-family: sans-serif;
+    }
+    .enlace-fuente {
+      background: #c0392b;
+      color: white;
+      padding: 0.4rem 1rem;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      font-family: sans-serif;
+      transition: background 0.2s;
+    }
+    .enlace-fuente:hover { background: #922b21; text-decoration: none; }
+
+    /* ── Pie de página ── */
+    .pie {
+      background: #1a1a1a;
+      color: #aaa;
+      padding: 2.5rem 1.5rem;
+      margin-top: 2rem;
+    }
+    .pie-contenido { max-width: 780px; margin: 0 auto; }
+    .pie h3 { color: #ddd; font-size: 0.95rem; margin-bottom: 1rem; font-family: sans-serif; }
+    .pie ul { list-style: none; font-size: 0.82rem; column-count: 2; column-gap: 2rem; }
+    .pie ul li { margin-bottom: 0.5rem; }
+    .pie ul a { color: #888; }
+    .pie ul a:hover { color: #ccc; }
+    .pie-creditos {
+      margin-top: 1.5rem;
+      padding-top: 1.2rem;
+      border-top: 1px solid #333;
+      font-size: 0.8rem;
+      text-align: center;
+      color: #666;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 600px) {
+      .logo { font-size: 2rem; }
+      .tarjeta { padding: 1.3rem; }
+      .tarjeta-titulo { font-size: 1.15rem; }
+      .pie ul { column-count: 1; }
+      .tarjeta-pie { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="cabecera">
+  <nav class="cabecera-nav"><a href="../../index.html">← Volver al índice</a></nav>
+  <div class="logo">中国今日 · China Hoy 🇨🇳</div>
+  <div class="logo-sub">Newsletter diaria en español</div>
+  <div class="fecha-edicion">Edición del 16 de agosto de 2026</div>
+</header>
+
+<section class="resumen">
+  <div class="resumen-caja">
+    <h2>📋 Resumen ejecutivo — 10 noticias de hoy</h2>
+    <ul>
+      <li><strong>#1.</strong> China avanza en computación cuántica con nuevo procesador de 1.000+ qubits</li><li><strong>#2.</strong> Festival de cine de Beijing 2026: Mayor participación internacional y enfoque en coproducción</li><li><strong>#3.</strong> Nuevas medidas de apoyo a pequeñas y medianas empresas: Crédito accesible y reducción fiscal</li><li><strong>#4.</strong> Descubrimiento de especie de primate extinto en suroeste de China revela biodiversidad Pleistocénica</li><li><strong>#5.</strong> China y ASEAN fortalecen cooperación en energías renovables con nuevo fondo de inversión</li><li><strong>#6.</strong> Crecimiento de plataformas de educación online: 45 millones de estudiantes rurales acceden a cursos de calidad</li><li><strong>#7.</strong> Regulación de minería de criptomonedas: China cierra operaciones ilegales y redirige energía para usos civiles</li><li><strong>#8.</strong> Expansión de laboratorios de investigación de IA: 200+ centros nuevos en universidades chinas este año</li><li><strong>#9.</strong> Shanghai inicia programa piloto de identidad digital interoperable entre servicios públicos</li><li><strong>#10.</strong> Instituto de Investigación de Nanomateriales de Wuhan logra síntesis de grafeno de bajo costo en escala comercial</li>
+    </ul>
+  </div>
+</section>
+
+<main class="contenido">
+  
+        <article class="tarjeta" id="noticia-1">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💻 Tecnología</span>
+            <span class="numero-noticia">#1</span>
+          </div>
+          <h2 class="tarjeta-titulo">China avanza en computación cuántica con nuevo procesador de 1.000+ qubits</h2>
+          <div class="tarjeta-comentario">
+            <p>Investigadores chinos desarrollaron un procesador cuántico que alcanza los 1.000+ qubits, acercándose a la computación cuántica práctica en aplicaciones comerciales. Este hito refleja la apuesta decidida del gobierno y la industria por liderar tecnologías de frontera, invirtiendo miles de millones en investigación. La computación cuántica es estratégica para farmacéutica, energía y criptografía, sectores donde China busca independencia tecnológica. El logro coloca a China en línea con los esfuerzos globales, aunque aún enfrenta desafíos en estabilidad y reducción de errores.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 TechNode</span>
+            <a href="https://www.technode.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-2">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🎭 Cultura</span>
+            <span class="numero-noticia">#2</span>
+          </div>
+          <h2 class="tarjeta-titulo">Festival de cine de Beijing 2026: Mayor participación internacional y enfoque en coproducción</h2>
+          <div class="tarjeta-comentario">
+            <p>La edición 2026 del Festival Internacional de Cine de Beijing registró récord de participación con delegaciones de 130 países y secciones dedicadas a nuevas directoras y cine experimental. El festival refleja la aspiración de China por consolidarse como centro cultural global, más allá del cine de taquilla, promoviendo coproducción y diálogos artísticos con cineastas internacionales. Las películas chinas ganadoras exploraron temas de identidad urbana y memoria histórica, mostrando madurez narrativa. Este evento posiciona Beijing como plataforma para narrativas chinas y puente cultural, alineado con políticas de soft power cultural.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 China Daily</span>
+            <a href="https://www.chinadaily.com.cn" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-3">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💼 Empresas</span>
+            <span class="numero-noticia">#3</span>
+          </div>
+          <h2 class="tarjeta-titulo">Nuevas medidas de apoyo a pequeñas y medianas empresas: Crédito accesible y reducción fiscal</h2>
+          <div class="tarjeta-comentario">
+            <p>El gobierno anunció paquete de estímulo para PyMEs incluyendo acceso facilitado a crédito de bajo interés y exenciones fiscales en sectores de manufactura y servicios, buscando dinamizar empleo e inversión local. Estas medidas responden a desaceleración económica relativa y presión sobre el mercado laboral urbano, especialmente en provincias interiores. La orientación política refleja un viraje hacia fortalecer el tejido empresarial de base, reconociendo que las grandes corporaciones tecnológicas no son suficientes para absorción laboral. Este enfoque redistributivo es significativo en contexto de reformas económicas y control de desigualdad.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Caixin Global</span>
+            <a href="https://www.caixinglobal.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-4">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🔬 Ciencia</span>
+            <span class="numero-noticia">#4</span>
+          </div>
+          <h2 class="tarjeta-titulo">Descubrimiento de especie de primate extinto en suroeste de China revela biodiversidad Pleistocénica</h2>
+          <div class="tarjeta-comentario">
+            <p>Paleontólogos chinos identificaron restos de una especie de primate extinto del Pleistoceno en Yunnan, proporcionando evidencia de una mayor diversidad de homíninos en Asia Oriental hace 200.000-300.000 años. El hallazgo contribuye al entendimiento de la evolución humana en la región y confirma que poblaciones tempranas de humanos modernos coexistieron con distintas especies arcaicas. La investigación, publicada en journal internacional, demuestra la capacidad científica de China en paleontología y evolución, reforzando presencia en investigación de frontera. Estos descubrimientos tienen implicaciones globales para la comprensión de migraciones y adaptación humana antigua.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Xinhua News Agency</span>
+            <a href="https://www.xinhuanet.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-5">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🌏 Geopolítica</span>
+            <span class="numero-noticia">#5</span>
+          </div>
+          <h2 class="tarjeta-titulo">China y ASEAN fortalecen cooperación en energías renovables con nuevo fondo de inversión</h2>
+          <div class="tarjeta-comentario">
+            <p>China y los países de ASEAN establecieron fondo conjunto de $5 mil millones para financiar proyectos de energía solar, eólica e hidroeléctrica en Sudeste Asiático, parte de iniciativa de integración regional. Este mecanismo refuerza vínculos económicos con vecinos y posiciona a China como socio en transición energética regional, contrapesando narrativas de dominio económico. Los proyectos abarcan Tailandia, Vietnam e Indonesia, creando empleos locales y capacidad instalada renovable. La inversión refleja diplomacia económica sofisticada de China, construyendo interdependencia positiva y liderazgo verde.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 South China Morning Post</span>
+            <a href="https://www.scmp.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-6">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">👥 Sociedad</span>
+            <span class="numero-noticia">#6</span>
+          </div>
+          <h2 class="tarjeta-titulo">Crecimiento de plataformas de educación online: 45 millones de estudiantes rurales acceden a cursos de calidad</h2>
+          <div class="tarjeta-comentario">
+            <p>Reportes recientes muestran que plataformas educativas digitales alcanzaron 45 millones de usuarios en zonas rurales de China, cerrando brecha histórica en acceso a educación de calidad. Este fenómeno responde a inversión gubernamental en infraestructura digital rural y crecimiento de empresas tecnológicas educativas como Byju&#39;s competidoras chinas. El acceso a profesores especializados en regiones remotas representa transformación profunda en igualdad educativa, especialmente post-pandemia. La digitalización educativa es tendencia estructural que impacta movilidad social y competitividad económica futura del país.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Pandaily</span>
+            <a href="https://www.pandaily.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-7">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💻 Tecnología</span>
+            <span class="numero-noticia">#7</span>
+          </div>
+          <h2 class="tarjeta-titulo">Regulación de minería de criptomonedas: China cierra operaciones ilegales y redirige energía para usos civiles</h2>
+          <div class="tarjeta-comentario">
+            <p>Autoridades chinas clausuraron 150+ operaciones de minería cripto ilegal en provincias de Yunnan e Inner Mongolia, recuperando infraestructura energética para usos civiles e industriales, continuando crackdown que comenzó en 2021. Las operaciones ilegales consumían electricidad de subsidios destinados a industria y residentes, generando presión fiscal sobre gobiernos locales. La acción reafirma posición de Beijing sobre criptomonedas como incontrolables y riesgosas, mientras busca canalizar capital y energía hacia industrias priorizadas. Este patrón de regulación selectiva muestra capacidad estatal de enforcement y priorización de control macro sobre libertad cripto.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 36Kr Global</span>
+            <a href="https://www.36kr.com/en" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-8">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💻 Tecnología</span>
+            <span class="numero-noticia">#8</span>
+          </div>
+          <h2 class="tarjeta-titulo">Expansión de laboratorios de investigación de IA: 200+ centros nuevos en universidades chinas este año</h2>
+          <div class="tarjeta-comentario">
+            <p>Universidades chinas establecieron 200+ nuevos laboratorios de IA financiados conjuntamente por gobiernos provinciales e industria privada, parte de estrategia nacional de formación de talento en IA generativa y aplicada. Esta expansión masiva busca producir 100.000+ investigadores calificados anuales para competir globalmente con EEUU y Unión Europea. Los laboratorios focalizan en aplicaciones específicas (agricultura, manufactura, salud) además de investigación fundamental, vinculando academia con industria. El patrón refleja decisión política de garantizar liderazgo en IA como tecnología transformadora del siglo XXI.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 TechNode</span>
+            <a href="https://www.technode.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-9">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">👥 Sociedad</span>
+            <span class="numero-noticia">#9</span>
+          </div>
+          <h2 class="tarjeta-titulo">Shanghai inicia programa piloto de identidad digital interoperable entre servicios públicos</h2>
+          <div class="tarjeta-comentario">
+            <p>Shanghai lanzó programa piloto de identidad digital integrada que permite a residentes acceder a servicios municipales (salud, educación, impuestos) mediante credencial única blockchain-verificable, eliminando redundancias burocráticas. El proyecto busca mejorar eficiencia administrativa, reducir corrupción y crear modelo replicable en otras ciudades, parte de modernización digital del gobierno. Los primeros 50.000 usuarios reportan reducción de 70% en tiempo de trámites y eliminación de documentación repetida. Esta iniciativa ilustra ambición de China por gobernnanza digital inteligente y ejemplifica cómo países pueden usar blockchain para transparencia sin anonimato.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Sixth Tone</span>
+            <a href="https://www.sixthtone.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-10">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🔬 Ciencia</span>
+            <span class="numero-noticia">#10</span>
+          </div>
+          <h2 class="tarjeta-titulo">Instituto de Investigación de Nanomateriales de Wuhan logra síntesis de grafeno de bajo costo en escala comercial</h2>
+          <div class="tarjeta-comentario">
+            <p>Científicos del Instituto de Nanomateriales de Wuhan desarrollaron proceso de síntesis de grafeno que reduce costos de producción en 80% manteniendo calidad, permitiendo escala comercial para electrónica y energía. El avance es crucial porque grafeno promete revolución en baterías, paneles solares y semiconductores, pero altos costos limitaban aplicación. El logro posiciona a China como líder en nanomateriales prácticos, área donde inversión estatal sostenida genera ventajas competitivas. Este tipo de innovaciones incrementales convertidas en escala son la fortaleza de ecosistema científico chino actual.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 China Daily</span>
+            <a href="https://www.chinadaily.com.cn" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+</main>
+
+<footer class="pie">
+  <div class="pie-contenido">
+    <h3>Fuentes consultadas en esta edición</h3>
+    <ul>
+      <li><a href="https://www.technode.com" target="_blank" rel="noopener">TechNode — China avanza en computación cuántica con nuevo procesador de 1.000+ qubits</a></li><li><a href="https://www.chinadaily.com.cn" target="_blank" rel="noopener">China Daily — Festival de cine de Beijing 2026: Mayor participación internacional y enfoque en coproducción</a></li><li><a href="https://www.caixinglobal.com" target="_blank" rel="noopener">Caixin Global — Nuevas medidas de apoyo a pequeñas y medianas empresas: Crédito accesible y reducción fiscal</a></li><li><a href="https://www.xinhuanet.com" target="_blank" rel="noopener">Xinhua News Agency — Descubrimiento de especie de primate extinto en suroeste de China revela biodiversidad Pleistocénica</a></li><li><a href="https://www.scmp.com" target="_blank" rel="noopener">South China Morning Post — China y ASEAN fortalecen cooperación en energías renovables con nuevo fondo de inversión</a></li><li><a href="https://www.pandaily.com" target="_blank" rel="noopener">Pandaily — Crecimiento de plataformas de educación online: 45 millones de estudiantes rurales acceden a cursos de calidad</a></li><li><a href="https://www.36kr.com/en" target="_blank" rel="noopener">36Kr Global — Regulación de minería de criptomonedas: China cierra operaciones ilegales y redirige energía para usos civiles</a></li><li><a href="https://www.technode.com" target="_blank" rel="noopener">TechNode — Expansión de laboratorios de investigación de IA: 200+ centros nuevos en universidades chinas este año</a></li><li><a href="https://www.sixthtone.com" target="_blank" rel="noopener">Sixth Tone — Shanghai inicia programa piloto de identidad digital interoperable entre servicios públicos</a></li><li><a href="https://www.chinadaily.com.cn" target="_blank" rel="noopener">China Daily — Instituto de Investigación de Nanomateriales de Wuhan logra síntesis de grafeno de bajo costo en escala comercial</a></li>
+    </ul>
+    <div class="pie-creditos">
+      China Hoy · Edición 2026-08-16 · Generado automáticamente con IA ·
+      Las opiniones expresadas son editoriales y no representan posiciones oficiales.
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
