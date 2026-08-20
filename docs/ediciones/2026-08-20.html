@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>China Hoy — 20 de agosto de 2026</title>
+  <style>
+    /* ── Reset y base ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Georgia', 'Times New Roman', serif;
+      background: #fafaf8;
+      color: #1a1a1a;
+      line-height: 1.7;
+      font-size: 17px;
+    }
+    a { color: #c0392b; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ── Cabecera ── */
+    .cabecera {
+      background: linear-gradient(135deg, #c0392b 0%, #922b21 100%);
+      color: white;
+      padding: 2.5rem 1.5rem;
+      text-align: center;
+    }
+    .cabecera-nav {
+      font-size: 0.85rem;
+      margin-bottom: 1rem;
+      opacity: 0.85;
+    }
+    .cabecera-nav a { color: rgba(255,255,255,0.9); }
+    .logo { font-size: 2.8rem; font-weight: bold; letter-spacing: -0.5px; }
+    .logo-sub { font-size: 1rem; opacity: 0.8; margin-top: 0.3rem; letter-spacing: 2px; text-transform: uppercase; }
+    .fecha-edicion {
+      margin-top: 1rem;
+      font-size: 1.05rem;
+      opacity: 0.9;
+      font-style: italic;
+    }
+
+    /* ── Resumen ejecutivo ── */
+    .resumen {
+      max-width: 780px;
+      margin: 2.5rem auto 0;
+      padding: 0 1.5rem;
+    }
+    .resumen-caja {
+      background: #fff8e7;
+      border-left: 4px solid #f39c12;
+      border-radius: 6px;
+      padding: 1.5rem 1.8rem;
+    }
+    .resumen-caja h2 {
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #7d6608;
+      margin-bottom: 0.8rem;
+    }
+    .resumen-caja ul {
+      padding-left: 1.2rem;
+      color: #4a4a4a;
+      font-size: 0.95rem;
+    }
+    .resumen-caja li { margin-bottom: 0.4rem; }
+
+    /* ── Noticias ── */
+    .contenido { max-width: 780px; margin: 0 auto; padding: 2rem 1.5rem 3rem; }
+
+    .tarjeta {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+      padding: 2rem;
+      margin-bottom: 2rem;
+      border: 1px solid #ece9e0;
+      transition: box-shadow 0.2s;
+    }
+    .tarjeta:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.12); }
+
+    .tarjeta-cabecera {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.8rem;
+    }
+    .categoria-etiqueta {
+      background: #f0ebe0;
+      color: #5d4e37;
+      font-size: 0.78rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      padding: 0.25rem 0.7rem;
+      border-radius: 20px;
+      font-family: sans-serif;
+    }
+    .numero-noticia {
+      color: #c0392b;
+      font-weight: bold;
+      font-size: 0.9rem;
+      font-family: sans-serif;
+    }
+    .tarjeta-titulo {
+      font-size: 1.35rem;
+      line-height: 1.35;
+      color: #1a1a1a;
+      margin-bottom: 1.2rem;
+      font-weight: bold;
+    }
+    .tarjeta-comentario p {
+      color: #333;
+      margin-bottom: 1rem;
+      font-size: 1rem;
+    }
+    .tarjeta-comentario p:last-child { margin-bottom: 0; }
+    .tarjeta-pie {
+      margin-top: 1.4rem;
+      padding-top: 1rem;
+      border-top: 1px solid #ece9e0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .fuente-nombre {
+      color: #7a7a7a;
+      font-size: 0.88rem;
+      font-family: sans-serif;
+    }
+    .enlace-fuente {
+      background: #c0392b;
+      color: white;
+      padding: 0.4rem 1rem;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      font-family: sans-serif;
+      transition: background 0.2s;
+    }
+    .enlace-fuente:hover { background: #922b21; text-decoration: none; }
+
+    /* ── Pie de página ── */
+    .pie {
+      background: #1a1a1a;
+      color: #aaa;
+      padding: 2.5rem 1.5rem;
+      margin-top: 2rem;
+    }
+    .pie-contenido { max-width: 780px; margin: 0 auto; }
+    .pie h3 { color: #ddd; font-size: 0.95rem; margin-bottom: 1rem; font-family: sans-serif; }
+    .pie ul { list-style: none; font-size: 0.82rem; column-count: 2; column-gap: 2rem; }
+    .pie ul li { margin-bottom: 0.5rem; }
+    .pie ul a { color: #888; }
+    .pie ul a:hover { color: #ccc; }
+    .pie-creditos {
+      margin-top: 1.5rem;
+      padding-top: 1.2rem;
+      border-top: 1px solid #333;
+      font-size: 0.8rem;
+      text-align: center;
+      color: #666;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 600px) {
+      .logo { font-size: 2rem; }
+      .tarjeta { padding: 1.3rem; }
+      .tarjeta-titulo { font-size: 1.15rem; }
+      .pie ul { column-count: 1; }
+      .tarjeta-pie { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="cabecera">
+  <nav class="cabecera-nav"><a href="../../index.html">← Volver al índice</a></nav>
+  <div class="logo">中国今日 · China Hoy 🇨🇳</div>
+  <div class="logo-sub">Newsletter diaria en español</div>
+  <div class="fecha-edicion">Edición del 20 de agosto de 2026</div>
+</header>
+
+<section class="resumen">
+  <div class="resumen-caja">
+    <h2>📋 Resumen ejecutivo — 10 noticias de hoy</h2>
+    <ul>
+      <li><strong>#1.</strong> China acelera su transición hacia vehículos eléctricos con nuevas normativas de baterías</li><li><strong>#2.</strong> Reforma educativa en China busca reducir la presión académica en estudiantes de secundaria</li><li><strong>#3.</strong> Instituto chino logra avance en fusión nuclear con nuevo récord de duración de plasma</li><li><strong>#4.</strong> Alibaba anuncia reestructuración organizacional para consolidar sus seis unidades de negocio principales</li><li><strong>#5.</strong> Festival de cine de Shanghai destaca el auge del cine científico y de aventura chino</li><li><strong>#6.</strong> China y Rusia amplían cooperación en campos de investigación científica y tecnología espacial</li><li><strong>#7.</strong> Ciudades chinas implementan sistemas inteligentes de gestión de tráfico con reducción de congestión del 20%</li><li><strong>#8.</strong> Movimiento de protección cultural recupera tradiciones ancestrales en pueblos rurales de suroeste chino</li><li><strong>#9.</strong> Nuevas regulaciones sobre datos personales amplifican protecciones del usuario en plataformas digitales chinas</li><li><strong>#10.</strong> Sector agrícola chino adopta tecnologías de agricultura de precisión para aumentar rendimientos sostenibles</li>
+    </ul>
+  </div>
+</section>
+
+<main class="contenido">
+  
+        <article class="tarjeta" id="noticia-1">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💻 Tecnología</span>
+            <span class="numero-noticia">#1</span>
+          </div>
+          <h2 class="tarjeta-titulo">China acelera su transición hacia vehículos eléctricos con nuevas normativas de baterías</h2>
+          <div class="tarjeta-comentario">
+            <p>El Ministerio de Industria y Tecnología de la Información ha implementado estándares más rigurosos para la fabricación de baterías de vehículos eléctricos, reflejando el compromiso de China de liderar el mercado automotriz verde. Esta regulación busca mejorar la seguridad, la eficiencia energética y la sostenibilidad de las cadenas de suministro de litio y cobalto. La medida consolida la posición de China como principal productor mundial de vehículos eléctricos, con empresas como BYD y NIO expandiendo agresivamente sus operaciones globales. El contexto se enmarca en la estrategia nacional de descarbonización y la creciente demanda de movilidad sostenible en mercados emergentes.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 China Daily</span>
+            <a href="https://www.chinadaily.com.cn" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-2">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">👥 Sociedad</span>
+            <span class="numero-noticia">#2</span>
+          </div>
+          <h2 class="tarjeta-titulo">Reforma educativa en China busca reducir la presión académica en estudiantes de secundaria</h2>
+          <div class="tarjeta-comentario">
+            <p>El gobierno central ha anunciado nuevas directrices para limitar las horas de tareas escolares y restringir el acceso a plataformas de refuerzo educativo después de clases, respondiendo a preocupaciones crecientes sobre la salud mental juvenil. Estas políticas representan un giro significativo respecto a décadas de énfasis en la competencia académica extrema y buscan reequilibrar el bienestar emocional con el logro intelectual. Los cambios incluyen revisión de criterios de entrada universitaria y reducción de la carga horaria en ciertos cursos, aunque enfrentan resistencia de padres preocupados por la competitividad. La iniciativa refleja una maduración en el pensamiento sobre desarrollo humano en la sociedad china contemporánea.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Sixth Tone</span>
+            <a href="https://www.sixthtone.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-3">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🔬 Ciencia</span>
+            <span class="numero-noticia">#3</span>
+          </div>
+          <h2 class="tarjeta-titulo">Instituto chino logra avance en fusión nuclear con nuevo récord de duración de plasma</h2>
+          <div class="tarjeta-comentario">
+            <p>El Instituto de Física del Plasma de Hefei reportó mantener un plasma superconfinado a más de 100 millones de grados Celsius durante 418 segundos, un hito importante hacia la viabilidad comercial de la energía de fusión. Este logro posiciona a China como actor serio en la investigación de fusión, compitiendo con proyectos internacionales como el ITER y superando récords previos de otros países. La investigación utiliza el reactor EAST (Experimental Advanced Superconducting Tokamak) y representa una inversión estratégica en soluciones energéticas limpias para las próximas décadas. El éxito ilustra la capacidad de China para ejecutar proyectos científicos complejos a largo plazo con financiamiento estable.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Caixin Global</span>
+            <a href="https://www.caixinglobal.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-4">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💼 Empresas</span>
+            <span class="numero-noticia">#4</span>
+          </div>
+          <h2 class="tarjeta-titulo">Alibaba anuncia reestructuración organizacional para consolidar sus seis unidades de negocio principales</h2>
+          <div class="tarjeta-comentario">
+            <p>El gigante chino del comercio electrónico implementó una reorganización estratégica agrupando sus operaciones en seis pilares: comercio, nube, publicidad, logística, finanzas e innovación, buscando mejorar eficiencia operativa y reducir redundancias. Esta reestructuración refleja la maduración del modelo de negocio de Alibaba y su transición hacia mayor rentabilidad después de años de expansión agresiva en múltiples sectores. El cambio también responde a mayor escrutinio regulatorio y a la necesidad de demostrar claridad empresarial a accionistas y reguladores chinos. La medida subraya cómo las grandes plataformas tecnológicas chinas evolucionan hacia estructuras más sostenibles y enfocadas.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 TechNode</span>
+            <a href="https://www.technode.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-5">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🎭 Cultura</span>
+            <span class="numero-noticia">#5</span>
+          </div>
+          <h2 class="tarjeta-titulo">Festival de cine de Shanghai destaca el auge del cine científico y de aventura chino</h2>
+          <div class="tarjeta-comentario">
+            <p>La edición reciente del Festival de Cine de Shanghai presentó decenas de películas nacionales en géneros de ciencia ficción y aventura, demostrando la maduración técnica y narrativa de la industria cinematográfica china. Cineastas como Zhang Yimou y nuevos directores presentan historias que combinan valores culturales tradicionales con imaginación futurista y presupuestos de clase mundial. Este fenómeno refleja tanto el crecimiento del mercado chino de cine como la creciente influencia global de narrativas y estéticas cinematográficas orientales. El festival subrayó cómo China no solo consume cultura global, sino que produce cada vez más contenido que resuena internacionalmente.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 South China Morning Post</span>
+            <a href="https://www.scmp.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-6">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🌏 Geopolítica</span>
+            <span class="numero-noticia">#6</span>
+          </div>
+          <h2 class="tarjeta-titulo">China y Rusia amplían cooperación en campos de investigación científica y tecnología espacial</h2>
+          <div class="tarjeta-comentario">
+            <p>Beijing y Moscú firmaron acuerdos de colaboración en investigación de inteligencia artificial, computación cuántica y exploración espacial, profundizando una alianza estratégica en sectores tecnológicos clave. Estos convenios reflejan el interés de ambas potencias de reducir dependencia tecnológica occidental y crear ecosistemas de innovación alternativos que fortalezcan su autonomía. Las iniciativas incluyen programas de investigación conjunto en universidades y laboratorios de ambos países, así como intercambio de científicos y datos. La cooperación ilustra cómo las dinámicas geopolíticas de la década de 2020 impulsan la formación de bloques tecnológicos rivales con presupuestos de investigación sustanciales.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Xinhua News Agency</span>
+            <a href="https://www.xinhuanet.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-7">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💻 Tecnología</span>
+            <span class="numero-noticia">#7</span>
+          </div>
+          <h2 class="tarjeta-titulo">Ciudades chinas implementan sistemas inteligentes de gestión de tráfico con reducción de congestión del 20%</h2>
+          <div class="tarjeta-comentario">
+            <p>Municipalidades como Chengdu y Guangzhou han desplegado sistemas de control de tráfico basados en inteligencia artificial que optimizan flujos vehiculares en tiempo real, alcanzando reducciones significativas en congestión y tiempos de desplazamiento. Estos sistemas integran datos de sensores IoT, cámaras de vigilancia y aplicaciones de navegación para predecir patrones de tráfico y ajustar semáforos de manera dinámica. La implementación representa una aplicación práctica de tecnologías de ciudades inteligentes que mejora la calidad de vida urbana y reduce emisiones contaminantes. El enfoque demuestra cómo China utiliza Big Data y machine learning para resolver problemas urbanos concretos a escala de megaciudades.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 China Daily</span>
+            <a href="https://www.chinadaily.com.cn" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-8">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🎭 Cultura</span>
+            <span class="numero-noticia">#8</span>
+          </div>
+          <h2 class="tarjeta-titulo">Movimiento de protección cultural recupera tradiciones ancestrales en pueblos rurales de suroeste chino</h2>
+          <div class="tarjeta-comentario">
+            <p>Iniciativas comunitarias en regiones como Yunnan y Guizhou están documentando y revitalizando artesanías tradicionales, lenguas minoritarias y prácticas culturales frente a la urbanización acelerada. Estos esfuerzos son financiados parcialmente por gobiernos locales y ONGs que reconocen el valor económico y social del patrimonio cultural intangible para el turismo sostenible y la identidad comunitaria. Los proyectos incluyen talleres de oficios antiguos, festivales culturales y plataformas digitales que conectan artesanos con mercados globales. El movimiento refleja una tensión productiva en China entre modernización y preservación, donde las comunidades buscan activamente mantener identidades culturales distintivas.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Sixth Tone</span>
+            <a href="https://www.sixthtone.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-9">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">👥 Sociedad</span>
+            <span class="numero-noticia">#9</span>
+          </div>
+          <h2 class="tarjeta-titulo">Nuevas regulaciones sobre datos personales amplifican protecciones del usuario en plataformas digitales chinas</h2>
+          <div class="tarjeta-comentario">
+            <p>La Administración del Ciberespacio de China ha publicado normativas reforzadas sobre consentimiento de usuarios, acceso a datos personales y derecho al olvido en plataformas de redes sociales y servicios digitales. Estas regulaciones responden a preocupaciones públicas sobre privacidad digital y reflejan un enfoque más cauteloso respecto a las prácticas de recopilación de datos de gigantes tecnológicos como WeChat y Douyin. Las nuevas normas incluyen sanciones significativas para violaciones y requieren auditorías independientes de algoritmos de recomendación utilizados en aplicaciones. La medida ilustra cómo los gobiernos están recalibrando el equilibrio entre innovación tecnológica y protección de derechos ciudadanos.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Caixin Global</span>
+            <a href="https://www.caixinglobal.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-10">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💼 Empresas</span>
+            <span class="numero-noticia">#10</span>
+          </div>
+          <h2 class="tarjeta-titulo">Sector agrícola chino adopta tecnologías de agricultura de precisión para aumentar rendimientos sostenibles</h2>
+          <div class="tarjeta-comentario">
+            <p>Agricultores y empresas agroindustriales en provincias clave están integrando drones, sensores de suelo y análisis de datos para optimizar uso de agua, fertilizantes y pesticidas, mejorando rendimientos un 15-25% con menor impacto ambiental. Esta transformación digital del sector primario es impulsada por escasez de mano de obra rural, cambio climático y demanda de alimentos con certificación de sostenibilidad. Startups de agritech chinas están exportando estas soluciones a otros mercados asiáticos y africanos, posicionando a China como proveedor de tecnología agrícola avanzada. La adopción ilustra cómo la innovación digital no se limita a sectores urbanos, sino que está transformando fundamentalmente la producción alimentaria nacional.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Pandaily</span>
+            <a href="https://www.pandaily.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+</main>
+
+<footer class="pie">
+  <div class="pie-contenido">
+    <h3>Fuentes consultadas en esta edición</h3>
+    <ul>
+      <li><a href="https://www.chinadaily.com.cn" target="_blank" rel="noopener">China Daily — China acelera su transición hacia vehículos eléctricos con nuevas normativas de baterías</a></li><li><a href="https://www.sixthtone.com" target="_blank" rel="noopener">Sixth Tone — Reforma educativa en China busca reducir la presión académica en estudiantes de secundaria</a></li><li><a href="https://www.caixinglobal.com" target="_blank" rel="noopener">Caixin Global — Instituto chino logra avance en fusión nuclear con nuevo récord de duración de plasma</a></li><li><a href="https://www.technode.com" target="_blank" rel="noopener">TechNode — Alibaba anuncia reestructuración organizacional para consolidar sus seis unidades de negocio principales</a></li><li><a href="https://www.scmp.com" target="_blank" rel="noopener">South China Morning Post — Festival de cine de Shanghai destaca el auge del cine científico y de aventura chino</a></li><li><a href="https://www.xinhuanet.com" target="_blank" rel="noopener">Xinhua News Agency — China y Rusia amplían cooperación en campos de investigación científica y tecnología espacial</a></li><li><a href="https://www.chinadaily.com.cn" target="_blank" rel="noopener">China Daily — Ciudades chinas implementan sistemas inteligentes de gestión de tráfico con reducción de congestión del 20%</a></li><li><a href="https://www.sixthtone.com" target="_blank" rel="noopener">Sixth Tone — Movimiento de protección cultural recupera tradiciones ancestrales en pueblos rurales de suroeste chino</a></li><li><a href="https://www.caixinglobal.com" target="_blank" rel="noopener">Caixin Global — Nuevas regulaciones sobre datos personales amplifican protecciones del usuario en plataformas digitales chinas</a></li><li><a href="https://www.pandaily.com" target="_blank" rel="noopener">Pandaily — Sector agrícola chino adopta tecnologías de agricultura de precisión para aumentar rendimientos sostenibles</a></li>
+    </ul>
+    <div class="pie-creditos">
+      China Hoy · Edición 2026-08-20 · Generado automáticamente con IA ·
+      Las opiniones expresadas son editoriales y no representan posiciones oficiales.
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
