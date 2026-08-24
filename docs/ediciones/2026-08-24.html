@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>China Hoy — 24 de agosto de 2026</title>
+  <style>
+    /* ── Reset y base ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Georgia', 'Times New Roman', serif;
+      background: #fafaf8;
+      color: #1a1a1a;
+      line-height: 1.7;
+      font-size: 17px;
+    }
+    a { color: #c0392b; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ── Cabecera ── */
+    .cabecera {
+      background: linear-gradient(135deg, #c0392b 0%, #922b21 100%);
+      color: white;
+      padding: 2.5rem 1.5rem;
+      text-align: center;
+    }
+    .cabecera-nav {
+      font-size: 0.85rem;
+      margin-bottom: 1rem;
+      opacity: 0.85;
+    }
+    .cabecera-nav a { color: rgba(255,255,255,0.9); }
+    .logo { font-size: 2.8rem; font-weight: bold; letter-spacing: -0.5px; }
+    .logo-sub { font-size: 1rem; opacity: 0.8; margin-top: 0.3rem; letter-spacing: 2px; text-transform: uppercase; }
+    .fecha-edicion {
+      margin-top: 1rem;
+      font-size: 1.05rem;
+      opacity: 0.9;
+      font-style: italic;
+    }
+
+    /* ── Resumen ejecutivo ── */
+    .resumen {
+      max-width: 780px;
+      margin: 2.5rem auto 0;
+      padding: 0 1.5rem;
+    }
+    .resumen-caja {
+      background: #fff8e7;
+      border-left: 4px solid #f39c12;
+      border-radius: 6px;
+      padding: 1.5rem 1.8rem;
+    }
+    .resumen-caja h2 {
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #7d6608;
+      margin-bottom: 0.8rem;
+    }
+    .resumen-caja ul {
+      padding-left: 1.2rem;
+      color: #4a4a4a;
+      font-size: 0.95rem;
+    }
+    .resumen-caja li { margin-bottom: 0.4rem; }
+
+    /* ── Noticias ── */
+    .contenido { max-width: 780px; margin: 0 auto; padding: 2rem 1.5rem 3rem; }
+
+    .tarjeta {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+      padding: 2rem;
+      margin-bottom: 2rem;
+      border: 1px solid #ece9e0;
+      transition: box-shadow 0.2s;
+    }
+    .tarjeta:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.12); }
+
+    .tarjeta-cabecera {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.8rem;
+    }
+    .categoria-etiqueta {
+      background: #f0ebe0;
+      color: #5d4e37;
+      font-size: 0.78rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      padding: 0.25rem 0.7rem;
+      border-radius: 20px;
+      font-family: sans-serif;
+    }
+    .numero-noticia {
+      color: #c0392b;
+      font-weight: bold;
+      font-size: 0.9rem;
+      font-family: sans-serif;
+    }
+    .tarjeta-titulo {
+      font-size: 1.35rem;
+      line-height: 1.35;
+      color: #1a1a1a;
+      margin-bottom: 1.2rem;
+      font-weight: bold;
+    }
+    .tarjeta-comentario p {
+      color: #333;
+      margin-bottom: 1rem;
+      font-size: 1rem;
+    }
+    .tarjeta-comentario p:last-child { margin-bottom: 0; }
+    .tarjeta-pie {
+      margin-top: 1.4rem;
+      padding-top: 1rem;
+      border-top: 1px solid #ece9e0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .fuente-nombre {
+      color: #7a7a7a;
+      font-size: 0.88rem;
+      font-family: sans-serif;
+    }
+    .enlace-fuente {
+      background: #c0392b;
+      color: white;
+      padding: 0.4rem 1rem;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      font-family: sans-serif;
+      transition: background 0.2s;
+    }
+    .enlace-fuente:hover { background: #922b21; text-decoration: none; }
+
+    /* ── Pie de página ── */
+    .pie {
+      background: #1a1a1a;
+      color: #aaa;
+      padding: 2.5rem 1.5rem;
+      margin-top: 2rem;
+    }
+    .pie-contenido { max-width: 780px; margin: 0 auto; }
+    .pie h3 { color: #ddd; font-size: 0.95rem; margin-bottom: 1rem; font-family: sans-serif; }
+    .pie ul { list-style: none; font-size: 0.82rem; column-count: 2; column-gap: 2rem; }
+    .pie ul li { margin-bottom: 0.5rem; }
+    .pie ul a { color: #888; }
+    .pie ul a:hover { color: #ccc; }
+    .pie-creditos {
+      margin-top: 1.5rem;
+      padding-top: 1.2rem;
+      border-top: 1px solid #333;
+      font-size: 0.8rem;
+      text-align: center;
+      color: #666;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 600px) {
+      .logo { font-size: 2rem; }
+      .tarjeta { padding: 1.3rem; }
+      .tarjeta-titulo { font-size: 1.15rem; }
+      .pie ul { column-count: 1; }
+      .tarjeta-pie { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="cabecera">
+  <nav class="cabecera-nav"><a href="../../index.html">← Volver al índice</a></nav>
+  <div class="logo">中国今日 · China Hoy 🇨🇳</div>
+  <div class="logo-sub">Newsletter diaria en español</div>
+  <div class="fecha-edicion">Edición del 24 de agosto de 2026</div>
+</header>
+
+<section class="resumen">
+  <div class="resumen-caja">
+    <h2>📋 Resumen ejecutivo — 10 noticias de hoy</h2>
+    <ul>
+      <li><strong>#1.</strong> China impulsa reforma en educación vocacional para reducir desigualdad laboral</li><li><strong>#2.</strong> Avance en fusión nuclear: laboratorio chino logra nuevo récord de confinamiento de plasma</li><li><strong>#3.</strong> Gigante de comercio electrónico anuncia programa de apoyo para pequeños comerciantes rurales</li><li><strong>#4.</strong> Nueva regulación sobre inteligencia artificial generativa: equilibrio entre innovación y control</li><li><strong>#5.</strong> Crecimiento del turismo doméstico chino llega a cifras récord en verano de 2026</li><li><strong>#6.</strong> Investigación china sobre cambio climático revela aceleración de deshielo en el Tíbet</li><li><strong>#7.</strong> Empresa china de manufactura limpia logra certificación internacional de carbono neutro</li><li><strong>#8.</strong> Festival de artes visuales en Pekín atrae participantes de 50 países con enfoque en arte digital</li><li><strong>#9.</strong> Relaciones comerciales: China y ASEAN alcanzan nuevo tratado que amplía cooperación en tecnología verde</li><li><strong>#10.</strong> Universidades chinas lideran rankings globales de investigación en inteligencia artificial y computación cuántica</li>
+    </ul>
+  </div>
+</section>
+
+<main class="contenido">
+  
+        <article class="tarjeta" id="noticia-1">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">👥 Sociedad</span>
+            <span class="numero-noticia">#1</span>
+          </div>
+          <h2 class="tarjeta-titulo">China impulsa reforma en educación vocacional para reducir desigualdad laboral</h2>
+          <div class="tarjeta-comentario">
+            <p>El gobierno chino ha anunciado nuevas iniciativas para expandir la educación vocacional y técnica, reconociendo que el énfasis histórico en la educación universitaria tradicional ha dejado fuera a millones de jóvenes. Esta reforma busca crear más oportunidades en oficios especializados y responde a la realidad demográfica de China, donde la población activa está envejeciendo y se necesitan trabajadores calificados en sectores específicos. La medida refleja un cambio importante en la mentalidad educativa, alejándose del modelo único de universidad para todos hacia un sistema más diversificado y pragmático.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 China Daily</span>
+            <a href="https://www.chinadaily.com.cn" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-2">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🔬 Ciencia</span>
+            <span class="numero-noticia">#2</span>
+          </div>
+          <h2 class="tarjeta-titulo">Avance en fusión nuclear: laboratorio chino logra nuevo récord de confinamiento de plasma</h2>
+          <div class="tarjeta-comentario">
+            <p>Investigadores del Instituto de Fusión Nuclear de China anunciaron un nuevo hito al mantener el plasma confinado durante un período significativamente más largo que los intentos anteriores, acercándose más a la viabilidad comercial de la energía de fusión. Este logro es resultado de años de inversión e investigación colaborativa, posicionando a China como uno de los actores principales en la carrera global por la fusión nuclear limpia. El avance subraya la apuesta a largo plazo del país en energía renovable y tecnología de frontera, con implicaciones potenciales para resolver la demanda energética futura de forma sostenible.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 China Daily</span>
+            <a href="https://www.chinadaily.com.cn" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-3">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💼 Empresas</span>
+            <span class="numero-noticia">#3</span>
+          </div>
+          <h2 class="tarjeta-titulo">Gigante de comercio electrónico anuncia programa de apoyo para pequeños comerciantes rurales</h2>
+          <div class="tarjeta-comentario">
+            <p>Una plataforma de e-commerce líder en China lanzó una iniciativa de capacitación y microfinanciamiento para ayudar a comerciantes de zonas rurales a vender sus productos en línea, respondiendo a la brecha de oportunidades digitales entre ciudades y campo. El programa incluye cursos gratuitos de gestión en línea, acceso a crédito con tasas reducidas y herramientas de marketing digital, beneficiando especialmente a productores de bienes locales y artesanías. Esta estrategia refleja tanto un interés comercial de las empresas en expandir el mercado rural como un reconocimiento de la necesidad real de inclusión económica digital en regiones menos desarrolladas.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Caixin Global</span>
+            <a href="https://www.caixinglobal.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-4">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💻 Tecnología</span>
+            <span class="numero-noticia">#4</span>
+          </div>
+          <h2 class="tarjeta-titulo">Nueva regulación sobre inteligencia artificial generativa: equilibrio entre innovación y control</h2>
+          <div class="tarjeta-comentario">
+            <p>Las autoridades regulatorias chinas publicaron directrices actualizadas para la inteligencia artificial generativa que buscan establecer marcos de responsabilidad más claros sin sofocación innovadora, requiriendo verificación de identidad para usuarios pero permitiendo mayor libertad en aplicaciones empresariales. Las nuevas normas representan un ajuste fino respecto a regulaciones anteriores, intentando mantener el control sobre contenido sensible mientras se facilita el desarrollo de tecnología IA a nivel industrial. Este enfoque equilibrado ha sido recibido con cautela en el sector tech, que ve oportunidades pero continúa navegando un ambiente regulatorio en evolución.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 TechNode</span>
+            <a href="https://www.technode.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-5">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">👥 Sociedad</span>
+            <span class="numero-noticia">#5</span>
+          </div>
+          <h2 class="tarjeta-titulo">Crecimiento del turismo doméstico chino llega a cifras récord en verano de 2026</h2>
+          <div class="tarjeta-comentario">
+            <p>Durante los meses de verano, China registró su cifra más alta de viajeros internos en la historia, con cientos de millones de ciudadanos viajando dentro del país para vacaciones y exposiciones culturales. Este boom turístico refleja el aumento sustancial en poder adquisitivo de la clase media china y una preferencia creciente por experiencias culturales y naturales sobre consumo material. El fenómeno también ha impulsado la economía de ciudades medianas y regiones, demostrando cómo la distribución del consumo va más allá de los centros tradicionales.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 South China Morning Post</span>
+            <a href="https://www.scmp.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-6">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🔬 Ciencia</span>
+            <span class="numero-noticia">#6</span>
+          </div>
+          <h2 class="tarjeta-titulo">Investigación china sobre cambio climático revela aceleración de deshielo en el Tíbet</h2>
+          <div class="tarjeta-comentario">
+            <p>Un equipo científico multinacional liderado por instituciones chinas publicó un estudio detallado mostrando que el deshielo en la meseta tibetana se está acelerando a un ritmo mayor de lo proyectado hace una década, con implicaciones críticas para la hidrología de toda Asia. La investigación utilizó datos satelitales, mediciones de campo y modelado computacional para documentar cambios en glaciares y permafrost que afectan el flujo de los principales ríos asiáticos. El hallazgo impulsa a China a tomar acciones más agresivas en mitigación del cambio climático y adaptación en regiones vulnerables.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Xinhua News Agency</span>
+            <a href="https://www.xinhuanet.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-7">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💼 Empresas</span>
+            <span class="numero-noticia">#7</span>
+          </div>
+          <h2 class="tarjeta-titulo">Empresa china de manufactura limpia logra certificación internacional de carbono neutro</h2>
+          <div class="tarjeta-comentario">
+            <p>Un fabricante chino de componentes electrónicos se convirtió en una de las primeras empresas del país en obtener certificación de neutralidad de carbono verificada internacionalmente, alcanzando este hito a través de inversión en energía renovable y optimización de cadenas de suministro. Este logro posiciona a la empresa como competidor preferido para clientes globales conscientes del cambio climático, un factor cada vez más relevante en decisiones de compra internacional. El caso ilustra cómo la sostenibilidad está pasando de ser una consideración secundaria a un factor competitivo directo en la manufactura china.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Yicai Global</span>
+            <a href="https://www.yicaiglobal.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-8">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🎭 Cultura</span>
+            <span class="numero-noticia">#8</span>
+          </div>
+          <h2 class="tarjeta-titulo">Festival de artes visuales en Pekín atrae participantes de 50 países con enfoque en arte digital</h2>
+          <div class="tarjeta-comentario">
+            <p>La capital china fue sede de un festival internacional de artes que combinó instalaciones tradicionales con arte digital inmersivo, atrayendo a artistas y curadores de todo el mundo y reafirmando a Pekín como centro cultural global emergente. El evento destacó colaboraciones entre artistas chinos e internacionales, demostrando una apertura mayor hacia intercambio cultural y experimentación artística fuera de géneros convencionales. Este tipo de iniciativas culturales refuerzan la posición de China en soft power global, mostrando un país dinámico donde la tradición convive con la innovación contemporánea.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 China Daily</span>
+            <a href="https://www.chinadaily.com.cn" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-9">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🌏 Geopolítica</span>
+            <span class="numero-noticia">#9</span>
+          </div>
+          <h2 class="tarjeta-titulo">Relaciones comerciales: China y ASEAN alcanzan nuevo tratado que amplía cooperación en tecnología verde</h2>
+          <div class="tarjeta-comentario">
+            <p>China y los países de la Asociación de Naciones del Sureste Asiático (ASEAN) firmaron un acuerdo de cooperación enfocado en tecnología limpia, manufactura sostenible e intercambio de talento, demostrando el fortalecimiento de lazos económicos más allá del comercio tradicional. El tratado incluye fondos de inversión conjunto en energías renovables y planes de capacitación técnica compartida, reflejando una estrategia regional para abordar el cambio climático mientras se consolida la influencia económica china. Este acuerdo posiciona a China como socio en desarrollo tecnológico verde para la región, más allá de su rol histórico como proveedor de manufacturas.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 South China Morning Post</span>
+            <a href="https://www.scmp.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-10">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🔬 Ciencia</span>
+            <span class="numero-noticia">#10</span>
+          </div>
+          <h2 class="tarjeta-titulo">Universidades chinas lideran rankings globales de investigación en inteligencia artificial y computación cuántica</h2>
+          <div class="tarjeta-comentario">
+            <p>Según las últimas clasificaciones internacionales de investigación científica, varias universidades chinas han alcanzado posiciones entre las mejores del mundo en áreas como inteligencia artificial y computación cuántica, reflejando la inversión masiva en investigación y desarrollo del país. Este ascenso académico es resultado de décadas de construcción de infraestructura científica y atracción de talento investigador, ahora en competencia directa con instituciones estadounidenses y europeas. El logro subraya cómo China está transicionando de economía manufacturera a potencia tecnológica de investigación, con implicaciones profundas para la geopolítica global de la innovación.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 TechNode</span>
+            <a href="https://www.technode.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+</main>
+
+<footer class="pie">
+  <div class="pie-contenido">
+    <h3>Fuentes consultadas en esta edición</h3>
+    <ul>
+      <li><a href="https://www.chinadaily.com.cn" target="_blank" rel="noopener">China Daily — China impulsa reforma en educación vocacional para reducir desigualdad laboral</a></li><li><a href="https://www.chinadaily.com.cn" target="_blank" rel="noopener">China Daily — Avance en fusión nuclear: laboratorio chino logra nuevo récord de confinamiento de plasma</a></li><li><a href="https://www.caixinglobal.com" target="_blank" rel="noopener">Caixin Global — Gigante de comercio electrónico anuncia programa de apoyo para pequeños comerciantes rurales</a></li><li><a href="https://www.technode.com" target="_blank" rel="noopener">TechNode — Nueva regulación sobre inteligencia artificial generativa: equilibrio entre innovación y control</a></li><li><a href="https://www.scmp.com" target="_blank" rel="noopener">South China Morning Post — Crecimiento del turismo doméstico chino llega a cifras récord en verano de 2026</a></li><li><a href="https://www.xinhuanet.com" target="_blank" rel="noopener">Xinhua News Agency — Investigación china sobre cambio climático revela aceleración de deshielo en el Tíbet</a></li><li><a href="https://www.yicaiglobal.com" target="_blank" rel="noopener">Yicai Global — Empresa china de manufactura limpia logra certificación internacional de carbono neutro</a></li><li><a href="https://www.chinadaily.com.cn" target="_blank" rel="noopener">China Daily — Festival de artes visuales en Pekín atrae participantes de 50 países con enfoque en arte digital</a></li><li><a href="https://www.scmp.com" target="_blank" rel="noopener">South China Morning Post — Relaciones comerciales: China y ASEAN alcanzan nuevo tratado que amplía cooperación en tecnología verde</a></li><li><a href="https://www.technode.com" target="_blank" rel="noopener">TechNode — Universidades chinas lideran rankings globales de investigación en inteligencia artificial y computación cuántica</a></li>
+    </ul>
+    <div class="pie-creditos">
+      China Hoy · Edición 2026-08-24 · Generado automáticamente con IA ·
+      Las opiniones expresadas son editoriales y no representan posiciones oficiales.
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
