@@ -3092,5 +3092,31 @@
       "Empresas tecnológicas chinas lideran inversión en inteligencia artificial para aplicaciones médicas",
       "Huawei lanza serie de smartphones con tecnología 5G mejorada y componentes nacionales"
     ]
+  },
+  "2026-08-27": {
+    "fuentes": [
+      "https://www.caixinglobal.com",
+      "https://www.technode.com",
+      "https://www.sixthtone.com",
+      "https://www.caixinglobal.com",
+      "https://www.scmp.com",
+      "https://www.pandaily.com",
+      "https://www.chinadaily.com.cn",
+      "https://www.globaltimes.cn",
+      "https://www.yicaiglobal.com",
+      "https://www.technode.com"
+    ],
+    "titulares": [
+      "China acelera transición energética: capacidad solar supera la de carbón",
+      "Tech chinas lideran sector de inteligencia artificial generativa",
+      "Desafíos demográficos impulsan reforma de políticas de envejecimiento",
+      "Sector inmobiliario chino busca estabilidad tras años de turbulencia",
+      "Patrimonio cultural chino atrae inversiones globales en museos y restauración",
+      "Industria de vehículos eléctricos china consolida liderazgo global",
+      "Reforma educativa enfatiza habilidades prácticas y emprendimiento",
+      "Geopolítica del Índico: China expande influencia en puertos estratégicos",
+      "Investigación biomédica china avanza en terapias genéticas y medicina personalizada",
+      "Ciudades inteligentes chinas integran IA en servicios públicos y control urbano"
+    ]
   }
 }
