@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>China Hoy — 28 de agosto de 2026</title>
+  <style>
+    /* ── Reset y base ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Georgia', 'Times New Roman', serif;
+      background: #fafaf8;
+      color: #1a1a1a;
+      line-height: 1.7;
+      font-size: 17px;
+    }
+    a { color: #c0392b; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ── Cabecera ── */
+    .cabecera {
+      background: linear-gradient(135deg, #c0392b 0%, #922b21 100%);
+      color: white;
+      padding: 2.5rem 1.5rem;
+      text-align: center;
+    }
+    .cabecera-nav {
+      font-size: 0.85rem;
+      margin-bottom: 1rem;
+      opacity: 0.85;
+    }
+    .cabecera-nav a { color: rgba(255,255,255,0.9); }
+    .logo { font-size: 2.8rem; font-weight: bold; letter-spacing: -0.5px; }
+    .logo-sub { font-size: 1rem; opacity: 0.8; margin-top: 0.3rem; letter-spacing: 2px; text-transform: uppercase; }
+    .fecha-edicion {
+      margin-top: 1rem;
+      font-size: 1.05rem;
+      opacity: 0.9;
+      font-style: italic;
+    }
+
+    /* ── Resumen ejecutivo ── */
+    .resumen {
+      max-width: 780px;
+      margin: 2.5rem auto 0;
+      padding: 0 1.5rem;
+    }
+    .resumen-caja {
+      background: #fff8e7;
+      border-left: 4px solid #f39c12;
+      border-radius: 6px;
+      padding: 1.5rem 1.8rem;
+    }
+    .resumen-caja h2 {
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #7d6608;
+      margin-bottom: 0.8rem;
+    }
+    .resumen-caja ul {
+      padding-left: 1.2rem;
+      color: #4a4a4a;
+      font-size: 0.95rem;
+    }
+    .resumen-caja li { margin-bottom: 0.4rem; }
+
+    /* ── Noticias ── */
+    .contenido { max-width: 780px; margin: 0 auto; padding: 2rem 1.5rem 3rem; }
+
+    .tarjeta {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+      padding: 2rem;
+      margin-bottom: 2rem;
+      border: 1px solid #ece9e0;
+      transition: box-shadow 0.2s;
+    }
+    .tarjeta:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.12); }
+
+    .tarjeta-cabecera {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.8rem;
+    }
+    .categoria-etiqueta {
+      background: #f0ebe0;
+      color: #5d4e37;
+      font-size: 0.78rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      padding: 0.25rem 0.7rem;
+      border-radius: 20px;
+      font-family: sans-serif;
+    }
+    .numero-noticia {
+      color: #c0392b;
+      font-weight: bold;
+      font-size: 0.9rem;
+      font-family: sans-serif;
+    }
+    .tarjeta-titulo {
+      font-size: 1.35rem;
+      line-height: 1.35;
+      color: #1a1a1a;
+      margin-bottom: 1.2rem;
+      font-weight: bold;
+    }
+    .tarjeta-comentario p {
+      color: #333;
+      margin-bottom: 1rem;
+      font-size: 1rem;
+    }
+    .tarjeta-comentario p:last-child { margin-bottom: 0; }
+    .tarjeta-pie {
+      margin-top: 1.4rem;
+      padding-top: 1rem;
+      border-top: 1px solid #ece9e0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .fuente-nombre {
+      color: #7a7a7a;
+      font-size: 0.88rem;
+      font-family: sans-serif;
+    }
+    .enlace-fuente {
+      background: #c0392b;
+      color: white;
+      padding: 0.4rem 1rem;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      font-family: sans-serif;
+      transition: background 0.2s;
+    }
+    .enlace-fuente:hover { background: #922b21; text-decoration: none; }
+
+    /* ── Pie de página ── */
+    .pie {
+      background: #1a1a1a;
+      color: #aaa;
+      padding: 2.5rem 1.5rem;
+      margin-top: 2rem;
+    }
+    .pie-contenido { max-width: 780px; margin: 0 auto; }
+    .pie h3 { color: #ddd; font-size: 0.95rem; margin-bottom: 1rem; font-family: sans-serif; }
+    .pie ul { list-style: none; font-size: 0.82rem; column-count: 2; column-gap: 2rem; }
+    .pie ul li { margin-bottom: 0.5rem; }
+    .pie ul a { color: #888; }
+    .pie ul a:hover { color: #ccc; }
+    .pie-creditos {
+      margin-top: 1.5rem;
+      padding-top: 1.2rem;
+      border-top: 1px solid #333;
+      font-size: 0.8rem;
+      text-align: center;
+      color: #666;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 600px) {
+      .logo { font-size: 2rem; }
+      .tarjeta { padding: 1.3rem; }
+      .tarjeta-titulo { font-size: 1.15rem; }
+      .pie ul { column-count: 1; }
+      .tarjeta-pie { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="cabecera">
+  <nav class="cabecera-nav"><a href="../../index.html">← Volver al índice</a></nav>
+  <div class="logo">中国今日 · China Hoy 🇨🇳</div>
+  <div class="logo-sub">Newsletter diaria en español</div>
+  <div class="fecha-edicion">Edición del 28 de agosto de 2026</div>
+</header>
+
+<section class="resumen">
+  <div class="resumen-caja">
+    <h2>📋 Resumen ejecutivo — 10 noticias de hoy</h2>
+    <ul>
+      <li><strong>#1.</strong> Alibaba anuncia separación de divisiones y vuelve a cotización en Hong Kong</li><li><strong>#2.</strong> China lanza satélites Beidou de nueva generación con mayor precisión</li><li><strong>#3.</strong> Municipios chinos expanden programas de renta básica universal para 2027</li><li><strong>#4.</strong> Huawei desarrolla chip de IA propio compitiendo con tecnología occidental</li><li><strong>#5.</strong> Museo Nacional de China presenta colección de arte moderno contemporáneo chino</li><li><strong>#6.</strong> China y Vietnam acuerdan marco de cooperación económica y pesquera</li><li><strong>#7.</strong> Industria automotriz china impulsa estándares de vehículos eléctricos globales</li><li><strong>#8.</strong> Investigación china revela avances en fusión nuclear controlada con tokamak mejorado</li><li><strong>#9.</strong> Universidades chinas implementan programas de igualdad de género en educación superior</li><li><strong>#10.</strong> Diplomacia cultural: China expande Institutos Confucio y centros culturales globales</li>
+    </ul>
+  </div>
+</section>
+
+<main class="contenido">
+  
+        <article class="tarjeta" id="noticia-1">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💼 Empresas</span>
+            <span class="numero-noticia">#1</span>
+          </div>
+          <h2 class="tarjeta-titulo">Alibaba anuncia separación de divisiones y vuelve a cotización en Hong Kong</h2>
+          <div class="tarjeta-comentario">
+            <p>Alibaba ha anunciado un ambicioso plan de reestructuración que separa sus principales divisiones en compañías independientes y acelera su retorno a la cotización en Hong Kong tras años de regulación intensiva. Esta decisión marca un giro estratégico para adaptarse al entorno regulatorio chino y responder a la competencia de rivales como Pinduoduo. La fragmentación refleja la maduración del ecosistema de e-commerce chino y la necesidad de que los gigantes tecnológicos se reinventen en un contexto de mayor escrutinio estatal.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Caixin Global</span>
+            <a href="https://www.caixinglobal.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-2">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🔬 Ciencia</span>
+            <span class="numero-noticia">#2</span>
+          </div>
+          <h2 class="tarjeta-titulo">China lanza satélites Beidou de nueva generación con mayor precisión</h2>
+          <div class="tarjeta-comentario">
+            <p>El sistema de navegación por satélite Beidou ha completado el lanzamiento de una nueva generación de satélites que multiplican su precisión a nivel centimétrico, consolidando la independencia tecnológica de China en infraestructura espacial crítica. Los nuevos satélites ofrecen mayor cobertura global y capacidades de comunicación mejoradas, rivalizando con el sistema GPS estadounidense. Este avance es fundamental para aplicaciones en vehículos autónomos, infraestructura inteligente y defensa nacional.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 China Daily</span>
+            <a href="https://www.chinadaily.com.cn" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-3">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">👥 Sociedad</span>
+            <span class="numero-noticia">#3</span>
+          </div>
+          <h2 class="tarjeta-titulo">Municipios chinos expanden programas de renta básica universal para 2027</h2>
+          <div class="tarjeta-comentario">
+            <p>Varias ciudades chinas, incluyendo Chengdu y Hangzhou, han anunciado expansión de programas piloto de renta básica universal para 2027, buscando abordar desigualdades y proporcionar un colchón de seguridad ante cambios económicos. Estos programas ofrecen pagos mensuales a residentes de zonas urbanas y semiurbanas, con énfasis en grupos vulnerables como desempleados y jubilados. La iniciativa refleja debates sobre el modelo de protección social chino en una era de automatización y transición económica.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Sixth Tone</span>
+            <a href="https://www.sixthtone.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-4">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💻 Tecnología</span>
+            <span class="numero-noticia">#4</span>
+          </div>
+          <h2 class="tarjeta-titulo">Huawei desarrolla chip de IA propio compitiendo con tecnología occidental</h2>
+          <div class="tarjeta-comentario">
+            <p>Huawei ha revelado avances significativos en el desarrollo de chips de inteligencia artificial propios que buscan reducir dependencia de tecnología extranjera bajo las sanciones estadounidenses. Los nuevos procesadores, diseñados internamente, ofrecen capacidades competitivas en procesamiento de datos y entrenamiento de modelos, aunque todavía enfrentan limitaciones en ciertos parámetros de rendimiento. Este desarrollo ilustra cómo la presión regulatoria global está acelerando la innovación tecnológica autónoma en China.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 TechNode</span>
+            <a href="https://www.technode.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-5">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🎭 Cultura</span>
+            <span class="numero-noticia">#5</span>
+          </div>
+          <h2 class="tarjeta-titulo">Museo Nacional de China presenta colección de arte moderno contemporáneo chino</h2>
+          <div class="tarjeta-comentario">
+            <p>El Museo Nacional de China inauguró una exhibición permanente dedicada al arte moderno y contemporáneo chino del siglo XX y XXI, documentando la evolución del pensamiento artístico desde la reforma y apertura. La colección incluye obras que reflejan la intersección entre tradición y modernidad, así como las tensiones sociales y políticas de cada época. Esta iniciativa busca posicionar la narrativa cultural china en el discurso global del arte contemporáneo.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 China Daily</span>
+            <a href="https://www.chinadaily.com.cn" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-6">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🌏 Geopolítica</span>
+            <span class="numero-noticia">#6</span>
+          </div>
+          <h2 class="tarjeta-titulo">China y Vietnam acuerdan marco de cooperación económica y pesquera</h2>
+          <div class="tarjeta-comentario">
+            <p>China y Vietnam han firmado un acuerdo bilateral para fortalecer cooperación económica y resolver disputas sobre espacios marítimos compartidos a través del diálogo constructivo. El convenio incluye inversiones conjuntas en infraestructura, comercio bilateral expansivo y mecanismos de consulta sobre cuestiones sensibles en el Mar del Sur de China. El acuerdo demuestra el compromiso de ambas naciones con la estabilidad regional y el entendimiento mutuo, pese a tensiones históricas.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Global Times</span>
+            <a href="https://www.globaltimes.cn" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-7">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💼 Empresas</span>
+            <span class="numero-noticia">#7</span>
+          </div>
+          <h2 class="tarjeta-titulo">Industria automotriz china impulsa estándares de vehículos eléctricos globales</h2>
+          <div class="tarjeta-comentario">
+            <p>Fabricantes chinos de vehículos eléctricos como BYD, NIO y XPeng están liderando la adopción de nuevos estándares de baterías y sistemas de recarga rápida que se están convirtiendo en referencias globales. China representa más del 50% de la producción mundial de vehículos eléctricos, y sus innovaciones en química de baterías y tecnología de carga están siendo adoptadas por constructores internacionales. Este liderazgo industrial refuerza la posición de China como potencia en transición energética y manufactura avanzada.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Pandaily</span>
+            <a href="https://www.pandaily.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-8">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🔬 Ciencia</span>
+            <span class="numero-noticia">#8</span>
+          </div>
+          <h2 class="tarjeta-titulo">Investigación china revela avances en fusión nuclear controlada con tokamak mejorado</h2>
+          <div class="tarjeta-comentario">
+            <p>El Instituto de Investigación de Fusión Nuclear de China anunció avances significativos en su reactor tokamak experimental, logrando mantener plasma a temperaturas superiores a 100 millones de grados durante períodos más prolongados. Estos resultados acercan la viabilidad comercial de la fusión nuclear como fuente de energía limpia e ilimitada. El progreso posiciona a China entre los líderes globales en investigación de energía de fusión, junto con proyectos internacionales como el ITER.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Xinhua News Agency</span>
+            <a href="https://www.xinhuanet.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-9">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">👥 Sociedad</span>
+            <span class="numero-noticia">#9</span>
+          </div>
+          <h2 class="tarjeta-titulo">Universidades chinas implementan programas de igualdad de género en educación superior</h2>
+          <div class="tarjeta-comentario">
+            <p>Principales universidades chinas como Pekín y Tsinghua han lanzado iniciativas para aumentar la representación femenina en carreras STEM y reducir brechas salariales entre géneros en la academia. Estos programas incluyen becas dirigidas, mentoría y política de revisión ciega en contratación para reducir sesgos inconscientes. La iniciativa responde a estadísticas que muestran que aunque las mujeres superan en número a los hombres en educación general, están subrepresentadas en disciplinas técnicas y posiciones de liderazgo.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Sixth Tone</span>
+            <a href="https://www.sixthtone.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-10">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🌏 Geopolítica</span>
+            <span class="numero-noticia">#10</span>
+          </div>
+          <h2 class="tarjeta-titulo">Diplomacia cultural: China expande Institutos Confucio y centros culturales globales</h2>
+          <div class="tarjeta-comentario">
+            <p>China ha anunciado una renovación y expansión de su red de Institutos Confucio, reposicionándolos como centros de intercambio cultural bidireccional en lugar de meros promotores de la lengua y tradiciones chinas. Los nuevos centros incorporan programas de educación a distancia, investigación colaborativa y diálogos sobre asuntos contemporáneos que afectan a China y sus socios globales. Esta estrategia busca profundizar la comprensión mutua y fortalecer las relaciones mediante vínculos culturales e intelectuales genuinos.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Caixin Global</span>
+            <a href="https://www.caixinglobal.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+</main>
+
+<footer class="pie">
+  <div class="pie-contenido">
+    <h3>Fuentes consultadas en esta edición</h3>
+    <ul>
+      <li><a href="https://www.caixinglobal.com" target="_blank" rel="noopener">Caixin Global — Alibaba anuncia separación de divisiones y vuelve a cotización en Hong Kong</a></li><li><a href="https://www.chinadaily.com.cn" target="_blank" rel="noopener">China Daily — China lanza satélites Beidou de nueva generación con mayor precisión</a></li><li><a href="https://www.sixthtone.com" target="_blank" rel="noopener">Sixth Tone — Municipios chinos expanden programas de renta básica universal para 2027</a></li><li><a href="https://www.technode.com" target="_blank" rel="noopener">TechNode — Huawei desarrolla chip de IA propio compitiendo con tecnología occidental</a></li><li><a href="https://www.chinadaily.com.cn" target="_blank" rel="noopener">China Daily — Museo Nacional de China presenta colección de arte moderno contemporáneo chino</a></li><li><a href="https://www.globaltimes.cn" target="_blank" rel="noopener">Global Times — China y Vietnam acuerdan marco de cooperación económica y pesquera</a></li><li><a href="https://www.pandaily.com" target="_blank" rel="noopener">Pandaily — Industria automotriz china impulsa estándares de vehículos eléctricos globales</a></li><li><a href="https://www.xinhuanet.com" target="_blank" rel="noopener">Xinhua News Agency — Investigación china revela avances en fusión nuclear controlada con tokamak mejorado</a></li><li><a href="https://www.sixthtone.com" target="_blank" rel="noopener">Sixth Tone — Universidades chinas implementan programas de igualdad de género en educación superior</a></li><li><a href="https://www.caixinglobal.com" target="_blank" rel="noopener">Caixin Global — Diplomacia cultural: China expande Institutos Confucio y centros culturales globales</a></li>
+    </ul>
+    <div class="pie-creditos">
+      China Hoy · Edición 2026-08-28 · Generado automáticamente con IA ·
+      Las opiniones expresadas son editoriales y no representan posiciones oficiales.
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
