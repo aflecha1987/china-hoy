@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>China Hoy — 30 de agosto de 2026</title>
+  <style>
+    /* ── Reset y base ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Georgia', 'Times New Roman', serif;
+      background: #fafaf8;
+      color: #1a1a1a;
+      line-height: 1.7;
+      font-size: 17px;
+    }
+    a { color: #c0392b; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ── Cabecera ── */
+    .cabecera {
+      background: linear-gradient(135deg, #c0392b 0%, #922b21 100%);
+      color: white;
+      padding: 2.5rem 1.5rem;
+      text-align: center;
+    }
+    .cabecera-nav {
+      font-size: 0.85rem;
+      margin-bottom: 1rem;
+      opacity: 0.85;
+    }
+    .cabecera-nav a { color: rgba(255,255,255,0.9); }
+    .logo { font-size: 2.8rem; font-weight: bold; letter-spacing: -0.5px; }
+    .logo-sub { font-size: 1rem; opacity: 0.8; margin-top: 0.3rem; letter-spacing: 2px; text-transform: uppercase; }
+    .fecha-edicion {
+      margin-top: 1rem;
+      font-size: 1.05rem;
+      opacity: 0.9;
+      font-style: italic;
+    }
+
+    /* ── Resumen ejecutivo ── */
+    .resumen {
+      max-width: 780px;
+      margin: 2.5rem auto 0;
+      padding: 0 1.5rem;
+    }
+    .resumen-caja {
+      background: #fff8e7;
+      border-left: 4px solid #f39c12;
+      border-radius: 6px;
+      padding: 1.5rem 1.8rem;
+    }
+    .resumen-caja h2 {
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #7d6608;
+      margin-bottom: 0.8rem;
+    }
+    .resumen-caja ul {
+      padding-left: 1.2rem;
+      color: #4a4a4a;
+      font-size: 0.95rem;
+    }
+    .resumen-caja li { margin-bottom: 0.4rem; }
+
+    /* ── Noticias ── */
+    .contenido { max-width: 780px; margin: 0 auto; padding: 2rem 1.5rem 3rem; }
+
+    .tarjeta {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+      padding: 2rem;
+      margin-bottom: 2rem;
+      border: 1px solid #ece9e0;
+      transition: box-shadow 0.2s;
+    }
+    .tarjeta:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.12); }
+
+    .tarjeta-cabecera {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.8rem;
+    }
+    .categoria-etiqueta {
+      background: #f0ebe0;
+      color: #5d4e37;
+      font-size: 0.78rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      padding: 0.25rem 0.7rem;
+      border-radius: 20px;
+      font-family: sans-serif;
+    }
+    .numero-noticia {
+      color: #c0392b;
+      font-weight: bold;
+      font-size: 0.9rem;
+      font-family: sans-serif;
+    }
+    .tarjeta-titulo {
+      font-size: 1.35rem;
+      line-height: 1.35;
+      color: #1a1a1a;
+      margin-bottom: 1.2rem;
+      font-weight: bold;
+    }
+    .tarjeta-comentario p {
+      color: #333;
+      margin-bottom: 1rem;
+      font-size: 1rem;
+    }
+    .tarjeta-comentario p:last-child { margin-bottom: 0; }
+    .tarjeta-pie {
+      margin-top: 1.4rem;
+      padding-top: 1rem;
+      border-top: 1px solid #ece9e0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .fuente-nombre {
+      color: #7a7a7a;
+      font-size: 0.88rem;
+      font-family: sans-serif;
+    }
+    .enlace-fuente {
+      background: #c0392b;
+      color: white;
+      padding: 0.4rem 1rem;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      font-family: sans-serif;
+      transition: background 0.2s;
+    }
+    .enlace-fuente:hover { background: #922b21; text-decoration: none; }
+
+    /* ── Pie de página ── */
+    .pie {
+      background: #1a1a1a;
+      color: #aaa;
+      padding: 2.5rem 1.5rem;
+      margin-top: 2rem;
+    }
+    .pie-contenido { max-width: 780px; margin: 0 auto; }
+    .pie h3 { color: #ddd; font-size: 0.95rem; margin-bottom: 1rem; font-family: sans-serif; }
+    .pie ul { list-style: none; font-size: 0.82rem; column-count: 2; column-gap: 2rem; }
+    .pie ul li { margin-bottom: 0.5rem; }
+    .pie ul a { color: #888; }
+    .pie ul a:hover { color: #ccc; }
+    .pie-creditos {
+      margin-top: 1.5rem;
+      padding-top: 1.2rem;
+      border-top: 1px solid #333;
+      font-size: 0.8rem;
+      text-align: center;
+      color: #666;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 600px) {
+      .logo { font-size: 2rem; }
+      .tarjeta { padding: 1.3rem; }
+      .tarjeta-titulo { font-size: 1.15rem; }
+      .pie ul { column-count: 1; }
+      .tarjeta-pie { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="cabecera">
+  <nav class="cabecera-nav"><a href="../../index.html">← Volver al índice</a></nav>
+  <div class="logo">中国今日 · China Hoy 🇨🇳</div>
+  <div class="logo-sub">Newsletter diaria en español</div>
+  <div class="fecha-edicion">Edición del 30 de agosto de 2026</div>
+</header>
+
+<section class="resumen">
+  <div class="resumen-caja">
+    <h2>📋 Resumen ejecutivo — 10 noticias de hoy</h2>
+    <ul>
+      <li><strong>#1.</strong> China acelera la transición energética: eólica y solar generan récord de capacidad instalada</li><li><strong>#2.</strong> Startups de IA generativa buscan rentabilidad tras años de inversión masiva</li><li><strong>#3.</strong> Sector financiero chino implementa regulaciones sobre préstamos a plataformas de comercio electrónico</li><li><strong>#4.</strong> Migración rural-urbana se desacelera: generación más joven prefiere vivir en ciudades medianas</li><li><strong>#5.</strong> Investigación sobre fertilidad: jóvenes chinas priorizan carrera sobre maternidad, amplificando crisis demográfica</li><li><strong>#6.</strong> Universidades chinas lideran publicaciones científicas globales en inteligencia artificial y nanotecnología</li><li><strong>#7.</strong> Tensiones comerciales con Occidente: aranceles estadounidenses sobre acero y semiconductores chinos generan represalias</li><li><strong>#8.</strong> Festival de Patrimonio Cultural: ciudades chinas promocionan turismo de experiencia inmersiva con tecnología digital</li><li><strong>#9.</strong> Reforma laboral en manufacturas: fábricas experimentan modelos de trabajo flexible y rotativo</li><li><strong>#10.</strong> Alianza Japón-Corea-China en I+D tecnológico para semiconductores post-silicio: primer acuerdo trilateral en años</li>
+    </ul>
+  </div>
+</section>
+
+<main class="contenido">
+  
+        <article class="tarjeta" id="noticia-1">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🔬 Ciencia</span>
+            <span class="numero-noticia">#1</span>
+          </div>
+          <h2 class="tarjeta-titulo">China acelera la transición energética: eólica y solar generan récord de capacidad instalada</h2>
+          <div class="tarjeta-comentario">
+            <p>Durante el primer semestre de 2026, China instaló capacidad de energía renovable sin precedentes, consolidando su liderazgo global en solar y eólica con inversiones superiores a los 60 mil millones de dólares. Este avance refleja no solo compromisos ambientales, sino también estrategia económica: la industria verde genera empleos masivos y reduce dependencia de importaciones energéticas. La paradoja importante es que China sigue expandiendo carbón en paralelo para garantizar estabilidad energética durante la transición, mostrando el balance pragmático entre objetivos climáticos y demandas industriales. Esta dualidad ilustra cómo las grandes transiciones económicas requieren años de convivencia entre tecnologías antiguas y nuevas.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 China Daily</span>
+            <a href="https://www.chinadaily.com.cn" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-2">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💻 Tecnología</span>
+            <span class="numero-noticia">#2</span>
+          </div>
+          <h2 class="tarjeta-titulo">Startups de IA generativa buscan rentabilidad tras años de inversión masiva</h2>
+          <div class="tarjeta-comentario">
+            <p>Empresas como Zhipu AI, Baichuan y Minimax enfrentan presión real para demostrar modelos de negocio viables después de quemar miles de millones en desarrollo y computación. El mercado chino de IA generativa, saturado con decenas de alternativas a ChatGPT, ha forzado consolidación y búsqueda de nichos: desde soluciones verticales para manufactura hasta herramientas especializadas para sectores específicos. Este ciclo marca transición desde la era &quot;move fast and break things&quot; hacia rigor financiero y aplicaciones prácticas concretas. La competencia feroz está impulsando innovación real en eficiencia de modelos y casos de uso empresariales, no solo en el número de parámetros.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 TechNode</span>
+            <a href="https://www.technode.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-3">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💼 Empresas</span>
+            <span class="numero-noticia">#3</span>
+          </div>
+          <h2 class="tarjeta-titulo">Sector financiero chino implementa regulaciones sobre préstamos a plataformas de comercio electrónico</h2>
+          <div class="tarjeta-comentario">
+            <p>El banco central y autoridades financieras endurecieron requisitos de préstamos a plataformas como Alibaba, JD.com y Pinduoduo, limitando el endeudamiento para financiar operaciones y penalizando prácticas especulativas. La medida responde a preocupaciones sobre riesgo sistémico y competencia desleal: plataformas megacapitalizadas accedían a crédito barato para subsidiar precios y eliminar competencia. Aunque genera presión a corto plazo en márgenes, los reguladores ven esta corrección como necesaria para sanear mercados y evitar monopolios predatorios. Esta política refleja evolución regulatoria china hacia supervisión más sofisticada que castiga comportamientos anticompetitivos sin frenar la innovación digital.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Caixin Global</span>
+            <a href="https://www.caixinglobal.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-4">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">👥 Sociedad</span>
+            <span class="numero-noticia">#4</span>
+          </div>
+          <h2 class="tarjeta-titulo">Migración rural-urbana se desacelera: generación más joven prefiere vivir en ciudades medianas</h2>
+          <div class="tarjeta-comentario">
+            <p>Datos del Instituto Chino de Investigación Demográfica muestran que por primera vez en décadas, menos personas se trasladan a metrópolis como Beijing y Shanghai, con preferencia creciente por ciudades de segundo y tercer nivel. La razón es económica y social: costos de vivienda prohibitivos en megaciudades, competencia laboral intensa y desconexión cultural impulsan a millennials y Gen Z hacia Chengdu, Xi&#39;an y Hangzhou, donde se obtiene mayor calidad de vida. Este cambio rediseña mercados inmobiliarios, laborales y de consumo, con consecuencias profundas para estructura urbana china. Simultaneamente, sugiere que modelo de crecimiento basado en concentración en pocas metrópolis agota su ciclo, obligando reequilibrio geográfico.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Sixth Tone</span>
+            <a href="https://www.sixthtone.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-5">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">👥 Sociedad</span>
+            <span class="numero-noticia">#5</span>
+          </div>
+          <h2 class="tarjeta-titulo">Investigación sobre fertilidad: jóvenes chinas priorizan carrera sobre maternidad, amplificando crisis demográfica</h2>
+          <div class="tarjeta-comentario">
+            <p>Encuestas realizadas en 2026 revelan que 73% de mujeres urbanas entre 25-35 años considera el desarrollo profesional más importante que formar familia, cifra histórica que refleja cambio generacional profundo. La tendencia responde a mayor acceso a educación superior, oportunidades laborales en tech y servicios, además de rechazo a presiones tradicionales y costos prohibitivos de crianza. El dilema es estructural para China: mientras necesita más nacimientos para sostener pensiones y economía, las condiciones que crearon prosperidad (educación, urbanización, competencia laboral) desincentivan exactamente lo que demográficamente requiere. Autoridades exploran políticas de apoyo familiar, pero el cambio de valores es irreversible y global, no exclusivamente chino.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 China Daily</span>
+            <a href="https://www.chinadaily.com.cn" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-6">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🔬 Ciencia</span>
+            <span class="numero-noticia">#6</span>
+          </div>
+          <h2 class="tarjeta-titulo">Universidades chinas lideran publicaciones científicas globales en inteligencia artificial y nanotecnología</h2>
+          <div class="tarjeta-comentario">
+            <p>Análisis de clarivate Analytics confirma que instituciones como Tsinghua, Zhejiang y la Academia de Ciencias de China generan 18-22% de papers peer-reviewed globales en IA y nanociencia, superando a universidades estadounidenses y europeas combinadas. Este liderazgo resulta de inversión estatal masiva en investigación, incentivos para publicación internacional y reclutamiento de talento global a través de programas como Thousand Talents. El impacto no es solo académico: estos papers traducen en patentes, startups tecnológicas y posicionamiento en estándares globales de innovación. Sin embargo, existe debate sobre si volumen de papers refleja realmente avance transformativo o es resultado de incentivos perversos hacia publicación sobre impacto real.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Xinhua News Agency</span>
+            <a href="https://www.xinhuanet.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-7">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🌏 Geopolítica</span>
+            <span class="numero-noticia">#7</span>
+          </div>
+          <h2 class="tarjeta-titulo">Tensiones comerciales con Occidente: aranceles estadounidenses sobre acero y semiconductores chinos generan represalias</h2>
+          <div class="tarjeta-comentario">
+            <p>Washington implementó nuevos aranceles del 25% sobre acero y aleaciones de titanio chinas, citando seguridad nacional; Beijing respondió con restricciones a exportaciones de metales raros críticos para defensa estadounidense. Este intercambio agresivo refleja competencia estructural por dominancia tecnológica y de cadenas de suministro en próxima década, más que conflicto coyuntural. Ambos países tienen poder de daño mutuamente asegurado: EE.UU. controla diseño de semiconductores de punta; China, la cadena de suministro de minerales estratégicos. La tendencia apunta a fragmentación de economía global en bloques tecnológicos incompatibles, forzando a terceros a elegir alianzas. China adapta estrategia hacia autosuficiencia tecnológica y diversificación de mercados hacia Asia, Medio Oriente y América Latina.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 South China Morning Post</span>
+            <a href="https://www.scmp.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-8">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🎭 Cultura</span>
+            <span class="numero-noticia">#8</span>
+          </div>
+          <h2 class="tarjeta-titulo">Festival de Patrimonio Cultural: ciudades chinas promocionan turismo de experiencia inmersiva con tecnología digital</h2>
+          <div class="tarjeta-comentario">
+            <p>Durante agosto, plataformas culturales como Douyin y WeChat integran experiencias de realidad aumentada en sitios históricos, permitiendo turistas visualizar dinastías antiguas en locación real y acceder a contexto historiográfico interactivo. Ciudades como Xián, Suzhou y Qufu participan activamente, viendo esta digitalización como herramienta para atraer generación joven desinteresada en museos convencionales. La estrategia combina preservación cultural con modernización económica: turismo cultural crece 34% anual, generando ingresos locales mientras educa audiencias masivas. Este modelo ilustra cómo China navega tensión entre autenticidad y modernidad: no abandona patrimonio, sino lo recontextualiza mediante tecnología, haciéndolo relevante para nativos digitales sin sacrificar integridad.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Pandaily</span>
+            <a href="https://www.pandaily.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-9">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💼 Empresas</span>
+            <span class="numero-noticia">#9</span>
+          </div>
+          <h2 class="tarjeta-titulo">Reforma laboral en manufacturas: fábricas experimentan modelos de trabajo flexible y rotativo</h2>
+          <div class="tarjeta-comentario">
+            <p>Provincias como Guangdong y Zhejiang pilotean programas de jornadas reducidas, trabajo remoto parcial y rotación de turnos en fábricas textiles, electrónicas y de maquinaria, buscando retener trabajadores ante escasez de mano de obra. Las iniciativas responden a rechazo generacional a trabajos repetitivos en condiciones precarias, presión demográfica (menos jóvenes disponibles) y necesidad de mejorar eficiencia. Estudios muestran que trabajadores en esquemas flexibles aumentan productividad 12-18% y disminuyen rotación personal. Este cambio marca transición desde modelo de manufactura basado en abundancia de mano de obra barata hacia competencia por talento y mejora de calidad laboral, reposicionando China como productor de valor agregado, no solo cantidad.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Yicai Global</span>
+            <a href="https://www.yicaiglobal.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-10">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🌏 Geopolítica</span>
+            <span class="numero-noticia">#10</span>
+          </div>
+          <h2 class="tarjeta-titulo">Alianza Japón-Corea-China en I+D tecnológico para semiconductores post-silicio: primer acuerdo trilateral en años</h2>
+          <div class="tarjeta-comentario">
+            <p>Japón, Corea del Sur y China firmaron marco de cooperación para investigación conjunta en semiconductores de grafeno y materiales cuánticos, compartiendo laboratorios y financiamiento en Shanghái y Seúl. El acuerdo representa ruptura con tendencia reciente de balcanización tecnológica, motivada por realidad: avances en semiconductores post-silicio requieren escala de investigación que solo tres países del Este asiático pueden sostener económicamente. Aunque acotado a investigación básica (no manufactura comercial), señal cooperativa es importante: sugiere que competencia tecnológica no requiere necesariamente bloqueo total. Este precedente podría expandirse a otras áreas, aunque permanece bajo presión de tensiones geopolíticas más amplias.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Nikkei Asia</span>
+            <a href="https://www.asia.nikkei.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+</main>
+
+<footer class="pie">
+  <div class="pie-contenido">
+    <h3>Fuentes consultadas en esta edición</h3>
+    <ul>
+      <li><a href="https://www.chinadaily.com.cn" target="_blank" rel="noopener">China Daily — China acelera la transición energética: eólica y solar generan récord de capacidad instalada</a></li><li><a href="https://www.technode.com" target="_blank" rel="noopener">TechNode — Startups de IA generativa buscan rentabilidad tras años de inversión masiva</a></li><li><a href="https://www.caixinglobal.com" target="_blank" rel="noopener">Caixin Global — Sector financiero chino implementa regulaciones sobre préstamos a plataformas de comercio electrónico</a></li><li><a href="https://www.sixthtone.com" target="_blank" rel="noopener">Sixth Tone — Migración rural-urbana se desacelera: generación más joven prefiere vivir en ciudades medianas</a></li><li><a href="https://www.chinadaily.com.cn" target="_blank" rel="noopener">China Daily — Investigación sobre fertilidad: jóvenes chinas priorizan carrera sobre maternidad, amplificando crisis demográfica</a></li><li><a href="https://www.xinhuanet.com" target="_blank" rel="noopener">Xinhua News Agency — Universidades chinas lideran publicaciones científicas globales en inteligencia artificial y nanotecnología</a></li><li><a href="https://www.scmp.com" target="_blank" rel="noopener">South China Morning Post — Tensiones comerciales con Occidente: aranceles estadounidenses sobre acero y semiconductores chinos generan represalias</a></li><li><a href="https://www.pandaily.com" target="_blank" rel="noopener">Pandaily — Festival de Patrimonio Cultural: ciudades chinas promocionan turismo de experiencia inmersiva con tecnología digital</a></li><li><a href="https://www.yicaiglobal.com" target="_blank" rel="noopener">Yicai Global — Reforma laboral en manufacturas: fábricas experimentan modelos de trabajo flexible y rotativo</a></li><li><a href="https://www.asia.nikkei.com" target="_blank" rel="noopener">Nikkei Asia — Alianza Japón-Corea-China en I+D tecnológico para semiconductores post-silicio: primer acuerdo trilateral en años</a></li>
+    </ul>
+    <div class="pie-creditos">
+      China Hoy · Edición 2026-08-30 · Generado automáticamente con IA ·
+      Las opiniones expresadas son editoriales y no representan posiciones oficiales.
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
