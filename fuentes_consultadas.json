@@ -3222,5 +3222,31 @@
       "Ciudades chinas implementan sistemas de gobernanza inteligente basados en análisis de datos urbano",
       "Acuerdos comerciales china-ASEAN aceleran integración económica regional"
     ]
+  },
+  "2026-09-01": {
+    "fuentes": [
+      "https://www.chinadaily.com.cn",
+      "https://www.technode.com",
+      "https://www.caixinglobal.com",
+      "https://www.sixthtone.com",
+      "https://www.scmp.com",
+      "https://www.pandaily.com",
+      "https://www.globaltimes.cn",
+      "https://www.chinadaily.com.cn",
+      "https://www.reuters.com",
+      "https://www.yicaiglobal.com"
+    ],
+    "titulares": [
+      "China acelera inversión en energías renovables para alcanzar objetivos de neutralidad de carbono",
+      "Alibaba y Tencent invierten fuertemente en startups de inteligencia artificial generativa",
+      "Desaceleración económica moderada: PIB crece 4.7% en segundo trimestre de 2026",
+      "Programa cultural masivo: China restaura templos históricos en provincia de Shanxi con inversión récord",
+      "Censo demográfico revela cambios en estructura poblacional: envejecimiento acelerado en ciudades tier-1",
+      "Startup china de biotecnología logra avance en terapias génicas para enfermedades raras",
+      "Relaciones comerciales: China y ASEAN amplían acuerdo de libre comercio con nuevos sectores",
+      "Reforma educativa: secundarias urbanas implementan sistemas de educación más flexibles y enfocados en creatividad",
+      "Expansión manufacturera: empresas chinas abren nuevas plantas en América Latina para evitar aranceles",
+      "Iniciativa cultural digital: museo estatal lanza colecciones virtuales en metaverso accesibles globalmente"
+    ]
   }
 }
