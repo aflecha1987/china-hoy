@@ -3274,5 +3274,31 @@
       "Reforma educativa: China reduce presión académica e introduce evaluación integral en escuelas",
       "Ambición espacial: China prepara misión tripulada a la Luna para 2027 y anuncia planes de base lunar permanente"
     ]
+  },
+  "2026-09-03": {
+    "fuentes": [
+      "https://www.caixinglobal.com",
+      "https://www.sixthtone.com",
+      "https://www.chinadaily.com.cn",
+      "https://www.technode.com",
+      "https://www.english.cctv.com",
+      "https://www.scmp.com",
+      "https://www.pandaily.com",
+      "https://www.yicaiglobal.com",
+      "https://www.xinhuanet.com",
+      "https://www.chinanews.com.cn"
+    ],
+    "titulares": [
+      "China acelera inversión en semiconductores nacionales tras sanciones estadounidenses",
+      "Festival de Ópera de Pekín celebra experimentación contemporánea en formas clásicas",
+      "Reforma educativa en educación vocacional busca reducir brecha de empleabilidad",
+      "Alibaba y Tencent anuncian nuevas regulaciones internas contra prácticas de competencia desleal",
+      "Investigación china identifica mecanismo clave en resistencia del cáncer a fármacos",
+      "China consolida asociación económica estratégica con naciones de ASEAN mediante acuerdos comerciales ampliados",
+      "Huawei anuncia avances en tecnología de baterías de estado sólido para vehículos eléctricos",
+      "Ciudades chinas reportan mejoras en calidad del aire tras políticas de descarbonización industrial",
+      "Instituto de investigación chino lidera estudio global sobre neurociencia del aprendizaje multilingüe",
+      "Industria agrícola china invierte en biotecnología para mejorar resistencia de cultivos a cambios climáticos"
+    ]
   }
 }
