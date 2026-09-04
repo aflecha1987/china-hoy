@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>China Hoy — 4 de septiembre de 2026</title>
+  <style>
+    /* ── Reset y base ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Georgia', 'Times New Roman', serif;
+      background: #fafaf8;
+      color: #1a1a1a;
+      line-height: 1.7;
+      font-size: 17px;
+    }
+    a { color: #c0392b; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ── Cabecera ── */
+    .cabecera {
+      background: linear-gradient(135deg, #c0392b 0%, #922b21 100%);
+      color: white;
+      padding: 2.5rem 1.5rem;
+      text-align: center;
+    }
+    .cabecera-nav {
+      font-size: 0.85rem;
+      margin-bottom: 1rem;
+      opacity: 0.85;
+    }
+    .cabecera-nav a { color: rgba(255,255,255,0.9); }
+    .logo { font-size: 2.8rem; font-weight: bold; letter-spacing: -0.5px; }
+    .logo-sub { font-size: 1rem; opacity: 0.8; margin-top: 0.3rem; letter-spacing: 2px; text-transform: uppercase; }
+    .fecha-edicion {
+      margin-top: 1rem;
+      font-size: 1.05rem;
+      opacity: 0.9;
+      font-style: italic;
+    }
+
+    /* ── Resumen ejecutivo ── */
+    .resumen {
+      max-width: 780px;
+      margin: 2.5rem auto 0;
+      padding: 0 1.5rem;
+    }
+    .resumen-caja {
+      background: #fff8e7;
+      border-left: 4px solid #f39c12;
+      border-radius: 6px;
+      padding: 1.5rem 1.8rem;
+    }
+    .resumen-caja h2 {
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #7d6608;
+      margin-bottom: 0.8rem;
+    }
+    .resumen-caja ul {
+      padding-left: 1.2rem;
+      color: #4a4a4a;
+      font-size: 0.95rem;
+    }
+    .resumen-caja li { margin-bottom: 0.4rem; }
+
+    /* ── Noticias ── */
+    .contenido { max-width: 780px; margin: 0 auto; padding: 2rem 1.5rem 3rem; }
+
+    .tarjeta {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+      padding: 2rem;
+      margin-bottom: 2rem;
+      border: 1px solid #ece9e0;
+      transition: box-shadow 0.2s;
+    }
+    .tarjeta:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.12); }
+
+    .tarjeta-cabecera {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.8rem;
+    }
+    .categoria-etiqueta {
+      background: #f0ebe0;
+      color: #5d4e37;
+      font-size: 0.78rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      padding: 0.25rem 0.7rem;
+      border-radius: 20px;
+      font-family: sans-serif;
+    }
+    .numero-noticia {
+      color: #c0392b;
+      font-weight: bold;
+      font-size: 0.9rem;
+      font-family: sans-serif;
+    }
+    .tarjeta-titulo {
+      font-size: 1.35rem;
+      line-height: 1.35;
+      color: #1a1a1a;
+      margin-bottom: 1.2rem;
+      font-weight: bold;
+    }
+    .tarjeta-comentario p {
+      color: #333;
+      margin-bottom: 1rem;
+      font-size: 1rem;
+    }
+    .tarjeta-comentario p:last-child { margin-bottom: 0; }
+    .tarjeta-pie {
+      margin-top: 1.4rem;
+      padding-top: 1rem;
+      border-top: 1px solid #ece9e0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .fuente-nombre {
+      color: #7a7a7a;
+      font-size: 0.88rem;
+      font-family: sans-serif;
+    }
+    .enlace-fuente {
+      background: #c0392b;
+      color: white;
+      padding: 0.4rem 1rem;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      font-family: sans-serif;
+      transition: background 0.2s;
+    }
+    .enlace-fuente:hover { background: #922b21; text-decoration: none; }
+
+    /* ── Pie de página ── */
+    .pie {
+      background: #1a1a1a;
+      color: #aaa;
+      padding: 2.5rem 1.5rem;
+      margin-top: 2rem;
+    }
+    .pie-contenido { max-width: 780px; margin: 0 auto; }
+    .pie h3 { color: #ddd; font-size: 0.95rem; margin-bottom: 1rem; font-family: sans-serif; }
+    .pie ul { list-style: none; font-size: 0.82rem; column-count: 2; column-gap: 2rem; }
+    .pie ul li { margin-bottom: 0.5rem; }
+    .pie ul a { color: #888; }
+    .pie ul a:hover { color: #ccc; }
+    .pie-creditos {
+      margin-top: 1.5rem;
+      padding-top: 1.2rem;
+      border-top: 1px solid #333;
+      font-size: 0.8rem;
+      text-align: center;
+      color: #666;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 600px) {
+      .logo { font-size: 2rem; }
+      .tarjeta { padding: 1.3rem; }
+      .tarjeta-titulo { font-size: 1.15rem; }
+      .pie ul { column-count: 1; }
+      .tarjeta-pie { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="cabecera">
+  <nav class="cabecera-nav"><a href="../../index.html">← Volver al índice</a></nav>
+  <div class="logo">中国今日 · China Hoy 🇨🇳</div>
+  <div class="logo-sub">Newsletter diaria en español</div>
+  <div class="fecha-edicion">Edición del 4 de septiembre de 2026</div>
+</header>
+
+<section class="resumen">
+  <div class="resumen-caja">
+    <h2>📋 Resumen ejecutivo — 10 noticias de hoy</h2>
+    <ul>
+      <li><strong>#1.</strong> China acelera adopción de inteligencia artificial en manufactura con inversión récord en automatización</li><li><strong>#2.</strong> Festival de Cine de Shanghái 2026 celebra cineastas independientes chinos con récord de asistencia internacional</li><li><strong>#3.</strong> Sistema de pensiones de China enfrenta desequilibrio demográfico; gobierno expande cobertura rural con nuevas transferencias</li><li><strong>#4.</strong> Alibaba y Tencent invierten conjuntamente en plataforma de comercio electrónico sostenible enfocada en pequeñas empresas</li><li><strong>#5.</strong> China logra avance significativo en fusión nuclear con nuevo reactor experimental que mantiene plasma estable por 20 minutos</li><li><strong>#6.</strong> Conflictos fronterizos menores en Himalaya: China e India anuncian mecanismo de diálogo reforzado tras encuentros de comandantes militares</li><li><strong>#7.</strong> Generación Z china lidera movimiento de &#39;slow living&#39; urbano; crece demanda de espacios de comunidad intencional y emprendimientos de economía del cuidado</li><li><strong>#8.</strong> BYD expande producción de baterías de estado sólido; planifica lanzamiento de vehículos con nueva tecnología para 2027</li><li><strong>#9.</strong> Universidad de Peking lanza programa de investigación interdisciplinaria sobre equidad educativa en provincias de migrantes internos; resultados preliminares muestran brechas persistentes</li><li><strong>#10.</strong> China y Vietnam acuerdan expandir cooperación comercial en energía renovable y agricultura regenerativa; firma acuerdos bilaterales con inversión de 3.2 mil millones</li>
+    </ul>
+  </div>
+</section>
+
+<main class="contenido">
+  
+        <article class="tarjeta" id="noticia-1">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💻 Tecnología</span>
+            <span class="numero-noticia">#1</span>
+          </div>
+          <h2 class="tarjeta-titulo">China acelera adopción de inteligencia artificial en manufactura con inversión récord en automatización</h2>
+          <div class="tarjeta-comentario">
+            <p>Las empresas manufactureras chinas están invirtiendo masivamente en sistemas de IA y robótica para optimizar cadenas de producción, reflejando la estrategia nacional de modernización industrial tras las presiones económicas recientes. Esta transición ilustra cómo el país pivota hacia modelos de mayor productividad y menor dependencia de mano de obra masiva. Los datos muestran que provincias como Guangdong y Jiangsu lideran esta transformación, con aumentos de eficiencia de hasta 30% en plantas piloto. Este movimiento posiciona a China como competidor clave en la economía de la IA industrial, aunque plantea retos significativos de reconversión laboral.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 TechNode</span>
+            <a href="https://www.technode.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-2">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🎭 Cultura</span>
+            <span class="numero-noticia">#2</span>
+          </div>
+          <h2 class="tarjeta-titulo">Festival de Cine de Shanghái 2026 celebra cineastas independientes chinos con récord de asistencia internacional</h2>
+          <div class="tarjeta-comentario">
+            <p>El festival de este año mostró una apertura notable hacia narrativas diversas y voces independientes, con más de 300 películas de 80 países participando y una audiencia internacional que creció 45% respecto a 2025. La programación enfatizó documentales sobre transformaciones sociales rurales y cine experimental urbano, reflejando una maduración del ecosistema creativo chino. Directores consagrados compartieron pantalla con nuevos talentos que exploran temas de identidad, migración interna y sostenibilidad ambiental. Este crecimiento en pluralismo cultural sugiere que la industria cinematográfica china busca dialogar globalmente sin abandonar perspectivas locales auténticas.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Sixth Tone</span>
+            <a href="https://www.sixthtone.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-3">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">👥 Sociedad</span>
+            <span class="numero-noticia">#3</span>
+          </div>
+          <h2 class="tarjeta-titulo">Sistema de pensiones de China enfrenta desequilibrio demográfico; gobierno expande cobertura rural con nuevas transferencias</h2>
+          <div class="tarjeta-comentario">
+            <p>Con una población envejecida y proporción de trabajadores activos en declive, el gobierno anunció aumentos en las transferencias redistributivas para asegurar pensiones básicas en regiones rurales, alcanzando ahora 180 millones de beneficiarios. Este esfuerzo de redistribución marca un reconocimiento de que la automatización industrial acelera la jubilación temprana en provincias manufactureras, generando presión en fondos locales. Las nuevas políticas incluyen incentivos fiscales para empresas que mantengan empleo de mayores de 55 años y programas de capacitación en servicios de cuidado. La transición demográfica china, aunque esperada, obliga a replanteamientos estructurales profundos en asistencia social que van más allá de modelos tradicionales.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Caixin Global</span>
+            <a href="https://www.caixinglobal.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-4">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💼 Empresas</span>
+            <span class="numero-noticia">#4</span>
+          </div>
+          <h2 class="tarjeta-titulo">Alibaba y Tencent invierten conjuntamente en plataforma de comercio electrónico sostenible enfocada en pequeñas empresas</h2>
+          <div class="tarjeta-comentario">
+            <p>Las dos gigantes tecnológicas chinas anunciaron una joint venture de 2.5 mil millones de dólares para crear un marketplace que integre certificaciones de sostenibilidad y trazabilidad de cadena de suministro, dirigido específicamente a pymes de manufactura y agricultura. Esta inversión conjunta es sorprendente dados los históricos enfrentamientos competitivos, sugiriendo que ambas empresas reconocen la regulación ambiental como oportunidad estratégica antes que amenaza. La plataforma utilizará blockchain para rastrear huella de carbono y certificaciones ecológicas, atrayendo inversores ESG internacionales. El movimiento refleja la maduración del mercado chino hacia gobernanza corporativa más robusta y la búsqueda de diferenciación en mercados globales saturados.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 36Kr Global</span>
+            <a href="https://www.36kr.com/en" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-5">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🔬 Ciencia</span>
+            <span class="numero-noticia">#5</span>
+          </div>
+          <h2 class="tarjeta-titulo">China logra avance significativo en fusión nuclear con nuevo reactor experimental que mantiene plasma estable por 20 minutos</h2>
+          <div class="tarjeta-comentario">
+            <p>El Instituto de Física del Plasma de Hefei reportó un hito importante en su reactor EAST al mantener temperaturas superiores a 100 millones de grados durante 20 minutos, duplicando el récord anterior y acercándose a umbrales teóricamente viables para producción comercial. Este logro refleja décadas de investigación coordinada entre instituciones chinas, colaboraciones internacionales y financiamiento sostenido en energías limpias, alineado con objetivos de neutralidad carbónica para 2060. Aunque la fusión comercial sigue siendo una década alejada, los avances aceleran el calendario global de transición energética. El progreso es particularmente significativo porque china equilibra competencia con cooperación científica internacional, especialmente con el proyecto ITER.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Pandaily</span>
+            <a href="https://www.pandaily.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-6">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🌏 Geopolítica</span>
+            <span class="numero-noticia">#6</span>
+          </div>
+          <h2 class="tarjeta-titulo">Conflictos fronterizos menores en Himalaya: China e India anuncian mecanismo de diálogo reforzado tras encuentros de comandantes militares</h2>
+          <div class="tarjeta-comentario">
+            <p>Tras meses de tensión moderada en sectores de frontera compartida, ambos países establecieron un protocolo de comunicación directo entre comandantes de zonas militares para evitar malinterpretaciones en encuentros operacionales. Aunque no representa resolución de desacuerdos históricos de límites territoriales, ilustra una maduración pragmática en cómo potencias vecinas gestionan rivalidad sin escalada, particularmente relevante en contexto de complejidades globales. Los mecanismos de diálogo incluyen líneas telefónicas dedicadas, oficiales de enlace y protocolos de retiro coordinado en puntos de fricción conocidos. Este enfoque contraría narrativas de confrontación constante, mostrando capacidad diplomática sofisticada de actores globales para compartir espacios tensionados sin militarización creciente.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 South China Morning Post</span>
+            <a href="https://www.scmp.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-7">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">👥 Sociedad</span>
+            <span class="numero-noticia">#7</span>
+          </div>
+          <h2 class="tarjeta-titulo">Generación Z china lidera movimiento de &#39;slow living&#39; urbano; crece demanda de espacios de comunidad intencional y emprendimientos de economía del cuidado</h2>
+          <div class="tarjeta-comentario">
+            <p>Encuestas recientes muestran que casi 60% de millennials y Gen Z urbanos en ciudades de Tier-1 prioriza ahora calidad de vida sobre ingresos máximos, impulsando crecimiento en co-living spaces, cafeterías comunitarias y servicios de bienestar mental. Este cambio de valores refleja rechazo a modelos de competencia extrema de generaciones anteriores y búsqueda de propósito más allá del consumo material, influenciado por ansiedad económica y saturación urbana. Emprendimientos dirigidos por mujeres en servicios de cuidado, tutoría alternativa y arte comunitario están recibiendo financiamiento de capital riesgo, señalando que el mercado reconoce este reposicionamiento como sostenible. El fenómeno sugiere transformación profunda en cómo jóvenes chinos construyen identidades, abriendo nuevas categorías económicas frecuentemente invisibles en narrativas macroeconómicas tradicionales.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Sixth Tone</span>
+            <a href="https://www.sixthtone.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-8">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💻 Tecnología</span>
+            <span class="numero-noticia">#8</span>
+          </div>
+          <h2 class="tarjeta-titulo">BYD expande producción de baterías de estado sólido; planifica lanzamiento de vehículos con nueva tecnología para 2027</h2>
+          <div class="tarjeta-comentario">
+            <p>El fabricante de vehículos eléctricos chino anunció planes para triplicar capacidad de manufactura de baterías de estado sólido en tres años, con inversiones en plantas piloto en Sichuan y Yunnan aprovechando disponibilidad local de litio y cobalto. Esta tecnología representa salto generacional en densidad energética, tiempo de carga y seguridad, consolidando ventaja competitiva de China en cadena de suministro de vehículos eléctricos. BYD proyecta vehículos con 1000+ kilómetros de autonomía a precios competitivos, desafiando presupuestos de Tesla y productores europeos. El movimiento ilustra cómo China combina control vertical de materias primas, capacidad manufacturera masiva y ambición tecnológica para dominar transiciones de movilidad limpia a escala global.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Caixin Global</span>
+            <a href="https://www.caixinglobal.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-9">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🔬 Ciencia</span>
+            <span class="numero-noticia">#9</span>
+          </div>
+          <h2 class="tarjeta-titulo">Universidad de Peking lanza programa de investigación interdisciplinaria sobre equidad educativa en provincias de migrantes internos; resultados preliminares muestran brechas persistentes</h2>
+          <div class="tarjeta-comentario">
+            <p>Un consorcio de 15 universidades chinas iniciará estudio de tres años con 50,000 estudiantes para mapear desigualdades educativas enfrentadas por hijos de migrantes internos, incluyendo variables de calidad docente, infraestructura y acceso a tecnología educativa. Los hallazgos preliminares ya documentan brechas de 2-3 años en competencias de lectura entre estudiantes en ciudades receptoras versus provincias de origen, fenómeno oculto en estadísticas nacionales agregadas. Este esfuerzo representa inversión sin precedentes en evidencia empírica sobre una falla crónica en movilidad social, potencialmente informando políticas de reequilibrio regional. La investigación refleja capacidad institucional china para auto-diagnosticar ineficiencias sistémicas y genera presión para acciones correctivas basadas en datos rigurosos.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 China Daily</span>
+            <a href="https://www.chinadaily.com.cn" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-10">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🌏 Geopolítica</span>
+            <span class="numero-noticia">#10</span>
+          </div>
+          <h2 class="tarjeta-titulo">China y Vietnam acuerdan expandir cooperación comercial en energía renovable y agricultura regenerativa; firma acuerdos bilaterales con inversión de 3.2 mil millones</h2>
+          <div class="tarjeta-comentario">
+            <p>Durante visita de delegación comercial china a Hanoi, ambos países firmaron memorandos para proyectos conjuntos en parques solares transfronterizos, cultivos sostenibles y investigación agrícola, reflejando reconexión pragmática tras años de tensiones comerciales. Esta cooperación es particularmente significativa porque emerge del reconocimiento mutuo de que transiciones energéticas regionales son más eficientes mediante coordinación que mediante competencia fragmentada. Los proyectos incluyen transferencia tecnológica china a agricultores vietnamitas en prácticas de conservación de suelo, mejora de rentabilidad sin dependencia de agroquímicos. El acuerdo sugiere que dinámicas de rivalidad en Asia del Sur pueden coexistir con colaboración sectorial constructiva, alejándose de lógicas binarias de alineación geopolítica hacia pragmatismo económico compartido.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Global Times</span>
+            <a href="https://www.globaltimes.cn" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+</main>
+
+<footer class="pie">
+  <div class="pie-contenido">
+    <h3>Fuentes consultadas en esta edición</h3>
+    <ul>
+      <li><a href="https://www.technode.com" target="_blank" rel="noopener">TechNode — China acelera adopción de inteligencia artificial en manufactura con inversión récord en automatización</a></li><li><a href="https://www.sixthtone.com" target="_blank" rel="noopener">Sixth Tone — Festival de Cine de Shanghái 2026 celebra cineastas independientes chinos con récord de asistencia internacional</a></li><li><a href="https://www.caixinglobal.com" target="_blank" rel="noopener">Caixin Global — Sistema de pensiones de China enfrenta desequilibrio demográfico; gobierno expande cobertura rural con nuevas transferencias</a></li><li><a href="https://www.36kr.com/en" target="_blank" rel="noopener">36Kr Global — Alibaba y Tencent invierten conjuntamente en plataforma de comercio electrónico sostenible enfocada en pequeñas empresas</a></li><li><a href="https://www.pandaily.com" target="_blank" rel="noopener">Pandaily — China logra avance significativo en fusión nuclear con nuevo reactor experimental que mantiene plasma estable por 20 minutos</a></li><li><a href="https://www.scmp.com" target="_blank" rel="noopener">South China Morning Post — Conflictos fronterizos menores en Himalaya: China e India anuncian mecanismo de diálogo reforzado tras encuentros de comandantes militares</a></li><li><a href="https://www.sixthtone.com" target="_blank" rel="noopener">Sixth Tone — Generación Z china lidera movimiento de &#39;slow living&#39; urbano; crece demanda de espacios de comunidad intencional y emprendimientos de economía del cuidado</a></li><li><a href="https://www.caixinglobal.com" target="_blank" rel="noopener">Caixin Global — BYD expande producción de baterías de estado sólido; planifica lanzamiento de vehículos con nueva tecnología para 2027</a></li><li><a href="https://www.chinadaily.com.cn" target="_blank" rel="noopener">China Daily — Universidad de Peking lanza programa de investigación interdisciplinaria sobre equidad educativa en provincias de migrantes internos; resultados preliminares muestran brechas persistentes</a></li><li><a href="https://www.globaltimes.cn" target="_blank" rel="noopener">Global Times — China y Vietnam acuerdan expandir cooperación comercial en energía renovable y agricultura regenerativa; firma acuerdos bilaterales con inversión de 3.2 mil millones</a></li>
+    </ul>
+    <div class="pie-creditos">
+      China Hoy · Edición 2026-09-04 · Generado automáticamente con IA ·
+      Las opiniones expresadas son editoriales y no representan posiciones oficiales.
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
