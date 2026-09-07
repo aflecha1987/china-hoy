@@ -3378,5 +3378,31 @@
       "Centro de investigación en Shenzhen desarrolla batería de estado sólido con densidad energética 50% superior a tecnología actual",
       "Festival internacional de cine en Beijing celebra producción audiovisual independiente con nuevas plataformas de distribución digital"
     ]
+  },
+  "2026-09-07": {
+    "fuentes": [
+      "https://www.yicaiglobal.com",
+      "https://www.technode.com",
+      "https://www.sixthtone.com",
+      "https://www.scmp.com",
+      "https://www.36kr.com/en",
+      "https://www.chinadaily.com.cn",
+      "https://www.pandaily.com",
+      "https://www.caixinglobal.com",
+      "https://www.globaltimes.cn",
+      "https://www.xinhuanet.com"
+    ],
+    "titulares": [
+      "China acelera inversión en energías renovables con capacidad récord de solar y eólica",
+      "Empresas de inteligencia artificial china compiten con OpenAI y Google en capacidades de lenguaje",
+      "Reformas educativas en China buscan reducir presión académica y reorientar formación hacia habilidades prácticas",
+      "Comercio bilateral entre China y sus vecinos asiáticos alcanza nuevos máximos pese a tensiones geopolíticas",
+      "Startup de manufactura avanzada china revolutiona producción con robots y automatización inteligente",
+      "Festival de cine de Beijing 2026 celebra cine independiente chino y reflexión sobre identidad cultural",
+      "Instituto de investigación chino logra avance en computación cuántica con nuevo procesador de mayor estabilidad",
+      "Política de estímulo económico de China incluye medidas para sector inmobiliario y consumo doméstico",
+      "Universidades chinas refuerzan asociaciones con instituciones globales en investigación colaborativa",
+      "Ciudades chinas pioneras en smart city implementan tecnología 5G y datos para mejorar servicios públicos"
+    ]
   }
 }
