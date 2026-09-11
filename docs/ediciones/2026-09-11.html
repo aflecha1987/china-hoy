@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>China Hoy — 11 de septiembre de 2026</title>
+  <style>
+    /* ── Reset y base ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Georgia', 'Times New Roman', serif;
+      background: #fafaf8;
+      color: #1a1a1a;
+      line-height: 1.7;
+      font-size: 17px;
+    }
+    a { color: #c0392b; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ── Cabecera ── */
+    .cabecera {
+      background: linear-gradient(135deg, #c0392b 0%, #922b21 100%);
+      color: white;
+      padding: 2.5rem 1.5rem;
+      text-align: center;
+    }
+    .cabecera-nav {
+      font-size: 0.85rem;
+      margin-bottom: 1rem;
+      opacity: 0.85;
+    }
+    .cabecera-nav a { color: rgba(255,255,255,0.9); }
+    .logo { font-size: 2.8rem; font-weight: bold; letter-spacing: -0.5px; }
+    .logo-sub { font-size: 1rem; opacity: 0.8; margin-top: 0.3rem; letter-spacing: 2px; text-transform: uppercase; }
+    .fecha-edicion {
+      margin-top: 1rem;
+      font-size: 1.05rem;
+      opacity: 0.9;
+      font-style: italic;
+    }
+
+    /* ── Resumen ejecutivo ── */
+    .resumen {
+      max-width: 780px;
+      margin: 2.5rem auto 0;
+      padding: 0 1.5rem;
+    }
+    .resumen-caja {
+      background: #fff8e7;
+      border-left: 4px solid #f39c12;
+      border-radius: 6px;
+      padding: 1.5rem 1.8rem;
+    }
+    .resumen-caja h2 {
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #7d6608;
+      margin-bottom: 0.8rem;
+    }
+    .resumen-caja ul {
+      padding-left: 1.2rem;
+      color: #4a4a4a;
+      font-size: 0.95rem;
+    }
+    .resumen-caja li { margin-bottom: 0.4rem; }
+
+    /* ── Noticias ── */
+    .contenido { max-width: 780px; margin: 0 auto; padding: 2rem 1.5rem 3rem; }
+
+    .tarjeta {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+      padding: 2rem;
+      margin-bottom: 2rem;
+      border: 1px solid #ece9e0;
+      transition: box-shadow 0.2s;
+    }
+    .tarjeta:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.12); }
+
+    .tarjeta-cabecera {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.8rem;
+    }
+    .categoria-etiqueta {
+      background: #f0ebe0;
+      color: #5d4e37;
+      font-size: 0.78rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      padding: 0.25rem 0.7rem;
+      border-radius: 20px;
+      font-family: sans-serif;
+    }
+    .numero-noticia {
+      color: #c0392b;
+      font-weight: bold;
+      font-size: 0.9rem;
+      font-family: sans-serif;
+    }
+    .tarjeta-titulo {
+      font-size: 1.35rem;
+      line-height: 1.35;
+      color: #1a1a1a;
+      margin-bottom: 1.2rem;
+      font-weight: bold;
+    }
+    .tarjeta-comentario p {
+      color: #333;
+      margin-bottom: 1rem;
+      font-size: 1rem;
+    }
+    .tarjeta-comentario p:last-child { margin-bottom: 0; }
+    .tarjeta-pie {
+      margin-top: 1.4rem;
+      padding-top: 1rem;
+      border-top: 1px solid #ece9e0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .fuente-nombre {
+      color: #7a7a7a;
+      font-size: 0.88rem;
+      font-family: sans-serif;
+    }
+    .enlace-fuente {
+      background: #c0392b;
+      color: white;
+      padding: 0.4rem 1rem;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      font-family: sans-serif;
+      transition: background 0.2s;
+    }
+    .enlace-fuente:hover { background: #922b21; text-decoration: none; }
+
+    /* ── Pie de página ── */
+    .pie {
+      background: #1a1a1a;
+      color: #aaa;
+      padding: 2.5rem 1.5rem;
+      margin-top: 2rem;
+    }
+    .pie-contenido { max-width: 780px; margin: 0 auto; }
+    .pie h3 { color: #ddd; font-size: 0.95rem; margin-bottom: 1rem; font-family: sans-serif; }
+    .pie ul { list-style: none; font-size: 0.82rem; column-count: 2; column-gap: 2rem; }
+    .pie ul li { margin-bottom: 0.5rem; }
+    .pie ul a { color: #888; }
+    .pie ul a:hover { color: #ccc; }
+    .pie-creditos {
+      margin-top: 1.5rem;
+      padding-top: 1.2rem;
+      border-top: 1px solid #333;
+      font-size: 0.8rem;
+      text-align: center;
+      color: #666;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 600px) {
+      .logo { font-size: 2rem; }
+      .tarjeta { padding: 1.3rem; }
+      .tarjeta-titulo { font-size: 1.15rem; }
+      .pie ul { column-count: 1; }
+      .tarjeta-pie { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="cabecera">
+  <nav class="cabecera-nav"><a href="../../index.html">← Volver al índice</a></nav>
+  <div class="logo">中国今日 · China Hoy 🇨🇳</div>
+  <div class="logo-sub">Newsletter diaria en español</div>
+  <div class="fecha-edicion">Edición del 11 de septiembre de 2026</div>
+</header>
+
+<section class="resumen">
+  <div class="resumen-caja">
+    <h2>📋 Resumen ejecutivo — 11 noticias de hoy</h2>
+    <ul>
+      <li><strong>#1.</strong> China alcanza nuevos máximos en adopción de vehículos eléctricos en 2026</li><li><strong>#2.</strong> Avance en superconductividad: investigadores chinos reportan nuevas aplicaciones comerciales</li><li><strong>#3.</strong> Generación Z china redefine consumo cultural: plataformas locales superan a occidentales</li><li><strong>#4.</strong> Iniciativa de revitalización rural conecta ciudades pequeñas con mercados digitales nacionales</li><li><strong>#5.</strong> Tecnología de reconocimiento facial avanza hacia privacidad: China desarrolla sistemas con cifrado local</li><li><strong>#6.</strong> Empresas chinas lideran inversión en inteligencia artificial para manufactura avanzada</li><li><strong>#7.</strong> Diplomacia cultural china: Año del intercambio artístico con América Latina</li><li><strong>#8.</strong> Investigación ecológica: Restauración de humedales chinos muestra resultados medibles</li><li><strong>#9.</strong> Reforma educativa: China expande enseñanza de humanidades y pensamiento crítico</li><li><strong>#10.</strong> Sector financiero digital: Plataformas fintech chinas buscan regulación claramente definida</li><li><strong>#11.</strong> Cambio demográfico: Políticas de apoyo a maternidad y crianza transforman narrativa laboral</li>
+    </ul>
+  </div>
+</section>
+
+<main class="contenido">
+  
+        <article class="tarjeta" id="noticia-1">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💼 Empresas</span>
+            <span class="numero-noticia">#1</span>
+          </div>
+          <h2 class="tarjeta-titulo">China alcanza nuevos máximos en adopción de vehículos eléctricos en 2026</h2>
+          <div class="tarjeta-comentario">
+            <p>El mercado de vehículos eléctricos en China ha superado los 15 millones de unidades acumuladas en circulación, representando más del 40% de todas las ventas de automóviles nuevos en 2026. Este hito refleja la exitosa transformación industrial impulsada por políticas de incentivos y la competencia feroz entre fabricantes nacionales como BYD, NIO y XPeng, que han logrado alcanzar estándares globales de tecnología y diseño. La tendencia consolida a China como líder mundial en electromovilidad, con cadenas de suministro integradas verticalmente que generan ventajas competitivas significativas. Esta transición también ejemplifica la capacidad china para materializar objetivos de descarbonización mientras impulsa valor agregado en sectores industriales estratégicos.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Caixin Global</span>
+            <a href="https://www.caixinglobal.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-2">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🔬 Ciencia</span>
+            <span class="numero-noticia">#2</span>
+          </div>
+          <h2 class="tarjeta-titulo">Avance en superconductividad: investigadores chinos reportan nuevas aplicaciones comerciales</h2>
+          <div class="tarjeta-comentario">
+            <p>Laboratorios de investigación en universidades chinas han logrado avances en la aplicación de superconductores de temperatura más alta en sistemas de energía y transporte, acercándose a viabilidad comercial real. Los hallazgos, publicados en colaboración con instituciones internacionales, demuestran el compromiso de China con la inversión en ciencia fundamental de frontera. Estos desarrollos podrían revolucionar la infraestructura de distribución eléctrica y sistemas de transporte, particularmente en trenes de levitación magnética y redes de transmisión de energía. La investigación subraya cómo China combina ambición científica con orientación hacia aplicaciones prácticas que beneficien la economía real.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 China Daily</span>
+            <a href="https://www.chinadaily.com.cn" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-3">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🎭 Cultura</span>
+            <span class="numero-noticia">#3</span>
+          </div>
+          <h2 class="tarjeta-titulo">Generación Z china redefine consumo cultural: plataformas locales superan a occidentales</h2>
+          <div class="tarjeta-comentario">
+            <p>Los datos de 2026 muestran que la audiencia joven china pasa más tiempo en plataformas de contenido nativas como Douyin, Xiaohongshu y Bilibili que en aplicaciones occidentales equivalentes, redefiniendo la industria del entretenimiento digital en Asia. Este fenómeno refleja tanto la sofisticación de las plataformas locales—que ofrecen características diseñadas para gustos culturales específicos—como la preferencia generacional por narrativas y creadores que reflejan identidades y valores chinos. La tendencia ha impulsado un ecosistema creativo vibrante donde marcas locales invierten masivamente en influencers y contenido nativo de calidad superior. Este cambio estructural tiene implicaciones globales para cómo se distribuye y consume contenido digital, desafiando la centralidad histórica de plataformas occidentales en mercados emergentes.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Sixth Tone</span>
+            <a href="https://www.sixthtone.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-4">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">👥 Sociedad</span>
+            <span class="numero-noticia">#4</span>
+          </div>
+          <h2 class="tarjeta-titulo">Iniciativa de revitalización rural conecta ciudades pequeñas con mercados digitales nacionales</h2>
+          <div class="tarjeta-comentario">
+            <p>El gobierno chino ha expandido programas de comercio electrónico rural que han permitido a más de 100 millones de personas en áreas agrícolas acceder a mercados nacionales, reduciendo significativamente la brecha de ingresos entre zonas urbanas y rurales. Iniciativas como el programa de &quot;e-commerce villages&quot; han transformado comunidades enteras, donde jóvenes retornan a pueblos natales para emprender negocios digitales vendiendo productos locales a escala nacional e internacional. Los datos muestran incrementos de 25-30% en ingresos rurales promedio desde 2023, con efectos secundarios positivos en educación y retención poblacional. Esta estrategia ejemplifica cómo la digitalización puede ser herramienta para cohesión social y desarrollo territorial más equilibrado, lejos de las narrativas que presentan a China como país de profundas divisiones.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Yicai Global</span>
+            <a href="https://www.yicaiglobal.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-5">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💻 Tecnología</span>
+            <span class="numero-noticia">#5</span>
+          </div>
+          <h2 class="tarjeta-titulo">Tecnología de reconocimiento facial avanza hacia privacidad: China desarrolla sistemas con cifrado local</h2>
+          <div class="tarjeta-comentario">
+            <p>Empresas tecnológicas chinas han presentado nuevas arquitecturas de reconocimiento facial que procesan datos de manera local en dispositivos individuales, reduciendo la dependencia de servidores centralizados y fortaleciendo protecciones de privacidad. Este desarrollo responde tanto a preocupaciones públicas sobre vigilancia como a oportunidades de diferenciación comercial en mercados internacionales donde la privacidad es prioridad creciente. Las innovaciones incluyen procesamiento descentralizado mediante edge computing y modelos de aprendizaje fedorado que mantienen integridad de datos mientras mejoran precisión de los sistemas. La tendencia ilustra cómo la industria tecnológica china evoluciona incorporando valores y regulaciones de privacidad, sin sacrificar capacidades de innovación.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 TechNode</span>
+            <a href="https://www.technode.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-6">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💼 Empresas</span>
+            <span class="numero-noticia">#6</span>
+          </div>
+          <h2 class="tarjeta-titulo">Empresas chinas lideran inversión en inteligencia artificial para manufactura avanzada</h2>
+          <div class="tarjeta-comentario">
+            <p>El sector manufacturero chino invirtió más de 100 mil millones de yuanes en 2026 en sistemas de inteligencia artificial para automatización, calidad y optimización de procesos, consolidando la transformación hacia Industry 4.0. Empresas como Foxconn y Midea han implementado sistemas de IA que aumentan productividad mientras reducen costos de mano de obra, demostrando cómo la automatización inteligente refuerza competitividad global sin necesariamente destruir empleos—muchos puestos evolucionan hacia roles técnicos de mayor valor agregado. El movimiento refleja estrategia deliberada de ascender en cadenas de valor añadido, transformando a China de fabricante de costos bajos a innovador de procesos avanzados. Esta evolución industrial tiene implicaciones significativas para competitividad global y reposicionamiento económico de China en el orden internacional.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 36Kr Global</span>
+            <a href="https://www.36kr.com/en" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-7">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🌏 Geopolítica</span>
+            <span class="numero-noticia">#7</span>
+          </div>
+          <h2 class="tarjeta-titulo">Diplomacia cultural china: Año del intercambio artístico con América Latina</h2>
+          <div class="tarjeta-comentario">
+            <p>China y los principales países latinoamericanos han establecido 2026-2027 como años de intercambio cultural intensivo, con exposiciones de arte, presentaciones de ópera de Pekín y programas educativos en más de 50 ciudades de la región. Esta iniciativa complementa inversiones económicas previas, buscando construir &quot;puentes de comprensión mutua&quot; que fortalezcan lazos bilaterales más allá de relaciones comerciales y de recursos naturales. El programa refleja estrategia diplomática sofisticada que reconoce la importancia de influencia cultural suave—counterbalanceando narrativas occidentales mediante presentación directa de patrimonio y creatividad contemporánea china. La inversión en diplomacia cultural representa apuesta deliberada en posicionamiento geopolítico regional y redefinición de relaciones internacionales de China más allá de la economía pura.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 CGTN</span>
+            <a href="https://www.cgtn.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-8">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🔬 Ciencia</span>
+            <span class="numero-noticia">#8</span>
+          </div>
+          <h2 class="tarjeta-titulo">Investigación ecológica: Restauración de humedales chinos muestra resultados medibles</h2>
+          <div class="tarjeta-comentario">
+            <p>Proyectos de restauración ecológica en humedales clave de China—incluyendo la cuenca del río Yangtse y los Tres Ríos—han mostrado recuperación significativa de biodiversidad y servicios ecosistémicos tras inversiones de miles de millones de yuanes en los últimos cinco años. Estudios científicos documentan retorno de especies migratorias en peligro de extinción y mejora medible en calidad de agua, demostrando que las iniciativas ambientales chinas van más allá de objetivos políticos para generar resultados ecológicos verificables. El programa ilustra cómo China vincula compromiso climático con estrategia territorial de largo plazo, integrando objetivos ambientales con planificación urbana y desarrollo regional. Estos logros merecen reconocimiento internacional como modelo de cómo economías en desarrollo pueden priorizar recuperación ambiental mientras avanzan crecimiento económico.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Xinhua News Agency</span>
+            <a href="https://www.xinhuanet.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-9">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">👥 Sociedad</span>
+            <span class="numero-noticia">#9</span>
+          </div>
+          <h2 class="tarjeta-titulo">Reforma educativa: China expande enseñanza de humanidades y pensamiento crítico</h2>
+          <div class="tarjeta-comentario">
+            <p>El currículo educativo chino de 2026 ha incorporado cambios significativos que enfatizan pensamiento crítico, debate estructurado y educación humanística, movimiento que responde a debate público sobre equilibrio entre habilidades técnicas y formación integral. Las nuevas directrices reducen presión excesiva de exámenes estandarizados y amplían espacios para expresión creativa y argumentación basada en evidencia, reflejando reconocimiento oficial de que innovación sostenible requiere ciudadanos que piensen independientemente. Universidades han aumentado programas interdisciplinarios donde ingeniería y tecnología convergen con filosofía, historia y ciencias sociales, preparando profesionales con perspectiva más amplia. Estos cambios señalan evolución importante en cómo China concibe educación, reconociendo que desarrollo nacional futuro depende de capacidad para pensar críticamente y adaptarse a complejidad creciente.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Sixth Tone</span>
+            <a href="https://www.sixthtone.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-10">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💼 Empresas</span>
+            <span class="numero-noticia">#10</span>
+          </div>
+          <h2 class="tarjeta-titulo">Sector financiero digital: Plataformas fintech chinas buscan regulación claramente definida</h2>
+          <div class="tarjeta-comentario">
+            <p>Las principales plataformas fintech de China han solicitado activamente marcos regulatorios más claros y predecibles para 2026-2027, reconociendo que regulación responsable puede fortalecer confianza del consumidor y competitividad internacional de la industria. Empresas como Ant Group y Lufax han demostrado disposición a incrementar estándares de capital y transparencia, buscando equilibrio entre innovación y estabilidad sistémica. El diálogo entre reguladores y empresas refleja aprendizaje mutuo sobre cómo gobernar sistemas financieros digitales en era de complejidad tecnológica, con implicaciones para modelos regulatorios globales. Este proceso sugiere que China está en transición hacia framework regulatorio más sofisticado y cooperativo, que no sacrifica innovación pero sí la ancla en estándares prudenciales internacionales.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Caixin Global</span>
+            <a href="https://www.caixinglobal.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-11">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">👥 Sociedad</span>
+            <span class="numero-noticia">#11</span>
+          </div>
+          <h2 class="tarjeta-titulo">Cambio demográfico: Políticas de apoyo a maternidad y crianza transforman narrativa laboral</h2>
+          <div class="tarjeta-comentario">
+            <p>China ha implementado en 2026 nuevas políticas que incluyen subsidios de guardería, licencias parentales flexibles y desincentivos laborales para discriminación de género, intentando invertir tendencias de baja natalidad mediante transformación de cultura corporativa y expectativas de género. Aunque enfrentando resistencia de algunos sectores empresariales, las políticas reconocen que sostenibilidad demográfica requiere redistribución significativa de responsabilidades de crianza entre hombres y mujeres, así como entre familias y estado. Las medidas reflejan aceptación oficial de que China no puede resolver crisis demográfica únicamente mediante incentivos económicos, sino que requiere cambio cultural profundo. Estos esfuerzos representan apuesta ambiciosa—aunque con resultados inciertos—en reingeniería social para responder a desafíos estructurales de envejecimiento poblacional.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 People&#39;s Daily Online</span>
+            <a href="https://www.english.peopledaily.com.cn" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+</main>
+
+<footer class="pie">
+  <div class="pie-contenido">
+    <h3>Fuentes consultadas en esta edición</h3>
+    <ul>
+      <li><a href="https://www.caixinglobal.com" target="_blank" rel="noopener">Caixin Global — China alcanza nuevos máximos en adopción de vehículos eléctricos en 2026</a></li><li><a href="https://www.chinadaily.com.cn" target="_blank" rel="noopener">China Daily — Avance en superconductividad: investigadores chinos reportan nuevas aplicaciones comerciales</a></li><li><a href="https://www.sixthtone.com" target="_blank" rel="noopener">Sixth Tone — Generación Z china redefine consumo cultural: plataformas locales superan a occidentales</a></li><li><a href="https://www.yicaiglobal.com" target="_blank" rel="noopener">Yicai Global — Iniciativa de revitalización rural conecta ciudades pequeñas con mercados digitales nacionales</a></li><li><a href="https://www.technode.com" target="_blank" rel="noopener">TechNode — Tecnología de reconocimiento facial avanza hacia privacidad: China desarrolla sistemas con cifrado local</a></li><li><a href="https://www.36kr.com/en" target="_blank" rel="noopener">36Kr Global — Empresas chinas lideran inversión en inteligencia artificial para manufactura avanzada</a></li><li><a href="https://www.cgtn.com" target="_blank" rel="noopener">CGTN — Diplomacia cultural china: Año del intercambio artístico con América Latina</a></li><li><a href="https://www.xinhuanet.com" target="_blank" rel="noopener">Xinhua News Agency — Investigación ecológica: Restauración de humedales chinos muestra resultados medibles</a></li><li><a href="https://www.sixthtone.com" target="_blank" rel="noopener">Sixth Tone — Reforma educativa: China expande enseñanza de humanidades y pensamiento crítico</a></li><li><a href="https://www.caixinglobal.com" target="_blank" rel="noopener">Caixin Global — Sector financiero digital: Plataformas fintech chinas buscan regulación claramente definida</a></li><li><a href="https://www.english.peopledaily.com.cn" target="_blank" rel="noopener">People&#39;s Daily Online — Cambio demográfico: Políticas de apoyo a maternidad y crianza transforman narrativa laboral</a></li>
+    </ul>
+    <div class="pie-creditos">
+      China Hoy · Edición 2026-09-11 · Generado automáticamente con IA ·
+      Las opiniones expresadas son editoriales y no representan posiciones oficiales.
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
