@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>China Hoy — 12 de septiembre de 2026</title>
+  <style>
+    /* ── Reset y base ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Georgia', 'Times New Roman', serif;
+      background: #fafaf8;
+      color: #1a1a1a;
+      line-height: 1.7;
+      font-size: 17px;
+    }
+    a { color: #c0392b; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ── Cabecera ── */
+    .cabecera {
+      background: linear-gradient(135deg, #c0392b 0%, #922b21 100%);
+      color: white;
+      padding: 2.5rem 1.5rem;
+      text-align: center;
+    }
+    .cabecera-nav {
+      font-size: 0.85rem;
+      margin-bottom: 1rem;
+      opacity: 0.85;
+    }
+    .cabecera-nav a { color: rgba(255,255,255,0.9); }
+    .logo { font-size: 2.8rem; font-weight: bold; letter-spacing: -0.5px; }
+    .logo-sub { font-size: 1rem; opacity: 0.8; margin-top: 0.3rem; letter-spacing: 2px; text-transform: uppercase; }
+    .fecha-edicion {
+      margin-top: 1rem;
+      font-size: 1.05rem;
+      opacity: 0.9;
+      font-style: italic;
+    }
+
+    /* ── Resumen ejecutivo ── */
+    .resumen {
+      max-width: 780px;
+      margin: 2.5rem auto 0;
+      padding: 0 1.5rem;
+    }
+    .resumen-caja {
+      background: #fff8e7;
+      border-left: 4px solid #f39c12;
+      border-radius: 6px;
+      padding: 1.5rem 1.8rem;
+    }
+    .resumen-caja h2 {
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #7d6608;
+      margin-bottom: 0.8rem;
+    }
+    .resumen-caja ul {
+      padding-left: 1.2rem;
+      color: #4a4a4a;
+      font-size: 0.95rem;
+    }
+    .resumen-caja li { margin-bottom: 0.4rem; }
+
+    /* ── Noticias ── */
+    .contenido { max-width: 780px; margin: 0 auto; padding: 2rem 1.5rem 3rem; }
+
+    .tarjeta {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+      padding: 2rem;
+      margin-bottom: 2rem;
+      border: 1px solid #ece9e0;
+      transition: box-shadow 0.2s;
+    }
+    .tarjeta:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.12); }
+
+    .tarjeta-cabecera {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.8rem;
+    }
+    .categoria-etiqueta {
+      background: #f0ebe0;
+      color: #5d4e37;
+      font-size: 0.78rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      padding: 0.25rem 0.7rem;
+      border-radius: 20px;
+      font-family: sans-serif;
+    }
+    .numero-noticia {
+      color: #c0392b;
+      font-weight: bold;
+      font-size: 0.9rem;
+      font-family: sans-serif;
+    }
+    .tarjeta-titulo {
+      font-size: 1.35rem;
+      line-height: 1.35;
+      color: #1a1a1a;
+      margin-bottom: 1.2rem;
+      font-weight: bold;
+    }
+    .tarjeta-comentario p {
+      color: #333;
+      margin-bottom: 1rem;
+      font-size: 1rem;
+    }
+    .tarjeta-comentario p:last-child { margin-bottom: 0; }
+    .tarjeta-pie {
+      margin-top: 1.4rem;
+      padding-top: 1rem;
+      border-top: 1px solid #ece9e0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .fuente-nombre {
+      color: #7a7a7a;
+      font-size: 0.88rem;
+      font-family: sans-serif;
+    }
+    .enlace-fuente {
+      background: #c0392b;
+      color: white;
+      padding: 0.4rem 1rem;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      font-family: sans-serif;
+      transition: background 0.2s;
+    }
+    .enlace-fuente:hover { background: #922b21; text-decoration: none; }
+
+    /* ── Pie de página ── */
+    .pie {
+      background: #1a1a1a;
+      color: #aaa;
+      padding: 2.5rem 1.5rem;
+      margin-top: 2rem;
+    }
+    .pie-contenido { max-width: 780px; margin: 0 auto; }
+    .pie h3 { color: #ddd; font-size: 0.95rem; margin-bottom: 1rem; font-family: sans-serif; }
+    .pie ul { list-style: none; font-size: 0.82rem; column-count: 2; column-gap: 2rem; }
+    .pie ul li { margin-bottom: 0.5rem; }
+    .pie ul a { color: #888; }
+    .pie ul a:hover { color: #ccc; }
+    .pie-creditos {
+      margin-top: 1.5rem;
+      padding-top: 1.2rem;
+      border-top: 1px solid #333;
+      font-size: 0.8rem;
+      text-align: center;
+      color: #666;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 600px) {
+      .logo { font-size: 2rem; }
+      .tarjeta { padding: 1.3rem; }
+      .tarjeta-titulo { font-size: 1.15rem; }
+      .pie ul { column-count: 1; }
+      .tarjeta-pie { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="cabecera">
+  <nav class="cabecera-nav"><a href="../../index.html">← Volver al índice</a></nav>
+  <div class="logo">中国今日 · China Hoy 🇨🇳</div>
+  <div class="logo-sub">Newsletter diaria en español</div>
+  <div class="fecha-edicion">Edición del 12 de septiembre de 2026</div>
+</header>
+
+<section class="resumen">
+  <div class="resumen-caja">
+    <h2>📋 Resumen ejecutivo — 10 noticias de hoy</h2>
+    <ul>
+      <li><strong>#1.</strong> China impulsa reforma del sistema de pensiones para envejecimiento poblacional</li><li><strong>#2.</strong> Huawei alcanza hito en semiconductores domésticos sin tecnología estadounidense</li><li><strong>#3.</strong> Nuevas regulaciones sobre inteligencia artificial generativa buscan equilibrio entre innovación y seguridad</li><li><strong>#4.</strong> Inversión en turismo cultural impulsa renacimiento de ciudades históricas en interior de China</li><li><strong>#5.</strong> Alibaba y JD.com lideran sector de comercio electrónico B2B2C con enfoque en pequeñas empresas</li><li><strong>#6.</strong> China experimenta con ciudades inteligentes que integran datos en tiempo real para servicios públicos</li><li><strong>#7.</strong> Investigación china en fusión nuclear acerca a comercialización de energía limpia</li><li><strong>#8.</strong> Relaciones comerciales China-ASEAN crecen 8% anual con profundización de integración regional</li><li><strong>#9.</strong> Nuevos estándares ambientales en industria manufacturera buscan neutralidad de carbono para 2050</li><li><strong>#10.</strong> Literatura china contemporánea gana visibilidad global con nuevas traducciones y festivales literarios</li>
+    </ul>
+  </div>
+</section>
+
+<main class="contenido">
+  
+        <article class="tarjeta" id="noticia-1">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">👥 Sociedad</span>
+            <span class="numero-noticia">#1</span>
+          </div>
+          <h2 class="tarjeta-titulo">China impulsa reforma del sistema de pensiones para envejecimiento poblacional</h2>
+          <div class="tarjeta-comentario">
+            <p>El gobierno chino anunció reformas significativas en el sistema de pensiones para hacer frente a una población envejecida que alcanza los 300 millones de mayores de 60 años. Las medidas incluyen aumento gradual de la edad de jubilación, integración de fondos de pensiones provinciales y estímulos fiscales para el ahorro privado. Esta iniciativa es crucial para la sostenibilidad financiera del sistema, ya que la ratio de trabajadores activos por pensionista disminuye aceleradamente. La reforma refleja la transición demográfica de China, un desafío que comparte con otras economías desarrolladas pero en una escala sin precedentes.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Caixin Global</span>
+            <a href="https://www.caixinglobal.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-2">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💻 Tecnología</span>
+            <span class="numero-noticia">#2</span>
+          </div>
+          <h2 class="tarjeta-titulo">Huawei alcanza hito en semiconductores domésticos sin tecnología estadounidense</h2>
+          <div class="tarjeta-comentario">
+            <p>Huawei anunció avances en la producción de chips de 7 nanómetros completamente independientes de tecnología estadounidense, reduciendo significativamente la brecha con Taiwan. El logro representa años de inversión en investigación y desarrollo tras los sanciones comerciales de EE.UU. que limitaron el acceso a proveedores extranjeros. Este progreso subraya la estrategia china de autosuficiencia tecnológica y fortalece la cadena de suministro doméstica. El hito es importante tanto por su impacto técnico como por su simbolismo en la rivalidad tecnológica global.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 TechNode</span>
+            <a href="https://www.technode.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-3">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💻 Tecnología</span>
+            <span class="numero-noticia">#3</span>
+          </div>
+          <h2 class="tarjeta-titulo">Nuevas regulaciones sobre inteligencia artificial generativa buscan equilibrio entre innovación y seguridad</h2>
+          <div class="tarjeta-comentario">
+            <p>Las autoridades chinas publicaron guías revisadas para la regulación de IA generativa, enfatizando responsabilidad algorítmica sin sofocar la innovación empresarial. Las nuevas normas requieren que las plataformas de IA etiqueten contenido generado automáticamente, respeten derechos de autor y realicen evaluaciones de seguridad. El marco representa un esfuerzo por encontrar equilibrio entre fomentar líderes tecnológicos locales como Baidu y Alibaba, y mantener control sobre contenidos sensibles. Este enfoque regulatorio pragmático contrasta con prohibiciones más amplias y busca posicionar a China como potencia de IA responsable.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 China Daily</span>
+            <a href="https://www.chinadaily.com.cn" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-4">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🎭 Cultura</span>
+            <span class="numero-noticia">#4</span>
+          </div>
+          <h2 class="tarjeta-titulo">Inversión en turismo cultural impulsa renacimiento de ciudades históricas en interior de China</h2>
+          <div class="tarjeta-comentario">
+            <p>Ciudades como Xi&#39;an, Luoyang y Chengdu experimentan un resurgimiento económico gracias a inversiones en infraestructura cultural y turismo experiencial centrado en patrimonio histórico. El gobierno ha destinado miles de millones en restauración de sitios arqueológicos, museos interactivos y eventos culturales que atraen tanto turismo doméstico como internacional. Esta estrategia no solo genera ingresos, sino que también crea empleo local y revitaliza comunidades que históricamente dependían de industrias manufactureras. El fenómeno refleja una revalorización de la identidad cultural china y una diversificación económica regional más allá de los centros costeros.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Sixth Tone</span>
+            <a href="https://www.sixthtone.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-5">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💼 Empresas</span>
+            <span class="numero-noticia">#5</span>
+          </div>
+          <h2 class="tarjeta-titulo">Alibaba y JD.com lideran sector de comercio electrónico B2B2C con enfoque en pequeñas empresas</h2>
+          <div class="tarjeta-comentario">
+            <p>Las plataformas de comercio electrónico chinas ampliaron sus servicios hacia pequeños y medianos negocios mediante soluciones integrales de B2B2C que incluyen logística, financiamiento y marketing digital. El modelo permite que decenas de millones de PyMEs accedan a mercados nacionales e internacionales sin inversión masiva en infraestructura propia. Este ecosistema digital ha aumentado la productividad de proveedores rurales y urbanos, democratizando el acceso al comercio moderno. El fenómeno subraya cómo la transformación digital china no solo beneficia a gigantes tecnológicos, sino que también moderniza segmentos amplios del tejido empresarial.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Caixin Global</span>
+            <a href="https://www.caixinglobal.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-6">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">👥 Sociedad</span>
+            <span class="numero-noticia">#6</span>
+          </div>
+          <h2 class="tarjeta-titulo">China experimenta con ciudades inteligentes que integran datos en tiempo real para servicios públicos</h2>
+          <div class="tarjeta-comentario">
+            <p>Metrópolis como Shenzhen y Hangzhou implementan sistemas de ciudad inteligente que coordinan tráfico, energía, salud y servicios municipales mediante inteligencia artificial y análisis de datos masivos en tiempo real. Estos proyectos piloto mejoran eficiencia operativa, reducen tiempos de respuesta ante emergencias y optimizan distribución de recursos públicos. Aunque plantean debates sobre privacidad y vigilancia, también demuestran impactos concretos en calidad de vida urbana. La escala de estas experiencias posiciona a China como laboratorio global de urbanism tecnológico y ofrece modelos que otras naciones estudian con interés.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Pandaily</span>
+            <a href="https://www.pandaily.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-7">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🔬 Ciencia</span>
+            <span class="numero-noticia">#7</span>
+          </div>
+          <h2 class="tarjeta-titulo">Investigación china en fusión nuclear acerca a comercialización de energía limpia</h2>
+          <div class="tarjeta-comentario">
+            <p>El reactor de fusión experimental EAST de China estableció un nuevo récord de tiempo de retención de plasma, acercando la viabilidad comercial de esta fuente de energía limpia. Los científicos chinos colaboran activamente en el megaproyecto internacional ITER, contribuyendo con tecnologías de superconductores y sistemas de control innovadores. Este avance es significativo porque potencialmente puede revolucionar la generación de energía global sin emisiones ni residuos radiactivos de larga vida. El progreso refleja la inversión sistemática de China en investigación fundamental y su participación en grandes retos científicos compartidos con la comunidad internacional.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 CGTN</span>
+            <a href="https://www.cgtn.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-8">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🌏 Geopolítica</span>
+            <span class="numero-noticia">#8</span>
+          </div>
+          <h2 class="tarjeta-titulo">Relaciones comerciales China-ASEAN crecen 8% anual con profundización de integración regional</h2>
+          <div class="tarjeta-comentario">
+            <p>El comercio entre China y países de la ASEAN alcanzó nuevos máximos en 2026, impulsado por la implementación del tratado RCEP que eliminó aranceles en múltiples sectores. Vietnam, Indonesia y Tailandia se benefician de cadenas de suministro regionales más eficientes y acceso preferencial al mercado chino. Sin embargo, algunos países mantienen cautela respecto a la dependencia económica excesiva, buscando equilibrio mediante diversificación de socios comerciales. Este dinamismo evidencia cómo la integración regional asiática avanza pragmáticamente, independientemente de tensiones geopolíticas más amplias.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 South China Morning Post</span>
+            <a href="https://www.scmp.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-9">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💼 Empresas</span>
+            <span class="numero-noticia">#9</span>
+          </div>
+          <h2 class="tarjeta-titulo">Nuevos estándares ambientales en industria manufacturera buscan neutralidad de carbono para 2050</h2>
+          <div class="tarjeta-comentario">
+            <p>China estableció metas vinculantes para que el sector manufacturero reduzca intensidad de carbono un 25% antes de 2030, como paso hacia la neutralidad de carbono en 2050. Las normas incluyen incentivos fiscales para electrificación de procesos, transición a energías renovables y eficiencia energética en plantas. Sectores como acero y cemento, que generan una cuarta parte de emisiones globales, enfrentan presión regulatoria pero también oportunidades de innovación en tecnologías limpias. Esta estrategia equilibra ambición climática con realidades industriales, buscando liderazgo verde sin sacrificar competitividad.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Yicai Global</span>
+            <a href="https://www.yicaiglobal.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-10">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🎭 Cultura</span>
+            <span class="numero-noticia">#10</span>
+          </div>
+          <h2 class="tarjeta-titulo">Literatura china contemporánea gana visibilidad global con nuevas traducciones y festivales literarios</h2>
+          <div class="tarjeta-comentario">
+            <p>Autores chinos contemporáneos como Jing Tsu y Ma Jian ganaron reconocimiento internacional, mientras editoriales globales multiplicaron traducciones de narrativas que exploran identidad, urbanismo y transformación social china. Festivales literarios en Nueva York, Londres y Berlín dedicaron espacios a voces chinas, facilitando diálogos transculturales sobre experiencias modernas comparables. Este fenómeno refleja madurez y diversidad de la literatura china actual, que trasciende estereotipos y ofrece perspectivas matizadas sobre realidades contemporáneas. El intercambio cultural bidireccional amplía comprensión mutua más allá de relaciones comerciales y políticas.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Sixth Tone</span>
+            <a href="https://www.sixthtone.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+</main>
+
+<footer class="pie">
+  <div class="pie-contenido">
+    <h3>Fuentes consultadas en esta edición</h3>
+    <ul>
+      <li><a href="https://www.caixinglobal.com" target="_blank" rel="noopener">Caixin Global — China impulsa reforma del sistema de pensiones para envejecimiento poblacional</a></li><li><a href="https://www.technode.com" target="_blank" rel="noopener">TechNode — Huawei alcanza hito en semiconductores domésticos sin tecnología estadounidense</a></li><li><a href="https://www.chinadaily.com.cn" target="_blank" rel="noopener">China Daily — Nuevas regulaciones sobre inteligencia artificial generativa buscan equilibrio entre innovación y seguridad</a></li><li><a href="https://www.sixthtone.com" target="_blank" rel="noopener">Sixth Tone — Inversión en turismo cultural impulsa renacimiento de ciudades históricas en interior de China</a></li><li><a href="https://www.caixinglobal.com" target="_blank" rel="noopener">Caixin Global — Alibaba y JD.com lideran sector de comercio electrónico B2B2C con enfoque en pequeñas empresas</a></li><li><a href="https://www.pandaily.com" target="_blank" rel="noopener">Pandaily — China experimenta con ciudades inteligentes que integran datos en tiempo real para servicios públicos</a></li><li><a href="https://www.cgtn.com" target="_blank" rel="noopener">CGTN — Investigación china en fusión nuclear acerca a comercialización de energía limpia</a></li><li><a href="https://www.scmp.com" target="_blank" rel="noopener">South China Morning Post — Relaciones comerciales China-ASEAN crecen 8% anual con profundización de integración regional</a></li><li><a href="https://www.yicaiglobal.com" target="_blank" rel="noopener">Yicai Global — Nuevos estándares ambientales en industria manufacturera buscan neutralidad de carbono para 2050</a></li><li><a href="https://www.sixthtone.com" target="_blank" rel="noopener">Sixth Tone — Literatura china contemporánea gana visibilidad global con nuevas traducciones y festivales literarios</a></li>
+    </ul>
+    <div class="pie-creditos">
+      China Hoy · Edición 2026-09-12 · Generado automáticamente con IA ·
+      Las opiniones expresadas son editoriales y no representan posiciones oficiales.
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
