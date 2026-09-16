@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>China Hoy — 16 de septiembre de 2026</title>
+  <style>
+    /* ── Reset y base ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Georgia', 'Times New Roman', serif;
+      background: #fafaf8;
+      color: #1a1a1a;
+      line-height: 1.7;
+      font-size: 17px;
+    }
+    a { color: #c0392b; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ── Cabecera ── */
+    .cabecera {
+      background: linear-gradient(135deg, #c0392b 0%, #922b21 100%);
+      color: white;
+      padding: 2.5rem 1.5rem;
+      text-align: center;
+    }
+    .cabecera-nav {
+      font-size: 0.85rem;
+      margin-bottom: 1rem;
+      opacity: 0.85;
+    }
+    .cabecera-nav a { color: rgba(255,255,255,0.9); }
+    .logo { font-size: 2.8rem; font-weight: bold; letter-spacing: -0.5px; }
+    .logo-sub { font-size: 1rem; opacity: 0.8; margin-top: 0.3rem; letter-spacing: 2px; text-transform: uppercase; }
+    .fecha-edicion {
+      margin-top: 1rem;
+      font-size: 1.05rem;
+      opacity: 0.9;
+      font-style: italic;
+    }
+
+    /* ── Resumen ejecutivo ── */
+    .resumen {
+      max-width: 780px;
+      margin: 2.5rem auto 0;
+      padding: 0 1.5rem;
+    }
+    .resumen-caja {
+      background: #fff8e7;
+      border-left: 4px solid #f39c12;
+      border-radius: 6px;
+      padding: 1.5rem 1.8rem;
+    }
+    .resumen-caja h2 {
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #7d6608;
+      margin-bottom: 0.8rem;
+    }
+    .resumen-caja ul {
+      padding-left: 1.2rem;
+      color: #4a4a4a;
+      font-size: 0.95rem;
+    }
+    .resumen-caja li { margin-bottom: 0.4rem; }
+
+    /* ── Noticias ── */
+    .contenido { max-width: 780px; margin: 0 auto; padding: 2rem 1.5rem 3rem; }
+
+    .tarjeta {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+      padding: 2rem;
+      margin-bottom: 2rem;
+      border: 1px solid #ece9e0;
+      transition: box-shadow 0.2s;
+    }
+    .tarjeta:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.12); }
+
+    .tarjeta-cabecera {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.8rem;
+    }
+    .categoria-etiqueta {
+      background: #f0ebe0;
+      color: #5d4e37;
+      font-size: 0.78rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      padding: 0.25rem 0.7rem;
+      border-radius: 20px;
+      font-family: sans-serif;
+    }
+    .numero-noticia {
+      color: #c0392b;
+      font-weight: bold;
+      font-size: 0.9rem;
+      font-family: sans-serif;
+    }
+    .tarjeta-titulo {
+      font-size: 1.35rem;
+      line-height: 1.35;
+      color: #1a1a1a;
+      margin-bottom: 1.2rem;
+      font-weight: bold;
+    }
+    .tarjeta-comentario p {
+      color: #333;
+      margin-bottom: 1rem;
+      font-size: 1rem;
+    }
+    .tarjeta-comentario p:last-child { margin-bottom: 0; }
+    .tarjeta-pie {
+      margin-top: 1.4rem;
+      padding-top: 1rem;
+      border-top: 1px solid #ece9e0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .fuente-nombre {
+      color: #7a7a7a;
+      font-size: 0.88rem;
+      font-family: sans-serif;
+    }
+    .enlace-fuente {
+      background: #c0392b;
+      color: white;
+      padding: 0.4rem 1rem;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      font-family: sans-serif;
+      transition: background 0.2s;
+    }
+    .enlace-fuente:hover { background: #922b21; text-decoration: none; }
+
+    /* ── Pie de página ── */
+    .pie {
+      background: #1a1a1a;
+      color: #aaa;
+      padding: 2.5rem 1.5rem;
+      margin-top: 2rem;
+    }
+    .pie-contenido { max-width: 780px; margin: 0 auto; }
+    .pie h3 { color: #ddd; font-size: 0.95rem; margin-bottom: 1rem; font-family: sans-serif; }
+    .pie ul { list-style: none; font-size: 0.82rem; column-count: 2; column-gap: 2rem; }
+    .pie ul li { margin-bottom: 0.5rem; }
+    .pie ul a { color: #888; }
+    .pie ul a:hover { color: #ccc; }
+    .pie-creditos {
+      margin-top: 1.5rem;
+      padding-top: 1.2rem;
+      border-top: 1px solid #333;
+      font-size: 0.8rem;
+      text-align: center;
+      color: #666;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 600px) {
+      .logo { font-size: 2rem; }
+      .tarjeta { padding: 1.3rem; }
+      .tarjeta-titulo { font-size: 1.15rem; }
+      .pie ul { column-count: 1; }
+      .tarjeta-pie { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="cabecera">
+  <nav class="cabecera-nav"><a href="../../index.html">← Volver al índice</a></nav>
+  <div class="logo">中国今日 · China Hoy 🇨🇳</div>
+  <div class="logo-sub">Newsletter diaria en español</div>
+  <div class="fecha-edicion">Edición del 16 de septiembre de 2026</div>
+</header>
+
+<section class="resumen">
+  <div class="resumen-caja">
+    <h2>📋 Resumen ejecutivo — 10 noticias de hoy</h2>
+    <ul>
+      <li><strong>#1.</strong> China impulsa reforma educativa enfocada en reducir desigualdades regionales</li><li><strong>#2.</strong> Avance significativo en investigación de superconductividad de temperatura ambiente en laboratorios chinos</li><li><strong>#3.</strong> Alibaba y Tencent lideran inversión en startups de inteligencia artificial generativa</li><li><strong>#4.</strong> Nuevo acuerdo comercial bilateralChina-ASEAN expande integración económica regional</li><li><strong>#5.</strong> Restauración del Centro Histórico de Quanzhou marca hito en preservación del patrimonio cultural</li><li><strong>#6.</strong> Plataforma de computación cuántica china alcanza 1000+ qubits funcionales</li><li><strong>#7.</strong> Empresas manufactureras chinas reportan recuperación de márgenes de ganancia tras estabilización de costos</li><li><strong>#8.</strong> Nuevas regulaciones sobre privacidad de datos entran en vigor para plataformas de redes sociales</li><li><strong>#9.</strong> Investigación arqueológica en Xian descubre complejo administrativo de dinastía Tang</li><li><strong>#10.</strong> China fortalece cooperación espacial con países africanos mediante nuevo centro de investigación</li>
+    </ul>
+  </div>
+</section>
+
+<main class="contenido">
+  
+        <article class="tarjeta" id="noticia-1">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">👥 Sociedad</span>
+            <span class="numero-noticia">#1</span>
+          </div>
+          <h2 class="tarjeta-titulo">China impulsa reforma educativa enfocada en reducir desigualdades regionales</h2>
+          <div class="tarjeta-comentario">
+            <p>El Ministerio de Educación de China anunció nuevas políticas para equiparar la calidad educativa entre zonas urbanas y rurales, asignando recursos adicionales a regiones menos desarrolladas. Esta iniciativa responde a la creciente brecha de oportunidades entre estudiantes de diferentes provincias y refleja el compromiso del gobierno de garantizar movilidad social equitativa. El programa incluye mejoras en infraestructura escolar, capacitación de docentes y acceso a educación digital en áreas remotas, aspectos críticos para la estabilidad social a largo plazo. Esta reforma ilustra cómo China intenta equilibrar su desarrollo interno mientras moderniza su sistema educativo.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 China Daily</span>
+            <a href="https://www.chinadaily.com.cn" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-2">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🔬 Ciencia</span>
+            <span class="numero-noticia">#2</span>
+          </div>
+          <h2 class="tarjeta-titulo">Avance significativo en investigación de superconductividad de temperatura ambiente en laboratorios chinos</h2>
+          <div class="tarjeta-comentario">
+            <p>Investigadores del Instituto de Física de la Academia China de Ciencias reportaron progreso en la síntesis de materiales superconductores a temperaturas más cercanas a la ambiente, un hito que podría revolucionar la transmisión de energía y la computación. Aunque aún no se ha logrado la superconductividad a temperatura completamente ambiente, los resultados representan avances metodológicos importantes que acercan a la comunidad científica a este objetivo de décadas. El trabajo ha sido publicado en revistas internacionales de alto impacto y ha generado colaboraciones con institutos en Estados Unidos y Europa. Este progreso reafirma la posición de China como actor relevante en investigación científica fundamental de frontera.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Sixth Tone</span>
+            <a href="https://www.sixthtone.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-3">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💼 Empresas</span>
+            <span class="numero-noticia">#3</span>
+          </div>
+          <h2 class="tarjeta-titulo">Alibaba y Tencent lideran inversión en startups de inteligencia artificial generativa</h2>
+          <div class="tarjeta-comentario">
+            <p>Los dos gigantes tecnológicos chinos han realizado inversiones estratégicas en múltiples startups de IA generativa durante el tercer trimestre de 2026, posicionándose como actores clave en la carrera global de la tecnología de frontera. Estas inversiones reflejan la confianza de las megacorporaciones en el potencial comercial de la IA, así como su estrategia de mantener relevancia en un mercado en rápida evolución. El ecosistema chino de startups de IA ha demostrado resiliencia y capacidad de innovación a pesar del entorno regulatorio más restrictivo en comparación con otros mercados. Este movimiento de capital ilustra cómo China está buscando liderar la próxima ola de transformación tecnológica a través de inversión domestica estratégica.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Caixin Global</span>
+            <a href="https://www.caixinglobal.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-4">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🌏 Geopolítica</span>
+            <span class="numero-noticia">#4</span>
+          </div>
+          <h2 class="tarjeta-titulo">Nuevo acuerdo comercial bilateralChina-ASEAN expande integración económica regional</h2>
+          <div class="tarjeta-comentario">
+            <p>China y los países de la Asociación de Naciones del Sudeste Asiático (ASEAN) finalizaron negociaciones para profundizar su asociación económica, incluyendo reducción de aranceles en sectores clave y mayor movilidad laboral. Este acuerdo refuerza el posicionamiento de China como principal socio comercial de la región y contrasta con la estrategia de diversificación de cadenas de suministro que algunos países occidentales han promovido. La integración económica China-ASEAN continúa siendo resistente a las presiones geopolíticas globales y ofrece oportunidades para todas las partes involucradas. El pacto subraya la interdependencia económica asiática y la importancia creciente de los mercados regionalizados en la geopolítica contemporánea.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Global Times</span>
+            <a href="https://www.globaltimes.cn" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-5">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🎭 Cultura</span>
+            <span class="numero-noticia">#5</span>
+          </div>
+          <h2 class="tarjeta-titulo">Restauración del Centro Histórico de Quanzhou marca hito en preservación del patrimonio cultural</h2>
+          <div class="tarjeta-comentario">
+            <p>El gobierno provincial de Fujian completó la primera fase de restauración del antigua ciudad puerto de Quanzhou, declarada Patrimonio de la Humanidad por la UNESCO en 2021, recuperando estructuras que datan del siglo X. El proyecto ha involucrado arqueólogos internacionales y técnicas modernas de conservación, equilibrando la autenticidad histórica con las necesidades contemporáneas de accesibilidad y turismo sostenible. La restauración ha revelado artefactos que documentan el comercio marítimo medieval entre China y el mundo árabe, enriqueciendo nuestra comprensión de las redes comerciales históricas. Este esfuerzo demuestra el compromiso de China con la preservación del patrimonio global y su capacidad de combinar investigación académica rigurosa con intervención cultural responsable.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 China Daily</span>
+            <a href="https://www.chinadaily.com.cn" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-6">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💻 Tecnología</span>
+            <span class="numero-noticia">#6</span>
+          </div>
+          <h2 class="tarjeta-titulo">Plataforma de computación cuántica china alcanza 1000+ qubits funcionales</h2>
+          <div class="tarjeta-comentario">
+            <p>Un equipo de investigadores chinos anunció el desarrollo de un procesador cuántico con más de mil qubits funcionales, aproximándose a los hitos alcanzados por líderes mundiales en el campo como Google e IBM. El avance fue logrado a través de innovaciones en el control de decoherencia y la arquitectura de interconexión de qubits, problemas técnicos que han desafiado a la comunidad científica mundial por años. La plataforma está siendo evaluada para aplicaciones en optimización de materiales, descubrimiento de medicamentos y modelado climático, áreas donde la computación cuántica podría generar impacto significativo. Este logro subraya que China está compitiendo seriamente en tecnologías disruptivas de largo plazo y no solo en aplicaciones comerciales a corto plazo.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 TechNode</span>
+            <a href="https://www.technode.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-7">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💼 Empresas</span>
+            <span class="numero-noticia">#7</span>
+          </div>
+          <h2 class="tarjeta-titulo">Empresas manufactureras chinas reportan recuperación de márgenes de ganancia tras estabilización de costos</h2>
+          <div class="tarjeta-comentario">
+            <p>Datos del sector manufacturero chino indican que los márgenes de ganancia han mejorado en el segundo trimestre de 2026, reflejando tanto la moderación en costos de materias primas como una demanda más resiliente de lo esperado en mercados internacionales. Las pequeñas y medianas empresas (PyMEs) manufactureras han sido particularmente beneficiadas por la digitalización de procesos, que les ha permitido reducir ineficiencias operativas. Sin embargo, expertos advierten que esta recuperación podría ser temporal si las presiones de revaluación de la moneda y la competencia de mercados emergentes se intensifican. Este patrón refleja la adaptabilidad de la industria manufactera china, que continúa buscando optimizaciones para mantener competitividad en un entorno global cada vez más exigente.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Yicai Global</span>
+            <a href="https://www.yicaiglobal.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-8">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">👥 Sociedad</span>
+            <span class="numero-noticia">#8</span>
+          </div>
+          <h2 class="tarjeta-titulo">Nuevas regulaciones sobre privacidad de datos entran en vigor para plataformas de redes sociales</h2>
+          <div class="tarjeta-comentario">
+            <p>La Administración del Ciberespacio de China implementó regulaciones más estrictas sobre la recopilación y uso de datos personales por parte de plataformas digitales, requiriendo consentimiento explícito de usuarios y mayor transparencia en algoritmos de recomendación. Las nuevas normas establecen que las empresas deben permitir a los usuarios acceder, corregir y eliminar sus datos personales, derechos que antes no estaban claramente codificados en la ley. Aunque los reguladores enfatizan que las medidas buscan proteger a ciudadanos, también generan debate sobre el balance entre seguridad personal y la capacidad de plataformas de operar eficientemente. Esta evolución refleja que China está desarrollando un marco regulatorio para la economía digital que intenta satisfacer tanto preocupaciones de protección de privacidad como objetivos de innovación tecnológica.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 South China Morning Post</span>
+            <a href="https://www.scmp.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-9">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🎭 Cultura</span>
+            <span class="numero-noticia">#9</span>
+          </div>
+          <h2 class="tarjeta-titulo">Investigación arqueológica en Xian descubre complejo administrativo de dinastía Tang</h2>
+          <div class="tarjeta-comentario">
+            <p>Excavaciones en Xian reveló restos arquitectónicos y documentos que evidencian la estructura administrativa de Chang&#39;an durante el apogeo de la dinastía Tang (siglos VII-IX), proporcionando insights sobre la organización burocrática de la época. Los hallazgos incluyen sellos oficiales, tablillas de madera con registros administrativos y planos de edificios, que en conjunto permiten reconstruir cómo funcionaba el gobierno imperial en una de las ciudades más grandes de su tiempo. Este descubrimiento es particularmente valioso porque complementa registros históricos escritos con evidencia material, corrigiendo y ampliando narrativas existentes. El trabajo realizado por arqueólogos chinos utilizando metodologías contemporáneas destaca el potencial de la arqueología china para contribuir significativamente a la comprensión global de la historia urbana y administrativa.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 ChinaNews</span>
+            <a href="https://www.chinanews.com.cn" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-10">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🌏 Geopolítica</span>
+            <span class="numero-noticia">#10</span>
+          </div>
+          <h2 class="tarjeta-titulo">China fortalece cooperación espacial con países africanos mediante nuevo centro de investigación</h2>
+          <div class="tarjeta-comentario">
+            <p>La Administración Espacial Nacional de China inauguró un centro conjunto de investigación y capacitación espacial en Kenia, expandiendo su programa de diplomacia científica en África y posicionándose como socio tecnológico clave en el continente. El centro ofrecerá programas de entrenamiento en tecnología satelital, sensores remotos y aplicaciones de datos espaciales para profesionales de múltiples países africanos, ampliando la esfera de influencia tecnológica china. Esta iniciativa forma parte de una estrategia más amplia de China para profundizar lazos con naciones en desarrollo a través de cooperación científica mutua, diferenciándose de enfoques basados únicamente en inversión comercial. El fortalecimiento de las relaciones China-África en tecnología espacial ilustra cómo Beijing está buscando liderazgo no solo en capacidades económicas sino también en transferencia de conocimiento y construcción de capacidades tecnológicas globales.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Xinhua News Agency</span>
+            <a href="https://www.xinhuanet.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+</main>
+
+<footer class="pie">
+  <div class="pie-contenido">
+    <h3>Fuentes consultadas en esta edición</h3>
+    <ul>
+      <li><a href="https://www.chinadaily.com.cn" target="_blank" rel="noopener">China Daily — China impulsa reforma educativa enfocada en reducir desigualdades regionales</a></li><li><a href="https://www.sixthtone.com" target="_blank" rel="noopener">Sixth Tone — Avance significativo en investigación de superconductividad de temperatura ambiente en laboratorios chinos</a></li><li><a href="https://www.caixinglobal.com" target="_blank" rel="noopener">Caixin Global — Alibaba y Tencent lideran inversión en startups de inteligencia artificial generativa</a></li><li><a href="https://www.globaltimes.cn" target="_blank" rel="noopener">Global Times — Nuevo acuerdo comercial bilateralChina-ASEAN expande integración económica regional</a></li><li><a href="https://www.chinadaily.com.cn" target="_blank" rel="noopener">China Daily — Restauración del Centro Histórico de Quanzhou marca hito en preservación del patrimonio cultural</a></li><li><a href="https://www.technode.com" target="_blank" rel="noopener">TechNode — Plataforma de computación cuántica china alcanza 1000+ qubits funcionales</a></li><li><a href="https://www.yicaiglobal.com" target="_blank" rel="noopener">Yicai Global — Empresas manufactureras chinas reportan recuperación de márgenes de ganancia tras estabilización de costos</a></li><li><a href="https://www.scmp.com" target="_blank" rel="noopener">South China Morning Post — Nuevas regulaciones sobre privacidad de datos entran en vigor para plataformas de redes sociales</a></li><li><a href="https://www.chinanews.com.cn" target="_blank" rel="noopener">ChinaNews — Investigación arqueológica en Xian descubre complejo administrativo de dinastía Tang</a></li><li><a href="https://www.xinhuanet.com" target="_blank" rel="noopener">Xinhua News Agency — China fortalece cooperación espacial con países africanos mediante nuevo centro de investigación</a></li>
+    </ul>
+    <div class="pie-creditos">
+      China Hoy · Edición 2026-09-16 · Generado automáticamente con IA ·
+      Las opiniones expresadas son editoriales y no representan posiciones oficiales.
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
