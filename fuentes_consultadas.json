@@ -3718,5 +3718,31 @@
       "Festival internacional de cine en Shanghai destaca películas independientes y narrativas diversas",
       "Empresa de vehículos eléctricos amplía operaciones en mercados europeos; compite directamente con Tesla"
     ]
+  },
+  "2026-09-20": {
+    "fuentes": [
+      "https://www.chinadaily.com.cn",
+      "https://www.caixinglobal.com",
+      "https://www.sixthtone.com",
+      "https://www.xinhuanet.com",
+      "https://www.scmp.com",
+      "https://www.technode.com",
+      "https://www.yicaiglobal.com",
+      "https://www.chinatoday.com.cn",
+      "https://www.globaltimes.cn",
+      "https://www.english.cctv.com"
+    ],
+    "titulares": [
+      "China lanza nuevo sistema de satélites de observación terrestre con resolución sin precedentes",
+      "Corporaciones chinas invierten récord en investigación de baterías de estado sólido",
+      "Festivales de cine tradicional chino resurgen con presupuestos estatales renovados",
+      "Universidades chinas establecen nuevos centros de investigación en fusión nuclear con financiamiento masivo",
+      "Municipios chinos implementan programas piloto de redistribución de riqueza intergeneracional",
+      "Startups chinas de IA desarrollan modelos multimodales con capacidades de razonamiento mejoradas",
+      "Empresas manufactureras chinas reportan recuperación de márgenes de ganancia tras optimización de cadenas de suministro",
+      "Arqueólogos chinos descubren ciudad subterránea de la dinastía Ming con sistemas de drenaje avanzados",
+      "China negocia acuerdos comerciales regionales que excluyen a Estados Unidos en sectores de tecnología verde",
+      "Instituto de investigación chino publica estudio sobre mejora de resiliencia urbana frente a cambio climático"
+    ]
   }
 }

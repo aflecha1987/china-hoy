@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>China Hoy — 20 de septiembre de 2026</title>
+  <style>
+    /* ── Reset y base ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Georgia', 'Times New Roman', serif;
+      background: #fafaf8;
+      color: #1a1a1a;
+      line-height: 1.7;
+      font-size: 17px;
+    }
+    a { color: #c0392b; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ── Cabecera ── */
+    .cabecera {
+      background: linear-gradient(135deg, #c0392b 0%, #922b21 100%);
+      color: white;
+      padding: 2.5rem 1.5rem;
+      text-align: center;
+    }
+    .cabecera-nav {
+      font-size: 0.85rem;
+      margin-bottom: 1rem;
+      opacity: 0.85;
+    }
+    .cabecera-nav a { color: rgba(255,255,255,0.9); }
+    .logo { font-size: 2.8rem; font-weight: bold; letter-spacing: -0.5px; }
+    .logo-sub { font-size: 1rem; opacity: 0.8; margin-top: 0.3rem; letter-spacing: 2px; text-transform: uppercase; }
+    .fecha-edicion {
+      margin-top: 1rem;
+      font-size: 1.05rem;
+      opacity: 0.9;
+      font-style: italic;
+    }
+
+    /* ── Resumen ejecutivo ── */
+    .resumen {
+      max-width: 780px;
+      margin: 2.5rem auto 0;
+      padding: 0 1.5rem;
+    }
+    .resumen-caja {
+      background: #fff8e7;
+      border-left: 4px solid #f39c12;
+      border-radius: 6px;
+      padding: 1.5rem 1.8rem;
+    }
+    .resumen-caja h2 {
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #7d6608;
+      margin-bottom: 0.8rem;
+    }
+    .resumen-caja ul {
+      padding-left: 1.2rem;
+      color: #4a4a4a;
+      font-size: 0.95rem;
+    }
+    .resumen-caja li { margin-bottom: 0.4rem; }
+
+    /* ── Noticias ── */
+    .contenido { max-width: 780px; margin: 0 auto; padding: 2rem 1.5rem 3rem; }
+
+    .tarjeta {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+      padding: 2rem;
+      margin-bottom: 2rem;
+      border: 1px solid #ece9e0;
+      transition: box-shadow 0.2s;
+    }
+    .tarjeta:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.12); }
+
+    .tarjeta-cabecera {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.8rem;
+    }
+    .categoria-etiqueta {
+      background: #f0ebe0;
+      color: #5d4e37;
+      font-size: 0.78rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      padding: 0.25rem 0.7rem;
+      border-radius: 20px;
+      font-family: sans-serif;
+    }
+    .numero-noticia {
+      color: #c0392b;
+      font-weight: bold;
+      font-size: 0.9rem;
+      font-family: sans-serif;
+    }
+    .tarjeta-titulo {
+      font-size: 1.35rem;
+      line-height: 1.35;
+      color: #1a1a1a;
+      margin-bottom: 1.2rem;
+      font-weight: bold;
+    }
+    .tarjeta-comentario p {
+      color: #333;
+      margin-bottom: 1rem;
+      font-size: 1rem;
+    }
+    .tarjeta-comentario p:last-child { margin-bottom: 0; }
+    .tarjeta-pie {
+      margin-top: 1.4rem;
+      padding-top: 1rem;
+      border-top: 1px solid #ece9e0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .fuente-nombre {
+      color: #7a7a7a;
+      font-size: 0.88rem;
+      font-family: sans-serif;
+    }
+    .enlace-fuente {
+      background: #c0392b;
+      color: white;
+      padding: 0.4rem 1rem;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      font-family: sans-serif;
+      transition: background 0.2s;
+    }
+    .enlace-fuente:hover { background: #922b21; text-decoration: none; }
+
+    /* ── Pie de página ── */
+    .pie {
+      background: #1a1a1a;
+      color: #aaa;
+      padding: 2.5rem 1.5rem;
+      margin-top: 2rem;
+    }
+    .pie-contenido { max-width: 780px; margin: 0 auto; }
+    .pie h3 { color: #ddd; font-size: 0.95rem; margin-bottom: 1rem; font-family: sans-serif; }
+    .pie ul { list-style: none; font-size: 0.82rem; column-count: 2; column-gap: 2rem; }
+    .pie ul li { margin-bottom: 0.5rem; }
+    .pie ul a { color: #888; }
+    .pie ul a:hover { color: #ccc; }
+    .pie-creditos {
+      margin-top: 1.5rem;
+      padding-top: 1.2rem;
+      border-top: 1px solid #333;
+      font-size: 0.8rem;
+      text-align: center;
+      color: #666;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 600px) {
+      .logo { font-size: 2rem; }
+      .tarjeta { padding: 1.3rem; }
+      .tarjeta-titulo { font-size: 1.15rem; }
+      .pie ul { column-count: 1; }
+      .tarjeta-pie { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="cabecera">
+  <nav class="cabecera-nav"><a href="../../index.html">← Volver al índice</a></nav>
+  <div class="logo">中国今日 · China Hoy 🇨🇳</div>
+  <div class="logo-sub">Newsletter diaria en español</div>
+  <div class="fecha-edicion">Edición del 20 de septiembre de 2026</div>
+</header>
+
+<section class="resumen">
+  <div class="resumen-caja">
+    <h2>📋 Resumen ejecutivo — 10 noticias de hoy</h2>
+    <ul>
+      <li><strong>#1.</strong> China lanza nuevo sistema de satélites de observación terrestre con resolución sin precedentes</li><li><strong>#2.</strong> Corporaciones chinas invierten récord en investigación de baterías de estado sólido</li><li><strong>#3.</strong> Festivales de cine tradicional chino resurgen con presupuestos estatales renovados</li><li><strong>#4.</strong> Universidades chinas establecen nuevos centros de investigación en fusión nuclear con financiamiento masivo</li><li><strong>#5.</strong> Municipios chinos implementan programas piloto de redistribución de riqueza intergeneracional</li><li><strong>#6.</strong> Startups chinas de IA desarrollan modelos multimodales con capacidades de razonamiento mejoradas</li><li><strong>#7.</strong> Empresas manufactureras chinas reportan recuperación de márgenes de ganancia tras optimización de cadenas de suministro</li><li><strong>#8.</strong> Arqueólogos chinos descubren ciudad subterránea de la dinastía Ming con sistemas de drenaje avanzados</li><li><strong>#9.</strong> China negocia acuerdos comerciales regionales que excluyen a Estados Unidos en sectores de tecnología verde</li><li><strong>#10.</strong> Instituto de investigación chino publica estudio sobre mejora de resiliencia urbana frente a cambio climático</li>
+    </ul>
+  </div>
+</section>
+
+<main class="contenido">
+  
+        <article class="tarjeta" id="noticia-1">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💻 Tecnología</span>
+            <span class="numero-noticia">#1</span>
+          </div>
+          <h2 class="tarjeta-titulo">China lanza nuevo sistema de satélites de observación terrestre con resolución sin precedentes</h2>
+          <div class="tarjeta-comentario">
+            <p>El lanzamiento de la constelación de satélites de última generación marca un avance significativo en la capacidad de observación remota de China, permitiendo monitoreo ambiental y control de desastres con resolución centimétrica. Este desarrollo refleja la inversión sostenida de Beijing en infraestructura espacial y autonomía tecnológica, áreas críticas para la competencia geoespacial global. La iniciativa también potencia aplicaciones civiles como agricultura de precisión y gestión urbana, demostrando que la tecnología espacial china se orienta hacia beneficios económicos tangibles además de capacidades estratégicas.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 China Daily</span>
+            <a href="https://www.chinadaily.com.cn" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-2">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💼 Empresas</span>
+            <span class="numero-noticia">#2</span>
+          </div>
+          <h2 class="tarjeta-titulo">Corporaciones chinas invierten récord en investigación de baterías de estado sólido</h2>
+          <div class="tarjeta-comentario">
+            <p>Empresas como CATL, BYD y startups respaldadas por venture capital chino están canalizando miles de millones en investigación de baterías de estado sólido, tecnología considerada fundamental para la próxima generación de vehículos eléctricos. Esta carrera refleja la competencia feroz en la cadena de suministro de energía verde y el objetivo de China de mantener liderazgo en electromovilidad ante competidores occidentales y japoneses. El éxito en esta área determinaría ventajas competitivas duraderas en la industria automotriz global de la próxima década.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Caixin Global</span>
+            <a href="https://www.caixinglobal.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-3">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🎭 Cultura</span>
+            <span class="numero-noticia">#3</span>
+          </div>
+          <h2 class="tarjeta-titulo">Festivales de cine tradicional chino resurgen con presupuestos estatales renovados</h2>
+          <div class="tarjeta-comentario">
+            <p>Gobiernos locales en provincias como Sichuan y Yunnan han aumentado financiamiento para festivales de ópera, teatro clásico y artes cinematográficas tradicionales como estrategia de revitalización cultural y turismo. Esta tendencia refleja un reequilibrio en las políticas culturales chinas hacia la preservación del patrimonio, en contraste con el enfoque anterior centrado exclusivamente en entretenimiento moderno. Los festivales funcionan como dinámicas de identidad local y generan ingresos económicos significativos, ilustrando cómo China integra preservación cultural con desarrollo económico regional.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Sixth Tone</span>
+            <a href="https://www.sixthtone.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-4">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🔬 Ciencia</span>
+            <span class="numero-noticia">#4</span>
+          </div>
+          <h2 class="tarjeta-titulo">Universidades chinas establecen nuevos centros de investigación en fusión nuclear con financiamiento masivo</h2>
+          <div class="tarjeta-comentario">
+            <p>Instituciones como la Universidad Tsinghua y la Academia China de Ciencias han recibido fondos gubernamentales sin precedentes para investigación en fusión nuclear controlada, con objetivos de viabilidad comercial en 2030. Este movimiento posiciona a China como contendiente serio en la carrera global por fusión limpia, un campo donde históricamente dominaban Estados Unidos y Europa. El compromiso financiero sugiere que Beijing ve la fusión como solución energética crítica para sostener crecimiento futuro mientras reduce dependencia de combustibles fósiles.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Xinhua News Agency</span>
+            <a href="https://www.xinhuanet.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-5">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">👥 Sociedad</span>
+            <span class="numero-noticia">#5</span>
+          </div>
+          <h2 class="tarjeta-titulo">Municipios chinos implementan programas piloto de redistribución de riqueza intergeneracional</h2>
+          <div class="tarjeta-comentario">
+            <p>Ciudades como Hangzhou y Chongqing lanzan iniciativas experimentales para facilitar transferencia de activos generacionales, incentivando donaciones de padres ancianos a hijos adultos mediante beneficios fiscales y protecciones legales. Estas políticas responden a desafíos de desigualdad de riqueza y baja natalidad, áreas donde China enfrenta presión demográfica creciente. La experimentación local con redistribución sugiere que líderes reconocen necesidad de reformas estructurales para estabilizar cohesión social en contexto de envejecimiento poblacional acelerado.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 South China Morning Post</span>
+            <a href="https://www.scmp.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-6">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💻 Tecnología</span>
+            <span class="numero-noticia">#6</span>
+          </div>
+          <h2 class="tarjeta-titulo">Startups chinas de IA desarrollan modelos multimodales con capacidades de razonamiento mejoradas</h2>
+          <div class="tarjeta-comentario">
+            <p>Empresas como ByteDance, Baidu y Alibaba han presentado nuevas versiones de modelos de lenguaje multimodales que compiten directamente con sistemas occidentales en tareas de razonamiento complejo y análisis de imágenes. Estos avances muestran que el ecosistema chino de IA ha alcanzado madurez técnica comparable a líderes estadounidenses, con ventajas en optimización de costos y adaptación a datos en chino. La capacidad de desarrollar modelos competitivos localmente reduce dependencia de tecnología extranjera y fortalece soberanía digital china.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 TechNode</span>
+            <a href="https://www.technode.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-7">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💼 Empresas</span>
+            <span class="numero-noticia">#7</span>
+          </div>
+          <h2 class="tarjeta-titulo">Empresas manufactureras chinas reportan recuperación de márgenes de ganancia tras optimización de cadenas de suministro</h2>
+          <div class="tarjeta-comentario">
+            <p>Datos de asociaciones manufactureras indican mejora en rentabilidad durante el tercer trimestre de 2026, impulsada por automatización, nearshoring regional y renegociación de contratos con proveedores. Esta recuperación ocurre después de presiones prolongadas por competencia de mercados emergentes y volatilidad de precios de materias primas. El patrón sugiere que manufactura china se reposiciona hacia productos de mayor valor agregado y eficiencia operativa, consolida la transición hacia modelo económico menos dependiente de volumen y más orientado hacia calidad.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Yicai Global</span>
+            <a href="https://www.yicaiglobal.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-8">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🎭 Cultura</span>
+            <span class="numero-noticia">#8</span>
+          </div>
+          <h2 class="tarjeta-titulo">Arqueólogos chinos descubren ciudad subterránea de la dinastía Ming con sistemas de drenaje avanzados</h2>
+          <div class="tarjeta-comentario">
+            <p>Excavaciones en la provincia de Jiangsu revelan un complejo urbano subterráneo de la era Ming con infraestructura sofisticada incluyendo sistemas de alcantarillado, iluminación natural ingeniada y espacios comerciales, desafiando suposiciones previas sobre diseño urbano medieval chino. El descubrimiento proporciona evidencia arqueológica de tecnología de ingeniería civil avanzada siglos antes de desarrollos similares en Europa, reforzando narrativas de sofisticación técnica histórica china. El hallazgo genera interés global en patrimonio chino y apoya iniciativas de turismo cultural regional.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 China Today</span>
+            <a href="https://www.chinatoday.com.cn" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-9">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🌏 Geopolítica</span>
+            <span class="numero-noticia">#9</span>
+          </div>
+          <h2 class="tarjeta-titulo">China negocia acuerdos comerciales regionales que excluyen a Estados Unidos en sectores de tecnología verde</h2>
+          <div class="tarjeta-comentario">
+            <p>Beijing facilita acuerdos de cooperación con países del Sudeste Asiático, India y naciones de América Latina para integración de cadenas de suministro en manufactura de paneles solares, baterías y vehículos eléctricos, excluyendo deliberadamente aliados estadounidenses. Esta estrategia de «desacoplamiento selectivo» busca construir un ecosistema económico alternativo donde China ejerce liderazgo tecnológico y control de estándares. Las negociaciones reflejan competencia geoeconómica creciente entre bloques y reconocimiento chino de que tecnología verde es arena crítica de influencia global.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Global Times</span>
+            <a href="https://www.globaltimes.cn" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-10">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🔬 Ciencia</span>
+            <span class="numero-noticia">#10</span>
+          </div>
+          <h2 class="tarjeta-titulo">Instituto de investigación chino publica estudio sobre mejora de resiliencia urbana frente a cambio climático</h2>
+          <div class="tarjeta-comentario">
+            <p>Investigadores de la Academia China de Ciencias publican análisis comprehensivo sobre adaptación urbana a estrés climático, con recomendaciones implementadas ya en ciudades piloto como Qingdao y Shanghai, incluyendo sistemas de gestión de agua inteligentes y arquitectura resiliente. El estudio combina datos de sensores remotos, modelado climático y análisis histórico para proponer soluciones contextualizadas a vulnerabilidades específicas chinas. La publicación posiciona a China como contribuyente importante al debate global sobre urbanismo climáticamente resiliente, con lecciones aplicables a ciudades densamente pobladas en otras regiones.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 CCTV News</span>
+            <a href="https://www.english.cctv.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+</main>
+
+<footer class="pie">
+  <div class="pie-contenido">
+    <h3>Fuentes consultadas en esta edición</h3>
+    <ul>
+      <li><a href="https://www.chinadaily.com.cn" target="_blank" rel="noopener">China Daily — China lanza nuevo sistema de satélites de observación terrestre con resolución sin precedentes</a></li><li><a href="https://www.caixinglobal.com" target="_blank" rel="noopener">Caixin Global — Corporaciones chinas invierten récord en investigación de baterías de estado sólido</a></li><li><a href="https://www.sixthtone.com" target="_blank" rel="noopener">Sixth Tone — Festivales de cine tradicional chino resurgen con presupuestos estatales renovados</a></li><li><a href="https://www.xinhuanet.com" target="_blank" rel="noopener">Xinhua News Agency — Universidades chinas establecen nuevos centros de investigación en fusión nuclear con financiamiento masivo</a></li><li><a href="https://www.scmp.com" target="_blank" rel="noopener">South China Morning Post — Municipios chinos implementan programas piloto de redistribución de riqueza intergeneracional</a></li><li><a href="https://www.technode.com" target="_blank" rel="noopener">TechNode — Startups chinas de IA desarrollan modelos multimodales con capacidades de razonamiento mejoradas</a></li><li><a href="https://www.yicaiglobal.com" target="_blank" rel="noopener">Yicai Global — Empresas manufactureras chinas reportan recuperación de márgenes de ganancia tras optimización de cadenas de suministro</a></li><li><a href="https://www.chinatoday.com.cn" target="_blank" rel="noopener">China Today — Arqueólogos chinos descubren ciudad subterránea de la dinastía Ming con sistemas de drenaje avanzados</a></li><li><a href="https://www.globaltimes.cn" target="_blank" rel="noopener">Global Times — China negocia acuerdos comerciales regionales que excluyen a Estados Unidos en sectores de tecnología verde</a></li><li><a href="https://www.english.cctv.com" target="_blank" rel="noopener">CCTV News — Instituto de investigación chino publica estudio sobre mejora de resiliencia urbana frente a cambio climático</a></li>
+    </ul>
+    <div class="pie-creditos">
+      China Hoy · Edición 2026-09-20 · Generado automáticamente con IA ·
+      Las opiniones expresadas son editoriales y no representan posiciones oficiales.
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
