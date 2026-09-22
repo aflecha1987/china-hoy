@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>China Hoy — 22 de septiembre de 2026</title>
+  <style>
+    /* ── Reset y base ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Georgia', 'Times New Roman', serif;
+      background: #fafaf8;
+      color: #1a1a1a;
+      line-height: 1.7;
+      font-size: 17px;
+    }
+    a { color: #c0392b; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ── Cabecera ── */
+    .cabecera {
+      background: linear-gradient(135deg, #c0392b 0%, #922b21 100%);
+      color: white;
+      padding: 2.5rem 1.5rem;
+      text-align: center;
+    }
+    .cabecera-nav {
+      font-size: 0.85rem;
+      margin-bottom: 1rem;
+      opacity: 0.85;
+    }
+    .cabecera-nav a { color: rgba(255,255,255,0.9); }
+    .logo { font-size: 2.8rem; font-weight: bold; letter-spacing: -0.5px; }
+    .logo-sub { font-size: 1rem; opacity: 0.8; margin-top: 0.3rem; letter-spacing: 2px; text-transform: uppercase; }
+    .fecha-edicion {
+      margin-top: 1rem;
+      font-size: 1.05rem;
+      opacity: 0.9;
+      font-style: italic;
+    }
+
+    /* ── Resumen ejecutivo ── */
+    .resumen {
+      max-width: 780px;
+      margin: 2.5rem auto 0;
+      padding: 0 1.5rem;
+    }
+    .resumen-caja {
+      background: #fff8e7;
+      border-left: 4px solid #f39c12;
+      border-radius: 6px;
+      padding: 1.5rem 1.8rem;
+    }
+    .resumen-caja h2 {
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #7d6608;
+      margin-bottom: 0.8rem;
+    }
+    .resumen-caja ul {
+      padding-left: 1.2rem;
+      color: #4a4a4a;
+      font-size: 0.95rem;
+    }
+    .resumen-caja li { margin-bottom: 0.4rem; }
+
+    /* ── Noticias ── */
+    .contenido { max-width: 780px; margin: 0 auto; padding: 2rem 1.5rem 3rem; }
+
+    .tarjeta {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+      padding: 2rem;
+      margin-bottom: 2rem;
+      border: 1px solid #ece9e0;
+      transition: box-shadow 0.2s;
+    }
+    .tarjeta:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.12); }
+
+    .tarjeta-cabecera {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.8rem;
+    }
+    .categoria-etiqueta {
+      background: #f0ebe0;
+      color: #5d4e37;
+      font-size: 0.78rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      padding: 0.25rem 0.7rem;
+      border-radius: 20px;
+      font-family: sans-serif;
+    }
+    .numero-noticia {
+      color: #c0392b;
+      font-weight: bold;
+      font-size: 0.9rem;
+      font-family: sans-serif;
+    }
+    .tarjeta-titulo {
+      font-size: 1.35rem;
+      line-height: 1.35;
+      color: #1a1a1a;
+      margin-bottom: 1.2rem;
+      font-weight: bold;
+    }
+    .tarjeta-comentario p {
+      color: #333;
+      margin-bottom: 1rem;
+      font-size: 1rem;
+    }
+    .tarjeta-comentario p:last-child { margin-bottom: 0; }
+    .tarjeta-pie {
+      margin-top: 1.4rem;
+      padding-top: 1rem;
+      border-top: 1px solid #ece9e0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .fuente-nombre {
+      color: #7a7a7a;
+      font-size: 0.88rem;
+      font-family: sans-serif;
+    }
+    .enlace-fuente {
+      background: #c0392b;
+      color: white;
+      padding: 0.4rem 1rem;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      font-family: sans-serif;
+      transition: background 0.2s;
+    }
+    .enlace-fuente:hover { background: #922b21; text-decoration: none; }
+
+    /* ── Pie de página ── */
+    .pie {
+      background: #1a1a1a;
+      color: #aaa;
+      padding: 2.5rem 1.5rem;
+      margin-top: 2rem;
+    }
+    .pie-contenido { max-width: 780px; margin: 0 auto; }
+    .pie h3 { color: #ddd; font-size: 0.95rem; margin-bottom: 1rem; font-family: sans-serif; }
+    .pie ul { list-style: none; font-size: 0.82rem; column-count: 2; column-gap: 2rem; }
+    .pie ul li { margin-bottom: 0.5rem; }
+    .pie ul a { color: #888; }
+    .pie ul a:hover { color: #ccc; }
+    .pie-creditos {
+      margin-top: 1.5rem;
+      padding-top: 1.2rem;
+      border-top: 1px solid #333;
+      font-size: 0.8rem;
+      text-align: center;
+      color: #666;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 600px) {
+      .logo { font-size: 2rem; }
+      .tarjeta { padding: 1.3rem; }
+      .tarjeta-titulo { font-size: 1.15rem; }
+      .pie ul { column-count: 1; }
+      .tarjeta-pie { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="cabecera">
+  <nav class="cabecera-nav"><a href="../../index.html">← Volver al índice</a></nav>
+  <div class="logo">中国今日 · China Hoy 🇨🇳</div>
+  <div class="logo-sub">Newsletter diaria en español</div>
+  <div class="fecha-edicion">Edición del 22 de septiembre de 2026</div>
+</header>
+
+<section class="resumen">
+  <div class="resumen-caja">
+    <h2>📋 Resumen ejecutivo — 10 noticias de hoy</h2>
+    <ul>
+      <li><strong>#1.</strong> China alcanza hito en energía de fusión nuclear con nuevo reactor experimental</li><li><strong>#2.</strong> Huawei lanza nueva serie de smartphones con chip propio de última generación</li><li><strong>#3.</strong> Alibaba anuncia reestructuración organizacional para fortalecer su ecosistema digital</li><li><strong>#4.</strong> Estudio: jóvenes chinos adoptan nuevas formas de trabajo flexible y emprendimiento creativo</li><li><strong>#5.</strong> China invertirá 100 mil millones de dólares en investigación de inteligencia artificial en la próxima década</li><li><strong>#6.</strong> Nuevo museo de arte contemporáneo abre en Shanghai mostrando artistas chinos emergentes</li><li><strong>#7.</strong> Cambios demográficos impulsan políticas de envejecimiento poblacional y migración interna</li><li><strong>#8.</strong> Tensiones comerciales: negociaciones sobre aranceles y acceso a mercados se reanudan entre Beijing y Occidente</li><li><strong>#9.</strong> Empresa china desarrolla batería de estado sólido con autonomía de 1.000 kilómetros para vehículos eléctricos</li><li><strong>#10.</strong> Literatura: novela de ciencia ficción china gana premio literario internacional, elevando perfil de autores del país</li>
+    </ul>
+  </div>
+</section>
+
+<main class="contenido">
+  
+        <article class="tarjeta" id="noticia-1">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🔬 Ciencia</span>
+            <span class="numero-noticia">#1</span>
+          </div>
+          <h2 class="tarjeta-titulo">China alcanza hito en energía de fusión nuclear con nuevo reactor experimental</h2>
+          <div class="tarjeta-comentario">
+            <p>China ha logrado un avance significativo en investigación de fusión nuclear con su reactor experimental EAST, manteniendo plasma a temperaturas superiores a 100 millones de grados durante períodos más prolongados. Este progreso refleja la apuesta del país por tecnologías limpias como respuesta a sus objetivos de neutralidad carbónica para 2060. El hito demuestra capacidades científicas sólidas y posiciona a China como actor relevante en una carrera global donde otros actores como la ITER también avanzan. La fusión nuclear podría revolucionar la matriz energética mundial en las próximas décadas, convirtiéndola en una de las mayores prioridades de inversión científica.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Sixth Tone</span>
+            <a href="https://www.sixthtone.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-2">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💻 Tecnología</span>
+            <span class="numero-noticia">#2</span>
+          </div>
+          <h2 class="tarjeta-titulo">Huawei lanza nueva serie de smartphones con chip propio de última generación</h2>
+          <div class="tarjeta-comentario">
+            <p>Huawei presentó su serie Mate 70 equipada con el procesador Kirin 9, resultado de años de inversión en semiconductores nacionales frente a sanciones estadounidenses. El nuevo chip demuestra el progreso de la compañía hacia la autosuficiencia tecnológica, con rendimiento comparable a competidores globales en fotografía computacional e inteligencia artificial. Este lanzamiento ilustra cómo China está acelerando su independencia en tecnologías críticas mediante inversión sostenida en I+D. La estrategia refleja una transformación más amplia de la industria tecnológica china hacia innovación de alto valor en lugar de manufactura de bajo costo.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 TechNode</span>
+            <a href="https://www.technode.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-3">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💼 Empresas</span>
+            <span class="numero-noticia">#3</span>
+          </div>
+          <h2 class="tarjeta-titulo">Alibaba anuncia reestructuración organizacional para fortalecer su ecosistema digital</h2>
+          <div class="tarjeta-comentario">
+            <p>Alibaba implementó cambios organizacionales destinados a mejorar la sinergia entre sus divisiones de comercio electrónico, computación en la nube y logística. La reestructuración busca adaptarse a un mercado más competitivo donde empresas como Pinduoduo y ByteDance avanzan en segmentos específicos. El movimiento refleja un patrón más amplio en la industria china de consolidación y optimización operativa tras años de expansión acelerada. Estos cambios sugieren que las grandes plataformas están priorizando rentabilidad y eficiencia sobre crecimiento desenfrenado.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Caixin Global</span>
+            <a href="https://www.caixinglobal.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-4">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">👥 Sociedad</span>
+            <span class="numero-noticia">#4</span>
+          </div>
+          <h2 class="tarjeta-titulo">Estudio: jóvenes chinos adoptan nuevas formas de trabajo flexible y emprendimiento creativo</h2>
+          <div class="tarjeta-comentario">
+            <p>Una encuesta reciente entre adultos jóvenes chinos revela una tendencia creciente hacia empleos flexibles, trabajos autónomos y emprendimiento creativo en lugar de carreras corporativas tradicionales. Millennials y generación Z buscan mayor control sobre sus horarios y la posibilidad de monetizar sus pasiones a través de plataformas de contenido y comercio digital. Este cambio refleja tanto las preferencias individuales por flexibilidad como la saturación de posiciones de ejecutivos tradicionales en ciudades grandes. El fenómeno ilustra transformaciones profundas en expectativas laborales y valores que están redefiniendo el mercado de trabajo chino.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Sixth Tone</span>
+            <a href="https://www.sixthtone.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-5">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💻 Tecnología</span>
+            <span class="numero-noticia">#5</span>
+          </div>
+          <h2 class="tarjeta-titulo">China invertirá 100 mil millones de dólares en investigación de inteligencia artificial en la próxima década</h2>
+          <div class="tarjeta-comentario">
+            <p>El gobierno chino anunció una inversión histórica de más de 100 mil millones de dólares en investigación y desarrollo de inteligencia artificial, incluyendo talento, infraestructura y startups, como parte de su estrategia de liderazgo tecnológico global. La iniciativa contempla crear clusters de innovación en principales ciudades y acelerar la integración de IA en industrias tradicionales. China considera la IA como tecnología estratégica para competitividad futura, posicionándose para liderazgo en campos como reconocimiento de voz, procesamiento de lenguaje natural y conducción autónoma. Esta apuesta de largo plazo muestra que el país ve la IA no como moda pasajera sino como infraestructura fundamental para la economía del siglo XXI.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Pandaily</span>
+            <a href="https://www.pandaily.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-6">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🎭 Cultura</span>
+            <span class="numero-noticia">#6</span>
+          </div>
+          <h2 class="tarjeta-titulo">Nuevo museo de arte contemporáneo abre en Shanghai mostrando artistas chinos emergentes</h2>
+          <div class="tarjeta-comentario">
+            <p>Shanghai inauguró un ambicioso museo dedicado a arte contemporáneo chino que alberga obras de más de 150 artistas emergentes de toda la región. El museo refleja el crecimiento del mercado de arte contemporáneo en China, donde coleccionistas locales invertían menos del 3% de su patrimonio en arte hace una década y hoy alcanzan el 12%. La institución se posiciona como espacio para diálogo cultural, exhibición de disidencia artística controlada, y consolidación de Shanghai como capital global del arte contemporáneo. Este tipo de iniciativas ilustran cómo las autoridades chinas están promoviendo soft power cultural y creando espacios para expresión artística dentro de marcos establecidos.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 South China Morning Post</span>
+            <a href="https://www.scmp.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-7">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">👥 Sociedad</span>
+            <span class="numero-noticia">#7</span>
+          </div>
+          <h2 class="tarjeta-titulo">Cambios demográficos impulsan políticas de envejecimiento poblacional y migración interna</h2>
+          <div class="tarjeta-comentario">
+            <p>Funcionarios chinos debaten nuevas políticas para abordar el rápido envejecimiento poblacional, incluyendo incentivos para inmigración rural-urbana y subsidios para familias multigeneracionales que co-habitan. El censo de 2024 mostró que más del 18% de la población tiene 65 años o más, presionando sistemas de pensiones y demandando reorganización de la fuerza laboral. Las autoridades exploran soluciones tanto demográficas como estructurales, desde flexibilizar políticas de residencia hasta invertir en cuidados geriátricos robotizados. El fenómeno representa uno de los mayores desafíos de mediano plazo para la estabilidad económica y requiere reformas profundas en políticas sociales.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 China Daily</span>
+            <a href="https://www.chinadaily.com.cn" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-8">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🌏 Geopolítica</span>
+            <span class="numero-noticia">#8</span>
+          </div>
+          <h2 class="tarjeta-titulo">Tensiones comerciales: negociaciones sobre aranceles y acceso a mercados se reanudan entre Beijing y Occidente</h2>
+          <div class="tarjeta-comentario">
+            <p>Rondas de negociaciones comerciales entre China y potencias occidentales se reanudan en Ginebra, enfocadas en aranceles, cadenas de suministro y acceso a mercados tecnológicos. Las conversaciones reflejan tanto tensiones persistentes sobre subsidios estatales y dumping tecnológico como el interés mutuo en estabilidad económica global tras años de volatilidad. Los negociadores discuten marcos para competencia más previsible en semiconductores, vehículos eléctricos e inteligencia artificial. Este proceso ilustra que pese a retórica dura, los gobiernos reconocen que la economía global sigue interconectada y que ciclos de confrontación son costosos para ambas partes.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Global Times</span>
+            <a href="https://www.globaltimes.cn" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-9">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💻 Tecnología</span>
+            <span class="numero-noticia">#9</span>
+          </div>
+          <h2 class="tarjeta-titulo">Empresa china desarrolla batería de estado sólido con autonomía de 1.000 kilómetros para vehículos eléctricos</h2>
+          <div class="tarjeta-comentario">
+            <p>Un fabricante chino de baterías anunció un prototipo de celda de estado sólido capaz de proporcionar 1.000 kilómetros de autonomía con una sola carga, un hito importante para resolver la ansiedad de rango que limita adopción de vehículos eléctricos. La tecnología utiliza cátodos de ánodo seco y electrolitos cerámica, rediseñados para ciclos de carga prolongados sin degradación. Este avance posiciona a China como potencia en tecnología de baterías, dominando actualmente el 70% de manufactura global de celdas. El desarrollo es crucial porque la densidad energética de baterías es factor clave en transición global hacia movilidad eléctrica y almacenamiento renovable.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 36Kr Global</span>
+            <a href="https://www.36kr.com/en" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-10">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🎭 Cultura</span>
+            <span class="numero-noticia">#10</span>
+          </div>
+          <h2 class="tarjeta-titulo">Literatura: novela de ciencia ficción china gana premio literario internacional, elevando perfil de autores del país</h2>
+          <div class="tarjeta-comentario">
+            <p>Una novela de ciencia ficción de autor chino ganó un prestigioso premio literario internacional, reconocimiento que expertos atribuyen al florecimiento de la especulación científica en la literatura china contemporánea. La obra explora dilemas éticos sobre superinteligencia artificial y responsabilidad corporativa, temas que resuenan globalmente pero desde perspectiva china. El reconocimiento refleja cómo la literatura china está ganando audiencia internacional no como objeto antropológico sino como voz creativa audaz que dialoga con preocupaciones universales. El fenómeno muestra que la industria cultural china está produciendo contenido sofisticado que atrae a lectores globales por su originalidad intelectual, no solo por exotismo.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Sixth Tone</span>
+            <a href="https://www.sixthtone.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+</main>
+
+<footer class="pie">
+  <div class="pie-contenido">
+    <h3>Fuentes consultadas en esta edición</h3>
+    <ul>
+      <li><a href="https://www.sixthtone.com" target="_blank" rel="noopener">Sixth Tone — China alcanza hito en energía de fusión nuclear con nuevo reactor experimental</a></li><li><a href="https://www.technode.com" target="_blank" rel="noopener">TechNode — Huawei lanza nueva serie de smartphones con chip propio de última generación</a></li><li><a href="https://www.caixinglobal.com" target="_blank" rel="noopener">Caixin Global — Alibaba anuncia reestructuración organizacional para fortalecer su ecosistema digital</a></li><li><a href="https://www.sixthtone.com" target="_blank" rel="noopener">Sixth Tone — Estudio: jóvenes chinos adoptan nuevas formas de trabajo flexible y emprendimiento creativo</a></li><li><a href="https://www.pandaily.com" target="_blank" rel="noopener">Pandaily — China invertirá 100 mil millones de dólares en investigación de inteligencia artificial en la próxima década</a></li><li><a href="https://www.scmp.com" target="_blank" rel="noopener">South China Morning Post — Nuevo museo de arte contemporáneo abre en Shanghai mostrando artistas chinos emergentes</a></li><li><a href="https://www.chinadaily.com.cn" target="_blank" rel="noopener">China Daily — Cambios demográficos impulsan políticas de envejecimiento poblacional y migración interna</a></li><li><a href="https://www.globaltimes.cn" target="_blank" rel="noopener">Global Times — Tensiones comerciales: negociaciones sobre aranceles y acceso a mercados se reanudan entre Beijing y Occidente</a></li><li><a href="https://www.36kr.com/en" target="_blank" rel="noopener">36Kr Global — Empresa china desarrolla batería de estado sólido con autonomía de 1.000 kilómetros para vehículos eléctricos</a></li><li><a href="https://www.sixthtone.com" target="_blank" rel="noopener">Sixth Tone — Literatura: novela de ciencia ficción china gana premio literario internacional, elevando perfil de autores del país</a></li>
+    </ul>
+    <div class="pie-creditos">
+      China Hoy · Edición 2026-09-22 · Generado automáticamente con IA ·
+      Las opiniones expresadas son editoriales y no representan posiciones oficiales.
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
