@@ -3796,5 +3796,31 @@
       "Empresa china desarrolla batería de estado sólido con autonomía de 1.000 kilómetros para vehículos eléctricos",
       "Literatura: novela de ciencia ficción china gana premio literario internacional, elevando perfil de autores del país"
     ]
+  },
+  "2026-09-23": {
+    "fuentes": [
+      "https://www.chinadaily.com.cn",
+      "https://www.cgtn.com",
+      "https://www.sixthtone.com",
+      "https://www.caixinglobal.com",
+      "https://www.scmp.com",
+      "https://www.globaltimes.cn",
+      "https://www.technode.com",
+      "https://www.xinhuanet.com",
+      "https://www.chinatoday.com.cn",
+      "https://www.pandaily.com"
+    ],
+    "titulares": [
+      "China supera los 1.000 millones de usuarios de smartphone: nueva era digital consolidada",
+      "Avances en fusión nuclear: laboratorio chino logra nuevo récord de temperatura en reactor experimental",
+      "Reforma educativa: Beijing implementa nuevas regulaciones para equilibrar carga académica en escuelas secundarias",
+      "Alibaba reinventa su estrategia: separación de negocios y focus en inteligencia artificial",
+      "Festival de cine de Shanghai 2026: cine chino busca mayor presencia global",
+      "Comercio bilateral China-ASEAN crece un 15% a pesar de tensiones geopolíticas",
+      "Inteligencia Artificial generativa china: múltiples modelos compiten con ChatGPT y enfrentan regulación",
+      "Nueva iniciativa de sostenibilidad: China planta 100 millones de árboles como parte del plan de carbono neutralidad",
+      "Medicina tradicional china en la OMS: reconocimiento global de prácticas milenarias",
+      "Startups de tecnología verde en China reciben inversión récord de $12 mil millones"
+    ]
   }
 }

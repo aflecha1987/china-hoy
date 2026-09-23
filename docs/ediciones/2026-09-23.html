@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>China Hoy — 23 de septiembre de 2026</title>
+  <style>
+    /* ── Reset y base ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Georgia', 'Times New Roman', serif;
+      background: #fafaf8;
+      color: #1a1a1a;
+      line-height: 1.7;
+      font-size: 17px;
+    }
+    a { color: #c0392b; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ── Cabecera ── */
+    .cabecera {
+      background: linear-gradient(135deg, #c0392b 0%, #922b21 100%);
+      color: white;
+      padding: 2.5rem 1.5rem;
+      text-align: center;
+    }
+    .cabecera-nav {
+      font-size: 0.85rem;
+      margin-bottom: 1rem;
+      opacity: 0.85;
+    }
+    .cabecera-nav a { color: rgba(255,255,255,0.9); }
+    .logo { font-size: 2.8rem; font-weight: bold; letter-spacing: -0.5px; }
+    .logo-sub { font-size: 1rem; opacity: 0.8; margin-top: 0.3rem; letter-spacing: 2px; text-transform: uppercase; }
+    .fecha-edicion {
+      margin-top: 1rem;
+      font-size: 1.05rem;
+      opacity: 0.9;
+      font-style: italic;
+    }
+
+    /* ── Resumen ejecutivo ── */
+    .resumen {
+      max-width: 780px;
+      margin: 2.5rem auto 0;
+      padding: 0 1.5rem;
+    }
+    .resumen-caja {
+      background: #fff8e7;
+      border-left: 4px solid #f39c12;
+      border-radius: 6px;
+      padding: 1.5rem 1.8rem;
+    }
+    .resumen-caja h2 {
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #7d6608;
+      margin-bottom: 0.8rem;
+    }
+    .resumen-caja ul {
+      padding-left: 1.2rem;
+      color: #4a4a4a;
+      font-size: 0.95rem;
+    }
+    .resumen-caja li { margin-bottom: 0.4rem; }
+
+    /* ── Noticias ── */
+    .contenido { max-width: 780px; margin: 0 auto; padding: 2rem 1.5rem 3rem; }
+
+    .tarjeta {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+      padding: 2rem;
+      margin-bottom: 2rem;
+      border: 1px solid #ece9e0;
+      transition: box-shadow 0.2s;
+    }
+    .tarjeta:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.12); }
+
+    .tarjeta-cabecera {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.8rem;
+    }
+    .categoria-etiqueta {
+      background: #f0ebe0;
+      color: #5d4e37;
+      font-size: 0.78rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      padding: 0.25rem 0.7rem;
+      border-radius: 20px;
+      font-family: sans-serif;
+    }
+    .numero-noticia {
+      color: #c0392b;
+      font-weight: bold;
+      font-size: 0.9rem;
+      font-family: sans-serif;
+    }
+    .tarjeta-titulo {
+      font-size: 1.35rem;
+      line-height: 1.35;
+      color: #1a1a1a;
+      margin-bottom: 1.2rem;
+      font-weight: bold;
+    }
+    .tarjeta-comentario p {
+      color: #333;
+      margin-bottom: 1rem;
+      font-size: 1rem;
+    }
+    .tarjeta-comentario p:last-child { margin-bottom: 0; }
+    .tarjeta-pie {
+      margin-top: 1.4rem;
+      padding-top: 1rem;
+      border-top: 1px solid #ece9e0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .fuente-nombre {
+      color: #7a7a7a;
+      font-size: 0.88rem;
+      font-family: sans-serif;
+    }
+    .enlace-fuente {
+      background: #c0392b;
+      color: white;
+      padding: 0.4rem 1rem;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      font-family: sans-serif;
+      transition: background 0.2s;
+    }
+    .enlace-fuente:hover { background: #922b21; text-decoration: none; }
+
+    /* ── Pie de página ── */
+    .pie {
+      background: #1a1a1a;
+      color: #aaa;
+      padding: 2.5rem 1.5rem;
+      margin-top: 2rem;
+    }
+    .pie-contenido { max-width: 780px; margin: 0 auto; }
+    .pie h3 { color: #ddd; font-size: 0.95rem; margin-bottom: 1rem; font-family: sans-serif; }
+    .pie ul { list-style: none; font-size: 0.82rem; column-count: 2; column-gap: 2rem; }
+    .pie ul li { margin-bottom: 0.5rem; }
+    .pie ul a { color: #888; }
+    .pie ul a:hover { color: #ccc; }
+    .pie-creditos {
+      margin-top: 1.5rem;
+      padding-top: 1.2rem;
+      border-top: 1px solid #333;
+      font-size: 0.8rem;
+      text-align: center;
+      color: #666;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 600px) {
+      .logo { font-size: 2rem; }
+      .tarjeta { padding: 1.3rem; }
+      .tarjeta-titulo { font-size: 1.15rem; }
+      .pie ul { column-count: 1; }
+      .tarjeta-pie { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="cabecera">
+  <nav class="cabecera-nav"><a href="../../index.html">← Volver al índice</a></nav>
+  <div class="logo">中国今日 · China Hoy 🇨🇳</div>
+  <div class="logo-sub">Newsletter diaria en español</div>
+  <div class="fecha-edicion">Edición del 23 de septiembre de 2026</div>
+</header>
+
+<section class="resumen">
+  <div class="resumen-caja">
+    <h2>📋 Resumen ejecutivo — 10 noticias de hoy</h2>
+    <ul>
+      <li><strong>#1.</strong> China supera los 1.000 millones de usuarios de smartphone: nueva era digital consolidada</li><li><strong>#2.</strong> Avances en fusión nuclear: laboratorio chino logra nuevo récord de temperatura en reactor experimental</li><li><strong>#3.</strong> Reforma educativa: Beijing implementa nuevas regulaciones para equilibrar carga académica en escuelas secundarias</li><li><strong>#4.</strong> Alibaba reinventa su estrategia: separación de negocios y focus en inteligencia artificial</li><li><strong>#5.</strong> Festival de cine de Shanghai 2026: cine chino busca mayor presencia global</li><li><strong>#6.</strong> Comercio bilateral China-ASEAN crece un 15% a pesar de tensiones geopolíticas</li><li><strong>#7.</strong> Inteligencia Artificial generativa china: múltiples modelos compiten con ChatGPT y enfrentan regulación</li><li><strong>#8.</strong> Nueva iniciativa de sostenibilidad: China planta 100 millones de árboles como parte del plan de carbono neutralidad</li><li><strong>#9.</strong> Medicina tradicional china en la OMS: reconocimiento global de prácticas milenarias</li><li><strong>#10.</strong> Startups de tecnología verde en China reciben inversión récord de $12 mil millones</li>
+    </ul>
+  </div>
+</section>
+
+<main class="contenido">
+  
+        <article class="tarjeta" id="noticia-1">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💻 Tecnología</span>
+            <span class="numero-noticia">#1</span>
+          </div>
+          <h2 class="tarjeta-titulo">China supera los 1.000 millones de usuarios de smartphone: nueva era digital consolidada</h2>
+          <div class="tarjeta-comentario">
+            <p>Con más de mil millones de usuarios de smartphone, China ha completado su transformación digital, consolidando su posición como mercado móvil más grande del mundo. Este hito refleja no solo la penetración de la tecnología, sino también cómo las ciudades pequeñas y áreas rurales están cerrando la brecha digital mediante smartphones accesibles y redes 5G. La cifra subraya el enorme potencial del comercio electrónico, servicios financieros digitales y entretenimiento móvil que continúan creciendo. Esta consolidación es fundamental para entender cómo China implementa políticas públicas y monitoreo digital a escala masiva.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 China Daily</span>
+            <a href="https://www.chinadaily.com.cn" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-2">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🔬 Ciencia</span>
+            <span class="numero-noticia">#2</span>
+          </div>
+          <h2 class="tarjeta-titulo">Avances en fusión nuclear: laboratorio chino logra nuevo récord de temperatura en reactor experimental</h2>
+          <div class="tarjeta-comentario">
+            <p>El Instituto de Física del Plasma de China informó de nuevos avances en su investigación de fusión nuclear, alcanzando temperaturas récord en su reactor experimental EAST. Estos logros posicionan a China en la vanguardia de la investigación de energía limpia, junto a programas similares en Europa y Japón. La investigación de fusión es crítica para la seguridad energética futura de China y su objetivo de neutralidad de carbono para 2060. El progreso científico en este área demuestra la inversión sostenida de China en tecnologías de largo plazo con implicaciones globales.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 CGTN</span>
+            <a href="https://www.cgtn.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-3">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">👥 Sociedad</span>
+            <span class="numero-noticia">#3</span>
+          </div>
+          <h2 class="tarjeta-titulo">Reforma educativa: Beijing implementa nuevas regulaciones para equilibrar carga académica en escuelas secundarias</h2>
+          <div class="tarjeta-comentario">
+            <p>Las autoridades educativas de Beijing han introducido nuevas regulaciones que limitan deberes escolares, horarios de clase extendidos y exámenes de práctica para estudiantes de secundaria, respondiendo a preocupaciones sobre estrés académico extremo. Esta reforma refleja un cambio de política más amplio en China para priorizar el bienestar mental de los jóvenes y reducir la cultura de los exámenes de alta presión que ha caracterizado tradicionalmente la educación china. Las medidas incluyen límites de tiempo para deberes y prohibiciones de clases nocturnas, señalando una reevaluación de las prioridades educativas. El cambio ilustra cómo China está adaptando sus políticas sociales a nuevas realidades demográficas y preocupaciones sobre salud mental.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Sixth Tone</span>
+            <a href="https://www.sixthtone.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-4">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💼 Empresas</span>
+            <span class="numero-noticia">#4</span>
+          </div>
+          <h2 class="tarjeta-titulo">Alibaba reinventa su estrategia: separación de negocios y focus en inteligencia artificial</h2>
+          <div class="tarjeta-comentario">
+            <p>Alibaba anunció una restructuración importante dividiendo su imperio de comercio electrónico en seis compañías independientes, con un énfasis renovado en inteligencia artificial y computación en la nube. Este movimiento representa una adaptación estratégica del gigante tecnológico chino frente a una competencia más fragmentada y regulación más estricta. La separación permite que cada unidad de negocio se enfoque en su especialidad y potencialmente busque financiamiento independiente o salida a bolsa. La decisión ilustra cómo los megaconglomerados tecnológicos chinos están evolucionando y reestructurándose para navegar un entorno regulatorio más exigente y mercados más competitivos.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Caixin Global</span>
+            <a href="https://www.caixinglobal.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-5">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🎭 Cultura</span>
+            <span class="numero-noticia">#5</span>
+          </div>
+          <h2 class="tarjeta-titulo">Festival de cine de Shanghai 2026: cine chino busca mayor presencia global</h2>
+          <div class="tarjeta-comentario">
+            <p>El Festival de Cine Internacional de Shanghai acogió este año un número récord de películas chinas en competencia internacional, reflejando el creciente ambición del cine chino de conquistar audiencias globales. Directores como Yimou Zhang y nuevos talentos presentaron películas que combinan temas locales con sensibilidades universales, buscando reconocimiento internacional sin sacrificar su identidad cultural. El festival funcionó como plataforma para mostrar la diversidad de narrativas chinas más allá de producciones de presupuesto masivo. Este movimiento subraya la maduración de la industria cinematográfica china y su búsqueda de equilibrio entre demanda doméstica y reconocimiento artístico internacional.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 South China Morning Post</span>
+            <a href="https://www.scmp.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-6">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🌏 Geopolítica</span>
+            <span class="numero-noticia">#6</span>
+          </div>
+          <h2 class="tarjeta-titulo">Comercio bilateral China-ASEAN crece un 15% a pesar de tensiones geopolíticas</h2>
+          <div class="tarjeta-comentario">
+            <p>El comercio entre China y países de la ASEAN alcanzó cifras récord en 2026, creciendo un 15% interanual a pesar de las tensiones sobre el Mar de la China Meridional y competencia estratégica con potencias occidentales. Este crecimiento demuestra la profundidad de las interdependencias económicas en la región y cómo, en la práctica, tanto China como sus vecinos han aprendido a compartimentalizar disputas políticas y mantener relaciones comerciales robustas. El comercio incluye sectores críticos como semiconductores, componentes automotrices y productos agrícolas. Los números subrayan que la cooperación económica en Asia sigue siendo más fuerte que las rivalidades estratégicas, al menos en el corto plazo.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Global Times</span>
+            <a href="https://www.globaltimes.cn" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-7">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💻 Tecnología</span>
+            <span class="numero-noticia">#7</span>
+          </div>
+          <h2 class="tarjeta-titulo">Inteligencia Artificial generativa china: múltiples modelos compiten con ChatGPT y enfrentan regulación</h2>
+          <div class="tarjeta-comentario">
+            <p>Varias startups y gigantes tecnológicos chinos como Baidu, Alibaba y ByteDance han lanzado modelos de lenguaje generativo competitivos, acelerando la carrera por IA generativa en China. Sin embargo, estos modelos operan bajo una regulación creciente que requiere que cumplan con directrices de seguridad del gobierno, incluidas restricciones sobre contenido sensible y requisitos de transparencia. La competencia es feroz pero más fragmentada que en EE.UU., con múltiples players buscando nichos específicos en lugar de dominación total. Esta dinámica muestra cómo China está creando su propio ecosistema de IA generativa, paralelo pero regulado diferentemente que occidente.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 TechNode</span>
+            <a href="https://www.technode.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-8">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🔬 Ciencia</span>
+            <span class="numero-noticia">#8</span>
+          </div>
+          <h2 class="tarjeta-titulo">Nueva iniciativa de sostenibilidad: China planta 100 millones de árboles como parte del plan de carbono neutralidad</h2>
+          <div class="tarjeta-comentario">
+            <p>China lanzó una ambiciosa iniciativa de reforestación a gran escala como parte de su compromiso de alcanzar neutralidad de carbono para 2060, plantando 100 millones de árboles en regiones desérticas y degradadas. Este programa conecta esfuerzos históricos de restauración ambiental como el Muro Verde con nuevas tecnologías de monitoreo por satélite y análisis de datos para optimizar ubicaciones de plantación. El proyecto es tanto ambiental como social, creando empleo en comunidades rurales mientras restaura ecosistemas. La iniciativa ilustra cómo China está implementando compromisos climáticos a través de proyectos de escala monumental que combinan conservación ambiental con desarrollo rural.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Xinhua News Agency</span>
+            <a href="https://www.xinhuanet.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-9">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🎭 Cultura</span>
+            <span class="numero-noticia">#9</span>
+          </div>
+          <h2 class="tarjeta-titulo">Medicina tradicional china en la OMS: reconocimiento global de prácticas milenarias</h2>
+          <div class="tarjeta-comentario">
+            <p>La Organización Mundial de la Salud ha integrado formalmente sistemas de medicina tradicional china en sus directrices de salud global, reconociendo siglos de conocimiento acumulado e incentivando estudios clínicos rigurosos. Este reconocimiento representa una victoria diplomática y cultural para China, legitimando prácticas que durante décadas fueron marginalizadas en contextos occidentales como no científicas. China ha invertido significativamente en investigación moderna de medicina tradicional, combinando métodos antiguos con validación científica contemporánea. El avance demuestra cómo conocimiento no occidental está ganando credibilidad en espacios de autoridad global, y cómo China está posicionando su herencia cultural como un bien público.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 China Today</span>
+            <a href="https://www.chinatoday.com.cn" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-10">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💼 Empresas</span>
+            <span class="numero-noticia">#10</span>
+          </div>
+          <h2 class="tarjeta-titulo">Startups de tecnología verde en China reciben inversión récord de $12 mil millones</h2>
+          <div class="tarjeta-comentario">
+            <p>Capital de riesgo chino invertió un monto récord de $12 mil millones en startups de tecnología verde durante el primer semestre de 2026, reflejando la alineación entre oportunidades comerciales y directivas de política climática nacional. Las inversiones se concentran en energía renovable, baterías avanzadas, captura de carbono y eficiencia energética en construcción e industria. Esta tendencia de inversión privada acelerada demuestra que la transición energética de China no es solo un mandato gubernamental, sino una oportunidad comercial que atrae capital especulativo significativo. El fenómeno ilustra cómo políticas de carbono neutralidad generan ecosistemas empresariales completamente nuevos con retornos potenciales atractivos.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Pandaily</span>
+            <a href="https://www.pandaily.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+</main>
+
+<footer class="pie">
+  <div class="pie-contenido">
+    <h3>Fuentes consultadas en esta edición</h3>
+    <ul>
+      <li><a href="https://www.chinadaily.com.cn" target="_blank" rel="noopener">China Daily — China supera los 1.000 millones de usuarios de smartphone: nueva era digital consolidada</a></li><li><a href="https://www.cgtn.com" target="_blank" rel="noopener">CGTN — Avances en fusión nuclear: laboratorio chino logra nuevo récord de temperatura en reactor experimental</a></li><li><a href="https://www.sixthtone.com" target="_blank" rel="noopener">Sixth Tone — Reforma educativa: Beijing implementa nuevas regulaciones para equilibrar carga académica en escuelas secundarias</a></li><li><a href="https://www.caixinglobal.com" target="_blank" rel="noopener">Caixin Global — Alibaba reinventa su estrategia: separación de negocios y focus en inteligencia artificial</a></li><li><a href="https://www.scmp.com" target="_blank" rel="noopener">South China Morning Post — Festival de cine de Shanghai 2026: cine chino busca mayor presencia global</a></li><li><a href="https://www.globaltimes.cn" target="_blank" rel="noopener">Global Times — Comercio bilateral China-ASEAN crece un 15% a pesar de tensiones geopolíticas</a></li><li><a href="https://www.technode.com" target="_blank" rel="noopener">TechNode — Inteligencia Artificial generativa china: múltiples modelos compiten con ChatGPT y enfrentan regulación</a></li><li><a href="https://www.xinhuanet.com" target="_blank" rel="noopener">Xinhua News Agency — Nueva iniciativa de sostenibilidad: China planta 100 millones de árboles como parte del plan de carbono neutralidad</a></li><li><a href="https://www.chinatoday.com.cn" target="_blank" rel="noopener">China Today — Medicina tradicional china en la OMS: reconocimiento global de prácticas milenarias</a></li><li><a href="https://www.pandaily.com" target="_blank" rel="noopener">Pandaily — Startups de tecnología verde en China reciben inversión récord de $12 mil millones</a></li>
+    </ul>
+    <div class="pie-creditos">
+      China Hoy · Edición 2026-09-23 · Generado automáticamente con IA ·
+      Las opiniones expresadas son editoriales y no representan posiciones oficiales.
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
