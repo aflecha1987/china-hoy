@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>China Hoy — 26 de septiembre de 2026</title>
+  <style>
+    /* ── Reset y base ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Georgia', 'Times New Roman', serif;
+      background: #fafaf8;
+      color: #1a1a1a;
+      line-height: 1.7;
+      font-size: 17px;
+    }
+    a { color: #c0392b; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ── Cabecera ── */
+    .cabecera {
+      background: linear-gradient(135deg, #c0392b 0%, #922b21 100%);
+      color: white;
+      padding: 2.5rem 1.5rem;
+      text-align: center;
+    }
+    .cabecera-nav {
+      font-size: 0.85rem;
+      margin-bottom: 1rem;
+      opacity: 0.85;
+    }
+    .cabecera-nav a { color: rgba(255,255,255,0.9); }
+    .logo { font-size: 2.8rem; font-weight: bold; letter-spacing: -0.5px; }
+    .logo-sub { font-size: 1rem; opacity: 0.8; margin-top: 0.3rem; letter-spacing: 2px; text-transform: uppercase; }
+    .fecha-edicion {
+      margin-top: 1rem;
+      font-size: 1.05rem;
+      opacity: 0.9;
+      font-style: italic;
+    }
+
+    /* ── Resumen ejecutivo ── */
+    .resumen {
+      max-width: 780px;
+      margin: 2.5rem auto 0;
+      padding: 0 1.5rem;
+    }
+    .resumen-caja {
+      background: #fff8e7;
+      border-left: 4px solid #f39c12;
+      border-radius: 6px;
+      padding: 1.5rem 1.8rem;
+    }
+    .resumen-caja h2 {
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #7d6608;
+      margin-bottom: 0.8rem;
+    }
+    .resumen-caja ul {
+      padding-left: 1.2rem;
+      color: #4a4a4a;
+      font-size: 0.95rem;
+    }
+    .resumen-caja li { margin-bottom: 0.4rem; }
+
+    /* ── Noticias ── */
+    .contenido { max-width: 780px; margin: 0 auto; padding: 2rem 1.5rem 3rem; }
+
+    .tarjeta {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+      padding: 2rem;
+      margin-bottom: 2rem;
+      border: 1px solid #ece9e0;
+      transition: box-shadow 0.2s;
+    }
+    .tarjeta:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.12); }
+
+    .tarjeta-cabecera {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.8rem;
+    }
+    .categoria-etiqueta {
+      background: #f0ebe0;
+      color: #5d4e37;
+      font-size: 0.78rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      padding: 0.25rem 0.7rem;
+      border-radius: 20px;
+      font-family: sans-serif;
+    }
+    .numero-noticia {
+      color: #c0392b;
+      font-weight: bold;
+      font-size: 0.9rem;
+      font-family: sans-serif;
+    }
+    .tarjeta-titulo {
+      font-size: 1.35rem;
+      line-height: 1.35;
+      color: #1a1a1a;
+      margin-bottom: 1.2rem;
+      font-weight: bold;
+    }
+    .tarjeta-comentario p {
+      color: #333;
+      margin-bottom: 1rem;
+      font-size: 1rem;
+    }
+    .tarjeta-comentario p:last-child { margin-bottom: 0; }
+    .tarjeta-pie {
+      margin-top: 1.4rem;
+      padding-top: 1rem;
+      border-top: 1px solid #ece9e0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .fuente-nombre {
+      color: #7a7a7a;
+      font-size: 0.88rem;
+      font-family: sans-serif;
+    }
+    .enlace-fuente {
+      background: #c0392b;
+      color: white;
+      padding: 0.4rem 1rem;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      font-family: sans-serif;
+      transition: background 0.2s;
+    }
+    .enlace-fuente:hover { background: #922b21; text-decoration: none; }
+
+    /* ── Pie de página ── */
+    .pie {
+      background: #1a1a1a;
+      color: #aaa;
+      padding: 2.5rem 1.5rem;
+      margin-top: 2rem;
+    }
+    .pie-contenido { max-width: 780px; margin: 0 auto; }
+    .pie h3 { color: #ddd; font-size: 0.95rem; margin-bottom: 1rem; font-family: sans-serif; }
+    .pie ul { list-style: none; font-size: 0.82rem; column-count: 2; column-gap: 2rem; }
+    .pie ul li { margin-bottom: 0.5rem; }
+    .pie ul a { color: #888; }
+    .pie ul a:hover { color: #ccc; }
+    .pie-creditos {
+      margin-top: 1.5rem;
+      padding-top: 1.2rem;
+      border-top: 1px solid #333;
+      font-size: 0.8rem;
+      text-align: center;
+      color: #666;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 600px) {
+      .logo { font-size: 2rem; }
+      .tarjeta { padding: 1.3rem; }
+      .tarjeta-titulo { font-size: 1.15rem; }
+      .pie ul { column-count: 1; }
+      .tarjeta-pie { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="cabecera">
+  <nav class="cabecera-nav"><a href="../../index.html">← Volver al índice</a></nav>
+  <div class="logo">中国今日 · China Hoy 🇨🇳</div>
+  <div class="logo-sub">Newsletter diaria en español</div>
+  <div class="fecha-edicion">Edición del 26 de septiembre de 2026</div>
+</header>
+
+<section class="resumen">
+  <div class="resumen-caja">
+    <h2>📋 Resumen ejecutivo — 10 noticias de hoy</h2>
+    <ul>
+      <li><strong>#1.</strong> China avanza en computación cuántica con nuevo procesador de 1000 qubits</li><li><strong>#2.</strong> Alibaba anuncia nuevo programa de incubación para startups de inteligencia artificial</li><li><strong>#3.</strong> Nuevo sistema de educación digital reduce brecha de oportunidades en zonas rurales de China</li><li><strong>#4.</strong> China establece nuevos estándares internacionales en tecnología verde y energías renovables</li><li><strong>#5.</strong> Festival internacional de artes escénicas de Beijing atrae productores de 35 países</li><li><strong>#6.</strong> Reforma del sistema de pensiones en China busca garantizar sostenibilidad fiscal a largo plazo</li><li><strong>#7.</strong> Desarrollo de fármacos innovadores: empresas biomédicas chinas ganan aprobaciones internacionales</li><li><strong>#8.</strong> Conflictos comerciales con vecinos en el Sudeste Asiático: China busca renegociar tratados</li><li><strong>#9.</strong> Arqueólogos chinos descubren ciudad subterránea de la dinastía Ming con artefactos únicos</li><li><strong>#10.</strong> Iniciativa de infraestructura sostenible conecta ciudades de interior con corredores verdes</li>
+    </ul>
+  </div>
+</section>
+
+<main class="contenido">
+  
+        <article class="tarjeta" id="noticia-1">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💻 Tecnología</span>
+            <span class="numero-noticia">#1</span>
+          </div>
+          <h2 class="tarjeta-titulo">China avanza en computación cuántica con nuevo procesador de 1000 qubits</h2>
+          <div class="tarjeta-comentario">
+            <p>Investigadores chinos anunciaron recientemente el desarrollo de un procesador cuántico con más de 1000 qubits, posicionando a China entre los líderes en esta carrera tecnológica crítica. Este avance supone una mejora significativa sobre generaciones anteriores y es fundamental para resolver problemas complejos en farmacología, optimización y criptografía. La noticia refleja la inversión masiva de China en tecnologías emergentes y su determinación de reducir la brecha con occidente en áreas estratégicas. Este tipo de innovaciones fundamentales son esenciales para la competencia tecnológica global de las próximas décadas.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 TechNode</span>
+            <a href="https://www.technode.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-2">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💼 Empresas</span>
+            <span class="numero-noticia">#2</span>
+          </div>
+          <h2 class="tarjeta-titulo">Alibaba anuncia nuevo programa de incubación para startups de inteligencia artificial</h2>
+          <div class="tarjeta-comentario">
+            <p>Alibaba lanzó una iniciativa de aceleración dedicada a empresas emergentes en IA generativa, comprometiendo inversión significativa y acceso a infraestructura de computación en la nube. El programa refleja la apuesta del gigante tecnológico por mantener su relevancia en el ecosistema de startups chino, que ha experimentado reconfiguración tras los cambios regulatorios de años anteriores. Esta estrategia ilustra cómo las grandes corporaciones chinas están pivotando para actuar como catalizadores de innovación en lugar de únicamente desarrolladores internos. El apoyo de Alibaba podría acelerar la maduración de empresas de IA locales y contribuir a una cadena de valor más robusta en el sector.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Caixin Global</span>
+            <a href="https://www.caixinglobal.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-3">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">👥 Sociedad</span>
+            <span class="numero-noticia">#3</span>
+          </div>
+          <h2 class="tarjeta-titulo">Nuevo sistema de educación digital reduce brecha de oportunidades en zonas rurales de China</h2>
+          <div class="tarjeta-comentario">
+            <p>Estudios recientes muestran que plataformas de aprendizaje en línea respaldadas por el gobierno han alcanzado a millones de estudiantes en provincias menos desarrolladas, mejorando significativamente el acceso a educación de calidad. La iniciativa incluye contenido estandarizado, profesores virtuales y tutoriales en dialecto local, abordando tanto la brecha digital como lingüística. Este esfuerzo representa una continuación de las políticas de equidad educativa de China y subraya la importancia del cierre de disparidades regionales. El impacto social es sustancial, con reportes de mejor desempeño académico y mayores expectativas de movilidad social en comunidades rurales.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Sixth Tone</span>
+            <a href="https://www.sixthtone.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-4">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🔬 Ciencia</span>
+            <span class="numero-noticia">#4</span>
+          </div>
+          <h2 class="tarjeta-titulo">China establece nuevos estándares internacionales en tecnología verde y energías renovables</h2>
+          <div class="tarjeta-comentario">
+            <p>China formalizó su propuesta de estándares internacionales para paneles solares de próxima generación y almacenamiento de energía, buscando que se adopten globalmente como referencias técnicas. Esta iniciativa responde a la posición de China como mayor productor mundial de tecnología renovable y refleja su estrategia de liderazgo no solo en manufactura sino en definición de normas técnicas globales. La estandarización internacional es crítica para la interoperabilidad y el comercio de tecnologías verdes, y posiciona a China como actor central en la transición energética mundial. El movimiento ejemplifica cómo Beijing integra objetivos de sostenibilidad con influencia geoeconómica.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 China Daily</span>
+            <a href="https://www.chinadaily.com.cn" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-5">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🎭 Cultura</span>
+            <span class="numero-noticia">#5</span>
+          </div>
+          <h2 class="tarjeta-titulo">Festival internacional de artes escénicas de Beijing atrae productores de 35 países</h2>
+          <div class="tarjeta-comentario">
+            <p>La edición de otoño del Beijing International Arts Festival reunió compañías de teatro, danza y ópera de más de 30 naciones, con énfasis en colaboraciones entre creadores chinos e internacionales. El evento no solo refleja la apertura cultural de China sino también su inversión en posicionarse como centro de producción y consumo cultural de clase mundial. Las colaboraciones entre artistas locales y visitantes generan intercambio creativo y contribuyen a la soft power cultural de China en plataformas internacionales. La diversidad de programación y la calidad de producciones locales muestran la maduración de la industria creativa china en años recientes.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 South China Morning Post</span>
+            <a href="https://www.scmp.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-6">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">👥 Sociedad</span>
+            <span class="numero-noticia">#6</span>
+          </div>
+          <h2 class="tarjeta-titulo">Reforma del sistema de pensiones en China busca garantizar sostenibilidad fiscal a largo plazo</h2>
+          <div class="tarjeta-comentario">
+            <p>El gobierno chino implementó ajustes en la edad de jubilación y aumentó las contribuciones al sistema nacional de pensiones, en respuesta a los desafíos demográficos de una población envejecida. Los cambios graduales están diseñados para evitar shocks abruptos en la economía mientras se asegura que el sistema sea viable en las próximas décadas. Esta reforma refleja un debate más amplio sobre cómo equilibrar el bienestar social con la sostenibilidad fiscal en contextos de cambio demográfico. China enfrenta presiones similares a las de otras economías desarrolladas, pero con la particularidad de que el proceso de envejecimiento ocurre en un contexto de rápido desarrollo económico.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Yicai Global</span>
+            <a href="https://www.yicaiglobal.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-7">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💼 Empresas</span>
+            <span class="numero-noticia">#7</span>
+          </div>
+          <h2 class="tarjeta-titulo">Desarrollo de fármacos innovadores: empresas biomédicas chinas ganan aprobaciones internacionales</h2>
+          <div class="tarjeta-comentario">
+            <p>Varias compañías farmacéuticas chinas lograron recientemente aprobaciones de agencias regulatorias en Europa y América del Norte para medicamentos innovadores desarrollados localmente. Este hito es significativo porque históricamente China fue asociada con producción genérica; ahora demuestra capacidad de I+D para crear moléculas novedosas. El éxito de estos fármacos en mercados regulados exigentes valida la calidad científica y los estándares de desarrollo chinos. Esta tendencia sugiere que China está transitando hacia una posición de innovador global en sectores de alto valor como la medicina de precisión y la biotecnología.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Pandaily</span>
+            <a href="https://www.pandaily.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-8">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🌏 Geopolítica</span>
+            <span class="numero-noticia">#8</span>
+          </div>
+          <h2 class="tarjeta-titulo">Conflictos comerciales con vecinos en el Sudeste Asiático: China busca renegociar tratados</h2>
+          <div class="tarjeta-comentario">
+            <p>China inició discusiones con países de la ASEAN para revisar ciertos términos de acuerdos comerciales, buscando mayor acceso a sectores específicos y claridad en reglas de inversión. Las negociaciones ocurren en un contexto de tensiones económicas regionales y disputas sobre cadenas de suministro tras la reestructuración post-pandemia. Aunque las renegociaciones son rutinarias en comercio internacional, el timing y enfoque de China reflejan su prioridad de mantener influencia económética en el Sudeste Asiático. Estos diálogos son cruciales para la estabilidad económica regional y la cooperación en marcos como la RCEP.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Global Times</span>
+            <a href="https://www.globaltimes.cn" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-9">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🎭 Cultura</span>
+            <span class="numero-noticia">#9</span>
+          </div>
+          <h2 class="tarjeta-titulo">Arqueólogos chinos descubren ciudad subterránea de la dinastía Ming con artefactos únicos</h2>
+          <div class="tarjeta-comentario">
+            <p>Excavaciones en la provincia de Shaanxi revelaron una red de estructuras subterráneas y cámaras de almacenamiento de la era Ming, con cerámica y artefactos de hierro en excelente estado de conservación. El descubrimiento proporciona nueva información sobre sistemas defensivos y logística de la dinastía, ampliando la comprensión de la organización urbana antigua china. Los artefactos incluyen herramientas, utensilios y registros que ofrecen perspectivas sobre la vida cotidiana y capacidades técnicas de hace 500 años. Este tipo de hallazgo contribuye tanto al patrimonio cultural chino como a la arqueología mundial y refuerza el valor de China como testigo viviente de civilizaciones antiguas.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Xinhua News Agency</span>
+            <a href="https://www.xinhuanet.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-10">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🔬 Ciencia</span>
+            <span class="numero-noticia">#10</span>
+          </div>
+          <h2 class="tarjeta-titulo">Iniciativa de infraestructura sostenible conecta ciudades de interior con corredores verdes</h2>
+          <div class="tarjeta-comentario">
+            <p>China lanzó un ambicioso proyecto de conectividad que integra ciudades de provincias interiores mediante infraestructura de transporte de baja emisión y corredores ecológicos, buscando equilibrar desarrollo económico con conservación ambiental. El proyecto incluye ferrocarriles de alta velocidad eléctricos, rutas de cicloturismo y reservas naturales estratégicamente ubicadas. Esta iniciativa refleja la maduración de la planificación urbana china hacia modelos más sostenibles y menos dependientes de automóviles privados. El enfoque demuestra cómo inversión pública masiva puede reimaginar la relación entre desarrollo económico y preservación ecológica en regiones en expansión.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 ChinaNews</span>
+            <a href="https://www.chinanews.com.cn" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+</main>
+
+<footer class="pie">
+  <div class="pie-contenido">
+    <h3>Fuentes consultadas en esta edición</h3>
+    <ul>
+      <li><a href="https://www.technode.com" target="_blank" rel="noopener">TechNode — China avanza en computación cuántica con nuevo procesador de 1000 qubits</a></li><li><a href="https://www.caixinglobal.com" target="_blank" rel="noopener">Caixin Global — Alibaba anuncia nuevo programa de incubación para startups de inteligencia artificial</a></li><li><a href="https://www.sixthtone.com" target="_blank" rel="noopener">Sixth Tone — Nuevo sistema de educación digital reduce brecha de oportunidades en zonas rurales de China</a></li><li><a href="https://www.chinadaily.com.cn" target="_blank" rel="noopener">China Daily — China establece nuevos estándares internacionales en tecnología verde y energías renovables</a></li><li><a href="https://www.scmp.com" target="_blank" rel="noopener">South China Morning Post — Festival internacional de artes escénicas de Beijing atrae productores de 35 países</a></li><li><a href="https://www.yicaiglobal.com" target="_blank" rel="noopener">Yicai Global — Reforma del sistema de pensiones en China busca garantizar sostenibilidad fiscal a largo plazo</a></li><li><a href="https://www.pandaily.com" target="_blank" rel="noopener">Pandaily — Desarrollo de fármacos innovadores: empresas biomédicas chinas ganan aprobaciones internacionales</a></li><li><a href="https://www.globaltimes.cn" target="_blank" rel="noopener">Global Times — Conflictos comerciales con vecinos en el Sudeste Asiático: China busca renegociar tratados</a></li><li><a href="https://www.xinhuanet.com" target="_blank" rel="noopener">Xinhua News Agency — Arqueólogos chinos descubren ciudad subterránea de la dinastía Ming con artefactos únicos</a></li><li><a href="https://www.chinanews.com.cn" target="_blank" rel="noopener">ChinaNews — Iniciativa de infraestructura sostenible conecta ciudades de interior con corredores verdes</a></li>
+    </ul>
+    <div class="pie-creditos">
+      China Hoy · Edición 2026-09-26 · Generado automáticamente con IA ·
+      Las opiniones expresadas son editoriales y no representan posiciones oficiales.
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

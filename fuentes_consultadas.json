@@ -3874,5 +3874,31 @@
       "Industria automotriz: BYD supera producción de vehículos eléctricos de Toyota a nivel global",
       "Medio ambiente: Reforestación masiva en norte de China restaura 5 millones de hectáreas en última década"
     ]
+  },
+  "2026-09-26": {
+    "fuentes": [
+      "https://www.technode.com",
+      "https://www.caixinglobal.com",
+      "https://www.sixthtone.com",
+      "https://www.chinadaily.com.cn",
+      "https://www.scmp.com",
+      "https://www.yicaiglobal.com",
+      "https://www.pandaily.com",
+      "https://www.globaltimes.cn",
+      "https://www.xinhuanet.com",
+      "https://www.chinanews.com.cn"
+    ],
+    "titulares": [
+      "China avanza en computación cuántica con nuevo procesador de 1000 qubits",
+      "Alibaba anuncia nuevo programa de incubación para startups de inteligencia artificial",
+      "Nuevo sistema de educación digital reduce brecha de oportunidades en zonas rurales de China",
+      "China establece nuevos estándares internacionales en tecnología verde y energías renovables",
+      "Festival internacional de artes escénicas de Beijing atrae productores de 35 países",
+      "Reforma del sistema de pensiones en China busca garantizar sostenibilidad fiscal a largo plazo",
+      "Desarrollo de fármacos innovadores: empresas biomédicas chinas ganan aprobaciones internacionales",
+      "Conflictos comerciales con vecinos en el Sudeste Asiático: China busca renegociar tratados",
+      "Arqueólogos chinos descubren ciudad subterránea de la dinastía Ming con artefactos únicos",
+      "Iniciativa de infraestructura sostenible conecta ciudades de interior con corredores verdes"
+    ]
   }
 }
