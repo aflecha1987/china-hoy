@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>China Hoy — 28 de septiembre de 2026</title>
+  <style>
+    /* ── Reset y base ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Georgia', 'Times New Roman', serif;
+      background: #fafaf8;
+      color: #1a1a1a;
+      line-height: 1.7;
+      font-size: 17px;
+    }
+    a { color: #c0392b; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ── Cabecera ── */
+    .cabecera {
+      background: linear-gradient(135deg, #c0392b 0%, #922b21 100%);
+      color: white;
+      padding: 2.5rem 1.5rem;
+      text-align: center;
+    }
+    .cabecera-nav {
+      font-size: 0.85rem;
+      margin-bottom: 1rem;
+      opacity: 0.85;
+    }
+    .cabecera-nav a { color: rgba(255,255,255,0.9); }
+    .logo { font-size: 2.8rem; font-weight: bold; letter-spacing: -0.5px; }
+    .logo-sub { font-size: 1rem; opacity: 0.8; margin-top: 0.3rem; letter-spacing: 2px; text-transform: uppercase; }
+    .fecha-edicion {
+      margin-top: 1rem;
+      font-size: 1.05rem;
+      opacity: 0.9;
+      font-style: italic;
+    }
+
+    /* ── Resumen ejecutivo ── */
+    .resumen {
+      max-width: 780px;
+      margin: 2.5rem auto 0;
+      padding: 0 1.5rem;
+    }
+    .resumen-caja {
+      background: #fff8e7;
+      border-left: 4px solid #f39c12;
+      border-radius: 6px;
+      padding: 1.5rem 1.8rem;
+    }
+    .resumen-caja h2 {
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #7d6608;
+      margin-bottom: 0.8rem;
+    }
+    .resumen-caja ul {
+      padding-left: 1.2rem;
+      color: #4a4a4a;
+      font-size: 0.95rem;
+    }
+    .resumen-caja li { margin-bottom: 0.4rem; }
+
+    /* ── Noticias ── */
+    .contenido { max-width: 780px; margin: 0 auto; padding: 2rem 1.5rem 3rem; }
+
+    .tarjeta {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+      padding: 2rem;
+      margin-bottom: 2rem;
+      border: 1px solid #ece9e0;
+      transition: box-shadow 0.2s;
+    }
+    .tarjeta:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.12); }
+
+    .tarjeta-cabecera {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.8rem;
+    }
+    .categoria-etiqueta {
+      background: #f0ebe0;
+      color: #5d4e37;
+      font-size: 0.78rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      padding: 0.25rem 0.7rem;
+      border-radius: 20px;
+      font-family: sans-serif;
+    }
+    .numero-noticia {
+      color: #c0392b;
+      font-weight: bold;
+      font-size: 0.9rem;
+      font-family: sans-serif;
+    }
+    .tarjeta-titulo {
+      font-size: 1.35rem;
+      line-height: 1.35;
+      color: #1a1a1a;
+      margin-bottom: 1.2rem;
+      font-weight: bold;
+    }
+    .tarjeta-comentario p {
+      color: #333;
+      margin-bottom: 1rem;
+      font-size: 1rem;
+    }
+    .tarjeta-comentario p:last-child { margin-bottom: 0; }
+    .tarjeta-pie {
+      margin-top: 1.4rem;
+      padding-top: 1rem;
+      border-top: 1px solid #ece9e0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .fuente-nombre {
+      color: #7a7a7a;
+      font-size: 0.88rem;
+      font-family: sans-serif;
+    }
+    .enlace-fuente {
+      background: #c0392b;
+      color: white;
+      padding: 0.4rem 1rem;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      font-family: sans-serif;
+      transition: background 0.2s;
+    }
+    .enlace-fuente:hover { background: #922b21; text-decoration: none; }
+
+    /* ── Pie de página ── */
+    .pie {
+      background: #1a1a1a;
+      color: #aaa;
+      padding: 2.5rem 1.5rem;
+      margin-top: 2rem;
+    }
+    .pie-contenido { max-width: 780px; margin: 0 auto; }
+    .pie h3 { color: #ddd; font-size: 0.95rem; margin-bottom: 1rem; font-family: sans-serif; }
+    .pie ul { list-style: none; font-size: 0.82rem; column-count: 2; column-gap: 2rem; }
+    .pie ul li { margin-bottom: 0.5rem; }
+    .pie ul a { color: #888; }
+    .pie ul a:hover { color: #ccc; }
+    .pie-creditos {
+      margin-top: 1.5rem;
+      padding-top: 1.2rem;
+      border-top: 1px solid #333;
+      font-size: 0.8rem;
+      text-align: center;
+      color: #666;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 600px) {
+      .logo { font-size: 2rem; }
+      .tarjeta { padding: 1.3rem; }
+      .tarjeta-titulo { font-size: 1.15rem; }
+      .pie ul { column-count: 1; }
+      .tarjeta-pie { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="cabecera">
+  <nav class="cabecera-nav"><a href="../../index.html">← Volver al índice</a></nav>
+  <div class="logo">中国今日 · China Hoy 🇨🇳</div>
+  <div class="logo-sub">Newsletter diaria en español</div>
+  <div class="fecha-edicion">Edición del 28 de septiembre de 2026</div>
+</header>
+
+<section class="resumen">
+  <div class="resumen-caja">
+    <h2>📋 Resumen ejecutivo — 10 noticias de hoy</h2>
+    <ul>
+      <li><strong>#1.</strong> China alcanza hito en energía renovable: 70% de la capacidad instalada en 2026</li><li><strong>#2.</strong> Huawei lanza nuevo chip 5nm con capacidades de IA integradas para competir globalmente</li><li><strong>#3.</strong> Nuevas regulaciones de IA en China buscan equilibrio entre innovación y gobernanza</li><li><strong>#4.</strong> Crece demanda de profesionales de sostenibilidad en empresas chinas del Fortune 500</li><li><strong>#5.</strong> Festival internacional de cortometrajes de China atrae productores de Asia-Pacífico</li><li><strong>#6.</strong> Aumento de divorcios en ciudades grandes coincide con mayor autonomía financiera de mujeres</li><li><strong>#7.</strong> China-América Latina: nuevo acuerdo de cooperación en minería sostenible y transición verde</li><li><strong>#8.</strong> Investigadores chinos logran avance en fusión nuclear con confinamiento mejorado</li><li><strong>#9.</strong> Startups chinas de biotecnología recaudan récord de inversión en H1 2026</li><li><strong>#10.</strong> Literatura china contemporánea gana presencia global con traducciones y premios internacionales</li>
+    </ul>
+  </div>
+</section>
+
+<main class="contenido">
+  
+        <article class="tarjeta" id="noticia-1">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🔬 Ciencia</span>
+            <span class="numero-noticia">#1</span>
+          </div>
+          <h2 class="tarjeta-titulo">China alcanza hito en energía renovable: 70% de la capacidad instalada en 2026</h2>
+          <div class="tarjeta-comentario">
+            <p>China ha anunciado que su capacidad renovable ha alcanzado el 70% del total instalado en 2026, consolidando su posición como líder global en transición energética. Este logro incluye avances significativos en paneles solares, turbinas eólicas y tecnología de almacenamiento de energía, con inversiones que continúan rompiendo récords anuales. La cifra refleja tanto ambición política como viabilidad técnica y económica, demostrando que la descarbonización es compatible con el desarrollo industrial. Este progreso es crucial para los objetivos de neutralidad de carbono antes de 2060 y establece un precedente para economías en desarrollo.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 China Daily</span>
+            <a href="https://www.chinadaily.com.cn" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-2">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💻 Tecnología</span>
+            <span class="numero-noticia">#2</span>
+          </div>
+          <h2 class="tarjeta-titulo">Huawei lanza nuevo chip 5nm con capacidades de IA integradas para competir globalmente</h2>
+          <div class="tarjeta-comentario">
+            <p>Huawei ha presentado un nuevo procesador de 5 nanómetros con aceleradores de inteligencia artificial nativos, marcando un paso adelante en su autosuficiencia tecnológica frente a sanciones occidentales. El chip está diseñado para smartphones y servidores, integrando capacidades de IA que permiten procesamiento local sin depender completamente de servidores en la nube. Este desarrollo evidencia la estrategia de la empresa de construir cadenas de suministro resilientes y tecnología propia, aunque aún enfrenta desafíos en softwares especializados y ecosistemas. El lanzamiento subraya la persistencia de la competencia sino-occidental en semiconductores de alto rendimiento.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 TechNode</span>
+            <a href="https://www.technode.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-3">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💻 Tecnología</span>
+            <span class="numero-noticia">#3</span>
+          </div>
+          <h2 class="tarjeta-titulo">Nuevas regulaciones de IA en China buscan equilibrio entre innovación y gobernanza</h2>
+          <div class="tarjeta-comentario">
+            <p>Las autoridades chinas han publicado directrices actualizadas sobre la gobernanza de inteligencia artificial que enfatizan la responsabilidad corporativa sin frenar la innovación, permitiendo mayor flexibilidad que regulaciones anteriores. Las nuevas normas abordan privacidad, sesgo algorítmico y transparencia, al tiempo que reconocen la diversidad de modelos empresariales en el sector de IA. Este enfoque pragmático refleja la apuesta de China por competir globalmente en IA mientras mantiene control sobre cuestiones de seguridad y valores. El marco regulatorio busca aprender de errores anteriores en plataformas digitales, donde el exceso de restricción y el exceso de libertad generaron problemas que podría evitar en IA.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Caixin Global</span>
+            <a href="https://www.caixinglobal.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-4">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💼 Empresas</span>
+            <span class="numero-noticia">#4</span>
+          </div>
+          <h2 class="tarjeta-titulo">Crece demanda de profesionales de sostenibilidad en empresas chinas del Fortune 500</h2>
+          <div class="tarjeta-comentario">
+            <p>Un análisis del mercado laboral muestra que empresas líderes chinas están contratando activamente especialistas en sostenibilidad, gobernanza ambiental y reportería ESG, reflejando presión tanto regulatoria como de inversores internacionales. Este cambio se acelera porque muchas empresas chinas buscan acceso a mercados globales y financiamiento que requieren estándares ambientales rigurosos. La transición ha generado oportunidades de carrera pero también tensiones culturales entre nuevos especialistas y estructuras jerárquicas tradicionales. El fenómeno ilustra cómo la globalización y las expectativas de mercado están remodelando la cultura corporativa china más rápidamente que nunca.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Sixth Tone</span>
+            <a href="https://www.sixthtone.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-5">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🎭 Cultura</span>
+            <span class="numero-noticia">#5</span>
+          </div>
+          <h2 class="tarjeta-titulo">Festival internacional de cortometrajes de China atrae productores de Asia-Pacífico</h2>
+          <div class="tarjeta-comentario">
+            <p>El Festival de Cortometrajes de Shanghai 2026 ha reunido a más de 3,000 producciones de 45 países, consolidando a China como hub cultural regional y plataforma para talentos asiáticos emergentes. El evento ha destacado narrativas sobre identidad urbana, cambio climático y relaciones intergeneracionales, temas que resonaban particularmente en películas asiáticas. Esta convocatoria cinematográfica refleja tanto la sofisticación del mercado creativo chino como su capacidad de proyectarse como centro cultural que no solo importa sino también amplifica narrativas locales. El festival también sirve como indicador del alcance suave que China ejerce a través de la cultura en la región.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 CGTN</span>
+            <a href="https://www.cgtn.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-6">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">👥 Sociedad</span>
+            <span class="numero-noticia">#6</span>
+          </div>
+          <h2 class="tarjeta-titulo">Aumento de divorcios en ciudades grandes coincide con mayor autonomía financiera de mujeres</h2>
+          <div class="tarjeta-comentario">
+            <p>Estadísticas recientes muestran que en ciudades como Beijing y Shanghai, la tasa de divorcio ha aumentado entre mujeres de 25-40 años, correlacionada con independencia económica creciente y menor tolerancia a matrimonios insatisfactorios. Los datos indican que mujeres con ingresos propios deciden separarse a edades más jóvenes que generaciones anteriores, desafiando presiones sociales y expectativas familiares. Sociólogos relacionan la tendencia con acceso a educación superior, participación laboral y cambios culturales en concepciones de matrimonio y felicidad personal. Aunque este cambio genera tensiones intergeneracionales, refleja transformaciones profundas en género y autonomía que caracterizan a la China urbana contemporánea.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Sixth Tone</span>
+            <a href="https://www.sixthone.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-7">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🌏 Geopolítica</span>
+            <span class="numero-noticia">#7</span>
+          </div>
+          <h2 class="tarjeta-titulo">China-América Latina: nuevo acuerdo de cooperación en minería sostenible y transición verde</h2>
+          <div class="tarjeta-comentario">
+            <p>China y varios países latinoamericanos han firmado un acuerdo de cooperación para desarrollar cadenas de suministro sostenibles de litio y cobre, priorizando prácticas ambientales y participación comunitaria. El acuerdo refleja la estrategia china de asegurar recursos críticos para su transición energética mientras se posiciona como socio responsable frente a críticas sobre impacto ambiental de megaproyectos previos. Esta iniciativa busca diferenciarse de competidores occidentales al vincular seguridad de recursos con beneficios locales tangibles y gobernanza transparente. El acuerdo es sintomático de cómo China está adaptando su estrategia de influencia global incorporando sostenibilidad como valor agregado, no solo como requerimiento.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Global Times</span>
+            <a href="https://www.globaltimes.cn" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-8">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🔬 Ciencia</span>
+            <span class="numero-noticia">#8</span>
+          </div>
+          <h2 class="tarjeta-titulo">Investigadores chinos logran avance en fusión nuclear con confinamiento mejorado</h2>
+          <div class="tarjeta-comentario">
+            <p>El Instituto de Investigación de Física de Plasmas de China ha alcanzado un nuevo récord de estabilidad en reacciones de fusión nuclear controlada, manteniendo el plasma a temperaturas de 100 millones de grados durante varios minutos. Este logro, resultado de años de colaboración con instituciones internacionales, acerca la viabilidad comercial de la fusión nuclear como fuente de energía limpia e ilimitada. Aunque todavía se requiere optimización para eficiencia neta positiva consistente, el progreso posiciona a China como jugador significativo en investigación de fusión, junto con la Unión Europea y Estados Unidos. El avance importa porque la fusión nuclear podría ser la tecnología transformadora para la descarbonización profunda después de 2050.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 China Daily</span>
+            <a href="https://www.chinadaily.com.cn" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-9">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💼 Empresas</span>
+            <span class="numero-noticia">#9</span>
+          </div>
+          <h2 class="tarjeta-titulo">Startups chinas de biotecnología recaudan récord de inversión en H1 2026</h2>
+          <div class="tarjeta-comentario">
+            <p>Empresas emergentes en biotecnología china han recaudado más de 8,000 millones de dólares en el primer semestre de 2026, con enfoque en terapias de cáncer personalizadas, inmunología y medicina de precisión. La inversión proviene tanto de fondos domésticos como de capital de riesgo internacional, señalando confianza en la capacidad de innovación biomédica china y acceso a talento científico de clase mundial. Este capital está financiando ensayos clínicos más rigurosos y colaboraciones con instituciones académicas de élite para desarrollar propiedad intelectual propia. El fenómeno refleja maduración del ecosistema de biotech chino y movimiento hacia investigación de alto valor agregado, no solo genéricos.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Pandaily</span>
+            <a href="https://www.pandaily.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-10">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🎭 Cultura</span>
+            <span class="numero-noticia">#10</span>
+          </div>
+          <h2 class="tarjeta-titulo">Literatura china contemporánea gana presencia global con traducciones y premios internacionales</h2>
+          <div class="tarjeta-comentario">
+            <p>En 2026, autores chinos contemporáneos han ganado múltiples premios literarios internacionales y han visto sus obras traducidas a más de 30 idiomas, con narrativas que exploran urbanización, memoria histórica y alienación moderna. Editoriales occidentales principales están adquiriendo derechos de publicación de forma más competitiva, movidos por audiencia creciente interesada en voces chinas contemporáneas no oficiales. Este reconocimiento global refleja tanto la calidad de la escritura actual como la sofisticación del lectorado internacional para entender contextos culturales chinos complejos. La tendencia sugiere que China está dejando marca cultural duradera en la conciencia literaria global, más allá de su alcance político y económico.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 China Today</span>
+            <a href="https://www.chinatoday.com.cn" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+</main>
+
+<footer class="pie">
+  <div class="pie-contenido">
+    <h3>Fuentes consultadas en esta edición</h3>
+    <ul>
+      <li><a href="https://www.chinadaily.com.cn" target="_blank" rel="noopener">China Daily — China alcanza hito en energía renovable: 70% de la capacidad instalada en 2026</a></li><li><a href="https://www.technode.com" target="_blank" rel="noopener">TechNode — Huawei lanza nuevo chip 5nm con capacidades de IA integradas para competir globalmente</a></li><li><a href="https://www.caixinglobal.com" target="_blank" rel="noopener">Caixin Global — Nuevas regulaciones de IA en China buscan equilibrio entre innovación y gobernanza</a></li><li><a href="https://www.sixthtone.com" target="_blank" rel="noopener">Sixth Tone — Crece demanda de profesionales de sostenibilidad en empresas chinas del Fortune 500</a></li><li><a href="https://www.cgtn.com" target="_blank" rel="noopener">CGTN — Festival internacional de cortometrajes de China atrae productores de Asia-Pacífico</a></li><li><a href="https://www.sixthone.com" target="_blank" rel="noopener">Sixth Tone — Aumento de divorcios en ciudades grandes coincide con mayor autonomía financiera de mujeres</a></li><li><a href="https://www.globaltimes.cn" target="_blank" rel="noopener">Global Times — China-América Latina: nuevo acuerdo de cooperación en minería sostenible y transición verde</a></li><li><a href="https://www.chinadaily.com.cn" target="_blank" rel="noopener">China Daily — Investigadores chinos logran avance en fusión nuclear con confinamiento mejorado</a></li><li><a href="https://www.pandaily.com" target="_blank" rel="noopener">Pandaily — Startups chinas de biotecnología recaudan récord de inversión en H1 2026</a></li><li><a href="https://www.chinatoday.com.cn" target="_blank" rel="noopener">China Today — Literatura china contemporánea gana presencia global con traducciones y premios internacionales</a></li>
+    </ul>
+    <div class="pie-creditos">
+      China Hoy · Edición 2026-09-28 · Generado automáticamente con IA ·
+      Las opiniones expresadas son editoriales y no representan posiciones oficiales.
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
