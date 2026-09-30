@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>China Hoy — 30 de septiembre de 2026</title>
+  <style>
+    /* ── Reset y base ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Georgia', 'Times New Roman', serif;
+      background: #fafaf8;
+      color: #1a1a1a;
+      line-height: 1.7;
+      font-size: 17px;
+    }
+    a { color: #c0392b; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ── Cabecera ── */
+    .cabecera {
+      background: linear-gradient(135deg, #c0392b 0%, #922b21 100%);
+      color: white;
+      padding: 2.5rem 1.5rem;
+      text-align: center;
+    }
+    .cabecera-nav {
+      font-size: 0.85rem;
+      margin-bottom: 1rem;
+      opacity: 0.85;
+    }
+    .cabecera-nav a { color: rgba(255,255,255,0.9); }
+    .logo { font-size: 2.8rem; font-weight: bold; letter-spacing: -0.5px; }
+    .logo-sub { font-size: 1rem; opacity: 0.8; margin-top: 0.3rem; letter-spacing: 2px; text-transform: uppercase; }
+    .fecha-edicion {
+      margin-top: 1rem;
+      font-size: 1.05rem;
+      opacity: 0.9;
+      font-style: italic;
+    }
+
+    /* ── Resumen ejecutivo ── */
+    .resumen {
+      max-width: 780px;
+      margin: 2.5rem auto 0;
+      padding: 0 1.5rem;
+    }
+    .resumen-caja {
+      background: #fff8e7;
+      border-left: 4px solid #f39c12;
+      border-radius: 6px;
+      padding: 1.5rem 1.8rem;
+    }
+    .resumen-caja h2 {
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #7d6608;
+      margin-bottom: 0.8rem;
+    }
+    .resumen-caja ul {
+      padding-left: 1.2rem;
+      color: #4a4a4a;
+      font-size: 0.95rem;
+    }
+    .resumen-caja li { margin-bottom: 0.4rem; }
+
+    /* ── Noticias ── */
+    .contenido { max-width: 780px; margin: 0 auto; padding: 2rem 1.5rem 3rem; }
+
+    .tarjeta {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+      padding: 2rem;
+      margin-bottom: 2rem;
+      border: 1px solid #ece9e0;
+      transition: box-shadow 0.2s;
+    }
+    .tarjeta:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.12); }
+
+    .tarjeta-cabecera {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.8rem;
+    }
+    .categoria-etiqueta {
+      background: #f0ebe0;
+      color: #5d4e37;
+      font-size: 0.78rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      padding: 0.25rem 0.7rem;
+      border-radius: 20px;
+      font-family: sans-serif;
+    }
+    .numero-noticia {
+      color: #c0392b;
+      font-weight: bold;
+      font-size: 0.9rem;
+      font-family: sans-serif;
+    }
+    .tarjeta-titulo {
+      font-size: 1.35rem;
+      line-height: 1.35;
+      color: #1a1a1a;
+      margin-bottom: 1.2rem;
+      font-weight: bold;
+    }
+    .tarjeta-comentario p {
+      color: #333;
+      margin-bottom: 1rem;
+      font-size: 1rem;
+    }
+    .tarjeta-comentario p:last-child { margin-bottom: 0; }
+    .tarjeta-pie {
+      margin-top: 1.4rem;
+      padding-top: 1rem;
+      border-top: 1px solid #ece9e0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .fuente-nombre {
+      color: #7a7a7a;
+      font-size: 0.88rem;
+      font-family: sans-serif;
+    }
+    .enlace-fuente {
+      background: #c0392b;
+      color: white;
+      padding: 0.4rem 1rem;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      font-family: sans-serif;
+      transition: background 0.2s;
+    }
+    .enlace-fuente:hover { background: #922b21; text-decoration: none; }
+
+    /* ── Pie de página ── */
+    .pie {
+      background: #1a1a1a;
+      color: #aaa;
+      padding: 2.5rem 1.5rem;
+      margin-top: 2rem;
+    }
+    .pie-contenido { max-width: 780px; margin: 0 auto; }
+    .pie h3 { color: #ddd; font-size: 0.95rem; margin-bottom: 1rem; font-family: sans-serif; }
+    .pie ul { list-style: none; font-size: 0.82rem; column-count: 2; column-gap: 2rem; }
+    .pie ul li { margin-bottom: 0.5rem; }
+    .pie ul a { color: #888; }
+    .pie ul a:hover { color: #ccc; }
+    .pie-creditos {
+      margin-top: 1.5rem;
+      padding-top: 1.2rem;
+      border-top: 1px solid #333;
+      font-size: 0.8rem;
+      text-align: center;
+      color: #666;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 600px) {
+      .logo { font-size: 2rem; }
+      .tarjeta { padding: 1.3rem; }
+      .tarjeta-titulo { font-size: 1.15rem; }
+      .pie ul { column-count: 1; }
+      .tarjeta-pie { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="cabecera">
+  <nav class="cabecera-nav"><a href="../../index.html">← Volver al índice</a></nav>
+  <div class="logo">中国今日 · China Hoy 🇨🇳</div>
+  <div class="logo-sub">Newsletter diaria en español</div>
+  <div class="fecha-edicion">Edición del 30 de septiembre de 2026</div>
+</header>
+
+<section class="resumen">
+  <div class="resumen-caja">
+    <h2>📋 Resumen ejecutivo — 10 noticias de hoy</h2>
+    <ul>
+      <li><strong>#1.</strong> China apunta a producción de 300 GW de energía renovable en 2026</li><li><strong>#2.</strong> Alibaba y Tencent intensifican competencia en computación en la nube</li><li><strong>#3.</strong> Nuevos hallazgos en investigación de células madre abren perspectivas para medicina regenerativa</li><li><strong>#4.</strong> Festival de Cine de Shanghái 2026 destaca películas de directores independientes</li><li><strong>#5.</strong> Migración interna: millones de trabajadores rurales acceden a beneficios sociales en ciudades</li><li><strong>#6.</strong> Comercio bilateral China-ASEAN alcanza nuevo máximo histórico en 2026</li><li><strong>#7.</strong> Startups de IA generativa chinas atraen inversión récord en ronda de financiamiento</li><li><strong>#8.</strong> Programa de conservación ambiental en el Tíbet registra recuperación de especies endémicas</li><li><strong>#9.</strong> Reforma educativa: universidades chinas fortalecen programas de emprendimiento y transferencia tecnológica</li><li><strong>#10.</strong> Reforma del sistema de justicia: China expande mecanismos alternativos de resolución de disputas comerciales</li>
+    </ul>
+  </div>
+</section>
+
+<main class="contenido">
+  
+        <article class="tarjeta" id="noticia-1">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💻 Tecnología</span>
+            <span class="numero-noticia">#1</span>
+          </div>
+          <h2 class="tarjeta-titulo">China apunta a producción de 300 GW de energía renovable en 2026</h2>
+          <div class="tarjeta-comentario">
+            <p>China ha establecido un ambicioso objetivo de alcanzar 300 GW de capacidad instalada en energías renovables durante 2026, continuando su transición energética acelerada hacia tecnologías limpias. Este hito refleja el compromiso del país con reducir las emisiones de carbono y posicionarse como líder global en manufactura de paneles solares y turbinas eólicas. La inversión masiva en infraestructura renovable también genera empleos en manufacturas y construcción, consolidando la tendencia de descarbonización que caracteriza la agenda industrial china actual.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Caixin Global</span>
+            <a href="https://www.caixinglobal.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-2">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💼 Empresas</span>
+            <span class="numero-noticia">#2</span>
+          </div>
+          <h2 class="tarjeta-titulo">Alibaba y Tencent intensifican competencia en computación en la nube</h2>
+          <div class="tarjeta-comentario">
+            <p>Los gigantes tecnológicos Alibaba y Tencent compiten fieramente por expandir sus servicios de computación en la nube, ofreciendo precios más competitivos y soluciones especializadas para empresas medianas y pequeñas. Esta batalla comercial impulsa la innovación en infraestructura digital china y reduce costos para las empresas, favoreciendo la digitalización de la economía. La competencia también posiciona a China como productor importante de soluciones tecnológicas empresariales, atrayendo talento ingenieril y consolidando ecosistemas de startups especializadas.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 TechNode</span>
+            <a href="https://www.technode.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-3">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🔬 Ciencia</span>
+            <span class="numero-noticia">#3</span>
+          </div>
+          <h2 class="tarjeta-titulo">Nuevos hallazgos en investigación de células madre abren perspectivas para medicina regenerativa</h2>
+          <div class="tarjeta-comentario">
+            <p>Investigadores chinos han realizado avances significativos en el campo de las células madre, demostrando nuevas aplicaciones para la regeneración de tejidos y órganos, lo que podría revolucionar tratamientos de enfermedades neurodegenerativas. Estos descubrimientos reflezan la inversión creciente de China en investigación biomédica y el fortalecimiento de sus capacidades científicas a nivel mundial. El progreso también abre oportunidades para que el país desarrolle terapias propias antes de que lleguen a mercados internacionales, reduciendo dependencia de patentes extranjeras.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Pandaily</span>
+            <a href="https://www.pandaily.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-4">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🎭 Cultura</span>
+            <span class="numero-noticia">#4</span>
+          </div>
+          <h2 class="tarjeta-titulo">Festival de Cine de Shanghái 2026 destaca películas de directores independientes</h2>
+          <div class="tarjeta-comentario">
+            <p>El Festival de Cine de Shanghái 2026 ha puesto el foco en directores independientes chinos, premiando obras que exploran narrativas contemporáneas sobre identidad, urbanización y conflictos intergeneracionales. Esta plataforma refleja el espacio creciente para voces creativas diversas en el cine chino, donde se abordan temas sociales complejos con mayor libertad estética y narrativa. El festival también atrae inversión internacional y distribución global, posicionando el cine chino independiente como corriente significativa en el mercado audiovisual mundial.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Sixth Tone</span>
+            <a href="https://www.sixthtone.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-5">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">👥 Sociedad</span>
+            <span class="numero-noticia">#5</span>
+          </div>
+          <h2 class="tarjeta-titulo">Migración interna: millones de trabajadores rurales acceden a beneficios sociales en ciudades</h2>
+          <div class="tarjeta-comentario">
+            <p>China ha expandido significativamente el acceso a beneficios sociales—educación, salud, pensiones—para los trabajadores migrantes que se trasladan de zonas rurales a urbanas, eliminando barreras institucionales que históricamente los mantenían al margen del sistema de seguridad social. Este cambio de política responde a décadas de movilización social y reconoce la realidad de más de 300 millones de personas que laboran en ciudades pero carecían de protección básica. La medida es fundamental para reducir desigualdades, fortalecer la demanda interna de consumo y crear una sociedad más integrada.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 South China Morning Post</span>
+            <a href="https://www.scmp.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-6">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🌏 Geopolítica</span>
+            <span class="numero-noticia">#6</span>
+          </div>
+          <h2 class="tarjeta-titulo">Comercio bilateral China-ASEAN alcanza nuevo máximo histórico en 2026</h2>
+          <div class="tarjeta-comentario">
+            <p>El volumen de comercio entre China y los países de ASEAN ha superado máximos históricos en 2026, consolidando el Sudeste Asiático como región prioritaria para la estrategia económica de Pekín. Este crecimiento refleja la efectividad de la Región Comprensiva Económica Regional (RCEP) y la integración profunda de cadenas de suministro entre China y sus vecinos. La tendencia también muestra cómo China se adapta a tensiones geopolíticas globales diversificando asociaciones comerciales e invirtiendo en relaciones regionales estables.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 CGTN</span>
+            <a href="https://www.cgtn.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-7">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💻 Tecnología</span>
+            <span class="numero-noticia">#7</span>
+          </div>
+          <h2 class="tarjeta-titulo">Startups de IA generativa chinas atraen inversión récord en ronda de financiamiento</h2>
+          <div class="tarjeta-comentario">
+            <p>Empresas emergentes especializadas en inteligencia artificial generativa han recaudado fondos sin precedentes en 2026, reflejando la confianza inversora en el ecosistema tecnológico chino y su capacidad de innovación en uno de los campos más competitivos globalmente. Estas startups desarrollan soluciones adaptadas al mercado chino en procesamiento de lenguaje natural, síntesis de imágenes y automatización empresarial. La inversión robusta evidencia que China busca cerrar brechas tecnológicas y competir directamente con líderes occidentales en inteligencia artificial, sector que será central para su crecimiento futuro.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 36Kr Global</span>
+            <a href="https://www.36kr.com/en" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-8">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🔬 Ciencia</span>
+            <span class="numero-noticia">#8</span>
+          </div>
+          <h2 class="tarjeta-titulo">Programa de conservación ambiental en el Tíbet registra recuperación de especies endémicas</h2>
+          <div class="tarjeta-comentario">
+            <p>Los programas de protección ambiental implementados en el Tíbet han mostrado resultados alentadores en la recuperación de poblaciones de especies endémicas como el leopardo de nieve y el antílope tibetano, tras décadas de decline. Estos éxitos demuestran que las políticas de conservación rigurosa, combinadas con participación comunitaria local, pueden restaurar ecosistemas frágiles y generar beneficios económicos mediante turismo responsable. La iniciativa ilustra el compromiso de China con la biodiversidad global y su capacidad de implementar proyectos ambientales a gran escala en terrenos de difícil acceso.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Xinhua News Agency</span>
+            <a href="https://www.xinhuanet.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-9">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">👥 Sociedad</span>
+            <span class="numero-noticia">#9</span>
+          </div>
+          <h2 class="tarjeta-titulo">Reforma educativa: universidades chinas fortalecen programas de emprendimiento y transferencia tecnológica</h2>
+          <div class="tarjeta-comentario">
+            <p>Las principales universidades chinas han reforzado sus programas de incubación de empresas y transferencia de tecnología, creando puentes directos entre investigación académica y aplicación comercial. Esta estrategia busca que el conocimiento generado en campus se traduzca rápidamente en innovación industrial y empleo para graduados, respondiendo a la necesidad de reducir el desempleo juvenil y dinamizar sectores emergentes. La medida refleja una transformación en la misión universitaria china: pasar de enfocarse únicamente en la transmisión de conocimiento a actuar como actores clave en el ecosistema de innovación nacional.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 China Daily</span>
+            <a href="https://www.chinadaily.com.cn" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-10">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🌏 Geopolítica</span>
+            <span class="numero-noticia">#10</span>
+          </div>
+          <h2 class="tarjeta-titulo">Reforma del sistema de justicia: China expande mecanismos alternativos de resolución de disputas comerciales</h2>
+          <div class="tarjeta-comentario">
+            <p>China ha expandido significativamente la mediación, arbitraje y negociación como métodos alternativos para resolver disputas comerciales, reduciendo carga en tribunales y creando un entorno más ágil para negocios. Estas reformas buscan mejorar la confianza empresarial tanto doméstica como internacional, y posicionar a China como jurisdicción más eficiente y predecible para transacciones comerciales globales. La tendencia refleja la maduración institucional del país y su interés en atraer inversión extranjera mediante marcos legales que protejan derechos sin demoras burocráticas extensas.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Yicai Global</span>
+            <a href="https://www.yicaiglobal.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+</main>
+
+<footer class="pie">
+  <div class="pie-contenido">
+    <h3>Fuentes consultadas en esta edición</h3>
+    <ul>
+      <li><a href="https://www.caixinglobal.com" target="_blank" rel="noopener">Caixin Global — China apunta a producción de 300 GW de energía renovable en 2026</a></li><li><a href="https://www.technode.com" target="_blank" rel="noopener">TechNode — Alibaba y Tencent intensifican competencia en computación en la nube</a></li><li><a href="https://www.pandaily.com" target="_blank" rel="noopener">Pandaily — Nuevos hallazgos en investigación de células madre abren perspectivas para medicina regenerativa</a></li><li><a href="https://www.sixthtone.com" target="_blank" rel="noopener">Sixth Tone — Festival de Cine de Shanghái 2026 destaca películas de directores independientes</a></li><li><a href="https://www.scmp.com" target="_blank" rel="noopener">South China Morning Post — Migración interna: millones de trabajadores rurales acceden a beneficios sociales en ciudades</a></li><li><a href="https://www.cgtn.com" target="_blank" rel="noopener">CGTN — Comercio bilateral China-ASEAN alcanza nuevo máximo histórico en 2026</a></li><li><a href="https://www.36kr.com/en" target="_blank" rel="noopener">36Kr Global — Startups de IA generativa chinas atraen inversión récord en ronda de financiamiento</a></li><li><a href="https://www.xinhuanet.com" target="_blank" rel="noopener">Xinhua News Agency — Programa de conservación ambiental en el Tíbet registra recuperación de especies endémicas</a></li><li><a href="https://www.chinadaily.com.cn" target="_blank" rel="noopener">China Daily — Reforma educativa: universidades chinas fortalecen programas de emprendimiento y transferencia tecnológica</a></li><li><a href="https://www.yicaiglobal.com" target="_blank" rel="noopener">Yicai Global — Reforma del sistema de justicia: China expande mecanismos alternativos de resolución de disputas comerciales</a></li>
+    </ul>
+    <div class="pie-creditos">
+      China Hoy · Edición 2026-09-30 · Generado automáticamente con IA ·
+      Las opiniones expresadas son editoriales y no representan posiciones oficiales.
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
