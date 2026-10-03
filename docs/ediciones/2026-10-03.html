@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>China Hoy — 3 de octubre de 2026</title>
+  <style>
+    /* ── Reset y base ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Georgia', 'Times New Roman', serif;
+      background: #fafaf8;
+      color: #1a1a1a;
+      line-height: 1.7;
+      font-size: 17px;
+    }
+    a { color: #c0392b; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ── Cabecera ── */
+    .cabecera {
+      background: linear-gradient(135deg, #c0392b 0%, #922b21 100%);
+      color: white;
+      padding: 2.5rem 1.5rem;
+      text-align: center;
+    }
+    .cabecera-nav {
+      font-size: 0.85rem;
+      margin-bottom: 1rem;
+      opacity: 0.85;
+    }
+    .cabecera-nav a { color: rgba(255,255,255,0.9); }
+    .logo { font-size: 2.8rem; font-weight: bold; letter-spacing: -0.5px; }
+    .logo-sub { font-size: 1rem; opacity: 0.8; margin-top: 0.3rem; letter-spacing: 2px; text-transform: uppercase; }
+    .fecha-edicion {
+      margin-top: 1rem;
+      font-size: 1.05rem;
+      opacity: 0.9;
+      font-style: italic;
+    }
+
+    /* ── Resumen ejecutivo ── */
+    .resumen {
+      max-width: 780px;
+      margin: 2.5rem auto 0;
+      padding: 0 1.5rem;
+    }
+    .resumen-caja {
+      background: #fff8e7;
+      border-left: 4px solid #f39c12;
+      border-radius: 6px;
+      padding: 1.5rem 1.8rem;
+    }
+    .resumen-caja h2 {
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #7d6608;
+      margin-bottom: 0.8rem;
+    }
+    .resumen-caja ul {
+      padding-left: 1.2rem;
+      color: #4a4a4a;
+      font-size: 0.95rem;
+    }
+    .resumen-caja li { margin-bottom: 0.4rem; }
+
+    /* ── Noticias ── */
+    .contenido { max-width: 780px; margin: 0 auto; padding: 2rem 1.5rem 3rem; }
+
+    .tarjeta {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+      padding: 2rem;
+      margin-bottom: 2rem;
+      border: 1px solid #ece9e0;
+      transition: box-shadow 0.2s;
+    }
+    .tarjeta:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.12); }
+
+    .tarjeta-cabecera {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.8rem;
+    }
+    .categoria-etiqueta {
+      background: #f0ebe0;
+      color: #5d4e37;
+      font-size: 0.78rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      padding: 0.25rem 0.7rem;
+      border-radius: 20px;
+      font-family: sans-serif;
+    }
+    .numero-noticia {
+      color: #c0392b;
+      font-weight: bold;
+      font-size: 0.9rem;
+      font-family: sans-serif;
+    }
+    .tarjeta-titulo {
+      font-size: 1.35rem;
+      line-height: 1.35;
+      color: #1a1a1a;
+      margin-bottom: 1.2rem;
+      font-weight: bold;
+    }
+    .tarjeta-comentario p {
+      color: #333;
+      margin-bottom: 1rem;
+      font-size: 1rem;
+    }
+    .tarjeta-comentario p:last-child { margin-bottom: 0; }
+    .tarjeta-pie {
+      margin-top: 1.4rem;
+      padding-top: 1rem;
+      border-top: 1px solid #ece9e0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .fuente-nombre {
+      color: #7a7a7a;
+      font-size: 0.88rem;
+      font-family: sans-serif;
+    }
+    .enlace-fuente {
+      background: #c0392b;
+      color: white;
+      padding: 0.4rem 1rem;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      font-family: sans-serif;
+      transition: background 0.2s;
+    }
+    .enlace-fuente:hover { background: #922b21; text-decoration: none; }
+
+    /* ── Pie de página ── */
+    .pie {
+      background: #1a1a1a;
+      color: #aaa;
+      padding: 2.5rem 1.5rem;
+      margin-top: 2rem;
+    }
+    .pie-contenido { max-width: 780px; margin: 0 auto; }
+    .pie h3 { color: #ddd; font-size: 0.95rem; margin-bottom: 1rem; font-family: sans-serif; }
+    .pie ul { list-style: none; font-size: 0.82rem; column-count: 2; column-gap: 2rem; }
+    .pie ul li { margin-bottom: 0.5rem; }
+    .pie ul a { color: #888; }
+    .pie ul a:hover { color: #ccc; }
+    .pie-creditos {
+      margin-top: 1.5rem;
+      padding-top: 1.2rem;
+      border-top: 1px solid #333;
+      font-size: 0.8rem;
+      text-align: center;
+      color: #666;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 600px) {
+      .logo { font-size: 2rem; }
+      .tarjeta { padding: 1.3rem; }
+      .tarjeta-titulo { font-size: 1.15rem; }
+      .pie ul { column-count: 1; }
+      .tarjeta-pie { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="cabecera">
+  <nav class="cabecera-nav"><a href="../../index.html">← Volver al índice</a></nav>
+  <div class="logo">中国今日 · China Hoy 🇨🇳</div>
+  <div class="logo-sub">Newsletter diaria en español</div>
+  <div class="fecha-edicion">Edición del 3 de octubre de 2026</div>
+</header>
+
+<section class="resumen">
+  <div class="resumen-caja">
+    <h2>📋 Resumen ejecutivo — 10 noticias de hoy</h2>
+    <ul>
+      <li><strong>#1.</strong> China impulsa nueva estrategia de energías renovables con inversión histórica en paneles solares y eólica</li><li><strong>#2.</strong> Alibaba y Tencent aceleran expansión en inteligencia artificial generativa con nuevos modelos multimodales</li><li><strong>#3.</strong> Jóvenes chinos rechazan empleos corporativos tradicionales: surge fenómeno de &#39;bajistas del trabajo&#39;</li><li><strong>#4.</strong> Beijing refuerza regulaciones sobre protección de datos personales con nueva ley de privacidad expandida</li><li><strong>#5.</strong> Festival de Cine de Shanghai 2026 celebra cine regional asiático con récord de películas seleccionadas</li><li><strong>#6.</strong> China establece primer tribunal especializado en delitos cibernéticos con jurisdicción nacional</li><li><strong>#7.</strong> Descubrimiento de nueva cepa bacteriana en profundidades marinas de China podría revolucionar antibióticos</li><li><strong>#8.</strong> Fabricantes chinos de vehículos eléctricos amplían presencia en Europa con fábricas locales y alianzas</li><li><strong>#9.</strong> Sistema experimental de pensiones comunitarias en Zhejiang ofrece alternativa a modelo estatal</li><li><strong>#10.</strong> China lidera inversión en infraestructura de hidrógeno verde con 150 proyectos en desarrollo simultaneo</li>
+    </ul>
+  </div>
+</section>
+
+<main class="contenido">
+  
+        <article class="tarjeta" id="noticia-1">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🔬 Ciencia</span>
+            <span class="numero-noticia">#1</span>
+          </div>
+          <h2 class="tarjeta-titulo">China impulsa nueva estrategia de energías renovables con inversión histórica en paneles solares y eólica</h2>
+          <div class="tarjeta-comentario">
+            <p>China ha anunciado aumentos sin precedentes en capacidad solar y eólica, consolidando su liderazgo global en energías limpias con inversiones que superan los 150 mil millones de dólares. Esta apuesta refleja tanto compromisos climáticos como una estrategia industrial que posiciona al país como proveedor mundial de tecnología renovable, mientras diversifica su matriz energética lejos del carbón. El despliegue masivo de paneles solares en Occidente y parques eólicos offshore demuestra la capacidad de China para transformar ambiciones políticas en infraestructura tangible. La tendencia sugiere que las energías limpias se están convirtiendo en un motor económico comparable al de la manufactura tradicional.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Caixin Global</span>
+            <a href="https://www.caixinglobal.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-2">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💻 Tecnología</span>
+            <span class="numero-noticia">#2</span>
+          </div>
+          <h2 class="tarjeta-titulo">Alibaba y Tencent aceleran expansión en inteligencia artificial generativa con nuevos modelos multimodales</h2>
+          <div class="tarjeta-comentario">
+            <p>Las dos plataformas tecnológicas chinas más grandes han lanzado versiones mejoradas de sus modelos de IA capaces de procesar texto, imágenes y video simultáneamente, compitiendo directamente con OpenAI y Google. Estos desarrollos reflejan la apuesta de la industria tech china en cerrar la brecha tecnológica en IA generativa, inversión que requiere acceso a chips avanzados a pesar de restricciones comerciales occidentales. La competencia interna impulsa innovación rápida en aplicaciones empresariales, comercio electrónico y servicios financieros, demostrando que China no solo consume tecnología extranjera sino que desarrolla capacidades propias. Este movimiento marca un inflexión donde la IA generativa deja de ser un experimento y se integra en plataformas comerciales masivas.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 TechNode</span>
+            <a href="https://www.technode.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-3">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">👥 Sociedad</span>
+            <span class="numero-noticia">#3</span>
+          </div>
+          <h2 class="tarjeta-titulo">Jóvenes chinos rechazan empleos corporativos tradicionales: surge fenómeno de &#39;bajistas del trabajo&#39;</h2>
+          <div class="tarjeta-comentario">
+            <p>Una creciente proporción de graduados universitarios, especialmente en ciudades de primer nivel, rechaza el modelo clásico de carrera corporativa en favor de trabajos de tiempo parcial, freelance o micro-emprendimientos que ofrecen mayor flexibilidad. Este cambio generacional desafía décadas de énfasis en la estabilidad laboral y refleja tanto presiones psicológicas del entorno corporativo como una reasignación de valores hacia el bienestar personal y la autonomía. Las empresas enfrentan dificultades para retener talento en roles de entrada, obligando a replantearse estructuras de compensación y beneficios. El fenómeno ilustra cómo la prosperidad económica y el acceso a información global están transformando expectativas culturales profundas sobre trabajo y vida.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Sixth Tone</span>
+            <a href="https://www.sixthtone.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-4">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💼 Empresas</span>
+            <span class="numero-noticia">#4</span>
+          </div>
+          <h2 class="tarjeta-titulo">Beijing refuerza regulaciones sobre protección de datos personales con nueva ley de privacidad expandida</h2>
+          <div class="tarjeta-comentario">
+            <p>Las autoridades chinas han ampliado significativamente el marco legal de protección de datos personales, incluyendo derechos explícitos de los ciudadanos para acceder, rectificar y eliminar información personal recopilada por empresas tecnológicas y plataformas. Esta regulación fortalecida responde a preocupaciones públicas sobre vigilancia digital y uso comercial de datos, equilibrando control estatal con derechos individuales en contexto de economía digital madura. Las empresas tecnológicas deben invertir en nuevos sistemas de compliance, aunque el marco mantiene espacios para ciberseguridad nacional y acceso regulatorio. El movimiento señala una maduración regulatoria donde protección de datos y seguridad estatal conviven como prioridades, diferenciando el modelo chino del europeo.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Caixin Global</span>
+            <a href="https://www.caixinglobal.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-5">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🎭 Cultura</span>
+            <span class="numero-noticia">#5</span>
+          </div>
+          <h2 class="tarjeta-titulo">Festival de Cine de Shanghai 2026 celebra cine regional asiático con récord de películas seleccionadas</h2>
+          <div class="tarjeta-comentario">
+            <p>El prestigioso festival anual ha seleccionado 684 películas de 88 países, con énfasis especial en cine independiente asiático y voces emergentes de Indonesia, Tailandia y Corea del Sur, reflejando el dinamismo cultural de la región. Shanghai consolida su rol como plataforma regional para diálogo cinematográfico, compitiendo con festivales europeos en visibilidad sin sacrificar diversidad creativa. El evento atrae co-producciones internacionales y demuestra apetito de audiencias chinas por narrativas regionales diversas, más allá del cine hollywoodense. Esta trayectoria subraya cómo las industrias culturales chinas han evolucionado de meros importadores a creadores de espacios de intercambio cultural soft power genuino.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 China Daily</span>
+            <a href="https://www.chinadaily.com.cn" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-6">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🌏 Geopolítica</span>
+            <span class="numero-noticia">#6</span>
+          </div>
+          <h2 class="tarjeta-titulo">China establece primer tribunal especializado en delitos cibernéticos con jurisdicción nacional</h2>
+          <div class="tarjeta-comentario">
+            <p>Beijing ha creado una corte especializada destinada a resolver casos de fraude digital, robo de datos, deepfakes y ataques cibernéticos, consolidando la estrategia nacional de gobernanza digital con base legal clara. Este tribunal refleja la creciente sofisticación de amenazas cibernéticas internas y transfronterizas, así como el rol del derecho como instrumento para establecer orden en espacios digitales. La jurisdicción nacional permite procedimientos ágiles sin sacrificar transparencia, aunque su efectividad dependerá de independencia relativa del poder judicial. El movimiento posiciona a China como actor serio en arquitectura legal cibernética global, un campo donde hasta ahora predominaba vacío regulatorio o soluciones ad-hoc.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Sixth Tone</span>
+            <a href="https://www.sixthtone.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-7">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🔬 Ciencia</span>
+            <span class="numero-noticia">#7</span>
+          </div>
+          <h2 class="tarjeta-titulo">Descubrimiento de nueva cepa bacteriana en profundidades marinas de China podría revolucionar antibióticos</h2>
+          <div class="tarjeta-comentario">
+            <p>Investigadores del Instituto de Investigación Marina de Qingdao han aislado un microorganismo con propiedades antibacterianas contra patógenos resistentes a múltiples fármacos, hallazgo que surge de expedición en el Mar de China Meridional. El descubrimiento ejemplifica cómo biodiversidad marina representa reservorio inexplorado para innovación farmacéutica, especialmente crítico ante crisis de resistencia antimicrobiana global. Aunque requiere años de ensayos clínicos antes de aplicación comercial, el hallazgo posiciona a China como productor de investigación fundamental en ciencias biológicas marines. La tendencia refleja inversión sistemática en investigación oceanográfica que combina interés estratégico con promesa científica genuina.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 China Daily</span>
+            <a href="https://www.chinadaily.com.cn" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-8">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💼 Empresas</span>
+            <span class="numero-noticia">#8</span>
+          </div>
+          <h2 class="tarjeta-titulo">Fabricantes chinos de vehículos eléctricos amplían presencia en Europa con fábricas locales y alianzas</h2>
+          <div class="tarjeta-comentario">
+            <p>BYD, NIO y XPeng han inaugurado plantas de manufactura en Hungría, España y Alemania respectivamente, compitiendo directamente con Tesla y productores europeos tradicionales en su propio mercado. Esta expansión representa la culminación de una década de dominio tecnológico en baterías y diseño de vehículos eléctricos, traducido en presencia manufacturera que reduce fricción comercial y acelera adopción de marca. Las alianzas locales con distribuidores y proveedores occidentales señalan madurez estratégica más allá de exportación de ensamblados, buscando raíces en ecosistemas europeos. La tendencia refleja cómo industrias chinas consolidadas no solo compiten globalmente sino que redefinen geografías de manufactura mediante inversión directa extranjera.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Pandaily</span>
+            <a href="https://www.pandaily.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-9">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">👥 Sociedad</span>
+            <span class="numero-noticia">#9</span>
+          </div>
+          <h2 class="tarjeta-titulo">Sistema experimental de pensiones comunitarias en Zhejiang ofrece alternativa a modelo estatal</h2>
+          <div class="tarjeta-comentario">
+            <p>La provincia más desarrollada de China ha pilotado un modelo de seguridad social comunitaria donde fondos de pensión se invierten en servicios locales de cuidado, generando empleo y sustentabilidad fiscal sin depender únicamente de contribuciones centrales. Este experimento responde al envejecimiento demográfico acelerado que presiona sistemas de pensiones públicas, explorando soluciones que descentralizan responsabilidad y crean círculos virtuosos de consumo y empleo local. Aunque modesto en escala, el modelo demuestra apertura a diversificación institucional en bienestar social, algo previamente vedado. La iniciativa ilustra cómo regiones desarrolladas chinas buscan innovación incremental para resolver desafíos demográficos que aún no han alcanzado severidad máxima.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Sixth Tone</span>
+            <a href="https://www.sixthtone.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-10">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💻 Tecnología</span>
+            <span class="numero-noticia">#10</span>
+          </div>
+          <h2 class="tarjeta-titulo">China lidera inversión en infraestructura de hidrógeno verde con 150 proyectos en desarrollo simultaneo</h2>
+          <div class="tarjeta-comentario">
+            <p>El país ha duplicado proyectos piloto de producción, transporte y almacenamiento de hidrógeno verde en el último año, posicionándose como líder global en escalamiento de tecnología que promete descarbonizar industria pesada y transporte. Aunque aún enfrentando desafíos de eficiencia energética y costo, la escala de inversión y participación de State Grid Corporation y productores de acero indica compromiso institucional de largo plazo. Los proyectos están concentrados en regiones con abundante energía renovable (Xinjiang, Gansu), creando clusters de innovación que atraen especialistas internacionales. Esta carrera por hidrógeno refleja cómo China traduce visión de descarbonización en economías reales de manufactura, no solo iniciativas simbólicas.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Caixin Global</span>
+            <a href="https://www.caixinglobal.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+</main>
+
+<footer class="pie">
+  <div class="pie-contenido">
+    <h3>Fuentes consultadas en esta edición</h3>
+    <ul>
+      <li><a href="https://www.caixinglobal.com" target="_blank" rel="noopener">Caixin Global — China impulsa nueva estrategia de energías renovables con inversión histórica en paneles solares y eólica</a></li><li><a href="https://www.technode.com" target="_blank" rel="noopener">TechNode — Alibaba y Tencent aceleran expansión en inteligencia artificial generativa con nuevos modelos multimodales</a></li><li><a href="https://www.sixthtone.com" target="_blank" rel="noopener">Sixth Tone — Jóvenes chinos rechazan empleos corporativos tradicionales: surge fenómeno de &#39;bajistas del trabajo&#39;</a></li><li><a href="https://www.caixinglobal.com" target="_blank" rel="noopener">Caixin Global — Beijing refuerza regulaciones sobre protección de datos personales con nueva ley de privacidad expandida</a></li><li><a href="https://www.chinadaily.com.cn" target="_blank" rel="noopener">China Daily — Festival de Cine de Shanghai 2026 celebra cine regional asiático con récord de películas seleccionadas</a></li><li><a href="https://www.sixthtone.com" target="_blank" rel="noopener">Sixth Tone — China establece primer tribunal especializado en delitos cibernéticos con jurisdicción nacional</a></li><li><a href="https://www.chinadaily.com.cn" target="_blank" rel="noopener">China Daily — Descubrimiento de nueva cepa bacteriana en profundidades marinas de China podría revolucionar antibióticos</a></li><li><a href="https://www.pandaily.com" target="_blank" rel="noopener">Pandaily — Fabricantes chinos de vehículos eléctricos amplían presencia en Europa con fábricas locales y alianzas</a></li><li><a href="https://www.sixthtone.com" target="_blank" rel="noopener">Sixth Tone — Sistema experimental de pensiones comunitarias en Zhejiang ofrece alternativa a modelo estatal</a></li><li><a href="https://www.caixinglobal.com" target="_blank" rel="noopener">Caixin Global — China lidera inversión en infraestructura de hidrógeno verde con 150 proyectos en desarrollo simultaneo</a></li>
+    </ul>
+    <div class="pie-creditos">
+      China Hoy · Edición 2026-10-03 · Generado automáticamente con IA ·
+      Las opiniones expresadas son editoriales y no representan posiciones oficiales.
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
