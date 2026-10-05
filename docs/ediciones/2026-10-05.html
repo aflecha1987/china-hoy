@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>China Hoy — 5 de octubre de 2026</title>
+  <style>
+    /* ── Reset y base ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Georgia', 'Times New Roman', serif;
+      background: #fafaf8;
+      color: #1a1a1a;
+      line-height: 1.7;
+      font-size: 17px;
+    }
+    a { color: #c0392b; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ── Cabecera ── */
+    .cabecera {
+      background: linear-gradient(135deg, #c0392b 0%, #922b21 100%);
+      color: white;
+      padding: 2.5rem 1.5rem;
+      text-align: center;
+    }
+    .cabecera-nav {
+      font-size: 0.85rem;
+      margin-bottom: 1rem;
+      opacity: 0.85;
+    }
+    .cabecera-nav a { color: rgba(255,255,255,0.9); }
+    .logo { font-size: 2.8rem; font-weight: bold; letter-spacing: -0.5px; }
+    .logo-sub { font-size: 1rem; opacity: 0.8; margin-top: 0.3rem; letter-spacing: 2px; text-transform: uppercase; }
+    .fecha-edicion {
+      margin-top: 1rem;
+      font-size: 1.05rem;
+      opacity: 0.9;
+      font-style: italic;
+    }
+
+    /* ── Resumen ejecutivo ── */
+    .resumen {
+      max-width: 780px;
+      margin: 2.5rem auto 0;
+      padding: 0 1.5rem;
+    }
+    .resumen-caja {
+      background: #fff8e7;
+      border-left: 4px solid #f39c12;
+      border-radius: 6px;
+      padding: 1.5rem 1.8rem;
+    }
+    .resumen-caja h2 {
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #7d6608;
+      margin-bottom: 0.8rem;
+    }
+    .resumen-caja ul {
+      padding-left: 1.2rem;
+      color: #4a4a4a;
+      font-size: 0.95rem;
+    }
+    .resumen-caja li { margin-bottom: 0.4rem; }
+
+    /* ── Noticias ── */
+    .contenido { max-width: 780px; margin: 0 auto; padding: 2rem 1.5rem 3rem; }
+
+    .tarjeta {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+      padding: 2rem;
+      margin-bottom: 2rem;
+      border: 1px solid #ece9e0;
+      transition: box-shadow 0.2s;
+    }
+    .tarjeta:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.12); }
+
+    .tarjeta-cabecera {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.8rem;
+    }
+    .categoria-etiqueta {
+      background: #f0ebe0;
+      color: #5d4e37;
+      font-size: 0.78rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      padding: 0.25rem 0.7rem;
+      border-radius: 20px;
+      font-family: sans-serif;
+    }
+    .numero-noticia {
+      color: #c0392b;
+      font-weight: bold;
+      font-size: 0.9rem;
+      font-family: sans-serif;
+    }
+    .tarjeta-titulo {
+      font-size: 1.35rem;
+      line-height: 1.35;
+      color: #1a1a1a;
+      margin-bottom: 1.2rem;
+      font-weight: bold;
+    }
+    .tarjeta-comentario p {
+      color: #333;
+      margin-bottom: 1rem;
+      font-size: 1rem;
+    }
+    .tarjeta-comentario p:last-child { margin-bottom: 0; }
+    .tarjeta-pie {
+      margin-top: 1.4rem;
+      padding-top: 1rem;
+      border-top: 1px solid #ece9e0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .fuente-nombre {
+      color: #7a7a7a;
+      font-size: 0.88rem;
+      font-family: sans-serif;
+    }
+    .enlace-fuente {
+      background: #c0392b;
+      color: white;
+      padding: 0.4rem 1rem;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      font-family: sans-serif;
+      transition: background 0.2s;
+    }
+    .enlace-fuente:hover { background: #922b21; text-decoration: none; }
+
+    /* ── Pie de página ── */
+    .pie {
+      background: #1a1a1a;
+      color: #aaa;
+      padding: 2.5rem 1.5rem;
+      margin-top: 2rem;
+    }
+    .pie-contenido { max-width: 780px; margin: 0 auto; }
+    .pie h3 { color: #ddd; font-size: 0.95rem; margin-bottom: 1rem; font-family: sans-serif; }
+    .pie ul { list-style: none; font-size: 0.82rem; column-count: 2; column-gap: 2rem; }
+    .pie ul li { margin-bottom: 0.5rem; }
+    .pie ul a { color: #888; }
+    .pie ul a:hover { color: #ccc; }
+    .pie-creditos {
+      margin-top: 1.5rem;
+      padding-top: 1.2rem;
+      border-top: 1px solid #333;
+      font-size: 0.8rem;
+      text-align: center;
+      color: #666;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 600px) {
+      .logo { font-size: 2rem; }
+      .tarjeta { padding: 1.3rem; }
+      .tarjeta-titulo { font-size: 1.15rem; }
+      .pie ul { column-count: 1; }
+      .tarjeta-pie { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="cabecera">
+  <nav class="cabecera-nav"><a href="../../index.html">← Volver al índice</a></nav>
+  <div class="logo">中国今日 · China Hoy 🇨🇳</div>
+  <div class="logo-sub">Newsletter diaria en español</div>
+  <div class="fecha-edicion">Edición del 5 de octubre de 2026</div>
+</header>
+
+<section class="resumen">
+  <div class="resumen-caja">
+    <h2>📋 Resumen ejecutivo — 10 noticias de hoy</h2>
+    <ul>
+      <li><strong>#1.</strong> China logra hito histórico en energía solar instalada con 900 GW de capacidad</li><li><strong>#2.</strong> Inteligencia Artificial generativa china lidera proyectos de traducción simultánea en conferencias internacionales</li><li><strong>#3.</strong> Industria manufacturera china se adapta a alza de salarios y busca automatización inteligente</li><li><strong>#4.</strong> Jóvenes chinas redefinen éxito más allá de carrera corporativa con movimiento de bienestar personal</li><li><strong>#5.</strong> Festival de Artes de Wuzhen celebra cine independiente chino con propuesta estética diversa</li><li><strong>#6.</strong> Comercio bilateral China-ASEAN alcanza récord tras acuerdos de cadena de suministro verde</li><li><strong>#7.</strong> Descubrimiento paleontológico en Yunnan revela nueva especie de dinosaurio con características evolutivas únicas</li><li><strong>#8.</strong> Tencent y Alibaba expanden servicios cloud en mercados emergentes con centros de datos soberano</li><li><strong>#9.</strong> Universidad de Tsinghua lidera investigación en materiales cuánticos con aplicaciones en computación</li><li><strong>#10.</strong> Escritora china gana premio literario internacional con novela sobre memoria colectiva y modernidad</li>
+    </ul>
+  </div>
+</section>
+
+<main class="contenido">
+  
+        <article class="tarjeta" id="noticia-1">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🔬 Ciencia</span>
+            <span class="numero-noticia">#1</span>
+          </div>
+          <h2 class="tarjeta-titulo">China logra hito histórico en energía solar instalada con 900 GW de capacidad</h2>
+          <div class="tarjeta-comentario">
+            <p>China ha alcanzado una capacidad acumulada de 900 GW en energía solar, posicionándose como líder mundial indiscutible en transición energética. Este logro refleja la estrategia nacional de alcanzar neutralidad de carbono antes de 2060, con inversiones masivas en energías renovables que superan los presupuestos de cualquier otra nación. La cifra ilustra cómo China está transformando su matriz energética mediante innovación tecnológica a escala sin precedentes, generando empleos verdes y reduciendo dependencia de combustibles fósiles.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 China Daily</span>
+            <a href="https://www.chinadaily.com.cn" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-2">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💻 Tecnología</span>
+            <span class="numero-noticia">#2</span>
+          </div>
+          <h2 class="tarjeta-titulo">Inteligencia Artificial generativa china lidera proyectos de traducción simultánea en conferencias internacionales</h2>
+          <div class="tarjeta-comentario">
+            <p>Startups tecnológicas chinas están desplegando soluciones de IA para traducción simultánea en tiempo real, mejorando significativamente la accesibilidad en conferencias académicas y empresariales globales. Estos sistemas demuestran avances notables en procesamiento del lenguaje natural, combinando caracteres chinos complejos con múltiples idiomas, desafío que antes parecía insuperable. La innovación refleja cómo China está posicionando su sector IA no solo para el mercado doméstico sino como exportador de tecnología a nivel mundial.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 TechNode</span>
+            <a href="https://www.technode.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-3">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💼 Empresas</span>
+            <span class="numero-noticia">#3</span>
+          </div>
+          <h2 class="tarjeta-titulo">Industria manufacturera china se adapta a alza de salarios y busca automatización inteligente</h2>
+          <div class="tarjeta-comentario">
+            <p>Fábricas en el Delta del Río Perla enfrentan presión salarial creciente y rotación laboral, impulsando inversión acelerada en robots colaborativos y sistemas de manufactura inteligente. Este fenómeno muestra la transición de China desde «fábrica mundial» con mano de obra barata hacia economía de tecnología manufacturera sofisticada e innovadora. Las empresas que logran esta transformación mejoran productividad y margen de ganancias, aunque requiere capital e expertise que consolida ventajas competitivas de grandes corporaciones.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Caixin Global</span>
+            <a href="https://www.caixinglobal.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-4">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">👥 Sociedad</span>
+            <span class="numero-noticia">#4</span>
+          </div>
+          <h2 class="tarjeta-titulo">Jóvenes chinas redefinen éxito más allá de carrera corporativa con movimiento de bienestar personal</h2>
+          <div class="tarjeta-comentario">
+            <p>Generación post-80 y post-90 en ciudades chinas cuestiona el modelo tradicional de ascenso laboral frenético, priorizando salud mental, relaciones personales y equilibrio de vida laboral y personal. Este cambio cultural representa una ruptura generacional con expectativas paternas de sacrificio permanente por estatus profesional, reflejado en redes sociales y comunidades de bienestar. La tendencia impulsa empresas a reimaginar modelos de compensación y políticas de trabajo flexible para retener talento joven.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Sixth Tone</span>
+            <a href="https://www.sixthtone.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-5">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🎭 Cultura</span>
+            <span class="numero-noticia">#5</span>
+          </div>
+          <h2 class="tarjeta-titulo">Festival de Artes de Wuzhen celebra cine independiente chino con propuesta estética diversa</h2>
+          <div class="tarjeta-comentario">
+            <p>El festival anual de Wuzhen reunió cineastas independientes chinos presentando narrativas sobre identidad urbana, migración interna y modernidad rural con estilos visuales innovadores. Este evento consolida a China como productor de cine autoral que dialoga con audiencias globales sin sacrificar visión local ni autenticidad narrativa. La diversidad de propuestas demuestra madurez creativa en industria fílmica china, con historias que trascienden entretenimiento para reflexionar sobre transformaciones sociales contemporáneas.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 China Daily</span>
+            <a href="https://www.chinadaily.com.cn" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-6">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🌏 Geopolítica</span>
+            <span class="numero-noticia">#6</span>
+          </div>
+          <h2 class="tarjeta-titulo">Comercio bilateral China-ASEAN alcanza récord tras acuerdos de cadena de suministro verde</h2>
+          <div class="tarjeta-comentario">
+            <p>Asociación comercial entre China y naciones ASEAN creció 15% trimestral tras implementación de protocolos de sostenibilidad ambiental en cadenas de suministro, fortaleciendo integración regional. Los acuerdos incluyen certificación de carbono neutral y trazabilidad de productos agrícolas, mejorando competitividad conjunta frente a mercados europeos cada vez más exigentes en estándares ambientales. La estrategia demuestra cómo China leveragea su influencia comercial para promover adopción regional de estándares verdes mientras consolida liderazgo económico en Asia-Pacífico.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 South China Morning Post</span>
+            <a href="https://www.scmp.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-7">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🔬 Ciencia</span>
+            <span class="numero-noticia">#7</span>
+          </div>
+          <h2 class="tarjeta-titulo">Descubrimiento paleontológico en Yunnan revela nueva especie de dinosaurio con características evolutivas únicas</h2>
+          <div class="tarjeta-comentario">
+            <p>Paleontólogos chinos excavaron restos de una especie de dinosaurio desconocida previamente en formaciones geológicas de Yunnan, con características óseas que sugieren transición evolutiva hasta entonces no documentada. Este hallazgo posiciona a China como potencia en investigación paleontológica, complementando descubrimientos previos que han reescrito comprensión de evolución dinosauriana en Asia. La investigación se beneficia de infraestructura científica avanzada y colaboración internacional, demostrando capacidad china de hacer contribuciones significativas al conocimiento científico global.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Xinhua News Agency</span>
+            <a href="https://www.xinhuanet.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-8">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💻 Tecnología</span>
+            <span class="numero-noticia">#8</span>
+          </div>
+          <h2 class="tarjeta-titulo">Tencent y Alibaba expanden servicios cloud en mercados emergentes con centros de datos soberano</h2>
+          <div class="tarjeta-comentario">
+            <p>Gigantes tecnológicos chinos establecen infraestructura cloud descentralizada en países de Asia del Sur y Sudeste Asiático, ofreciendo almacenamiento de datos con cumplimiento regulatorio local y soberanía digital. Esta expansión responde tanto a demanda genuina de empresas regionales por soluciones cloud confiables como a estrategia geopolítica de China de ofrecer alternativa a proveedores estadounidenses o europeos. Los centros de datos emplean tecnología china avanzada y generan ecosistema de startups locales, profundizando interdependencia económica regional.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Pandaily</span>
+            <a href="https://www.pandaily.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-9">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🔬 Ciencia</span>
+            <span class="numero-noticia">#9</span>
+          </div>
+          <h2 class="tarjeta-titulo">Universidad de Tsinghua lidera investigación en materiales cuánticos con aplicaciones en computación</h2>
+          <div class="tarjeta-comentario">
+            <p>Equipos de investigación de Tsinghua publicaron hallazgos sobre propiedades cuánticas de materiales novedosos con potencial para mejorar velocidad y eficiencia energética de computadoras cuánticas futuras. La investigación combina física teórica con capacidad experimental avanzada, posicionando China en frontera de competencia cuántica global donde Estados Unidos y Europa también invierten recursos masivos. Este tipo de investigación fundamental es crítico para liderazgo tecnológico a largo plazo y atrae talento científico internacional.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Global Times</span>
+            <a href="https://www.globaltimes.cn" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-10">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🎭 Cultura</span>
+            <span class="numero-noticia">#10</span>
+          </div>
+          <h2 class="tarjeta-titulo">Escritora china gana premio literario internacional con novela sobre memoria colectiva y modernidad</h2>
+          <div class="tarjeta-comentario">
+            <p>Autora contemporánea china recibió reconocimiento importante en premio literario global por novela que entreteje narrativas personales con contexto histórico más amplio, explorando cómo individuos negocian identidad en modernidad acelerada. Su obra ha sido traducida a múltiples idiomas y ganó elogios de crítica internacional por profundidad psicológica y prosa evocativa, sin sacrificar especificidad cultural o autenticidad local. El reconocimiento refleja sofisticación creciente de literatura china contemporánea en diálogos globales, con escritoras mujeres como protagonistas literarias.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Sixth Tone</span>
+            <a href="https://www.sixthtone.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+</main>
+
+<footer class="pie">
+  <div class="pie-contenido">
+    <h3>Fuentes consultadas en esta edición</h3>
+    <ul>
+      <li><a href="https://www.chinadaily.com.cn" target="_blank" rel="noopener">China Daily — China logra hito histórico en energía solar instalada con 900 GW de capacidad</a></li><li><a href="https://www.technode.com" target="_blank" rel="noopener">TechNode — Inteligencia Artificial generativa china lidera proyectos de traducción simultánea en conferencias internacionales</a></li><li><a href="https://www.caixinglobal.com" target="_blank" rel="noopener">Caixin Global — Industria manufacturera china se adapta a alza de salarios y busca automatización inteligente</a></li><li><a href="https://www.sixthtone.com" target="_blank" rel="noopener">Sixth Tone — Jóvenes chinas redefinen éxito más allá de carrera corporativa con movimiento de bienestar personal</a></li><li><a href="https://www.chinadaily.com.cn" target="_blank" rel="noopener">China Daily — Festival de Artes de Wuzhen celebra cine independiente chino con propuesta estética diversa</a></li><li><a href="https://www.scmp.com" target="_blank" rel="noopener">South China Morning Post — Comercio bilateral China-ASEAN alcanza récord tras acuerdos de cadena de suministro verde</a></li><li><a href="https://www.xinhuanet.com" target="_blank" rel="noopener">Xinhua News Agency — Descubrimiento paleontológico en Yunnan revela nueva especie de dinosaurio con características evolutivas únicas</a></li><li><a href="https://www.pandaily.com" target="_blank" rel="noopener">Pandaily — Tencent y Alibaba expanden servicios cloud en mercados emergentes con centros de datos soberano</a></li><li><a href="https://www.globaltimes.cn" target="_blank" rel="noopener">Global Times — Universidad de Tsinghua lidera investigación en materiales cuánticos con aplicaciones en computación</a></li><li><a href="https://www.sixthtone.com" target="_blank" rel="noopener">Sixth Tone — Escritora china gana premio literario internacional con novela sobre memoria colectiva y modernidad</a></li>
+    </ul>
+    <div class="pie-creditos">
+      China Hoy · Edición 2026-10-05 · Generado automáticamente con IA ·
+      Las opiniones expresadas son editoriales y no representan posiciones oficiales.
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
