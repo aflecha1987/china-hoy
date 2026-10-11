@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>China Hoy — 11 de octubre de 2026</title>
+  <style>
+    /* ── Reset y base ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Georgia', 'Times New Roman', serif;
+      background: #fafaf8;
+      color: #1a1a1a;
+      line-height: 1.7;
+      font-size: 17px;
+    }
+    a { color: #c0392b; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ── Cabecera ── */
+    .cabecera {
+      background: linear-gradient(135deg, #c0392b 0%, #922b21 100%);
+      color: white;
+      padding: 2.5rem 1.5rem;
+      text-align: center;
+    }
+    .cabecera-nav {
+      font-size: 0.85rem;
+      margin-bottom: 1rem;
+      opacity: 0.85;
+    }
+    .cabecera-nav a { color: rgba(255,255,255,0.9); }
+    .logo { font-size: 2.8rem; font-weight: bold; letter-spacing: -0.5px; }
+    .logo-sub { font-size: 1rem; opacity: 0.8; margin-top: 0.3rem; letter-spacing: 2px; text-transform: uppercase; }
+    .fecha-edicion {
+      margin-top: 1rem;
+      font-size: 1.05rem;
+      opacity: 0.9;
+      font-style: italic;
+    }
+
+    /* ── Resumen ejecutivo ── */
+    .resumen {
+      max-width: 780px;
+      margin: 2.5rem auto 0;
+      padding: 0 1.5rem;
+    }
+    .resumen-caja {
+      background: #fff8e7;
+      border-left: 4px solid #f39c12;
+      border-radius: 6px;
+      padding: 1.5rem 1.8rem;
+    }
+    .resumen-caja h2 {
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #7d6608;
+      margin-bottom: 0.8rem;
+    }
+    .resumen-caja ul {
+      padding-left: 1.2rem;
+      color: #4a4a4a;
+      font-size: 0.95rem;
+    }
+    .resumen-caja li { margin-bottom: 0.4rem; }
+
+    /* ── Noticias ── */
+    .contenido { max-width: 780px; margin: 0 auto; padding: 2rem 1.5rem 3rem; }
+
+    .tarjeta {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+      padding: 2rem;
+      margin-bottom: 2rem;
+      border: 1px solid #ece9e0;
+      transition: box-shadow 0.2s;
+    }
+    .tarjeta:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.12); }
+
+    .tarjeta-cabecera {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.8rem;
+    }
+    .categoria-etiqueta {
+      background: #f0ebe0;
+      color: #5d4e37;
+      font-size: 0.78rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      padding: 0.25rem 0.7rem;
+      border-radius: 20px;
+      font-family: sans-serif;
+    }
+    .numero-noticia {
+      color: #c0392b;
+      font-weight: bold;
+      font-size: 0.9rem;
+      font-family: sans-serif;
+    }
+    .tarjeta-titulo {
+      font-size: 1.35rem;
+      line-height: 1.35;
+      color: #1a1a1a;
+      margin-bottom: 1.2rem;
+      font-weight: bold;
+    }
+    .tarjeta-comentario p {
+      color: #333;
+      margin-bottom: 1rem;
+      font-size: 1rem;
+    }
+    .tarjeta-comentario p:last-child { margin-bottom: 0; }
+    .tarjeta-pie {
+      margin-top: 1.4rem;
+      padding-top: 1rem;
+      border-top: 1px solid #ece9e0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .fuente-nombre {
+      color: #7a7a7a;
+      font-size: 0.88rem;
+      font-family: sans-serif;
+    }
+    .enlace-fuente {
+      background: #c0392b;
+      color: white;
+      padding: 0.4rem 1rem;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      font-family: sans-serif;
+      transition: background 0.2s;
+    }
+    .enlace-fuente:hover { background: #922b21; text-decoration: none; }
+
+    /* ── Pie de página ── */
+    .pie {
+      background: #1a1a1a;
+      color: #aaa;
+      padding: 2.5rem 1.5rem;
+      margin-top: 2rem;
+    }
+    .pie-contenido { max-width: 780px; margin: 0 auto; }
+    .pie h3 { color: #ddd; font-size: 0.95rem; margin-bottom: 1rem; font-family: sans-serif; }
+    .pie ul { list-style: none; font-size: 0.82rem; column-count: 2; column-gap: 2rem; }
+    .pie ul li { margin-bottom: 0.5rem; }
+    .pie ul a { color: #888; }
+    .pie ul a:hover { color: #ccc; }
+    .pie-creditos {
+      margin-top: 1.5rem;
+      padding-top: 1.2rem;
+      border-top: 1px solid #333;
+      font-size: 0.8rem;
+      text-align: center;
+      color: #666;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 600px) {
+      .logo { font-size: 2rem; }
+      .tarjeta { padding: 1.3rem; }
+      .tarjeta-titulo { font-size: 1.15rem; }
+      .pie ul { column-count: 1; }
+      .tarjeta-pie { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="cabecera">
+  <nav class="cabecera-nav"><a href="../../index.html">← Volver al índice</a></nav>
+  <div class="logo">中国今日 · China Hoy 🇨🇳</div>
+  <div class="logo-sub">Newsletter diaria en español</div>
+  <div class="fecha-edicion">Edición del 11 de octubre de 2026</div>
+</header>
+
+<section class="resumen">
+  <div class="resumen-caja">
+    <h2>📋 Resumen ejecutivo — 10 noticias de hoy</h2>
+    <ul>
+      <li><strong>#1.</strong> China acelera inversión en energías renovables: capacidad solar alcanza récord histórico</li><li><strong>#2.</strong> Startups de IA china reciben inversión récord a pesar de regulaciones más estrictas</li><li><strong>#3.</strong> Rebranding cultural: Pekín reimagina la marca China en la audiencia global</li><li><strong>#4.</strong> Crisis demográfica: China enfrenta nuevas políticas laborales para retener trabajadores</li><li><strong>#5.</strong> Investigación china en fusión nuclear alcanza hito importante en replicación de energía por plasma</li><li><strong>#6.</strong> Fabricantes automotrices chinas expanden presencia en América Latina y Africa</li><li><strong>#7.</strong> Relaciones comerciales: China negocia nuevos acuerdos de libre comercio con bloques regionales</li><li><strong>#8.</strong> Educación tecnológica en ciudades de segundo nivel: impulso de universidades locales en I+D</li><li><strong>#9.</strong> Nuevas regulaciones de datos personales reducen prácticas de vigilancia corporativa en apps móviles</li><li><strong>#10.</strong> Literatura y artes digitales: autores chinos ganan premios internacionales y amplían alcance global</li>
+    </ul>
+  </div>
+</section>
+
+<main class="contenido">
+  
+        <article class="tarjeta" id="noticia-1">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💼 Empresas</span>
+            <span class="numero-noticia">#1</span>
+          </div>
+          <h2 class="tarjeta-titulo">China acelera inversión en energías renovables: capacidad solar alcanza récord histórico</h2>
+          <div class="tarjeta-comentario">
+            <p>China ha instalado más de 600 gigavatios de capacidad solar en lo que va de 2026, superando las previsiones iniciales y consolidándose como líder mundial indiscutible en energía renovable. Este crecimiento exponencial refleja un cambio estructural en la economía china, donde los gobiernos locales compiten por atraer inversión verde y cumplir objetivos de neutralidad de carbono para 2060. La aceleración también demuestra cómo las políticas industriales y los subsidios estatales pueden transformar sectores completos en menos de una década. Este impulso no es solo ambiental, sino que genera empleo y posiciona a China como exportador líder de tecnología solar y baterías.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Caixin Global</span>
+            <a href="https://www.caixinglobal.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-2">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💻 Tecnología</span>
+            <span class="numero-noticia">#2</span>
+          </div>
+          <h2 class="tarjeta-titulo">Startups de IA china reciben inversión récord a pesar de regulaciones más estrictas</h2>
+          <div class="tarjeta-comentario">
+            <p>El panorama de financiación de inteligencia artificial en China muestra una paradoja: mientras el gobierno refuerza las regulaciones sobre seguridad de datos y algoritmos, los inversores siguen canalizando miles de millones en startups de IA, con enfoque en aplicaciones verticales en manufactura, medicina y logística. Esto sugiere que el sector ha aprendido a operar dentro del nuevo marco regulatorio, desarrollando modelos de negocio que cumplen con los estándares de gobernanza de datos. La maduración del ecosistema IA chino contrasta con el ciclo de hype anterior, priorizando ahora rentabilidad y aplicabilidad sobre la escala de usuarios. Analistas ven esto como una consolidación saludable que beneficiará a empresas bien capitalizadas y conectadas con las prioridades estatales.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 TechNode</span>
+            <a href="https://www.technode.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-3">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🎭 Cultura</span>
+            <span class="numero-noticia">#3</span>
+          </div>
+          <h2 class="tarjeta-titulo">Rebranding cultural: Pekín reimagina la marca China en la audiencia global</h2>
+          <div class="tarjeta-comentario">
+            <p>El gobierno chino ha lanzado una iniciativa coordinada de soft power cultural que va más allá de las herramientas tradicionales, promoviendo narrativas sobre innovación, filosofía de vida cotidiana y patrimonio a través de plataformas digitales globales y colaboraciones con creadores occidentales. Esta estrategia reconoce que la influencia cultural ya no fluye solo desde instituciones estatales, sino desde la cultura popular, los videojuegos y el entretenimiento digital creado por la generación más joven china. El enfoque busca presentar una imagen más matizada y atractiva de China, lejos de los estereotipos, resonando con audiencias que consumen contenido chino de forma orgánica. La iniciativa refleja una comprensión más sofisticada del poder blando, donde la autenticidad y la relevancia cultural tienen más peso que la propaganda tradicional.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Sixth Tone</span>
+            <a href="https://www.sixthtone.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-4">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">👥 Sociedad</span>
+            <span class="numero-noticia">#4</span>
+          </div>
+          <h2 class="tarjeta-titulo">Crisis demográfica: China enfrenta nuevas políticas laborales para retener trabajadores</h2>
+          <div class="tarjeta-comentario">
+            <p>Ante la contracción de la fuerza laboral y el envejecimiento acelerado, gobiernos locales chinos están experimentando con flexibilización de horarios, beneficios de maternidad mejorados y programas de inmigración interna para atraer y retener talento. Estas medidas reconocen que el modelo de crecimiento económico anterior, basado en mano de obra abundante y barata, ya no es viable en la mayoría de sectores. Las empresas tecnológicas y de manufactura avanzada compiten agresivamente por profesionales cualificados, ofreciendo beneficios que habrían sido impensables hace una década. Este cambio estructural fuerza a la economía china a innovar en productividad y automatización, acelerando transformaciones que de otro modo hubieran tardado años en implementarse.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 South China Morning Post</span>
+            <a href="https://www.scmp.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-5">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🔬 Ciencia</span>
+            <span class="numero-noticia">#5</span>
+          </div>
+          <h2 class="tarjeta-titulo">Investigación china en fusión nuclear alcanza hito importante en replicación de energía por plasma</h2>
+          <div class="tarjeta-comentario">
+            <p>El Instituto de Física de Plasma de China ha logrado mantener plasma a temperaturas superiores a 100 millones de grados durante más de 400 segundos en su reactor experimental EAST, acercándose significativamente a los parámetros necesarios para la viabilidad comercial de la fusión nuclear. Este avance, resultado de décadas de investigación colaborativa internacional, posiciona a China como competidor serio en la carrera global hacia la energía de fusión limpia. El progreso no solo tiene implicaciones energéticas, sino que demuestra la capacidad china de invertir en investigación fundamental con horizontes de largo plazo, algo menos visible que su innovación aplicada. El hito también subraya cómo China ve la investigación científica como componente estratégico de su futuro energético y prestigio global.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Xinhua News Agency</span>
+            <a href="https://www.xinhuanet.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-6">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💼 Empresas</span>
+            <span class="numero-noticia">#6</span>
+          </div>
+          <h2 class="tarjeta-titulo">Fabricantes automotrices chinas expanden presencia en América Latina y Africa</h2>
+          <div class="tarjeta-comentario">
+            <p>Marcas como BYD, Geely y Li Auto están acelerando su expansión internacional con fábricas locales en México, Brasil y Kenya, aprovechando costos de producción competitivos y tecnología de vehículos eléctricos que supera a competidores occidentales en relación precio-rendimiento. Esta estrategia representa un cambio de paradigma donde la industria automotriz china no solo busca exportar vehículos, sino establecer cadenas de valor locales y ganar cuota de mercado en economías emergentes. La ausencia de aranceles preferentes hacia vehículos estadounidenses o europeos en estos mercados favorece a fabricantes chinos que ofrecen modelos modernos a precios accesibles. Este movimiento redefine la geografía automotriz global y consolida a China como proveedor de tecnología de movilidad para el Sur Global.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Yicai Global</span>
+            <a href="https://www.yicaiglobal.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-7">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🌏 Geopolítica</span>
+            <span class="numero-noticia">#7</span>
+          </div>
+          <h2 class="tarjeta-titulo">Relaciones comerciales: China negocia nuevos acuerdos de libre comercio con bloques regionales</h2>
+          <div class="tarjeta-comentario">
+            <p>A medida que las tensiones comerciales con Occidente persisten, China profundiza su participación en acuerdos comerciales regionales como el RCEP y busca ampliar su red de tratados con asociaciones comerciales latinoamericanas y africanas. Esta estrategia diversifica las dependencias comerciales chinas y reduce la vulnerabilidad a aranceles o sanciones occidentales, mientras fortalece vínculos políticos con el Sur Global. Los acuerdos incluyen cláusulas de inversión verde y transferencia tecnológica que alinean intereses de China con prioridades de países en desarrollo. La aproximación refleja una reorientación geoeconómica donde China se ve menos como occidental y más como líder de una economía multipolar.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Nikkei Asia</span>
+            <a href="https://asia.nikkei.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-8">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">👥 Sociedad</span>
+            <span class="numero-noticia">#8</span>
+          </div>
+          <h2 class="tarjeta-titulo">Educación tecnológica en ciudades de segundo nivel: impulso de universidades locales en I+D</h2>
+          <div class="tarjeta-comentario">
+            <p>Provincias como Sichuan y Wuhan están multiplicando fondos para investigación y desarrollo en universidades locales, buscando crear ecosistemas de innovación descentralizados que no dependan únicamente de Beijing y Shanghai. Este modelo busca retener talento joven en ciudades de segundo nivel y distribuir oportunidades tecnológicas más equitativamente, reduciendo la brecha de desarrollo regional. Las universidades están creando incubadoras de startups y colaboraciones con empresas locales, produciendo spin-offs que abordan problemas específicos de sus regiones. La iniciativa reconoce que la innovación china del futuro requiere dispersar capacidad de investigación y permitir que ciudades emergentes contribuyan al liderazgo tecnológico nacional.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 China Daily</span>
+            <a href="https://www.chinadaily.com.cn" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-9">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💻 Tecnología</span>
+            <span class="numero-noticia">#9</span>
+          </div>
+          <h2 class="tarjeta-titulo">Nuevas regulaciones de datos personales reducen prácticas de vigilancia corporativa en apps móviles</h2>
+          <div class="tarjeta-comentario">
+            <p>La Administración del Ciberespacio de China ha implementado regulaciones más estrictas que limitan la recopilación indiscriminada de datos de ubicación y comportamiento por aplicaciones móviles, obligando a empresas tecnológicas a transparencia y consentimiento explícito. Estas normas representan un giro interesante donde el estado chino, frecuentemente criticado por vigilancia, está también limitando la vigilancia comercial privada para proteger privacidad ciudadana. Las empresas han debido rediseñar modelos de publicidad y monetización, enfocándose en datos menos invasivos y servicios de valor agregado. El cambio refleja una maduración regulatoria donde China busca equilibrar innovación tecnológica con protección de derechos individuales, estableciendo estándares que otros países observan atentamente.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Pandaily</span>
+            <a href="https://www.pandaily.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-10">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🎭 Cultura</span>
+            <span class="numero-noticia">#10</span>
+          </div>
+          <h2 class="tarjeta-titulo">Literatura y artes digitales: autores chinos ganan premios internacionales y amplían alcance global</h2>
+          <div class="tarjeta-comentario">
+            <p>Autores y artistas chinos contemporáneos están ganando reconocimiento internacional en premios literarios y festivales de cine, con obras que exploran temas de identidad, modernización y cambio social desde perspectivas chinas únicas. Este reconocimiento contrasta con décadas anteriores donde la cultura china era consumida principalmente en contextos folclóricos u orientalistas, ahora siendo valorada por su complejidad contemporánea y relevancia universal. Las plataformas digitales han democratizado la distribución, permitiendo que creadores accedan directamente a audiencias globales sin filtros de editores occidentales tradicionales. El fenómeno sugiere que la soft power cultural china no está decayendo, sino transformándose hacia formas más descentralizadas, auténticas y conectadas con la juventud global.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Global Times</span>
+            <a href="https://www.globaltimes.cn" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+</main>
+
+<footer class="pie">
+  <div class="pie-contenido">
+    <h3>Fuentes consultadas en esta edición</h3>
+    <ul>
+      <li><a href="https://www.caixinglobal.com" target="_blank" rel="noopener">Caixin Global — China acelera inversión en energías renovables: capacidad solar alcanza récord histórico</a></li><li><a href="https://www.technode.com" target="_blank" rel="noopener">TechNode — Startups de IA china reciben inversión récord a pesar de regulaciones más estrictas</a></li><li><a href="https://www.sixthtone.com" target="_blank" rel="noopener">Sixth Tone — Rebranding cultural: Pekín reimagina la marca China en la audiencia global</a></li><li><a href="https://www.scmp.com" target="_blank" rel="noopener">South China Morning Post — Crisis demográfica: China enfrenta nuevas políticas laborales para retener trabajadores</a></li><li><a href="https://www.xinhuanet.com" target="_blank" rel="noopener">Xinhua News Agency — Investigación china en fusión nuclear alcanza hito importante en replicación de energía por plasma</a></li><li><a href="https://www.yicaiglobal.com" target="_blank" rel="noopener">Yicai Global — Fabricantes automotrices chinas expanden presencia en América Latina y Africa</a></li><li><a href="https://asia.nikkei.com" target="_blank" rel="noopener">Nikkei Asia — Relaciones comerciales: China negocia nuevos acuerdos de libre comercio con bloques regionales</a></li><li><a href="https://www.chinadaily.com.cn" target="_blank" rel="noopener">China Daily — Educación tecnológica en ciudades de segundo nivel: impulso de universidades locales en I+D</a></li><li><a href="https://www.pandaily.com" target="_blank" rel="noopener">Pandaily — Nuevas regulaciones de datos personales reducen prácticas de vigilancia corporativa en apps móviles</a></li><li><a href="https://www.globaltimes.cn" target="_blank" rel="noopener">Global Times — Literatura y artes digitales: autores chinos ganan premios internacionales y amplían alcance global</a></li>
+    </ul>
+    <div class="pie-creditos">
+      China Hoy · Edición 2026-10-11 · Generado automáticamente con IA ·
+      Las opiniones expresadas son editoriales y no representan posiciones oficiales.
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
