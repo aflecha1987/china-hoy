@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>China Hoy — 15 de octubre de 2026</title>
+  <style>
+    /* ── Reset y base ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Georgia', 'Times New Roman', serif;
+      background: #fafaf8;
+      color: #1a1a1a;
+      line-height: 1.7;
+      font-size: 17px;
+    }
+    a { color: #c0392b; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ── Cabecera ── */
+    .cabecera {
+      background: linear-gradient(135deg, #c0392b 0%, #922b21 100%);
+      color: white;
+      padding: 2.5rem 1.5rem;
+      text-align: center;
+    }
+    .cabecera-nav {
+      font-size: 0.85rem;
+      margin-bottom: 1rem;
+      opacity: 0.85;
+    }
+    .cabecera-nav a { color: rgba(255,255,255,0.9); }
+    .logo { font-size: 2.8rem; font-weight: bold; letter-spacing: -0.5px; }
+    .logo-sub { font-size: 1rem; opacity: 0.8; margin-top: 0.3rem; letter-spacing: 2px; text-transform: uppercase; }
+    .fecha-edicion {
+      margin-top: 1rem;
+      font-size: 1.05rem;
+      opacity: 0.9;
+      font-style: italic;
+    }
+
+    /* ── Resumen ejecutivo ── */
+    .resumen {
+      max-width: 780px;
+      margin: 2.5rem auto 0;
+      padding: 0 1.5rem;
+    }
+    .resumen-caja {
+      background: #fff8e7;
+      border-left: 4px solid #f39c12;
+      border-radius: 6px;
+      padding: 1.5rem 1.8rem;
+    }
+    .resumen-caja h2 {
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #7d6608;
+      margin-bottom: 0.8rem;
+    }
+    .resumen-caja ul {
+      padding-left: 1.2rem;
+      color: #4a4a4a;
+      font-size: 0.95rem;
+    }
+    .resumen-caja li { margin-bottom: 0.4rem; }
+
+    /* ── Noticias ── */
+    .contenido { max-width: 780px; margin: 0 auto; padding: 2rem 1.5rem 3rem; }
+
+    .tarjeta {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+      padding: 2rem;
+      margin-bottom: 2rem;
+      border: 1px solid #ece9e0;
+      transition: box-shadow 0.2s;
+    }
+    .tarjeta:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.12); }
+
+    .tarjeta-cabecera {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.8rem;
+    }
+    .categoria-etiqueta {
+      background: #f0ebe0;
+      color: #5d4e37;
+      font-size: 0.78rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      padding: 0.25rem 0.7rem;
+      border-radius: 20px;
+      font-family: sans-serif;
+    }
+    .numero-noticia {
+      color: #c0392b;
+      font-weight: bold;
+      font-size: 0.9rem;
+      font-family: sans-serif;
+    }
+    .tarjeta-titulo {
+      font-size: 1.35rem;
+      line-height: 1.35;
+      color: #1a1a1a;
+      margin-bottom: 1.2rem;
+      font-weight: bold;
+    }
+    .tarjeta-comentario p {
+      color: #333;
+      margin-bottom: 1rem;
+      font-size: 1rem;
+    }
+    .tarjeta-comentario p:last-child { margin-bottom: 0; }
+    .tarjeta-pie {
+      margin-top: 1.4rem;
+      padding-top: 1rem;
+      border-top: 1px solid #ece9e0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .fuente-nombre {
+      color: #7a7a7a;
+      font-size: 0.88rem;
+      font-family: sans-serif;
+    }
+    .enlace-fuente {
+      background: #c0392b;
+      color: white;
+      padding: 0.4rem 1rem;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      font-family: sans-serif;
+      transition: background 0.2s;
+    }
+    .enlace-fuente:hover { background: #922b21; text-decoration: none; }
+
+    /* ── Pie de página ── */
+    .pie {
+      background: #1a1a1a;
+      color: #aaa;
+      padding: 2.5rem 1.5rem;
+      margin-top: 2rem;
+    }
+    .pie-contenido { max-width: 780px; margin: 0 auto; }
+    .pie h3 { color: #ddd; font-size: 0.95rem; margin-bottom: 1rem; font-family: sans-serif; }
+    .pie ul { list-style: none; font-size: 0.82rem; column-count: 2; column-gap: 2rem; }
+    .pie ul li { margin-bottom: 0.5rem; }
+    .pie ul a { color: #888; }
+    .pie ul a:hover { color: #ccc; }
+    .pie-creditos {
+      margin-top: 1.5rem;
+      padding-top: 1.2rem;
+      border-top: 1px solid #333;
+      font-size: 0.8rem;
+      text-align: center;
+      color: #666;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 600px) {
+      .logo { font-size: 2rem; }
+      .tarjeta { padding: 1.3rem; }
+      .tarjeta-titulo { font-size: 1.15rem; }
+      .pie ul { column-count: 1; }
+      .tarjeta-pie { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="cabecera">
+  <nav class="cabecera-nav"><a href="../../index.html">← Volver al índice</a></nav>
+  <div class="logo">中国今日 · China Hoy 🇨🇳</div>
+  <div class="logo-sub">Newsletter diaria en español</div>
+  <div class="fecha-edicion">Edición del 15 de octubre de 2026</div>
+</header>
+
+<section class="resumen">
+  <div class="resumen-caja">
+    <h2>📋 Resumen ejecutivo — 10 noticias de hoy</h2>
+    <ul>
+      <li><strong>#1.</strong> China impulsa regulación más estricta de inteligencia artificial generativa</li><li><strong>#2.</strong> Inversión en tecnología verde de China supera cifra récord en 2026</li><li><strong>#3.</strong> Grandes ciudades chinas reportan caída en número de matrimonios registrados</li><li><strong>#4.</strong> Industria cinematográfica china crece 23% anual con producciones de éxito global</li><li><strong>#5.</strong> Descubrimiento de nuevas especies marinas en mares del sur de China</li><li><strong>#6.</strong> Alibaba restructura operaciones y enfatiza sostenibilidad empresarial</li><li><strong>#7.</strong> China y Vietnam avanzan en resolución de disputas fronterizas mediante diálogo diplomático</li><li><strong>#8.</strong> Investigadores chinos desarrollan batería de litio de 1000 ciclos de carga sin degradación</li><li><strong>#9.</strong> Programa de educación rural china alcanza 500 millones de estudiantes con recursos digitales</li><li><strong>#10.</strong> Huawei lanza nuevo procesador de semiconductores con arquitectura de diseño propio</li>
+    </ul>
+  </div>
+</section>
+
+<main class="contenido">
+  
+        <article class="tarjeta" id="noticia-1">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💻 Tecnología</span>
+            <span class="numero-noticia">#1</span>
+          </div>
+          <h2 class="tarjeta-titulo">China impulsa regulación más estricta de inteligencia artificial generativa</h2>
+          <div class="tarjeta-comentario">
+            <p>China ha endurecido sus regulaciones sobre la IA generativa, exigiendo que los desarrolladores obtengan permisos previos y garanticen que los modelos no generen contenido que viole leyes o dañe la seguridad nacional. Este movimiento refleja la estrategia del gobierno de mantener la innovación tecnológica bajo supervisión estatal mientras busca liderazgo global en IA. La medida equilibra el impulso de competitividad tecnológica con el control normativo, similar a las regulaciones anteriores sobre algoritmos. Para las empresas tecnológicas chinas, esto significa mayores costos de cumplimiento pero también mayor certidumbre regulatoria.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 TechNode</span>
+            <a href="https://www.technode.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-2">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💻 Tecnología</span>
+            <span class="numero-noticia">#2</span>
+          </div>
+          <h2 class="tarjeta-titulo">Inversión en tecnología verde de China supera cifra récord en 2026</h2>
+          <div class="tarjeta-comentario">
+            <p>China ha invertido más de $150 mil millones en tecnologías de energía limpia durante el primer semestre de 2026, superando los registros históricos y reafirmando su posición como el mayor inversor mundial en sostenibilidad. Las inversiones abarcan paneles solares, baterías de estado sólido y captura de carbono, áreas donde China busca dominio técnico y comercial. Este desembolso masivo es parte de la estrategia de descarbonización del país para alcanzar neutralidad carbónica antes de 2060. El crecimiento evidencia cómo China convierte los compromisos climáticos en oportunidades de negocio e innovación industrial.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Caixin Global</span>
+            <a href="https://www.caixinglobal.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-3">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">👥 Sociedad</span>
+            <span class="numero-noticia">#3</span>
+          </div>
+          <h2 class="tarjeta-titulo">Grandes ciudades chinas reportan caída en número de matrimonios registrados</h2>
+          <div class="tarjeta-comentario">
+            <p>Ciudades como Shanghái y Pekín han registrado disminuciones del 15-20% en matrimonios durante 2026, continuando una tendencia preocupante que refleja presiones económicas, mayor independencia femenina y cambios en preferencias de vida de la generación más joven. Los expertos señalan que el costo de vida urbano, la presión laboral y la expectativa de que los hombres posean vivienda propia desalientan el matrimonio tradicional. Este fenómeno impacta directamente en tasas de natalidad ya deprimidas y plantea desafíos demográficos a largo plazo. Las autoridades estudian políticas de apoyo a jóvenes parejas, aunque sin abordar directamente los factores estructurales subyacentes.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Sixth Tone</span>
+            <a href="https://www.sixthtone.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-4">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🎭 Cultura</span>
+            <span class="numero-noticia">#4</span>
+          </div>
+          <h2 class="tarjeta-titulo">Industria cinematográfica china crece 23% anual con producciones de éxito global</h2>
+          <div class="tarjeta-comentario">
+            <p>El cine chino experimentó un crecimiento de 23% en 2026, impulsado por películas locales que combinan producción de alta calidad con narrativas que resuenan en mercados internacionales, no solo domésticos. Títulos recientes han penetrado festivales europeos y mercados asiáticos, mostrando la maduración de la industria cinematográfica más allá de público cautivo nacional. El gobierno ha facilitado asociaciones internacionales mientras mantiene controles sobre contenido, permitiendo que historias chinas se globalicen sin renunciar a supervisión normativa. Esta evolución posiciona a China como potencia cultural emergente capaz de competir con Hollywood en producciones de presupuesto medio-alto.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 South China Morning Post</span>
+            <a href="https://www.scmp.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-5">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🔬 Ciencia</span>
+            <span class="numero-noticia">#5</span>
+          </div>
+          <h2 class="tarjeta-titulo">Descubrimiento de nuevas especies marinas en mares del sur de China</h2>
+          <div class="tarjeta-comentario">
+            <p>Investigadores marinos chinos han identificado 47 nuevas especies de organismos abisales en exploraciones recientes de las aguas profundas del Mar de la China Meridional, destacando la biodiversidad poco conocida de regiones submareales. Los hallazgos incluyen bacterias termófilas que podrían tener aplicaciones biotecnológicas y organismos que desafían modelos previos de adaptación extrema. Esta investigación refuerza la importancia de la protección marina y la investigación científica sistemática en aguas territoriales. Los descubrimientos subrayan cómo la inversión en ciencia oceanográfica puede generar tanto conocimiento fundamental como aplicaciones prácticas para industrias como farmacéutica y energética.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 China Daily</span>
+            <a href="https://www.chinadaily.com.cn" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-6">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💼 Empresas</span>
+            <span class="numero-noticia">#6</span>
+          </div>
+          <h2 class="tarjeta-titulo">Alibaba restructura operaciones y enfatiza sostenibilidad empresarial</h2>
+          <div class="tarjeta-comentario">
+            <p>Alibaba anunció una reestructuración organizacional en octubre de 2026 enfocada en integrar sostenibilidad en todas sus líneas de negocio, desde e-commerce hasta computación en la nube, respondiendo tanto a presión regulatoria como a demanda de inversores. La empresa estableció nuevos objetivos de reducción de emisiones en su cadena logística y busca hacer rentable la operación sostenible a través de innovación tecnológica. Esta transformación refleja la presión regulatoria china sobre corporaciones gigantes, pero también oportunidades genuinas de eficiencia operativa. El movimiento posiciona a Alibaba como líder en sostenibilidad corporativa en Asia, crucial para mantener licencia social y acceso a mercados internacionales.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Yicai Global</span>
+            <a href="https://www.yicaiglobal.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-7">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🌏 Geopolítica</span>
+            <span class="numero-noticia">#7</span>
+          </div>
+          <h2 class="tarjeta-titulo">China y Vietnam avanzan en resolución de disputas fronterizas mediante diálogo diplomático</h2>
+          <div class="tarjeta-comentario">
+            <p>China y Vietnam completaron una ronda de negociaciones fronterizas en octubre de 2026 que resultó en acuerdos sobre delimitación marítima en sectores específicos del Golfo de Tonkín, mostrando progreso después de años de tensión. Los acuerdos incluyen mecanismos de comunicación conjunta y protocolos para evitar incidentes militares accidentales, demostrando disposición de ambas naciones a manejar diferencias mediante instituciones multilaterales. Este avance es significativo en el contexto de rivalidades regionales más amplias y sugiere que las vías diplomáticas pueden funcionar incluso en temas sensibles. Los éxitos parciales en asuntos fronterizos benefician la estabilidad económica de ambos países y son modelos potenciales para otras disputas regionales.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Global Times</span>
+            <a href="https://www.globaltimes.cn" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-8">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💻 Tecnología</span>
+            <span class="numero-noticia">#8</span>
+          </div>
+          <h2 class="tarjeta-titulo">Investigadores chinos desarrollan batería de litio de 1000 ciclos de carga sin degradación</h2>
+          <div class="tarjeta-comentario">
+            <p>Un equipo de investigadores de universidades chinas lideradas por Tsinghua publicó resultados de laboratorio sobre baterías de litio que mantienen 98% de capacidad después de 1000 ciclos, un avance significativo para vehículos eléctricos de larga vida útil. El trabajo utiliza un nuevo diseño de ánodo que reduce la formación de dendritas, un problema crónico que degrada las baterías comerciales. Si se logra producción a escala, este descubrimiento podría extender la vida útil de vehículos eléctricos a 15+ años, reduciendo costos totales de propiedad. China domina ya la cadena de suministro de baterías; estos avances tecnológicos profundizan su ventaja competitiva global.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 36Kr Global</span>
+            <a href="https://www.36kr.com/en" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-9">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">👥 Sociedad</span>
+            <span class="numero-noticia">#9</span>
+          </div>
+          <h2 class="tarjeta-titulo">Programa de educación rural china alcanza 500 millones de estudiantes con recursos digitales</h2>
+          <div class="tarjeta-comentario">
+            <p>El gobierno chino reportó en octubre de 2026 que su iniciativa de educación digital ha conectado a 500 millones de estudiantes rurales con recursos educativos online, reduciendo brechas históricas entre ciudades y zonas agrícolas. El programa distribuye tablets y acceso a banda ancha de bajo costo, complementado con plataformas educativas locales que adaptan contenido a contextos regionales. Este esfuerzo masivo de infraestructura digital aborda desigualdades estructurales y prepara a poblaciones rurales para economía digital. Sin embargo, expertos señalan que conectividad es necesaria pero no suficiente; se requiere capacitación docente y contenido localizado para maximizar impacto.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 People&#39;s Daily Online</span>
+            <a href="https://www.peopledaily.com.cn" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-10">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💻 Tecnología</span>
+            <span class="numero-noticia">#10</span>
+          </div>
+          <h2 class="tarjeta-titulo">Huawei lanza nuevo procesador de semiconductores con arquitectura de diseño propio</h2>
+          <div class="tarjeta-comentario">
+            <p>Huawei reveló en octubre de 2026 su nuevo procesador de computación de alto desempeño desarrollado completamente internamente, reduciendo dependencia de diseño extranjero en tecnología crítica. El chip alcanza especificaciones competitivas con arquitecturas occidentales, aunque con menor volumen de producción inicial debido a limitaciones de equipos fabricación de semiconductores. Este logro es simbólicamente importante para la soberanía tecnológica china frente a sanciones estadounidenses, pero enfrenta desafíos reales en escala comercial. El desarrollo refleja inversión masiva en investigación y talento doméstico, aunque la brecha en capacidades de fabricación sigue siendo obstáculo importante para China.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Pandaily</span>
+            <a href="https://www.pandaily.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+</main>
+
+<footer class="pie">
+  <div class="pie-contenido">
+    <h3>Fuentes consultadas en esta edición</h3>
+    <ul>
+      <li><a href="https://www.technode.com" target="_blank" rel="noopener">TechNode — China impulsa regulación más estricta de inteligencia artificial generativa</a></li><li><a href="https://www.caixinglobal.com" target="_blank" rel="noopener">Caixin Global — Inversión en tecnología verde de China supera cifra récord en 2026</a></li><li><a href="https://www.sixthtone.com" target="_blank" rel="noopener">Sixth Tone — Grandes ciudades chinas reportan caída en número de matrimonios registrados</a></li><li><a href="https://www.scmp.com" target="_blank" rel="noopener">South China Morning Post — Industria cinematográfica china crece 23% anual con producciones de éxito global</a></li><li><a href="https://www.chinadaily.com.cn" target="_blank" rel="noopener">China Daily — Descubrimiento de nuevas especies marinas en mares del sur de China</a></li><li><a href="https://www.yicaiglobal.com" target="_blank" rel="noopener">Yicai Global — Alibaba restructura operaciones y enfatiza sostenibilidad empresarial</a></li><li><a href="https://www.globaltimes.cn" target="_blank" rel="noopener">Global Times — China y Vietnam avanzan en resolución de disputas fronterizas mediante diálogo diplomático</a></li><li><a href="https://www.36kr.com/en" target="_blank" rel="noopener">36Kr Global — Investigadores chinos desarrollan batería de litio de 1000 ciclos de carga sin degradación</a></li><li><a href="https://www.peopledaily.com.cn" target="_blank" rel="noopener">People&#39;s Daily Online — Programa de educación rural china alcanza 500 millones de estudiantes con recursos digitales</a></li><li><a href="https://www.pandaily.com" target="_blank" rel="noopener">Pandaily — Huawei lanza nuevo procesador de semiconductores con arquitectura de diseño propio</a></li>
+    </ul>
+    <div class="pie-creditos">
+      China Hoy · Edición 2026-10-15 · Generado automáticamente con IA ·
+      Las opiniones expresadas son editoriales y no representan posiciones oficiales.
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
