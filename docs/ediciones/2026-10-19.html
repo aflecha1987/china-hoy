@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>China Hoy — 19 de octubre de 2026</title>
+  <style>
+    /* ── Reset y base ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Georgia', 'Times New Roman', serif;
+      background: #fafaf8;
+      color: #1a1a1a;
+      line-height: 1.7;
+      font-size: 17px;
+    }
+    a { color: #c0392b; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ── Cabecera ── */
+    .cabecera {
+      background: linear-gradient(135deg, #c0392b 0%, #922b21 100%);
+      color: white;
+      padding: 2.5rem 1.5rem;
+      text-align: center;
+    }
+    .cabecera-nav {
+      font-size: 0.85rem;
+      margin-bottom: 1rem;
+      opacity: 0.85;
+    }
+    .cabecera-nav a { color: rgba(255,255,255,0.9); }
+    .logo { font-size: 2.8rem; font-weight: bold; letter-spacing: -0.5px; }
+    .logo-sub { font-size: 1rem; opacity: 0.8; margin-top: 0.3rem; letter-spacing: 2px; text-transform: uppercase; }
+    .fecha-edicion {
+      margin-top: 1rem;
+      font-size: 1.05rem;
+      opacity: 0.9;
+      font-style: italic;
+    }
+
+    /* ── Resumen ejecutivo ── */
+    .resumen {
+      max-width: 780px;
+      margin: 2.5rem auto 0;
+      padding: 0 1.5rem;
+    }
+    .resumen-caja {
+      background: #fff8e7;
+      border-left: 4px solid #f39c12;
+      border-radius: 6px;
+      padding: 1.5rem 1.8rem;
+    }
+    .resumen-caja h2 {
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #7d6608;
+      margin-bottom: 0.8rem;
+    }
+    .resumen-caja ul {
+      padding-left: 1.2rem;
+      color: #4a4a4a;
+      font-size: 0.95rem;
+    }
+    .resumen-caja li { margin-bottom: 0.4rem; }
+
+    /* ── Noticias ── */
+    .contenido { max-width: 780px; margin: 0 auto; padding: 2rem 1.5rem 3rem; }
+
+    .tarjeta {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+      padding: 2rem;
+      margin-bottom: 2rem;
+      border: 1px solid #ece9e0;
+      transition: box-shadow 0.2s;
+    }
+    .tarjeta:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.12); }
+
+    .tarjeta-cabecera {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.8rem;
+    }
+    .categoria-etiqueta {
+      background: #f0ebe0;
+      color: #5d4e37;
+      font-size: 0.78rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      padding: 0.25rem 0.7rem;
+      border-radius: 20px;
+      font-family: sans-serif;
+    }
+    .numero-noticia {
+      color: #c0392b;
+      font-weight: bold;
+      font-size: 0.9rem;
+      font-family: sans-serif;
+    }
+    .tarjeta-titulo {
+      font-size: 1.35rem;
+      line-height: 1.35;
+      color: #1a1a1a;
+      margin-bottom: 1.2rem;
+      font-weight: bold;
+    }
+    .tarjeta-comentario p {
+      color: #333;
+      margin-bottom: 1rem;
+      font-size: 1rem;
+    }
+    .tarjeta-comentario p:last-child { margin-bottom: 0; }
+    .tarjeta-pie {
+      margin-top: 1.4rem;
+      padding-top: 1rem;
+      border-top: 1px solid #ece9e0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .fuente-nombre {
+      color: #7a7a7a;
+      font-size: 0.88rem;
+      font-family: sans-serif;
+    }
+    .enlace-fuente {
+      background: #c0392b;
+      color: white;
+      padding: 0.4rem 1rem;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      font-family: sans-serif;
+      transition: background 0.2s;
+    }
+    .enlace-fuente:hover { background: #922b21; text-decoration: none; }
+
+    /* ── Pie de página ── */
+    .pie {
+      background: #1a1a1a;
+      color: #aaa;
+      padding: 2.5rem 1.5rem;
+      margin-top: 2rem;
+    }
+    .pie-contenido { max-width: 780px; margin: 0 auto; }
+    .pie h3 { color: #ddd; font-size: 0.95rem; margin-bottom: 1rem; font-family: sans-serif; }
+    .pie ul { list-style: none; font-size: 0.82rem; column-count: 2; column-gap: 2rem; }
+    .pie ul li { margin-bottom: 0.5rem; }
+    .pie ul a { color: #888; }
+    .pie ul a:hover { color: #ccc; }
+    .pie-creditos {
+      margin-top: 1.5rem;
+      padding-top: 1.2rem;
+      border-top: 1px solid #333;
+      font-size: 0.8rem;
+      text-align: center;
+      color: #666;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 600px) {
+      .logo { font-size: 2rem; }
+      .tarjeta { padding: 1.3rem; }
+      .tarjeta-titulo { font-size: 1.15rem; }
+      .pie ul { column-count: 1; }
+      .tarjeta-pie { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="cabecera">
+  <nav class="cabecera-nav"><a href="../../index.html">← Volver al índice</a></nav>
+  <div class="logo">中国今日 · China Hoy 🇨🇳</div>
+  <div class="logo-sub">Newsletter diaria en español</div>
+  <div class="fecha-edicion">Edición del 19 de octubre de 2026</div>
+</header>
+
+<section class="resumen">
+  <div class="resumen-caja">
+    <h2>📋 Resumen ejecutivo — 10 noticias de hoy</h2>
+    <ul>
+      <li><strong>#1.</strong> China avanza en computación cuántica con nuevo procesador de 1000+ qubits</li><li><strong>#2.</strong> Festival de Ópera de Pekín 2026: récord de asistencia y participación internacional</li><li><strong>#3.</strong> Reforma laboral rural en Guangdong: 2 millones de trabajadores migrantes acceden a seguridad social</li><li><strong>#4.</strong> BYD supera ventas de Tesla en tercer trimestre con 1.6 millones de vehículos eléctricos</li><li><strong>#5.</strong> Instituto de Investigación Genómica de Shenzhen descubre nueva variante resistente a malaria</li><li><strong>#6.</strong> Acuerdo comercial China-ASEAN ampliado incluye reducción arancelaria en agricultura y manufactura</li><li><strong>#7.</strong> Alibaba invierte $500 millones en infraestructura de inteligencia artificial para pymes</li><li><strong>#8.</strong> Censo cultural: 3.2 millones de ciudadanos chinos participan en voluntariado comunitario anual</li><li><strong>#9.</strong> China lanza satélite de observación climática con tecnología de imagen de ultra-resolución</li><li><strong>#10.</strong> Fintechs chinas reciben $2.1 mil millones en inversión durante 2026, enfoque en blockchain y pagos digitales</li>
+    </ul>
+  </div>
+</section>
+
+<main class="contenido">
+  
+        <article class="tarjeta" id="noticia-1">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💻 Tecnología</span>
+            <span class="numero-noticia">#1</span>
+          </div>
+          <h2 class="tarjeta-titulo">China avanza en computación cuántica con nuevo procesador de 1000+ qubits</h2>
+          <div class="tarjeta-comentario">
+            <p>China ha alcanzado un hito significativo en computación cuántica con el desarrollo de un procesador que supera los 1000 qubits funcionales, reflejando décadas de inversión en investigación de vanguardia. Este avance posiciona a China entre los líderes globales en una tecnología transformadora que podría revolucionar criptografía, farmacéutica y modelado climático. La noticia ilustra la estrategia nacional de independencia tecnológica y competencia con occidente en terrenos clave para el futuro digital.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 TechNode</span>
+            <a href="https://www.technode.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-2">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🎭 Cultura</span>
+            <span class="numero-noticia">#2</span>
+          </div>
+          <h2 class="tarjeta-titulo">Festival de Ópera de Pekín 2026: récord de asistencia y participación internacional</h2>
+          <div class="tarjeta-comentario">
+            <p>El Festival de Ópera de Pekín de este año registró más de 100,000 asistentes, incluyendo compañías de teatro clásico de Estados Unidos, Europa y Asia, demostrando la creciente apertura cultural china. El evento subrayó cómo las artes tradicionales chinas se adaptan a audiencias modernas manteniendo su esencia, con producciones que fusionan técnicas ancestrales con tecnología contemporánea. Esta confluencia refleja un movimiento más amplio donde China busca proyectar su patrimonio cultural global mientras absorbe influencias externas.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 China Daily</span>
+            <a href="https://www.chinadaily.com.cn" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-3">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">👥 Sociedad</span>
+            <span class="numero-noticia">#3</span>
+          </div>
+          <h2 class="tarjeta-titulo">Reforma laboral rural en Guangdong: 2 millones de trabajadores migrantes acceden a seguridad social</h2>
+          <div class="tarjeta-comentario">
+            <p>Guangdong implementó una reforma integral que extendió cobertura de seguridad social a 2 millones de trabajadores migrantes rurales, eliminando la brecha administrativa que históricamente los dejaba sin protección. La medida busca cerrar la desigualdad entre trabajadores urbanos y rurales, un reto estructural de China durante tres décadas. Este paso refleja la prioridad creciente del gobierno en reducir disparidades regionales y fortalecer la red de protección social, aspectos centrales de la agenda de 2026.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Sixth Tone</span>
+            <a href="https://www.sixthtone.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-4">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💼 Empresas</span>
+            <span class="numero-noticia">#4</span>
+          </div>
+          <h2 class="tarjeta-titulo">BYD supera ventas de Tesla en tercer trimestre con 1.6 millones de vehículos eléctricos</h2>
+          <div class="tarjeta-comentario">
+            <p>BYD vendió 1.6 millones de vehículos eléctricos en el tercer trimestre de 2026, consolidando su posición como líder mundial en volumen de ventas y superando ampliamente a Tesla. El dominio chino en la industria de vehículos eléctricos refleja inversión masiva estatal, ecosistema de proveedores integrados y creciente competencia de precios que redefine el sector global. Este desempeño subraya cómo China ha transformado una tecnología emergente en una fortaleza industrial decisiva.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Caixin Global</span>
+            <a href="https://www.caixinglobal.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-5">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🔬 Ciencia</span>
+            <span class="numero-noticia">#5</span>
+          </div>
+          <h2 class="tarjeta-titulo">Instituto de Investigación Genómica de Shenzhen descubre nueva variante resistente a malaria</h2>
+          <div class="tarjeta-comentario">
+            <p>Científicos chinos identificaron una nueva variante genética del mosquito *Anopheles* resistente a insecticidas comunes, hallazgo crucial para repensar estrategias de control de malaria en el sudeste asiático. El descubrimiento fue publicado en una revista de factor de impacto alto y involucró colaboración con institutos de Vietnam y Tailandia. El trabajo ejemplifica cómo la investigación biomédica china aborda desafíos de salud pública regionales con alcance global y colaboración transfronteriza.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Pandaily</span>
+            <a href="https://www.pandaily.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-6">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🌏 Geopolítica</span>
+            <span class="numero-noticia">#6</span>
+          </div>
+          <h2 class="tarjeta-titulo">Acuerdo comercial China-ASEAN ampliado incluye reducción arancelaria en agricultura y manufactura</h2>
+          <div class="tarjeta-comentario">
+            <p>China y los diez miembros de ASEAN finalizaron negociaciones para ampliar el tratado comercial existente, reduciendo aranceles en productos agrícolas, textiles y componentes electrónicos en un esquema sin precedentes. El acuerdo refleja la reorientación de Beijing hacia integración económica regional más profunda como contrapeso a tensiones con occidente. Este movimiento fortalece la posición de China como polo económico indispensable en Asia y revela una estrategia de largo plazo para consolidar una esfera de influencia comercial.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 South China Morning Post</span>
+            <a href="https://www.scmp.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-7">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💻 Tecnología</span>
+            <span class="numero-noticia">#7</span>
+          </div>
+          <h2 class="tarjeta-titulo">Alibaba invierte $500 millones en infraestructura de inteligencia artificial para pymes</h2>
+          <div class="tarjeta-comentario">
+            <p>Alibaba anunció una inversión de $500 millones en plataformas de inteligencia artificial accesibles para pequeñas y medianas empresas, parte de una carrera nacional por democratizar la IA. La iniciativa permite que comerciantes digitales y productores locales utilicen herramientas de IA avanzadas sin invertir en infraestructura costosa. Este movimiento ilustra la estrategia de China de convertir el liderazgo en IA en ventaja competitiva sistémica para su economía digital.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 36Kr Global</span>
+            <a href="https://www.36kr.com/en" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-8">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">👥 Sociedad</span>
+            <span class="numero-noticia">#8</span>
+          </div>
+          <h2 class="tarjeta-titulo">Censo cultural: 3.2 millones de ciudadanos chinos participan en voluntariado comunitario anual</h2>
+          <div class="tarjeta-comentario">
+            <p>Una encuesta nacional registró que 3.2 millones de chinos participaron activamente en programas de voluntariado comunitario durante 2026, concentrados en educación rural, cuidado de ancianos y conservación ambiental. La cifra representa crecimiento sostenido en participación cívica y refuerza narrativas oficiales de responsabilidad social. El dato refleja cambios más amplios en cómo ciudadanos urbanos de clase media se conectan con desafíos sociales estructurales.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 China Today</span>
+            <a href="https://www.chinatoday.com.cn" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-9">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🔬 Ciencia</span>
+            <span class="numero-noticia">#9</span>
+          </div>
+          <h2 class="tarjeta-titulo">China lanza satélite de observación climática con tecnología de imagen de ultra-resolución</h2>
+          <div class="tarjeta-comentario">
+            <p>El satélite *Qinghai-3*, lanzado a órbita en octubre, incorpora sensores de imagen de 10 centímetros de resolución, permitiendo monitoreo detallado de cambio climático, recursos hídricos y urbanización. El proyecto representa inversión de China en capacidades espaciales independientes y contribuye a iniciativas globales de vigilancia ambiental. Este avance tecnológico refuerza el compromiso de China con investigación climática de punta y su rol como proveedor de datos científicos para iniciativas internacionales.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 CGTN</span>
+            <a href="https://www.cgtn.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-10">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💼 Empresas</span>
+            <span class="numero-noticia">#10</span>
+          </div>
+          <h2 class="tarjeta-titulo">Fintechs chinas reciben $2.1 mil millones en inversión durante 2026, enfoque en blockchain y pagos digitales</h2>
+          <div class="tarjeta-comentario">
+            <p>Startups fintech chinas levantaron $2.1 mil millones en capital de inversión durante los primeros nueve meses de 2026, concentrado en plataformas de pago digital, soluciones blockchain reguladas y servicios financieros descentralizados. Aunque la cifra refleja cautela post-crisis de 2024, muestra recuperación de inversión en tecnología financiera bajo regulación más clara. El patrón ilustra cómo China equilibra innovación con supervisión estatal en sectores críticos de la economía digital.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Yicai Global</span>
+            <a href="https://www.yicaiglobal.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+</main>
+
+<footer class="pie">
+  <div class="pie-contenido">
+    <h3>Fuentes consultadas en esta edición</h3>
+    <ul>
+      <li><a href="https://www.technode.com" target="_blank" rel="noopener">TechNode — China avanza en computación cuántica con nuevo procesador de 1000+ qubits</a></li><li><a href="https://www.chinadaily.com.cn" target="_blank" rel="noopener">China Daily — Festival de Ópera de Pekín 2026: récord de asistencia y participación internacional</a></li><li><a href="https://www.sixthtone.com" target="_blank" rel="noopener">Sixth Tone — Reforma laboral rural en Guangdong: 2 millones de trabajadores migrantes acceden a seguridad social</a></li><li><a href="https://www.caixinglobal.com" target="_blank" rel="noopener">Caixin Global — BYD supera ventas de Tesla en tercer trimestre con 1.6 millones de vehículos eléctricos</a></li><li><a href="https://www.pandaily.com" target="_blank" rel="noopener">Pandaily — Instituto de Investigación Genómica de Shenzhen descubre nueva variante resistente a malaria</a></li><li><a href="https://www.scmp.com" target="_blank" rel="noopener">South China Morning Post — Acuerdo comercial China-ASEAN ampliado incluye reducción arancelaria en agricultura y manufactura</a></li><li><a href="https://www.36kr.com/en" target="_blank" rel="noopener">36Kr Global — Alibaba invierte $500 millones en infraestructura de inteligencia artificial para pymes</a></li><li><a href="https://www.chinatoday.com.cn" target="_blank" rel="noopener">China Today — Censo cultural: 3.2 millones de ciudadanos chinos participan en voluntariado comunitario anual</a></li><li><a href="https://www.cgtn.com" target="_blank" rel="noopener">CGTN — China lanza satélite de observación climática con tecnología de imagen de ultra-resolución</a></li><li><a href="https://www.yicaiglobal.com" target="_blank" rel="noopener">Yicai Global — Fintechs chinas reciben $2.1 mil millones en inversión durante 2026, enfoque en blockchain y pagos digitales</a></li>
+    </ul>
+    <div class="pie-creditos">
+      China Hoy · Edición 2026-10-19 · Generado automáticamente con IA ·
+      Las opiniones expresadas son editoriales y no representan posiciones oficiales.
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
