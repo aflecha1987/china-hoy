@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>China Hoy — 25 de octubre de 2026</title>
+  <style>
+    /* ── Reset y base ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Georgia', 'Times New Roman', serif;
+      background: #fafaf8;
+      color: #1a1a1a;
+      line-height: 1.7;
+      font-size: 17px;
+    }
+    a { color: #c0392b; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ── Cabecera ── */
+    .cabecera {
+      background: linear-gradient(135deg, #c0392b 0%, #922b21 100%);
+      color: white;
+      padding: 2.5rem 1.5rem;
+      text-align: center;
+    }
+    .cabecera-nav {
+      font-size: 0.85rem;
+      margin-bottom: 1rem;
+      opacity: 0.85;
+    }
+    .cabecera-nav a { color: rgba(255,255,255,0.9); }
+    .logo { font-size: 2.8rem; font-weight: bold; letter-spacing: -0.5px; }
+    .logo-sub { font-size: 1rem; opacity: 0.8; margin-top: 0.3rem; letter-spacing: 2px; text-transform: uppercase; }
+    .fecha-edicion {
+      margin-top: 1rem;
+      font-size: 1.05rem;
+      opacity: 0.9;
+      font-style: italic;
+    }
+
+    /* ── Resumen ejecutivo ── */
+    .resumen {
+      max-width: 780px;
+      margin: 2.5rem auto 0;
+      padding: 0 1.5rem;
+    }
+    .resumen-caja {
+      background: #fff8e7;
+      border-left: 4px solid #f39c12;
+      border-radius: 6px;
+      padding: 1.5rem 1.8rem;
+    }
+    .resumen-caja h2 {
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #7d6608;
+      margin-bottom: 0.8rem;
+    }
+    .resumen-caja ul {
+      padding-left: 1.2rem;
+      color: #4a4a4a;
+      font-size: 0.95rem;
+    }
+    .resumen-caja li { margin-bottom: 0.4rem; }
+
+    /* ── Noticias ── */
+    .contenido { max-width: 780px; margin: 0 auto; padding: 2rem 1.5rem 3rem; }
+
+    .tarjeta {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+      padding: 2rem;
+      margin-bottom: 2rem;
+      border: 1px solid #ece9e0;
+      transition: box-shadow 0.2s;
+    }
+    .tarjeta:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.12); }
+
+    .tarjeta-cabecera {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.8rem;
+    }
+    .categoria-etiqueta {
+      background: #f0ebe0;
+      color: #5d4e37;
+      font-size: 0.78rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      padding: 0.25rem 0.7rem;
+      border-radius: 20px;
+      font-family: sans-serif;
+    }
+    .numero-noticia {
+      color: #c0392b;
+      font-weight: bold;
+      font-size: 0.9rem;
+      font-family: sans-serif;
+    }
+    .tarjeta-titulo {
+      font-size: 1.35rem;
+      line-height: 1.35;
+      color: #1a1a1a;
+      margin-bottom: 1.2rem;
+      font-weight: bold;
+    }
+    .tarjeta-comentario p {
+      color: #333;
+      margin-bottom: 1rem;
+      font-size: 1rem;
+    }
+    .tarjeta-comentario p:last-child { margin-bottom: 0; }
+    .tarjeta-pie {
+      margin-top: 1.4rem;
+      padding-top: 1rem;
+      border-top: 1px solid #ece9e0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .fuente-nombre {
+      color: #7a7a7a;
+      font-size: 0.88rem;
+      font-family: sans-serif;
+    }
+    .enlace-fuente {
+      background: #c0392b;
+      color: white;
+      padding: 0.4rem 1rem;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      font-family: sans-serif;
+      transition: background 0.2s;
+    }
+    .enlace-fuente:hover { background: #922b21; text-decoration: none; }
+
+    /* ── Pie de página ── */
+    .pie {
+      background: #1a1a1a;
+      color: #aaa;
+      padding: 2.5rem 1.5rem;
+      margin-top: 2rem;
+    }
+    .pie-contenido { max-width: 780px; margin: 0 auto; }
+    .pie h3 { color: #ddd; font-size: 0.95rem; margin-bottom: 1rem; font-family: sans-serif; }
+    .pie ul { list-style: none; font-size: 0.82rem; column-count: 2; column-gap: 2rem; }
+    .pie ul li { margin-bottom: 0.5rem; }
+    .pie ul a { color: #888; }
+    .pie ul a:hover { color: #ccc; }
+    .pie-creditos {
+      margin-top: 1.5rem;
+      padding-top: 1.2rem;
+      border-top: 1px solid #333;
+      font-size: 0.8rem;
+      text-align: center;
+      color: #666;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 600px) {
+      .logo { font-size: 2rem; }
+      .tarjeta { padding: 1.3rem; }
+      .tarjeta-titulo { font-size: 1.15rem; }
+      .pie ul { column-count: 1; }
+      .tarjeta-pie { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="cabecera">
+  <nav class="cabecera-nav"><a href="../../index.html">← Volver al índice</a></nav>
+  <div class="logo">中国今日 · China Hoy 🇨🇳</div>
+  <div class="logo-sub">Newsletter diaria en español</div>
+  <div class="fecha-edicion">Edición del 25 de octubre de 2026</div>
+</header>
+
+<section class="resumen">
+  <div class="resumen-caja">
+    <h2>📋 Resumen ejecutivo — 10 noticias de hoy</h2>
+    <ul>
+      <li><strong>#1.</strong> China avanza en captura de CO2 industrial con nuevas plantas comerciales</li><li><strong>#2.</strong> Alibaba y Tencent invierten masivamente en startups de IA generativa china</li><li><strong>#3.</strong> Reforma educativa: China expande programas de formación profesional en provincias rurales</li><li><strong>#4.</strong> BYD consolida liderazgo en vehículos eléctricos, logrando 50% de cuota de mercado doméstica</li><li><strong>#5.</strong> Festival de Cine de Shanghai 2026 destaca producciones sobre identidad regional</li><li><strong>#6.</strong> China abre acceso a vacunas ARNm para enfermedades tropicales en países aliados</li><li><strong>#7.</strong> Shenzhen implementa regulaciones pioneras sobre privacidad en datos de IA</li><li><strong>#8.</strong> Restructuración de reforma tributaria local favorece industrias sostenibles y emprendimiento juvenil</li><li><strong>#9.</strong> Universidades chinas amplían colaboraciones en investigación de fusión nuclear con institutos globales</li><li><strong>#10.</strong> Comercio electrónico rural chino crece 35% anual, integrando servicios financieros locales</li>
+    </ul>
+  </div>
+</section>
+
+<main class="contenido">
+  
+        <article class="tarjeta" id="noticia-1">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🔬 Ciencia</span>
+            <span class="numero-noticia">#1</span>
+          </div>
+          <h2 class="tarjeta-titulo">China avanza en captura de CO2 industrial con nuevas plantas comerciales</h2>
+          <div class="tarjeta-comentario">
+            <p>China ha inaugurado varias plantas comerciales de captura directa de carbono en 2026, posicionándose como líder global en esta tecnología ambiental crítica. Estos proyectos, financiados tanto por empresas como por inversión estatal, demuestran el compromiso real del país con la neutralidad de carbono para 2060. La captura industrial de CO2 representa un complemento importante a las energías renovables, especialmente para sectores difíciles de descarbonizar como la cimentería y la siderurgia. Esta tendencia refleja cómo China está integrando la transición energética en su estrategia económica, combinando política ambiental con oportunidades de negocio.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Caixin Global</span>
+            <a href="https://www.caixinglobal.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-2">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💻 Tecnología</span>
+            <span class="numero-noticia">#2</span>
+          </div>
+          <h2 class="tarjeta-titulo">Alibaba y Tencent invierten masivamente en startups de IA generativa china</h2>
+          <div class="tarjeta-comentario">
+            <p>Las dos mayores plataformas tecnológicas chinas han anunciado rondas de inversión significativas en startups especializadas en modelos de lenguaje y IA generativa durante el cuarto trimestre de 2026. Estos movimientos buscan fortalecer el ecosistema de IA chinajustamente cuando la competencia con empresas occidentales se intensifica en creatividad y capacidades multimodales. La estrategia refleja el reconocimiento de que la innovación en IA requiere un acercamiento descentralizado, no solo dependencia de los gigantes. Esto ilustra cómo el mercado tecnológico chino está madurando hacia un modelo más complejo, donde el capital de riesgo y la innovación distribuida juegan roles tan importantes como la inversión corporativa masiva.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 TechNode</span>
+            <a href="https://www.technode.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-3">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">👥 Sociedad</span>
+            <span class="numero-noticia">#3</span>
+          </div>
+          <h2 class="tarjeta-titulo">Reforma educativa: China expande programas de formación profesional en provincias rurales</h2>
+          <div class="tarjeta-comentario">
+            <p>El gobierno central ha lanzado una iniciativa integral para establecer centros de formación profesional de calidad en regiones rurales y menos desarrolladas, buscando reducir la brecha de habilidades entre ciudades y campo. El programa incluye financiamiento directo, capacitación de instructores y conexiones con empleadores locales para asegurar empleabilidad inmediata de los graduados. Esta política refleja una prioridad reformulada: preparar la fuerza laboral rural para transiciones económicas sin depender únicamente de la migración rural-urbana. El enfoque es particularmente relevante dado el envejecimiento demográfico de China y la necesidad de optimizar el capital humano disponible en todas las regiones.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Sixth Tone</span>
+            <a href="https://www.sixthtone.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-4">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💼 Empresas</span>
+            <span class="numero-noticia">#4</span>
+          </div>
+          <h2 class="tarjeta-titulo">BYD consolida liderazgo en vehículos eléctricos, logrando 50% de cuota de mercado doméstica</h2>
+          <div class="tarjeta-comentario">
+            <p>BYD ha alcanzado un hito histórico controlando la mitad del mercado chino de vehículos eléctricos en octubre de 2026, consolidando su posición como fabricante automotriz más grande del mundo por volumen de EV. El éxito de la empresa combina ventajas en producción de baterías integradas, estrategia de precios competitiva y una amplia gama de modelos que cubren todos los segmentos de mercado. Este logro subraya cómo la industria automotriz china ha pasado de ser imitadora a innovadora, estableciendo estándares globales en electrificación. La dominancia de BYD también plantea preguntas interesantes sobre competencia interna y consolidación del sector en años venideros.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Caixin Global</span>
+            <a href="https://www.caixinglobal.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-5">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🎭 Cultura</span>
+            <span class="numero-noticia">#5</span>
+          </div>
+          <h2 class="tarjeta-titulo">Festival de Cine de Shanghai 2026 destaca producciones sobre identidad regional</h2>
+          <div class="tarjeta-comentario">
+            <p>El festival de este año ha puesto particular énfasis en largometrajes que exploran identidades regionales, narrativas comunitarias y patrimonio cultural local de diferentes provincias chinas. La selección refleja una evolución en la cinematografía china, donde las historias de alcance nacional conviven con perspectivas regionales más matizadas y específicamente enraizadas. Estos estrenos muestran cómo directores chinos están ganando confianza para abordar temas de diversidad cultural y particularismo regional dentro del marco nacional. La tendencia sugiere un diálogo más rico en la industria cultural china, donde la globalización coexiste con una revaloración del patrimonio local.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Sixth Tone</span>
+            <a href="https://www.sixthtone.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-6">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🔬 Ciencia</span>
+            <span class="numero-noticia">#6</span>
+          </div>
+          <h2 class="tarjeta-titulo">China abre acceso a vacunas ARNm para enfermedades tropicales en países aliados</h2>
+          <div class="tarjeta-comentario">
+            <p>China ha iniciado un programa de transferencia tecnológica para producción local de vacunas de ARN mensajero dirigidas a enfermedades tropicales, accesible a manufactureros en países asociados a través de las Iniciativa de la Franja y la Ruta. Esta estrategia complementa los esfuerzos de diplomacia de vacunas chinas, pero enfatiza ahora la capacidad tecnológica y la independencia de suministro de los países receptores. El enfoque refleja una madurez institucional en cómo China maneja la cooperación científica internacional, moviéndose más allá de donaciones hacia asociaciones que fortalecen capacidades endógenas. Es un ejemplo concreto de soft power basado en conocimiento tecnológico compartido, no solo distribución de productos.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 China Daily</span>
+            <a href="https://www.chinadaily.com.cn" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-7">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💻 Tecnología</span>
+            <span class="numero-noticia">#7</span>
+          </div>
+          <h2 class="tarjeta-titulo">Shenzhen implementa regulaciones pioneras sobre privacidad en datos de IA</h2>
+          <div class="tarjeta-comentario">
+            <p>La ciudad de Shenzhen ha aprobado regulaciones específicas que requieren transparencia en el uso de datos personales para entrenar modelos de IA, convirtiéndose en una jurisdicción modelo para gobernanza de IA en China. Las nuevas normas establecen derechos de consentimiento informado, auditoría de sesgos algorítmicos y responsabilidad clara de las empresas por discriminación automatizada. Este movimiento por parte de una ciudad clave con influencia regulatoria demuestra que el debate sobre IA responsable está madurando en China más allá de simples restricciones de contenido. Shenzhen como laboratorio de regulación innovadora sugiere que estas normas podrían convertirse en estándares nacionales en los próximos años.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 TechNode</span>
+            <a href="https://www.technode.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-8">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💼 Empresas</span>
+            <span class="numero-noticia">#8</span>
+          </div>
+          <h2 class="tarjeta-titulo">Restructuración de reforma tributaria local favorece industrias sostenibles y emprendimiento juvenil</h2>
+          <div class="tarjeta-comentario">
+            <p>El gobierno ha implementado ajustes en el sistema tributario local que ofrecen incentivos específicos para empresas jóvenes en sectores de economía circular y tecnologías limpias, mientras mantiene presión fiscal sobre industrias intensivas en carbono. Los cambios buscan reorientar la inversión empresarial hacia sectores alineados con objetivos de transición energética sin depender solo de regulación coercitiva. Esta aproximación sofisticada a la política fiscal muestra cómo China está usando herramientas económicas para guiar comportamiento empresarial hacia fines de política nacional. La estrategia es particularmente relevante porque incentiva innovación empresarial genuina en lugar de simple cumplimiento regulatorio.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Caixin Global</span>
+            <a href="https://www.caixinglobal.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-9">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🔬 Ciencia</span>
+            <span class="numero-noticia">#9</span>
+          </div>
+          <h2 class="tarjeta-titulo">Universidades chinas amplían colaboraciones en investigación de fusión nuclear con institutos globales</h2>
+          <div class="tarjeta-comentario">
+            <p>Instituciones chinas de investigación han expandido asociaciones con laboratorios europeos y estadounidenses en proyectos de fusión nuclear controlada, con énfasis en plasma confinado magnéticamente y reacciones de deuterio-tritio. Esta cooperación internacional es notable porque anteriormente fue limitada por consideraciones geopolíticas, pero ahora refleja reconocimiento mutuo de que la fusión requiere esfuerzo científico colaborativo de escala mundial. Los proyectos conjuntos incluyen intercambio de investigadores y acceso a instalaciones de prueba avanzadas. La tendencia subraya que en ciencia fundamental, la competencia geopolítica coexiste con interdependencia científica genuina.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Xinhua News Agency</span>
+            <a href="https://www.xinhuanet.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-10">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">👥 Sociedad</span>
+            <span class="numero-noticia">#10</span>
+          </div>
+          <h2 class="tarjeta-titulo">Comercio electrónico rural chino crece 35% anual, integrando servicios financieros locales</h2>
+          <div class="tarjeta-comentario">
+            <p>El comercio electrónico en zonas rurales chinas ha alcanzado un nuevo hito de crecimiento anual del 35%, impulsado por plataformas locales que integran servicios de pago, microcrédito y logística específicamente diseñados para economías rurales. Las iniciativas van más allá de permitir que granjeros vendan productos en línea, incluyendo financiamiento para mejoras agrícolas y servicios de asesoramiento digital. Este fenómeno ilustra cómo la digitalización está transformando estructuras económicas rurales de formas más profundas que la simple venta en línea de productos. La integración de servicios financieros locales con comercio electrónico demuestra inclusión económica real, no solo acceso a mercados más grandes.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Pandaily</span>
+            <a href="https://www.pandaily.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+</main>
+
+<footer class="pie">
+  <div class="pie-contenido">
+    <h3>Fuentes consultadas en esta edición</h3>
+    <ul>
+      <li><a href="https://www.caixinglobal.com" target="_blank" rel="noopener">Caixin Global — China avanza en captura de CO2 industrial con nuevas plantas comerciales</a></li><li><a href="https://www.technode.com" target="_blank" rel="noopener">TechNode — Alibaba y Tencent invierten masivamente en startups de IA generativa china</a></li><li><a href="https://www.sixthtone.com" target="_blank" rel="noopener">Sixth Tone — Reforma educativa: China expande programas de formación profesional en provincias rurales</a></li><li><a href="https://www.caixinglobal.com" target="_blank" rel="noopener">Caixin Global — BYD consolida liderazgo en vehículos eléctricos, logrando 50% de cuota de mercado doméstica</a></li><li><a href="https://www.sixthtone.com" target="_blank" rel="noopener">Sixth Tone — Festival de Cine de Shanghai 2026 destaca producciones sobre identidad regional</a></li><li><a href="https://www.chinadaily.com.cn" target="_blank" rel="noopener">China Daily — China abre acceso a vacunas ARNm para enfermedades tropicales en países aliados</a></li><li><a href="https://www.technode.com" target="_blank" rel="noopener">TechNode — Shenzhen implementa regulaciones pioneras sobre privacidad en datos de IA</a></li><li><a href="https://www.caixinglobal.com" target="_blank" rel="noopener">Caixin Global — Restructuración de reforma tributaria local favorece industrias sostenibles y emprendimiento juvenil</a></li><li><a href="https://www.xinhuanet.com" target="_blank" rel="noopener">Xinhua News Agency — Universidades chinas amplían colaboraciones en investigación de fusión nuclear con institutos globales</a></li><li><a href="https://www.pandaily.com" target="_blank" rel="noopener">Pandaily — Comercio electrónico rural chino crece 35% anual, integrando servicios financieros locales</a></li>
+    </ul>
+    <div class="pie-creditos">
+      China Hoy · Edición 2026-10-25 · Generado automáticamente con IA ·
+      Las opiniones expresadas son editoriales y no representan posiciones oficiales.
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
