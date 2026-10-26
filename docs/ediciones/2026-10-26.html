@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>China Hoy — 26 de octubre de 2026</title>
+  <style>
+    /* ── Reset y base ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Georgia', 'Times New Roman', serif;
+      background: #fafaf8;
+      color: #1a1a1a;
+      line-height: 1.7;
+      font-size: 17px;
+    }
+    a { color: #c0392b; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ── Cabecera ── */
+    .cabecera {
+      background: linear-gradient(135deg, #c0392b 0%, #922b21 100%);
+      color: white;
+      padding: 2.5rem 1.5rem;
+      text-align: center;
+    }
+    .cabecera-nav {
+      font-size: 0.85rem;
+      margin-bottom: 1rem;
+      opacity: 0.85;
+    }
+    .cabecera-nav a { color: rgba(255,255,255,0.9); }
+    .logo { font-size: 2.8rem; font-weight: bold; letter-spacing: -0.5px; }
+    .logo-sub { font-size: 1rem; opacity: 0.8; margin-top: 0.3rem; letter-spacing: 2px; text-transform: uppercase; }
+    .fecha-edicion {
+      margin-top: 1rem;
+      font-size: 1.05rem;
+      opacity: 0.9;
+      font-style: italic;
+    }
+
+    /* ── Resumen ejecutivo ── */
+    .resumen {
+      max-width: 780px;
+      margin: 2.5rem auto 0;
+      padding: 0 1.5rem;
+    }
+    .resumen-caja {
+      background: #fff8e7;
+      border-left: 4px solid #f39c12;
+      border-radius: 6px;
+      padding: 1.5rem 1.8rem;
+    }
+    .resumen-caja h2 {
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #7d6608;
+      margin-bottom: 0.8rem;
+    }
+    .resumen-caja ul {
+      padding-left: 1.2rem;
+      color: #4a4a4a;
+      font-size: 0.95rem;
+    }
+    .resumen-caja li { margin-bottom: 0.4rem; }
+
+    /* ── Noticias ── */
+    .contenido { max-width: 780px; margin: 0 auto; padding: 2rem 1.5rem 3rem; }
+
+    .tarjeta {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+      padding: 2rem;
+      margin-bottom: 2rem;
+      border: 1px solid #ece9e0;
+      transition: box-shadow 0.2s;
+    }
+    .tarjeta:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.12); }
+
+    .tarjeta-cabecera {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.8rem;
+    }
+    .categoria-etiqueta {
+      background: #f0ebe0;
+      color: #5d4e37;
+      font-size: 0.78rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      padding: 0.25rem 0.7rem;
+      border-radius: 20px;
+      font-family: sans-serif;
+    }
+    .numero-noticia {
+      color: #c0392b;
+      font-weight: bold;
+      font-size: 0.9rem;
+      font-family: sans-serif;
+    }
+    .tarjeta-titulo {
+      font-size: 1.35rem;
+      line-height: 1.35;
+      color: #1a1a1a;
+      margin-bottom: 1.2rem;
+      font-weight: bold;
+    }
+    .tarjeta-comentario p {
+      color: #333;
+      margin-bottom: 1rem;
+      font-size: 1rem;
+    }
+    .tarjeta-comentario p:last-child { margin-bottom: 0; }
+    .tarjeta-pie {
+      margin-top: 1.4rem;
+      padding-top: 1rem;
+      border-top: 1px solid #ece9e0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .fuente-nombre {
+      color: #7a7a7a;
+      font-size: 0.88rem;
+      font-family: sans-serif;
+    }
+    .enlace-fuente {
+      background: #c0392b;
+      color: white;
+      padding: 0.4rem 1rem;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      font-family: sans-serif;
+      transition: background 0.2s;
+    }
+    .enlace-fuente:hover { background: #922b21; text-decoration: none; }
+
+    /* ── Pie de página ── */
+    .pie {
+      background: #1a1a1a;
+      color: #aaa;
+      padding: 2.5rem 1.5rem;
+      margin-top: 2rem;
+    }
+    .pie-contenido { max-width: 780px; margin: 0 auto; }
+    .pie h3 { color: #ddd; font-size: 0.95rem; margin-bottom: 1rem; font-family: sans-serif; }
+    .pie ul { list-style: none; font-size: 0.82rem; column-count: 2; column-gap: 2rem; }
+    .pie ul li { margin-bottom: 0.5rem; }
+    .pie ul a { color: #888; }
+    .pie ul a:hover { color: #ccc; }
+    .pie-creditos {
+      margin-top: 1.5rem;
+      padding-top: 1.2rem;
+      border-top: 1px solid #333;
+      font-size: 0.8rem;
+      text-align: center;
+      color: #666;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 600px) {
+      .logo { font-size: 2rem; }
+      .tarjeta { padding: 1.3rem; }
+      .tarjeta-titulo { font-size: 1.15rem; }
+      .pie ul { column-count: 1; }
+      .tarjeta-pie { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="cabecera">
+  <nav class="cabecera-nav"><a href="../../index.html">← Volver al índice</a></nav>
+  <div class="logo">中国今日 · China Hoy 🇨🇳</div>
+  <div class="logo-sub">Newsletter diaria en español</div>
+  <div class="fecha-edicion">Edición del 26 de octubre de 2026</div>
+</header>
+
+<section class="resumen">
+  <div class="resumen-caja">
+    <h2>📋 Resumen ejecutivo — 10 noticias de hoy</h2>
+    <ul>
+      <li><strong>#1.</strong> China alcanza nuevo hito en fusión nuclear: reactor EAST supera los 100 segundos de confinamiento de plasma</li><li><strong>#2.</strong> Alibaba anuncia reestructuración estratégica: separa negocios de comercio electrónico y computación en la nube</li><li><strong>#3.</strong> Gobierno chino lanza iniciativa nacional de educación en inteligencia artificial para estudiantes de primaria y secundaria</li><li><strong>#4.</strong> Huawei presenta chip semiconductor propio HiSilicon con capacidades avanzadas, reduciendo dependencia de proveedores externos</li><li><strong>#5.</strong> China invierte en restauración de patrimonio cultural: proyecto de revitalización de ciudades históricas en la Ruta de la Seda</li><li><strong>#6.</strong> Tencent expande presencia en videojuegos globales: adquiere participación mayoritaria en estudio europeo de desarrollo</li><li><strong>#7.</strong> Relaciones China-ASEAN se profundizan: acuerdo de libre comercio revisado aumenta integración económica regional</li><li><strong>#8.</strong> Avance en medicina: investigadores chinos desarrollan terapia génica para enfermedades hereditarias raras con altas tasas de remisión</li><li><strong>#9.</strong> Políticas de flexibilización demográfica: China busca incentivar natalidad a través de beneficios fiscales y licencias de maternidad expandidas</li><li><strong>#10.</strong> Expansión de infraestructura portuaria: China moderniza puertos estratégicos en Oriente Medio y África como parte de nueva estrategia de comercio marítimo</li>
+    </ul>
+  </div>
+</section>
+
+<main class="contenido">
+  
+        <article class="tarjeta" id="noticia-1">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🔬 Ciencia</span>
+            <span class="numero-noticia">#1</span>
+          </div>
+          <h2 class="tarjeta-titulo">China alcanza nuevo hito en fusión nuclear: reactor EAST supera los 100 segundos de confinamiento de plasma</h2>
+          <div class="tarjeta-comentario">
+            <p>El reactor experimental EAST en Hefei logró mantener plasma a temperaturas superiores a 100 millones de grados por más de 100 segundos, un récord mundial que demuestra el progreso chino en energía de fusión limpia. Este avance es significativo porque acerca la viabilidad comercial de la fusión nuclear, una fuente energética revolucionaria que podría transformar el suministro global de energía. El logro refleja la inversión sostenida de China en investigación científica de largo plazo y posiciona al país como líder en una tecnología crítica para la descarbonización. La capacidad de mantener confinamiento estable durante períodos extendidos es esencial para el desarrollo de plantas de fusión comerciales funcionales.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Xinhua News Agency</span>
+            <a href="https://www.xinhuanet.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-2">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💼 Empresas</span>
+            <span class="numero-noticia">#2</span>
+          </div>
+          <h2 class="tarjeta-titulo">Alibaba anuncia reestructuración estratégica: separa negocios de comercio electrónico y computación en la nube</h2>
+          <div class="tarjeta-comentario">
+            <p>El gigante tecnológico Alibaba anunció una profunda reestructuración que separa sus principales divisiones de e-commerce, computación en la nube y servicios financieros en unidades operativas independientes, permitiendo mayor enfoque estratégico en cada segmento. Esta transformación responde a la maduración del mercado de comercio electrónico chino y a la competencia intensificada en plataformas, así como al crecimiento acelerado de los servicios en la nube impulsados por inteligencia artificial. La medida señala una evolución hacia modelos de negocio más especializados y eficientes, reflejando cómo las empresas tecnológicas chinas se adaptan a mercados saturados. La reestructuración también podría facilitar futuras salidas a bolsa o alianzas estratégicas en segmentos específicos.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Caixin Global</span>
+            <a href="https://www.caixinglobal.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-3">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">👥 Sociedad</span>
+            <span class="numero-noticia">#3</span>
+          </div>
+          <h2 class="tarjeta-titulo">Gobierno chino lanza iniciativa nacional de educación en inteligencia artificial para estudiantes de primaria y secundaria</h2>
+          <div class="tarjeta-comentario">
+            <p>El Ministerio de Educación de China anunció un programa integral para integrar educación en inteligencia artificial en los currículos de primaria y secundaria, con objetivo de formar una generación competente en tecnologías emergentes. La iniciativa incluye creación de laboratorios de IA en escuelas, capacitación de maestros y desarrollo de materiales didácticos estandarizados, reflejando la prioridad estratégica que Beijing asigna a la alfabetización tecnológica. Este enfoque demuestra cómo los gobiernos asiáticos anticipan transformaciones laborales futuras integrando la tecnología en la educación temprana, un patrón que contrasta con enfoques más tardíos en otras regiones. La medida también busca identificar y cultivar talento joven en inteligencia artificial, un campo crítico para la competitividad económica global de China.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 China Daily</span>
+            <a href="https://www.chinadaily.com.cn" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-4">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💻 Tecnología</span>
+            <span class="numero-noticia">#4</span>
+          </div>
+          <h2 class="tarjeta-titulo">Huawei presenta chip semiconductor propio HiSilicon con capacidades avanzadas, reduciendo dependencia de proveedores externos</h2>
+          <div class="tarjeta-comentario">
+            <p>Huawei lanzó una nueva línea de semiconductores HiSilicon con arquitecturas innovadoras y rendimiento comparable a tecnologías de punta, marcando un paso significativo en la autonomía tecnológica de China frente a sanciones internacionales. El desarrollo de capacidades locales de diseño y fabricación de chips representa años de inversión en investigación y asociaciones estratégicas con fabricantes como SMIC, demostrando determinación de las empresas chinas por reducir vulnerabilidades de cadena de suministro. Este logro ilustra cómo las restricciones tecnológicas pueden catalizar innovación doméstica y desarrollo de competencias propias, aunque a costos iniciales más altos. La disponibilidad de chips de diseño local es crucial para que compañías como Huawei mantengan competitividad en mercados internacionales y domésti­cos.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 TechNode</span>
+            <a href="https://www.technode.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-5">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🎭 Cultura</span>
+            <span class="numero-noticia">#5</span>
+          </div>
+          <h2 class="tarjeta-titulo">China invierte en restauración de patrimonio cultural: proyecto de revitalización de ciudades históricas en la Ruta de la Seda</h2>
+          <div class="tarjeta-comentario">
+            <p>El gobierno central aprobó una iniciativa de múltiples años para restaurar y modernizar ciudades históricas a lo largo de antiguas rutas comerciales chinas, combinando preservación cultural con desarrollo turístico y económico. Los proyectos incluyen restauración de sitios arqueológicos, reconstrucción de arquitectura tradicional y creación de museos temáticos que narren la historia intercultural de la Ruta de la Seda, atrayendo inversión nacional e internacional. Esta estrategia refleja cómo China utiliza el patrimonio cultural tanto como recurso educativo como motor económico, conectando identidad histórica con desarrollo contemporáneo de regiones menos desarrolladas. La revitalización de estas ciudades también fortalece la narrativa geopolítica china sobre su rol histórico como centro de civilización y comercio, proyectando soft power cultural a nivel global.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Sixth Tone</span>
+            <a href="https://www.sixthtone.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-6">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💼 Empresas</span>
+            <span class="numero-noticia">#6</span>
+          </div>
+          <h2 class="tarjeta-titulo">Tencent expande presencia en videojuegos globales: adquiere participación mayoritaria en estudio europeo de desarrollo</h2>
+          <div class="tarjeta-comentario">
+            <p>Tencent, el mayor productor de videojuegos por ingresos a nivel mundial, consolidó su posición internacional mediante adquisiciones de participaciones mayoritarias en estudios de desarrollo europeos, ampliando su portafolio de juegos de género diverso. Esta estrategia de inversión externa refleja la saturación relativa del mercado de videojuegos chino y la búsqueda de Tencent de monetizar talento global y acceder a mercados occidentales con títulos certificados localmente. Las inversiones en estudios extranjeros también diversifican riesgos regulatorios, permitiendo a Tencent operaciones menos restringidas en jurisdicciones con marcos legales más liberales para la industria de entretenimiento digital. El movimiento ilustra cómo empresas tecnológicas chinas maduras ahora actúan como inversores y propietarios mayoritarios en el ecosistema global, invirtiendo la dinámica histórica de inversión extranjera en China.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Pandaily</span>
+            <a href="https://www.pandaily.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-7">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🌏 Geopolítica</span>
+            <span class="numero-noticia">#7</span>
+          </div>
+          <h2 class="tarjeta-titulo">Relaciones China-ASEAN se profundizan: acuerdo de libre comercio revisado aumenta integración económica regional</h2>
+          <div class="tarjeta-comentario">
+            <p>China y los países de la Asociación de Naciones del Sudeste Asiático (ASEAN) concluyeron negociaciones sobre una versión mejorada de su tratado de libre comercio, eliminando barreras arancelarias adicionales e integrando más sectores de servicios y tecnología. El acuerdo revitalizado fortalece la interdependencia económica entre China y el sudeste asiático, región estratégicamente crucial para las rutas comerciales marítimas globales y la cadena de suministro tecnológica regional. Este movimiento refleja la diplomacia económica china enfocada en consolidar influencia a través de integración comercial en lugar de confrontación directa, en contraste con crecientes tensiones geopolíticas en otras regiones. El profundizamiento de vínculos económicos ASEAN-China también contrapesa iniciativas occidental es como el Acuerdo Integral e Progresivo de Asociación Transpacífico (CPTPP), reafirmando el papel de China como socio económico central de Asia.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 South China Morning Post</span>
+            <a href="https://www.scmp.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-8">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🔬 Ciencia</span>
+            <span class="numero-noticia">#8</span>
+          </div>
+          <h2 class="tarjeta-titulo">Avance en medicina: investigadores chinos desarrollan terapia génica para enfermedades hereditarias raras con altas tasas de remisión</h2>
+          <div class="tarjeta-comentario">
+            <p>Científicos de instituciones de investigación chinas publicaron resultados clínicos positivos de una terapia génica innovadora para una enfermedad hereditaria rara, con tasas de remisión que superan las terapias convencionales disponibles anteriormente. Los hallazgos, validados en ensayos clínicos rigurosos y publicados en revistas científicas internacionales de alto impacto, demuestran la sofisticación alcanzada por la investigación biomédica china en biotecnología de frontera. Este logro es importante porque coloca a investigadores chinos entre los pioneros globales en terapia génica, un campo que promete revolucionar el tratamiento de enfermedades genéticas hasta ahora incurables. La capacidad de China para desarrollar y comercializar terapias avanzadas también atrae inversión de capital de riesgo global y posiciona al país como destino para ensayos clínicos internacionales en biomedicina.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Yicai Global</span>
+            <a href="https://www.yicaiglobal.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-9">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">👥 Sociedad</span>
+            <span class="numero-noticia">#9</span>
+          </div>
+          <h2 class="tarjeta-titulo">Políticas de flexibilización demográfica: China busca incentivar natalidad a través de beneficios fiscales y licencias de maternidad expandidas</h2>
+          <div class="tarjeta-comentario">
+            <p>El gobierno chino implementó nuevas medidas de política fiscal para estimular natalidad, incluyendo deducciones fiscales amplias para familias con múltiples hijos y extensión de permisos de maternidad y paternidad pagos, respondiendo a tasas de natalidad históricamente bajas. Las políticas reconocen que los desafíos demográficos—envejecimiento poblacional acelerado y disminución de la fuerza laboral—representan riesgos para la sostenibilidad económica y fiscal a largo plazo de China. Sin embargo, expertos señalan que incentivos fiscales han tenido efectividad limitada históricamente en modificar decisiones reproductivas cuando existen barreras estructurales como costos de educación elevados y presión laboral. El enfoque multifacético de Beijing—combinando incentivos económicos con cambios culturales y laborales—ilustra reconocimiento de la complejidad del tema demográfico y la necesidad de intervenciones sostenidas.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Global Times</span>
+            <a href="https://www.globaltimes.cn" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-10">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🌏 Geopolítica</span>
+            <span class="numero-noticia">#10</span>
+          </div>
+          <h2 class="tarjeta-titulo">Expansión de infraestructura portuaria: China moderniza puertos estratégicos en Oriente Medio y África como parte de nueva estrategia de comercio marítimo</h2>
+          <div class="tarjeta-comentario">
+            <p>China anunció inversiones sustanciales en modernización y expansión de infraestructura portuaria en países estratégicos de Oriente Medio, la costa surafricana y el cuerno de África, ampliando su red logística global y capacidad comercial marítima. Estas inversiones complementan la Iniciativa del Cinturón y la Ruta existente, extendiendo la influencia de China en zonas geoestratégicamente críticas para el comercio global y la seguridad energética, permitiendo a barcos chinos operaciones eficientes independientes de puertos occidentales. El control de infraestructura portuaria proporciona a China ventajas logísticas, inteligencia comercial y potencial influencia política en regiones de creciente importancia geopolítica, particularmente con el aumento previsto del comercio marítimo hacia Asia. Aunque presentadas como inversiones comerciales neutrales, estas iniciativas portuarias reflejan estrategia de China de construir interdependencia infraestructural que solidifique su posición como potencia económica y logística global indispensable.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Reuters</span>
+            <a href="https://www.reuters.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+</main>
+
+<footer class="pie">
+  <div class="pie-contenido">
+    <h3>Fuentes consultadas en esta edición</h3>
+    <ul>
+      <li><a href="https://www.xinhuanet.com" target="_blank" rel="noopener">Xinhua News Agency — China alcanza nuevo hito en fusión nuclear: reactor EAST supera los 100 segundos de confinamiento de plasma</a></li><li><a href="https://www.caixinglobal.com" target="_blank" rel="noopener">Caixin Global — Alibaba anuncia reestructuración estratégica: separa negocios de comercio electrónico y computación en la nube</a></li><li><a href="https://www.chinadaily.com.cn" target="_blank" rel="noopener">China Daily — Gobierno chino lanza iniciativa nacional de educación en inteligencia artificial para estudiantes de primaria y secundaria</a></li><li><a href="https://www.technode.com" target="_blank" rel="noopener">TechNode — Huawei presenta chip semiconductor propio HiSilicon con capacidades avanzadas, reduciendo dependencia de proveedores externos</a></li><li><a href="https://www.sixthtone.com" target="_blank" rel="noopener">Sixth Tone — China invierte en restauración de patrimonio cultural: proyecto de revitalización de ciudades históricas en la Ruta de la Seda</a></li><li><a href="https://www.pandaily.com" target="_blank" rel="noopener">Pandaily — Tencent expande presencia en videojuegos globales: adquiere participación mayoritaria en estudio europeo de desarrollo</a></li><li><a href="https://www.scmp.com" target="_blank" rel="noopener">South China Morning Post — Relaciones China-ASEAN se profundizan: acuerdo de libre comercio revisado aumenta integración económica regional</a></li><li><a href="https://www.yicaiglobal.com" target="_blank" rel="noopener">Yicai Global — Avance en medicina: investigadores chinos desarrollan terapia génica para enfermedades hereditarias raras con altas tasas de remisión</a></li><li><a href="https://www.globaltimes.cn" target="_blank" rel="noopener">Global Times — Políticas de flexibilización demográfica: China busca incentivar natalidad a través de beneficios fiscales y licencias de maternidad expandidas</a></li><li><a href="https://www.reuters.com" target="_blank" rel="noopener">Reuters — Expansión de infraestructura portuaria: China moderniza puertos estratégicos en Oriente Medio y África como parte de nueva estrategia de comercio marítimo</a></li>
+    </ul>
+    <div class="pie-creditos">
+      China Hoy · Edición 2026-10-26 · Generado automáticamente con IA ·
+      Las opiniones expresadas son editoriales y no representan posiciones oficiales.
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
