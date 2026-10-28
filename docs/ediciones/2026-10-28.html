@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>China Hoy — 28 de octubre de 2026</title>
+  <style>
+    /* ── Reset y base ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Georgia', 'Times New Roman', serif;
+      background: #fafaf8;
+      color: #1a1a1a;
+      line-height: 1.7;
+      font-size: 17px;
+    }
+    a { color: #c0392b; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ── Cabecera ── */
+    .cabecera {
+      background: linear-gradient(135deg, #c0392b 0%, #922b21 100%);
+      color: white;
+      padding: 2.5rem 1.5rem;
+      text-align: center;
+    }
+    .cabecera-nav {
+      font-size: 0.85rem;
+      margin-bottom: 1rem;
+      opacity: 0.85;
+    }
+    .cabecera-nav a { color: rgba(255,255,255,0.9); }
+    .logo { font-size: 2.8rem; font-weight: bold; letter-spacing: -0.5px; }
+    .logo-sub { font-size: 1rem; opacity: 0.8; margin-top: 0.3rem; letter-spacing: 2px; text-transform: uppercase; }
+    .fecha-edicion {
+      margin-top: 1rem;
+      font-size: 1.05rem;
+      opacity: 0.9;
+      font-style: italic;
+    }
+
+    /* ── Resumen ejecutivo ── */
+    .resumen {
+      max-width: 780px;
+      margin: 2.5rem auto 0;
+      padding: 0 1.5rem;
+    }
+    .resumen-caja {
+      background: #fff8e7;
+      border-left: 4px solid #f39c12;
+      border-radius: 6px;
+      padding: 1.5rem 1.8rem;
+    }
+    .resumen-caja h2 {
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #7d6608;
+      margin-bottom: 0.8rem;
+    }
+    .resumen-caja ul {
+      padding-left: 1.2rem;
+      color: #4a4a4a;
+      font-size: 0.95rem;
+    }
+    .resumen-caja li { margin-bottom: 0.4rem; }
+
+    /* ── Noticias ── */
+    .contenido { max-width: 780px; margin: 0 auto; padding: 2rem 1.5rem 3rem; }
+
+    .tarjeta {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+      padding: 2rem;
+      margin-bottom: 2rem;
+      border: 1px solid #ece9e0;
+      transition: box-shadow 0.2s;
+    }
+    .tarjeta:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.12); }
+
+    .tarjeta-cabecera {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.8rem;
+    }
+    .categoria-etiqueta {
+      background: #f0ebe0;
+      color: #5d4e37;
+      font-size: 0.78rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      padding: 0.25rem 0.7rem;
+      border-radius: 20px;
+      font-family: sans-serif;
+    }
+    .numero-noticia {
+      color: #c0392b;
+      font-weight: bold;
+      font-size: 0.9rem;
+      font-family: sans-serif;
+    }
+    .tarjeta-titulo {
+      font-size: 1.35rem;
+      line-height: 1.35;
+      color: #1a1a1a;
+      margin-bottom: 1.2rem;
+      font-weight: bold;
+    }
+    .tarjeta-comentario p {
+      color: #333;
+      margin-bottom: 1rem;
+      font-size: 1rem;
+    }
+    .tarjeta-comentario p:last-child { margin-bottom: 0; }
+    .tarjeta-pie {
+      margin-top: 1.4rem;
+      padding-top: 1rem;
+      border-top: 1px solid #ece9e0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .fuente-nombre {
+      color: #7a7a7a;
+      font-size: 0.88rem;
+      font-family: sans-serif;
+    }
+    .enlace-fuente {
+      background: #c0392b;
+      color: white;
+      padding: 0.4rem 1rem;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      font-family: sans-serif;
+      transition: background 0.2s;
+    }
+    .enlace-fuente:hover { background: #922b21; text-decoration: none; }
+
+    /* ── Pie de página ── */
+    .pie {
+      background: #1a1a1a;
+      color: #aaa;
+      padding: 2.5rem 1.5rem;
+      margin-top: 2rem;
+    }
+    .pie-contenido { max-width: 780px; margin: 0 auto; }
+    .pie h3 { color: #ddd; font-size: 0.95rem; margin-bottom: 1rem; font-family: sans-serif; }
+    .pie ul { list-style: none; font-size: 0.82rem; column-count: 2; column-gap: 2rem; }
+    .pie ul li { margin-bottom: 0.5rem; }
+    .pie ul a { color: #888; }
+    .pie ul a:hover { color: #ccc; }
+    .pie-creditos {
+      margin-top: 1.5rem;
+      padding-top: 1.2rem;
+      border-top: 1px solid #333;
+      font-size: 0.8rem;
+      text-align: center;
+      color: #666;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 600px) {
+      .logo { font-size: 2rem; }
+      .tarjeta { padding: 1.3rem; }
+      .tarjeta-titulo { font-size: 1.15rem; }
+      .pie ul { column-count: 1; }
+      .tarjeta-pie { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="cabecera">
+  <nav class="cabecera-nav"><a href="../../index.html">← Volver al índice</a></nav>
+  <div class="logo">中国今日 · China Hoy 🇨🇳</div>
+  <div class="logo-sub">Newsletter diaria en español</div>
+  <div class="fecha-edicion">Edición del 28 de octubre de 2026</div>
+</header>
+
+<section class="resumen">
+  <div class="resumen-caja">
+    <h2>📋 Resumen ejecutivo — 10 noticias de hoy</h2>
+    <ul>
+      <li><strong>#1.</strong> China acelera inversión en energías renovables para alcanzar objetivo de neutralidad de carbono</li><li><strong>#2.</strong> Alibaba y Tencent expanden servicios de computación en la nube enfocados en IA generativa</li><li><strong>#3.</strong> Pekín implementa nuevo sistema de crédito social para influencers y creadores de contenido</li><li><strong>#4.</strong> Exposición de arte contemporáneo chino bate récords de asistencia en Pekín</li><li><strong>#5.</strong> Empresas chinas lideran desarrollo de baterías de estado sólido con tecnología revolucionaria</li><li><strong>#6.</strong> Reforma educativa enfatiza educación vocacional como alternativa a la universidad tradicional</li><li><strong>#7.</strong> China-India cooperan en investigación agrícola para enfrentar cambios climáticos</li><li><strong>#8.</strong> Startups chinas de biotecnología buscan financiamiento en mercados internacionales</li><li><strong>#9.</strong> Investigación revela impacto positivo de políticas ambientales urbanas en calidad del aire</li><li><strong>#10.</strong> Instituciones financieras chinas integran regulación de IA en operaciones de crédito</li>
+    </ul>
+  </div>
+</section>
+
+<main class="contenido">
+  
+        <article class="tarjeta" id="noticia-1">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🔬 Ciencia</span>
+            <span class="numero-noticia">#1</span>
+          </div>
+          <h2 class="tarjeta-titulo">China acelera inversión en energías renovables para alcanzar objetivo de neutralidad de carbono</h2>
+          <div class="tarjeta-comentario">
+            <p>China ha incrementado significativamente su capacidad de energía solar y eólica en 2026, superando sus objetivos anuales con una inversión de más de 300 mil millones de yuanes en proyectos de energías renovables. Este impulso refleja el compromiso del país con su meta de alcanzar la neutralidad de carbono antes de 2060, una prioridad central en la planificación económica nacional. La aceleración también responde a la creciente demanda energética de los centros de inteligencia artificial y la industria de semiconductores, sectores clave para la competitividad tecnológica. Aunque existen desafíos en la integración de estas energías intermitentes a la red nacional, el progreso demuestra una transformación estructural real en el sector energético chino.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Sixth Tone</span>
+            <a href="https://www.sixthtone.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-2">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💻 Tecnología</span>
+            <span class="numero-noticia">#2</span>
+          </div>
+          <h2 class="tarjeta-titulo">Alibaba y Tencent expanden servicios de computación en la nube enfocados en IA generativa</h2>
+          <div class="tarjeta-comentario">
+            <p>Las dos gigantes tecnológicas chinas han lanzado nuevas plataformas de computación en nube especializadas en inteligencia artificial generativa, con capacidades mejoradas de procesamiento y menores costos operativos para empresas medianas. Esta expansión responde a la creciente demanda local de servicios de IA, que se ha triplicado en el último año según datos de la industria. Ambas compañías buscan consolidar su dominio en el mercado doméstico antes de eventualmente competir en mercados internacionales, aunque enfrentan restricciones regulatorias sobre exportación de tecnología. El movimiento subraya cómo la innovación empresarial china se está adaptando a un entorno regulatorio más estricto, canalizando recursos hacia segmentos específicos.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Caixin Global</span>
+            <a href="https://www.caixinglobal.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-3">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">👥 Sociedad</span>
+            <span class="numero-noticia">#3</span>
+          </div>
+          <h2 class="tarjeta-titulo">Pekín implementa nuevo sistema de crédito social para influencers y creadores de contenido</h2>
+          <div class="tarjeta-comentario">
+            <p>Las autoridades regulatorias chinas han expandido su sistema de crédito social para incluir a creadores de contenido digital, estableciendo criterios para evaluar la responsabilidad social de influencers en redes como Douyin y WeChat. El sistema incentiva la creación de contenido educativo y cívicamente responsable mientras desalienta la desinformación y el comportamiento irresponsable, reflejando la preocupación oficial por la calidad del discurso público en línea. Aunque genera debates sobre libertad de expresión, el sistema también ha demostrado efectividad en reducir estafas y contenido peligroso que circula entre menores. Esta iniciativa ilustra cómo China busca gobernar la economía digital mediante mecanismos de incentivos más sofisticados que la censura tradicional.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 South China Morning Post</span>
+            <a href="https://www.scmp.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-4">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🎭 Cultura</span>
+            <span class="numero-noticia">#4</span>
+          </div>
+          <h2 class="tarjeta-titulo">Exposición de arte contemporáneo chino bate récords de asistencia en Pekín</h2>
+          <div class="tarjeta-comentario">
+            <p>La exposición &quot;Nuevas Narrativas&quot; en el Museo de Arte Contemporáneo de Pekín ha atraído a más de 2 millones de visitantes en tres meses, convirtiéndose en la más concurrida de la última década y reflejando el creciente interés de la sociedad china en el arte contemporáneo. La muestra presenta obras de artistas emergentes que exploran temas de identidad urbana, cambio ambiental y tecnología, temas que resuenan profundamente con la audiencia urbana de clase media. Este fenómeno sugiere un cambio generacional en los hábitos culturales, donde la audiencia joven busca espacios para reflexión crítica y debate sobre la dirección social del país. La exposición también impulsa el comercio de arte chino en galerías internacionales, posicionando a Beijing como un centro cultural emergente de importancia global.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 China Daily</span>
+            <a href="https://www.chinadaily.com.cn" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-5">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💻 Tecnología</span>
+            <span class="numero-noticia">#5</span>
+          </div>
+          <h2 class="tarjeta-titulo">Empresas chinas lideran desarrollo de baterías de estado sólido con tecnología revolucionaria</h2>
+          <div class="tarjeta-comentario">
+            <p>Fabricantes como CATL y BYD han anunciado avances significativos en baterías de estado sólido con densidad energética 40% superior a las tecnologías actuales, con planes de producción comercial en 2027. Este desarrollo es crucial para la industria de vehículos eléctricos, donde la densidad energética determina el rango de conducción y los costos de producción. China ha invertido más de 50 mil millones de yuanes en investigación de baterías durante los últimos tres años, una estrategia deliberada para mantener ventaja competitiva en la cadena de suministro de vehículos eléctricos. El avance refuerza la posición dominante de China en el mercado global de baterías, donde controla aproximadamente el 80% de la producción mundial.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 TechNode</span>
+            <a href="https://www.technode.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-6">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">👥 Sociedad</span>
+            <span class="numero-noticia">#6</span>
+          </div>
+          <h2 class="tarjeta-titulo">Reforma educativa enfatiza educación vocacional como alternativa a la universidad tradicional</h2>
+          <div class="tarjeta-comentario">
+            <p>El gobierno chino ha anunciado una reforma educativa integral que promueve la educación vocacional y técnica como caminos igualmente valorados al sistema universitario tradicional, asignando recursos presupuestarios adicionales para instituciones de formación profesional. Esta iniciativa responde a una realidad económica: existe una demanda creciente de técnicos especializados en electrónica, manufactura avanzada y servicios digitales, mientras que el mercado laboral se satura de graduados universitarios. La reforma busca cambiar la percepción cultural que históricamente ha considerado superior la educación universitaria, un cambio cultural que requiere tiempo pero es esencial para la transformación económica. El movimiento también se alinea con objetivos de aliviar presión en el sistema de exámenes nacionales y reducir la desigualdad económica entre estudiantes de diferentes orígenes.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Pandaily</span>
+            <a href="https://www.pandaily.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-7">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🌏 Geopolítica</span>
+            <span class="numero-noticia">#7</span>
+          </div>
+          <h2 class="tarjeta-titulo">China-India cooperan en investigación agrícola para enfrentar cambios climáticos</h2>
+          <div class="tarjeta-comentario">
+            <p>Científicos de China e India han establecido un consorcio de investigación enfocado en desarrollar variedades de cultivos resilientes al cambio climático, una colaboración que contrasta con las tensiones geopolíticas recientes entre ambas naciones. El programa incluye investigación conjunta sobre arroz, trigo y sorgo adaptados a condiciones climáticas extremas, sectores críticos para la seguridad alimentaria de ambos países y de Asia del Sur. Aunque la cooperación científica no resuelve diferencias políticas fronterizas, demuestra que hay espacios donde los intereses comunes pueden primar en la agenda bilateral. Este enfoque pragmático en temas de seguridad alimentaria global sugiere una tendencia emergente de cooperación selectiva entre grandes potencias incluso en contextos de competencia geopolítica.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Global Times</span>
+            <a href="https://www.globaltimes.cn" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-8">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💼 Empresas</span>
+            <span class="numero-noticia">#8</span>
+          </div>
+          <h2 class="tarjeta-titulo">Startups chinas de biotecnología buscan financiamiento en mercados internacionales</h2>
+          <div class="tarjeta-comentario">
+            <p>Más de 40 startups biotecnológicas chinas han participado en conferencias de inversión internacionales durante el último trimestre, buscando capital de fondos de inversión estadounidenses y europeos para proyectos de terapia génica y medicina personalizada. Este fenómeno refleja la maduración del ecosistema de biotecnología chino y la saturación relativa del mercado de capital de riesgo doméstico, lo que empuja a emprendedores a diversificar sus fuentes de financiamiento. Aunque persisten restricciones regulatorias sobre transferencia de tecnología sensible, la colaboración científica internacional en biotecnología es menos restrictiva que en otros sectores. El movimiento sugiere que China está generando empresas de biotecnología con capacidad competitiva global, aunque enfrentan desafíos regulatorios y de percepción de riesgo en mercados occidentales.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 36Kr Global</span>
+            <a href="https://www.36kr.com/en" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-9">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🔬 Ciencia</span>
+            <span class="numero-noticia">#9</span>
+          </div>
+          <h2 class="tarjeta-titulo">Investigación revela impacto positivo de políticas ambientales urbanas en calidad del aire</h2>
+          <div class="tarjeta-comentario">
+            <p>Un estudio publicado por investigadores de universidades chinas demuestra que la implementación de políticas de restricción vehicular, electrificación del transporte público y regulación industrial ha reducido la contaminación del aire en ciudades como Pekín y Shanghai en un 35% durante los últimos cinco años. Los hallazgos también indican mejoras significativas en problemas de salud respiratoria, con reducciones en enfermedades pulmonares crónicas entre poblaciones urbanas, validando científicamente la efectividad de las políticas ambientales adoptadas. El estudio proporciona datos concretos que informan el diseño de futuras políticas ambientales en China y ofrece un modelo que otras ciudades en desarrollo pueden adaptar. Este progreso ambiental ilustra cómo una gobernanza centralizada, cuando se enfoca en objetivos claros, puede lograr cambios medibles en variables complejas como la calidad del aire.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 China Daily</span>
+            <a href="https://www.chinadaily.com.cn" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-10">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💼 Empresas</span>
+            <span class="numero-noticia">#10</span>
+          </div>
+          <h2 class="tarjeta-titulo">Instituciones financieras chinas integran regulación de IA en operaciones de crédito</h2>
+          <div class="tarjeta-comentario">
+            <p>El Banco Popular de China ha emitido directrices para que instituciones financieras incorporen evaluaciones de riesgo relacionadas con el uso de inteligencia artificial en procesos de otorgamiento de crédito, buscando garantizar transparencia y equidad en decisiones algorítmicas. Los bancos más grandes del país han comenzado a implementar sistemas de auditoría que verifican que los algoritmos no discriminen sistemáticamente contra ciertos grupos demográficos o geográficos, un desafío técnico y regulatorio complejo. Esta iniciativa refleja la maduración del sector financiero chino en adaptar tecnología emergente sin comprometer estabilidad o equidad sistémica. El movimiento posiciona a China como un laboratorio interesante de gobernanza financiera en la era de IA, donde se busca capturar beneficios de eficiencia tecnológica mientras se minimizan riesgos sociales.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Caixin Global</span>
+            <a href="https://www.caixinglobal.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+</main>
+
+<footer class="pie">
+  <div class="pie-contenido">
+    <h3>Fuentes consultadas en esta edición</h3>
+    <ul>
+      <li><a href="https://www.sixthtone.com" target="_blank" rel="noopener">Sixth Tone — China acelera inversión en energías renovables para alcanzar objetivo de neutralidad de carbono</a></li><li><a href="https://www.caixinglobal.com" target="_blank" rel="noopener">Caixin Global — Alibaba y Tencent expanden servicios de computación en la nube enfocados en IA generativa</a></li><li><a href="https://www.scmp.com" target="_blank" rel="noopener">South China Morning Post — Pekín implementa nuevo sistema de crédito social para influencers y creadores de contenido</a></li><li><a href="https://www.chinadaily.com.cn" target="_blank" rel="noopener">China Daily — Exposición de arte contemporáneo chino bate récords de asistencia en Pekín</a></li><li><a href="https://www.technode.com" target="_blank" rel="noopener">TechNode — Empresas chinas lideran desarrollo de baterías de estado sólido con tecnología revolucionaria</a></li><li><a href="https://www.pandaily.com" target="_blank" rel="noopener">Pandaily — Reforma educativa enfatiza educación vocacional como alternativa a la universidad tradicional</a></li><li><a href="https://www.globaltimes.cn" target="_blank" rel="noopener">Global Times — China-India cooperan en investigación agrícola para enfrentar cambios climáticos</a></li><li><a href="https://www.36kr.com/en" target="_blank" rel="noopener">36Kr Global — Startups chinas de biotecnología buscan financiamiento en mercados internacionales</a></li><li><a href="https://www.chinadaily.com.cn" target="_blank" rel="noopener">China Daily — Investigación revela impacto positivo de políticas ambientales urbanas en calidad del aire</a></li><li><a href="https://www.caixinglobal.com" target="_blank" rel="noopener">Caixin Global — Instituciones financieras chinas integran regulación de IA en operaciones de crédito</a></li>
+    </ul>
+    <div class="pie-creditos">
+      China Hoy · Edición 2026-10-28 · Generado automáticamente con IA ·
+      Las opiniones expresadas son editoriales y no representan posiciones oficiales.
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
