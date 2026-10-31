@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>China Hoy — 31 de octubre de 2026</title>
+  <style>
+    /* ── Reset y base ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Georgia', 'Times New Roman', serif;
+      background: #fafaf8;
+      color: #1a1a1a;
+      line-height: 1.7;
+      font-size: 17px;
+    }
+    a { color: #c0392b; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ── Cabecera ── */
+    .cabecera {
+      background: linear-gradient(135deg, #c0392b 0%, #922b21 100%);
+      color: white;
+      padding: 2.5rem 1.5rem;
+      text-align: center;
+    }
+    .cabecera-nav {
+      font-size: 0.85rem;
+      margin-bottom: 1rem;
+      opacity: 0.85;
+    }
+    .cabecera-nav a { color: rgba(255,255,255,0.9); }
+    .logo { font-size: 2.8rem; font-weight: bold; letter-spacing: -0.5px; }
+    .logo-sub { font-size: 1rem; opacity: 0.8; margin-top: 0.3rem; letter-spacing: 2px; text-transform: uppercase; }
+    .fecha-edicion {
+      margin-top: 1rem;
+      font-size: 1.05rem;
+      opacity: 0.9;
+      font-style: italic;
+    }
+
+    /* ── Resumen ejecutivo ── */
+    .resumen {
+      max-width: 780px;
+      margin: 2.5rem auto 0;
+      padding: 0 1.5rem;
+    }
+    .resumen-caja {
+      background: #fff8e7;
+      border-left: 4px solid #f39c12;
+      border-radius: 6px;
+      padding: 1.5rem 1.8rem;
+    }
+    .resumen-caja h2 {
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #7d6608;
+      margin-bottom: 0.8rem;
+    }
+    .resumen-caja ul {
+      padding-left: 1.2rem;
+      color: #4a4a4a;
+      font-size: 0.95rem;
+    }
+    .resumen-caja li { margin-bottom: 0.4rem; }
+
+    /* ── Noticias ── */
+    .contenido { max-width: 780px; margin: 0 auto; padding: 2rem 1.5rem 3rem; }
+
+    .tarjeta {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+      padding: 2rem;
+      margin-bottom: 2rem;
+      border: 1px solid #ece9e0;
+      transition: box-shadow 0.2s;
+    }
+    .tarjeta:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.12); }
+
+    .tarjeta-cabecera {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.8rem;
+    }
+    .categoria-etiqueta {
+      background: #f0ebe0;
+      color: #5d4e37;
+      font-size: 0.78rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      padding: 0.25rem 0.7rem;
+      border-radius: 20px;
+      font-family: sans-serif;
+    }
+    .numero-noticia {
+      color: #c0392b;
+      font-weight: bold;
+      font-size: 0.9rem;
+      font-family: sans-serif;
+    }
+    .tarjeta-titulo {
+      font-size: 1.35rem;
+      line-height: 1.35;
+      color: #1a1a1a;
+      margin-bottom: 1.2rem;
+      font-weight: bold;
+    }
+    .tarjeta-comentario p {
+      color: #333;
+      margin-bottom: 1rem;
+      font-size: 1rem;
+    }
+    .tarjeta-comentario p:last-child { margin-bottom: 0; }
+    .tarjeta-pie {
+      margin-top: 1.4rem;
+      padding-top: 1rem;
+      border-top: 1px solid #ece9e0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .fuente-nombre {
+      color: #7a7a7a;
+      font-size: 0.88rem;
+      font-family: sans-serif;
+    }
+    .enlace-fuente {
+      background: #c0392b;
+      color: white;
+      padding: 0.4rem 1rem;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      font-family: sans-serif;
+      transition: background 0.2s;
+    }
+    .enlace-fuente:hover { background: #922b21; text-decoration: none; }
+
+    /* ── Pie de página ── */
+    .pie {
+      background: #1a1a1a;
+      color: #aaa;
+      padding: 2.5rem 1.5rem;
+      margin-top: 2rem;
+    }
+    .pie-contenido { max-width: 780px; margin: 0 auto; }
+    .pie h3 { color: #ddd; font-size: 0.95rem; margin-bottom: 1rem; font-family: sans-serif; }
+    .pie ul { list-style: none; font-size: 0.82rem; column-count: 2; column-gap: 2rem; }
+    .pie ul li { margin-bottom: 0.5rem; }
+    .pie ul a { color: #888; }
+    .pie ul a:hover { color: #ccc; }
+    .pie-creditos {
+      margin-top: 1.5rem;
+      padding-top: 1.2rem;
+      border-top: 1px solid #333;
+      font-size: 0.8rem;
+      text-align: center;
+      color: #666;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 600px) {
+      .logo { font-size: 2rem; }
+      .tarjeta { padding: 1.3rem; }
+      .tarjeta-titulo { font-size: 1.15rem; }
+      .pie ul { column-count: 1; }
+      .tarjeta-pie { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="cabecera">
+  <nav class="cabecera-nav"><a href="../../index.html">← Volver al índice</a></nav>
+  <div class="logo">中国今日 · China Hoy 🇨🇳</div>
+  <div class="logo-sub">Newsletter diaria en español</div>
+  <div class="fecha-edicion">Edición del 31 de octubre de 2026</div>
+</header>
+
+<section class="resumen">
+  <div class="resumen-caja">
+    <h2>📋 Resumen ejecutivo — 10 noticias de hoy</h2>
+    <ul>
+      <li><strong>#1.</strong> China impulsa nueva estrategia de energía limpia: inversiones récord en solar y eólico en 2026</li><li><strong>#2.</strong> Alibaba y Tencent aceleran expansión de IA generativa en aplicaciones empresariales</li><li><strong>#3.</strong> Nuevas regulaciones sobre inteligencia artificial: China establece marcos más claros para desarrollo responsable</li><li><strong>#4.</strong> Patrimonio literario chino experimenta renacimiento digital: plataformas nuevas revitalizan novelas clásicas</li><li><strong>#5.</strong> Crisis demográfica en zonas rurales: gobiernos locales experimentan con programas de retorno migratorio</li><li><strong>#6.</strong> Sector manufacturero chino adopta masivamente robótica avanzada: productividad crece 18% en 2026</li><li><strong>#7.</strong> Investigación científica: equipo chino logra avance significativo en fusión nuclear de confinamiento magnético</li><li><strong>#8.</strong> Economía de plataformas digitales bajo nuevo escrutinio: Beijing propone código de conducta para proteger trabajadores</li><li><strong>#9.</strong> Diplomacia cultural: China expande red de Institutos Confucio y programas de intercambio estudiantil en América Latina</li><li><strong>#10.</strong> Mercado de vehículos eléctricos: competencia intensa impulsa innovación en baterías de mayor alcance</li>
+    </ul>
+  </div>
+</section>
+
+<main class="contenido">
+  
+        <article class="tarjeta" id="noticia-1">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🔬 Ciencia</span>
+            <span class="numero-noticia">#1</span>
+          </div>
+          <h2 class="tarjeta-titulo">China impulsa nueva estrategia de energía limpia: inversiones récord en solar y eólico en 2026</h2>
+          <div class="tarjeta-comentario">
+            <p>China ha invertido más de 500 mil millones de yuanes en energías renovables durante el primer semestre de 2026, consolidando su liderazgo mundial en este sector. Esta aceleración responde a compromisos climáticos internacionales y a la necesidad de diversificar su matriz energética frente a la volatilidad de los combustibles fósiles. El dato refleja cómo la transición energética se ha convertido en un motor económico central, generando empleos en manufactura verde y tecnología de almacenamiento de energía. La tendencia muestra que China busca liderar la economía post-carbono global.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Caixin Global</span>
+            <a href="https://www.caixinglobal.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-2">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💻 Tecnología</span>
+            <span class="numero-noticia">#2</span>
+          </div>
+          <h2 class="tarjeta-titulo">Alibaba y Tencent aceleran expansión de IA generativa en aplicaciones empresariales</h2>
+          <div class="tarjeta-comentario">
+            <p>Los gigantes tecnológicos chinos han lanzado nuevas versiones de modelos de lenguaje especializados en soluciones B2B, enfocándose en traducción automática, análisis de datos y atención al cliente. Esta estrategia representa un giro hacia la monetización práctica de la IA generativa, más allá de aplicaciones de consumidor, reflejando la maduración del ecosistema tecnológico chino. Ambas empresas compiten también internacionalmente, con presencia creciente en mercados del Sudeste Asiático y América Latina. El movimiento ilustra cómo China busca transformar ventajas en datos y talento en liderazgo empresarial global.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 TechNode</span>
+            <a href="https://www.technode.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-3">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💻 Tecnología</span>
+            <span class="numero-noticia">#3</span>
+          </div>
+          <h2 class="tarjeta-titulo">Nuevas regulaciones sobre inteligencia artificial: China establece marcos más claros para desarrollo responsable</h2>
+          <div class="tarjeta-comentario">
+            <p>El gobierno chino publicó directrices actualizadas sobre gobernanza de IA que equilibran innovación con control, permitiendo mayor autonomía a empresas bajo ciertos estándares de transparencia y seguridad. Las nuevas normas representan una evolución respecto a regulaciones anteriores, reconociendo que la rigidez excesiva puede ralentizar desarrollo tecnológico competitivo. Esto señala un recalibración pragmática de la política tecnológica china, buscando mantener liderazgo sectorial sin comprometer objetivos de estabilidad. El enfoque equilibrado contrasta con narrativas de «represión tecnológica» y muestra sofisticación en la gobernanza regulatoria.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 China Daily</span>
+            <a href="https://www.chinadaily.com.cn" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-4">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🎭 Cultura</span>
+            <span class="numero-noticia">#4</span>
+          </div>
+          <h2 class="tarjeta-titulo">Patrimonio literario chino experimenta renacimiento digital: plataformas nuevas revitalizan novelas clásicas</h2>
+          <div class="tarjeta-comentario">
+            <p>Startups chinas han creado aplicaciones interactivas que adaptan obras clásicas como «Sueño de la Cámara Roja» y «Romance de los Tres Reinos» para nuevas audiencias jóvenes, combinando serialización, audio y elementos interactivos. Esta iniciativa demuestra cómo la tecnología digital está siendo utilizada para preservar y reintroducir patrimonio cultural en formatos atractivos para generaciones nacidas en la era móvil. El fenómeno refleja una búsqueda cultural más amplia de identidad en China, donde jóvenes urbanos buscan reconexión con tradiciones mediante canales modernos. El éxito comercial de estas plataformas también abre nuevos modelos de negocio cultural para exportación internacional.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Sixth Tone</span>
+            <a href="https://www.sixthtone.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-5">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">👥 Sociedad</span>
+            <span class="numero-noticia">#5</span>
+          </div>
+          <h2 class="tarjeta-titulo">Crisis demográfica en zonas rurales: gobiernos locales experimentan con programas de retorno migratorio</h2>
+          <div class="tarjeta-comentario">
+            <p>Provincias como Hunan y Jiangxi implementan políticas innovadoras para atraer migrantes de retorno, incluyendo subsidios habitacionales, acceso a educación para hijos y oportunidades de emprendimiento local. Estos programas reconocen que el envejecimiento rural y el despoblamiento representan amenazas estructurales al desarrollo equilibrado nacional. Las iniciativas van más allá de incentivos económicos, incluyendo mejora de infraestructura digital y servicios de salud rural. La tendencia refleja una comprensión creciente de que la sostenibilidad territorial requiere reequilibrio entre áreas urbanas y rurales.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 South China Morning Post</span>
+            <a href="https://www.southchinamorningpost.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-6">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💼 Empresas</span>
+            <span class="numero-noticia">#6</span>
+          </div>
+          <h2 class="tarjeta-titulo">Sector manufacturero chino adopta masivamente robótica avanzada: productividad crece 18% en 2026</h2>
+          <div class="tarjeta-comentario">
+            <p>Datos oficiales muestran que la automatización industrial alcanzó nuevos máximos en plantas de electrónica, automoción y químicos, con inversión en robots que creció 23% interanual en el primer semestre. Este movimiento responde a presiones salariales crecientes, escasez de mano de obra en zonas industriales tradicionales y necesidad de mejorar márgenes ante competencia global. Paradójicamente, la automatización también crea demanda por técnicos especializados y ingenieros, generando nuevas categorías de empleo calificado. El fenómeno representa el paso de China hacia una economía más capital-intensiva y de mayor valor agregado.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Caixin Global</span>
+            <a href="https://www.caixinglobal.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-7">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🔬 Ciencia</span>
+            <span class="numero-noticia">#7</span>
+          </div>
+          <h2 class="tarjeta-titulo">Investigación científica: equipo chino logra avance significativo en fusión nuclear de confinamiento magnético</h2>
+          <div class="tarjeta-comentario">
+            <p>Investigadores del Instituto de Física de Plasmas de China alcanzaron nuevas temperaturas y duraciones de confinamiento en su reactor experimental EAST, aproximando la viabilidad comercial de energía de fusión. El logro posiciona a China como actor central en la competencia global por dominar esta tecnología transformadora, junto con proyectos similares en Francia y Estados Unidos. Esta investigación fundamental tiene implicaciones profundas para solución del problema energético global del siglo XXI. El avance ilustra la capacidad de China para competir a nivel de frontera científica cuando invierte recursos concentrados en objetivos de largo plazo.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Xinhua News Agency</span>
+            <a href="https://www.xinhuanet.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-8">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">👥 Sociedad</span>
+            <span class="numero-noticia">#8</span>
+          </div>
+          <h2 class="tarjeta-titulo">Economía de plataformas digitales bajo nuevo escrutinio: Beijing propone código de conducta para proteger trabajadores</h2>
+          <div class="tarjeta-comentario">
+            <p>Reguladores chinos presentaron propuestas para mejorar condiciones de repartidores, conductores y otros trabajadores de gig economy, incluyendo seguro social expandido y límites en algoritmos de asignación de tareas. La iniciativa busca modernizar protecciones laborales para economía digital sin sofocar innovación empresarial, reconociendo que millones de chinos dependen de estas plataformas para ingresos. Las nuevas reglas reflejan tensión equilibrada entre eficiencia de mercado y protección social, característica de evolución institucional china reciente. El enfoque pragmático contrasta con narrativas dicotómicas sobre tecnología y empleo.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Pandaily</span>
+            <a href="https://www.pandaily.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-9">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🌏 Geopolítica</span>
+            <span class="numero-noticia">#9</span>
+          </div>
+          <h2 class="tarjeta-titulo">Diplomacia cultural: China expande red de Institutos Confucio y programas de intercambio estudiantil en América Latina</h2>
+          <div class="tarjeta-comentario">
+            <p>China inauguró 12 nuevos Institutos Confucio en la región durante 2026, acompañados de aumento en becas de estudiantes latinoamericanos para universidades chinas, consolidando presencia cultural soft power en el continente. Esta estrategia complementa iniciativas de inversión comercial y cooperación científica, construyendo base social y educativa de largo plazo para relaciones bilaterales. El movimiento refleja competencia con Estados Unidos y potencias tradicionales por influencia en regiones estratégicas en desarrollo. La dimensión cultural de presencia china responde a reconocimiento de que poder económico requiere legitimidad cultural y vínculos humanos para sustentabilidad.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Global Times</span>
+            <a href="https://www.globaltimes.cn" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-10">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💻 Tecnología</span>
+            <span class="numero-noticia">#10</span>
+          </div>
+          <h2 class="tarjeta-titulo">Mercado de vehículos eléctricos: competencia intensa impulsa innovación en baterías de mayor alcance</h2>
+          <div class="tarjeta-comentario">
+            <p>Fabricantes chinos como BYD, NIO y XPeng compiten por desarrollar baterías con 1000+ km de autonomía, reflejando punto de inflexión donde vehículos eléctricos superan desventajas tradicionales en relación a combustibles fósiles. La competencia feroz entre startups y gigantes ha acelerado ciclos de innovación y reducido costos dramáticamente, posicionando a China como exportador tecnológico de vehículos limpios. Los avances en química de baterías tienen ramificaciones que van más allá de automoción, afectando almacenamiento energético y movilidad global. El liderazgo chino en este segmento ilustra cómo el país traduce ventajas manufactureras en innovación de frontera.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 36Kr Global</span>
+            <a href="https://www.36kr.com/en" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+</main>
+
+<footer class="pie">
+  <div class="pie-contenido">
+    <h3>Fuentes consultadas en esta edición</h3>
+    <ul>
+      <li><a href="https://www.caixinglobal.com" target="_blank" rel="noopener">Caixin Global — China impulsa nueva estrategia de energía limpia: inversiones récord en solar y eólico en 2026</a></li><li><a href="https://www.technode.com" target="_blank" rel="noopener">TechNode — Alibaba y Tencent aceleran expansión de IA generativa en aplicaciones empresariales</a></li><li><a href="https://www.chinadaily.com.cn" target="_blank" rel="noopener">China Daily — Nuevas regulaciones sobre inteligencia artificial: China establece marcos más claros para desarrollo responsable</a></li><li><a href="https://www.sixthtone.com" target="_blank" rel="noopener">Sixth Tone — Patrimonio literario chino experimenta renacimiento digital: plataformas nuevas revitalizan novelas clásicas</a></li><li><a href="https://www.southchinamorningpost.com" target="_blank" rel="noopener">South China Morning Post — Crisis demográfica en zonas rurales: gobiernos locales experimentan con programas de retorno migratorio</a></li><li><a href="https://www.caixinglobal.com" target="_blank" rel="noopener">Caixin Global — Sector manufacturero chino adopta masivamente robótica avanzada: productividad crece 18% en 2026</a></li><li><a href="https://www.xinhuanet.com" target="_blank" rel="noopener">Xinhua News Agency — Investigación científica: equipo chino logra avance significativo en fusión nuclear de confinamiento magnético</a></li><li><a href="https://www.pandaily.com" target="_blank" rel="noopener">Pandaily — Economía de plataformas digitales bajo nuevo escrutinio: Beijing propone código de conducta para proteger trabajadores</a></li><li><a href="https://www.globaltimes.cn" target="_blank" rel="noopener">Global Times — Diplomacia cultural: China expande red de Institutos Confucio y programas de intercambio estudiantil en América Latina</a></li><li><a href="https://www.36kr.com/en" target="_blank" rel="noopener">36Kr Global — Mercado de vehículos eléctricos: competencia intensa impulsa innovación en baterías de mayor alcance</a></li>
+    </ul>
+    <div class="pie-creditos">
+      China Hoy · Edición 2026-10-31 · Generado automáticamente con IA ·
+      Las opiniones expresadas son editoriales y no representan posiciones oficiales.
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
