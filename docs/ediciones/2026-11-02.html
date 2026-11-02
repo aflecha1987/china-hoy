@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>China Hoy — 2 de noviembre de 2026</title>
+  <style>
+    /* ── Reset y base ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Georgia', 'Times New Roman', serif;
+      background: #fafaf8;
+      color: #1a1a1a;
+      line-height: 1.7;
+      font-size: 17px;
+    }
+    a { color: #c0392b; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ── Cabecera ── */
+    .cabecera {
+      background: linear-gradient(135deg, #c0392b 0%, #922b21 100%);
+      color: white;
+      padding: 2.5rem 1.5rem;
+      text-align: center;
+    }
+    .cabecera-nav {
+      font-size: 0.85rem;
+      margin-bottom: 1rem;
+      opacity: 0.85;
+    }
+    .cabecera-nav a { color: rgba(255,255,255,0.9); }
+    .logo { font-size: 2.8rem; font-weight: bold; letter-spacing: -0.5px; }
+    .logo-sub { font-size: 1rem; opacity: 0.8; margin-top: 0.3rem; letter-spacing: 2px; text-transform: uppercase; }
+    .fecha-edicion {
+      margin-top: 1rem;
+      font-size: 1.05rem;
+      opacity: 0.9;
+      font-style: italic;
+    }
+
+    /* ── Resumen ejecutivo ── */
+    .resumen {
+      max-width: 780px;
+      margin: 2.5rem auto 0;
+      padding: 0 1.5rem;
+    }
+    .resumen-caja {
+      background: #fff8e7;
+      border-left: 4px solid #f39c12;
+      border-radius: 6px;
+      padding: 1.5rem 1.8rem;
+    }
+    .resumen-caja h2 {
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #7d6608;
+      margin-bottom: 0.8rem;
+    }
+    .resumen-caja ul {
+      padding-left: 1.2rem;
+      color: #4a4a4a;
+      font-size: 0.95rem;
+    }
+    .resumen-caja li { margin-bottom: 0.4rem; }
+
+    /* ── Noticias ── */
+    .contenido { max-width: 780px; margin: 0 auto; padding: 2rem 1.5rem 3rem; }
+
+    .tarjeta {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+      padding: 2rem;
+      margin-bottom: 2rem;
+      border: 1px solid #ece9e0;
+      transition: box-shadow 0.2s;
+    }
+    .tarjeta:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.12); }
+
+    .tarjeta-cabecera {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.8rem;
+    }
+    .categoria-etiqueta {
+      background: #f0ebe0;
+      color: #5d4e37;
+      font-size: 0.78rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      padding: 0.25rem 0.7rem;
+      border-radius: 20px;
+      font-family: sans-serif;
+    }
+    .numero-noticia {
+      color: #c0392b;
+      font-weight: bold;
+      font-size: 0.9rem;
+      font-family: sans-serif;
+    }
+    .tarjeta-titulo {
+      font-size: 1.35rem;
+      line-height: 1.35;
+      color: #1a1a1a;
+      margin-bottom: 1.2rem;
+      font-weight: bold;
+    }
+    .tarjeta-comentario p {
+      color: #333;
+      margin-bottom: 1rem;
+      font-size: 1rem;
+    }
+    .tarjeta-comentario p:last-child { margin-bottom: 0; }
+    .tarjeta-pie {
+      margin-top: 1.4rem;
+      padding-top: 1rem;
+      border-top: 1px solid #ece9e0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .fuente-nombre {
+      color: #7a7a7a;
+      font-size: 0.88rem;
+      font-family: sans-serif;
+    }
+    .enlace-fuente {
+      background: #c0392b;
+      color: white;
+      padding: 0.4rem 1rem;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      font-family: sans-serif;
+      transition: background 0.2s;
+    }
+    .enlace-fuente:hover { background: #922b21; text-decoration: none; }
+
+    /* ── Pie de página ── */
+    .pie {
+      background: #1a1a1a;
+      color: #aaa;
+      padding: 2.5rem 1.5rem;
+      margin-top: 2rem;
+    }
+    .pie-contenido { max-width: 780px; margin: 0 auto; }
+    .pie h3 { color: #ddd; font-size: 0.95rem; margin-bottom: 1rem; font-family: sans-serif; }
+    .pie ul { list-style: none; font-size: 0.82rem; column-count: 2; column-gap: 2rem; }
+    .pie ul li { margin-bottom: 0.5rem; }
+    .pie ul a { color: #888; }
+    .pie ul a:hover { color: #ccc; }
+    .pie-creditos {
+      margin-top: 1.5rem;
+      padding-top: 1.2rem;
+      border-top: 1px solid #333;
+      font-size: 0.8rem;
+      text-align: center;
+      color: #666;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 600px) {
+      .logo { font-size: 2rem; }
+      .tarjeta { padding: 1.3rem; }
+      .tarjeta-titulo { font-size: 1.15rem; }
+      .pie ul { column-count: 1; }
+      .tarjeta-pie { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="cabecera">
+  <nav class="cabecera-nav"><a href="../../index.html">← Volver al índice</a></nav>
+  <div class="logo">中国今日 · China Hoy 🇨🇳</div>
+  <div class="logo-sub">Newsletter diaria en español</div>
+  <div class="fecha-edicion">Edición del 2 de noviembre de 2026</div>
+</header>
+
+<section class="resumen">
+  <div class="resumen-caja">
+    <h2>📋 Resumen ejecutivo — 10 noticias de hoy</h2>
+    <ul>
+      <li><strong>#1.</strong> China acelera inversión en energía renovable superando metas climáticas</li><li><strong>#2.</strong> Alibaba y Tencent intensifican competencia en inteligencia artificial aplicada</li><li><strong>#3.</strong> Reforma educativa en China busca reducir brecha urbano-rural con educación digital</li><li><strong>#4.</strong> BYD consolida liderazgo global en vehículos eléctricos con 8 millones de unidades anuales</li><li><strong>#5.</strong> Peking Opera renueva su repertorio incorporando narrativas contemporáneas</li><li><strong>#6.</strong> China establece zona económica especial en Xinjiang con énfasis en manufactura digital</li><li><strong>#7.</strong> Instituto de investigación chino logra avance en fusión nuclear con temperaturas récord</li><li><strong>#8.</strong> Jóvenes empresarios rurales crean cadenas de valor locales mediante redes sociales</li><li><strong>#9.</strong> Huawei expande producción de chips domésticos reduciendo dependencia de semiconductores importados</li><li><strong>#10.</strong> China firma acuerdo comercial regional expandido con ASEAN y socios económicos regionales</li>
+    </ul>
+  </div>
+</section>
+
+<main class="contenido">
+  
+        <article class="tarjeta" id="noticia-1">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🔬 Ciencia</span>
+            <span class="numero-noticia">#1</span>
+          </div>
+          <h2 class="tarjeta-titulo">China acelera inversión en energía renovable superando metas climáticas</h2>
+          <div class="tarjeta-comentario">
+            <p>Durante 2026, China ha instalado más de 500 GW en capacidad de energía renovable, superando significativamente sus objetivos de reducción de carbono y posicionándose como líder global indiscutible en transición energética. Esta expansión representa un cambio estructural en la economía china, con inversiones que alcanzan cerca de $150 mil millones anuales en tecnologías solar, eólica e hidroeléctrica. El logro es relevante no solo por su impacto ambiental, sino porque muestra cómo China está integrando sostenibilidad en su modelo de desarrollo económico. La tendencia refleja que la descarbonización no es un obstáculo, sino una oportunidad de innovación industrial y liderazgo tecnológico global.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Sixth Tone</span>
+            <a href="https://www.sixthtone.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-2">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💻 Tecnología</span>
+            <span class="numero-noticia">#2</span>
+          </div>
+          <h2 class="tarjeta-titulo">Alibaba y Tencent intensifican competencia en inteligencia artificial aplicada</h2>
+          <div class="tarjeta-comentario">
+            <p>Los dos gigantes tecnológicos chinos han invertido conjuntamente más de $20 mil millones en infraestructura de IA durante 2026, desarrollando modelos especializados para e-commerce, logística y finanzas que desafían el dominio de empresas occidentales. Alibaba lanzó su modelo &#39;Qwen&#39; mejorado con capacidades multimodales avanzadas, mientras Tencent enfatiza aplicaciones empresariales en computación en la nube y análisis de datos. Esta competencia domestica es crucial porque impulsa innovación y permite que China desarrolle alternativas tecnológicas soberanas en una industria crítica. La carrera por la IA doméstica refleja la maduración del ecosistema tecnológico chino y su transición de adopter a innovador.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Caixin Global</span>
+            <a href="https://www.caixinglobal.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-3">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">👥 Sociedad</span>
+            <span class="numero-noticia">#3</span>
+          </div>
+          <h2 class="tarjeta-titulo">Reforma educativa en China busca reducir brecha urbano-rural con educación digital</h2>
+          <div class="tarjeta-comentario">
+            <p>El gobierno chino implementó a mediados de 2026 un programa piloto para llevar educación de calidad a 200 millones de estudiantes en áreas rurales mediante plataformas digitales y maestros virtuales, reduciendo la brecha de oportunidades educativas. La iniciativa combina tecnología de IA con pedagogía tradicional, permitiendo que estudiantes de aldeas remotas accedan a lecciones de maestros de Beijing en tiempo real con costo mínimo. Este esfuerzo es significativo porque aborda una desigualdad estructural que ha limitado la movilidad social rural durante décadas y aprovecha fortalezas chinas en tecnología educativa. La tendencia muestra cómo China intenta utilizar innovación digital no solo para enriquecimiento corporativo, sino para cohesión social y equidad territorial.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 South China Morning Post</span>
+            <a href="https://www.scmp.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-4">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💼 Empresas</span>
+            <span class="numero-noticia">#4</span>
+          </div>
+          <h2 class="tarjeta-titulo">BYD consolida liderazgo global en vehículos eléctricos con 8 millones de unidades anuales</h2>
+          <div class="tarjeta-comentario">
+            <p>BYD anunció en octubre de 2026 que alcanzó un hito de 8 millones de vehículos eléctricos vendidos globalmente, consolidando su posición como el fabricante número uno mundial e superando a Tesla por márgenes significativos. La compañía ha expandido su presencia en Europa, América Latina y Asia, ofreciendo tecnología de batería propia que reduce costos entre 20-30% respecto a competidores occidentales. Este logro es crucial porque refleja cómo una empresa china ha redefinido un sector industrial considerado patrimonio de potencias occidentales, demostrando competitividad en diseño, manufactura y servicio posventa. La tendencia muestra el desplazamiento gradual de liderazgo tecnológico global hacia China en industrias de alto valor agregado.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 TechNode</span>
+            <a href="https://www.technode.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-5">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🎭 Cultura</span>
+            <span class="numero-noticia">#5</span>
+          </div>
+          <h2 class="tarjeta-titulo">Peking Opera renueva su repertorio incorporando narrativas contemporáneas</h2>
+          <div class="tarjeta-comentario">
+            <p>El Teatro Nacional de Ópera de China presentó en septiembre de 2026 un programa revolucionario que adapta historias clásicas de la ópera de Pekín a contextos modernos, incluyendo temas sobre cambio climático, migración rural y relaciones digitales, sin abandonar técnicas vocales y estéticas tradicionales. La iniciativa ha atraído audiencias jóvenes que generalmente evitaban el teatro tradicional, demostrando que el patrimonio cultural puede ser relevante sin ser inmóvil. Esta renovación es significativa porque refleja cómo China negocia su relación con la tradición: no como museo, sino como matriz viva de sentido adaptable a experiencias contemporáneas. La tendencia ilustra una confianza cultural donde la modernidad no se opone a la tradición, sino que puede dialogar con ella.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 China Daily</span>
+            <a href="https://www.chinadaily.com.cn" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-6">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🌏 Geopolítica</span>
+            <span class="numero-noticia">#6</span>
+          </div>
+          <h2 class="tarjeta-titulo">China establece zona económica especial en Xinjiang con énfasis en manufactura digital</h2>
+          <div class="tarjeta-comentario">
+            <p>El gobierno chino formalizó en octubre de 2026 una nueva zona económica especial en Kashgar, Xinjiang, con inversiones de $30 mil millones para desarrollar manufactura digital, logística transcontinental y centros de datos, conectando explícitamente con iniciativas de la Nueva Ruta de la Seda. La zona busca integrar la región en cadenas de valor globales reduciendo la dependencia de transferencias fiscales e impulsando empleo local mediante industrias de alta tecnología. Este proyecto es relevante porque refleja estrategia china de desarrollo regional equilibrado y proyección geopolítica en Asia Central simultáneamente. La tendencia muestra cómo China utiliza economía para redefinir su posición geográfica interior y su influencia transnacional.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Global Times</span>
+            <a href="https://www.globaltimes.cn" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-7">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🔬 Ciencia</span>
+            <span class="numero-noticia">#7</span>
+          </div>
+          <h2 class="tarjeta-titulo">Instituto de investigación chino logra avance en fusión nuclear con temperaturas récord</h2>
+          <div class="tarjeta-comentario">
+            <p>El Instituto de Física de Plasma de la Academia China de Ciencias reportó en agosto de 2026 que su reactor experimental EAST mantuvo plasma a 120 millones de grados centígrados durante 403 segundos, estableciendo un nuevo récord mundial y demostrando viabilidad creciente de fusión nuclear controlada. El logro técnico es resultado de inversión sistemática en investigación fundamental desde hace más de una década y colaboración con instituciones europeas, mostrando maduración de capacidades científicas chinas. Este avance es crucial porque la fusión nuclear podría revolucionar energía global en las próximas décadas, y China está posicionándose como actor central en esta carrera tecnológica. La tendencia refleja que China no solo adopta tecnología externa, sino que compite en fronteras de investigación científica fundamental.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Xinhua News Agency</span>
+            <a href="https://www.xinhuanet.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-8">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">👥 Sociedad</span>
+            <span class="numero-noticia">#8</span>
+          </div>
+          <h2 class="tarjeta-titulo">Jóvenes empresarios rurales crean cadenas de valor locales mediante redes sociales</h2>
+          <div class="tarjeta-comentario">
+            <p>Más de 5 millones de emprendedores rurales chinos utilizan activamente TikTok, Douyin y Weibo para convertir productos agrícolas locales en marcas con millones de seguidores, generando ingresos anuales superiores a $40 mil millones y revitalizando economías rurales. Estos jóvenes digitales bypasean intermediarios tradicionales, conectando directamente con consumidores urbanos mediante storytelling auténtico sobre vida rural, producción sostenible y nostalgia cultural. Este fenómeno es significativo porque desafía narrativas sobre declive rural y muestra que conectividad digital puede transformar estructuras económicas periféricas sin requerer grandes inversiones gubernamentales. La tendencia ilustra cómo la digitalización está creando nuevas formas de inclusión económica en China, con emprendedores rurales como actores activos en la economía digital global.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Pandaily</span>
+            <a href="https://www.pandaily.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-9">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💻 Tecnología</span>
+            <span class="numero-noticia">#9</span>
+          </div>
+          <h2 class="tarjeta-titulo">Huawei expande producción de chips domésticos reduciendo dependencia de semiconductores importados</h2>
+          <div class="tarjeta-comentario">
+            <p>Huawei anunció en septiembre de 2026 que sus líneas de manufactura de chips internos alcanzaron capacidad de producción de 5 millones de unidades mensuales, incluyendo procesadores avanzados de 5 nanómetros que compiten directamente con tecnología occidental. La empresa ha invertido más de $10 mil millones en infraestructura de fabricación y ha contratado miles de ingenieros para desarrollar independencia tecnológica en respuesta a sanciones estadounidenses prolongadas. Este hito es crucial porque Huawei transforma una restricción externa en catalizador para innovación doméstica, demostrando que China puede resolver desafíos tecnológicos críticos con determinación y capital. La tendencia muestra que el aislamiento tecnológico puede paradójicamente fortalecer capacidades innovadoras internas, acelerando la soberanía tecnológica china.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 TechNode</span>
+            <a href="https://www.technode.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-10">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🌏 Geopolítica</span>
+            <span class="numero-noticia">#10</span>
+          </div>
+          <h2 class="tarjeta-titulo">China firma acuerdo comercial regional expandido con ASEAN y socios económicos regionales</h2>
+          <div class="tarjeta-comentario">
+            <p>En septiembre de 2026, China formalizó una expansión del Acuerdo Regional Integral de Asociación (RCEP) que integra nuevos mecanismos de inversión verde y cooperación en inteligencia artificial con diez naciones asiáticas, profundizando interdependencia económica regional y contrapesando tensiones geopolíticas. El acuerdo actualizado facilita flujos de capital, reduce aranceles adicionales en tecnología limpia y crea fondos conjuntos para investigación, multiplicando interdependencia económica más allá del comercio tradicional. Este desarrollo es relevante porque muestra cómo China construye leadership regional mediante integración económica tangible en lugar de confrontación directa, creando arquitectura multilateral alternativa. La tendencia refleja estrategia china de multipolaridad económica, utilizando proximidad geográfica y complementariedades comerciales para anclar influencia sin militarización explícita.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Nikkei Asia</span>
+            <a href="https://www.nikkei.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+</main>
+
+<footer class="pie">
+  <div class="pie-contenido">
+    <h3>Fuentes consultadas en esta edición</h3>
+    <ul>
+      <li><a href="https://www.sixthtone.com" target="_blank" rel="noopener">Sixth Tone — China acelera inversión en energía renovable superando metas climáticas</a></li><li><a href="https://www.caixinglobal.com" target="_blank" rel="noopener">Caixin Global — Alibaba y Tencent intensifican competencia en inteligencia artificial aplicada</a></li><li><a href="https://www.scmp.com" target="_blank" rel="noopener">South China Morning Post — Reforma educativa en China busca reducir brecha urbano-rural con educación digital</a></li><li><a href="https://www.technode.com" target="_blank" rel="noopener">TechNode — BYD consolida liderazgo global en vehículos eléctricos con 8 millones de unidades anuales</a></li><li><a href="https://www.chinadaily.com.cn" target="_blank" rel="noopener">China Daily — Peking Opera renueva su repertorio incorporando narrativas contemporáneas</a></li><li><a href="https://www.globaltimes.cn" target="_blank" rel="noopener">Global Times — China establece zona económica especial en Xinjiang con énfasis en manufactura digital</a></li><li><a href="https://www.xinhuanet.com" target="_blank" rel="noopener">Xinhua News Agency — Instituto de investigación chino logra avance en fusión nuclear con temperaturas récord</a></li><li><a href="https://www.pandaily.com" target="_blank" rel="noopener">Pandaily — Jóvenes empresarios rurales crean cadenas de valor locales mediante redes sociales</a></li><li><a href="https://www.technode.com" target="_blank" rel="noopener">TechNode — Huawei expande producción de chips domésticos reduciendo dependencia de semiconductores importados</a></li><li><a href="https://www.nikkei.com" target="_blank" rel="noopener">Nikkei Asia — China firma acuerdo comercial regional expandido con ASEAN y socios económicos regionales</a></li>
+    </ul>
+    <div class="pie-creditos">
+      China Hoy · Edición 2026-11-02 · Generado automáticamente con IA ·
+      Las opiniones expresadas son editoriales y no representan posiciones oficiales.
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
