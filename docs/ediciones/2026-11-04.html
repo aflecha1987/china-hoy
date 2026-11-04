@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>China Hoy — 4 de noviembre de 2026</title>
+  <style>
+    /* ── Reset y base ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Georgia', 'Times New Roman', serif;
+      background: #fafaf8;
+      color: #1a1a1a;
+      line-height: 1.7;
+      font-size: 17px;
+    }
+    a { color: #c0392b; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ── Cabecera ── */
+    .cabecera {
+      background: linear-gradient(135deg, #c0392b 0%, #922b21 100%);
+      color: white;
+      padding: 2.5rem 1.5rem;
+      text-align: center;
+    }
+    .cabecera-nav {
+      font-size: 0.85rem;
+      margin-bottom: 1rem;
+      opacity: 0.85;
+    }
+    .cabecera-nav a { color: rgba(255,255,255,0.9); }
+    .logo { font-size: 2.8rem; font-weight: bold; letter-spacing: -0.5px; }
+    .logo-sub { font-size: 1rem; opacity: 0.8; margin-top: 0.3rem; letter-spacing: 2px; text-transform: uppercase; }
+    .fecha-edicion {
+      margin-top: 1rem;
+      font-size: 1.05rem;
+      opacity: 0.9;
+      font-style: italic;
+    }
+
+    /* ── Resumen ejecutivo ── */
+    .resumen {
+      max-width: 780px;
+      margin: 2.5rem auto 0;
+      padding: 0 1.5rem;
+    }
+    .resumen-caja {
+      background: #fff8e7;
+      border-left: 4px solid #f39c12;
+      border-radius: 6px;
+      padding: 1.5rem 1.8rem;
+    }
+    .resumen-caja h2 {
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #7d6608;
+      margin-bottom: 0.8rem;
+    }
+    .resumen-caja ul {
+      padding-left: 1.2rem;
+      color: #4a4a4a;
+      font-size: 0.95rem;
+    }
+    .resumen-caja li { margin-bottom: 0.4rem; }
+
+    /* ── Noticias ── */
+    .contenido { max-width: 780px; margin: 0 auto; padding: 2rem 1.5rem 3rem; }
+
+    .tarjeta {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+      padding: 2rem;
+      margin-bottom: 2rem;
+      border: 1px solid #ece9e0;
+      transition: box-shadow 0.2s;
+    }
+    .tarjeta:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.12); }
+
+    .tarjeta-cabecera {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.8rem;
+    }
+    .categoria-etiqueta {
+      background: #f0ebe0;
+      color: #5d4e37;
+      font-size: 0.78rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      padding: 0.25rem 0.7rem;
+      border-radius: 20px;
+      font-family: sans-serif;
+    }
+    .numero-noticia {
+      color: #c0392b;
+      font-weight: bold;
+      font-size: 0.9rem;
+      font-family: sans-serif;
+    }
+    .tarjeta-titulo {
+      font-size: 1.35rem;
+      line-height: 1.35;
+      color: #1a1a1a;
+      margin-bottom: 1.2rem;
+      font-weight: bold;
+    }
+    .tarjeta-comentario p {
+      color: #333;
+      margin-bottom: 1rem;
+      font-size: 1rem;
+    }
+    .tarjeta-comentario p:last-child { margin-bottom: 0; }
+    .tarjeta-pie {
+      margin-top: 1.4rem;
+      padding-top: 1rem;
+      border-top: 1px solid #ece9e0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .fuente-nombre {
+      color: #7a7a7a;
+      font-size: 0.88rem;
+      font-family: sans-serif;
+    }
+    .enlace-fuente {
+      background: #c0392b;
+      color: white;
+      padding: 0.4rem 1rem;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      font-family: sans-serif;
+      transition: background 0.2s;
+    }
+    .enlace-fuente:hover { background: #922b21; text-decoration: none; }
+
+    /* ── Pie de página ── */
+    .pie {
+      background: #1a1a1a;
+      color: #aaa;
+      padding: 2.5rem 1.5rem;
+      margin-top: 2rem;
+    }
+    .pie-contenido { max-width: 780px; margin: 0 auto; }
+    .pie h3 { color: #ddd; font-size: 0.95rem; margin-bottom: 1rem; font-family: sans-serif; }
+    .pie ul { list-style: none; font-size: 0.82rem; column-count: 2; column-gap: 2rem; }
+    .pie ul li { margin-bottom: 0.5rem; }
+    .pie ul a { color: #888; }
+    .pie ul a:hover { color: #ccc; }
+    .pie-creditos {
+      margin-top: 1.5rem;
+      padding-top: 1.2rem;
+      border-top: 1px solid #333;
+      font-size: 0.8rem;
+      text-align: center;
+      color: #666;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 600px) {
+      .logo { font-size: 2rem; }
+      .tarjeta { padding: 1.3rem; }
+      .tarjeta-titulo { font-size: 1.15rem; }
+      .pie ul { column-count: 1; }
+      .tarjeta-pie { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="cabecera">
+  <nav class="cabecera-nav"><a href="../../index.html">← Volver al índice</a></nav>
+  <div class="logo">中国今日 · China Hoy 🇨🇳</div>
+  <div class="logo-sub">Newsletter diaria en español</div>
+  <div class="fecha-edicion">Edición del 4 de noviembre de 2026</div>
+</header>
+
+<section class="resumen">
+  <div class="resumen-caja">
+    <h2>📋 Resumen ejecutivo — 10 noticias de hoy</h2>
+    <ul>
+      <li><strong>#1.</strong> China alcanza hito en energía solar: 1 TW de capacidad instalada</li><li><strong>#2.</strong> Alibaba y Tencent reportan crecimiento en servicios en la nube, impulsados por demanda de IA</li><li><strong>#3.</strong> Descubrimiento arqueológico: nuevos hallazgos sobre la Ruta de la Seda durante dinastía Tang</li><li><strong>#4.</strong> China implementa nuevas regulaciones sobre bienestar animal en granjas industriales</li><li><strong>#5.</strong> Universidades chinas avanzan en investigación de baterías de estado sólido de mayor densidad energética</li><li><strong>#6.</strong> Nuevo estudio sobre urbanización rural: ciudades pequeñas experimentan revitalización económica</li><li><strong>#7.</strong> China y Vietnam expandirán cooperación en infraestructura de transporte transfronteriza</li><li><strong>#8.</strong> Plataformas de educación en línea chinas adaptan modelos de negocio tras regulaciones de 2020-2021</li><li><strong>#9.</strong> Exposición sobre arte conceptual chino contemporáneo genera debate sobre expresión artística y límites regulatorios</li><li><strong>#10.</strong> Generación Z china muestra preferencia por emprendimiento tecnológico sobre empleo corporativo tradicional</li>
+    </ul>
+  </div>
+</section>
+
+<main class="contenido">
+  
+        <article class="tarjeta" id="noticia-1">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🔬 Ciencia</span>
+            <span class="numero-noticia">#1</span>
+          </div>
+          <h2 class="tarjeta-titulo">China alcanza hito en energía solar: 1 TW de capacidad instalada</h2>
+          <div class="tarjeta-comentario">
+            <p>China ha superado el hito de 1 teravatio (TW) de capacidad solar instalada, consolidándose como líder mundial indiscutible en energía renovable y demostrando su compromiso con la transición energética. Este logro refleja años de inversión masiva en tecnología solar, tanto en plantas de gran escala como en instalaciones residenciales y comerciales distribuidas. La cifra subraya cómo la fabricación de paneles solares —sector donde China domina globalmente— se traduce en aplicación real de tecnología limpia. Este progreso es crucial para los objetivos de carbono neutralidad de China para 2060 y establece un estándar competitivo que presiona a otros países a acelerar su transición energética.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 China Daily</span>
+            <a href="https://www.chinadaily.com.cn" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-2">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💼 Empresas</span>
+            <span class="numero-noticia">#2</span>
+          </div>
+          <h2 class="tarjeta-titulo">Alibaba y Tencent reportan crecimiento en servicios en la nube, impulsados por demanda de IA</h2>
+          <div class="tarjeta-comentario">
+            <p>Los gigantes tecnológicos chinos registran expansión acelerada en sus divisiones de computación en la nube, alimentadas por la demanda corporativa de capacidades de inteligencia artificial y análisis de datos masivos. Ambas empresas han invertido fuertemente en infraestructura de GPU y modelos de IA propios para competir en el mercado de aplicaciones empresariales, que se expande rápidamente. Este crecimiento refleja un cambio estructural en la economía digital china, donde el énfasis se desplaza de servicios de consumo a soluciones B2B y computación de alto valor. La carrera por liderar en servicios en la nube es fundamental para definir quién controlará la economía digital china durante la próxima década.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Caixin Global</span>
+            <a href="https://www.caixinglobal.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-3">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🎭 Cultura</span>
+            <span class="numero-noticia">#3</span>
+          </div>
+          <h2 class="tarjeta-titulo">Descubrimiento arqueológico: nuevos hallazgos sobre la Ruta de la Seda durante dinastía Tang</h2>
+          <div class="tarjeta-comentario">
+            <p>Arqueólogos chinos han excavado nuevas evidencias sobre rutas comerciales y asentamientos durante el período Tang, proporcionando datos concretos sobre los intercambios culturales y económicos entre Asia Central y China. Los hallazgos incluyen monedas, cerámica y registros que documentan la sofisticación de estas redes comerciales hace más de mil años. Este descubrimiento enriquece nuestra comprensión del cosmopolitismo Tang y refuerza narrativas sobre la larga historia de China como potencia comercial y cultural. Tales investigaciones arqueológicas son importantes no solo académicamente, sino también en la forma en que China articula su herencia histórica y su rol contemporáneo en iniciativas como la Franja y Ruta.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 ChinaNews</span>
+            <a href="https://www.chinanews.com.cn" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-4">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">👥 Sociedad</span>
+            <span class="numero-noticia">#4</span>
+          </div>
+          <h2 class="tarjeta-titulo">China implementa nuevas regulaciones sobre bienestar animal en granjas industriales</h2>
+          <div class="tarjeta-comentario">
+            <p>El gobierno chino ha introducido estándares más estrictos para el trato de animales en operaciones ganaderas a gran escala, respondiendo a crecientes preocupaciones de consumidores urbanos y presiones de organizaciones de bienestar animal. Las nuevas regulaciones requieren mejoras en espacio vital, acceso a luz natural y reducciones en el uso de antibióticos preventivos en rebaños. Este cambio es sintomático de cómo la modernización económica y urbana en China genera nuevas demandas sobre prácticas éticas de producción, antes consideradas secundarias. La medida también prepara a las industrias ganaderas chinas para estándares más exigentes en exportación, particularmente hacia mercados europeos que requieren cumplimiento de normativas de bienestar animal.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Sixth Tone</span>
+            <a href="https://www.sixthtone.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-5">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💻 Tecnología</span>
+            <span class="numero-noticia">#5</span>
+          </div>
+          <h2 class="tarjeta-titulo">Universidades chinas avanzan en investigación de baterías de estado sólido de mayor densidad energética</h2>
+          <div class="tarjeta-comentario">
+            <p>Investigadores de instituciones académicas chinas han logrado avances significativos en baterías de estado sólido, consiguiendo mayores densidades energéticas y ciclos de vida más prolongados que las baterías de litio convencionales. Estos desarrollos son críticos para vehículos eléctricos de próxima generación, donde la autonomía y la velocidad de carga son factores determinantes de adopción masiva. La colaboración entre universidades, laboratorios estatales y empresas automotrices refleja la estrategia china de dominar tecnologías clave en la cadena de valor de energías limpias. Este progreso posiciona a China para liderar no solo en fabricación de baterías, sino también en definir los estándares tecnológicos de la industria automotriz global en los próximos 15 años.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 TechNode</span>
+            <a href="https://www.technode.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-6">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">👥 Sociedad</span>
+            <span class="numero-noticia">#6</span>
+          </div>
+          <h2 class="tarjeta-titulo">Nuevo estudio sobre urbanización rural: ciudades pequeñas experimentan revitalización económica</h2>
+          <div class="tarjeta-comentario">
+            <p>Investigaciones recientes muestran que ciudades pequeñas y pueblos de China están experimentando un dinamismo económico inesperado, impulsado por comercio electrónico local, turismo rural y servicios digitales que democratizan el acceso empresarial. La llamada &#39;economía de pueblo&#39; está reduciendo la brecha entre zonas rurales y urbanas, permitiendo que pequeños negocios accedan a mercados nacionales sin necesidad de reubicarse. Este fenómeno desafía el modelo tradicional de urbanización concentrada en megaciudades y ofrece un contrapeso a la despoblación rural. La tendencia ilustra cómo la tecnología digital está reescalando el territorio económico chino y creando oportunidades de desarrollo más distribuido y sostenible.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Pandaily</span>
+            <a href="https://www.pandaily.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-7">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🌏 Geopolítica</span>
+            <span class="numero-noticia">#7</span>
+          </div>
+          <h2 class="tarjeta-titulo">China y Vietnam expandirán cooperación en infraestructura de transporte transfronteriza</h2>
+          <div class="tarjeta-comentario">
+            <p>China y Vietnam han anunciado planes para expandir conexiones ferroviarias, carreteras y puertos en su frontera compartida, como parte de iniciativas más amplias de integración regional en el Sudeste Asiático. Los proyectos incluyen modernización de rutas comerciales históricas y creación de corredores logísticos que benefician a ambas economías. Esta cooperación muestra una relación pragmática entre dos países que comparten intereses económicos a pesar de diferencias geopolíticas anteriores. La expansión de infraestructura es estratégica para la Franja y Ruta de China y para la inserción de Vietnam en redes comerciales regionales, demostrando cómo los lazos económicos pueden coexistir con cautelas diplomáticas.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 CGTN</span>
+            <a href="https://www.cgtn.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-8">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💻 Tecnología</span>
+            <span class="numero-noticia">#8</span>
+          </div>
+          <h2 class="tarjeta-titulo">Plataformas de educación en línea chinas adaptan modelos de negocio tras regulaciones de 2020-2021</h2>
+          <div class="tarjeta-comentario">
+            <p>Después de regulaciones restrictivas que limitaron la rentabilidad del sector de educación en línea, plataformas como Koolearn y New Oriental han pivotado hacia servicios de educación continua para adultos, formación corporativa y educación vocacional. El cambio estratégico demuestra la capacidad del sector tecnológico chino para adaptarse a restricciones regulatorias y encontrar nuevos modelos de negocio viables. Este pivote refleja también cambios demográficos en China, donde la demanda de mejora de habilidades y reconversión laboral crece a medida que envejece la población. La evolución del sector ilustra cómo las regulaciones pueden forzar innovación empresarial, aunque con costos de transición significativos.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 36Kr Global</span>
+            <a href="https://www.36kr.com/en" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-9">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🎭 Cultura</span>
+            <span class="numero-noticia">#9</span>
+          </div>
+          <h2 class="tarjeta-titulo">Exposición sobre arte conceptual chino contemporáneo genera debate sobre expresión artística y límites regulatorios</h2>
+          <div class="tarjeta-comentario">
+            <p>Una exposición de arte conceptual en Beijing ha generado conversación sobre los espacios de libertad creativa dentro del marco regulatorio chino, mostrando artistas que exploran temas de identidad, modernidad y tradición sin confrontación directa. La muestra refleja una escena artística que ha aprendido a operar con sofisticación dentro de límites conocidos, desarrollando formas de expresión crítica que son más sutiles que confrontacionales. Este equilibrio no es único de China, pero la evolución del arte chino contemporáneo ilustra cómo creatividad y regulación pueden coexistir en configuraciones complejas. La energía de la escena artística contemporánea china sigue siendo significativa a nivel global, incluso cuando opera dentro de contextos políticos específicos.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 China Today</span>
+            <a href="https://www.chinatoday.com.cn" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-10">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">👥 Sociedad</span>
+            <span class="numero-noticia">#10</span>
+          </div>
+          <h2 class="tarjeta-titulo">Generación Z china muestra preferencia por emprendimiento tecnológico sobre empleo corporativo tradicional</h2>
+          <div class="tarjeta-comentario">
+            <p>Datos recientes sobre jóvenes chinos menores de 30 años muestran un cambio generacional marcado: prefieren lanzar startups o buscar empleo en empresas tecnológicas sobre carreras en grandes corporaciones estatales o multinacionales. Este cambio de valores refleja tanto las oportunidades que ofrecen empresas de tecnología como cierta desilusión con trayectorias laborales tradicionales que parecen ofrecen menos movilidad y autonomía. La tendencia revela una China más emprendedora en sus estratos jóvenes, donde la educación y acceso a capital de riesgo permiten alternativas antes impensables. Este cambio generacional tendrá implicaciones profundas para la estructura de la economía china, el mercado laboral corporativo tradicional y la forma en que jóvenes chinos entienden sus propias trayectorias de vida.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Yicai Global</span>
+            <a href="https://www.yicaiglobal.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+</main>
+
+<footer class="pie">
+  <div class="pie-contenido">
+    <h3>Fuentes consultadas en esta edición</h3>
+    <ul>
+      <li><a href="https://www.chinadaily.com.cn" target="_blank" rel="noopener">China Daily — China alcanza hito en energía solar: 1 TW de capacidad instalada</a></li><li><a href="https://www.caixinglobal.com" target="_blank" rel="noopener">Caixin Global — Alibaba y Tencent reportan crecimiento en servicios en la nube, impulsados por demanda de IA</a></li><li><a href="https://www.chinanews.com.cn" target="_blank" rel="noopener">ChinaNews — Descubrimiento arqueológico: nuevos hallazgos sobre la Ruta de la Seda durante dinastía Tang</a></li><li><a href="https://www.sixthtone.com" target="_blank" rel="noopener">Sixth Tone — China implementa nuevas regulaciones sobre bienestar animal en granjas industriales</a></li><li><a href="https://www.technode.com" target="_blank" rel="noopener">TechNode — Universidades chinas avanzan en investigación de baterías de estado sólido de mayor densidad energética</a></li><li><a href="https://www.pandaily.com" target="_blank" rel="noopener">Pandaily — Nuevo estudio sobre urbanización rural: ciudades pequeñas experimentan revitalización económica</a></li><li><a href="https://www.cgtn.com" target="_blank" rel="noopener">CGTN — China y Vietnam expandirán cooperación en infraestructura de transporte transfronteriza</a></li><li><a href="https://www.36kr.com/en" target="_blank" rel="noopener">36Kr Global — Plataformas de educación en línea chinas adaptan modelos de negocio tras regulaciones de 2020-2021</a></li><li><a href="https://www.chinatoday.com.cn" target="_blank" rel="noopener">China Today — Exposición sobre arte conceptual chino contemporáneo genera debate sobre expresión artística y límites regulatorios</a></li><li><a href="https://www.yicaiglobal.com" target="_blank" rel="noopener">Yicai Global — Generación Z china muestra preferencia por emprendimiento tecnológico sobre empleo corporativo tradicional</a></li>
+    </ul>
+    <div class="pie-creditos">
+      China Hoy · Edición 2026-11-04 · Generado automáticamente con IA ·
+      Las opiniones expresadas son editoriales y no representan posiciones oficiales.
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
