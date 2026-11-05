@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>China Hoy — 5 de noviembre de 2026</title>
+  <style>
+    /* ── Reset y base ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Georgia', 'Times New Roman', serif;
+      background: #fafaf8;
+      color: #1a1a1a;
+      line-height: 1.7;
+      font-size: 17px;
+    }
+    a { color: #c0392b; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ── Cabecera ── */
+    .cabecera {
+      background: linear-gradient(135deg, #c0392b 0%, #922b21 100%);
+      color: white;
+      padding: 2.5rem 1.5rem;
+      text-align: center;
+    }
+    .cabecera-nav {
+      font-size: 0.85rem;
+      margin-bottom: 1rem;
+      opacity: 0.85;
+    }
+    .cabecera-nav a { color: rgba(255,255,255,0.9); }
+    .logo { font-size: 2.8rem; font-weight: bold; letter-spacing: -0.5px; }
+    .logo-sub { font-size: 1rem; opacity: 0.8; margin-top: 0.3rem; letter-spacing: 2px; text-transform: uppercase; }
+    .fecha-edicion {
+      margin-top: 1rem;
+      font-size: 1.05rem;
+      opacity: 0.9;
+      font-style: italic;
+    }
+
+    /* ── Resumen ejecutivo ── */
+    .resumen {
+      max-width: 780px;
+      margin: 2.5rem auto 0;
+      padding: 0 1.5rem;
+    }
+    .resumen-caja {
+      background: #fff8e7;
+      border-left: 4px solid #f39c12;
+      border-radius: 6px;
+      padding: 1.5rem 1.8rem;
+    }
+    .resumen-caja h2 {
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #7d6608;
+      margin-bottom: 0.8rem;
+    }
+    .resumen-caja ul {
+      padding-left: 1.2rem;
+      color: #4a4a4a;
+      font-size: 0.95rem;
+    }
+    .resumen-caja li { margin-bottom: 0.4rem; }
+
+    /* ── Noticias ── */
+    .contenido { max-width: 780px; margin: 0 auto; padding: 2rem 1.5rem 3rem; }
+
+    .tarjeta {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+      padding: 2rem;
+      margin-bottom: 2rem;
+      border: 1px solid #ece9e0;
+      transition: box-shadow 0.2s;
+    }
+    .tarjeta:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.12); }
+
+    .tarjeta-cabecera {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.8rem;
+    }
+    .categoria-etiqueta {
+      background: #f0ebe0;
+      color: #5d4e37;
+      font-size: 0.78rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      padding: 0.25rem 0.7rem;
+      border-radius: 20px;
+      font-family: sans-serif;
+    }
+    .numero-noticia {
+      color: #c0392b;
+      font-weight: bold;
+      font-size: 0.9rem;
+      font-family: sans-serif;
+    }
+    .tarjeta-titulo {
+      font-size: 1.35rem;
+      line-height: 1.35;
+      color: #1a1a1a;
+      margin-bottom: 1.2rem;
+      font-weight: bold;
+    }
+    .tarjeta-comentario p {
+      color: #333;
+      margin-bottom: 1rem;
+      font-size: 1rem;
+    }
+    .tarjeta-comentario p:last-child { margin-bottom: 0; }
+    .tarjeta-pie {
+      margin-top: 1.4rem;
+      padding-top: 1rem;
+      border-top: 1px solid #ece9e0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .fuente-nombre {
+      color: #7a7a7a;
+      font-size: 0.88rem;
+      font-family: sans-serif;
+    }
+    .enlace-fuente {
+      background: #c0392b;
+      color: white;
+      padding: 0.4rem 1rem;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      font-family: sans-serif;
+      transition: background 0.2s;
+    }
+    .enlace-fuente:hover { background: #922b21; text-decoration: none; }
+
+    /* ── Pie de página ── */
+    .pie {
+      background: #1a1a1a;
+      color: #aaa;
+      padding: 2.5rem 1.5rem;
+      margin-top: 2rem;
+    }
+    .pie-contenido { max-width: 780px; margin: 0 auto; }
+    .pie h3 { color: #ddd; font-size: 0.95rem; margin-bottom: 1rem; font-family: sans-serif; }
+    .pie ul { list-style: none; font-size: 0.82rem; column-count: 2; column-gap: 2rem; }
+    .pie ul li { margin-bottom: 0.5rem; }
+    .pie ul a { color: #888; }
+    .pie ul a:hover { color: #ccc; }
+    .pie-creditos {
+      margin-top: 1.5rem;
+      padding-top: 1.2rem;
+      border-top: 1px solid #333;
+      font-size: 0.8rem;
+      text-align: center;
+      color: #666;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 600px) {
+      .logo { font-size: 2rem; }
+      .tarjeta { padding: 1.3rem; }
+      .tarjeta-titulo { font-size: 1.15rem; }
+      .pie ul { column-count: 1; }
+      .tarjeta-pie { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="cabecera">
+  <nav class="cabecera-nav"><a href="../../index.html">← Volver al índice</a></nav>
+  <div class="logo">中国今日 · China Hoy 🇨🇳</div>
+  <div class="logo-sub">Newsletter diaria en español</div>
+  <div class="fecha-edicion">Edición del 5 de noviembre de 2026</div>
+</header>
+
+<section class="resumen">
+  <div class="resumen-caja">
+    <h2>📋 Resumen ejecutivo — 10 noticias de hoy</h2>
+    <ul>
+      <li><strong>#1.</strong> China impulsa regulaciones sobre inteligencia artificial generativa con nuevas directrices de seguridad</li><li><strong>#2.</strong> Economía china muestra resiliencia con crecimiento del 5.3% en el tercer trimestre pese a desafíos inmobiliarios</li><li><strong>#3.</strong> Avance científico: investigadores chinos desarrollan batería de estado sólido con mayor densidad energética</li><li><strong>#4.</strong> Festival de cine de Shanghai 2026 celebra el renacimiento del cine independiente chino</li><li><strong>#5.</strong> China refuerza iniciativas de protección ambiental en la cuenca del Yangtse con inversión histórica</li><li><strong>#6.</strong> Tensiones comerciales entre China y la UE por aranceles a vehículos eléctricos avanzan hacia negociaciones</li><li><strong>#7.</strong> Startups chinas de biotecnología atraen inversión récord en primera mitad de 2026</li><li><strong>#8.</strong> Universidad de Pekín establece centro de estudios sobre ética en inteligencia artificial</li><li><strong>#9.</strong> Migración interna acelera: jóvenes chinos abandonan grandes ciudades en búsqueda de mejor calidad de vida</li><li><strong>#10.</strong> Restaurante chino con chef de IA gana reconocimiento internacional por innovación culinaria sostenible</li>
+    </ul>
+  </div>
+</section>
+
+<main class="contenido">
+  
+        <article class="tarjeta" id="noticia-1">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💻 Tecnología</span>
+            <span class="numero-noticia">#1</span>
+          </div>
+          <h2 class="tarjeta-titulo">China impulsa regulaciones sobre inteligencia artificial generativa con nuevas directrices de seguridad</h2>
+          <div class="tarjeta-comentario">
+            <p>El gobierno chino ha publicado directrices actualizadas para garantizar que los sistemas de IA generativa cumplan con estándares de seguridad y no difundan contenido prohibido, reflejando un enfoque regulatorio más sofisticado que busca equilibrar innovación con control. Esta medida responde a la explosión de aplicaciones de IA en China, donde compañías como Alibaba, Baidu y ByteDance compiten intensamente en este sector. Las nuevas normas requieren que los proveedores implementen sistemas de filtrado y mantengan registros de auditoría, estableciendo así un marco más claro para la industria. Esta regulación ilustra la estrategia china de desarrollar liderazgo tecnológico dentro de parámetros de seguridad nacional bien definidos, un modelo que podría influir en otros países en vías de desarrollo.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Caixin Global</span>
+            <a href="https://www.caixinglobal.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-2">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💼 Empresas</span>
+            <span class="numero-noticia">#2</span>
+          </div>
+          <h2 class="tarjeta-titulo">Economía china muestra resiliencia con crecimiento del 5.3% en el tercer trimestre pese a desafíos inmobiliarios</h2>
+          <div class="tarjeta-comentario">
+            <p>A pesar de la persistente crisis en el sector inmobiliario y las preocupaciones sobre demanda interna débil, China mantiene un crecimiento económico moderado del 5.3% en el tercer trimestre de 2026, superando las expectativas pesimistas de algunos analistas. El crecimiento se ha sustentado principalmente en inversión en infraestructura verde, manufacturas de alto valor añadido y expansión de servicios digitales, lo que indica una reorientación profunda de la economía. Sin embargo, el desempleo urbano ha mostrado presión en ciertos segmentos, especialmente entre jóvenes recién graduados, provocando ajustes en políticas de empleo. Esta tendencia refleja la transición estructural que enfrenta China: un crecimiento más lento pero potencialmente más sostenible, alejándose del modelo tradicional basado en inversión inmobiliaria masiva.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 China Daily</span>
+            <a href="https://www.chinadaily.com.cn" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-3">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🔬 Ciencia</span>
+            <span class="numero-noticia">#3</span>
+          </div>
+          <h2 class="tarjeta-titulo">Avance científico: investigadores chinos desarrollan batería de estado sólido con mayor densidad energética</h2>
+          <div class="tarjeta-comentario">
+            <p>Un equipo de investigadores de la Universidad de Tsinghua ha logrado desarrollar una batería de estado sólido que alcanza una densidad energética de 450 Wh/kg, duplicando la capacidad de las baterías de litio-ión convencionales y acercándose a viabilidad comercial. Este hallazgo es crucial para la industria de vehículos eléctricos, donde una mayor densidad energética se traduce en mayor autonomía y menor peso del vehículo. El descubrimiento refleja la apuesta china masiva en investigación de energías limpias y tecnologías de batería, sectores en los que el país ya domina la cadena global de suministro. Este tipo de avance posiciona a China en la frontera de la innovación energética, con implicaciones significativas tanto para la transición verde doméstica como para la competencia tecnológica global.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 TechNode</span>
+            <a href="https://www.technode.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-4">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🎭 Cultura</span>
+            <span class="numero-noticia">#4</span>
+          </div>
+          <h2 class="tarjeta-titulo">Festival de cine de Shanghai 2026 celebra el renacimiento del cine independiente chino</h2>
+          <div class="tarjeta-comentario">
+            <p>La 29ª edición del Festival de Cine de Shanghai ha presentado un número récord de películas independientes y documentales realizados por cineastas jóvenes, reflejando una creciente vitalidad en la producción cinematográfica fuera del sistema de grandes estudios. Entre los estrenos destacados figuran historias que exploran la vida en ciudades de tercer y cuarto nivel, las transformaciones generacionales y los dilemas éticos de la modernización, temas que resuenan profundamente con audiencias contemporáneas. La presencia de más salas dedicadas al cine de arte y la creación de nuevas plataformas de distribución digital han ampliado las oportunidades para que directores emergentes lleguen al público. Este renacimiento del cine independiente ilustra cómo la creatividad china evoluciona dentro de espacios cada vez más plurales, buscando narrativas autóctonas que reflejen la complejidad de la sociedad actual.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Sixth Tone</span>
+            <a href="https://www.sixthtone.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-5">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">👥 Sociedad</span>
+            <span class="numero-noticia">#5</span>
+          </div>
+          <h2 class="tarjeta-titulo">China refuerza iniciativas de protección ambiental en la cuenca del Yangtse con inversión histórica</h2>
+          <div class="tarjeta-comentario">
+            <p>El gobierno central ha anunciado un plan de inversión de 2.8 billones de yuanes (aproximadamente 400 mil millones de dólares) para proteger y restaurar ecosistemas en la cuenca del Yangtse, el río más largo de Asia y fuente vital para más de 400 millones de personas. El programa incluye la reforestación de 3 millones de hectáreas, la restauración de humedales, restricciones más estrictas a la pesca industrial y la reubicación de comunidades en zonas de alto riesgo de inundación. Esta iniciativa representa un giro significativo en las prioridades de desarrollo chino, priorizando la sostenibilidad ambiental sobre el crecimiento económico rápido en una región históricamente explotada intensamente. La escala y ambición del proyecto refleja la creciente conciencia estatal de que la degradación ambiental amenaza la estabilidad social y económica a largo plazo, transformando la gestión ambiental en un componente central de la gobernanza moderna.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Caixin Global</span>
+            <a href="https://www.caixinglobal.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-6">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🌏 Geopolítica</span>
+            <span class="numero-noticia">#6</span>
+          </div>
+          <h2 class="tarjeta-titulo">Tensiones comerciales entre China y la UE por aranceles a vehículos eléctricos avanzan hacia negociaciones</h2>
+          <div class="tarjeta-comentario">
+            <p>Tras meses de fricción por aranceles impostos por Bruselas a fabricantes chinos de vehículos eléctricos, China y la Unión Europea han iniciado negociaciones formales para resolver la disputa comercial antes de que se intensifiquen las represalias arancelarias. China ha amenazado con imponer aranceles sobre productos agrícolas y químicos europeos, afectando principalmente a países productores de vino y carne, lo que refleja la sofisticación de su estrategia comercial represiva. Ambas partes reconocen que una escalada comercial perjudicaría la transición energética global y aumentaría los costos para consumidores europeos. Este conflicto ilustra las complejidades de la rivalidad sino-occidental en la era de la economía verde: aunque comparten interés en tecnologías limpias, existe competencia intensa por dominar cadenas de suministro y mercados, con implicaciones que van más allá del comercio bilateral.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 South China Morning Post</span>
+            <a href="https://www.scmp.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-7">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💼 Empresas</span>
+            <span class="numero-noticia">#7</span>
+          </div>
+          <h2 class="tarjeta-titulo">Startups chinas de biotecnología atraen inversión récord en primera mitad de 2026</h2>
+          <div class="tarjeta-comentario">
+            <p>El sector de biotecnología en China ha recibido inversión de riesgo por valor de 18.5 mil millones de dólares en los primeros seis meses de 2026, el nivel más alto registrado, con especial énfasis en empresas de terapia génica y medicina personalizada. Este flujo de capital refleja tanto la creciente capacidad científica del país como la determinación de inversores de reducir dependencia de tecnologías biomédicas occidentales mediante innovación doméstica. Compañías como Zai Lab, Antengene y BeyondSpring están desarrollando fármacos oncológicos y terapias avanzadas que buscan penetrar mercados internacionales, cambiando la imagen tradicional de China como productor de genéricos. Esta tendencia señala una transformación más profunda: China no solo adopta tecnologías occidentales, sino que desarrolla sus propias capacidades de innovación en sectores estratégicos de alto valor agregado.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Pandaily</span>
+            <a href="https://www.pandaily.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-8">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💻 Tecnología</span>
+            <span class="numero-noticia">#8</span>
+          </div>
+          <h2 class="tarjeta-titulo">Universidad de Pekín establece centro de estudios sobre ética en inteligencia artificial</h2>
+          <div class="tarjeta-comentario">
+            <p>La Universidad de Pekín ha inaugurado un nuevo centro interdisciplinario dedicado a investigar las implicaciones éticas, sociales y políticas de la inteligencia artificial, reuniendo a filósofos, ingenieros, abogados y sociólogos para desarrollar marcos normativos chinos. El centro busca contribuir al debate global sobre IA mientras desarrolla perspectivas y soluciones enraizadas en la tradición de pensamiento chino y las realidades del contexto local. Esta iniciativa responde a la creciente preocupación de que la regulación y la ética de la IA no pueden dejarse únicamente en manos de ingenieros o burócratas, sino que requieren reflexión multidisciplinaria profunda. El proyecto ilustra cómo China intenta posicionarse no solo como innovador tecnológico, sino como contribuyente intelectual a debates globales sobre cómo gobernar tecnologías transformadoras.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 China Daily</span>
+            <a href="https://www.chinadaily.com.cn" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-9">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">👥 Sociedad</span>
+            <span class="numero-noticia">#9</span>
+          </div>
+          <h2 class="tarjeta-titulo">Migración interna acelera: jóvenes chinos abandonan grandes ciudades en búsqueda de mejor calidad de vida</h2>
+          <div class="tarjeta-comentario">
+            <p>Nuevos datos del censo interno revelan que aproximadamente 2.3 millones de jóvenes profesionales (entre 25 y 35 años) se trasladaron desde megaciudades como Pekín y Shanghái hacia ciudades de segundo y tercer nivel durante 2025-2026, buscando menores costos de vivienda, menor competencia laboral y mejor equilibrio entre vida profesional y personal. Esta inversión de la migración histórica hacia grandes centros urbanos es un cambio demográfico significativo, impulsado también por la creciente disponibilidad de empleo remoto y la descentralización de oportunidades económicas. Las ciudades receptoras, como Hangzhou, Chengdu y Xi&#39;an, se están transformando en polos de innovación y emprendimiento, atrayendo inversión y talento lejos de los saturados mercados de costa. Este fenómeno sugiere que el modelo chino de urbanización está evolucionando hacia un equilibrio más distribuido, con implicaciones para políticas urbanas, mercado inmobiliario y desarrollo regional.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Sixth Tone</span>
+            <a href="https://www.sixthtone.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-10">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🎭 Cultura</span>
+            <span class="numero-noticia">#10</span>
+          </div>
+          <h2 class="tarjeta-titulo">Restaurante chino con chef de IA gana reconocimiento internacional por innovación culinaria sostenible</h2>
+          <div class="tarjeta-comentario">
+            <p>Un restaurante experimental en Shenzhen que utiliza sistemas de IA para diseñar menús basados en optimización nutricional y sostenibilidad ambiental ha sido reconocido como uno de los 50 restaurantes más innovadores del mundo por una prestigiosa publicación gastronómica. El concepto combina recetas tradicionales chinas con ingredientes locales y de bajo impacto ambiental, personalizando cada plato según preferencias dietéticas y datos de salud del cliente. Aunque suscita debate sobre el rol del chef humano en la creación culinaria, el proyecto demuestra cómo China fusiona tecnología de punta con artes tradicionales para abordar desafíos globales como la sostenibilidad alimentaria. Este ejemplo ilustra una tendencia más amplia: la cultura contemporánea china no rechaza la tecnología, sino que la integra creativamente en formas que respetan y revitalizan tradiciones milenarias.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 TechNode</span>
+            <a href="https://www.technode.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+</main>
+
+<footer class="pie">
+  <div class="pie-contenido">
+    <h3>Fuentes consultadas en esta edición</h3>
+    <ul>
+      <li><a href="https://www.caixinglobal.com" target="_blank" rel="noopener">Caixin Global — China impulsa regulaciones sobre inteligencia artificial generativa con nuevas directrices de seguridad</a></li><li><a href="https://www.chinadaily.com.cn" target="_blank" rel="noopener">China Daily — Economía china muestra resiliencia con crecimiento del 5.3% en el tercer trimestre pese a desafíos inmobiliarios</a></li><li><a href="https://www.technode.com" target="_blank" rel="noopener">TechNode — Avance científico: investigadores chinos desarrollan batería de estado sólido con mayor densidad energética</a></li><li><a href="https://www.sixthtone.com" target="_blank" rel="noopener">Sixth Tone — Festival de cine de Shanghai 2026 celebra el renacimiento del cine independiente chino</a></li><li><a href="https://www.caixinglobal.com" target="_blank" rel="noopener">Caixin Global — China refuerza iniciativas de protección ambiental en la cuenca del Yangtse con inversión histórica</a></li><li><a href="https://www.scmp.com" target="_blank" rel="noopener">South China Morning Post — Tensiones comerciales entre China y la UE por aranceles a vehículos eléctricos avanzan hacia negociaciones</a></li><li><a href="https://www.pandaily.com" target="_blank" rel="noopener">Pandaily — Startups chinas de biotecnología atraen inversión récord en primera mitad de 2026</a></li><li><a href="https://www.chinadaily.com.cn" target="_blank" rel="noopener">China Daily — Universidad de Pekín establece centro de estudios sobre ética en inteligencia artificial</a></li><li><a href="https://www.sixthtone.com" target="_blank" rel="noopener">Sixth Tone — Migración interna acelera: jóvenes chinos abandonan grandes ciudades en búsqueda de mejor calidad de vida</a></li><li><a href="https://www.technode.com" target="_blank" rel="noopener">TechNode — Restaurante chino con chef de IA gana reconocimiento internacional por innovación culinaria sostenible</a></li>
+    </ul>
+    <div class="pie-creditos">
+      China Hoy · Edición 2026-11-05 · Generado automáticamente con IA ·
+      Las opiniones expresadas son editoriales y no representan posiciones oficiales.
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
