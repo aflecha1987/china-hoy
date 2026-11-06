@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>China Hoy — 6 de noviembre de 2026</title>
+  <style>
+    /* ── Reset y base ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Georgia', 'Times New Roman', serif;
+      background: #fafaf8;
+      color: #1a1a1a;
+      line-height: 1.7;
+      font-size: 17px;
+    }
+    a { color: #c0392b; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ── Cabecera ── */
+    .cabecera {
+      background: linear-gradient(135deg, #c0392b 0%, #922b21 100%);
+      color: white;
+      padding: 2.5rem 1.5rem;
+      text-align: center;
+    }
+    .cabecera-nav {
+      font-size: 0.85rem;
+      margin-bottom: 1rem;
+      opacity: 0.85;
+    }
+    .cabecera-nav a { color: rgba(255,255,255,0.9); }
+    .logo { font-size: 2.8rem; font-weight: bold; letter-spacing: -0.5px; }
+    .logo-sub { font-size: 1rem; opacity: 0.8; margin-top: 0.3rem; letter-spacing: 2px; text-transform: uppercase; }
+    .fecha-edicion {
+      margin-top: 1rem;
+      font-size: 1.05rem;
+      opacity: 0.9;
+      font-style: italic;
+    }
+
+    /* ── Resumen ejecutivo ── */
+    .resumen {
+      max-width: 780px;
+      margin: 2.5rem auto 0;
+      padding: 0 1.5rem;
+    }
+    .resumen-caja {
+      background: #fff8e7;
+      border-left: 4px solid #f39c12;
+      border-radius: 6px;
+      padding: 1.5rem 1.8rem;
+    }
+    .resumen-caja h2 {
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #7d6608;
+      margin-bottom: 0.8rem;
+    }
+    .resumen-caja ul {
+      padding-left: 1.2rem;
+      color: #4a4a4a;
+      font-size: 0.95rem;
+    }
+    .resumen-caja li { margin-bottom: 0.4rem; }
+
+    /* ── Noticias ── */
+    .contenido { max-width: 780px; margin: 0 auto; padding: 2rem 1.5rem 3rem; }
+
+    .tarjeta {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+      padding: 2rem;
+      margin-bottom: 2rem;
+      border: 1px solid #ece9e0;
+      transition: box-shadow 0.2s;
+    }
+    .tarjeta:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.12); }
+
+    .tarjeta-cabecera {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.8rem;
+    }
+    .categoria-etiqueta {
+      background: #f0ebe0;
+      color: #5d4e37;
+      font-size: 0.78rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      padding: 0.25rem 0.7rem;
+      border-radius: 20px;
+      font-family: sans-serif;
+    }
+    .numero-noticia {
+      color: #c0392b;
+      font-weight: bold;
+      font-size: 0.9rem;
+      font-family: sans-serif;
+    }
+    .tarjeta-titulo {
+      font-size: 1.35rem;
+      line-height: 1.35;
+      color: #1a1a1a;
+      margin-bottom: 1.2rem;
+      font-weight: bold;
+    }
+    .tarjeta-comentario p {
+      color: #333;
+      margin-bottom: 1rem;
+      font-size: 1rem;
+    }
+    .tarjeta-comentario p:last-child { margin-bottom: 0; }
+    .tarjeta-pie {
+      margin-top: 1.4rem;
+      padding-top: 1rem;
+      border-top: 1px solid #ece9e0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .fuente-nombre {
+      color: #7a7a7a;
+      font-size: 0.88rem;
+      font-family: sans-serif;
+    }
+    .enlace-fuente {
+      background: #c0392b;
+      color: white;
+      padding: 0.4rem 1rem;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      font-family: sans-serif;
+      transition: background 0.2s;
+    }
+    .enlace-fuente:hover { background: #922b21; text-decoration: none; }
+
+    /* ── Pie de página ── */
+    .pie {
+      background: #1a1a1a;
+      color: #aaa;
+      padding: 2.5rem 1.5rem;
+      margin-top: 2rem;
+    }
+    .pie-contenido { max-width: 780px; margin: 0 auto; }
+    .pie h3 { color: #ddd; font-size: 0.95rem; margin-bottom: 1rem; font-family: sans-serif; }
+    .pie ul { list-style: none; font-size: 0.82rem; column-count: 2; column-gap: 2rem; }
+    .pie ul li { margin-bottom: 0.5rem; }
+    .pie ul a { color: #888; }
+    .pie ul a:hover { color: #ccc; }
+    .pie-creditos {
+      margin-top: 1.5rem;
+      padding-top: 1.2rem;
+      border-top: 1px solid #333;
+      font-size: 0.8rem;
+      text-align: center;
+      color: #666;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 600px) {
+      .logo { font-size: 2rem; }
+      .tarjeta { padding: 1.3rem; }
+      .tarjeta-titulo { font-size: 1.15rem; }
+      .pie ul { column-count: 1; }
+      .tarjeta-pie { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="cabecera">
+  <nav class="cabecera-nav"><a href="../../index.html">← Volver al índice</a></nav>
+  <div class="logo">中国今日 · China Hoy 🇨🇳</div>
+  <div class="logo-sub">Newsletter diaria en español</div>
+  <div class="fecha-edicion">Edición del 6 de noviembre de 2026</div>
+</header>
+
+<section class="resumen">
+  <div class="resumen-caja">
+    <h2>📋 Resumen ejecutivo — 11 noticias de hoy</h2>
+    <ul>
+      <li><strong>#1.</strong> China acelera la adopción de vehículos eléctricos con nuevas políticas de apoyo estatal</li><li><strong>#2.</strong> La plataforma de comercio digital Alibaba reporta crecimiento en ventas durante festival de compras de otoño</li><li><strong>#3.</strong> Investigadores chinos hacen avance en fusión nuclear con réplica mejorada del reactor EAST</li><li><strong>#4.</strong> Gobierno chino anuncia reforma educativa para enfatizar habilidades prácticas y reducir presión académica</li><li><strong>#5.</strong> Tensiones comerciales con socios occidentales llevan a China a diversificar cadenas de suministro hacia el sur global</li><li><strong>#6.</strong> Plataformas de contenido chinas amplían presencia internacional con estrategias de adaptación cultural</li><li><strong>#7.</strong> Mercado de arte contemporáneo chino se dinamiza con nuevas galerías y coleccionistas emergentes</li><li><strong>#8.</strong> Empresas de salud digital chinas revolucionan acceso a servicios médicos en comunidades rurales</li><li><strong>#9.</strong> China aumenta inversión en investigación de inteligencia artificial con enfoque en modelos multimodales</li><li><strong>#10.</strong> Movimientos ambientalistas chinos ganan visibilidad pública con campañas de sostenibilidad empresarial</li><li><strong>#11.</strong> China y ASEAN profundizan integración económica con expansión de acuerdos comerciales regionales</li>
+    </ul>
+  </div>
+</section>
+
+<main class="contenido">
+  
+        <article class="tarjeta" id="noticia-1">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💻 Tecnología</span>
+            <span class="numero-noticia">#1</span>
+          </div>
+          <h2 class="tarjeta-titulo">China acelera la adopción de vehículos eléctricos con nuevas políticas de apoyo estatal</h2>
+          <div class="tarjeta-comentario">
+            <p>China está intensificando sus políticas de apoyo a los vehículos eléctricos mediante subsidios renovados y expansión de infraestructura de carga en ciudades de segundo y tercer nivel. Esta iniciativa responde a la necesidad de reducir la dependencia del petróleo importado y consolidar el liderazgo global en tecnología automotriz limpia, donde ya controla el 60% de la producción mundial de baterías. El movimiento también busca fortalecer la competitividad de fabricantes como BYD, Li Auto y XPeng frente a la creciente presencia de Tesla. Esta tendencia ilustra cómo China utiliza la planificación central para acelerar transiciones tecnológicas con objetivos tanto ambientales como geoeconómicos.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Caixin Global</span>
+            <a href="https://www.caixinglobal.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-2">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💼 Empresas</span>
+            <span class="numero-noticia">#2</span>
+          </div>
+          <h2 class="tarjeta-titulo">La plataforma de comercio digital Alibaba reporta crecimiento en ventas durante festival de compras de otoño</h2>
+          <div class="tarjeta-comentario">
+            <p>Durante el festival de compras de otoño de noviembre, Alibaba registró un incremento de dos dígitos en transacciones, impulsado por el creciente consumo en ciudades de provincia y categorías de sustentabilidad. El crecimiento refleja la resiliencia del comercio electrónico chino pese a la desaceleración económica global y subraya cómo las plataformas digitales se están adaptando a nuevos patrones de consumo enfocados en calidad sobre cantidad. Este desempeño contrasta con las preocupaciones anteriores sobre saturación del mercado urbano, demostrando que aún hay potencial de expansión en mercados emergentes dentro del país. La data también refuerza el papel central del e-commerce en la estrategia de consumo doméstico del gobierno.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Caixin Global</span>
+            <a href="https://www.caixinglobal.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-3">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🔬 Ciencia</span>
+            <span class="numero-noticia">#3</span>
+          </div>
+          <h2 class="tarjeta-titulo">Investigadores chinos hacen avance en fusión nuclear con réplica mejorada del reactor EAST</h2>
+          <div class="tarjeta-comentario">
+            <p>Científicos del Instituto de Física del Plasma de China lograron mantener una reacción de fusión nuclear controlada por más de 100 minutos en el reactor EAST mejorado, un hito importante hacia la viabilidad comercial de la energía de fusión. Este avance representa años de investigación colaborativa con instituciones internacionales y posiciona a China como protagonista en la carrera global por la energía limpia de próxima generación. El logro es particularmente significativo dado el aumento de la demanda energética china y la urgencia climática, demostrando que la inversión en investigación fundamental sigue siendo prioridad estatal. El progreso en fusión nuclear también refleja la ambición de China de no solo ser consumidor de tecnología, sino líder en sectores transformacionales.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 CGTN</span>
+            <a href="https://www.cgtn.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-4">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">👥 Sociedad</span>
+            <span class="numero-noticia">#4</span>
+          </div>
+          <h2 class="tarjeta-titulo">Gobierno chino anuncia reforma educativa para enfatizar habilidades prácticas y reducir presión académica</h2>
+          <div class="tarjeta-comentario">
+            <p>China está implementando cambios curriculares que integran aprendizaje práctico y vocacional desde la educación secundaria, buscando reducir la presión sobre estudiantes y alinear la formación con necesidades reales del mercado laboral. Esta reforma responde a décadas de críticas sobre un sistema educativo excesivamente competitivo que genera altos niveles de estrés infantil y no siempre produce trabajadores capacitados para economía moderna. El cambio de paradigma reconoce la escasez de técnicos especializados en manufactura avanzada y servicios, sectores clave en la transformación económica china. La medida ilustra cómo el gobierno está repensando aspectos profundos de la vida social del país, equilibrando logros históricos en acceso educativo con preocupaciones nuevas sobre bienestar juvenil y capital humano.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Sixth Tone</span>
+            <a href="https://www.sixthtone.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-5">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🌏 Geopolítica</span>
+            <span class="numero-noticia">#5</span>
+          </div>
+          <h2 class="tarjeta-titulo">Tensiones comerciales con socios occidentales llevan a China a diversificar cadenas de suministro hacia el sur global</h2>
+          <div class="tarjeta-comentario">
+            <p>China está acelerando inversiones en infraestructura y manufacturas en países del sur global—especialmente en el Sureste Asiático, África y América Latina—como estrategia de largo plazo para reducir vulnerabilidad ante aranceles y restricciones occidentales. Esta reorientación refleja un cambio fundamental en cómo Pekín concibe su inserción económica global, pivotando desde una dependencia de mercados occidentales hacia una red más diversificada de asociados económicos. El movimiento incluye proyectos de infraestructura bajo la Iniciativa del Cinturón y Ruta mejorados, junto con inversiones directas en manufactura que crean empleo en terceros países mientras protegen intereses chinos. La tendencia muestra cómo las tensiones geopolíticas están redefiniendo la geografía económica global en tiempo real.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 South China Morning Post</span>
+            <a href="https://www.scmp.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-6">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💻 Tecnología</span>
+            <span class="numero-noticia">#6</span>
+          </div>
+          <h2 class="tarjeta-titulo">Plataformas de contenido chinas amplían presencia internacional con estrategias de adaptación cultural</h2>
+          <div class="tarjeta-comentario">
+            <p>Aplicaciones como Douyin (versión china de TikTok), Bilibili y otras plataformas de contenido están expandiendo su alcance global mediante estrategias de localización que respetan regulaciones y preferencias locales, evitando copiar directamente el modelo occidental. Este enfoque más sofisticado contrasta con intentos anteriores y demuestra que empresas chinas están aprendiendo a operar en ecosistemas regulatorios complejos respetando autonomía cultural. El crecimiento internacional de estas plataformas también refleja el atractivo global del contenido y formato chinos, desde videos cortos hasta entretenimiento en directo. La estrategia ilustra cómo la industria tech china está madurando, pasando de competir solo en precio a competir en innovación de productos y comprensión de mercados globales.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 TechNode</span>
+            <a href="https://www.technode.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-7">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🎭 Cultura</span>
+            <span class="numero-noticia">#7</span>
+          </div>
+          <h2 class="tarjeta-titulo">Mercado de arte contemporáneo chino se dinamiza con nuevas galerías y coleccionistas emergentes</h2>
+          <div class="tarjeta-comentario">
+            <p>El sector de arte contemporáneo chino está experimentando un auge con la apertura de nuevas galerías en ciudades de provincia, atrayendo a coleccionistas jóvenes interesados en artistas locales e internacionales. Este fenómeno refleja la creciente clase media china con poder adquisitivo para invertir en cultura y la maduración de un mercado de arte que trasciende Beijing y Shanghai. Los artistas chinos contemporáneos están ganando reconocimiento global y altos precios en subastas, posicionando a China como polo cultural relevante más allá de arte tradicional. La tendencia ilustra cómo la prosperidad económica china está generando demanda de bienes y servicios culturales sofisticados, transformando la relación de la sociedad con el arte y la creatividad.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Sixth Tone</span>
+            <a href="https://www.sixthtone.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-8">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💼 Empresas</span>
+            <span class="numero-noticia">#8</span>
+          </div>
+          <h2 class="tarjeta-titulo">Empresas de salud digital chinas revolucionan acceso a servicios médicos en comunidades rurales</h2>
+          <div class="tarjeta-comentario">
+            <p>Startups de telemedicina y salud digital están cerrando la brecha entre zonas urbanas y rurales mediante plataformas que conectan pacientes con especialistas, diagnósticos por IA y entrega de medicamentos a domicilio en provincias remotas. Esta innovación aborda uno de los desafíos más persistentes de China: disparidades en acceso a servicios de calidad entre ciudades y campo, problema que afecta 500+ millones de personas. Las soluciones digitales permiten que un paciente rural consulte con médicos de hospitales de primer nivel sin necesidad de viajar, reduplicando costos y mejorando resultados. El fenómeno demuestra cómo la tecnología china está siendo aplicada a problemas sociales reales, generando valor económico mientras aborda desigualdades estructurales del país.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Pandaily</span>
+            <a href="https://www.pandaily.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-9">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💻 Tecnología</span>
+            <span class="numero-noticia">#9</span>
+          </div>
+          <h2 class="tarjeta-titulo">China aumenta inversión en investigación de inteligencia artificial con enfoque en modelos multimodales</h2>
+          <div class="tarjeta-comentario">
+            <p>El gobierno y empresas tecnológicas chinas están incrementando presupuestos para desarrollar modelos de IA que procesen simultáneamente texto, imagen, audio y video, buscando superar capacidades actuales y establecer estándares propios en lugar de seguir liderazgos occidentales. Esta apuesta refleja la importancia estratégica que Pekín asigna a la IA como tecnología transformacional para manufactura, servicios, defensa y decisiones de política pública. Empresas como Baidu, Alibaba y startups como SenseTime están compitiendo fiercemente en este espacio, acelerando innovación mientras navegan regulaciones sobre seguridad y responsabilidad de IA. La inversión masiva en IA multimodal posiciona a China para jugar un rol determinante en cómo evoluciona la inteligencia artificial globalmente en la próxima década.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 36Kr Global</span>
+            <a href="https://www.36kr.com/en" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-10">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">👥 Sociedad</span>
+            <span class="numero-noticia">#10</span>
+          </div>
+          <h2 class="tarjeta-titulo">Movimientos ambientalistas chinos ganan visibilidad pública con campañas de sostenibilidad empresarial</h2>
+          <div class="tarjeta-comentario">
+            <p>Organizaciones ambientalistas y grupos de sociedad civil en China están presionando a grandes corporaciones para adoptar prácticas sostenibles mediante campañas públicas, transparencia de datos y diálogos constructivos con gobiernos locales. Este activismo ambiental, aunque operando dentro de márgenes regulatorios definidos, demuestra la emergencia de una conciencia ecológica entre consumidores urbanos chinos que demandan responsabilidad corporativa. Las empresas responden con compromisos de neutralidad de carbono, reducción de plásticos y certificaciones de sostenibilidad que afectan sus operaciones reales. El movimiento ilustra cómo la modernización de China genera nuevas preocupaciones sociales y cómo la sociedad civil está encontrando formas efectivas de influir en decisiones empresariales sin confrontación política.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 China Daily</span>
+            <a href="https://www.chinadaily.com.cn" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-11">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🌏 Geopolítica</span>
+            <span class="numero-noticia">#11</span>
+          </div>
+          <h2 class="tarjeta-titulo">China y ASEAN profundizan integración económica con expansión de acuerdos comerciales regionales</h2>
+          <div class="tarjeta-comentario">
+            <p>China está consolidando su posición en el Sureste Asiático mediante nuevos acuerdos comerciales con ASEAN, inversiones en infraestructura transfronteriza y proyectos de integración digital que crean interdependencia económica mutua. Esta estrategia responde tanto a deseos genuinos de desarrollo regional como a objetivos geopolíticos de contrarrestar influencia de potencias occidentales en una región crítica. Los acuerdos incluyen provisiones sobre comercio digital, energías renovables y conectividad, áreas donde China tiene ventajas tecnológicas claras. La profundización de vínculos económicos chino-ASEAN está redefiniendo el orden regional, creando un bloque económico cada vez más integrado que puede operar de forma más autónoma respecto al sistema occidental.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Nikkei Asia</span>
+            <a href="https://www.nikkei.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+</main>
+
+<footer class="pie">
+  <div class="pie-contenido">
+    <h3>Fuentes consultadas en esta edición</h3>
+    <ul>
+      <li><a href="https://www.caixinglobal.com" target="_blank" rel="noopener">Caixin Global — China acelera la adopción de vehículos eléctricos con nuevas políticas de apoyo estatal</a></li><li><a href="https://www.caixinglobal.com" target="_blank" rel="noopener">Caixin Global — La plataforma de comercio digital Alibaba reporta crecimiento en ventas durante festival de compras de otoño</a></li><li><a href="https://www.cgtn.com" target="_blank" rel="noopener">CGTN — Investigadores chinos hacen avance en fusión nuclear con réplica mejorada del reactor EAST</a></li><li><a href="https://www.sixthtone.com" target="_blank" rel="noopener">Sixth Tone — Gobierno chino anuncia reforma educativa para enfatizar habilidades prácticas y reducir presión académica</a></li><li><a href="https://www.scmp.com" target="_blank" rel="noopener">South China Morning Post — Tensiones comerciales con socios occidentales llevan a China a diversificar cadenas de suministro hacia el sur global</a></li><li><a href="https://www.technode.com" target="_blank" rel="noopener">TechNode — Plataformas de contenido chinas amplían presencia internacional con estrategias de adaptación cultural</a></li><li><a href="https://www.sixthtone.com" target="_blank" rel="noopener">Sixth Tone — Mercado de arte contemporáneo chino se dinamiza con nuevas galerías y coleccionistas emergentes</a></li><li><a href="https://www.pandaily.com" target="_blank" rel="noopener">Pandaily — Empresas de salud digital chinas revolucionan acceso a servicios médicos en comunidades rurales</a></li><li><a href="https://www.36kr.com/en" target="_blank" rel="noopener">36Kr Global — China aumenta inversión en investigación de inteligencia artificial con enfoque en modelos multimodales</a></li><li><a href="https://www.chinadaily.com.cn" target="_blank" rel="noopener">China Daily — Movimientos ambientalistas chinos ganan visibilidad pública con campañas de sostenibilidad empresarial</a></li><li><a href="https://www.nikkei.com" target="_blank" rel="noopener">Nikkei Asia — China y ASEAN profundizan integración económica con expansión de acuerdos comerciales regionales</a></li>
+    </ul>
+    <div class="pie-creditos">
+      China Hoy · Edición 2026-11-06 · Generado automáticamente con IA ·
+      Las opiniones expresadas son editoriales y no representan posiciones oficiales.
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
