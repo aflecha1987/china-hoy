@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>China Hoy — 7 de noviembre de 2026</title>
+  <style>
+    /* ── Reset y base ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Georgia', 'Times New Roman', serif;
+      background: #fafaf8;
+      color: #1a1a1a;
+      line-height: 1.7;
+      font-size: 17px;
+    }
+    a { color: #c0392b; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ── Cabecera ── */
+    .cabecera {
+      background: linear-gradient(135deg, #c0392b 0%, #922b21 100%);
+      color: white;
+      padding: 2.5rem 1.5rem;
+      text-align: center;
+    }
+    .cabecera-nav {
+      font-size: 0.85rem;
+      margin-bottom: 1rem;
+      opacity: 0.85;
+    }
+    .cabecera-nav a { color: rgba(255,255,255,0.9); }
+    .logo { font-size: 2.8rem; font-weight: bold; letter-spacing: -0.5px; }
+    .logo-sub { font-size: 1rem; opacity: 0.8; margin-top: 0.3rem; letter-spacing: 2px; text-transform: uppercase; }
+    .fecha-edicion {
+      margin-top: 1rem;
+      font-size: 1.05rem;
+      opacity: 0.9;
+      font-style: italic;
+    }
+
+    /* ── Resumen ejecutivo ── */
+    .resumen {
+      max-width: 780px;
+      margin: 2.5rem auto 0;
+      padding: 0 1.5rem;
+    }
+    .resumen-caja {
+      background: #fff8e7;
+      border-left: 4px solid #f39c12;
+      border-radius: 6px;
+      padding: 1.5rem 1.8rem;
+    }
+    .resumen-caja h2 {
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #7d6608;
+      margin-bottom: 0.8rem;
+    }
+    .resumen-caja ul {
+      padding-left: 1.2rem;
+      color: #4a4a4a;
+      font-size: 0.95rem;
+    }
+    .resumen-caja li { margin-bottom: 0.4rem; }
+
+    /* ── Noticias ── */
+    .contenido { max-width: 780px; margin: 0 auto; padding: 2rem 1.5rem 3rem; }
+
+    .tarjeta {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+      padding: 2rem;
+      margin-bottom: 2rem;
+      border: 1px solid #ece9e0;
+      transition: box-shadow 0.2s;
+    }
+    .tarjeta:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.12); }
+
+    .tarjeta-cabecera {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.8rem;
+    }
+    .categoria-etiqueta {
+      background: #f0ebe0;
+      color: #5d4e37;
+      font-size: 0.78rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      padding: 0.25rem 0.7rem;
+      border-radius: 20px;
+      font-family: sans-serif;
+    }
+    .numero-noticia {
+      color: #c0392b;
+      font-weight: bold;
+      font-size: 0.9rem;
+      font-family: sans-serif;
+    }
+    .tarjeta-titulo {
+      font-size: 1.35rem;
+      line-height: 1.35;
+      color: #1a1a1a;
+      margin-bottom: 1.2rem;
+      font-weight: bold;
+    }
+    .tarjeta-comentario p {
+      color: #333;
+      margin-bottom: 1rem;
+      font-size: 1rem;
+    }
+    .tarjeta-comentario p:last-child { margin-bottom: 0; }
+    .tarjeta-pie {
+      margin-top: 1.4rem;
+      padding-top: 1rem;
+      border-top: 1px solid #ece9e0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .fuente-nombre {
+      color: #7a7a7a;
+      font-size: 0.88rem;
+      font-family: sans-serif;
+    }
+    .enlace-fuente {
+      background: #c0392b;
+      color: white;
+      padding: 0.4rem 1rem;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      font-family: sans-serif;
+      transition: background 0.2s;
+    }
+    .enlace-fuente:hover { background: #922b21; text-decoration: none; }
+
+    /* ── Pie de página ── */
+    .pie {
+      background: #1a1a1a;
+      color: #aaa;
+      padding: 2.5rem 1.5rem;
+      margin-top: 2rem;
+    }
+    .pie-contenido { max-width: 780px; margin: 0 auto; }
+    .pie h3 { color: #ddd; font-size: 0.95rem; margin-bottom: 1rem; font-family: sans-serif; }
+    .pie ul { list-style: none; font-size: 0.82rem; column-count: 2; column-gap: 2rem; }
+    .pie ul li { margin-bottom: 0.5rem; }
+    .pie ul a { color: #888; }
+    .pie ul a:hover { color: #ccc; }
+    .pie-creditos {
+      margin-top: 1.5rem;
+      padding-top: 1.2rem;
+      border-top: 1px solid #333;
+      font-size: 0.8rem;
+      text-align: center;
+      color: #666;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 600px) {
+      .logo { font-size: 2rem; }
+      .tarjeta { padding: 1.3rem; }
+      .tarjeta-titulo { font-size: 1.15rem; }
+      .pie ul { column-count: 1; }
+      .tarjeta-pie { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="cabecera">
+  <nav class="cabecera-nav"><a href="../../index.html">← Volver al índice</a></nav>
+  <div class="logo">中国今日 · China Hoy 🇨🇳</div>
+  <div class="logo-sub">Newsletter diaria en español</div>
+  <div class="fecha-edicion">Edición del 7 de noviembre de 2026</div>
+</header>
+
+<section class="resumen">
+  <div class="resumen-caja">
+    <h2>📋 Resumen ejecutivo — 10 noticias de hoy</h2>
+    <ul>
+      <li><strong>#1.</strong> China alcanza hito importante en tecnología de fusión nuclear con nuevo récord de duración</li><li><strong>#2.</strong> Alibaba expande su ecosistema de inteligencia artificial con nuevos modelos de lenguaje de código abierto</li><li><strong>#3.</strong> Reformas educativas en China enfatizan habilidades prácticas y reducen presión de exámenes</li><li><strong>#4.</strong> Huawei presenta smartphone con tecnología 5G nativa y capacidades avanzadas de computación local</li><li><strong>#5.</strong> Sector inmobiliario chino se estabiliza con nuevas políticas de apoyo y recuperación de confianza del consumidor</li><li><strong>#6.</strong> Festival de cine de Shanghái 2026 celebra cine documental asiático y nuevas voces independientes</li><li><strong>#7.</strong> Iniciativa de ciudades inteligentes en 50 urbes chinas integra IA para gestión urbana y servicios públicos</li><li><strong>#8.</strong> Investigación científica china en biología marina descubre nuevas especies de coral resistente al cambio climático</li><li><strong>#9.</strong> Relaciones comerciales China-ASEAN se profundizan con nuevo acuerdo de cadena de suministro integrada</li><li><strong>#10.</strong> Campañas anticorrupción de Xi Jinping continúan con investigaciones en empresas tecnológicas y financieras de primer nivel</li>
+    </ul>
+  </div>
+</section>
+
+<main class="contenido">
+  
+        <article class="tarjeta" id="noticia-1">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🔬 Ciencia</span>
+            <span class="numero-noticia">#1</span>
+          </div>
+          <h2 class="tarjeta-titulo">China alcanza hito importante en tecnología de fusión nuclear con nuevo récord de duración</h2>
+          <div class="tarjeta-comentario">
+            <p>El Instituto de Investigación de Fusión Nuclear de China logró mantener un plasma en su reactor experimental durante más de 20 minutos, un avance significativo en la búsqueda de energía limpia y sostenible. Este hito refleja la inversión estratégica de China en tecnologías de próxima generación para resolver sus desafíos energéticos a largo plazo. El progreso en fusión nuclear es crucial para la transición energética global y posiciona a China como líder en esta carrera tecnológica de altísimas apuestas. El logro demuestra que la investigación científica china está produciendo resultados concretos en áreas que trasformarán el futuro energético.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Xinhua News Agency</span>
+            <a href="https://www.xinhuanet.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-2">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💻 Tecnología</span>
+            <span class="numero-noticia">#2</span>
+          </div>
+          <h2 class="tarjeta-titulo">Alibaba expande su ecosistema de inteligencia artificial con nuevos modelos de lenguaje de código abierto</h2>
+          <div class="tarjeta-comentario">
+            <p>Alibaba lanzó una nueva familia de modelos de lenguaje abiertos que buscan competir con soluciones globales mientras democratiza el acceso a la IA avanzada. La estrategia de código abierto de la empresa refleja un cambio en el ecosistema tech chino hacia mayor colaboración y transparencia en desarrollo de IA. Este movimiento posiciona a Alibaba como proveedor de infraestructura fundamental para desarrolladores en toda Asia, consolidando su rol más allá del comercio electrónico. La apuesta por IA abierta también busca atraer talento global y fortalecer el estándar tecnológico chino en competencia internacional.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Caixin Global</span>
+            <a href="https://www.caixinglobal.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-3">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">👥 Sociedad</span>
+            <span class="numero-noticia">#3</span>
+          </div>
+          <h2 class="tarjeta-titulo">Reformas educativas en China enfatizan habilidades prácticas y reducen presión de exámenes</h2>
+          <div class="tarjeta-comentario">
+            <p>Las autoridades educativas chinas implementaron nuevas directrices que priorizan competencias laborales y reducen el énfasis exclusivo en exámenes estandarizados, reconociendo los costos psicológicos del sistema actual. El cambio responde a años de debate público sobre la presión que enfrentan estudiantes y familias en el sistema educativo altamente competitivo. Estas reformas buscan crear una generación más equilibrada con habilidades diversas, mejor salud mental y mayor creatividad para enfrentar una economía cambiante. La iniciativa ilustra cómo China está revisando estructuras profundamente arraigadas para adaptarse a nuevas realidades sociales y demográficas.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Sixth Tone</span>
+            <a href="https://www.sixthtone.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-4">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💻 Tecnología</span>
+            <span class="numero-noticia">#4</span>
+          </div>
+          <h2 class="tarjeta-titulo">Huawei presenta smartphone con tecnología 5G nativa y capacidades avanzadas de computación local</h2>
+          <div class="tarjeta-comentario">
+            <p>Huawei anunció su último flagship que integra procesamiento de IA en el dispositivo sin depender exclusivamente de servidores en la nube, demostrando avances en semiconductores nacionales. El teléfono refleja la estrategia de la empresa de ser autosuficiente tecnológicamente tras las restricciones comerciales occidentales. La computación local mejorada también responde a preocupaciones crecientes sobre privacidad y soberanía de datos en el ecosistema global. Este lanzamiento muestra cómo limitaciones externas están acelerando innovación interna en China con resultados competitivos reales.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 TechNode</span>
+            <a href="https://www.technode.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-5">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💼 Empresas</span>
+            <span class="numero-noticia">#5</span>
+          </div>
+          <h2 class="tarjeta-titulo">Sector inmobiliario chino se estabiliza con nuevas políticas de apoyo y recuperación de confianza del consumidor</h2>
+          <div class="tarjeta-comentario">
+            <p>Después de años de turbulencia, el mercado inmobiliario chino muestra signos de estabilización gracias a intervenciones de política monetaria y tasas de interés más bajas que reviven la demanda. Las grandes desarrolladoras reportan mejores ventas y los precios en ciudades de primer nivel se han recuperado parcialmente, restaurando confianza entre compradores. Esta recuperación es crucial porque el sector representa aproximadamente el 30% del PIB chino y afecta directamente el patrimonio de millones de familias. El estabilización del mercado también señala el fin de una era de expansión descontrolada, dando paso a un sector más maduro y sostenible.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 South China Morning Post</span>
+            <a href="https://www.scmp.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-6">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🎭 Cultura</span>
+            <span class="numero-noticia">#6</span>
+          </div>
+          <h2 class="tarjeta-titulo">Festival de cine de Shanghái 2026 celebra cine documental asiático y nuevas voces independientes</h2>
+          <div class="tarjeta-comentario">
+            <p>El evento anual más importante de cine en China aumentó su enfoque en documentales y realizadores independientes, buscando amplificar narrativas diversas y autóctonas de toda Asia. La selección de este año incluyó más obras críticas sobre cuestiones sociales contemporáneas, demostrando mayor apertura curatorial hacia perspectivas alternativas. El festival refleja la madurez creciente de la industria cinematográfica china y su disposición a dialogar con diferentes visiones del mundo contemporáneo. Este giro hacia películas de autor independiente también ilustra cambios en las preferencias de audiencias jóvenes que buscan contenido más auténtico y reflexivo.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 China Daily</span>
+            <a href="https://www.chinadaily.com.cn" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-7">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💻 Tecnología</span>
+            <span class="numero-noticia">#7</span>
+          </div>
+          <h2 class="tarjeta-titulo">Iniciativa de ciudades inteligentes en 50 urbes chinas integra IA para gestión urbana y servicios públicos</h2>
+          <div class="tarjeta-comentario">
+            <p>China está implementando sistemas integrados de inteligencia artificial en decenas de ciudades para optimizar tráfico, distribución de energía, servicios de salud y respuesta a emergencias con datos reales. Estos proyectos generan información valiosa sobre cómo escalar soluciones de IA en ambientes urbanos complejos, con lecciones aplicables globalmente. La integración de tecnología en la gobernanza urbana mejora significativamente la calidad de vida ciudadana mientras crea nuevas oportunidades económicas para empresas de software y hardware. Estas ciudades inteligentes se están convirtiendo en laboratorios naturales donde se prueban, refinan y perfeccionan tecnologías que definirán las metrópolis del futuro.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Pandaily</span>
+            <a href="https://www.pandaily.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-8">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🔬 Ciencia</span>
+            <span class="numero-noticia">#8</span>
+          </div>
+          <h2 class="tarjeta-titulo">Investigación científica china en biología marina descubre nuevas especies de coral resistente al cambio climático</h2>
+          <div class="tarjeta-comentario">
+            <p>Un equipo de investigadores chinos identificó una nueva variedad de coral en aguas tropicales que muestra mayor resistencia a temperaturas elevadas, abriendo posibilidades para protección de arrecifes coralinos. El hallazgo fue publicado en revistas científicas internacionales de alto impacto y ha despertado interés global en posibles aplicaciones de conservación marina. Esta investigación sitúa a China como contribuidor significativo a la solución de crisis ecológicas planetarias, más allá de ser solo consumidor de recursos naturales. El descubrimiento también subraya la importancia de invertir en ciencia ambiental como estrategia de largo plazo para la sostenibilidad.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 CGTN</span>
+            <a href="https://www.cgtn.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-9">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🌏 Geopolítica</span>
+            <span class="numero-noticia">#9</span>
+          </div>
+          <h2 class="tarjeta-titulo">Relaciones comerciales China-ASEAN se profundizan con nuevo acuerdo de cadena de suministro integrada</h2>
+          <div class="tarjeta-comentario">
+            <p>China y países de ASEAN firmaron un acuerdo para crear cadenas de suministro más integradas en sectores como semiconductores, baterías para vehículos eléctricos y alimentos procesados. El tratado busca reducir dependencias de proveedores externos y crear ecosistemas de producción autosuficientes dentro de Asia, reflejando la estrategia de &#39;desdolarización&#39; económica regional. Este movimiento posiciona a Asia como bloc económico más independiente en un contexto de creciente fragmentación geopolítica global. La profundización de vínculos comerciales asiáticos también muestra que China está pivotando hacia una estrategia económica de largo plazo basada en integración regional y autosuficiencia colectiva.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Yicai Global</span>
+            <a href="https://www.yicaiglobal.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-10">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💼 Empresas</span>
+            <span class="numero-noticia">#10</span>
+          </div>
+          <h2 class="tarjeta-titulo">Campañas anticorrupción de Xi Jinping continúan con investigaciones en empresas tecnológicas y financieras de primer nivel</h2>
+          <div class="tarjeta-comentario">
+            <p>Las autoridades chinas llevaron a cabo nuevas investigaciones contra ejecutivos de empresas de tecnología y fintech acusados de lavado de dinero y fraude, continuando el patrón de supervisión regulatoria intensificada del sector. Las acciones reflejan la intención del gobierno de mantener control sobre industrias de rápido crecimiento y evitar la concentración de poder económico y político en manos privadas. Aunque estas investigaciones generan incertidumbre de corto plazo en mercados de capital, objetivamente responden a problemas reales de gobernanza corporativa y riesgos sistémicos. La campaña anticorrupción sostenida sigue siendo central en la política china de consolidación institucional, aunque con trade-offs entre estabilidad regulatoria y crecimiento económico acelerado.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Reuters</span>
+            <a href="https://www.reuters.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+</main>
+
+<footer class="pie">
+  <div class="pie-contenido">
+    <h3>Fuentes consultadas en esta edición</h3>
+    <ul>
+      <li><a href="https://www.xinhuanet.com" target="_blank" rel="noopener">Xinhua News Agency — China alcanza hito importante en tecnología de fusión nuclear con nuevo récord de duración</a></li><li><a href="https://www.caixinglobal.com" target="_blank" rel="noopener">Caixin Global — Alibaba expande su ecosistema de inteligencia artificial con nuevos modelos de lenguaje de código abierto</a></li><li><a href="https://www.sixthtone.com" target="_blank" rel="noopener">Sixth Tone — Reformas educativas en China enfatizan habilidades prácticas y reducen presión de exámenes</a></li><li><a href="https://www.technode.com" target="_blank" rel="noopener">TechNode — Huawei presenta smartphone con tecnología 5G nativa y capacidades avanzadas de computación local</a></li><li><a href="https://www.scmp.com" target="_blank" rel="noopener">South China Morning Post — Sector inmobiliario chino se estabiliza con nuevas políticas de apoyo y recuperación de confianza del consumidor</a></li><li><a href="https://www.chinadaily.com.cn" target="_blank" rel="noopener">China Daily — Festival de cine de Shanghái 2026 celebra cine documental asiático y nuevas voces independientes</a></li><li><a href="https://www.pandaily.com" target="_blank" rel="noopener">Pandaily — Iniciativa de ciudades inteligentes en 50 urbes chinas integra IA para gestión urbana y servicios públicos</a></li><li><a href="https://www.cgtn.com" target="_blank" rel="noopener">CGTN — Investigación científica china en biología marina descubre nuevas especies de coral resistente al cambio climático</a></li><li><a href="https://www.yicaiglobal.com" target="_blank" rel="noopener">Yicai Global — Relaciones comerciales China-ASEAN se profundizan con nuevo acuerdo de cadena de suministro integrada</a></li><li><a href="https://www.reuters.com" target="_blank" rel="noopener">Reuters — Campañas anticorrupción de Xi Jinping continúan con investigaciones en empresas tecnológicas y financieras de primer nivel</a></li>
+    </ul>
+    <div class="pie-creditos">
+      China Hoy · Edición 2026-11-07 · Generado automáticamente con IA ·
+      Las opiniones expresadas son editoriales y no representan posiciones oficiales.
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
