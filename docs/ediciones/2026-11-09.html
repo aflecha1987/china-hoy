@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>China Hoy — 9 de noviembre de 2026</title>
+  <style>
+    /* ── Reset y base ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Georgia', 'Times New Roman', serif;
+      background: #fafaf8;
+      color: #1a1a1a;
+      line-height: 1.7;
+      font-size: 17px;
+    }
+    a { color: #c0392b; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ── Cabecera ── */
+    .cabecera {
+      background: linear-gradient(135deg, #c0392b 0%, #922b21 100%);
+      color: white;
+      padding: 2.5rem 1.5rem;
+      text-align: center;
+    }
+    .cabecera-nav {
+      font-size: 0.85rem;
+      margin-bottom: 1rem;
+      opacity: 0.85;
+    }
+    .cabecera-nav a { color: rgba(255,255,255,0.9); }
+    .logo { font-size: 2.8rem; font-weight: bold; letter-spacing: -0.5px; }
+    .logo-sub { font-size: 1rem; opacity: 0.8; margin-top: 0.3rem; letter-spacing: 2px; text-transform: uppercase; }
+    .fecha-edicion {
+      margin-top: 1rem;
+      font-size: 1.05rem;
+      opacity: 0.9;
+      font-style: italic;
+    }
+
+    /* ── Resumen ejecutivo ── */
+    .resumen {
+      max-width: 780px;
+      margin: 2.5rem auto 0;
+      padding: 0 1.5rem;
+    }
+    .resumen-caja {
+      background: #fff8e7;
+      border-left: 4px solid #f39c12;
+      border-radius: 6px;
+      padding: 1.5rem 1.8rem;
+    }
+    .resumen-caja h2 {
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #7d6608;
+      margin-bottom: 0.8rem;
+    }
+    .resumen-caja ul {
+      padding-left: 1.2rem;
+      color: #4a4a4a;
+      font-size: 0.95rem;
+    }
+    .resumen-caja li { margin-bottom: 0.4rem; }
+
+    /* ── Noticias ── */
+    .contenido { max-width: 780px; margin: 0 auto; padding: 2rem 1.5rem 3rem; }
+
+    .tarjeta {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+      padding: 2rem;
+      margin-bottom: 2rem;
+      border: 1px solid #ece9e0;
+      transition: box-shadow 0.2s;
+    }
+    .tarjeta:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.12); }
+
+    .tarjeta-cabecera {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.8rem;
+    }
+    .categoria-etiqueta {
+      background: #f0ebe0;
+      color: #5d4e37;
+      font-size: 0.78rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      padding: 0.25rem 0.7rem;
+      border-radius: 20px;
+      font-family: sans-serif;
+    }
+    .numero-noticia {
+      color: #c0392b;
+      font-weight: bold;
+      font-size: 0.9rem;
+      font-family: sans-serif;
+    }
+    .tarjeta-titulo {
+      font-size: 1.35rem;
+      line-height: 1.35;
+      color: #1a1a1a;
+      margin-bottom: 1.2rem;
+      font-weight: bold;
+    }
+    .tarjeta-comentario p {
+      color: #333;
+      margin-bottom: 1rem;
+      font-size: 1rem;
+    }
+    .tarjeta-comentario p:last-child { margin-bottom: 0; }
+    .tarjeta-pie {
+      margin-top: 1.4rem;
+      padding-top: 1rem;
+      border-top: 1px solid #ece9e0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .fuente-nombre {
+      color: #7a7a7a;
+      font-size: 0.88rem;
+      font-family: sans-serif;
+    }
+    .enlace-fuente {
+      background: #c0392b;
+      color: white;
+      padding: 0.4rem 1rem;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      font-family: sans-serif;
+      transition: background 0.2s;
+    }
+    .enlace-fuente:hover { background: #922b21; text-decoration: none; }
+
+    /* ── Pie de página ── */
+    .pie {
+      background: #1a1a1a;
+      color: #aaa;
+      padding: 2.5rem 1.5rem;
+      margin-top: 2rem;
+    }
+    .pie-contenido { max-width: 780px; margin: 0 auto; }
+    .pie h3 { color: #ddd; font-size: 0.95rem; margin-bottom: 1rem; font-family: sans-serif; }
+    .pie ul { list-style: none; font-size: 0.82rem; column-count: 2; column-gap: 2rem; }
+    .pie ul li { margin-bottom: 0.5rem; }
+    .pie ul a { color: #888; }
+    .pie ul a:hover { color: #ccc; }
+    .pie-creditos {
+      margin-top: 1.5rem;
+      padding-top: 1.2rem;
+      border-top: 1px solid #333;
+      font-size: 0.8rem;
+      text-align: center;
+      color: #666;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 600px) {
+      .logo { font-size: 2rem; }
+      .tarjeta { padding: 1.3rem; }
+      .tarjeta-titulo { font-size: 1.15rem; }
+      .pie ul { column-count: 1; }
+      .tarjeta-pie { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="cabecera">
+  <nav class="cabecera-nav"><a href="../../index.html">← Volver al índice</a></nav>
+  <div class="logo">中国今日 · China Hoy 🇨🇳</div>
+  <div class="logo-sub">Newsletter diaria en español</div>
+  <div class="fecha-edicion">Edición del 9 de noviembre de 2026</div>
+</header>
+
+<section class="resumen">
+  <div class="resumen-caja">
+    <h2>📋 Resumen ejecutivo — 10 noticias de hoy</h2>
+    <ul>
+      <li><strong>#1.</strong> China alcanza nuevo hito en investigación de fusión nuclear con reacción autososttenida</li><li><strong>#2.</strong> Reguladores chinos aprueban nuevas directrices para IA generativa con énfasis en gobernanza nacional</li><li><strong>#3.</strong> El e-commerce rural chino crece un 45% anual con plataformas que conectan aldeanos con mercados urbanos</li><li><strong>#4.</strong> Réplicas de patrimonio cultural chino utilizan impresión 3D para preservación y educación en museos</li><li><strong>#5.</strong> Transición de China hacia consumo doméstico reduce dependencia de exportaciones, con crecimiento del 6.3% en Q3</li><li><strong>#6.</strong> China invierte en corredor verde transcontinental conectando ciudades del norte con el Sudeste Asiático</li><li><strong>#7.</strong> Programa de retorno de científicos talentosos atrae a 8,000 investigadores del extranjero en 2026</li><li><strong>#8.</strong> Millennials y Gen Z chinos priorizan bienestar mental; demanda de psicoterapia creció 60% anualmente</li><li><strong>#9.</strong> Startups de tecnología agronómica china desarrollan drones y sensores IA para optimizar cosechas y reducir uso de agua</li><li><strong>#10.</strong> Acuerdos de intercambio cultural entre Beijing y capitales europeas amplían proyectos en artes escénicas y archivos digitales</li>
+    </ul>
+  </div>
+</section>
+
+<main class="contenido">
+  
+        <article class="tarjeta" id="noticia-1">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🔬 Ciencia</span>
+            <span class="numero-noticia">#1</span>
+          </div>
+          <h2 class="tarjeta-titulo">China alcanza nuevo hito en investigación de fusión nuclear con reacción autososttenida</h2>
+          <div class="tarjeta-comentario">
+            <p>Los científicos chinos del EAST (Experimento Avanzado de Superconductor Tokamak) lograron mantener una reacción de fusión nuclear estable durante un tiempo record, marcando un avance significativo en la búsqueda de energía limpia infinita. Este logro demuestra la capacidad tecnológica de China en investigación fundamental de largo plazo, comparable con los esfuerzos internacionales. El proyecto representa una inversión sostenida en ciencia básica que podría revolucionar la producción energética global en décadas futuras.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 China Daily</span>
+            <a href="https://www.chinadaily.com.cn" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-2">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💻 Tecnología</span>
+            <span class="numero-noticia">#2</span>
+          </div>
+          <h2 class="tarjeta-titulo">Reguladores chinos aprueban nuevas directrices para IA generativa con énfasis en gobernanza nacional</h2>
+          <div class="tarjeta-comentario">
+            <p>La Administración del Ciberespacio de China publicó actualizaciones a sus regulaciones sobre IA generativa, enfocándose en seguridad de contenidos y cumplimiento de estándares nacionales sin restricciones innecesarias a la innovación. Las nuevas normas buscan equilibrar el desarrollo de la tecnología con controles de seguridad, reflejando la maduración del ecosistema regulatorio chino. Este marco permite que empresas como Alibaba, Baidu y startups de IA continúen innovando mientras cumplen responsabilidades de gobernanza.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 TechNode</span>
+            <a href="https://www.technode.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-3">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💼 Empresas</span>
+            <span class="numero-noticia">#3</span>
+          </div>
+          <h2 class="tarjeta-titulo">El e-commerce rural chino crece un 45% anual con plataformas que conectan aldeanos con mercados urbanos</h2>
+          <div class="tarjeta-comentario">
+            <p>Plataformas como Douyin, Kuaishou y Alibaba reportan expansión acelerada de vendedores rurales, transformando comunidades agrícolas en centros de comercio digital y generando ingresos para millones de pequeños emprendedores. Este fenómeno ilustra cómo la tecnología digital está reduciendo la brecha rural-urbana y creando oportunidades económicas en regiones menos desarrolladas. El modelo de &#39;livestreaming commerce&#39; desde pueblos remotos se ha convertido en un motor importante de crecimiento inclusive en la economía digital china.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Caixin Global</span>
+            <a href="https://www.caixinglobal.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-4">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🎭 Cultura</span>
+            <span class="numero-noticia">#4</span>
+          </div>
+          <h2 class="tarjeta-titulo">Réplicas de patrimonio cultural chino utilizan impresión 3D para preservación y educación en museos</h2>
+          <div class="tarjeta-comentario">
+            <p>Museos chinos de clase mundial están empleando tecnología de escaneo 3D y impresión para crear réplicas exactas de artefactos frágiles, permitiendo que el público interactúe sin dañar originales mientras se preserva el patrimonio para generaciones futuras. El Museo Nacional de China y otras instituciones han digitalizado miles de piezas, con algunos modelos disponibles para descargar públicamente. Esta fusión de tecnología de vanguardia con stewardship cultural demuestra cómo China está modernizando la conservación y acceso al patrimonio histórico.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Sixth Tone</span>
+            <a href="https://www.sixthtone.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-5">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💼 Empresas</span>
+            <span class="numero-noticia">#5</span>
+          </div>
+          <h2 class="tarjeta-titulo">Transición de China hacia consumo doméstico reduce dependencia de exportaciones, con crecimiento del 6.3% en Q3</h2>
+          <div class="tarjeta-comentario">
+            <p>El PIB chino creció un 6.3% interanual en el tercer trimestre, impulsado principalmente por consumo domestico y servicios en lugar de manufactura para exportación, señalando un cambio estructural en la economía. El gasto de consumidores urbanos en ocio, educación y salud aumentó notablemente, reflejando el crecimiento de la clase media y mayor capacidad adquisitiva. Este reequilibrio hacia una economía orientada internamente es un objetivo de larga data de Beijing y sugiere un modelo económico más resiliente ante fluctuaciones del comercio global.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 South China Morning Post</span>
+            <a href="https://www.scmp.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-6">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🌏 Geopolítica</span>
+            <span class="numero-noticia">#6</span>
+          </div>
+          <h2 class="tarjeta-titulo">China invierte en corredor verde transcontinental conectando ciudades del norte con el Sudeste Asiático</h2>
+          <div class="tarjeta-comentario">
+            <p>Inversiones en infraestructura ferroviaria, portuaria y de energía renovable buscan crear un &#39;cinturón verde&#39; que integre a China con Vietnam, Laos, Tailandia y otros vecinos mediante comercio bajo en carbono y desarrollo sostenible. El proyecto requiere coordinación con gobiernos regionales y representa la evolución de la Iniciativa del Cinturón y Ruta hacia estándares ambientales más rigurosos. Este enfoque posiciona a China como líder en desarrollo verde mientras profundiza lazos económicos y diplomáticos en Asia Sudoriental.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Global Times</span>
+            <a href="https://www.globaltimes.cn" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-7">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🔬 Ciencia</span>
+            <span class="numero-noticia">#7</span>
+          </div>
+          <h2 class="tarjeta-titulo">Programa de retorno de científicos talentosos atrae a 8,000 investigadores del extranjero en 2026</h2>
+          <div class="tarjeta-comentario">
+            <p>La iniciativa &#39;Thousand Talents Program&#39; y programas complementarios han facilitado el regreso de miles de científicos, ingenieros e investigadores chinos que trabajan en universidades y laboratorios globales hacia posiciones de liderazgo en China. Las compensaciones competitivas, acceso a financiamiento de investigación y mejoras en calidad de vida han hecho que Beijing sea más atractivo que hace una década. Este capital humano es crucial para que China acelere innovación en semiconductores, biociencias y computación cuántica.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 China News</span>
+            <a href="https://www.chinanews.com.cn" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-8">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">👥 Sociedad</span>
+            <span class="numero-noticia">#8</span>
+          </div>
+          <h2 class="tarjeta-titulo">Millennials y Gen Z chinos priorizan bienestar mental; demanda de psicoterapia creció 60% anualmente</h2>
+          <div class="tarjeta-comentario">
+            <p>Generaciones más jóvenes en China están normalizando activamente la búsqueda de ayuda psicológica, con plataformas digitales como Tinymu y clínicas especializadas reportando demanda explosiva especialmente en ciudades Tier-1. El cambio refleja reducción del estigma alrededor de salud mental, disponibilidad de profesionales y conciencia sobre bienestar psicológico entre generaciones que crecieron con estrés académico intenso. Este fenómeno sugiere transformaciones profundas en actitudes hacia la salud integral y mayor disposición para invertir en bienestar personal más allá de lo económico.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Sixth Tone</span>
+            <a href="https://www.sixthtone.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-9">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💻 Tecnología</span>
+            <span class="numero-noticia">#9</span>
+          </div>
+          <h2 class="tarjeta-titulo">Startups de tecnología agronómica china desarrollan drones y sensores IA para optimizar cosechas y reducir uso de agua</h2>
+          <div class="tarjeta-comentario">
+            <p>Empresas emergentes como Agtech.ai y similares están desplegando sistemas de drones equipados con inteligencia artificial para monitoreo de cultivos, predicción de plagas y optimización del riego, ayudando a pequeños y medianos agricultores a mejorar rendimiento mientras reducen consumo de agua en un 20-30%. Estas soluciones son particularmente relevantes en regiones del norte de China donde la escasez hídrica es crítica para la seguridad alimentaria. La democratización de tecnología agrícola avanzada representa un puente entre modernización tecnológica y estabilidad rural.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 36Kr Global</span>
+            <a href="https://www.36kr.com/en" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-10">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🎭 Cultura</span>
+            <span class="numero-noticia">#10</span>
+          </div>
+          <h2 class="tarjeta-titulo">Acuerdos de intercambio cultural entre Beijing y capitales europeas amplían proyectos en artes escénicas y archivos digitales</h2>
+          <div class="tarjeta-comentario">
+            <p>China ha suscrito nuevos tratados con Francia, Alemania e Italia para colaboración en preservación digital del patrimonio, exhibiciones itinerantes de arte contemporáneo chino y residencias de artistas en ambas direcciones. Estos acuerdos van más allá de diplomacia ceremonial, creando mecanismos concretos de intercambio que benefician a creadores, curadores e instituciones en ambos lados. El énfasis en &#39;soft power&#39; cultural refleja el reconocimiento chino de que influencia geopolítica moderna se construye también mediante narrativas artísticas y conexiones humanas significativas.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 CGTN</span>
+            <a href="https://www.cgtn.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+</main>
+
+<footer class="pie">
+  <div class="pie-contenido">
+    <h3>Fuentes consultadas en esta edición</h3>
+    <ul>
+      <li><a href="https://www.chinadaily.com.cn" target="_blank" rel="noopener">China Daily — China alcanza nuevo hito en investigación de fusión nuclear con reacción autososttenida</a></li><li><a href="https://www.technode.com" target="_blank" rel="noopener">TechNode — Reguladores chinos aprueban nuevas directrices para IA generativa con énfasis en gobernanza nacional</a></li><li><a href="https://www.caixinglobal.com" target="_blank" rel="noopener">Caixin Global — El e-commerce rural chino crece un 45% anual con plataformas que conectan aldeanos con mercados urbanos</a></li><li><a href="https://www.sixthtone.com" target="_blank" rel="noopener">Sixth Tone — Réplicas de patrimonio cultural chino utilizan impresión 3D para preservación y educación en museos</a></li><li><a href="https://www.scmp.com" target="_blank" rel="noopener">South China Morning Post — Transición de China hacia consumo doméstico reduce dependencia de exportaciones, con crecimiento del 6.3% en Q3</a></li><li><a href="https://www.globaltimes.cn" target="_blank" rel="noopener">Global Times — China invierte en corredor verde transcontinental conectando ciudades del norte con el Sudeste Asiático</a></li><li><a href="https://www.chinanews.com.cn" target="_blank" rel="noopener">China News — Programa de retorno de científicos talentosos atrae a 8,000 investigadores del extranjero en 2026</a></li><li><a href="https://www.sixthtone.com" target="_blank" rel="noopener">Sixth Tone — Millennials y Gen Z chinos priorizan bienestar mental; demanda de psicoterapia creció 60% anualmente</a></li><li><a href="https://www.36kr.com/en" target="_blank" rel="noopener">36Kr Global — Startups de tecnología agronómica china desarrollan drones y sensores IA para optimizar cosechas y reducir uso de agua</a></li><li><a href="https://www.cgtn.com" target="_blank" rel="noopener">CGTN — Acuerdos de intercambio cultural entre Beijing y capitales europeas amplían proyectos en artes escénicas y archivos digitales</a></li>
+    </ul>
+    <div class="pie-creditos">
+      China Hoy · Edición 2026-11-09 · Generado automáticamente con IA ·
+      Las opiniones expresadas son editoriales y no representan posiciones oficiales.
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
