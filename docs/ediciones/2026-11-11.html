@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>China Hoy — 11 de noviembre de 2026</title>
+  <style>
+    /* ── Reset y base ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Georgia', 'Times New Roman', serif;
+      background: #fafaf8;
+      color: #1a1a1a;
+      line-height: 1.7;
+      font-size: 17px;
+    }
+    a { color: #c0392b; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ── Cabecera ── */
+    .cabecera {
+      background: linear-gradient(135deg, #c0392b 0%, #922b21 100%);
+      color: white;
+      padding: 2.5rem 1.5rem;
+      text-align: center;
+    }
+    .cabecera-nav {
+      font-size: 0.85rem;
+      margin-bottom: 1rem;
+      opacity: 0.85;
+    }
+    .cabecera-nav a { color: rgba(255,255,255,0.9); }
+    .logo { font-size: 2.8rem; font-weight: bold; letter-spacing: -0.5px; }
+    .logo-sub { font-size: 1rem; opacity: 0.8; margin-top: 0.3rem; letter-spacing: 2px; text-transform: uppercase; }
+    .fecha-edicion {
+      margin-top: 1rem;
+      font-size: 1.05rem;
+      opacity: 0.9;
+      font-style: italic;
+    }
+
+    /* ── Resumen ejecutivo ── */
+    .resumen {
+      max-width: 780px;
+      margin: 2.5rem auto 0;
+      padding: 0 1.5rem;
+    }
+    .resumen-caja {
+      background: #fff8e7;
+      border-left: 4px solid #f39c12;
+      border-radius: 6px;
+      padding: 1.5rem 1.8rem;
+    }
+    .resumen-caja h2 {
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #7d6608;
+      margin-bottom: 0.8rem;
+    }
+    .resumen-caja ul {
+      padding-left: 1.2rem;
+      color: #4a4a4a;
+      font-size: 0.95rem;
+    }
+    .resumen-caja li { margin-bottom: 0.4rem; }
+
+    /* ── Noticias ── */
+    .contenido { max-width: 780px; margin: 0 auto; padding: 2rem 1.5rem 3rem; }
+
+    .tarjeta {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+      padding: 2rem;
+      margin-bottom: 2rem;
+      border: 1px solid #ece9e0;
+      transition: box-shadow 0.2s;
+    }
+    .tarjeta:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.12); }
+
+    .tarjeta-cabecera {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.8rem;
+    }
+    .categoria-etiqueta {
+      background: #f0ebe0;
+      color: #5d4e37;
+      font-size: 0.78rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      padding: 0.25rem 0.7rem;
+      border-radius: 20px;
+      font-family: sans-serif;
+    }
+    .numero-noticia {
+      color: #c0392b;
+      font-weight: bold;
+      font-size: 0.9rem;
+      font-family: sans-serif;
+    }
+    .tarjeta-titulo {
+      font-size: 1.35rem;
+      line-height: 1.35;
+      color: #1a1a1a;
+      margin-bottom: 1.2rem;
+      font-weight: bold;
+    }
+    .tarjeta-comentario p {
+      color: #333;
+      margin-bottom: 1rem;
+      font-size: 1rem;
+    }
+    .tarjeta-comentario p:last-child { margin-bottom: 0; }
+    .tarjeta-pie {
+      margin-top: 1.4rem;
+      padding-top: 1rem;
+      border-top: 1px solid #ece9e0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .fuente-nombre {
+      color: #7a7a7a;
+      font-size: 0.88rem;
+      font-family: sans-serif;
+    }
+    .enlace-fuente {
+      background: #c0392b;
+      color: white;
+      padding: 0.4rem 1rem;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      font-family: sans-serif;
+      transition: background 0.2s;
+    }
+    .enlace-fuente:hover { background: #922b21; text-decoration: none; }
+
+    /* ── Pie de página ── */
+    .pie {
+      background: #1a1a1a;
+      color: #aaa;
+      padding: 2.5rem 1.5rem;
+      margin-top: 2rem;
+    }
+    .pie-contenido { max-width: 780px; margin: 0 auto; }
+    .pie h3 { color: #ddd; font-size: 0.95rem; margin-bottom: 1rem; font-family: sans-serif; }
+    .pie ul { list-style: none; font-size: 0.82rem; column-count: 2; column-gap: 2rem; }
+    .pie ul li { margin-bottom: 0.5rem; }
+    .pie ul a { color: #888; }
+    .pie ul a:hover { color: #ccc; }
+    .pie-creditos {
+      margin-top: 1.5rem;
+      padding-top: 1.2rem;
+      border-top: 1px solid #333;
+      font-size: 0.8rem;
+      text-align: center;
+      color: #666;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 600px) {
+      .logo { font-size: 2rem; }
+      .tarjeta { padding: 1.3rem; }
+      .tarjeta-titulo { font-size: 1.15rem; }
+      .pie ul { column-count: 1; }
+      .tarjeta-pie { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="cabecera">
+  <nav class="cabecera-nav"><a href="../../index.html">← Volver al índice</a></nav>
+  <div class="logo">中国今日 · China Hoy 🇨🇳</div>
+  <div class="logo-sub">Newsletter diaria en español</div>
+  <div class="fecha-edicion">Edición del 11 de noviembre de 2026</div>
+</header>
+
+<section class="resumen">
+  <div class="resumen-caja">
+    <h2>📋 Resumen ejecutivo — 10 noticias de hoy</h2>
+    <ul>
+      <li><strong>#1.</strong> China acelera inversión en tecnologías de IA generativa con nuevos estándares regulatorios</li><li><strong>#2.</strong> Industria manufacturera china reporta recuperación lenta pero sostenida en Q4 2026</li><li><strong>#3.</strong> Científicos chinos logran avance significativo en fusión nuclear con reactor experimental EAST</li><li><strong>#4.</strong> Expansión de festivales culturales locales revitaliza turismo en ciudades de segundo y tercer nivel</li><li><strong>#5.</strong> Reforma de programas de jubilación anticipada enfrenta resistencia pero avanza en pruebas piloto</li><li><strong>#6.</strong> Plataformas de e-commerce menores compiten con Alibaba y JD.com mediante nicho y personalización</li><li><strong>#7.</strong> China fortalece cooperación con países de América Latina mediante iniciativas de infraestructura verde</li><li><strong>#8.</strong> Universidades chinas intensifican investigación en semiconductores domésticos para reducir dependencia tecnológica</li><li><strong>#9.</strong> Movimiento de moda sostenible gana tracción entre consumidores chinos jóvenes con marcas locales</li><li><strong>#10.</strong> Acuerdos bilaterales comerciales chino-asiáticos generan dinamismo en cadenas de suministro post-RCEP</li>
+    </ul>
+  </div>
+</section>
+
+<main class="contenido">
+  
+        <article class="tarjeta" id="noticia-1">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💻 Tecnología</span>
+            <span class="numero-noticia">#1</span>
+          </div>
+          <h2 class="tarjeta-titulo">China acelera inversión en tecnologías de IA generativa con nuevos estándares regulatorios</h2>
+          <div class="tarjeta-comentario">
+            <p>El gobierno chino ha publicado nuevas directrices para la IA generativa que buscan equilibrar la innovación con la seguridad, permitiendo a empresas como Alibaba y Baidu expandir sus modelos de lenguaje. Estas normativas representan una maduración del enfoque regulatorio chino, alejándose del control restrictivo hacia un marco que fomenta la competencia responsable. El paso refleja la determinación de China de liderar globalmente en IA sin sacrificar la gobernanza digital. Esta tendencia sugiere que la industria de IA china seguirá acelerando en los próximos años con mayor claridad regulatoria.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 TechNode</span>
+            <a href="https://www.technode.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-2">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💼 Empresas</span>
+            <span class="numero-noticia">#2</span>
+          </div>
+          <h2 class="tarjeta-titulo">Industria manufacturera china reporta recuperación lenta pero sostenida en Q4 2026</h2>
+          <div class="tarjeta-comentario">
+            <p>Los índices de manufactura de Caixin muestran una mejora gradual en octubre y noviembre, con cifras de PMI indicando estabilización en la demanda interna y exportaciones moderadas. Aunque el crecimiento es modesto comparado con años anteriores, refleja que las políticas de estímulo y la diversificación productiva están generando resultados tangibles en sectores clave. La recuperación es desigual entre regiones, con el sur industrial mostrando mejor desempeño que el norte. Este patrón sugiere que China está transitando hacia un modelo económico menos volcado en crecimiento exponencial y más enfocado en eficiencia y sostenibilidad.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Caixin Global</span>
+            <a href="https://www.caixinglobal.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-3">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🔬 Ciencia</span>
+            <span class="numero-noticia">#3</span>
+          </div>
+          <h2 class="tarjeta-titulo">Científicos chinos logran avance significativo en fusión nuclear con reactor experimental EAST</h2>
+          <div class="tarjeta-comentario">
+            <p>El Instituto de Física del Plasma de China informó que el reactor EAST alcanzó temperaturas de plasma superiores a 120 millones de grados Celsius durante más de 400 segundos, un nuevo récord en duración y estabilidad. Este logro es crucial porque la fusión controlada de larga duración es esencial para desarrollar fuentes de energía limpias y prácticamente ilimitadas. El avance posiciona a China como uno de los líderes mundiales en investigación de fusión, junto con proyectos internacionales como ITER. El hito demuestra el compromiso de China con la transición energética y sugiere que la energía de fusión podría estar a una década o dos de aplicaciones comerciales viables.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Xinhua News Agency</span>
+            <a href="https://www.xinhuanet.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-4">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🎭 Cultura</span>
+            <span class="numero-noticia">#4</span>
+          </div>
+          <h2 class="tarjeta-titulo">Expansión de festivales culturales locales revitaliza turismo en ciudades de segundo y tercer nivel</h2>
+          <div class="tarjeta-comentario">
+            <p>Ciudades como Yangzhou, Guilin y Luoyang han invertido en festivales temáticos que celebran patrimonio local, atrayendo turismo doméstico e internacional con experiencias auténticas más allá de los destinos tradicionales. Estos eventos no solo generan ingresos, sino también fomentan orgullo comunitario y preservación cultural en regiones que históricamente vivían de la agricultura. La tendencia refleja un cambio en los patrones de viaje chinos hacia experiencias culturales inmersivas y un interés renovado en la diversidad regional. Este movimiento descentraliza el turismo y redistribuye beneficios económicos de manera más equitativa entre ciudades.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Sixth Tone</span>
+            <a href="https://www.sixthtone.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-5">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">👥 Sociedad</span>
+            <span class="numero-noticia">#5</span>
+          </div>
+          <h2 class="tarjeta-titulo">Reforma de programas de jubilación anticipada enfrenta resistencia pero avanza en pruebas piloto</h2>
+          <div class="tarjeta-comentario">
+            <p>Varias provincias están experimentando con flexibilizar la edad de jubilación obligatoria mientras mantienen incentivos para trabajar más tiempo, buscando resolver el desajuste entre envejecimiento poblacional y presiones del sistema de pensiones. Los trabajadores enfrentan incertidumbre sobre si podrán jubilarse antes, mientras empleadores buscan retener talento experimentado en un mercado laboral envejecido. Las primeras pruebas muestran que las personas de 55-65 años responden positivamente cuando hay opciones flexibles y no mandatos rígidos. Esta reforma es crítica para la sostenibilidad fiscal china y refleja los desafíos demográficos comunes a economías desarrolladas.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 South China Morning Post</span>
+            <a href="https://www.scmp.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-6">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💼 Empresas</span>
+            <span class="numero-noticia">#6</span>
+          </div>
+          <h2 class="tarjeta-titulo">Plataformas de e-commerce menores compiten con Alibaba y JD.com mediante nicho y personalización</h2>
+          <div class="tarjeta-comentario">
+            <p>Startups como Shein, Pinduoduo y Xiaohongshu están ganando cuota de mercado al enfocarse en segmentos específicos: moda rápida asequible, compras colectivas con descuentos, y comercio social basado en comunidades respectivamente. Estos modelos demuestran que incluso con gigantes consolidados, hay espacio para innovación en la experiencia de compra y estructuras de precio. El éxito de estas plataformas ha forzado a Alibaba y JD.com a diversificar estrategias y mejorar capacidades de personalización. La competencia en e-commerce chino continúa siendo dinámica, generando beneficios para consumidores a través de variedad y opciones de precio.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 36Kr Global</span>
+            <a href="https://www.36kr.com/en" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-7">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🌏 Geopolítica</span>
+            <span class="numero-noticia">#7</span>
+          </div>
+          <h2 class="tarjeta-titulo">China fortalece cooperación con países de América Latina mediante iniciativas de infraestructura verde</h2>
+          <div class="tarjeta-comentario">
+            <p>China está reorientando su Iniciativa de la Franja y la Ruta hacia proyectos de energía renovable y transporte sostenible en América Latina, alejándose de infraestructura que genera deuda no productiva. Inversiones recientes incluyen parques solares en Chile, hidroeléctricas en Perú y ferrocarriles modernos en Argentina, combinando intereses económicos con credenciales ambientales. Este enfoque busca mejorar la reputación de China en la región y crear relaciones más balanceadas que la extracción de recursos tradicional. La estrategia sugiere que China está refinando su diplomacia de inversión hacia modelos más sostenibles y colaborativos.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Global Times</span>
+            <a href="https://www.globaltimes.cn" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-8">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💻 Tecnología</span>
+            <span class="numero-noticia">#8</span>
+          </div>
+          <h2 class="tarjeta-titulo">Universidades chinas intensifican investigación en semiconductores domésticos para reducir dependencia tecnológica</h2>
+          <div class="tarjeta-comentario">
+            <p>Instituciones como Tsinghua y Fudan están estableciendo centros especializados en diseño y fabricación de chips, con financiamiento estatal significativo para entrenar ingenieros y desarrollar capacidades en litografía avanzada. Aunque China todavía depende de equipamiento extranjero para fabricación de punta, el progreso en diseño y tecnología de procesos intermedios es tangible y acelerado. Las colaboraciones entre universidades, startups y fabricantes como SMIC crean ecosistemas innovadores más robustos. Este esfuerzo estructural refleja la convicción china de que la autonomía tecnológica en semiconductores es clave para seguridad estratégica de largo plazo.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Pandaily</span>
+            <a href="https://www.pandaily.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-9">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🎭 Cultura</span>
+            <span class="numero-noticia">#9</span>
+          </div>
+          <h2 class="tarjeta-titulo">Movimiento de moda sostenible gana tracción entre consumidores chinos jóvenes con marcas locales</h2>
+          <div class="tarjeta-comentario">
+            <p>Marcas chinas independientes como Urban Revivo, Bosideng y diseñadores emergentes están capturando la atención de generaciones más jóvenes con propuestas de moda consciente que combinan estética moderna con valores de sostenibilidad ambiental y artesanía local. Estas marcas compiten tanto con lujos occidentales como entre sí, diferenciándose mediante storytelling sobre origen, materiales y impacto social. El fenómeno refleja maduración de consumidores urbanos chinos que valorizan autenticidad y responsabilidad corporativa más allá de marcas de prestigio. La tendencia fortalece la identidad cultural china en moda global y diversifica opciones para consumidores reflexivos.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Sixth Tone</span>
+            <a href="https://www.sixthtone.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-10">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🌏 Geopolítica</span>
+            <span class="numero-noticia">#10</span>
+          </div>
+          <h2 class="tarjeta-titulo">Acuerdos bilaterales comerciales chino-asiáticos generan dinamismo en cadenas de suministro post-RCEP</h2>
+          <div class="tarjeta-comentario">
+            <p>China ha negociado acuerdos complementarios al RCEP con Vietnam, Tailandia e Indonesia para reducir aranceles en tecnología verde, alimentos procesados y manufactura integrada, creando integración económica más profunda en Asia Sudoriental. Estos tratados revitalizan la Iniciativa RCEP y posicionan a China como hub comercial central en la región, aunque generan inquietudes en otros países sobre concentración de poder económico. Las cadenas de suministro se están reorganizando para aprovechar ventajas arancelarias y proximidad geográfica, beneficiando pequeñas y medianas empresas regionales. El dinamismo comercial sugiere que el futuro económico asiático será cada vez más interdependiente, con China como nodo crucial pero en negociación constante con pares regionales.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Nikkei Asia</span>
+            <a href="https://www.asia.nikkei.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+</main>
+
+<footer class="pie">
+  <div class="pie-contenido">
+    <h3>Fuentes consultadas en esta edición</h3>
+    <ul>
+      <li><a href="https://www.technode.com" target="_blank" rel="noopener">TechNode — China acelera inversión en tecnologías de IA generativa con nuevos estándares regulatorios</a></li><li><a href="https://www.caixinglobal.com" target="_blank" rel="noopener">Caixin Global — Industria manufacturera china reporta recuperación lenta pero sostenida en Q4 2026</a></li><li><a href="https://www.xinhuanet.com" target="_blank" rel="noopener">Xinhua News Agency — Científicos chinos logran avance significativo en fusión nuclear con reactor experimental EAST</a></li><li><a href="https://www.sixthtone.com" target="_blank" rel="noopener">Sixth Tone — Expansión de festivales culturales locales revitaliza turismo en ciudades de segundo y tercer nivel</a></li><li><a href="https://www.scmp.com" target="_blank" rel="noopener">South China Morning Post — Reforma de programas de jubilación anticipada enfrenta resistencia pero avanza en pruebas piloto</a></li><li><a href="https://www.36kr.com/en" target="_blank" rel="noopener">36Kr Global — Plataformas de e-commerce menores compiten con Alibaba y JD.com mediante nicho y personalización</a></li><li><a href="https://www.globaltimes.cn" target="_blank" rel="noopener">Global Times — China fortalece cooperación con países de América Latina mediante iniciativas de infraestructura verde</a></li><li><a href="https://www.pandaily.com" target="_blank" rel="noopener">Pandaily — Universidades chinas intensifican investigación en semiconductores domésticos para reducir dependencia tecnológica</a></li><li><a href="https://www.sixthtone.com" target="_blank" rel="noopener">Sixth Tone — Movimiento de moda sostenible gana tracción entre consumidores chinos jóvenes con marcas locales</a></li><li><a href="https://www.asia.nikkei.com" target="_blank" rel="noopener">Nikkei Asia — Acuerdos bilaterales comerciales chino-asiáticos generan dinamismo en cadenas de suministro post-RCEP</a></li>
+    </ul>
+    <div class="pie-creditos">
+      China Hoy · Edición 2026-11-11 · Generado automáticamente con IA ·
+      Las opiniones expresadas son editoriales y no representan posiciones oficiales.
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
