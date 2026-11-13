@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>China Hoy — 13 de noviembre de 2026</title>
+  <style>
+    /* ── Reset y base ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Georgia', 'Times New Roman', serif;
+      background: #fafaf8;
+      color: #1a1a1a;
+      line-height: 1.7;
+      font-size: 17px;
+    }
+    a { color: #c0392b; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ── Cabecera ── */
+    .cabecera {
+      background: linear-gradient(135deg, #c0392b 0%, #922b21 100%);
+      color: white;
+      padding: 2.5rem 1.5rem;
+      text-align: center;
+    }
+    .cabecera-nav {
+      font-size: 0.85rem;
+      margin-bottom: 1rem;
+      opacity: 0.85;
+    }
+    .cabecera-nav a { color: rgba(255,255,255,0.9); }
+    .logo { font-size: 2.8rem; font-weight: bold; letter-spacing: -0.5px; }
+    .logo-sub { font-size: 1rem; opacity: 0.8; margin-top: 0.3rem; letter-spacing: 2px; text-transform: uppercase; }
+    .fecha-edicion {
+      margin-top: 1rem;
+      font-size: 1.05rem;
+      opacity: 0.9;
+      font-style: italic;
+    }
+
+    /* ── Resumen ejecutivo ── */
+    .resumen {
+      max-width: 780px;
+      margin: 2.5rem auto 0;
+      padding: 0 1.5rem;
+    }
+    .resumen-caja {
+      background: #fff8e7;
+      border-left: 4px solid #f39c12;
+      border-radius: 6px;
+      padding: 1.5rem 1.8rem;
+    }
+    .resumen-caja h2 {
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #7d6608;
+      margin-bottom: 0.8rem;
+    }
+    .resumen-caja ul {
+      padding-left: 1.2rem;
+      color: #4a4a4a;
+      font-size: 0.95rem;
+    }
+    .resumen-caja li { margin-bottom: 0.4rem; }
+
+    /* ── Noticias ── */
+    .contenido { max-width: 780px; margin: 0 auto; padding: 2rem 1.5rem 3rem; }
+
+    .tarjeta {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+      padding: 2rem;
+      margin-bottom: 2rem;
+      border: 1px solid #ece9e0;
+      transition: box-shadow 0.2s;
+    }
+    .tarjeta:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.12); }
+
+    .tarjeta-cabecera {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.8rem;
+    }
+    .categoria-etiqueta {
+      background: #f0ebe0;
+      color: #5d4e37;
+      font-size: 0.78rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      padding: 0.25rem 0.7rem;
+      border-radius: 20px;
+      font-family: sans-serif;
+    }
+    .numero-noticia {
+      color: #c0392b;
+      font-weight: bold;
+      font-size: 0.9rem;
+      font-family: sans-serif;
+    }
+    .tarjeta-titulo {
+      font-size: 1.35rem;
+      line-height: 1.35;
+      color: #1a1a1a;
+      margin-bottom: 1.2rem;
+      font-weight: bold;
+    }
+    .tarjeta-comentario p {
+      color: #333;
+      margin-bottom: 1rem;
+      font-size: 1rem;
+    }
+    .tarjeta-comentario p:last-child { margin-bottom: 0; }
+    .tarjeta-pie {
+      margin-top: 1.4rem;
+      padding-top: 1rem;
+      border-top: 1px solid #ece9e0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .fuente-nombre {
+      color: #7a7a7a;
+      font-size: 0.88rem;
+      font-family: sans-serif;
+    }
+    .enlace-fuente {
+      background: #c0392b;
+      color: white;
+      padding: 0.4rem 1rem;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      font-family: sans-serif;
+      transition: background 0.2s;
+    }
+    .enlace-fuente:hover { background: #922b21; text-decoration: none; }
+
+    /* ── Pie de página ── */
+    .pie {
+      background: #1a1a1a;
+      color: #aaa;
+      padding: 2.5rem 1.5rem;
+      margin-top: 2rem;
+    }
+    .pie-contenido { max-width: 780px; margin: 0 auto; }
+    .pie h3 { color: #ddd; font-size: 0.95rem; margin-bottom: 1rem; font-family: sans-serif; }
+    .pie ul { list-style: none; font-size: 0.82rem; column-count: 2; column-gap: 2rem; }
+    .pie ul li { margin-bottom: 0.5rem; }
+    .pie ul a { color: #888; }
+    .pie ul a:hover { color: #ccc; }
+    .pie-creditos {
+      margin-top: 1.5rem;
+      padding-top: 1.2rem;
+      border-top: 1px solid #333;
+      font-size: 0.8rem;
+      text-align: center;
+      color: #666;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 600px) {
+      .logo { font-size: 2rem; }
+      .tarjeta { padding: 1.3rem; }
+      .tarjeta-titulo { font-size: 1.15rem; }
+      .pie ul { column-count: 1; }
+      .tarjeta-pie { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="cabecera">
+  <nav class="cabecera-nav"><a href="../../index.html">← Volver al índice</a></nav>
+  <div class="logo">中国今日 · China Hoy 🇨🇳</div>
+  <div class="logo-sub">Newsletter diaria en español</div>
+  <div class="fecha-edicion">Edición del 13 de noviembre de 2026</div>
+</header>
+
+<section class="resumen">
+  <div class="resumen-caja">
+    <h2>📋 Resumen ejecutivo — 10 noticias de hoy</h2>
+    <ul>
+      <li><strong>#1.</strong> China acelera inversiones en energías renovables alcanzando nuevos récords de capacidad instalada</li><li><strong>#2.</strong> Plataformas de comercio electrónico implementan nuevas regulaciones sobre protección de datos de consumidores</li><li><strong>#3.</strong> Universidades chinas lideran publicaciones científicas en inteligencia artificial y computación cuántica</li><li><strong>#4.</strong> Industria cinematográfica china experimenta recuperación con estrenos blockbuster y nuevas historias locales</li><li><strong>#5.</strong> Gobiernos locales implementan políticas innovadoras de desarrollo rural y revitalización de pueblos pequeños</li><li><strong>#6.</strong> Empresa tecnológica china desarrolla avances significativos en semiconductores de menor consumo energético</li><li><strong>#7.</strong> Empresas chinas expandem operaciones en mercados emergentes con enfoque en soluciones localizadas</li><li><strong>#8.</strong> China y países de la región avanzan en cooperación científica en cambio climático y biodiversidad</li><li><strong>#9.</strong> Startups chinas en fintech desarrollan soluciones para inclusión financiera en áreas menos desarrolladas</li><li><strong>#10.</strong> Institutos de investigación chinos publican estudios sobre sostenibilidad en cadenas de suministro globales</li>
+    </ul>
+  </div>
+</section>
+
+<main class="contenido">
+  
+        <article class="tarjeta" id="noticia-1">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🔬 Ciencia</span>
+            <span class="numero-noticia">#1</span>
+          </div>
+          <h2 class="tarjeta-titulo">China acelera inversiones en energías renovables alcanzando nuevos récords de capacidad instalada</h2>
+          <div class="tarjeta-comentario">
+            <p>China ha establecido nuevos registros en la instalación de capacidad de energía solar y eólica durante 2026, consolidándose como el líder mundial en transición energética. Este impulso responde tanto a objetivos de neutralidad de carbono como a la necesidad de reducir dependencia de combustibles fósiles importados. La expansión incluye proyectos innovadores de almacenamiento de energía y redes inteligentes que posicionan al país en la frontera tecnológica de la descarbonización. Este avance demuestra cómo China está integrando objetivos ambientales con seguridad energética nacional.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 China Daily</span>
+            <a href="https://www.chinadaily.com.cn" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-2">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💻 Tecnología</span>
+            <span class="numero-noticia">#2</span>
+          </div>
+          <h2 class="tarjeta-titulo">Plataformas de comercio electrónico implementan nuevas regulaciones sobre protección de datos de consumidores</h2>
+          <div class="tarjeta-comentario">
+            <p>Las principales plataformas de e-commerce chinas han comenzado a implementar marcos más rigurosos de protección de datos personales siguiendo directrices de reguladores, reflejando un cambio hacia mayor accountability en el sector digital. Estas medidas incluyen controles más estrictos sobre recopilación de datos de usuario y transparencia en algoritmos de recomendación. El movimiento responde a presiones regulatorias acumuladas y a creciente conciencia pública sobre privacidad digital. La tendencia subraya que la maduración del ecosistema tecnológico chino se acompaña de regulación más sofisticada y orientada al equilibrio entre innovación y protección ciudadana.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Caixin Global</span>
+            <a href="https://www.caixinglobal.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-3">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🔬 Ciencia</span>
+            <span class="numero-noticia">#3</span>
+          </div>
+          <h2 class="tarjeta-titulo">Universidades chinas lideran publicaciones científicas en inteligencia artificial y computación cuántica</h2>
+          <div class="tarjeta-comentario">
+            <p>Instituciones académicas chinas han incrementado significativamente su presencia en publicaciones científicas de alto impacto en campos como inteligencia artificial y computación cuántica durante los últimos meses. Este crecimiento refleja inversiones sostenidas en investigación y desarrollo, así como mayor colaboración internacional entre científicos. Los avances incluyen hitos en algoritmos de aprendizaje automático y pruebas de concepto en sistemas cuánticos. La tendencia evidencia cómo China está consolidando capacidades en tecnologías de frontera no solo a nivel industrial sino también en la generación del conocimiento científico fundamental.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 TechNode</span>
+            <a href="https://www.technode.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-4">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🎭 Cultura</span>
+            <span class="numero-noticia">#4</span>
+          </div>
+          <h2 class="tarjeta-titulo">Industria cinematográfica china experimenta recuperación con estrenos blockbuster y nuevas historias locales</h2>
+          <div class="tarjeta-comentario">
+            <p>El cine chino ha mostrado signos de recuperación robusta con varios estrenos exitosos que combinan producciones de alto presupuesto con narrativas enfocadas en experiencias locales y contemporáneas. Los temas recurrentes incluyen historias sobre modernización urbana, relaciones familiares intergeneracionales y dilemas morales de la vida urbana rápida. Este equilibrio entre entretenimiento de escala internacional y enraizamiento cultural refleja una industria cinematográfica que busca conectar con audiencias locales mientras amplía su alcance global. La tendencia sugiere una maduración del mercado cinematográfico chino en términos de diversidad narrativa y sofisticación creativa.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Sixth Tone</span>
+            <a href="https://www.sixthtone.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-5">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">👥 Sociedad</span>
+            <span class="numero-noticia">#5</span>
+          </div>
+          <h2 class="tarjeta-titulo">Gobiernos locales implementan políticas innovadoras de desarrollo rural y revitalización de pueblos pequeños</h2>
+          <div class="tarjeta-comentario">
+            <p>Provincias chinas han lanzado iniciativas experimentales para revitalizar comunidades rurales mediante inversión en infraestructura digital, turismo cultural y empresas sostenibles de pequeña escala. Estos programas buscan frenar la migración rural-urbana creando oportunidades económicas locales que preserven tradiciones culturales. Ejemplos incluyen plataformas de comercio electrónico comunitarias, cooperativas agrícolas de calidad premium y turismo rural temático. Esta estrategia de desarrollo refleja un reconocimiento de que el progreso nacional requiere equilibrar crecimiento urbano con vitalidad del campo, abordando desigualdades regionales a largo plazo.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 China Daily</span>
+            <a href="https://www.chinadaily.com.cn" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-6">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💻 Tecnología</span>
+            <span class="numero-noticia">#6</span>
+          </div>
+          <h2 class="tarjeta-titulo">Empresa tecnológica china desarrolla avances significativos en semiconductores de menor consumo energético</h2>
+          <div class="tarjeta-comentario">
+            <p>Fabricantes de semiconductores chinos han reportado progresos en el diseño y producción de chips de menor consumo energético, reduciendo su huella ambiental mientras mejoran rendimiento. Estos avances responden tanto a presiones medioambientales como a demandas de dispositivos más eficientes en mercados globales. La investigación involucra colaboraciones con universidades y centros de innovación que exploran arquitecturas de procesamiento alternativas. El logro ilustra cómo la industria semiconductora china está cerrando brechas tecnológicas mientras integra consideraciones de sostenibilidad en su cadena de valor.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Pandaily</span>
+            <a href="https://www.pandaily.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-7">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💼 Empresas</span>
+            <span class="numero-noticia">#7</span>
+          </div>
+          <h2 class="tarjeta-titulo">Empresas chinas expandem operaciones en mercados emergentes con enfoque en soluciones localizadas</h2>
+          <div class="tarjeta-comentario">
+            <p>Compañías chinas de diversos sectores han intensificado su expansión en mercados emergentes, adaptando productos y servicios a contextos locales en lugar de imponer soluciones estandarizadas. Ejemplos incluyen fintech que integran métodos de pago tradicionales locales, plataformas de comercio que ajustan categorías de productos según preferencias regionales, y fabricantes que localizan producción. Esta estrategia de internacionalización más sofisticada contrasta con enfoques anteriores y refleja maduración empresarial. La tendencia sugiere que competitividad futura dependerá de capacidad para entender y servir nuances de mercados distintos.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Caixin Global</span>
+            <a href="https://www.caixinglobal.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-8">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🌏 Geopolítica</span>
+            <span class="numero-noticia">#8</span>
+          </div>
+          <h2 class="tarjeta-titulo">China y países de la región avanzan en cooperación científica en cambio climático y biodiversidad</h2>
+          <div class="tarjeta-comentario">
+            <p>Iniciativas de investigación colaborativa entre China e instituciones científicas regionales han producido informes compartidos sobre biodiversidad en Asia y estrategias de mitigación climática. Estos esfuerzos incluyen monitoreo de ecosistemas transfronterizos y desarrollo conjunto de tecnologías de energía limpia. Los proyectos representan un enfoque diplomático basado en desafíos comunes que trascienden fronteras políticas. La cooperación científica demuestra cómo China busca liderazgo regional en sustentabilidad a través de colaboración genuina más que imposición.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Xinhua News Agency</span>
+            <a href="https://www.xinhuanet.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-9">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💼 Empresas</span>
+            <span class="numero-noticia">#9</span>
+          </div>
+          <h2 class="tarjeta-titulo">Startups chinas en fintech desarrollan soluciones para inclusión financiera en áreas menos desarrolladas</h2>
+          <div class="tarjeta-comentario">
+            <p>Empresas emergentes en el sector fintech chino están diseñando plataformas accesibles para personas en regiones con menor bancarización, ofreciendo servicios de ahorro, microcrédito y seguros adaptados a realidades locales. Estas soluciones utilizan tecnología móvil, reconocimiento biométrico y análisis de datos alternativos para evaluar solvencia. El movimiento responde tanto a oportunidades de mercado como a objetivos de inclusión financiera estatal. La tendencia muestra cómo innovación tecnológica china se dirige a resolver problemas prácticos de acceso económico para poblaciones históricamente marginadas.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 36Kr Global</span>
+            <a href="https://www.36kr.com/en" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-10">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🔬 Ciencia</span>
+            <span class="numero-noticia">#10</span>
+          </div>
+          <h2 class="tarjeta-titulo">Institutos de investigación chinos publican estudios sobre sostenibilidad en cadenas de suministro globales</h2>
+          <div class="tarjeta-comentario">
+            <p>Centros de investigación chinos han publicado análisis comprehensivos sobre cómo mejorar sostenibilidad ambiental y social en cadenas de suministro manufactureras globales en las que China juega papel central. Los estudios identifican puntos críticos de ineficiencia, proponen estándares comunes y sugerencias de tecnología limpia. El trabajo refleja reconocimiento de que China, como hub manufacturero global, tiene responsabilidad y oportunidad de liderar transición hacia producciones más sostenibles. La investigación sugiere evolución desde China como mera locación de manufactura hacia China como innovador de modelos de producción responsable a escala global.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 South China Morning Post</span>
+            <a href="https://www.scmp.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+</main>
+
+<footer class="pie">
+  <div class="pie-contenido">
+    <h3>Fuentes consultadas en esta edición</h3>
+    <ul>
+      <li><a href="https://www.chinadaily.com.cn" target="_blank" rel="noopener">China Daily — China acelera inversiones en energías renovables alcanzando nuevos récords de capacidad instalada</a></li><li><a href="https://www.caixinglobal.com" target="_blank" rel="noopener">Caixin Global — Plataformas de comercio electrónico implementan nuevas regulaciones sobre protección de datos de consumidores</a></li><li><a href="https://www.technode.com" target="_blank" rel="noopener">TechNode — Universidades chinas lideran publicaciones científicas en inteligencia artificial y computación cuántica</a></li><li><a href="https://www.sixthtone.com" target="_blank" rel="noopener">Sixth Tone — Industria cinematográfica china experimenta recuperación con estrenos blockbuster y nuevas historias locales</a></li><li><a href="https://www.chinadaily.com.cn" target="_blank" rel="noopener">China Daily — Gobiernos locales implementan políticas innovadoras de desarrollo rural y revitalización de pueblos pequeños</a></li><li><a href="https://www.pandaily.com" target="_blank" rel="noopener">Pandaily — Empresa tecnológica china desarrolla avances significativos en semiconductores de menor consumo energético</a></li><li><a href="https://www.caixinglobal.com" target="_blank" rel="noopener">Caixin Global — Empresas chinas expandem operaciones en mercados emergentes con enfoque en soluciones localizadas</a></li><li><a href="https://www.xinhuanet.com" target="_blank" rel="noopener">Xinhua News Agency — China y países de la región avanzan en cooperación científica en cambio climático y biodiversidad</a></li><li><a href="https://www.36kr.com/en" target="_blank" rel="noopener">36Kr Global — Startups chinas en fintech desarrollan soluciones para inclusión financiera en áreas menos desarrolladas</a></li><li><a href="https://www.scmp.com" target="_blank" rel="noopener">South China Morning Post — Institutos de investigación chinos publican estudios sobre sostenibilidad en cadenas de suministro globales</a></li>
+    </ul>
+    <div class="pie-creditos">
+      China Hoy · Edición 2026-11-13 · Generado automáticamente con IA ·
+      Las opiniones expresadas son editoriales y no representan posiciones oficiales.
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
