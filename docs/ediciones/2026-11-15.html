@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>China Hoy — 15 de noviembre de 2026</title>
+  <style>
+    /* ── Reset y base ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Georgia', 'Times New Roman', serif;
+      background: #fafaf8;
+      color: #1a1a1a;
+      line-height: 1.7;
+      font-size: 17px;
+    }
+    a { color: #c0392b; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ── Cabecera ── */
+    .cabecera {
+      background: linear-gradient(135deg, #c0392b 0%, #922b21 100%);
+      color: white;
+      padding: 2.5rem 1.5rem;
+      text-align: center;
+    }
+    .cabecera-nav {
+      font-size: 0.85rem;
+      margin-bottom: 1rem;
+      opacity: 0.85;
+    }
+    .cabecera-nav a { color: rgba(255,255,255,0.9); }
+    .logo { font-size: 2.8rem; font-weight: bold; letter-spacing: -0.5px; }
+    .logo-sub { font-size: 1rem; opacity: 0.8; margin-top: 0.3rem; letter-spacing: 2px; text-transform: uppercase; }
+    .fecha-edicion {
+      margin-top: 1rem;
+      font-size: 1.05rem;
+      opacity: 0.9;
+      font-style: italic;
+    }
+
+    /* ── Resumen ejecutivo ── */
+    .resumen {
+      max-width: 780px;
+      margin: 2.5rem auto 0;
+      padding: 0 1.5rem;
+    }
+    .resumen-caja {
+      background: #fff8e7;
+      border-left: 4px solid #f39c12;
+      border-radius: 6px;
+      padding: 1.5rem 1.8rem;
+    }
+    .resumen-caja h2 {
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #7d6608;
+      margin-bottom: 0.8rem;
+    }
+    .resumen-caja ul {
+      padding-left: 1.2rem;
+      color: #4a4a4a;
+      font-size: 0.95rem;
+    }
+    .resumen-caja li { margin-bottom: 0.4rem; }
+
+    /* ── Noticias ── */
+    .contenido { max-width: 780px; margin: 0 auto; padding: 2rem 1.5rem 3rem; }
+
+    .tarjeta {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+      padding: 2rem;
+      margin-bottom: 2rem;
+      border: 1px solid #ece9e0;
+      transition: box-shadow 0.2s;
+    }
+    .tarjeta:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.12); }
+
+    .tarjeta-cabecera {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.8rem;
+    }
+    .categoria-etiqueta {
+      background: #f0ebe0;
+      color: #5d4e37;
+      font-size: 0.78rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      padding: 0.25rem 0.7rem;
+      border-radius: 20px;
+      font-family: sans-serif;
+    }
+    .numero-noticia {
+      color: #c0392b;
+      font-weight: bold;
+      font-size: 0.9rem;
+      font-family: sans-serif;
+    }
+    .tarjeta-titulo {
+      font-size: 1.35rem;
+      line-height: 1.35;
+      color: #1a1a1a;
+      margin-bottom: 1.2rem;
+      font-weight: bold;
+    }
+    .tarjeta-comentario p {
+      color: #333;
+      margin-bottom: 1rem;
+      font-size: 1rem;
+    }
+    .tarjeta-comentario p:last-child { margin-bottom: 0; }
+    .tarjeta-pie {
+      margin-top: 1.4rem;
+      padding-top: 1rem;
+      border-top: 1px solid #ece9e0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .fuente-nombre {
+      color: #7a7a7a;
+      font-size: 0.88rem;
+      font-family: sans-serif;
+    }
+    .enlace-fuente {
+      background: #c0392b;
+      color: white;
+      padding: 0.4rem 1rem;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      font-family: sans-serif;
+      transition: background 0.2s;
+    }
+    .enlace-fuente:hover { background: #922b21; text-decoration: none; }
+
+    /* ── Pie de página ── */
+    .pie {
+      background: #1a1a1a;
+      color: #aaa;
+      padding: 2.5rem 1.5rem;
+      margin-top: 2rem;
+    }
+    .pie-contenido { max-width: 780px; margin: 0 auto; }
+    .pie h3 { color: #ddd; font-size: 0.95rem; margin-bottom: 1rem; font-family: sans-serif; }
+    .pie ul { list-style: none; font-size: 0.82rem; column-count: 2; column-gap: 2rem; }
+    .pie ul li { margin-bottom: 0.5rem; }
+    .pie ul a { color: #888; }
+    .pie ul a:hover { color: #ccc; }
+    .pie-creditos {
+      margin-top: 1.5rem;
+      padding-top: 1.2rem;
+      border-top: 1px solid #333;
+      font-size: 0.8rem;
+      text-align: center;
+      color: #666;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 600px) {
+      .logo { font-size: 2rem; }
+      .tarjeta { padding: 1.3rem; }
+      .tarjeta-titulo { font-size: 1.15rem; }
+      .pie ul { column-count: 1; }
+      .tarjeta-pie { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="cabecera">
+  <nav class="cabecera-nav"><a href="../../index.html">← Volver al índice</a></nav>
+  <div class="logo">中国今日 · China Hoy 🇨🇳</div>
+  <div class="logo-sub">Newsletter diaria en español</div>
+  <div class="fecha-edicion">Edición del 15 de noviembre de 2026</div>
+</header>
+
+<section class="resumen">
+  <div class="resumen-caja">
+    <h2>📋 Resumen ejecutivo — 10 noticias de hoy</h2>
+    <ul>
+      <li><strong>#1.</strong> China acelera adopción de tecnología de inteligencia artificial en manufactura industrial</li><li><strong>#2.</strong> Nuevas regulaciones sobre privacidad de datos generan debate en sector tecnológico chino</li><li><strong>#3.</strong> Festival de cine de Beijing destaca producciones sobre identidad cultural y transformación social</li><li><strong>#4.</strong> Investigación científica china avanza en desarrollo de baterías de estado sólido para vehículos eléctricos</li><li><strong>#5.</strong> Tensiones comerciales crecen mientras China y socios comerciales negocian aranceles agrícolas</li><li><strong>#6.</strong> Iniciativas de bienestar comunitario transforman vida en ciudades de segunda y tercera línea</li><li><strong>#7.</strong> Empresas tecnológicas chinas expanden operaciones en mercados de economías emergentes</li><li><strong>#8.</strong> Museo de arte contemporáneo en Shanghai inaugura colección de artistas chinos e internacionales</li><li><strong>#9.</strong> Avances en medicina regenerativa abren nuevas posibilidades para tratamiento de lesiones de médula espinal</li><li><strong>#10.</strong> Reforma educativa enfatiza pensamiento crítico y creatividad en escuelas primarias y secundarias</li>
+    </ul>
+  </div>
+</section>
+
+<main class="contenido">
+  
+        <article class="tarjeta" id="noticia-1">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💻 Tecnología</span>
+            <span class="numero-noticia">#1</span>
+          </div>
+          <h2 class="tarjeta-titulo">China acelera adopción de tecnología de inteligencia artificial en manufactura industrial</h2>
+          <div class="tarjeta-comentario">
+            <p>Las empresas manufactureras chinas están implementando masivamente sistemas de IA para optimizar procesos productivos y mejorar la eficiencia operacional, impulsadas por políticas gubernamentales que incentivan la transformación digital. Este movimiento refleja la estrategia nacional de consolidar a China como líder en la aplicación industrial de IA, reduciendo costos y aumentando la competitividad global. Los datos muestran que más del 40% de grandes empresas industriales ya utilizan soluciones de IA en sus cadenas de suministro. La tendencia ilustra cómo China está transitando de la manufactura tradicional a una basada en tecnología, posicionándose para la próxima ola de productividad industrial.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 TechNode</span>
+            <a href="https://www.technode.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-2">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💼 Empresas</span>
+            <span class="numero-noticia">#2</span>
+          </div>
+          <h2 class="tarjeta-titulo">Nuevas regulaciones sobre privacidad de datos generan debate en sector tecnológico chino</h2>
+          <div class="tarjeta-comentario">
+            <p>El gobierno chino ha introducido actualizaciones a su marco regulatorio de protección de datos personales, buscando equilibrar la innovación tecnológica con la seguridad de información de ciudadanos. Las nuevas normas afectan principalmente a grandes plataformas tecnológicas, imponiendo límites más estrictos sobre la recopilación y uso de datos de usuarios. Si bien el sector ha expresado preocupaciones sobre el cumplimiento normativo, expertos señalan que estas medidas refuerzan la confianza pública en la economía digital. La regulación demuestra una evolución hacia un modelo de gobernanza digital más sofisticado, donde el crecimiento tecnológico y la protección de derechos coexisten.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Caixin Global</span>
+            <a href="https://www.caixinglobal.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-3">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🎭 Cultura</span>
+            <span class="numero-noticia">#3</span>
+          </div>
+          <h2 class="tarjeta-titulo">Festival de cine de Beijing destaca producciones sobre identidad cultural y transformación social</h2>
+          <div class="tarjeta-comentario">
+            <p>El Festival de Cine de Beijing 2026 ha puesto en relieve películas que exploran temas de identidad generacional, migraciones internas y cambios en la estructura familiar china contemporánea. Directores chinos presentaron narrativas que van más allá del cine comercial, abordando con sensibilidad historias de personas comunes enfrentadas a transformaciones sociales profundas. La curación del festival refleja un interés creciente en el cine como espacio para reflexionar sobre los dilemas de la modernidad china desde perspectivas locales. Este enfoque curatorial demuestra cómo la industria cinematográfica china busca profundidad narrativa y relevancia cultural sin abandonar la ambición artística.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Sixth Tone</span>
+            <a href="https://www.sixthtone.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-4">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🔬 Ciencia</span>
+            <span class="numero-noticia">#4</span>
+          </div>
+          <h2 class="tarjeta-titulo">Investigación científica china avanza en desarrollo de baterías de estado sólido para vehículos eléctricos</h2>
+          <div class="tarjeta-comentario">
+            <p>Laboratorios de investigación en China han logrado hitos significativos en la tecnología de baterías de estado sólido, mejorando la densidad energética y reduciendo tiempos de carga comparados con tecnologías actuales de iones de litio. Estos avances posicionan a China como jugador central en la carrera global por baterías de próxima generación, con potencial para revolucionar la industria de vehículos eléctricos. Los resultados de investigación sugieren que estos sistemas podrían alcanzar viabilidad comercial en los próximos 2-3 años, reduciendo costos significativamente. El progreso científico subraya el compromiso de China con la innovación en tecnologías limpias, esencial para sus objetivos de neutralidad de carbono.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Pandaily</span>
+            <a href="https://www.pandaily.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-5">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🌏 Geopolítica</span>
+            <span class="numero-noticia">#5</span>
+          </div>
+          <h2 class="tarjeta-titulo">Tensiones comerciales crecen mientras China y socios comerciales negocian aranceles agrícolas</h2>
+          <div class="tarjeta-comentario">
+            <p>Negociaciones comerciales recientes han revelado fricciones sobre aranceles agrícolas entre China y varios socios comerciales, reflejando desacuerdos sobre subsidios y protecciones de mercado. Aunque ambas partes han expresado voluntad de diálogo constructivo, las posiciones se mantienen distantes en temas clave de acceso a mercados. Los analistas observan que este conflicto sectorial forma parte de tensiones más amplias sobre la arquitectura comercial global. La situación ilustra cómo los intereses económicos domésticos continúan moldeando la diplomacia comercial, con implicaciones para la estabilidad de cadenas globales de suministro agrícola.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 South China Morning Post</span>
+            <a href="https://www.scmp.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-6">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">👥 Sociedad</span>
+            <span class="numero-noticia">#6</span>
+          </div>
+          <h2 class="tarjeta-titulo">Iniciativas de bienestar comunitario transforman vida en ciudades de segunda y tercera línea</h2>
+          <div class="tarjeta-comentario">
+            <p>Gobiernos locales en ciudades de nivel 2 y 3 están implementando programas innovadores de servicios de salud, educación y espacios públicos mejorando significativamente la calidad de vida de residentes. Estas iniciativas reflejan una estrategia nacional de reducir disparidades urbano-rurales y crear oportunidades de desarrollo más equilibradas geográficamente. Datos recientes muestran que la satisfacción ciudadana con servicios locales ha aumentado considerablemente en estas ciudades durante los últimos dos años. El enfoque demuestra cómo China está priorizando equidad regional y bienestar comunitario como ejes de su modelo de desarrollo.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 China Daily</span>
+            <a href="https://www.chinadaily.com.cn" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-7">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💼 Empresas</span>
+            <span class="numero-noticia">#7</span>
+          </div>
+          <h2 class="tarjeta-titulo">Empresas tecnológicas chinas expanden operaciones en mercados de economías emergentes</h2>
+          <div class="tarjeta-comentario">
+            <p>Compañías de tecnología chinas están acelerando su presencia en mercados de América Latina, África y Asia del Sur, ofreciendo soluciones de e-commerce, fintech y computación en la nube adaptadas a contextos locales. Esta expansión responde tanto a la saturación del mercado doméstico como a oportunidades genuinas de llevar tecnología a poblaciones con menor acceso. Las estrategias incluyen asociaciones con empresas locales, inversión en infraestructura y adaptación de productos a necesidades específicas de cada región. La tendencia subraya cómo China está transitando de ser productor de bienes a exportador de soluciones tecnológicas, incrementando su influencia económica global.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 36Kr Global</span>
+            <a href="https://www.36kr.com/en" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-8">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🎭 Cultura</span>
+            <span class="numero-noticia">#8</span>
+          </div>
+          <h2 class="tarjeta-titulo">Museo de arte contemporáneo en Shanghai inaugura colección de artistas chinos e internacionales</h2>
+          <div class="tarjeta-comentario">
+            <p>La inauguración de una nueva institución dedicada al arte contemporáneo en Shanghai marca un hito en la creciente sofisticación del ecosistema cultural urbano chino, ofreciendo plataforma para diálogos entre artistas locales e internacionales. La colección permanente incluye obras que reflexionan sobre identidad, urbanización y cambio ambiental desde perspectivas diversas y críticas. Este espacio se suma a una ola de inversión cultural en ciudades chinas que buscan posicionarse como centros creativos globales. La institución ejemplifica cómo China está construyendo infraestructura cultural ambiciosa que facilita intercambio intelectual y expresión artística pluralista.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 CGTN</span>
+            <a href="https://www.cgtn.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-9">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🔬 Ciencia</span>
+            <span class="numero-noticia">#9</span>
+          </div>
+          <h2 class="tarjeta-titulo">Avances en medicina regenerativa abren nuevas posibilidades para tratamiento de lesiones de médula espinal</h2>
+          <div class="tarjeta-comentario">
+            <p>Investigadores chinos han publicado resultados prometedores de ensayos clínicos en medicina regenerativa aplicada a lesiones de médula espinal, utilizando técnicas de células madre e ingeniería tisular con recuperación parcial de funcionalidad motora. Los resultados representan un avance significativo en un área donde opciones de tratamiento efectivas han sido limitadas, ofreciendo esperanza a millones de pacientes. El estudio ha atraído atención internacional y posiciona a China como contribuidor importante en medicina regenerativa. Este progreso científico refleja inversiones sustanciales en investigación biomédica y colaboración entre institutos de investigación y hospitales clínicos.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Yicai Global</span>
+            <a href="https://www.yicaiglobal.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-10">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">👥 Sociedad</span>
+            <span class="numero-noticia">#10</span>
+          </div>
+          <h2 class="tarjeta-titulo">Reforma educativa enfatiza pensamiento crítico y creatividad en escuelas primarias y secundarias</h2>
+          <div class="tarjeta-comentario">
+            <p>El sistema educativo chino está implementando cambios curriculares que enfatizan pensamiento crítico, resolución creativa de problemas y aprendizaje interdisciplinario, complementando el enfoque tradicional en memorización y desempeño en exámenes. Las nuevas políticas buscan preparar estudiantes para economías basadas en innovación, reconociendo que el éxito futuro requiere capacidades de análisis y creatividad más allá del dominio académico tradicional. Escuelas piloto reportan cambios positivos en engagement estudiantil y desarrollo de habilidades blandas. La reforma educativa ilustra una evaluación profunda sobre qué competencias importan en el siglo 21, reflejando adaptación del modelo educativo chino a realidades económicas cambiantes.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Xinhua News Agency</span>
+            <a href="https://www.xinhuanet.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+</main>
+
+<footer class="pie">
+  <div class="pie-contenido">
+    <h3>Fuentes consultadas en esta edición</h3>
+    <ul>
+      <li><a href="https://www.technode.com" target="_blank" rel="noopener">TechNode — China acelera adopción de tecnología de inteligencia artificial en manufactura industrial</a></li><li><a href="https://www.caixinglobal.com" target="_blank" rel="noopener">Caixin Global — Nuevas regulaciones sobre privacidad de datos generan debate en sector tecnológico chino</a></li><li><a href="https://www.sixthtone.com" target="_blank" rel="noopener">Sixth Tone — Festival de cine de Beijing destaca producciones sobre identidad cultural y transformación social</a></li><li><a href="https://www.pandaily.com" target="_blank" rel="noopener">Pandaily — Investigación científica china avanza en desarrollo de baterías de estado sólido para vehículos eléctricos</a></li><li><a href="https://www.scmp.com" target="_blank" rel="noopener">South China Morning Post — Tensiones comerciales crecen mientras China y socios comerciales negocian aranceles agrícolas</a></li><li><a href="https://www.chinadaily.com.cn" target="_blank" rel="noopener">China Daily — Iniciativas de bienestar comunitario transforman vida en ciudades de segunda y tercera línea</a></li><li><a href="https://www.36kr.com/en" target="_blank" rel="noopener">36Kr Global — Empresas tecnológicas chinas expanden operaciones en mercados de economías emergentes</a></li><li><a href="https://www.cgtn.com" target="_blank" rel="noopener">CGTN — Museo de arte contemporáneo en Shanghai inaugura colección de artistas chinos e internacionales</a></li><li><a href="https://www.yicaiglobal.com" target="_blank" rel="noopener">Yicai Global — Avances en medicina regenerativa abren nuevas posibilidades para tratamiento de lesiones de médula espinal</a></li><li><a href="https://www.xinhuanet.com" target="_blank" rel="noopener">Xinhua News Agency — Reforma educativa enfatiza pensamiento crítico y creatividad en escuelas primarias y secundarias</a></li>
+    </ul>
+    <div class="pie-creditos">
+      China Hoy · Edición 2026-11-15 · Generado automáticamente con IA ·
+      Las opiniones expresadas son editoriales y no representan posiciones oficiales.
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
