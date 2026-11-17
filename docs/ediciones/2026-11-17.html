@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>China Hoy — 17 de noviembre de 2026</title>
+  <style>
+    /* ── Reset y base ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Georgia', 'Times New Roman', serif;
+      background: #fafaf8;
+      color: #1a1a1a;
+      line-height: 1.7;
+      font-size: 17px;
+    }
+    a { color: #c0392b; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ── Cabecera ── */
+    .cabecera {
+      background: linear-gradient(135deg, #c0392b 0%, #922b21 100%);
+      color: white;
+      padding: 2.5rem 1.5rem;
+      text-align: center;
+    }
+    .cabecera-nav {
+      font-size: 0.85rem;
+      margin-bottom: 1rem;
+      opacity: 0.85;
+    }
+    .cabecera-nav a { color: rgba(255,255,255,0.9); }
+    .logo { font-size: 2.8rem; font-weight: bold; letter-spacing: -0.5px; }
+    .logo-sub { font-size: 1rem; opacity: 0.8; margin-top: 0.3rem; letter-spacing: 2px; text-transform: uppercase; }
+    .fecha-edicion {
+      margin-top: 1rem;
+      font-size: 1.05rem;
+      opacity: 0.9;
+      font-style: italic;
+    }
+
+    /* ── Resumen ejecutivo ── */
+    .resumen {
+      max-width: 780px;
+      margin: 2.5rem auto 0;
+      padding: 0 1.5rem;
+    }
+    .resumen-caja {
+      background: #fff8e7;
+      border-left: 4px solid #f39c12;
+      border-radius: 6px;
+      padding: 1.5rem 1.8rem;
+    }
+    .resumen-caja h2 {
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #7d6608;
+      margin-bottom: 0.8rem;
+    }
+    .resumen-caja ul {
+      padding-left: 1.2rem;
+      color: #4a4a4a;
+      font-size: 0.95rem;
+    }
+    .resumen-caja li { margin-bottom: 0.4rem; }
+
+    /* ── Noticias ── */
+    .contenido { max-width: 780px; margin: 0 auto; padding: 2rem 1.5rem 3rem; }
+
+    .tarjeta {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+      padding: 2rem;
+      margin-bottom: 2rem;
+      border: 1px solid #ece9e0;
+      transition: box-shadow 0.2s;
+    }
+    .tarjeta:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.12); }
+
+    .tarjeta-cabecera {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.8rem;
+    }
+    .categoria-etiqueta {
+      background: #f0ebe0;
+      color: #5d4e37;
+      font-size: 0.78rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      padding: 0.25rem 0.7rem;
+      border-radius: 20px;
+      font-family: sans-serif;
+    }
+    .numero-noticia {
+      color: #c0392b;
+      font-weight: bold;
+      font-size: 0.9rem;
+      font-family: sans-serif;
+    }
+    .tarjeta-titulo {
+      font-size: 1.35rem;
+      line-height: 1.35;
+      color: #1a1a1a;
+      margin-bottom: 1.2rem;
+      font-weight: bold;
+    }
+    .tarjeta-comentario p {
+      color: #333;
+      margin-bottom: 1rem;
+      font-size: 1rem;
+    }
+    .tarjeta-comentario p:last-child { margin-bottom: 0; }
+    .tarjeta-pie {
+      margin-top: 1.4rem;
+      padding-top: 1rem;
+      border-top: 1px solid #ece9e0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .fuente-nombre {
+      color: #7a7a7a;
+      font-size: 0.88rem;
+      font-family: sans-serif;
+    }
+    .enlace-fuente {
+      background: #c0392b;
+      color: white;
+      padding: 0.4rem 1rem;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      font-family: sans-serif;
+      transition: background 0.2s;
+    }
+    .enlace-fuente:hover { background: #922b21; text-decoration: none; }
+
+    /* ── Pie de página ── */
+    .pie {
+      background: #1a1a1a;
+      color: #aaa;
+      padding: 2.5rem 1.5rem;
+      margin-top: 2rem;
+    }
+    .pie-contenido { max-width: 780px; margin: 0 auto; }
+    .pie h3 { color: #ddd; font-size: 0.95rem; margin-bottom: 1rem; font-family: sans-serif; }
+    .pie ul { list-style: none; font-size: 0.82rem; column-count: 2; column-gap: 2rem; }
+    .pie ul li { margin-bottom: 0.5rem; }
+    .pie ul a { color: #888; }
+    .pie ul a:hover { color: #ccc; }
+    .pie-creditos {
+      margin-top: 1.5rem;
+      padding-top: 1.2rem;
+      border-top: 1px solid #333;
+      font-size: 0.8rem;
+      text-align: center;
+      color: #666;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 600px) {
+      .logo { font-size: 2rem; }
+      .tarjeta { padding: 1.3rem; }
+      .tarjeta-titulo { font-size: 1.15rem; }
+      .pie ul { column-count: 1; }
+      .tarjeta-pie { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="cabecera">
+  <nav class="cabecera-nav"><a href="../../index.html">← Volver al índice</a></nav>
+  <div class="logo">中国今日 · China Hoy 🇨🇳</div>
+  <div class="logo-sub">Newsletter diaria en español</div>
+  <div class="fecha-edicion">Edición del 17 de noviembre de 2026</div>
+</header>
+
+<section class="resumen">
+  <div class="resumen-caja">
+    <h2>📋 Resumen ejecutivo — 10 noticias de hoy</h2>
+    <ul>
+      <li><strong>#1.</strong> China acelera inversión en energías renovables alcanzando récord histórico</li><li><strong>#2.</strong> Alibaba anuncia reestructuración para potenciar su ecosistema de IA</li><li><strong>#3.</strong> Festival de cine de Shanghai 2026 celebra nuevo cine chino independiente</li><li><strong>#4.</strong> Universidades chinas lideran investigación en fusión nuclear de próxima generación</li><li><strong>#5.</strong> Encuesta revela cambios profundos en valores y aspiraciones de jóvenes chinos</li><li><strong>#6.</strong> China expande iniciativa de ciudades inteligentes a nivel nacional con estándares comunes</li><li><strong>#7.</strong> Tensiones comerciales: China negocia derechos de propiedad intelectual con socios asiáticos</li><li><strong>#8.</strong> Nueva plataforma de e-commerce rural conecta agricultores directamente con consumidores urbanos</li><li><strong>#9.</strong> Investigación china abre nuevas vías en tratamiento personalizado de cáncer</li><li><strong>#10.</strong> Festival de arte contemporáneo en Pekín explora diálogos entre tradición e innovación</li>
+    </ul>
+  </div>
+</section>
+
+<main class="contenido">
+  
+        <article class="tarjeta" id="noticia-1">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💻 Tecnología</span>
+            <span class="numero-noticia">#1</span>
+          </div>
+          <h2 class="tarjeta-titulo">China acelera inversión en energías renovables alcanzando récord histórico</h2>
+          <div class="tarjeta-comentario">
+            <p>China ha superado sus propias metas de instalación de capacidad renovable durante 2026, agregando más de 300 GW entre energía solar y eólica para convertirse en el principal productor mundial de energía limpia. Este logro refleja la apuesta del país por descarbonizar su economía antes de 2030 y posicionar sus industrias de tecnología verde como líderes globales. La inversión masiva en renovables también genera empleos en manufactura y construcción, demostrando que la transición energética puede ser simultaneamente competitiva económicamente y ambientalmente responsable. Este impulso forma parte de la estrategia nacional más amplia para asegurar independencia energética mientras cumple compromisos climáticos internacionales.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Caixin Global</span>
+            <a href="https://www.caixinglobal.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-2">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💼 Empresas</span>
+            <span class="numero-noticia">#2</span>
+          </div>
+          <h2 class="tarjeta-titulo">Alibaba anuncia reestructuración para potenciar su ecosistema de IA</h2>
+          <div class="tarjeta-comentario">
+            <p>Alibaba anunció una reorganización de sus operaciones de computación en la nube y inteligencia artificial, separando su división DAMO Academy como una unidad independiente para acelerar la investigación en modelos de lenguaje grandes y tecnologías de IA industrial. La decisión refleja cómo las grandes plataformas chinas están pivotando hacia ser empresas de tecnología de IA-first, buscando competir globalmente en esta carrera tecnológica crítica. El movimiento también subraya las presiones competitivas internas en China, donde empresas como ByteDance y Tencent ya tienen divisiones de IA altamente avanzadas. Este tipo de reestructuraciones corporativas indican la maduración del mercado chino de IA y el reconocimiento de que el éxito futuro dependerá de capabilidades tecnológicas de frontera.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 TechNode</span>
+            <a href="https://www.technode.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-3">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🎭 Cultura</span>
+            <span class="numero-noticia">#3</span>
+          </div>
+          <h2 class="tarjeta-titulo">Festival de cine de Shanghai 2026 celebra nuevo cine chino independiente</h2>
+          <div class="tarjeta-comentario">
+            <p>El Festival de Cine de Shanghai de este año destacó un crecimiento significativo en producciones cinematográficas independientes chinas, con cineastas jóvenes explorando narrativas sobre identidad urbana, relaciones intergeneracionales y cambio social con estilos visuales innovadores. La mayor plataforma y apoyo institucional a estos directores refleja una apertura cultural más amplia donde las historias chinas complejas y matizadas encuentran espacio en festivales de talla mundial. Varios filmes de bajo presupuesto ganaron premios internacionales, demostrando que la audiencia global está interesada en perspectivas cinematográficas auténticamente chinas más allá de producciones blockbuster. Este fenómeno indica un momento de vitalidad creativa en la industria cinematográfica china, donde la tecnología de producción asequible y plataformas de distribución digital están democratizando la creación de contenido.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Sixth Tone</span>
+            <a href="https://www.sixthtone.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-4">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🔬 Ciencia</span>
+            <span class="numero-noticia">#4</span>
+          </div>
+          <h2 class="tarjeta-titulo">Universidades chinas lideran investigación en fusión nuclear de próxima generación</h2>
+          <div class="tarjeta-comentario">
+            <p>Un consorcio de universidades chinas anunció avances significativos en reactores de fusión experimental, logrando mantener plasma a temperaturas superiores a 100 millones de grados durante períodos más prolongados que antes. Este hito científico posiciona a China como jugador central en la carrera global por energía de fusión limpia, tecnología que podría revolucionar la generación de energía a mediados de siglo. Los avances se logran mediante colaboración internacional con institutos de investigación europeos y estadounidenses, mostrando cómo la ciencia de frontera china prospera en contextos de cooperación global abierta. El progreso en fusión nuclear es particularmente simbólico de las ambiciones de China de ser líder en tecnologías transformacionales que definirán el futuro energético mundial.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 China Daily</span>
+            <a href="https://www.chinadaily.com.cn" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-5">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">👥 Sociedad</span>
+            <span class="numero-noticia">#5</span>
+          </div>
+          <h2 class="tarjeta-titulo">Encuesta revela cambios profundos en valores y aspiraciones de jóvenes chinos</h2>
+          <div class="tarjeta-comentario">
+            <p>Un estudio extenso sobre valores generacionales muestra que los jóvenes chinos nacidos después de 2000 priorizan equilibrio vida-trabajo, bienestar mental y propósito social sobre acumulación material, desafiando estereotipos anteriores de ambición económica desenfrenada. Estos cambios reflejan transformaciones económicas más amplias: con la clase media ya establecida, la siguiente generación busca calidad de vida y realización personal en lugar de solo enriquecimiento. Las universidades y empleadores están respondiendo con programas de apoyo mental, flexibilidad laboral y énfasis en impacto social para atraer talento. Este cambio de valores es especialmente significativo porque da forma a políticas públicas de largo plazo y sugiere cómo China navegará desafíos de envejecimiento poblacional y competitividad económica futura.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 South China Morning Post</span>
+            <a href="https://www.scmp.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-6">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💻 Tecnología</span>
+            <span class="numero-noticia">#6</span>
+          </div>
+          <h2 class="tarjeta-titulo">China expande iniciativa de ciudades inteligentes a nivel nacional con estándares comunes</h2>
+          <div class="tarjeta-comentario">
+            <p>El gobierno central chino lanzó un marco estandarizado para desarrollar &#39;ciudades inteligentes&#39; en más de 100 urbes, estableciendo protocolos comunes para integración de datos, gestión de tráfico, servicios de salud digital y sostenibilidad ambiental bajo gobernanza unificada. La iniciativa busca evitar fragmentación local y crear un ecosistema donde tecnologías probadas en una ciudad puedan escalarse rápidamente a otras, acelerando la modernización urbana de manera coordinada. Este enfoque top-down tiene ventajas claras de velocidad y coherencia, aunque también plantea preguntas sobre privacidad de datos y participación cívica que las ciudades están comenzando a abordar mediante marcos transparentes. El movimiento posiciona a China como laboratorio urbano global donde tecnologías de ciudades inteligentes se implementan a escala masiva, generando datos valiosos sobre qué funciona en contextos densos y diversos.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 TechNode</span>
+            <a href="https://www.technode.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-7">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🌏 Geopolítica</span>
+            <span class="numero-noticia">#7</span>
+          </div>
+          <h2 class="tarjeta-titulo">Tensiones comerciales: China negocia derechos de propiedad intelectual con socios asiáticos</h2>
+          <div class="tarjeta-comentario">
+            <p>China ha intensificado negociaciones bilaterales con países del sudeste asiático para fortalecer protección mutua de derechos de propiedad intelectual, buscando construir confianza en un contexto donde las innovaciones chinas en IA, semiconductores y tecnología verde generan preocupaciones sobre transferencia involuntaria de conocimiento. Los acuerdos buscan crear mecanismos de resolución de disputas más fluidos y reducir fricciones comerciales que podrían fragmentar la cadena de suministro regional. Este movimiento refleja maduración económica: conforme China produce más propiedad intelectual valiosa, tiene incentivos crecientes en proteger derechos de innovadores locales, alineándose con normas internacionales. Las negociaciones sugieren que China reconoce que ser potencia tecnológica global requiere jugar por reglas compartidas, aunque mantiene diferencias legítimas sobre algunos estándares internacionales.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Caixin Global</span>
+            <a href="https://www.caixinglobal.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-8">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💼 Empresas</span>
+            <span class="numero-noticia">#8</span>
+          </div>
+          <h2 class="tarjeta-titulo">Nueva plataforma de e-commerce rural conecta agricultores directamente con consumidores urbanos</h2>
+          <div class="tarjeta-comentario">
+            <p>Una startup respaldada por capital de riesgo lanzó una plataforma que utiliza blockchain y análisis de datos para conectar pequeños agricultores rurales con compradores urbanos, eliminando intermediarios y aumentando márgenes de ganancia campesino en hasta 40% mientras garantiza frescura del producto. El modelo ha alcanzado 10 millones de usuarios activos en 6 meses, reflejando demanda creciente de productos locales autenticados y de mayor calidad en ciudades chinas. Esta solución aborda simultáneamente desigualdad rural-urbana, ineficiencias en cadenas de suministro agrícola, y aspiraciones consumidoras de trazabilidad y sustentabilidad. El crecimiento de plataformas agrícolas digitales es sintomático de cómo la tecnología china está reconfiguración economías locales históricamente marginadas, con implicaciones significativas para coexistencia rural-urbana.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Pandaily</span>
+            <a href="https://www.pandaily.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-9">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🔬 Ciencia</span>
+            <span class="numero-noticia">#9</span>
+          </div>
+          <h2 class="tarjeta-titulo">Investigación china abre nuevas vías en tratamiento personalizado de cáncer</h2>
+          <div class="tarjeta-comentario">
+            <p>Científicos del Instituto de Biotecnología de Shanghai reportaron resultados prometedores en terapias oncológicas basadas en edición genética CRISPR personalizada, con tasas de remisión superiores al 70% en ensayos clínicos tempranos para leucemia y ciertos cánceres sólidos. Los avances combinan expertise chino en biología molecular con computación de alto rendimiento para analizar perfiles genéticos individuales y diseñar tratamientos específicos, posicionando al país como investigador leader en medicina de precisión. La clínica asociada ya está ofreciendo estos tratamientos a pacientes, aunque a costos elevados, lo que plantea preguntas importantes sobre equidad de acceso que el gobierno chino está abordando a través de discusiones de precios y cobertura. Este hito científico es particularmente significativo porque demuestra que la investigación biomédica china ya no solo replica innovaciones globales sino genera descubrimientos originales con potencial de cambiar estándares de tratamiento.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 China Daily</span>
+            <a href="https://www.chinadaily.com.cn" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-10">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🎭 Cultura</span>
+            <span class="numero-noticia">#10</span>
+          </div>
+          <h2 class="tarjeta-titulo">Festival de arte contemporáneo en Pekín explora diálogos entre tradición e innovación</h2>
+          <div class="tarjeta-comentario">
+            <p>El festival anual de arte contemporáneo de Pekín reunió artistas chinos e internacionales para explorar cómo las prácticas artísticas tradicionales chinas (caligrafía, pintura de tinta, cerámica) se reinterpretan mediante medios digitales, escultura experimental y arte participativo para audiencias modernas. Las exposiciones demostraron que lejos de ser categorías opuestas, tradición e innovación en la escena artística china se alimentan mutuamente, con artistas jóvenes aprendiendo técnicas ancestrales mientras las transforman con herramientas contemporáneas. Este diálogo creativo es especialmente relevante en contexto de crecimiento cultural chino global, donde galeras asiáticas compiten con galerías occidentales por reconocimiento y artistas chinos alcanzan precios de mercado récord en subastas internacionales. El festival subraya cómo la confusión Occidente-Oriente sobre modernidad está resolviéndose en la práctica artística china, donde futuro y pasado coexisten productivamente.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Sixth Tone</span>
+            <a href="https://www.sixthtone.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+</main>
+
+<footer class="pie">
+  <div class="pie-contenido">
+    <h3>Fuentes consultadas en esta edición</h3>
+    <ul>
+      <li><a href="https://www.caixinglobal.com" target="_blank" rel="noopener">Caixin Global — China acelera inversión en energías renovables alcanzando récord histórico</a></li><li><a href="https://www.technode.com" target="_blank" rel="noopener">TechNode — Alibaba anuncia reestructuración para potenciar su ecosistema de IA</a></li><li><a href="https://www.sixthtone.com" target="_blank" rel="noopener">Sixth Tone — Festival de cine de Shanghai 2026 celebra nuevo cine chino independiente</a></li><li><a href="https://www.chinadaily.com.cn" target="_blank" rel="noopener">China Daily — Universidades chinas lideran investigación en fusión nuclear de próxima generación</a></li><li><a href="https://www.scmp.com" target="_blank" rel="noopener">South China Morning Post — Encuesta revela cambios profundos en valores y aspiraciones de jóvenes chinos</a></li><li><a href="https://www.technode.com" target="_blank" rel="noopener">TechNode — China expande iniciativa de ciudades inteligentes a nivel nacional con estándares comunes</a></li><li><a href="https://www.caixinglobal.com" target="_blank" rel="noopener">Caixin Global — Tensiones comerciales: China negocia derechos de propiedad intelectual con socios asiáticos</a></li><li><a href="https://www.pandaily.com" target="_blank" rel="noopener">Pandaily — Nueva plataforma de e-commerce rural conecta agricultores directamente con consumidores urbanos</a></li><li><a href="https://www.chinadaily.com.cn" target="_blank" rel="noopener">China Daily — Investigación china abre nuevas vías en tratamiento personalizado de cáncer</a></li><li><a href="https://www.sixthtone.com" target="_blank" rel="noopener">Sixth Tone — Festival de arte contemporáneo en Pekín explora diálogos entre tradición e innovación</a></li>
+    </ul>
+    <div class="pie-creditos">
+      China Hoy · Edición 2026-11-17 · Generado automáticamente con IA ·
+      Las opiniones expresadas son editoriales y no representan posiciones oficiales.
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
