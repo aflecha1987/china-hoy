@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>China Hoy — 18 de noviembre de 2026</title>
+  <style>
+    /* ── Reset y base ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Georgia', 'Times New Roman', serif;
+      background: #fafaf8;
+      color: #1a1a1a;
+      line-height: 1.7;
+      font-size: 17px;
+    }
+    a { color: #c0392b; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ── Cabecera ── */
+    .cabecera {
+      background: linear-gradient(135deg, #c0392b 0%, #922b21 100%);
+      color: white;
+      padding: 2.5rem 1.5rem;
+      text-align: center;
+    }
+    .cabecera-nav {
+      font-size: 0.85rem;
+      margin-bottom: 1rem;
+      opacity: 0.85;
+    }
+    .cabecera-nav a { color: rgba(255,255,255,0.9); }
+    .logo { font-size: 2.8rem; font-weight: bold; letter-spacing: -0.5px; }
+    .logo-sub { font-size: 1rem; opacity: 0.8; margin-top: 0.3rem; letter-spacing: 2px; text-transform: uppercase; }
+    .fecha-edicion {
+      margin-top: 1rem;
+      font-size: 1.05rem;
+      opacity: 0.9;
+      font-style: italic;
+    }
+
+    /* ── Resumen ejecutivo ── */
+    .resumen {
+      max-width: 780px;
+      margin: 2.5rem auto 0;
+      padding: 0 1.5rem;
+    }
+    .resumen-caja {
+      background: #fff8e7;
+      border-left: 4px solid #f39c12;
+      border-radius: 6px;
+      padding: 1.5rem 1.8rem;
+    }
+    .resumen-caja h2 {
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #7d6608;
+      margin-bottom: 0.8rem;
+    }
+    .resumen-caja ul {
+      padding-left: 1.2rem;
+      color: #4a4a4a;
+      font-size: 0.95rem;
+    }
+    .resumen-caja li { margin-bottom: 0.4rem; }
+
+    /* ── Noticias ── */
+    .contenido { max-width: 780px; margin: 0 auto; padding: 2rem 1.5rem 3rem; }
+
+    .tarjeta {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+      padding: 2rem;
+      margin-bottom: 2rem;
+      border: 1px solid #ece9e0;
+      transition: box-shadow 0.2s;
+    }
+    .tarjeta:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.12); }
+
+    .tarjeta-cabecera {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.8rem;
+    }
+    .categoria-etiqueta {
+      background: #f0ebe0;
+      color: #5d4e37;
+      font-size: 0.78rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      padding: 0.25rem 0.7rem;
+      border-radius: 20px;
+      font-family: sans-serif;
+    }
+    .numero-noticia {
+      color: #c0392b;
+      font-weight: bold;
+      font-size: 0.9rem;
+      font-family: sans-serif;
+    }
+    .tarjeta-titulo {
+      font-size: 1.35rem;
+      line-height: 1.35;
+      color: #1a1a1a;
+      margin-bottom: 1.2rem;
+      font-weight: bold;
+    }
+    .tarjeta-comentario p {
+      color: #333;
+      margin-bottom: 1rem;
+      font-size: 1rem;
+    }
+    .tarjeta-comentario p:last-child { margin-bottom: 0; }
+    .tarjeta-pie {
+      margin-top: 1.4rem;
+      padding-top: 1rem;
+      border-top: 1px solid #ece9e0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .fuente-nombre {
+      color: #7a7a7a;
+      font-size: 0.88rem;
+      font-family: sans-serif;
+    }
+    .enlace-fuente {
+      background: #c0392b;
+      color: white;
+      padding: 0.4rem 1rem;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      font-family: sans-serif;
+      transition: background 0.2s;
+    }
+    .enlace-fuente:hover { background: #922b21; text-decoration: none; }
+
+    /* ── Pie de página ── */
+    .pie {
+      background: #1a1a1a;
+      color: #aaa;
+      padding: 2.5rem 1.5rem;
+      margin-top: 2rem;
+    }
+    .pie-contenido { max-width: 780px; margin: 0 auto; }
+    .pie h3 { color: #ddd; font-size: 0.95rem; margin-bottom: 1rem; font-family: sans-serif; }
+    .pie ul { list-style: none; font-size: 0.82rem; column-count: 2; column-gap: 2rem; }
+    .pie ul li { margin-bottom: 0.5rem; }
+    .pie ul a { color: #888; }
+    .pie ul a:hover { color: #ccc; }
+    .pie-creditos {
+      margin-top: 1.5rem;
+      padding-top: 1.2rem;
+      border-top: 1px solid #333;
+      font-size: 0.8rem;
+      text-align: center;
+      color: #666;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 600px) {
+      .logo { font-size: 2rem; }
+      .tarjeta { padding: 1.3rem; }
+      .tarjeta-titulo { font-size: 1.15rem; }
+      .pie ul { column-count: 1; }
+      .tarjeta-pie { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="cabecera">
+  <nav class="cabecera-nav"><a href="../../index.html">← Volver al índice</a></nav>
+  <div class="logo">中国今日 · China Hoy 🇨🇳</div>
+  <div class="logo-sub">Newsletter diaria en español</div>
+  <div class="fecha-edicion">Edición del 18 de noviembre de 2026</div>
+</header>
+
+<section class="resumen">
+  <div class="resumen-caja">
+    <h2>📋 Resumen ejecutivo — 10 noticias de hoy</h2>
+    <ul>
+      <li><strong>#1.</strong> China acelera inversión en cadenas de suministro de baterías en Sudeste Asiático</li><li><strong>#2.</strong> Avances en fusión nuclear: laboratorios chinos logran nuevos récords de estabilidad de plasma</li><li><strong>#3.</strong> Reformas educativas: China modifica curriculum de humanidades para enfatizar pensamiento crítico</li><li><strong>#4.</strong> Plataformas de streaming chinas invierten en contenido cultural para mercados internacionales</li><li><strong>#5.</strong> China expande programa de intercambio académico con universidades africanas</li><li><strong>#6.</strong> Sector de logística china adopta IA para optimización de rutas y reducción de emisiones</li><li><strong>#7.</strong> Empresas chinas de semiconductores logran mejoras en tecnología de chips domésticos</li><li><strong>#8.</strong> Rururalización inversa: jóvenes emprendedores regresan a pueblos para crear negocios digitales</li><li><strong>#9.</strong> China incrementa inversión en investigación de agronomía sostenible y seguridad alimentaria</li><li><strong>#10.</strong> Iniciativa de China por mayor cooperación comercial en Pacífico genera respuestas mixtas de vecinos</li>
+    </ul>
+  </div>
+</section>
+
+<main class="contenido">
+  
+        <article class="tarjeta" id="noticia-1">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💼 Empresas</span>
+            <span class="numero-noticia">#1</span>
+          </div>
+          <h2 class="tarjeta-titulo">China acelera inversión en cadenas de suministro de baterías en Sudeste Asiático</h2>
+          <div class="tarjeta-comentario">
+            <p>China está expandiendo significativamente sus inversiones en la producción de baterías y componentes de vehículos eléctricos en países como Vietnam, Indonesia y Tailandia, posicionándose estratégicamente ante posibles aranceles occidentales. Esta maniobra refleja una evolución en la estrategia industrial china, trasladando capacidades manufactureras a la región para mantener acceso a mercados globales y diversificar riesgos geopolíticos. El movimiento ilustra cómo las empresas chinas se adaptan ágilmente a las presiones comerciales, aprovechando acuerdos regionales y ventajas de producción en el Sudeste Asiático.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Caixin Global</span>
+            <a href="https://www.caixinglobal.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-2">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🔬 Ciencia</span>
+            <span class="numero-noticia">#2</span>
+          </div>
+          <h2 class="tarjeta-titulo">Avances en fusión nuclear: laboratorios chinos logran nuevos récords de estabilidad de plasma</h2>
+          <div class="tarjeta-comentario">
+            <p>Investigadores del Instituto de Física del Plasma de China han establecido nuevos récords en tiempo de confinamiento de plasma en sus reactores experimentales, acercando la viabilidad comercial de la fusión nuclear. Estos avances son cruciales para los objetivos de descarbonización de China y su transición energética, demostrando el progreso tangible en investigación científica de frontera. El logro posiciona a China como actor clave en la carrera global de energía limpia, complementando sus inversiones masivas en energías renovables.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 China Daily</span>
+            <a href="https://www.chinadaily.com.cn" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-3">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">👥 Sociedad</span>
+            <span class="numero-noticia">#3</span>
+          </div>
+          <h2 class="tarjeta-titulo">Reformas educativas: China modifica curriculum de humanidades para enfatizar pensamiento crítico</h2>
+          <div class="tarjeta-comentario">
+            <p>Las autoridades educativas chinas han implementado cambios en el programa de estudio de humanidades, aumentando énfasis en análisis de múltiples perspectivas y pensamiento independiente, alejándose de enfoques más rígidos. Esta reforma responde a preocupaciones sobre preparación de estudiantes para empleos del siglo XXI y competitividad global, reconociendo que innovación genuina requiere capacidad para cuestionar y analizar. Los cambios reflejan un entendimiento evolucionar sobre cómo desarrollar capital humano en una economía compleja.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Sixth Tone</span>
+            <a href="https://www.sixthtone.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-4">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🎭 Cultura</span>
+            <span class="numero-noticia">#4</span>
+          </div>
+          <h2 class="tarjeta-titulo">Plataformas de streaming chinas invierten en contenido cultural para mercados internacionales</h2>
+          <div class="tarjeta-comentario">
+            <p>Empresas chinas de streaming como Bilibili y iQIYI están multiplicando sus presupuestos para producciones originales de televisión y cine con potencial de distribución global, buscando replicar el éxito de otras plataformas asiáticas. Estas inversiones están atrayendo talento internacional y produciendo contenido que captura interés en mercados occidentales, desde dramas históricos hasta thrillers contemporáneos. El movimiento representa una maduración de la industria cultural china y su capacidad para contar historias con resonancia universal.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Pandaily</span>
+            <a href="https://www.pandaily.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-5">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🌏 Geopolítica</span>
+            <span class="numero-noticia">#5</span>
+          </div>
+          <h2 class="tarjeta-titulo">China expande programa de intercambio académico con universidades africanas</h2>
+          <div class="tarjeta-comentario">
+            <p>El gobierno chino ha anunciado expansión significativa de becas y programas de intercambio estudiantil con instituciones africanas, parte de su estrategia de cooperación Sur-Sur y construcción de influencia mediante educación. Miles de estudiantes africanos recibirán financiamiento para estudiar en universidades chinas, fortaleciendo lazos bilaterales y creando redes de profesionales con conexiones a China. La iniciativa combina soft power cultural con desarrollo de relaciones económicas estratégicas en un continente crucial para recursos y mercados.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 CGTN</span>
+            <a href="https://www.cgtn.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-6">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💻 Tecnología</span>
+            <span class="numero-noticia">#6</span>
+          </div>
+          <h2 class="tarjeta-titulo">Sector de logística china adopta IA para optimización de rutas y reducción de emisiones</h2>
+          <div class="tarjeta-comentario">
+            <p>Grandes empresas logísticas chinas como SF Express y ZTO Express están implementando sistemas de inteligencia artificial para optimizar rutas de entrega, reducir consumo de combustible y minimizar emisiones de carbono. Estos sistemas analizan datos de tráfico en tiempo real, patrones de demanda y condiciones climáticas para mejorar eficiencia operacional de forma mensurable. El despliegue de IA en logística ilustra la adopción práctica y escalable de tecnología en sectores tradicionales, generando beneficios tanto económicos como ambientales.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 TechNode</span>
+            <a href="https://www.technode.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-7">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💼 Empresas</span>
+            <span class="numero-noticia">#7</span>
+          </div>
+          <h2 class="tarjeta-titulo">Empresas chinas de semiconductores logran mejoras en tecnología de chips domésticos</h2>
+          <div class="tarjeta-comentario">
+            <p>SMIC y otros fabricantes de chips chinos han anunciado avances en la producción de circuitos integrados avanzados, reduciendo la brecha tecnológica con líderes globales en áreas específicas como procesamiento de datos. Estos progresos son resultado de inversión sostenida en investigación y desarrollo, así como de programas de reclutamiento de talento internacional. El progreso en semiconductores es crítico para autonomía tecnológica china y su capacidad de responder a restricciones comerciales externas.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Caixin Global</span>
+            <a href="https://www.caixinglobal.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-8">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">👥 Sociedad</span>
+            <span class="numero-noticia">#8</span>
+          </div>
+          <h2 class="tarjeta-titulo">Rururalización inversa: jóvenes emprendedores regresan a pueblos para crear negocios digitales</h2>
+          <div class="tarjeta-comentario">
+            <p>Un número creciente de jóvenes empresarios chinos está abandonando ciudades grandes para establecer negocios digitales en pueblos y ciudades pequeñas, impulsados por costos menores y conexión a internet mejorada. Este movimiento genera empleo local, retiene talento en regiones rurales y está transformando economías locales mediante comercio electrónico, turismo digital y servicios remotos. La tendencia desafía la narrativa tradicional de migración rural-urbana y sugiere transformación digital más equitativa del territorio chino.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Sixth Tone</span>
+            <a href="https://www.sixthtone.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-9">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🔬 Ciencia</span>
+            <span class="numero-noticia">#9</span>
+          </div>
+          <h2 class="tarjeta-titulo">China incrementa inversión en investigación de agronomía sostenible y seguridad alimentaria</h2>
+          <div class="tarjeta-comentario">
+            <p>El gobierno chino ha aumentado significativamente fondos para investigación en cultivos resilientes al cambio climático, agricultura de precisión y reducción de dependencia de agroquímicos. Institutos de investigación están desarrollando variedades de arroz y trigo capaces de resistir sequías e inundaciones extremas, crucial para un país que alimenta a 1,400 millones de personas. Estos esfuerzos responden tanto a presiones ambientales como a objetivos de autosuficiencia alimentaria, combinando seguridad nacional con sustentabilidad.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 China Daily</span>
+            <a href="https://www.chinadaily.com.cn" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-10">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🌏 Geopolítica</span>
+            <span class="numero-noticia">#10</span>
+          </div>
+          <h2 class="tarjeta-titulo">Iniciativa de China por mayor cooperación comercial en Pacífico genera respuestas mixtas de vecinos</h2>
+          <div class="tarjeta-comentario">
+            <p>China ha relanzado iniciativas de integración económica con países de Asia-Pacífico mediante tratados comerciales ampliados y inversión coordinada, buscando profundizar lazos mientras equilibra tensiones con potencias occidentales. Los gobiernos de la región responden con cautela, valorando oportunidades económicas pero también buscando mantener equilibrio y autonomía en relaciones internacionales. Las negociaciones reflejan la complejidad geopolítica actual donde economía interdependiente coexiste con rivalidades estratégicas.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 South China Morning Post</span>
+            <a href="https://www.scmp.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+</main>
+
+<footer class="pie">
+  <div class="pie-contenido">
+    <h3>Fuentes consultadas en esta edición</h3>
+    <ul>
+      <li><a href="https://www.caixinglobal.com" target="_blank" rel="noopener">Caixin Global — China acelera inversión en cadenas de suministro de baterías en Sudeste Asiático</a></li><li><a href="https://www.chinadaily.com.cn" target="_blank" rel="noopener">China Daily — Avances en fusión nuclear: laboratorios chinos logran nuevos récords de estabilidad de plasma</a></li><li><a href="https://www.sixthtone.com" target="_blank" rel="noopener">Sixth Tone — Reformas educativas: China modifica curriculum de humanidades para enfatizar pensamiento crítico</a></li><li><a href="https://www.pandaily.com" target="_blank" rel="noopener">Pandaily — Plataformas de streaming chinas invierten en contenido cultural para mercados internacionales</a></li><li><a href="https://www.cgtn.com" target="_blank" rel="noopener">CGTN — China expande programa de intercambio académico con universidades africanas</a></li><li><a href="https://www.technode.com" target="_blank" rel="noopener">TechNode — Sector de logística china adopta IA para optimización de rutas y reducción de emisiones</a></li><li><a href="https://www.caixinglobal.com" target="_blank" rel="noopener">Caixin Global — Empresas chinas de semiconductores logran mejoras en tecnología de chips domésticos</a></li><li><a href="https://www.sixthtone.com" target="_blank" rel="noopener">Sixth Tone — Rururalización inversa: jóvenes emprendedores regresan a pueblos para crear negocios digitales</a></li><li><a href="https://www.chinadaily.com.cn" target="_blank" rel="noopener">China Daily — China incrementa inversión en investigación de agronomía sostenible y seguridad alimentaria</a></li><li><a href="https://www.scmp.com" target="_blank" rel="noopener">South China Morning Post — Iniciativa de China por mayor cooperación comercial en Pacífico genera respuestas mixtas de vecinos</a></li>
+    </ul>
+    <div class="pie-creditos">
+      China Hoy · Edición 2026-11-18 · Generado automáticamente con IA ·
+      Las opiniones expresadas son editoriales y no representan posiciones oficiales.
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
