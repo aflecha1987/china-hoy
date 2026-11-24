@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>China Hoy — 24 de noviembre de 2026</title>
+  <style>
+    /* ── Reset y base ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Georgia', 'Times New Roman', serif;
+      background: #fafaf8;
+      color: #1a1a1a;
+      line-height: 1.7;
+      font-size: 17px;
+    }
+    a { color: #c0392b; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ── Cabecera ── */
+    .cabecera {
+      background: linear-gradient(135deg, #c0392b 0%, #922b21 100%);
+      color: white;
+      padding: 2.5rem 1.5rem;
+      text-align: center;
+    }
+    .cabecera-nav {
+      font-size: 0.85rem;
+      margin-bottom: 1rem;
+      opacity: 0.85;
+    }
+    .cabecera-nav a { color: rgba(255,255,255,0.9); }
+    .logo { font-size: 2.8rem; font-weight: bold; letter-spacing: -0.5px; }
+    .logo-sub { font-size: 1rem; opacity: 0.8; margin-top: 0.3rem; letter-spacing: 2px; text-transform: uppercase; }
+    .fecha-edicion {
+      margin-top: 1rem;
+      font-size: 1.05rem;
+      opacity: 0.9;
+      font-style: italic;
+    }
+
+    /* ── Resumen ejecutivo ── */
+    .resumen {
+      max-width: 780px;
+      margin: 2.5rem auto 0;
+      padding: 0 1.5rem;
+    }
+    .resumen-caja {
+      background: #fff8e7;
+      border-left: 4px solid #f39c12;
+      border-radius: 6px;
+      padding: 1.5rem 1.8rem;
+    }
+    .resumen-caja h2 {
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #7d6608;
+      margin-bottom: 0.8rem;
+    }
+    .resumen-caja ul {
+      padding-left: 1.2rem;
+      color: #4a4a4a;
+      font-size: 0.95rem;
+    }
+    .resumen-caja li { margin-bottom: 0.4rem; }
+
+    /* ── Noticias ── */
+    .contenido { max-width: 780px; margin: 0 auto; padding: 2rem 1.5rem 3rem; }
+
+    .tarjeta {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+      padding: 2rem;
+      margin-bottom: 2rem;
+      border: 1px solid #ece9e0;
+      transition: box-shadow 0.2s;
+    }
+    .tarjeta:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.12); }
+
+    .tarjeta-cabecera {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.8rem;
+    }
+    .categoria-etiqueta {
+      background: #f0ebe0;
+      color: #5d4e37;
+      font-size: 0.78rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      padding: 0.25rem 0.7rem;
+      border-radius: 20px;
+      font-family: sans-serif;
+    }
+    .numero-noticia {
+      color: #c0392b;
+      font-weight: bold;
+      font-size: 0.9rem;
+      font-family: sans-serif;
+    }
+    .tarjeta-titulo {
+      font-size: 1.35rem;
+      line-height: 1.35;
+      color: #1a1a1a;
+      margin-bottom: 1.2rem;
+      font-weight: bold;
+    }
+    .tarjeta-comentario p {
+      color: #333;
+      margin-bottom: 1rem;
+      font-size: 1rem;
+    }
+    .tarjeta-comentario p:last-child { margin-bottom: 0; }
+    .tarjeta-pie {
+      margin-top: 1.4rem;
+      padding-top: 1rem;
+      border-top: 1px solid #ece9e0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .fuente-nombre {
+      color: #7a7a7a;
+      font-size: 0.88rem;
+      font-family: sans-serif;
+    }
+    .enlace-fuente {
+      background: #c0392b;
+      color: white;
+      padding: 0.4rem 1rem;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      font-family: sans-serif;
+      transition: background 0.2s;
+    }
+    .enlace-fuente:hover { background: #922b21; text-decoration: none; }
+
+    /* ── Pie de página ── */
+    .pie {
+      background: #1a1a1a;
+      color: #aaa;
+      padding: 2.5rem 1.5rem;
+      margin-top: 2rem;
+    }
+    .pie-contenido { max-width: 780px; margin: 0 auto; }
+    .pie h3 { color: #ddd; font-size: 0.95rem; margin-bottom: 1rem; font-family: sans-serif; }
+    .pie ul { list-style: none; font-size: 0.82rem; column-count: 2; column-gap: 2rem; }
+    .pie ul li { margin-bottom: 0.5rem; }
+    .pie ul a { color: #888; }
+    .pie ul a:hover { color: #ccc; }
+    .pie-creditos {
+      margin-top: 1.5rem;
+      padding-top: 1.2rem;
+      border-top: 1px solid #333;
+      font-size: 0.8rem;
+      text-align: center;
+      color: #666;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 600px) {
+      .logo { font-size: 2rem; }
+      .tarjeta { padding: 1.3rem; }
+      .tarjeta-titulo { font-size: 1.15rem; }
+      .pie ul { column-count: 1; }
+      .tarjeta-pie { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="cabecera">
+  <nav class="cabecera-nav"><a href="../../index.html">← Volver al índice</a></nav>
+  <div class="logo">中国今日 · China Hoy 🇨🇳</div>
+  <div class="logo-sub">Newsletter diaria en español</div>
+  <div class="fecha-edicion">Edición del 24 de noviembre de 2026</div>
+</header>
+
+<section class="resumen">
+  <div class="resumen-caja">
+    <h2>📋 Resumen ejecutivo — 9 noticias de hoy</h2>
+    <ul>
+      <li><strong>#1.</strong> Alibaba y JD.com lanzan nuevas iniciativas de logística autónoma en ciudades principales</li><li><strong>#2.</strong> Universidades chinas lideran nuevos avances en fusión nuclear controlada</li><li><strong>#3.</strong> Censura de contenidos religiosos en plataformas de video corto genera debate sobre libertad de expresión</li><li><strong>#4.</strong> Reforma educativa enfatiza habilidades prácticas en curriculum de escuelas secundarias</li><li><strong>#5.</strong> China expande presencia diplomática en América Latina con nuevo plan de inversión de 300 mil millones</li><li><strong>#6.</strong> Festival de Patrimonio Cultural chino en 20 ciudades consolida estrategia de soft power</li><li><strong>#7.</strong> Empresas tecnológicas chinas desarrollan chips semiconductores avanzados evadiendo sanciones estadounidenses</li><li><strong>#8.</strong> Sector de logística y transporte chino adopta normas de sostenibilidad ambiental más estrictas</li><li><strong>#9.</strong> Tensiones comerciales renovadas entre China y economías occidentales por aranceles a productos manufacturados</li>
+    </ul>
+  </div>
+</section>
+
+<main class="contenido">
+  
+        <article class="tarjeta" id="noticia-1">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💼 Empresas</span>
+            <span class="numero-noticia">#1</span>
+          </div>
+          <h2 class="tarjeta-titulo">Alibaba y JD.com lanzan nuevas iniciativas de logística autónoma en ciudades principales</h2>
+          <div class="tarjeta-comentario">
+            <p>Los gigantes del comercio electrónico chino están desplegando robots de entrega autónoma y sistemas de logística AI en Shanghái, Pekín y Guangzhou, reduciendo tiempos de entrega y costos operativos. Esta carrera por la automatización logística refleja la maduración del ecosistema de comercio electrónico chino y la presión por mejorar márgenes en un mercado saturado. Las inversiones en robótica y IA muestran cómo las plataformas tech se reinventan más allá del retail tradicional. Este cambio tecnológico también ilustra la transición de China hacia una economía de mayor valor agregado.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 TechNode</span>
+            <a href="https://www.technode.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-2">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🔬 Ciencia</span>
+            <span class="numero-noticia">#2</span>
+          </div>
+          <h2 class="tarjeta-titulo">Universidades chinas lideran nuevos avances en fusión nuclear controlada</h2>
+          <div class="tarjeta-comentario">
+            <p>Investigadores del Instituto de Plasma de la Academia China de Ciencias lograron mantener plasma a temperaturas superiores a 100 millones de grados durante más de 400 segundos, acercando la viabilidad comercial de la fusión nuclear. Este hito representa un paso crucial en la búsqueda de energía limpia ilimitada y posiciona a China entre los líderes mundiales junto con la UE y Japón. Los resultados publicados en revistas científicas de alto impacto demuestran el creciente rigor de la investigación china en física fundamental. El progreso en fusión nuclear podría revolucionar la seguridad energética global en las próximas décadas.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 China Daily</span>
+            <a href="https://www.chinadaily.com.cn" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-3">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">👥 Sociedad</span>
+            <span class="numero-noticia">#3</span>
+          </div>
+          <h2 class="tarjeta-titulo">Censura de contenidos religiosos en plataformas de video corto genera debate sobre libertad de expresión</h2>
+          <div class="tarjeta-comentario">
+            <p>Plataformas como Douyin y Kuaishou han intensificado el filtrado de contenidos relacionados con prácticas religiosas y espirituales, generando preocupación entre usuarios y analistas sobre los límites de la regulación digital. Los creadores de contenido reportan la eliminación de videos sobre meditación, filosofía oriental y expresiones de fe, reflejando líneas directrices gubernamentales más estrictas. Este fenómeno ilustra la tensión crónica en China entre la modernidad digital y el control de narrativas culturales. La situación también muestra cómo las plataformas locales navegan presiones regulatorias que afectan su modelo de negocios y atractivo para creadores.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Sixth Tone</span>
+            <a href="https://www.sixthtone.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-4">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">👥 Sociedad</span>
+            <span class="numero-noticia">#4</span>
+          </div>
+          <h2 class="tarjeta-titulo">Reforma educativa enfatiza habilidades prácticas en curriculum de escuelas secundarias</h2>
+          <div class="tarjeta-comentario">
+            <p>El Ministerio de Educación ha expandido programas de formación técnica y práctica en educación media, buscando reducir la presión del famoso examen de acceso universitario Gaokao y crear alternativas profesionales. Los estudiantes tendrán mayor exposición a oficios, emprendimiento y habilidades digitales desde edades más tempranas. Esta reforma responde a años de crítica sobre un sistema educativo excesivamente academicista que genera ansiedad infantil. El cambio señala una reorientación hacia un modelo más holístico que reconoce la diversidad de talentos y necesidades del mercado laboral chino moderno.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 China Daily</span>
+            <a href="https://www.chinadaily.com.cn" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-5">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🌏 Geopolítica</span>
+            <span class="numero-noticia">#5</span>
+          </div>
+          <h2 class="tarjeta-titulo">China expande presencia diplomática en América Latina con nuevo plan de inversión de 300 mil millones</h2>
+          <div class="tarjeta-comentario">
+            <p>Pekín anunció una iniciativa regional que combina inversiones en infraestructura, tecnología y comercio en países latinoamericanos durante los próximos cinco años, profundizando su influencia económica fuera de Asia. El plan incluye proyectos en puertos, ferrocarriles, energía y conectividad digital que refuerzan los vínculos con gobiernos de la región. Esta expansión estratégica responde a la competencia creciente con Estados Unidos y busca asegurar acceso a materias primas y mercados de consumo. La iniciativa representa un cambio en la política exterior china hacia una presencia más activa y diversificada geográficamente.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Global Times</span>
+            <a href="https://www.globaltimes.cn" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-6">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🎭 Cultura</span>
+            <span class="numero-noticia">#6</span>
+          </div>
+          <h2 class="tarjeta-titulo">Festival de Patrimonio Cultural chino en 20 ciudades consolida estrategia de soft power</h2>
+          <div class="tarjeta-comentario">
+            <p>El gobierno chino organizó simultáneamente festivales de artes tradicionales, exhibiciones de patrimonio intangible y espectáculos contemporáneos que mezclan elementos clásicos y modernos en ciudades mayores. Millones de visitantes participaron en eventos que celebran caligrafía, cerámica, danza y música, demostrando el vigor de la cultura viva china. Esta iniciativa ilustra el esfuerzo deliberado de Pekín por promover identidad cultural nacional e influencia cultural global. La estrategia combina nostalgia patrimonial con innovación artística, apelando tanto a audiencias domésticas como internacionales.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 China Today</span>
+            <a href="https://www.chinatoday.com.cn" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-7">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💻 Tecnología</span>
+            <span class="numero-noticia">#7</span>
+          </div>
+          <h2 class="tarjeta-titulo">Empresas tecnológicas chinas desarrollan chips semiconductores avanzados evadiendo sanciones estadounidenses</h2>
+          <div class="tarjeta-comentario">
+            <p>Fabricantes chinos como SMIC y Huawei reportan avances en diseño de chips de 5 nanómetros mediante técnicas de ingeniería creativa que buscan cumplir con restricciones de exportación estadounidenses. Los desarrollos representan mejoras incrementales pero significativas en la capacidad de procesamiento, aunque siguen rezagados respecto a tecnología de punta taiwanesa. Esta carrera refleja la necesidad estratégica de China por alcanzar autosuficiencia en semiconductores críticos para defensa y tecnología civil. El esfuerzo muestra resiliencia y determinación para superar bloqueos tecnológicos mediante inversión masiva en I+D.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 South China Morning Post</span>
+            <a href="https://www.scmp.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-8">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💼 Empresas</span>
+            <span class="numero-noticia">#8</span>
+          </div>
+          <h2 class="tarjeta-titulo">Sector de logística y transporte chino adopta normas de sostenibilidad ambiental más estrictas</h2>
+          <div class="tarjeta-comentario">
+            <p>Empresas como SF Express y ZTO Express están electrificando flotas de vehículos y optimizando rutas mediante IA para reducir emisiones de carbono, respondiendo a regulaciones gubernamentales y demanda de consumidores conscientes. Las inversiones en vehículos eléctricos y centros de distribución sostenibles representan cambios operacionales profundos que afectan márgenes pero mejoran reputación. Esta transformación industrial refleja cómo China está integrando objetivos climáticos en cadenas de suministro. La tendencia muestra que la sostenibilidad ya no es solo responsabilidad corporativa sino factor competitivo en mercados modernos.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Caixin Global</span>
+            <a href="https://www.caixinglobal.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-9">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🌏 Geopolítica</span>
+            <span class="numero-noticia">#9</span>
+          </div>
+          <h2 class="tarjeta-titulo">Tensiones comerciales renovadas entre China y economías occidentales por aranceles a productos manufacturados</h2>
+          <div class="tarjeta-comentario">
+            <p>Estados Unidos y la Unión Europea han impuesto aranceles adicionales a importaciones chinas de acero, aluminio y productos químicos, citando prácticas comerciales injustas, mientras China promete represalias selectivas. Las negociaciones comerciales están estancadas y los márgenes de ganancia de exportadores chinos se comprimen, aunque el impacto económico global sigue siendo manejable. Este conflicto refleja fricción estructural que persiste a pesar de intentos periódicos de diálogo bilateral. La situación subraya cómo China sigue siendo punto de tensión en el orden comercial internacional y cómo la competencia geoeconómica define la política mundial.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Reuters</span>
+            <a href="https://www.reuters.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+</main>
+
+<footer class="pie">
+  <div class="pie-contenido">
+    <h3>Fuentes consultadas en esta edición</h3>
+    <ul>
+      <li><a href="https://www.technode.com" target="_blank" rel="noopener">TechNode — Alibaba y JD.com lanzan nuevas iniciativas de logística autónoma en ciudades principales</a></li><li><a href="https://www.chinadaily.com.cn" target="_blank" rel="noopener">China Daily — Universidades chinas lideran nuevos avances en fusión nuclear controlada</a></li><li><a href="https://www.sixthtone.com" target="_blank" rel="noopener">Sixth Tone — Censura de contenidos religiosos en plataformas de video corto genera debate sobre libertad de expresión</a></li><li><a href="https://www.chinadaily.com.cn" target="_blank" rel="noopener">China Daily — Reforma educativa enfatiza habilidades prácticas en curriculum de escuelas secundarias</a></li><li><a href="https://www.globaltimes.cn" target="_blank" rel="noopener">Global Times — China expande presencia diplomática en América Latina con nuevo plan de inversión de 300 mil millones</a></li><li><a href="https://www.chinatoday.com.cn" target="_blank" rel="noopener">China Today — Festival de Patrimonio Cultural chino en 20 ciudades consolida estrategia de soft power</a></li><li><a href="https://www.scmp.com" target="_blank" rel="noopener">South China Morning Post — Empresas tecnológicas chinas desarrollan chips semiconductores avanzados evadiendo sanciones estadounidenses</a></li><li><a href="https://www.caixinglobal.com" target="_blank" rel="noopener">Caixin Global — Sector de logística y transporte chino adopta normas de sostenibilidad ambiental más estrictas</a></li><li><a href="https://www.reuters.com" target="_blank" rel="noopener">Reuters — Tensiones comerciales renovadas entre China y economías occidentales por aranceles a productos manufacturados</a></li>
+    </ul>
+    <div class="pie-creditos">
+      China Hoy · Edición 2026-11-24 · Generado automáticamente con IA ·
+      Las opiniones expresadas son editoriales y no representan posiciones oficiales.
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
