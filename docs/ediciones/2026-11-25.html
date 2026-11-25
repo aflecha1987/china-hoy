@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>China Hoy — 25 de noviembre de 2026</title>
+  <style>
+    /* ── Reset y base ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Georgia', 'Times New Roman', serif;
+      background: #fafaf8;
+      color: #1a1a1a;
+      line-height: 1.7;
+      font-size: 17px;
+    }
+    a { color: #c0392b; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ── Cabecera ── */
+    .cabecera {
+      background: linear-gradient(135deg, #c0392b 0%, #922b21 100%);
+      color: white;
+      padding: 2.5rem 1.5rem;
+      text-align: center;
+    }
+    .cabecera-nav {
+      font-size: 0.85rem;
+      margin-bottom: 1rem;
+      opacity: 0.85;
+    }
+    .cabecera-nav a { color: rgba(255,255,255,0.9); }
+    .logo { font-size: 2.8rem; font-weight: bold; letter-spacing: -0.5px; }
+    .logo-sub { font-size: 1rem; opacity: 0.8; margin-top: 0.3rem; letter-spacing: 2px; text-transform: uppercase; }
+    .fecha-edicion {
+      margin-top: 1rem;
+      font-size: 1.05rem;
+      opacity: 0.9;
+      font-style: italic;
+    }
+
+    /* ── Resumen ejecutivo ── */
+    .resumen {
+      max-width: 780px;
+      margin: 2.5rem auto 0;
+      padding: 0 1.5rem;
+    }
+    .resumen-caja {
+      background: #fff8e7;
+      border-left: 4px solid #f39c12;
+      border-radius: 6px;
+      padding: 1.5rem 1.8rem;
+    }
+    .resumen-caja h2 {
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #7d6608;
+      margin-bottom: 0.8rem;
+    }
+    .resumen-caja ul {
+      padding-left: 1.2rem;
+      color: #4a4a4a;
+      font-size: 0.95rem;
+    }
+    .resumen-caja li { margin-bottom: 0.4rem; }
+
+    /* ── Noticias ── */
+    .contenido { max-width: 780px; margin: 0 auto; padding: 2rem 1.5rem 3rem; }
+
+    .tarjeta {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+      padding: 2rem;
+      margin-bottom: 2rem;
+      border: 1px solid #ece9e0;
+      transition: box-shadow 0.2s;
+    }
+    .tarjeta:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.12); }
+
+    .tarjeta-cabecera {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.8rem;
+    }
+    .categoria-etiqueta {
+      background: #f0ebe0;
+      color: #5d4e37;
+      font-size: 0.78rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      padding: 0.25rem 0.7rem;
+      border-radius: 20px;
+      font-family: sans-serif;
+    }
+    .numero-noticia {
+      color: #c0392b;
+      font-weight: bold;
+      font-size: 0.9rem;
+      font-family: sans-serif;
+    }
+    .tarjeta-titulo {
+      font-size: 1.35rem;
+      line-height: 1.35;
+      color: #1a1a1a;
+      margin-bottom: 1.2rem;
+      font-weight: bold;
+    }
+    .tarjeta-comentario p {
+      color: #333;
+      margin-bottom: 1rem;
+      font-size: 1rem;
+    }
+    .tarjeta-comentario p:last-child { margin-bottom: 0; }
+    .tarjeta-pie {
+      margin-top: 1.4rem;
+      padding-top: 1rem;
+      border-top: 1px solid #ece9e0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .fuente-nombre {
+      color: #7a7a7a;
+      font-size: 0.88rem;
+      font-family: sans-serif;
+    }
+    .enlace-fuente {
+      background: #c0392b;
+      color: white;
+      padding: 0.4rem 1rem;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      font-family: sans-serif;
+      transition: background 0.2s;
+    }
+    .enlace-fuente:hover { background: #922b21; text-decoration: none; }
+
+    /* ── Pie de página ── */
+    .pie {
+      background: #1a1a1a;
+      color: #aaa;
+      padding: 2.5rem 1.5rem;
+      margin-top: 2rem;
+    }
+    .pie-contenido { max-width: 780px; margin: 0 auto; }
+    .pie h3 { color: #ddd; font-size: 0.95rem; margin-bottom: 1rem; font-family: sans-serif; }
+    .pie ul { list-style: none; font-size: 0.82rem; column-count: 2; column-gap: 2rem; }
+    .pie ul li { margin-bottom: 0.5rem; }
+    .pie ul a { color: #888; }
+    .pie ul a:hover { color: #ccc; }
+    .pie-creditos {
+      margin-top: 1.5rem;
+      padding-top: 1.2rem;
+      border-top: 1px solid #333;
+      font-size: 0.8rem;
+      text-align: center;
+      color: #666;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 600px) {
+      .logo { font-size: 2rem; }
+      .tarjeta { padding: 1.3rem; }
+      .tarjeta-titulo { font-size: 1.15rem; }
+      .pie ul { column-count: 1; }
+      .tarjeta-pie { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="cabecera">
+  <nav class="cabecera-nav"><a href="../../index.html">← Volver al índice</a></nav>
+  <div class="logo">中国今日 · China Hoy 🇨🇳</div>
+  <div class="logo-sub">Newsletter diaria en español</div>
+  <div class="fecha-edicion">Edición del 25 de noviembre de 2026</div>
+</header>
+
+<section class="resumen">
+  <div class="resumen-caja">
+    <h2>📋 Resumen ejecutivo — 10 noticias de hoy</h2>
+    <ul>
+      <li><strong>#1.</strong> China acelera inversión en energías renovables: supera metas de capacidad solar y eólica</li><li><strong>#2.</strong> Nuevo avance en computación cuántica: laboratorio chino logra hito en corrección de errores</li><li><strong>#3.</strong> Sector de servicios financieros se expande en Shanghái: nuevas regulaciones atraen startups fintech</li><li><strong>#4.</strong> Movimiento cultural: festival de artes digitales en Beijing atrae artistas internacionales</li><li><strong>#5.</strong> Reformas educativas: China reduce drásticamente tiempo de estudio para estudiantes de primaria</li><li><strong>#6.</strong> Tensiones comerciales: China negocia con la ASEAN sobre aranceles en electrónica e industrias clave</li><li><strong>#7.</strong> Innovación agrícola: nuevas variedades de arroz desarrolladas por genetistas chinos aumentan rendimiento 15%</li><li><strong>#8.</strong> Transformación industrial: Chongqing se posiciona como hub regional de manufactura de baterías de litio</li><li><strong>#9.</strong> Patrimonio cultural: restauración del Gran Canal histórico progresa con nueva técnica de preservación sostenible</li><li><strong>#10.</strong> Cooperación científica internacional: China y países europeos aceleran investigación conjunta en fusión nuclear</li>
+    </ul>
+  </div>
+</section>
+
+<main class="contenido">
+  
+        <article class="tarjeta" id="noticia-1">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💻 Tecnología</span>
+            <span class="numero-noticia">#1</span>
+          </div>
+          <h2 class="tarjeta-titulo">China acelera inversión en energías renovables: supera metas de capacidad solar y eólica</h2>
+          <div class="tarjeta-comentario">
+            <p>China ha anunciado que superó significativamente sus metas de capacidad solar y eólica en 2026, instalando más de 500 GW de energías renovables durante el año, posicionándose como líder global indiscutible en esta transición energética. Este hito refleja la estrategia de descarbonización del país y su compromiso con los objetivos de pico de emisiones antes de 2030. La inversión masiva en infraestructura renovable no solo reduce dependencia del carbón, sino que también crea millones de empleos en manufactura, instalación y mantenimiento. Esta tendencia ilustra cómo China está convirtiendo sus objetivos climáticos en oportunidades económicas concretas, especialmente en provincias occidentales tradicionalmente dependientes de industrias extractivas.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Caixin Global</span>
+            <a href="https://www.caixinglobal.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-2">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🔬 Ciencia</span>
+            <span class="numero-noticia">#2</span>
+          </div>
+          <h2 class="tarjeta-titulo">Nuevo avance en computación cuántica: laboratorio chino logra hito en corrección de errores</h2>
+          <div class="tarjeta-comentario">
+            <p>Un laboratorio de investigación chino ha anunciado un avance significativo en computación cuántica, logrando demostrar corrección de errores a escala sin precedentes, acercando la computación cuántica práctica más cerca de la realidad. El progreso, publicado en revistas científicas internacionales, representa años de investigación fundamental financiada por el gobierno y universidades de élite. Este desarrollo es crucial porque la corrección de errores es el principal obstáculo para pasar de prototipos experimentales a máquinas cuánticas útiles en aplicaciones reales como descubrimiento de fármacos y optimización. La carrera cuántica se intensifica entre China, Estados Unidos y otros actores globales, con implicaciones profundas para seguridad, criptografía y competitividad tecnológica futura.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 TechNode</span>
+            <a href="https://www.technode.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-3">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💼 Empresas</span>
+            <span class="numero-noticia">#3</span>
+          </div>
+          <h2 class="tarjeta-titulo">Sector de servicios financieros se expande en Shanghái: nuevas regulaciones atraen startups fintech</h2>
+          <div class="tarjeta-comentario">
+            <p>Las autoridades de Shanghái han implementado nuevas regulaciones que crean un marco más flexible para empresas fintech y startups de servicios financieros, atrayendo capital de riesgo extranjero y emprendedores locales a la ciudad. El paquete de medidas incluye incentivos fiscales, acceso simplificado a licencias y espacios de innovación designados, reflejando la estrategia de China de consolidar a Shanghái como centro financiero global comparable a Nueva York o Londres. Estas reformas llegan en un contexto donde el sector fintech chino ya representa billones en transacciones anuales, pero enfrenta una regulación cada vez más estricta en seguridad de datos y protección al consumidor. La apertura controlada a innovación fintech en Shanghái sugiere que China busca balancear crecimiento tecnológico con estabilidad financiera sistémica.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 South China Morning Post</span>
+            <a href="https://www.scmp.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-4">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🎭 Cultura</span>
+            <span class="numero-noticia">#4</span>
+          </div>
+          <h2 class="tarjeta-titulo">Movimiento cultural: festival de artes digitales en Beijing atrae artistas internacionales</h2>
+          <div class="tarjeta-comentario">
+            <p>El festival anual de artes digitales de Beijing ha crecido este año para incluir participación de artistas y colectivos internacionales, reflejando la creciente sofisticación del ecosistema creativo chino y su apertura a colaboraciones transfronterizas. El evento showcase tecnologías emergentes como realidad aumentada, instalaciones interactivas e inteligencia artificial aplicada al arte, demostrando que la creatividad china va más allá de entretenimiento comercial. La participación de instituciones culturales globales subraya cómo China ha transitado de ser consumidor de cultura occidental a productor de tendencias estéticas influyentes. Este fenómeno culturales importa porque señala una generación china confiada en su propia identidad cultural y dispuesta a dialogar globalmente desde una posición de igualdad.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Sixth Tone</span>
+            <a href="https://www.sixthtone.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-5">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">👥 Sociedad</span>
+            <span class="numero-noticia">#5</span>
+          </div>
+          <h2 class="tarjeta-titulo">Reformas educativas: China reduce drásticamente tiempo de estudio para estudiantes de primaria</h2>
+          <div class="tarjeta-comentario">
+            <p>El gobierno chino ha implementado nuevas regulaciones que limitan estrictamente el tiempo de tareas escolares y horas de estudio extraescolar para niños de primaria, continuando con su cruzada contra la presión académica excesiva (el fenómeno del &#39;gaokao industrial&#39;). Las medidas incluyen restricciones a clases particulares privadas intensivas y prohibiciones en la comercialización agresiva de servicios educativos tutoriales, buscando aliviar estrés en millones de familias. Esta reforma representa un cambio de valores importante en la sociedad china, priorizando bienestar infantil y crianza equilibrada sobre competencia académica despiadada. La iniciativa refleja preocupaciones de padres modernos chinos sobre salud mental y desarrollo holístico, transformando gradualmente la cultura educativa del país que históricamente ha exaltado el estudio intensivo como vía de movilidad social.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Caixin Global</span>
+            <a href="https://www.caixinglobal.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-6">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🌏 Geopolítica</span>
+            <span class="numero-noticia">#6</span>
+          </div>
+          <h2 class="tarjeta-titulo">Tensiones comerciales: China negocia con la ASEAN sobre aranceles en electrónica e industrias clave</h2>
+          <div class="tarjeta-comentario">
+            <p>China está negociando acuerdos comerciales revisados con países de la ASEAN para resolver fricciones arancelarias en sectores clave como semiconductores, electrónica de consumo y componentes de manufactura, señalando un giro hacia diplomacia regional más estrecha. Las negociaciones ocurren en un contexto de competencia tecnológica global intensificada y fragmentación de cadenas de suministro, donde China busca consolidar su posición como eje de producción asiática. Estos diálogos también reflejan el reconocimiento chino de que depender exclusivamente de exportaciones a Occidente es riesgoso, impulsando una estrategia de &#39;circulación interna&#39; integrada regionalmente. La relación económica China-ASEAN, que ya representa centenas de miles de millones en comercio anual, se está profundizando como alternativa a las tensiones comerciales con Estados Unidos y Europa.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Global Times</span>
+            <a href="https://www.globaltimes.cn" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-7">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💻 Tecnología</span>
+            <span class="numero-noticia">#7</span>
+          </div>
+          <h2 class="tarjeta-titulo">Innovación agrícola: nuevas variedades de arroz desarrolladas por genetistas chinos aumentan rendimiento 15%</h2>
+          <div class="tarjeta-comentario">
+            <p>Investigadores agrícolas chinos han desarrollado nuevas variedades de arroz mediante mejora genética que aumentan rendimiento un 15% manteniendo calidad nutricional, direccionando recursos hacia el problema histórico de seguridad alimentaria de la población más grande del mundo. El desarrollo combina técnicas de genómica moderna con agricultura de precisión, utilizando datos satélites y sensores IoT para optimizar cultivos en diferentes regiones. Esta innovación es especialmente relevante para China, que debe alimentar a 1.4 mil millones de personas con solo el 7% de tierra cultivable global, haciéndola un líder mundial en innovación agrícola. El éxito de estos proyectos también posiciona a China como exportador de tecnología agrícola hacia el Sur Global, donde países enfrentan desafíos similares de sostenibilidad y producción alimentaria.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Pandaily</span>
+            <a href="https://www.pandaily.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-8">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💼 Empresas</span>
+            <span class="numero-noticia">#8</span>
+          </div>
+          <h2 class="tarjeta-titulo">Transformación industrial: Chongqing se posiciona como hub regional de manufactura de baterías de litio</h2>
+          <div class="tarjeta-comentario">
+            <p>La ciudad de Chongqing ha consolidado su posición como centro manufacturero regional de baterías de litio, con inversiones que superan los 50 mil millones de yuanes y capacidad de producción que crece anualmente a doble dígito, posicionando la región como rival de provincias costeras tradicionales. La inversión incluye plantas de empresas líderes como CATL y BYD, así como cientos de proveedores de componentes y materiales, creando un ecosistema integrado de manufactura de vehículos eléctricos. Este desarrollo industrial es sintomático de la estrategia china de descentralización económica, trasladando manufactura intensiva a ciudades interiores con costos menores y mejor acceso a materias primas. Chongqing ilustra cómo China está aprovechando su dominio en cadenas de valor de tecnología verde para redistribuir oportunidades económicas geográficamente, especialmente importante dado el imperativo de desarrollo equilibrado entre regiones.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Yicai Global</span>
+            <a href="https://www.yicaiglobal.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-9">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🎭 Cultura</span>
+            <span class="numero-noticia">#9</span>
+          </div>
+          <h2 class="tarjeta-titulo">Patrimonio cultural: restauración del Gran Canal histórico progresa con nueva técnica de preservación sostenible</h2>
+          <div class="tarjeta-comentario">
+            <p>Un ambicioso proyecto de restauración del Gran Canal histórico en el este de China ha introducido técnicas innovadoras de preservación basadas en datos digitales y monitoreo ambiental continuo, combinando conservación tradicional con tecnología moderna. El Gran Canal, que conecta Beijing con Hangzhou, es patrimonio de la UNESCO con importancia simbólica profunda en la historia china, pero enfrentaba deterioro acelerado por contaminación industrial y cambios hidrológicos. El nuevo enfoque utiliza escaneo 3D de estructuras históricas, sensores para monitorear estrés estructural y sistemas de gestión de agua basados en IA, demostrando cómo China aborda preservación cultural. Este proyecto refleja un cambio en China hacia valorar patrimonio histórico como activo vivo, no solo monumento, integrando conservación con turismo sostenible y educación comunitaria.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 China Daily</span>
+            <a href="https://www.chinadaily.com.cn" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-10">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🔬 Ciencia</span>
+            <span class="numero-noticia">#10</span>
+          </div>
+          <h2 class="tarjeta-titulo">Cooperación científica internacional: China y países europeos aceleran investigación conjunta en fusión nuclear</h2>
+          <div class="tarjeta-comentario">
+            <p>China ha formalizado colaboraciones expandidas con instituciones de investigación europeas en fusión nuclear, un campo donde ambos bloques comparten interés estratégico a pesar de tensiones geopolíticas más amplias, sugiriendo que la ciencia fundamental transcendiendo divisiones políticas. Los proyectos conjuntos incluyen investigación en reactores experimentales y desarrollo de materiales superconductores avanzados, áreas donde los hallazgos benefician potencialmente a toda la humanidad. Esta cooperación contrasta con fragmentación tecnológica creciente en semiconductores e inteligencia artificial, mostrando que existen espacios donde China y Occidente pueden colaborar constructivamente. El progreso en energía de fusión importa profundamente porque representa una solución a largo plazo para demanda energética global insostenible, con China siendo actor crítico en investigación y potencial multiplicador de cualquier avance fundamental.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Reuters</span>
+            <a href="https://www.reuters.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+</main>
+
+<footer class="pie">
+  <div class="pie-contenido">
+    <h3>Fuentes consultadas en esta edición</h3>
+    <ul>
+      <li><a href="https://www.caixinglobal.com" target="_blank" rel="noopener">Caixin Global — China acelera inversión en energías renovables: supera metas de capacidad solar y eólica</a></li><li><a href="https://www.technode.com" target="_blank" rel="noopener">TechNode — Nuevo avance en computación cuántica: laboratorio chino logra hito en corrección de errores</a></li><li><a href="https://www.scmp.com" target="_blank" rel="noopener">South China Morning Post — Sector de servicios financieros se expande en Shanghái: nuevas regulaciones atraen startups fintech</a></li><li><a href="https://www.sixthtone.com" target="_blank" rel="noopener">Sixth Tone — Movimiento cultural: festival de artes digitales en Beijing atrae artistas internacionales</a></li><li><a href="https://www.caixinglobal.com" target="_blank" rel="noopener">Caixin Global — Reformas educativas: China reduce drásticamente tiempo de estudio para estudiantes de primaria</a></li><li><a href="https://www.globaltimes.cn" target="_blank" rel="noopener">Global Times — Tensiones comerciales: China negocia con la ASEAN sobre aranceles en electrónica e industrias clave</a></li><li><a href="https://www.pandaily.com" target="_blank" rel="noopener">Pandaily — Innovación agrícola: nuevas variedades de arroz desarrolladas por genetistas chinos aumentan rendimiento 15%</a></li><li><a href="https://www.yicaiglobal.com" target="_blank" rel="noopener">Yicai Global — Transformación industrial: Chongqing se posiciona como hub regional de manufactura de baterías de litio</a></li><li><a href="https://www.chinadaily.com.cn" target="_blank" rel="noopener">China Daily — Patrimonio cultural: restauración del Gran Canal histórico progresa con nueva técnica de preservación sostenible</a></li><li><a href="https://www.reuters.com" target="_blank" rel="noopener">Reuters — Cooperación científica internacional: China y países europeos aceleran investigación conjunta en fusión nuclear</a></li>
+    </ul>
+    <div class="pie-creditos">
+      China Hoy · Edición 2026-11-25 · Generado automáticamente con IA ·
+      Las opiniones expresadas son editoriales y no representan posiciones oficiales.
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
