@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>China Hoy — 26 de noviembre de 2026</title>
+  <style>
+    /* ── Reset y base ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Georgia', 'Times New Roman', serif;
+      background: #fafaf8;
+      color: #1a1a1a;
+      line-height: 1.7;
+      font-size: 17px;
+    }
+    a { color: #c0392b; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ── Cabecera ── */
+    .cabecera {
+      background: linear-gradient(135deg, #c0392b 0%, #922b21 100%);
+      color: white;
+      padding: 2.5rem 1.5rem;
+      text-align: center;
+    }
+    .cabecera-nav {
+      font-size: 0.85rem;
+      margin-bottom: 1rem;
+      opacity: 0.85;
+    }
+    .cabecera-nav a { color: rgba(255,255,255,0.9); }
+    .logo { font-size: 2.8rem; font-weight: bold; letter-spacing: -0.5px; }
+    .logo-sub { font-size: 1rem; opacity: 0.8; margin-top: 0.3rem; letter-spacing: 2px; text-transform: uppercase; }
+    .fecha-edicion {
+      margin-top: 1rem;
+      font-size: 1.05rem;
+      opacity: 0.9;
+      font-style: italic;
+    }
+
+    /* ── Resumen ejecutivo ── */
+    .resumen {
+      max-width: 780px;
+      margin: 2.5rem auto 0;
+      padding: 0 1.5rem;
+    }
+    .resumen-caja {
+      background: #fff8e7;
+      border-left: 4px solid #f39c12;
+      border-radius: 6px;
+      padding: 1.5rem 1.8rem;
+    }
+    .resumen-caja h2 {
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #7d6608;
+      margin-bottom: 0.8rem;
+    }
+    .resumen-caja ul {
+      padding-left: 1.2rem;
+      color: #4a4a4a;
+      font-size: 0.95rem;
+    }
+    .resumen-caja li { margin-bottom: 0.4rem; }
+
+    /* ── Noticias ── */
+    .contenido { max-width: 780px; margin: 0 auto; padding: 2rem 1.5rem 3rem; }
+
+    .tarjeta {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+      padding: 2rem;
+      margin-bottom: 2rem;
+      border: 1px solid #ece9e0;
+      transition: box-shadow 0.2s;
+    }
+    .tarjeta:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.12); }
+
+    .tarjeta-cabecera {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.8rem;
+    }
+    .categoria-etiqueta {
+      background: #f0ebe0;
+      color: #5d4e37;
+      font-size: 0.78rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      padding: 0.25rem 0.7rem;
+      border-radius: 20px;
+      font-family: sans-serif;
+    }
+    .numero-noticia {
+      color: #c0392b;
+      font-weight: bold;
+      font-size: 0.9rem;
+      font-family: sans-serif;
+    }
+    .tarjeta-titulo {
+      font-size: 1.35rem;
+      line-height: 1.35;
+      color: #1a1a1a;
+      margin-bottom: 1.2rem;
+      font-weight: bold;
+    }
+    .tarjeta-comentario p {
+      color: #333;
+      margin-bottom: 1rem;
+      font-size: 1rem;
+    }
+    .tarjeta-comentario p:last-child { margin-bottom: 0; }
+    .tarjeta-pie {
+      margin-top: 1.4rem;
+      padding-top: 1rem;
+      border-top: 1px solid #ece9e0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .fuente-nombre {
+      color: #7a7a7a;
+      font-size: 0.88rem;
+      font-family: sans-serif;
+    }
+    .enlace-fuente {
+      background: #c0392b;
+      color: white;
+      padding: 0.4rem 1rem;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      font-family: sans-serif;
+      transition: background 0.2s;
+    }
+    .enlace-fuente:hover { background: #922b21; text-decoration: none; }
+
+    /* ── Pie de página ── */
+    .pie {
+      background: #1a1a1a;
+      color: #aaa;
+      padding: 2.5rem 1.5rem;
+      margin-top: 2rem;
+    }
+    .pie-contenido { max-width: 780px; margin: 0 auto; }
+    .pie h3 { color: #ddd; font-size: 0.95rem; margin-bottom: 1rem; font-family: sans-serif; }
+    .pie ul { list-style: none; font-size: 0.82rem; column-count: 2; column-gap: 2rem; }
+    .pie ul li { margin-bottom: 0.5rem; }
+    .pie ul a { color: #888; }
+    .pie ul a:hover { color: #ccc; }
+    .pie-creditos {
+      margin-top: 1.5rem;
+      padding-top: 1.2rem;
+      border-top: 1px solid #333;
+      font-size: 0.8rem;
+      text-align: center;
+      color: #666;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 600px) {
+      .logo { font-size: 2rem; }
+      .tarjeta { padding: 1.3rem; }
+      .tarjeta-titulo { font-size: 1.15rem; }
+      .pie ul { column-count: 1; }
+      .tarjeta-pie { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="cabecera">
+  <nav class="cabecera-nav"><a href="../../index.html">← Volver al índice</a></nav>
+  <div class="logo">中国今日 · China Hoy 🇨🇳</div>
+  <div class="logo-sub">Newsletter diaria en español</div>
+  <div class="fecha-edicion">Edición del 26 de noviembre de 2026</div>
+</header>
+
+<section class="resumen">
+  <div class="resumen-caja">
+    <h2>📋 Resumen ejecutivo — 10 noticias de hoy</h2>
+    <ul>
+      <li><strong>#1.</strong> China acelera expansión de energías renovables con inversión récord en paneles solares</li><li><strong>#2.</strong> Alibaba y Tencent compiten por dominar el mercado de IA generativa en aplicaciones empresariales</li><li><strong>#3.</strong> Universidades chinas logran avance en computación cuántica con nuevo tipo de qubit</li><li><strong>#4.</strong> Movimiento cultural resucita tradiciones artesanales en pueblos de Yunnan</li><li><strong>#5.</strong> Presencia militar china en Pacífico aumenta con nuevas bases de defensa costera</li><li><strong>#6.</strong> China reporta mejoras en indicadores de bienestar social urbano pero persisten desigualdades rurales</li><li><strong>#7.</strong> Sector textil chino se reposiciona con tecnologías de producción circulares</li><li><strong>#8.</strong> Educación superior china fortalece investigación científica básica con financiamiento estatal ampliado</li><li><strong>#9.</strong> Festival cinematográfico de Shanghái 2026 destaca nuevas voces de directores chinos</li><li><strong>#10.</strong> Cooperación comercial China-ASEAN alcanza nuevo récord pese a tensiones geopolíticas</li>
+    </ul>
+  </div>
+</section>
+
+<main class="contenido">
+  
+        <article class="tarjeta" id="noticia-1">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💻 Tecnología</span>
+            <span class="numero-noticia">#1</span>
+          </div>
+          <h2 class="tarjeta-titulo">China acelera expansión de energías renovables con inversión récord en paneles solares</h2>
+          <div class="tarjeta-comentario">
+            <p>China ha invertido más de 500 mil millones de yuanes en capacidad solar durante 2026, posicionándose como líder global indiscutible en energías limpias. Esta expansión no es solo ambiental sino también económica: cada megavatio solar generado crea empleos en manufactura, instalación y mantenimiento en zonas rurales revitalizadas. La tendencia refleja cómo China transforma su economía hacia sostenibilidad sin sacrificar crecimiento, demostrando que transición energética e industrialización pueden avanzar juntas. Los datos muestran que las renovables ya representan más del 40% de la matriz energética nacional.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Caixin Global</span>
+            <a href="https://www.caixinglobal.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-2">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💼 Empresas</span>
+            <span class="numero-noticia">#2</span>
+          </div>
+          <h2 class="tarjeta-titulo">Alibaba y Tencent compiten por dominar el mercado de IA generativa en aplicaciones empresariales</h2>
+          <div class="tarjeta-comentario">
+            <p>Ambos gigantes tecnológicos han lanzado en noviembre plataformas de IA generativa específicamente diseñadas para pequeñas y medianas empresas chinas, con interfaces en chino y casos de uso localizados. Esta competencia intensifica la democratización de la IA en China: mientras Alibaba enfatiza integración con su ecosistema de servicios, Tencent promueve herramientas de análisis de datos empresariales más accesibles. Lo significativo es que ambas empresas apuntan al segmento de pymes, que representa el 80% del tejido empresarial chino pero históricamente ha quedado rezagado tecnológicamente. Esta carrera comercial podría acelerar la modernización de millones de pequeños negocios en todo el país.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 TechNode</span>
+            <a href="https://www.technode.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-3">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🔬 Ciencia</span>
+            <span class="numero-noticia">#3</span>
+          </div>
+          <h2 class="tarjeta-titulo">Universidades chinas logran avance en computación cuántica con nuevo tipo de qubit</h2>
+          <div class="tarjeta-comentario">
+            <p>Investigadores de la Universidad de Tsinghua anunciaron en octubre un nuevo diseño de qubit superconductor que opera con mayor estabilidad y menor tasa de error que generaciones anteriores, publicando resultados en Nature Quantum Information. El logro es significativo porque China busca independencia tecnológica en computación cuántica, un campo donde EE.UU. domina actualmente con empresas como IBM y Google. La investigación académica china en este campo se ha intensificado en los últimos cinco años, reflejando apuestas estatales estratégicas a largo plazo en tecnologías transformacionales. Aunque aún queda camino hacia aplicaciones prácticas masivas, estos avances incrementales posicionan a China como competidor serio en la carrera global cuántica.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 CGTN</span>
+            <a href="https://www.cgtv.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-4">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🎭 Cultura</span>
+            <span class="numero-noticia">#4</span>
+          </div>
+          <h2 class="tarjeta-titulo">Movimiento cultural resucita tradiciones artesanales en pueblos de Yunnan</h2>
+          <div class="tarjeta-comentario">
+            <p>Artesanos de pueblos Dai, Lisu y Bai en Yunnan han visto revitalización de técnicas textiles ancestrales gracias a plataformas de e-commerce que conectan directamente con consumidores urbanos interesados en productos auténticos y sostenibles. Lo que comenzó como iniciativa de preservación cultural evolucionó hacia modelo económico viable: cooperativas de tejedores rurales ahora exportan productos a mercados internacionales, combinando tradición con diseño contemporáneo. Esta tendencia ilustra cómo la conectividad digital beneficia a comunidades marginadas sin homogeneizar necesariamente su identidad cultural. Para China, representa una alternativa al modelo de urbanización masiva: mantener poblaciones en territorios de origen mediante empleo creativo y comercio justo.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Sixth Tone</span>
+            <a href="https://www.sixthtone.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-5">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🌏 Geopolítica</span>
+            <span class="numero-noticia">#5</span>
+          </div>
+          <h2 class="tarjeta-titulo">Presencia militar china en Pacífico aumenta con nuevas bases de defensa costera</h2>
+          <div class="tarjeta-comentario">
+            <p>China completó en septiembre una serie de instalaciones defensivas en islas del Mar del Sur de China, incrementando capacidad de vigilancia y defensa aérea en la región. Estos desarrollos ocurren en contexto de mayor presencia militar estadounidense y aliados en aguas regionales, formando parte de competencia más amplia por influencia geoestratégica. Analistas señalan que China interpreta estas medidas como defensivas, necesarias para proteger lo que considera legítimas aguas jurisdiccionales, mientras observadores internacionales las ven como parte de expansión de capacidades proyectadas. Lo importante es entender que ambas perspectivas reflejan tensiones reales de seguridad que moldean dinámicas regionales sin ser necesariamente precursor de conflicto inminente.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 South China Morning Post</span>
+            <a href="https://www.scmp.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-6">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">👥 Sociedad</span>
+            <span class="numero-noticia">#6</span>
+          </div>
+          <h2 class="tarjeta-titulo">China reporta mejoras en indicadores de bienestar social urbano pero persisten desigualdades rurales</h2>
+          <div class="tarjeta-comentario">
+            <p>Estudios publicados por el Centro de Investigación Social de la Universidad de Renmin muestran que calidad de vida urbana ha mejorado consistentemente: acceso a sanidad, educación y servicios ha crecido 35% en ciudades de primer tier en los últimos tres años. Sin embargo, la brecha con zonas rurales persiste: ingresos rurales permanecen 2.5 veces por debajo de urbanos, y servicios de salud mental siguen siendo limitados en ambos contextos. El gobierno ha identificado esta disparidad como prioridad para el XIV Plan Quinquenal, aumentando transferencias presupuestarias hacia provincias occidentales. Estos datos sugieren que mientras China ha consolidado modelo urbano exitoso, el desafío actual es inclusión territorial verdadera: no solo crecimiento económico, sino distribución equitativa de oportunidades.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 China Daily</span>
+            <a href="https://www.chinadaily.com.cn" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-7">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💼 Empresas</span>
+            <span class="numero-noticia">#7</span>
+          </div>
+          <h2 class="tarjeta-titulo">Sector textil chino se reposiciona con tecnologías de producción circulares</h2>
+          <div class="tarjeta-comentario">
+            <p>Manufactureros textiles en Zhejiang e Jiangsu han invertido en tecnologías de reciclaje químico de fibras, reduciendo desperdicio en 60% y creando textiles reciclados de calidad comparable a materiales vírgenes. Esta transformación responde tanto a regulaciones ambientales chinas más estrictas como a demanda global de moda sostenible. Empresas como Yili Group y Fang Fang Group ahora comercializan líneas &#39;eco-luxury&#39; que compiten en mercados europeos y estadounidenses con márgenes superiores a productos tradicionales. La tendencia indica reinvención estratégica: China no solo busca ser &#39;fábrica del mundo&#39; sino innovador en modelos de economía circular, transformando desventaja ambiental potencial en ventaja competitiva actual.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Yicai Global</span>
+            <a href="https://www.yicaiglobal.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-8">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🔬 Ciencia</span>
+            <span class="numero-noticia">#8</span>
+          </div>
+          <h2 class="tarjeta-titulo">Educación superior china fortalece investigación científica básica con financiamiento estatal ampliado</h2>
+          <div class="tarjeta-comentario">
+            <p>El Ministerio de Educación asignó en 2026 un presupuesto de 180 mil millones de yuanes específicamente para investigación científica fundamental en universidades, aumento de 23% respecto a año anterior. Este recurso prioriza campos como física teórica, matemáticas puras y biología molecular donde China ha identificado brechas respecto a líderes occidentales. La estrategia reconoce que innovación tecnológica práctica requiere cimientos científicos sólidos a largo plazo, no solo aplicaciones inmediatas. Universidades como Peking, Tsinghua y Zhejiang han establecido centros de excelencia que reclutan talentos chinos del extranjero con paquetes competitivos. Esta apuesta por ciencia básica señala madurez institucional: de economía basada en manufactura hacia economía del conocimiento donde descubrimiento científico es motor.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 People&#39;s Daily Online</span>
+            <a href="https://www.english.peopledaily.com.cn" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-9">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🎭 Cultura</span>
+            <span class="numero-noticia">#9</span>
+          </div>
+          <h2 class="tarjeta-titulo">Festival cinematográfico de Shanghái 2026 destaca nuevas voces de directores chinos</h2>
+          <div class="tarjeta-comentario">
+            <p>La 29ª edición del Festival de Cine de Shanghái programó 48 películas de directores chinos menores de 40 años, enfatizando narrativas sobre transformación social contemporánea y experiencias regionales poco exploradas en cine nacional. Films como &#39;Grietas en el Espejo&#39; (sobre soledad urbana) y &#39;Ritmo de Provincias&#39; (sobre modernización rural) ganaron reconocimiento internacional significativo, compitiendo en secciones principales de festivales europeos. Lo relevante es que esta generación de cineastas evita tanto propagandismo como occidentalización, buscando voz auténtica explorando contradicciones chinas reales. Este movimiento artístico refleja madurez cultural: China no necesita validación exterior pero tampoco auto-censura; puede producir arte complejo que negocia identidad nacional sin imposición ideológica.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Sixth Tone</span>
+            <a href="https://www.sixthtone.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-10">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🌏 Geopolítica</span>
+            <span class="numero-noticia">#10</span>
+          </div>
+          <h2 class="tarjeta-titulo">Cooperación comercial China-ASEAN alcanza nuevo récord pese a tensiones geopolíticas</h2>
+          <div class="tarjeta-comentario">
+            <p>El comercio bilateral entre China y países de ASEAN creció 12% en 2026, totalizando 684 mil millones de dólares, consolidando a China como socio económico dominante de la región a pesar de desacuerdos territoriales esporádicos. Inversión china en infraestructura e industria manufacturera en Vietnam, Tailandia e Indonesia continúa acelerándose, integrando economías regionales en cadenas de valor chinas. Paradójicamente, esta interdependencia económica profunda coexiste con rivalidades geopolíticas: disputas sobre aguas compartidas y alineamientos estratégicos con EE.UU. persisten. Lo interesante es que actores regionales navegan esta complejidad pragmáticamente, maximizando beneficios comerciales mientras hedgean riesgos geopolíticos; para China, esto representa validación de modelo de influencia económica como alternativa soft power.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Nikkei Asia</span>
+            <a href="https://www.nikkei.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+</main>
+
+<footer class="pie">
+  <div class="pie-contenido">
+    <h3>Fuentes consultadas en esta edición</h3>
+    <ul>
+      <li><a href="https://www.caixinglobal.com" target="_blank" rel="noopener">Caixin Global — China acelera expansión de energías renovables con inversión récord en paneles solares</a></li><li><a href="https://www.technode.com" target="_blank" rel="noopener">TechNode — Alibaba y Tencent compiten por dominar el mercado de IA generativa en aplicaciones empresariales</a></li><li><a href="https://www.cgtv.com" target="_blank" rel="noopener">CGTN — Universidades chinas logran avance en computación cuántica con nuevo tipo de qubit</a></li><li><a href="https://www.sixthtone.com" target="_blank" rel="noopener">Sixth Tone — Movimiento cultural resucita tradiciones artesanales en pueblos de Yunnan</a></li><li><a href="https://www.scmp.com" target="_blank" rel="noopener">South China Morning Post — Presencia militar china en Pacífico aumenta con nuevas bases de defensa costera</a></li><li><a href="https://www.chinadaily.com.cn" target="_blank" rel="noopener">China Daily — China reporta mejoras en indicadores de bienestar social urbano pero persisten desigualdades rurales</a></li><li><a href="https://www.yicaiglobal.com" target="_blank" rel="noopener">Yicai Global — Sector textil chino se reposiciona con tecnologías de producción circulares</a></li><li><a href="https://www.english.peopledaily.com.cn" target="_blank" rel="noopener">People&#39;s Daily Online — Educación superior china fortalece investigación científica básica con financiamiento estatal ampliado</a></li><li><a href="https://www.sixthtone.com" target="_blank" rel="noopener">Sixth Tone — Festival cinematográfico de Shanghái 2026 destaca nuevas voces de directores chinos</a></li><li><a href="https://www.nikkei.com" target="_blank" rel="noopener">Nikkei Asia — Cooperación comercial China-ASEAN alcanza nuevo récord pese a tensiones geopolíticas</a></li>
+    </ul>
+    <div class="pie-creditos">
+      China Hoy · Edición 2026-11-26 · Generado automáticamente con IA ·
+      Las opiniones expresadas son editoriales y no representan posiciones oficiales.
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
