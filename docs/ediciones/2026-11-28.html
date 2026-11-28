@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>China Hoy — 28 de noviembre de 2026</title>
+  <style>
+    /* ── Reset y base ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Georgia', 'Times New Roman', serif;
+      background: #fafaf8;
+      color: #1a1a1a;
+      line-height: 1.7;
+      font-size: 17px;
+    }
+    a { color: #c0392b; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ── Cabecera ── */
+    .cabecera {
+      background: linear-gradient(135deg, #c0392b 0%, #922b21 100%);
+      color: white;
+      padding: 2.5rem 1.5rem;
+      text-align: center;
+    }
+    .cabecera-nav {
+      font-size: 0.85rem;
+      margin-bottom: 1rem;
+      opacity: 0.85;
+    }
+    .cabecera-nav a { color: rgba(255,255,255,0.9); }
+    .logo { font-size: 2.8rem; font-weight: bold; letter-spacing: -0.5px; }
+    .logo-sub { font-size: 1rem; opacity: 0.8; margin-top: 0.3rem; letter-spacing: 2px; text-transform: uppercase; }
+    .fecha-edicion {
+      margin-top: 1rem;
+      font-size: 1.05rem;
+      opacity: 0.9;
+      font-style: italic;
+    }
+
+    /* ── Resumen ejecutivo ── */
+    .resumen {
+      max-width: 780px;
+      margin: 2.5rem auto 0;
+      padding: 0 1.5rem;
+    }
+    .resumen-caja {
+      background: #fff8e7;
+      border-left: 4px solid #f39c12;
+      border-radius: 6px;
+      padding: 1.5rem 1.8rem;
+    }
+    .resumen-caja h2 {
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #7d6608;
+      margin-bottom: 0.8rem;
+    }
+    .resumen-caja ul {
+      padding-left: 1.2rem;
+      color: #4a4a4a;
+      font-size: 0.95rem;
+    }
+    .resumen-caja li { margin-bottom: 0.4rem; }
+
+    /* ── Noticias ── */
+    .contenido { max-width: 780px; margin: 0 auto; padding: 2rem 1.5rem 3rem; }
+
+    .tarjeta {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+      padding: 2rem;
+      margin-bottom: 2rem;
+      border: 1px solid #ece9e0;
+      transition: box-shadow 0.2s;
+    }
+    .tarjeta:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.12); }
+
+    .tarjeta-cabecera {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.8rem;
+    }
+    .categoria-etiqueta {
+      background: #f0ebe0;
+      color: #5d4e37;
+      font-size: 0.78rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      padding: 0.25rem 0.7rem;
+      border-radius: 20px;
+      font-family: sans-serif;
+    }
+    .numero-noticia {
+      color: #c0392b;
+      font-weight: bold;
+      font-size: 0.9rem;
+      font-family: sans-serif;
+    }
+    .tarjeta-titulo {
+      font-size: 1.35rem;
+      line-height: 1.35;
+      color: #1a1a1a;
+      margin-bottom: 1.2rem;
+      font-weight: bold;
+    }
+    .tarjeta-comentario p {
+      color: #333;
+      margin-bottom: 1rem;
+      font-size: 1rem;
+    }
+    .tarjeta-comentario p:last-child { margin-bottom: 0; }
+    .tarjeta-pie {
+      margin-top: 1.4rem;
+      padding-top: 1rem;
+      border-top: 1px solid #ece9e0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .fuente-nombre {
+      color: #7a7a7a;
+      font-size: 0.88rem;
+      font-family: sans-serif;
+    }
+    .enlace-fuente {
+      background: #c0392b;
+      color: white;
+      padding: 0.4rem 1rem;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      font-family: sans-serif;
+      transition: background 0.2s;
+    }
+    .enlace-fuente:hover { background: #922b21; text-decoration: none; }
+
+    /* ── Pie de página ── */
+    .pie {
+      background: #1a1a1a;
+      color: #aaa;
+      padding: 2.5rem 1.5rem;
+      margin-top: 2rem;
+    }
+    .pie-contenido { max-width: 780px; margin: 0 auto; }
+    .pie h3 { color: #ddd; font-size: 0.95rem; margin-bottom: 1rem; font-family: sans-serif; }
+    .pie ul { list-style: none; font-size: 0.82rem; column-count: 2; column-gap: 2rem; }
+    .pie ul li { margin-bottom: 0.5rem; }
+    .pie ul a { color: #888; }
+    .pie ul a:hover { color: #ccc; }
+    .pie-creditos {
+      margin-top: 1.5rem;
+      padding-top: 1.2rem;
+      border-top: 1px solid #333;
+      font-size: 0.8rem;
+      text-align: center;
+      color: #666;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 600px) {
+      .logo { font-size: 2rem; }
+      .tarjeta { padding: 1.3rem; }
+      .tarjeta-titulo { font-size: 1.15rem; }
+      .pie ul { column-count: 1; }
+      .tarjeta-pie { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="cabecera">
+  <nav class="cabecera-nav"><a href="../../index.html">← Volver al índice</a></nav>
+  <div class="logo">中国今日 · China Hoy 🇨🇳</div>
+  <div class="logo-sub">Newsletter diaria en español</div>
+  <div class="fecha-edicion">Edición del 28 de noviembre de 2026</div>
+</header>
+
+<section class="resumen">
+  <div class="resumen-caja">
+    <h2>📋 Resumen ejecutivo — 9 noticias de hoy</h2>
+    <ul>
+      <li><strong>#1.</strong> Empresas chinas de inteligencia artificial compiten globalmente con nuevos modelos multimodales</li><li><strong>#2.</strong> Reforma educativa enfatiza habilidades prácticas y reducción de carga académica en estudiantes</li><li><strong>#3.</strong> Sector financiero verde experimenta crecimiento explosivo con emisión récord de bonos sostenibles</li><li><strong>#4.</strong> Patrimonio cultural digital: iniciativas para preservar tradiciones chinas mediante tecnología blockchain</li><li><strong>#5.</strong> Avances en medicina de precisión: proyecto nacional secuencia genomas para medicina personalizada</li><li><strong>#6.</strong> Tensiones comerciales: acuerdos bilaterales redefinen relaciones económicas con vecinos regionales</li><li><strong>#7.</strong> Crisis demográfica: nuevas políticas de apoyo a natalidad y reforma de pensiones genera debate social</li><li><strong>#8.</strong> Manufactura verde: fábricas adoptan procesos circulares reduciendo desechos industriales drásticamente</li><li><strong>#9.</strong> Cooperación espacial: agencia china anuncia misión internacional a Luna enfatizando investigación colaborativa</li>
+    </ul>
+  </div>
+</section>
+
+<main class="contenido">
+  
+        <article class="tarjeta" id="noticia-1">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💻 Tecnología</span>
+            <span class="numero-noticia">#1</span>
+          </div>
+          <h2 class="tarjeta-titulo">Empresas chinas de inteligencia artificial compiten globalmente con nuevos modelos multimodales</h2>
+          <div class="tarjeta-comentario">
+            <p>Startups como Zhipu AI y otros laboratorios de investigación chinos han lanzado modelos de lenguaje avanzados que rivalizan con sus contrapartes occidentales en capacidades multimodales (texto, imagen, video), reduciendo significativamente la brecha tecnológica. Estos desarrollos demuestran que la innovación en IA no es monopolio occidental, con equipos chinos integrando retroalimentación del mercado local para crear modelos optimizados para aplicaciones regionales. La competencia creciente en este espacio acelera la adopción de IA en sectores como educación, medicina y manufactura. Esto marca un punto de inflexión donde China ya no solo adopta tecnología extranjera sino que lidera la innovación en uno de los campos más estratégicos del siglo XXI.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 TechNode</span>
+            <a href="https://www.technode.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-2">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">👥 Sociedad</span>
+            <span class="numero-noticia">#2</span>
+          </div>
+          <h2 class="tarjeta-titulo">Reforma educativa enfatiza habilidades prácticas y reducción de carga académica en estudiantes</h2>
+          <div class="tarjeta-comentario">
+            <p>Las autoridades educativas han expandido programas que integran aprendizaje vocacional y experiencias de trabajo práctico en la educación secundaria, buscando aliviar la presión extrema del sistema de exámenes tradicional que ha caracterizado la educación china. Esta iniciativa responde a preocupaciones sobre la salud mental de jóvenes y reconoce que el mercado laboral demanda diversas habilidades más allá del desempeño académico. Los cambios incluyen mayor flexibilidad curricular y valoración de trayectorias alternativas, señalando una recalibración cultural sobre qué significa el éxito educativo en China moderna. La reforma refleja un debate más amplio sobre bienestar social y el reconocimiento de que el desarrollo sostenible requiere atender la calidad de vida de las nuevas generaciones.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Sixth Tone</span>
+            <a href="https://www.sixthtone.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-3">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💼 Empresas</span>
+            <span class="numero-noticia">#3</span>
+          </div>
+          <h2 class="tarjeta-titulo">Sector financiero verde experimenta crecimiento explosivo con emisión récord de bonos sostenibles</h2>
+          <div class="tarjeta-comentario">
+            <p>China ha emitido más de 500 mil millones de dólares en bonos verdes y sostenibles durante 2026, superando a todos los demás países en volumen absoluto y consolidándose como mercado epicentro de financiamiento para transición ecológica. Instituciones financieras estatales y privadas están redefiniendo criterios de riesgo y rentabilidad para privilegiar proyectos con impacto ambiental positivo, canalizando capital masivo hacia energías limpias, transportes ecológicos y agricultura sostenible. Esta movilización de capital no es solo ambiental sino geoeconómica, posicionando a China como arquitecto del financiamiento verde global. El movimiento ilustra cómo la política industrial se entrelaza con mercados financieros para acelerar transformaciones económicas.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Caixin Global</span>
+            <a href="https://www.caixinglobal.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-4">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🎭 Cultura</span>
+            <span class="numero-noticia">#4</span>
+          </div>
+          <h2 class="tarjeta-titulo">Patrimonio cultural digital: iniciativas para preservar tradiciones chinas mediante tecnología blockchain</h2>
+          <div class="tarjeta-comentario">
+            <p>Museos y instituciones culturales chinas están implementando tecnología blockchain y realidad virtual para digitalizar y proteger patrimonio intangible, desde artes marciales hasta técnicas artesanales ancestrales, creando archivos inmutables accesibles globalmente. Estos proyectos permiten que generaciones futuras accedan a conocimiento cultural original mientras crean nuevas formas de experiencia cultural inmersiva que atrae públicos jóvenes y globales. La combinación de tradición e innovación tecnológica posiciona a China no como museo estático sino como innovador en la preservación del patrimonio humano. Esta tendencia refleja cómo China está reinterpretando su herencia cultural a través de lentes contemporáneos, haciéndola relevante para audiencias del siglo XXI sin diluir su autenticidad.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 South China Morning Post</span>
+            <a href="https://www.scmp.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-5">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🔬 Ciencia</span>
+            <span class="numero-noticia">#5</span>
+          </div>
+          <h2 class="tarjeta-titulo">Avances en medicina de precisión: proyecto nacional secuencia genomas para medicina personalizada</h2>
+          <div class="tarjeta-comentario">
+            <p>Un ambicioso programa nacional ha secuenciado genomas de más de 1 millón de ciudadanos chinos, permitiendo mapear variantes genéticas específicas de poblaciones asiáticas para desarrollar tratamientos oncológicos y de enfermedades crónicas personalizados. Este banco de datos genómico representa una ventaja única en medicina de precisión, pues los datos genéticos anteriores se concentraban en poblaciones europeas, dejando poblaciones asiáticas subrepresentadas en investigación médica. Los descubrimientos resultantes ya están produciendo nuevas terapias dirigidas que muestran eficacia superior en pacientes chinos comparados con estándares globales basados en genomas diferentes. Este proyecto ilustra cómo investigación básica con datos locales produce innovaciones médicas concretas que benefician poblaciones específicas, desafiando paradigmas científicos occidentales-céntricos.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 CGTN</span>
+            <a href="https://www.cgtn.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-6">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🌏 Geopolítica</span>
+            <span class="numero-noticia">#6</span>
+          </div>
+          <h2 class="tarjeta-titulo">Tensiones comerciales: acuerdos bilaterales redefinen relaciones económicas con vecinos regionales</h2>
+          <div class="tarjeta-comentario">
+            <p>China ha profundizado acuerdos comerciales con socios regionales en Asia del Sudeste y Asia Central mediante marcos de integración económica que van más allá de tarifa, incluyendo coordinación de cadenas de suministro, inversiones en infraestructura y movilidad de trabajadores. Estos acuerdos buscan crear interdependencia económica que sostenga relaciones bilaterales más allá de fluctuaciones políticas, mientras crean alternativas a la globalización occidentalizada. Los impactos concretos incluyen desviaciones de flujos comerciales, creación de polos manufactureros regionales y fortalecimiento de monedas asiáticas. Este movimiento ilustra la estrategia china de construir esfera de influencia económica basada en beneficios compartidos, reconfigurando geopolítica global.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Nikkei Asia</span>
+            <a href="https://www.nikkei.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-7">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">👥 Sociedad</span>
+            <span class="numero-noticia">#7</span>
+          </div>
+          <h2 class="tarjeta-titulo">Crisis demográfica: nuevas políticas de apoyo a natalidad y reforma de pensiones genera debate social</h2>
+          <div class="tarjeta-comentario">
+            <p>Ante el envejecimiento acelerado de la población, el gobierno ha introducido subsidios para guardería, flexibilización laboral para padres y está reformulando sistemas de pensiones para garantizar sostenibilidad, aunque estas medidas enfrentan resistencia de jóvenes escépticos sobre capacidad del estado para invertir adecuadamente. El debate refleja tensiones más profundas: generaciones jóvenes cuestionan si el contexto económico y laboral actual permite realmente criar familias con dignidad, más allá de incentivos financieros. Las políticas exponen que envejecimiento demográfico no es solo problema técnico sino síntoma de transformaciones sociales más amplias en cómo chinos construyen sus vidas. Esta crisis genera un reexamen del contrato social implícito entre estado, empresas y ciudadanos que ha definido China moderna.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Sixth Tone</span>
+            <a href="https://www.sixthtone.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-8">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">💼 Empresas</span>
+            <span class="numero-noticia">#8</span>
+          </div>
+          <h2 class="tarjeta-titulo">Manufactura verde: fábricas adoptan procesos circulares reduciendo desechos industriales drásticamente</h2>
+          <div class="tarjeta-comentario">
+            <p>Empresas manufactureras chinas en textiles, electrónica y química han implementado modelos de economía circular que reutilizan 85-95% de desechos productivos, transformándose de fábricas lineales a sistemas cerrados que recuperan valor de residuos. Esta transformación es simultáneamente mandato regulatorio y oportunidad de negocio: empresas reportan reducción de costos operacionales mientras cumplen estándares ambientales más exigentes que exportación global demanda. Inversión en tecnología de reciclaje avanzado está creando nuevas industrias auxiliares y empleos especializados. El movimiento muestra cómo regulación ambiental puede catapultar innovación industrial, posicionando a China como productor de bienes manufacturados en forma compatible con límites planetarios.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Caixin Global</span>
+            <a href="https://www.caixinglobal.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+        <article class="tarjeta" id="noticia-9">
+          <div class="tarjeta-cabecera">
+            <span class="categoria-etiqueta">🔬 Ciencia</span>
+            <span class="numero-noticia">#9</span>
+          </div>
+          <h2 class="tarjeta-titulo">Cooperación espacial: agencia china anuncia misión internacional a Luna enfatizando investigación colaborativa</h2>
+          <div class="tarjeta-comentario">
+            <p>China ha formalizado colaboraciones con agencias espaciales de múltiples países para próximas fases de exploración lunar, enfatizando que investigación espacial debe ser empresa colectiva de humanidad más que competencia geopolítica entre potencias. Las misiones compartidas buscan establecer infraestructura científica duradera en Luna que beneficie investigación global en geología, búsqueda de recursos y tecnologías para exploración espacial a largo plazo. Este enfoque contrasta con narrativa de «carrera espacial» y sugiere madurez en ambiciones chinas de posicionar el país no solo como actor espacial sino como líder en cooperación científica. La iniciativa refleja reconocimiento de que desafíos futuros—desde cambio climático hasta exploración espacial—requieren colaboración internacional genuina.</p>
+          </div>
+          <div class="tarjeta-pie">
+            <span class="fuente-nombre">📰 Xinhua News Agency</span>
+            <a href="https://www.xinhuanet.com" class="enlace-fuente" target="_blank" rel="noopener">
+              Leer artículo original →
+            </a>
+          </div>
+        </article>
+</main>
+
+<footer class="pie">
+  <div class="pie-contenido">
+    <h3>Fuentes consultadas en esta edición</h3>
+    <ul>
+      <li><a href="https://www.technode.com" target="_blank" rel="noopener">TechNode — Empresas chinas de inteligencia artificial compiten globalmente con nuevos modelos multimodales</a></li><li><a href="https://www.sixthtone.com" target="_blank" rel="noopener">Sixth Tone — Reforma educativa enfatiza habilidades prácticas y reducción de carga académica en estudiantes</a></li><li><a href="https://www.caixinglobal.com" target="_blank" rel="noopener">Caixin Global — Sector financiero verde experimenta crecimiento explosivo con emisión récord de bonos sostenibles</a></li><li><a href="https://www.scmp.com" target="_blank" rel="noopener">South China Morning Post — Patrimonio cultural digital: iniciativas para preservar tradiciones chinas mediante tecnología blockchain</a></li><li><a href="https://www.cgtn.com" target="_blank" rel="noopener">CGTN — Avances en medicina de precisión: proyecto nacional secuencia genomas para medicina personalizada</a></li><li><a href="https://www.nikkei.com" target="_blank" rel="noopener">Nikkei Asia — Tensiones comerciales: acuerdos bilaterales redefinen relaciones económicas con vecinos regionales</a></li><li><a href="https://www.sixthtone.com" target="_blank" rel="noopener">Sixth Tone — Crisis demográfica: nuevas políticas de apoyo a natalidad y reforma de pensiones genera debate social</a></li><li><a href="https://www.caixinglobal.com" target="_blank" rel="noopener">Caixin Global — Manufactura verde: fábricas adoptan procesos circulares reduciendo desechos industriales drásticamente</a></li><li><a href="https://www.xinhuanet.com" target="_blank" rel="noopener">Xinhua News Agency — Cooperación espacial: agencia china anuncia misión internacional a Luna enfatizando investigación colaborativa</a></li>
+    </ul>
+    <div class="pie-creditos">
+      China Hoy · Edición 2026-11-28 · Generado automáticamente con IA ·
+      Las opiniones expresadas son editoriales y no representan posiciones oficiales.
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
